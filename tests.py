@@ -255,6 +255,25 @@ def test_dollar_and_front_end():
     assert c.score_front_end({}, {})[0] is None
 
 
+def test_fred_batch_and_breaker():
+    import collector as c
+    from datetime import datetime, timezone
+    csvtxt = b"observation_date,DGS2,UNRATE\n2026-10-01,4.1,4.3\n2026-10-02,4.2,.\n"
+    orig = c._http_get
+    try:
+        c._http_get = lambda url, timeout, tries=2: csvtxt
+        out, pr = c.fetch_fred(datetime(2026, 10, 4, tzinfo=timezone.utc), 30, {"y2": "DGS2", "u": "UNRATE", "x": "NOPE"})
+        assert len(out["y2"]) == 2 and len(out["u"]) == 1 and "x" not in out and len(pr) == 1
+        def boom(url, timeout, tries=2):
+            raise TimeoutError("timed out")
+        c._http_get = boom
+        out, pr = c.fetch_fred(datetime(2026, 10, 4, tzinfo=timezone.utc), 30, {"y2": "DGS2"})
+        assert out == {} and len(pr) == 1
+    finally:
+        c._http_get = orig
+    print("ok fred batch")
+
+
 if __name__ == "__main__":
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:

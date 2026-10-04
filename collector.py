@@ -19,7 +19,9 @@ import gzip
 import io
 import json
 import math
+import os
 import sys
+import time
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
 
@@ -186,29 +188,79 @@ def fetch_calendar():
         return json.loads(r.read().decode("utf-8"))
 
 
+def _http_get(url, timeout, tries=2):
+    """طلب GET مع إعادة محاولة قصيرة. يرفع آخر خطأ إن فشلت كل المحاولات."""
+    last = None
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout) as r:
+                raw = r.read()
+            return gzip.decompress(raw) if raw[:2] == b"\x1f\x8b" else raw
+        except Exception as e:  # noqa: BLE001
+            last = e
+            time.sleep(1.5 * (i + 1))
+    raise last
+
+
+def _fred_api(sid, cosd, key):
+    """الواجهة الرسمية (تحتاج مفتاحاً مجانياً FRED_API_KEY): أكثر ثباتاً من ملف CSV على خوادم GitHub."""
+    url = (f"https://api.stlouisfed.org/fred/series/observations?series_id={sid}"
+           f"&api_key={key}&file_type=json&observation_start={cosd}")
+    data = json.loads(_http_get(url, 25).decode("utf-8"))
+    return [(o["date"], float(o["value"])) for o in data.get("observations", [])
+            if o.get("value") not in (".", "", None)]
+
+
+def _fred_csv_batch(sids, cosd):
+    """طلب واحد لعدة سلاسل معاً (fredgraph يقبل id=A,B,C) بدل طلب لكل سلسلة."""
+    url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={','.join(sids)}&cosd={cosd}"
+    rows = list(csv.reader(io.StringIO(_http_get(url, 45).decode("utf-8"))))
+    head, body = rows[0], rows[1:]
+    out = {}
+    for j, sid in enumerate(head[1:], start=1):
+        vals = []
+        for row in body:
+            try:
+                vals.append((row[0], float(row[j])))
+            except (ValueError, IndexError):
+                continue
+        out[sid] = vals
+    return out
+
+
 def fetch_fred(now, days=45, series=None):
-    """سلاسل FRED اليومية (متأخرة يوماً تقريباً). يعيد ({مفتاح: [(تاريخ، قيمة)]}، المشاكل)."""
+    """سلاسل FRED اليومية (متأخرة يوماً تقريباً). يعيد ({مفتاح: [(تاريخ، قيمة)]}، المشاكل).
+    الأولوية: واجهة FRED الرسمية إن وُجد FRED_API_KEY، وإلا ملف CSV بطلب مجمَّع.
+    قاطع دائرة: بعد 3 إخفاقات متتالية يتوقف الجلب بدل إضاعة دقائق في مهلات."""
     out, problems = {}, []
     cosd = (now - timedelta(days=days)).date().isoformat()
-    for key, sid in (series or FRED_SERIES).items():
-        try:
-            url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={cosd}"
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=20) as r:
-                raw = r.read()
-            if raw[:2] == b"\x1f\x8b":
-                raw = gzip.decompress(raw)
-            rows = list(csv.reader(io.StringIO(raw.decode("utf-8"))))[1:]
-            series = []
-            for row in rows:
-                try:
-                    series.append((row[0], float(row[1])))
-                except (ValueError, IndexError):
-                    continue
-            if len(series) < 1:
-                raise ValueError("بيانات غير كافية")
-            out[key] = series
-        except Exception as e:  # noqa: BLE001
-            problems.append(f"تعذّر جلب {sid} من FRED: {e}")
+    items = dict(series or FRED_SERIES)
+    key = os.environ.get("FRED_API_KEY", "").strip()
+    if key:
+        fails = 0
+        for k, sid in items.items():
+            if fails >= 3:
+                problems.append(f"تعذّر جلب {sid} من FRED: أُوقف الجلب بعد إخفاقات متتالية")
+                continue
+            try:
+                rows = _fred_api(sid, cosd, key)
+                if not rows:
+                    raise ValueError("بيانات غير كافية")
+                out[k] = rows
+                fails = 0
+            except Exception as e:  # noqa: BLE001
+                fails += 1
+                problems.append(f"تعذّر جلب {sid} من FRED (API): {type(e).__name__}")
+        return out, problems
+    try:
+        got = _fred_csv_batch(list(items.values()), cosd)
+        for k, sid in items.items():
+            if got.get(sid):
+                out[k] = got[sid]
+            else:
+                problems.append(f"تعذّر جلب {sid} من FRED: لا بيانات")
+    except Exception as e:  # noqa: BLE001
+        problems.append(f"تعذّر جلب FRED (طلب مجمّع لـ {len(items)} سلسلة): {type(e).__name__}: {e}")
     return out, problems
 
 
