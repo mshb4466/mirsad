@@ -1,75 +1,13 @@
-[collector.py](https://github.com/user-attachments/files/33037614/collector.py)
 # مِرصاد — المراقبة والتنبيهات (v0.5)
 
 يرسل لك على تيليجرام، **تلقائياً ودون أي إدخال منك**:
-1. **تقرير قبل افتتاح السوق*name: mirsad
-
-on:
-  schedule:
-    - cron: "0 12 * * 1-5"      # قبل الافتتاح: 12:00 UTC = 3:00 ظهراً بتوقيت بغداد
-    - cron: "*/15 * * * 1-5"    # مراقبة: صدور البيانات والحركات المفاجئة
-    - cron: "0 9 * * 6"         # ملخص معايرة أسبوعي: السبت 12:00 ظهراً بتوقيت بغداد
-  workflow_dispatch:
-    inputs:
-      mode:
-        description: "test (اختبار فوري) | preopen | auto | calibrate | backtest (اختبار تاريخي 5 سنوات)"
-        default: "test"
-
-permissions:
-  contents: write
-
-concurrency:
-  group: mirsad
-  cancel-in-progress: false
-
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-
-      - name: تثبيت المتطلبات
-        run: pip install -r requirements.txt
-
-      - name: تشغيل مِرصاد
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-          EVENT_NAME: ${{ github.event_name }}
-          SCHEDULE: ${{ github.event.schedule }}
-          INPUT_MODE: ${{ github.event.inputs.mode }}
-        run: |
-          if [ "$EVENT_NAME" = "schedule" ]; then
-            if [ "$SCHEDULE" = "0 12 * * 1-5" ]; then MODE=preopen
-            elif [ "$SCHEDULE" = "0 9 * * 6" ]; then MODE=calibrate
-            else MODE=auto; fi
-          else
-            MODE="${INPUT_MODE:-test}"
-          fi
-          echo "الوضع: $MODE"
-          python runner.py --mode "$MODE"
-
-      - name: حفظ الحالة والسجل
-        if: always()
-        run: |
-          git config user.name "mirsad-bot"
-          git config user.email "mirsad-bot@users.noreply.github.com"
-          for f in state.json history.csv backtest.json; do [ -f "$f" ] && git add "$f"; done
-          git diff --cached --quiet || (git commit -m "تحديث حالة مِرصاد" && git push)
-* — 3:00 ظهراً بتوقيت بغداد (أيام الأسبوع).
+1. **تقرير قبل افتتاح السوق** — 3:00 ظهراً بتوقيت بغداد (أيام الأسبوع).
 2. **تنبيه بعد صدور البيانات الكبرى** (فائدة، وظائف، تضخم...) مع المقارنة بالمتوقع.
 3. **تنبيه عند حركة سوق مفاجئة** (ذهب ↑ نفط ↑ VIX ↑ ES ↓ معاً) مع عناوين أخبار حديثة.
 4. **ملخص معايرة أسبوعي** (السبت 12:00 ظهراً بغداد): هل المخاطرة العالية صحبتها حركة أكبر فعلاً؟
 
-## مقياس المخاطرة: 17 مكوّناً[mirsad.yml](https://github.com/user-attachments/files/33037618/mirsad.yml) (0–10) بأوزان متكيّفة
-| المكوّن | ما يقيسه [tests.py](https://github.com/user-attachments/files/33037617/tests.py)|
+## مقياس المخاطرة: 17 مكوّناً (0–10) بأوزان متكيّفة
+| المكوّن | ما يقيسه |
 |---|---|
 | قرب الأحداث الكبرى | الفائدة/الوظائف/التضخم، وتقارير أرباح الشركات السبع والبنوك |
 | التقلب (VIX) | مستوى VIX وتغيره |
