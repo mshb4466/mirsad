@@ -68,7 +68,9 @@ jobs:
         id: site
         if: always()
         run: |
-          if [ -f docs/data.json ]; then echo "ready=true" >> "$GITHUB_OUTPUT"; fi
+          mkdir -p docs
+          if [ ! -f docs/index.html ] && [ -f index.html ]; then cp index.html docs/index.html; fi
+          if [ -f docs/data.json ] && [ -f docs/index.html ]; then echo "ready=true" >> "$GITHUB_OUTPUT"; fi
 
       - uses: actions/configure-pages@v5
         if: always() && steps.site.outputs.ready == 'true'
