@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}[hidden]{display:none!important}</style></head><body>
+<title>مِرصاد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef2f6; --card: #ffffff; --card-2: #f4f7fa; --line: #dbe3ec;
+    --fg: #101a27; --muted: #5b6b7e; --brand: #0b7a75; --brand-ink: #ffffff;
+    --ok: #12905a; --ok-bg: #dff4e9;
+    --warn: #b87a00; --warn-bg: #fbefcf;
+    --hi: #d4570f; --hi-bg: #fde3d2;
+    --crit: #c0263a; --crit-bg: #fadadf;
+    --neutral: #3d6fb6; --neutral-bg: #dde8f8;
+    --track: #e3e9f0;
+    --font-body: 'Tajawal', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --shadow: 0 1px 2px rgba(16,26,39,.06), 0 6px 18px rgba(16,26,39,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0a1018; --card: #121b27; --card-2: #182332; --line: #25344a;
+      --fg: #e9eff7; --muted: #92a3b8; --brand: #35d0c4; --brand-ink: #04211e;
+      --ok: #3ddc97; --ok-bg: #12382a;
+      --warn: #f2bf3c; --warn-bg: #3b300e;
+      --hi: #ff8a45; --hi-bg: #432213;
+      --crit: #ff5d73; --crit-bg: #461b25;
+      --neutral: #6fa4f5; --neutral-bg: #17304f;
+      --track: #223146; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0a1018; --card: #121b27; --card-2: #182332; --line: #25344a;
+    --fg: #e9eff7; --muted: #92a3b8; --brand: #35d0c4; --brand-ink: #04211e;
+    --ok: #3ddc97; --ok-bg: #12382a;
+    --warn: #f2bf3c; --warn-bg: #3b300e;
+    --hi: #ff8a45; --hi-bg: #432213;
+    --crit: #ff5d73; --crit-bg: #461b25;
+    --neutral: #6fa4f5; --neutral-bg: #17304f;
+    --track: #223146; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.6; padding-inline: 16px; padding-block: 18px 48px; }
+  .wrap { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; }
+
+  /* رأس الصفحة */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .logo { width: 38px; height: 38px; border-radius: 12px; background: var(--brand); color: var(--brand-ink); display: grid; place-items: center; font-weight: 900; font-size: 20px; }
+  .brand h1 { margin: 0; font-size: 24px; font-weight: 900; line-height: 1.1; }
+  .brand small { display: block; color: var(--muted); font-size: 12px; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { font-size: 12px; padding: 4px 11px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); background: var(--card); font-weight: 500; }
+  button.chip { font-family: inherit; cursor: pointer; }
+  .chip.lang { font-weight: 700; color: var(--fg); }
+  .chip.on { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); font-weight: 700; }
+  .chip.soon { opacity: .7; border-style: dashed; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; box-shadow: var(--shadow); min-width: 0; }
+  .card h2 { margin: 0 0 12px; font-size: 14px; font-weight: 700; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .card h2::before { content: ''; width: 4px; height: 14px; border-radius: 4px; background: var(--brand); }
+
+  /* المقياس الرئيسي */
+  .hero { padding: 18px 16px 16px; text-align: center; border-top: 6px solid var(--lc, var(--line)); }
+  .gauge { width: 100%; max-width: 330px; margin: 0 auto; display: block; direction: ltr; }
+  .gauge .seg { fill: none; stroke-width: 20; stroke-linecap: butt; }
+  .gauge .tick { font: 600 10px var(--font-mono); fill: var(--muted); }
+  .gauge-center { margin-top: 2px; }
+  .score { font-size: 54px; font-weight: 600; line-height: 1; color: var(--lc); }
+  .score small { font-size: 18px; color: var(--muted); }
+  .lvl-badge { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 7px 18px; border-radius: 99px; background: var(--lbg); color: var(--lc); font-weight: 900; font-size: 18px; border: 1.5px solid var(--lc); }
+  .lvl-badge .ic { font-size: 16px; }
+  .why { margin: 12px auto 0; font-size: 15px; font-weight: 500; max-width: 46ch; }
+  .advice { margin: 4px auto 0; color: var(--muted); font-size: 13px; }
+  .scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 14px; }
+  .scale div { font-size: 11px; padding: 6px 2px; border-radius: 8px; background: var(--card-2); color: var(--muted); border: 1.5px solid transparent; line-height: 1.3; }
+  .scale div b { display: block; font-family: var(--font-mono); font-size: 12px; }
+  .scale div.on { border-color: var(--c); color: var(--c); background: var(--cbg); font-weight: 700; }
+
+  /* البلاطات */
+  .tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 12px 14px; box-shadow: var(--shadow); min-width: 0; }
+  .tile .k { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .tile .v { font-size: 20px; font-weight: 900; margin: 4px 0 2px; display: flex; align-items: center; gap: 8px; line-height: 1.25; }
+  .tile .s { font-size: 12px; color: var(--muted); min-height: 18px; }
+  .arrow { width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; font-size: 16px; flex: none; background: var(--tbg); color: var(--tc); }
+  .meter { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; margin-top: 8px; direction: ltr; }
+  .meter i { height: 8px; border-radius: 3px; background: var(--track); }
+  .meter i.f { background: var(--tc); }
+  #output { display: flex; flex-direction: column; gap: 14px; }
+  .tile.wide { grid-column: 1 / -1; }
+
+  /* الضغوط */
+  .press { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .pcol { border-radius: 14px; padding: 12px; min-width: 0; }
+  .pcol.bull { background: var(--ok-bg); } .pcol.bear { background: var(--crit-bg); }
+  .pcol h3 { margin: 0 0 8px; font-size: 14px; font-weight: 900; display: flex; align-items: center; gap: 6px; }
+  .pcol.bull h3 { color: var(--ok); } .pcol.bear h3 { color: var(--crit); }
+  .pcol ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .pcol li { font-size: 13px; display: flex; gap: 7px; align-items: flex-start; }
+  .pcol li .m { flex: none; font-weight: 900; margin-top: 1px; }
+  .pcol.bull li .m { color: var(--ok); } .pcol.bear li .m { color: var(--crit); }
+  .empty { color: var(--muted); font-size: 12px; }
+
+  /* المكوّنات */
+  .wnote { font-size: 12px; color: var(--muted); background: var(--card-2); border-radius: 10px; padding: 8px 10px; margin-bottom: 12px; }
+  .comps { display: flex; flex-direction: column; gap: 12px; }
+  .comp { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; align-items: start; }
+  .cic { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; font-weight: 900; font-size: 14px; background: var(--tbg); color: var(--tc); }
+  .chead { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .cname { font-size: 14px; font-weight: 700; }
+  .cscore { font-size: 13px; color: var(--tc); font-weight: 600; white-space: nowrap; }
+  .cbar { height: 8px; background: var(--track); border-radius: 99px; margin-top: 5px; overflow: hidden; direction: ltr; }
+  .cbar b { display: block; height: 100%; border-radius: 99px; background: var(--tc); }
+  .cmeta { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .cmeta span:first-child { min-width: 0; }
+
+  /* السيناريوهات */
+  .scn { display: flex; flex-direction: column; gap: 12px; }
+  .sc { border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: var(--card-2); }
+  .sc-h { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .sc-n { font-weight: 700; }
+  .sc-p { font-size: 18px; font-weight: 600; color: var(--brand); }
+  .pbar { height: 8px; background: var(--track); border-radius: 99px; margin: 8px 0; overflow: hidden; direction: ltr; }
+  .pbar b { display: block; height: 100%; background: var(--brand); border-radius: 99px; }
+  .sc p { margin: 0; font-size: 13px; color: var(--muted); }
+
+  /* معاينة الإشعار */
+  .phone { background: #0e131b; border-radius: 22px; padding: 14px; color: #f2f6fb; }
+  .notif { background: rgba(255,255,255,.12); border-radius: 16px; padding: 10px 12px; }
+  .notif .nh { display: flex; align-items: center; gap: 7px; font-size: 11px; color: #b6c3d3; margin-bottom: 4px; }
+  .notif .nh .logo { width: 18px; height: 18px; border-radius: 5px; font-size: 11px; }
+  .notif .nt { font-size: 14px; font-weight: 500; }
+  .btn-ghost { margin-top: 10px; padding: 8px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--fg); font: 500 13px var(--font-body); cursor: pointer; }
+  .summary { margin: 0; font-size: 14px; }
+
+  /* النموذج */
+  details.form { padding: 0; overflow: hidden; }
+  details.form > summary { list-style: none; cursor: pointer; padding: 14px 16px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  details.form > summary::-webkit-details-marker { display: none; }
+  details.form > summary::after { content: '▾'; color: var(--muted); transition: transform .15s; }
+  details.form[open] > summary::after { transform: rotate(180deg); }
+  .fbody { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 14px; }
+  .fgroup { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .fgroup h3 { grid-column: 1 / -1; margin: 4px 0 0; font-size: 13px; color: var(--brand); }
+  .field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .field.full { grid-column: 1 / -1; }
+  label { font-size: 12px; color: var(--muted); }
+  input, textarea, select { background: var(--card-2); border: 1px solid var(--line); color: var(--fg); border-radius: 10px; padding: 9px 11px; font: 14px var(--font-mono); width: 100%; min-width: 0; direction: ltr; text-align: right; }
+  select { font-family: var(--font-body); direction: rtl; }
+  textarea { font-family: var(--font-body); direction: rtl; min-height: 56px; resize: vertical; }
+  input:focus, textarea:focus, select:focus, button:focus-visible, summary:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+  .go { width: 100%; padding: 15px; border: 0; border-radius: 14px; background: var(--brand); color: var(--brand-ink); font: 900 17px var(--font-body); cursor: pointer; box-shadow: var(--shadow); }
+  .go:disabled { opacity: .55; cursor: default; }
+  .status { text-align: center; color: var(--muted); font-size: 13px; min-height: 18px; margin: 0; }
+  .demo.live { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
+  .demo { background: var(--neutral-bg); color: var(--neutral); border: 1px solid var(--neutral); border-radius: 12px; padding: 9px 12px; font-size: 13px; font-weight: 500; }
+  .fed-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+  .fed-lean { display: flex; align-items: center; gap: 12px; }
+  .fed-word { font-size: 20px; font-weight: 900; }
+  .fed-sub { font-size: 12px; color: var(--muted); }
+  .bipolar { position: relative; height: 12px; border-radius: 99px; direction: ltr; background: linear-gradient(90deg, var(--neutral) 0%, var(--track) 50%, var(--hi) 100%); }
+  .bipolar .mid { position: absolute; left: 50%; top: -3px; bottom: -3px; width: 2px; background: var(--fg); opacity: .5; }
+  .bipolar b { position: absolute; top: -5px; width: 8px; height: 22px; border-radius: 4px; background: var(--fg); border: 2px solid var(--card); transform: translateX(-50%); }
+  .bipolar span { position: absolute; top: 16px; font-size: 11px; color: var(--muted); }
+  .bipolar .lo { left: 0; } .bipolar .hi { right: 0; }
+  .pil { display: flex; flex-direction: column; gap: 9px; margin-top: 22px; }
+  .pl { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 9px; align-items: start; }
+  .pl .cic { width: 26px; height: 26px; font-size: 13px; }
+  .pl .nm { font-weight: 700; font-size: 14px; }
+  .pl .nt { font-size: 12px; color: var(--muted); }
+  .gapbox { margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: var(--hi-bg); color: var(--fg); border: 1px solid var(--hi); font-size: 13px; }
+  .gapbox b { color: var(--hi); }
+  .fed-meet { margin-top: 10px; font-size: 12px; color: var(--muted); direction: inherit; unicode-bidi: plaintext; }
+  .plans { padding: 0; overflow: hidden; }
+  .plans > summary { list-style: none; cursor: pointer; padding: 12px 14px; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .plans > summary::-webkit-details-marker { display: none; }
+  .plans > summary::after { content: '▾'; color: var(--muted); }
+  .plans[open] > summary::after { content: '▴'; }
+  .plan-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 0 14px 14px; }
+  .plan { border-radius: 14px; padding: 12px; border: 1.5px solid var(--line); background: var(--card-2); min-width: 0; }
+  .plan.free { border-color: var(--ok); } .plan.paid { border-color: var(--brand); }
+  .plan h3 { margin: 0 0 8px; font-size: 14px; font-weight: 900; }
+  .plan.free h3 { color: var(--ok); } .plan.paid h3 { color: var(--brand); }
+  .plan ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .plan li { font-size: 12.5px; padding-inline-start: 18px; position: relative; }
+  .plan li::before { content: '✓'; position: absolute; inset-inline-start: 0; color: var(--ok); font-weight: 900; }
+  .plan.paid li::before { content: '★'; color: var(--brand); }
+  @media (max-width: 560px) { .plan-grid { grid-template-columns: 1fr; } }
+  .plan-note { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
+  .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 6px; }
+  .tabs button { padding: 10px 6px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); color: var(--muted); font: 700 14px var(--font-body); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); }
+  .tab { display: flex; flex-direction: column; gap: 14px; }
+  .ladder { width: 100%; max-width: 380px; margin: 0 auto; display: block; direction: ltr; }
+  .ladder text { font: 600 10.5px var(--font-mono); fill: var(--fg); }
+  .ladder .cap { font: 700 11px var(--font-body); fill: var(--muted); }
+  .chips2 { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chip2 { font-size: 12px; padding: 5px 10px; border-radius: 99px; background: var(--tbg); color: var(--tc); font-weight: 700; border: 1px solid var(--tc); }
+  .play { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .play li { font-size: 13px; padding-inline-start: 16px; position: relative; }
+  .play li::before { content: '◆'; position: absolute; inset-inline-start: 0; color: var(--brand); font-size: 10px; top: 5px; }
+  .tiltbox { margin-top: 14px; padding: 12px; border-radius: 14px; background: var(--card-2); }
+  .tiltbox .row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .tiltbox .w { font-weight: 900; font-size: 16px; }
+  .tiltbox .s { font-size: 12px; color: var(--muted); }
+  .bipolar.t b { left: 50%; }
+  .exp { margin-top: 10px; font-size: 13px; }
+  .foot { text-align: center; color: var(--muted); font-size: 12px; margin: 6px 0 0; }
+
+  .l0 { --lc: var(--ok); --lbg: var(--ok-bg); }
+  .l1 { --lc: var(--warn); --lbg: var(--warn-bg); }
+  .l2 { --lc: var(--hi); --lbg: var(--hi-bg); }
+  .l3 { --lc: var(--crit); --lbg: var(--crit-bg); }
+  .t-ok { --tc: var(--ok); --tbg: var(--ok-bg); }
+  .t-warn { --tc: var(--warn); --tbg: var(--warn-bg); }
+  .t-hi { --tc: var(--hi); --tbg: var(--hi-bg); }
+  .t-crit { --tc: var(--crit); --tbg: var(--crit-bg); }
+  .t-neutral { --tc: var(--neutral); --tbg: var(--neutral-bg); }
+  .t-brand { --tc: var(--brand); --tbg: var(--card-2); }
+  @media (max-width: 380px) { .press { grid-template-columns: 1fr; } .score { font-size: 46px; } }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="logo">م</div><div><h1>مِرصاد</h1><small>سياق السوق بنظرة واحدة</small></div></div>
+    <div class="chips" aria-label="الأصل"><button class="chip lang" id="langBtn" type="button">EN</button>
+      <span class="chip on">ES</span><span class="chip soon">ذهب · قريباً</span><span class="chip soon">نفط · قريباً</span><span class="chip soon">EUR/USD · قريباً</span><span class="chip soon">BTC · قريباً</span>
+    </div>
+  </div>
+
+  <details class="card plans" id="plans">
+    <summary>المجاني مقابل المدفوع: ماذا تحصل عليه</summary>
+    <div class="plan-grid">
+      <div class="plan free"><h3>المجاني (الحالي)</h3><ul>
+        <li>تقرير قبل افتتاح السوق وتنبيه بعد البيانات الكبرى وتنبيه للحركات المفاجئة على تيليجرام</li>
+        <li>مقياس مخاطرة من 17 مكوّناً بأوزان متكيّفة</li>
+        <li>منظومة الفدرالي: الدوت بلوت وتسعير السوق والتضخم والعمل والعجز والسيولة</li>
+        <li>سياق المزاد من شموع 5 دقائق: قيمة الأمس والجلسة الليلية والمدى المتوقع</li>
+        <li>تصنيف الأخبار الجيوسياسية بالقواعد مع التحقق بحركة السوق</li>
+        <li>اختبار تاريخي ومعايرة بسجل الأداء</li>
+        <li>بيانات مجانية متأخرة (Yahoo وFRED) وفحص كل ~15 دقيقة</li>
+      </ul></div>
+      <div class="plan paid"><h3>المدفوع (مخطَّط)</h3><ul>
+        <li>بيانات لحظية رسمية وتنبيهات خلال ثوانٍ</li>
+        <li>ذكاء اصطناعي يفسّر الأخبار الجيوسياسية المعقدة ويقيّم أثرها</li>
+        <li>تمركز الخيارات (Gamma) واحتمالات الفائدة الدقيقة</li>
+        <li>تدفق الأوامر: الحجم عند السعر وDelta وعمق السوق</li>
+        <li>أصول متعددة: فوركس وسلع وبيتكوين، وتطبيق بإشعارات فورية</li>
+      </ul></div>
+      <div class="plan-note">المدفوع قيد التخطيط وغير متاح الآن، ويُبنى بعد إثبات جدوى النسخة المجانية.</div>
+    </div>
+  </details>
+
+  <div class="demo" id="banner">مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.</div>
+
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" data-tab="today" aria-selected="true">اليوم</button>
+    <button type="button" role="tab" data-tab="macro" aria-selected="false">المنظومة</button>
+    <button type="button" role="tab" data-tab="details" aria-selected="false">التفاصيل</button>
+  </div>
+
+  <div id="output" hidden>
+
+   <div class="tab" id="tab-today">
+    <section class="card hero" id="hero">
+      <svg class="gauge" id="gauge" viewBox="0 0 260 150" role="img" aria-label="مقياس المخاطرة"></svg>
+      <div class="gauge-center">
+        <div class="score num"><span id="riskNum">0</span><small>/10</small></div>
+        <div class="lvl-badge"><span class="ic" id="lvlIc"></span><span id="lvlName"></span></div>
+      </div>
+      <p class="why" id="riskReason"></p>
+      <p class="advice" id="riskAdvice"></p>
+      <div class="scale" id="riskScale">
+        <div style="--c:var(--ok);--cbg:var(--ok-bg)"><b>0–3</b><span>منخفضة</span></div>
+        <div style="--c:var(--warn);--cbg:var(--warn-bg)"><b>4–6</b><span>متوسطة</span></div>
+        <div style="--c:var(--hi);--cbg:var(--hi-bg)"><b>7–8</b><span>عالية</span></div>
+        <div style="--c:var(--crit);--cbg:var(--crit-bg)"><b>9–10</b><span>قصوى</span></div>
+      </div>
+    </section>
+
+    <div class="tiles">
+      <div class="tile wide" id="tBias">
+        <div class="k">الانحياز العام</div>
+        <div class="v"><span class="arrow" id="biasArrow"></span><span id="biasText"></span></div>
+        <div class="s" id="biasConf"></div>
+      </div>
+      <div class="tile" id="tTrend"><div class="k">قوة الاتجاه</div><div class="v num" id="trendNum"></div><div class="s" id="trendLabel"></div><div class="meter" id="trendMeter"></div></div>
+      <div class="tile" id="tConf"><div class="k">درجة الثقة</div><div class="v num" id="confNum"></div><div class="s" id="confLabel"></div><div class="meter" id="confMeter"></div></div>
+      <div class="tile wide" id="tInt"><div class="k">حدة التقلب المتوقعة</div><div class="v num" id="intNum"></div><div class="s" id="intLabel"></div><div class="meter" id="intMeter"></div></div>
+    </div>
+
+    <section class="card" id="aucCard">
+      <h2>سياق المزاد للمتداول اليومي (ES)</h2>
+      <svg class="ladder" id="ladder" viewBox="0 0 370 214" role="img" aria-label="سلّم الأسعار"></svg>
+      <div class="chips2" id="aucChips"></div>
+      <div class="exp" id="aucExp"></div>
+      <ul class="play" id="aucPlay"></ul>
+      <div class="tiltbox t-brand" id="tiltBox">
+        <div class="row"><span class="arrow" id="tiltArrow"></span><div><div class="w" id="tiltWord"></div><div class="s" id="tiltWhy"></div></div></div>
+        <div class="bipolar t" aria-hidden="true"><i class="mid"></i><b id="tiltMark"></b><span class="lo">▼</span><span class="hi">▲</span></div>
+        <div class="s" style="margin-top:22px">ميل تجريبي لم يُثبت بعد، يُقاس في الاختبار التاريخي. ليس إشارة دخول.</div>
+      </div>
+    </section>
+   </div>
+
+   <div class="tab" id="tab-macro" hidden>
+    <section class="card" id="fedCard">
+      <h2>المنظومة الكلية وتوقع الفدرالي</h2>
+      <div class="fed-head">
+        <div class="fed-lean"><span class="arrow" id="fedArrow"></span><div><div class="fed-word" id="fedWord"></div><div class="fed-sub" id="fedSub"></div></div></div>
+        <div class="bipolar" aria-hidden="true"><i class="mid"></i><b id="fedMark"></b><span class="lo">▼</span><span class="hi">▲</span></div>
+      </div>
+      <div class="pil" id="pillars"></div>
+      <div class="gapbox" id="gapBox"></div>
+      <div class="fed-meet num" id="fedLiq"></div>
+      <div class="fed-meet num" id="fedMeet"></div>
+    </section>
+
+    <section class="card">
+      <h2>الضغوط المؤثرة</h2>
+      <div class="press">
+        <div class="pcol bull"><h3><span>▲</span><span> داعمة</span></h3><ul id="pBull"></ul></div>
+        <div class="pcol bear"><h3><span>▼</span><span> ضاغطة</span></h3><ul id="pBear"></ul></div>
+      </div>
+    </section>
+
+   </div>
+
+   <div class="tab" id="tab-details" hidden>
+    <section class="card">
+      <h2>ما الذي يرفع المخاطرة؟ (مرتّبة حسب المساهمة)</h2>
+      <div class="wnote" id="wnote"></div>
+      <div class="comps" id="comps"></div>
+    </section>
+
+    <section class="card" id="evCard" hidden>
+      <h2>أحداث USD خلال 24 ساعة</h2>
+      <div class="scn" id="evList"></div>
+    </section>
+
+    <section class="card" id="infoCard" hidden>
+      <h2>السياق والعناوين</h2>
+      <ul class="play" id="infoList"></ul>
+    </section>
+
+    <section class="card" id="probCard" hidden>
+      <h2>تنبيهات جودة البيانات</h2>
+      <ul class="play" id="probList"></ul>
+    </section>
+
+    <section class="card" id="scnCard">
+      <h2>سيناريوهات محتملة</h2>
+      <div class="scn" id="scenarios"></div>
+    </section>
+
+    <section class="card">
+      <h2>شكل الإشعار على الهاتف</h2>
+      <div class="phone"><div class="notif"><div class="nh"><span class="logo">م</span><span>مِرصاد · الآن</span></div><div class="nt" id="notifText"></div></div></div>
+      <button class="btn-ghost" id="copyNotif" type="button">نسخ النص</button>
+    </section>
+
+    <section class="card">
+      <h2>التقرير التفصيلي</h2>
+      <p class="summary" id="detailSummary"></p>
+    </section>
+   </div>
+  </div>
+
+  <p class="foot">تحليل توليدي لإثبات الفكرة فقط — ليس توصية استثمارية.</p>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const output = $('output');
+const CTX = { vix: 24, eventTiming: 'خلال 3 ساعات', eventType: 'قرار الفائدة (FOMC)', event: 'قرار الفائدة بعد ثلاث ساعات وتوتر في الخليج' };
+const LANG0 = (()=>{try{return localStorage.getItem('mirsad-lang')}catch(e){return null}})();
+let LANG = LANG0 === 'en' ? 'en' : 'ar';
+const val = id => String(CTX[id] ?? '');
+const clamp = n => { n = Number(n); return isNaN(n) ? 0 : Math.max(0, Math.min(10, n)); };
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+/* مستويات المخاطرة */
+const LEVELS = [
+  { i: 0, cls: 'l0', t: 't-ok', ic: '✓', emoji: '🟢', name: 'مخاطرة منخفضة', advice: 'ظروف طبيعية.' },
+  { i: 1, cls: 'l1', t: 't-warn', ic: '◔', emoji: '🟡', name: 'مخاطرة متوسطة', advice: 'قلّل الحجم قليلاً.' },
+  { i: 2, cls: 'l2', t: 't-hi', ic: '!', emoji: '🔴', name: 'مخاطرة عالية', advice: 'حجم أصغر ووقف أوسع، أو انتظر ما بعد الحدث.' },
+  { i: 3, cls: 'l3', t: 't-crit', ic: '✕', emoji: '⛔', name: 'مخاطرة قصوى', advice: 'الأفضل غالباً عدم الدخول.' }
+];
+const EN = {
+  'سياق السوق بنظرة واحدة': 'Market context at a glance',
+  'ذهب · قريباً': 'Gold · soon', 'نفط · قريباً': 'Oil · soon', 'EUR/USD · قريباً': 'EUR/USD · soon', 'BTC · قريباً': 'BTC · soon',
+  'مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.': 'Illustrative example with sample data. Real reports reach you automatically on Telegram with no input from you.',
+  'منخفضة': 'Low', 'متوسطة': 'Medium', 'عالية': 'High', 'قصوى': 'Extreme',
+  'الانحياز العام': 'Overall bias', 'قوة الاتجاه': 'Trend strength', 'درجة الثقة': 'Confidence', 'حدة التقلب المتوقعة': 'Expected volatility',
+  'الضغوط المؤثرة': 'Market pressures', 'المنظومة الكلية وتوقع الفدرالي': 'Macro system & Fed outlook', ' داعمة': ' Supportive', ' ضاغطة': ' Pressuring',
+  'ما الذي يرفع المخاطرة؟ (مرتّبة حسب المساهمة)': 'What raises the risk? (by contribution)',
+  'سيناريوهات محتملة': 'Possible scenarios', 'شكل الإشعار على الهاتف': 'Notification preview', 'نسخ النص': 'Copy text',
+  'التقرير التفصيلي': 'Detailed report', 'تحليل توليدي لإثبات الفكرة فقط — ليس توصية استثمارية.': 'Concept demo only — not investment advice.',
+  'مخاطرة منخفضة': 'Low risk', 'مخاطرة متوسطة': 'Medium risk', 'مخاطرة عالية': 'High risk', 'مخاطرة قصوى': 'Extreme risk',
+  'ظروف طبيعية.': 'Normal conditions.', 'قلّل الحجم قليلاً.': 'Trim position size a little.',
+  'حجم أصغر ووقف أوسع، أو انتظر ما بعد الحدث.': 'Smaller size and wider stop, or wait until after the event.',
+  'الأفضل غالباً عدم الدخول.': 'Best to stay out for now.',
+  'قرب الأحداث الكبرى': 'Major event proximity', 'التقلب (VIX)': 'Volatility (VIX)', 'التسعير المسبق': 'Priced-in move',
+  'التوتر الجيوسياسي': 'Geopolitical tension', 'تعارض الإشارات': 'Signal conflict', 'السيولة': 'Liquidity',
+  'صاعد': 'Bullish', 'هابط': 'Bearish', 'محايد': 'Neutral', ' ضعيف': ' (weak)', ' قوي': ' (strong)',
+  'السبب الرئيسي: ': 'Main reason: ', ' · الثقة: ': ' · Confidence: ', 'وزن ': 'Weight ',
+  'انحياز: ': 'Bias: ', 'المخاطرة: ': 'Risk: ', 'السبب: ': 'Reason: ',
+  'تم النسخ': 'Copied', 'تعذّر النسخ': 'Copy failed',
+  'حدث كبير قريب': 'Major event nearby', ': رُفع وزن الأحداث': ': event weight raised',
+  'VIX مرتفع: رُفع وزن التقلب': 'VIX elevated: volatility weight raised',
+  'توتر جيوسياسي: رُفع وزن الجيوسياسة والتقلب': 'Geopolitical tension: geopolitics and volatility weights raised',
+  'الأوزان متكيّفة: ': 'Adaptive weights: ', 'الأوزان الافتراضية (لا ظرف خاص).': 'Default weights (no special conditions).',
+  'قرار الفائدة (FOMC)': 'rate decision (FOMC)',
+  'المجاني مقابل المدفوع: ماذا تحصل عليه': 'Free vs paid: what you get', 'المجاني (الحالي)': 'Free (current)', 'المدفوع (مخطَّط)': 'Paid (planned)',
+  'تقرير قبل افتتاح السوق وتنبيه بعد البيانات الكبرى وتنبيه للحركات المفاجئة على تيليجرام': 'Pre-open report, post-release alerts and sudden-move alerts on Telegram',
+  'مقياس مخاطرة من 17 مكوّناً بأوزان متكيّفة': 'Risk meter with 17 components and adaptive weights',
+  'منظومة الفدرالي: الدوت بلوت وتسعير السوق والتضخم والعمل والعجز والسيولة': 'Fed system: dot plot, market pricing, inflation, labor, deficit and liquidity',
+  'سياق المزاد من شموع 5 دقائق: قيمة الأمس والجلسة الليلية والمدى المتوقع': 'Auction context from 5-minute bars: prior value, overnight session and expected range',
+  'تصنيف الأخبار الجيوسياسية بالقواعد مع التحقق بحركة السوق': 'Rule-based geopolitical news classification checked against market moves',
+  'اختبار تاريخي ومعايرة بسجل الأداء': 'Historical backtest and calibration from a performance log',
+  'بيانات مجانية متأخرة (Yahoo وFRED) وفحص كل ~15 دقيقة': 'Free delayed data (Yahoo, FRED), checked about every 15 minutes',
+  'بيانات لحظية رسمية وتنبيهات خلال ثوانٍ': 'Official real-time data and alerts within seconds',
+  'ذكاء اصطناعي يفسّر الأخبار الجيوسياسية المعقدة ويقيّم أثرها': 'AI that interprets complex geopolitical news and rates its impact',
+  'تمركز الخيارات (Gamma) واحتمالات الفائدة الدقيقة': 'Options positioning (gamma) and precise rate-cut probabilities',
+  'تدفق الأوامر: الحجم عند السعر وDelta وعمق السوق': 'Order flow: volume at price, delta and market depth',
+  'أصول متعددة: فوركس وسلع وبيتكوين، وتطبيق بإشعارات فورية': 'Multiple assets: forex, commodities, Bitcoin, plus an app with instant push',
+  'المدفوع قيد التخطيط وغير متاح الآن، ويُبنى بعد إثبات جدوى النسخة المجانية.': 'The paid tier is planned, not available yet; it is built after the free version proves its worth.',
+  'اليوم': 'Today', 'المنظومة': 'Macro', 'التفاصيل': 'Details',
+  'سياق المزاد للمتداول اليومي (ES)': 'Auction context for the day trader (ES)',
+  'ميل تجريبي لم يُثبت بعد، يُقاس في الاختبار التاريخي. ليس إشارة دخول.': 'Experimental tilt, not yet proven; it is measured in the historical backtest. Not an entry signal.',
+  'أمس': 'Prior', 'الليل': 'Overnight', 'الآن': 'Now'
+};
+const tr_ = s => LANG === 'en' && EN[s] ? EN[s] : s;
+const DEMO_EN = {"auction":{"prior":{"high":5918,"low":5872,"close":5898,"val":5886,"poc":5895,"vah":5906},"on":{"high":5921,"low":5890,"last":5915,"inv":0.81},"loc":"above","chips":[["t-ok","▲ Above prior value"],["t-hi","Gap up 17.0 points (0.29%)"],["t-hi","Net-long overnight inventory"],["t-neutral","VIX 24"]],"exp":"Expected range (from VIX): about 89 points at one standard deviation, session range about 143 points (often smaller in practice)","play":["Open above value: acceptance outside supports continuation; a re-entry accepted back inside value opens the 80% rule toward 5886 (a common rule that needs your confirmation)","Pivot level: 5906","One-sided overnight inventory raises the odds of a correction at the open"],"tilt":{"score":0.32,"word":"Bullish tilt","arrow":"▲","why":"Opening gap ▲, VIX change ▲, prior close location ▲"}},"macro":{"label":"Hawkish","arrow":"▲","lean":0.45,"conf":"High confidence","pillars":[{"name":"Inflation","arrow":"▲","note":"Core PCE 3.2% y/y, above the 2% target"},{"name":"Labor","arrow":"▲","note":"Unemployment 3.9%, claims stable"},{"name":"Taylor rule","arrow":"▲","note":"Suggests 5.1% vs actual 4.5%"},{"name":"Dot plot","arrow":"◆","note":"Year-end median 4.25% (-25bp) vs market -50bp: market is more dovish than the dots"},{"name":"Fiscal","arrow":"▲","note":"12-month deficit 6.1% of GDP: supportive spending, heavy issuance"},{"name":"Financial conditions","arrow":"◆","note":"Credit is calm"}],"liq":"Net liquidity ≈5,100bn$ (-1.8% over 4 weeks): draining","gap":"Market prices cuts (6-month: -70bp) while the data lean hawkish: risk of a hawkish surprise","gapTitle":"Large pricing gap","meet":"Next meeting: 2026-10-28 (in 24 days)"},"quick_call":{"stance":"sell","recommendation":"Cautiously bearish","confidence":"Medium","reasons":[]},
+"trend":{"score":6,"label":"Firm downtrend"},"confidence":{"score":7,"label":"Data is clear"},"intensity":{"score":8,"label":"High volatility expected"},
+"pressures":{"bullish":["Strong Magnificent 7 earnings","Weaker dollar"],"bearish":["10-year yield rising","Geopolitical tension lifting oil and gold"]},
+"risk":{"score":7,"label":"","main_reason":"Rate decision in 3 hours + elevated VIX","components":[
+{"key":"events","score":9,"note":"FOMC in 3 hours"},{"key":"volatility","score":7,"note":"VIX 24 and rising"},{"key":"priced_in","score":4,"note":"Limited move before the event"},
+{"key":"geopolitics","score":6,"note":"Gold and oil up together"},{"key":"conflict","score":3,"note":"Signals fairly consistent"},{"key":"liquidity","score":2,"note":"Normal volume"}]},
+"detailed_summary":"Illustrative example: the nearby major event and high volatility lift risk, while geopolitical tension adds pressure. Figures here are sample data only.",
+"scenarios":[{"name":"Sell-off into the event","probability":"45%","description":"A rates surprise pushes yields higher."},{"name":"Choppy range","probability":"35%","description":"Waiting for the decision."},{"name":"Rebound","probability":"20%","description":"A calmer decision than feared."}]};
+const levelOf = s => LEVELS[s <= 3 ? 0 : s <= 6 ? 1 : s <= 8 ? 2 : 3];
+
+/* مقياس نصف دائري */
+function drawGauge(score) {
+  const svg = $('gauge'); svg.innerHTML = '';
+  const NS = 'http://www.w3.org/2000/svg', cx = 130, cy = 130, r = 100;
+  const pt = (v, rad) => { const a = Math.PI * (1 - v / 10); return [cx + rad * Math.cos(a), cy - rad * Math.sin(a)]; };
+  const bands = [[0, 3.4, 'var(--ok)'], [3.5, 6.4, 'var(--warn)'], [6.5, 8.4, 'var(--hi)'], [8.5, 10, 'var(--crit)']];
+  bands.forEach(([a, b, col]) => {
+    const [x1, y1] = pt(a, r), [x2, y2] = pt(b, r);
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', `M${x1.toFixed(1)} ${y1.toFixed(1)} A${r} ${r} 0 0 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`);
+    p.setAttribute('class', 'seg'); p.setAttribute('stroke', col);
+    svg.appendChild(p);
+  });
+  [0, 3, 6, 9, 10].forEach(v => {
+    const [x, y] = pt(v, r + 22);
+    const t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', x.toFixed(1)); t.setAttribute('y', (y + 4).toFixed(1)); t.setAttribute('text-anchor', 'middle'); t.setAttribute('class', 'tick');
+    t.textContent = v; svg.appendChild(t);
+  });
+  const [nx, ny] = pt(score, r - 28), [bx, by] = pt(score, 6);
+  const needle = document.createElementNS(NS, 'line');
+  needle.setAttribute('x1', cx); needle.setAttribute('y1', cy); needle.setAttribute('x2', nx.toFixed(1)); needle.setAttribute('y2', ny.toFixed(1));
+  needle.setAttribute('stroke', 'var(--fg)'); needle.setAttribute('stroke-width', 4); needle.setAttribute('stroke-linecap', 'round');
+  svg.appendChild(needle);
+  const hub = document.createElementNS(NS, 'circle');
+  hub.setAttribute('cx', cx); hub.setAttribute('cy', cy); hub.setAttribute('r', 7); hub.setAttribute('fill', 'var(--fg)');
+  svg.appendChild(hub);
+}
+
+function meter(id, score, tcls) {
+  const m = $(id); m.innerHTML = '';
+  for (let i = 1; i <= 10; i++) m.appendChild(el('i', i <= Math.round(score) ? 'f' : ''));
+  m.parentElement.className = 'tile ' + tcls + (id === 'intMeter' ? ' wide' : '');
+}
+const posCls = s => s >= 7 ? 't-ok' : s >= 4 ? 't-warn' : 't-hi';       // أعلى = أفضل
+const riskCls = s => s <= 3 ? 't-ok' : s <= 6 ? 't-warn' : s <= 8 ? 't-hi' : 't-crit'; // أعلى = أخطر
+
+const BASE_WEIGHTS = { events: 0.20, volatility: 0.25, priced_in: 0.15, geopolitics: 0.15, conflict: 0.15, liquidity: 0.10 };
+const GEO_WORDS = ['تصعيد', 'حرب', 'هجوم', 'عقوبات', 'توتر', 'صراع', 'جيوسياس', 'ضربة', 'اشتباك'];
+// مضاعفات تقريبية من دراسات محدودة العينة (الفائدة ~+40% عن اليوم العادي، الوظائف ~+60%، التضخم متفاوت)
+const TYPE_MULT = { 'قرار الفائدة (FOMC)': 1.5, 'تقرير الوظائف (NFP)': 1.5, 'تقرير التضخم (CPI)': 1.1, 'حدث آخر': 1.2 };
+const RISK_NAMES = {
+  events: 'قرب الأحداث الكبرى', volatility: 'التقلب (VIX)', priced_in: 'التسعير المسبق',
+  geopolitics: 'التوتر الجيوسياسي', conflict: 'تعارض الإشارات', liquidity: 'السيولة'
+};
+
+function adaptWeights(compsIn) {
+  const w = Object.assign({}, BASE_WEIGHTS), notes = [];
+  const timing = val('eventTiming'), type = val('eventType'), tm = TYPE_MULT[type] || 1.3;
+  if (timing === 'خلال 3 ساعات' || timing === 'اليوم') { w.events *= tm; notes.push(tr_('حدث كبير قريب') + (type ? ' (' + tr_(type) + ')' : '') + tr_(': رُفع وزن الأحداث')); }
+  else if (timing === 'خلال 2-3 أيام') { w.events *= 1.1; notes.push('حدث كبير خلال أيام'); }
+  else if (timing === 'لا يوجد حدث قريب') { w.events *= 0.5; notes.push('لا حدث قريب: خُفّض وزن الأحداث'); }
+  const vix = parseFloat(val('vix'));
+  if (!isNaN(vix)) {
+    if (vix >= 30) { w.volatility *= 1.4; notes.push(tr_('VIX مرتفع: رُفع وزن التقلب')); }
+    else if (vix >= 22) { w.volatility *= 1.2; notes.push(tr_('VIX مرتفع: رُفع وزن التقلب')); }
+    else if (vix <= 14) { w.volatility *= 0.8; notes.push('VIX منخفض: خُفّض وزن التقلب'); }
+  }
+  const geoComp = compsIn.find(c => c.key === 'geopolitics'), evText = val('event');
+  if ((geoComp && clamp(geoComp.score) >= 7) || GEO_WORDS.some(k => evText.includes(k))) {
+    w.geopolitics *= 1.5; w.volatility *= 1.1; notes.push(tr_('توتر جيوسياسي: رُفع وزن الجيوسياسة والتقلب'));
+  }
+  const sum = Object.values(w).reduce((a, b) => a + b, 0);
+  Object.keys(w).forEach(k => { w[k] = w[k] / sum; });
+  return { w, notes };
+}
+
+function stanceInfo(data) {
+  const s = data.quick_call.stance, t = data.trend ? clamp(data.trend.score) : 5;
+  if (s === 'buy') return { word: tr_('صاعد') + (t <= 4 ? tr_(' ضعيف') : t >= 8 ? tr_(' قوي') : ''), ic: '▲', t: 't-ok' };
+  if (s === 'sell') return { word: tr_('هابط') + (t <= 4 ? tr_(' ضعيف') : t >= 8 ? tr_(' قوي') : ''), ic: '▼', t: 't-crit' };
+  return { word: tr_('محايد'), ic: '◆', t: 't-neutral' };
+}
+
+function fillList(id, items, mark) {
+  const ul = $(id); ul.innerHTML = '';
+  if (!items || !items.length) { ul.appendChild(el('li', 'empty', '—')); return; }
+  items.forEach(t => { const li = el('li'); li.appendChild(el('span', 'm', mark)); li.appendChild(el('span', '', t)); ul.appendChild(li); });
+}
+
+function svgEl(tag, attrs, text) {
+  const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  Object.keys(attrs || {}).forEach(k => e.setAttribute(k, attrs[k]));
+  if (text != null) e.textContent = text;
+  return e;
+}
+
+function drawLadder(a) {
+  const svg = $('ladder'); svg.innerHTML = '';
+  const top = 26, bot = 200, lo = Math.min(a.prior.low, a.on.low) - 4, hi = Math.max(a.prior.high, a.on.high) + 4;
+  const y = pr => bot - (pr - lo) / (hi - lo) * (bot - top);
+  const rect = (x, w, p1, p2, attrs) => svg.appendChild(svgEl('rect', Object.assign({ x, width: w, y: y(p2).toFixed(1), height: Math.max(1, y(p1) - y(p2)).toFixed(1), rx: 4 }, attrs)));
+  svg.appendChild(svgEl('text', { x: 100, y: 14, 'text-anchor': 'middle', class: 'cap' }, tr_('أمس')));
+  svg.appendChild(svgEl('text', { x: 232, y: 14, 'text-anchor': 'middle', class: 'cap' }, tr_('الليل')));
+  /* مدى الأمس وقيمته */
+  rect(96, 8, a.prior.low, a.prior.high, { fill: 'var(--track)' });
+  rect(70, 60, a.prior.val, a.prior.vah, { fill: 'var(--neutral-bg)', stroke: 'var(--neutral)', 'stroke-width': 1.5 });
+  svg.appendChild(svgEl('line', { x1: 66, x2: 134, y1: y(a.prior.poc), y2: y(a.prior.poc), stroke: 'var(--neutral)', 'stroke-width': 3 }));
+  [['vah', a.prior.vah, 'VAH'], ['poc', a.prior.poc, 'POC'], ['val', a.prior.val, 'VAL']].forEach(([k, v, n]) => {
+    svg.appendChild(svgEl('text', { x: 138, y: (y(v) + 4).toFixed(1) }, n + ' ' + v));
+  });
+  svg.appendChild(svgEl('text', { x: 62, y: (y(a.prior.high) + 4).toFixed(1), 'text-anchor': 'end' }, a.prior.high));
+  svg.appendChild(svgEl('text', { x: 62, y: (y(a.prior.low) + 4).toFixed(1), 'text-anchor': 'end' }, a.prior.low));
+  /* الليل */
+  rect(214, 36, a.on.low, a.on.high, { fill: 'var(--hi-bg)', stroke: 'var(--hi)', 'stroke-width': 1.5 });
+  svg.appendChild(svgEl('text', { x: 256, y: (y(a.on.high) + 4).toFixed(1) }, a.on.high));
+  svg.appendChild(svgEl('text', { x: 256, y: (y(a.on.low) + 4).toFixed(1) }, a.on.low));
+  /* السعر الحالي */
+  const yl = y(a.on.last);
+  svg.appendChild(svgEl('line', { x1: 66, x2: 296, y1: yl, y2: yl, stroke: 'var(--brand)', 'stroke-width': 2, 'stroke-dasharray': '5 4' }));
+  svg.appendChild(svgEl('path', { d: `M296 ${yl - 6} L310 ${yl} L296 ${yl + 6} Z`, fill: 'var(--brand)' }));
+  svg.appendChild(svgEl('text', { x: 314, y: (yl - 2).toFixed(1), style: 'fill:var(--brand)' }, tr_('الآن')));
+  svg.appendChild(svgEl('text', { x: 314, y: (yl + 11).toFixed(1), style: 'fill:var(--brand)' }, a.on.last));
+}
+
+function renderAuction(a) {
+  $('aucCard').hidden = !a;
+  if (!a) return;
+  drawLadder(a);
+  const chips = $('aucChips'); chips.innerHTML = '';
+  a.chips.forEach(([cls, t]) => chips.appendChild(el('span', 'chip2 ' + cls, t)));
+  $('aucExp').textContent = a.exp;
+  const pl = $('aucPlay'); pl.innerHTML = '';
+  a.play.forEach(t => pl.appendChild(el('li', '', t)));
+  const t = a.tilt, cls = t.score >= 0.25 ? 't-ok' : t.score <= -0.25 ? 't-crit' : 't-neutral';
+  $('tiltBox').className = 'tiltbox ' + cls;
+  $('tiltArrow').textContent = t.arrow; $('tiltWord').textContent = t.word; $('tiltWhy').textContent = t.why;
+  $('tiltMark').style.left = (50 + 50 * Math.max(-1, Math.min(1, t.score))) + '%';
+}
+
+function render(data) {
+  const comps = data.risk.components || [];
+  const real = !!data.risk.real;
+  let adapted, rows, score;
+  if (real) {
+    adapted = { notes: data.risk.weights_note || [] };
+    rows = comps.map(c => ({ key: c.key, name: c.name, sc: clamp(c.score), w: c.weight, contrib: clamp(c.score) * c.weight, note: c.note || '' }));
+    score = Math.round(clamp(data.risk.score));
+  } else {
+    adapted = adaptWeights(comps); const W = adapted.w;
+    let total = 0, wsum = 0;
+    rows = comps.map(c => {
+      const w = W[c.key] || 0, sc = clamp(c.score);
+      if (w) { total += sc * w; wsum += w; }
+      return { key: c.key, sc, w, contrib: sc * w, note: c.note || '' };
+    });
+    score = wsum > 0 ? Math.round(total / wsum) : Math.round(clamp(data.risk.score));
+  }
+  const lvl = levelOf(score), reason = data.risk.main_reason || data.risk.label || '';
+
+  /* المقياس الرئيسي */
+  const hero = $('hero'); hero.className = 'card hero ' + lvl.cls;
+  drawGauge(score);
+  $('riskNum').textContent = score;
+  $('lvlIc').textContent = lvl.ic; $('lvlName').textContent = tr_(lvl.name);
+  $('riskReason').textContent = reason ? tr_('السبب الرئيسي: ') + reason : '';
+  $('riskAdvice').textContent = real && data.risk.advice ? data.risk.advice : tr_(lvl.advice);
+  document.querySelectorAll('#riskScale div').forEach((d, i) => d.classList.toggle('on', i === lvl.i));
+
+  /* البلاطات */
+  const st = stanceInfo(data);
+  $('tBias').className = 'tile wide ' + st.t;
+  $('biasArrow').textContent = st.ic; $('biasText').textContent = st.word;
+  $('biasConf').textContent = (data.quick_call.recommendation || '') + (data.quick_call.confidence ? tr_(' · الثقة: ') + data.quick_call.confidence : '');
+  const show = (id, on) => { $(id).hidden = !on; };
+  show('tTrend', !!data.trend); show('tConf', !!data.confidence); show('tInt', !!data.intensity);
+  if (data.trend) { const tr = clamp(data.trend.score); $('trendNum').textContent = tr + '/10'; $('trendLabel').textContent = data.trend.label || ''; meter('trendMeter', tr, posCls(tr)); }
+  if (data.confidence) { const cf = clamp(data.confidence.score); $('confNum').textContent = cf + '/10'; $('confLabel').textContent = data.confidence.label || ''; meter('confMeter', cf, posCls(cf)); }
+  if (data.intensity) { const it = clamp(data.intensity.score); $('intNum').textContent = it + '/10'; $('intLabel').textContent = data.intensity.label || ''; meter('intMeter', it, riskCls(it)); }
+
+  renderAuction(data.auction);
+
+  /* المنظومة الكلية */
+  const mc = data.macro, fc = $('fedCard');
+  fc.hidden = !mc;
+  if (mc) {
+    const fcls = mc.lean > 0.25 ? 't-hi' : mc.lean < -0.25 ? 't-neutral' : 't-brand';
+    fc.className = 'card ' + fcls;
+    $('fedArrow').textContent = mc.arrow; $('fedWord').textContent = mc.label; $('fedSub').textContent = mc.conf;
+    $('fedMark').style.left = (50 + 50 * Math.max(-1, Math.min(1, mc.lean))) + '%';
+    const pw = $('pillars'); pw.innerHTML = '';
+    mc.pillars.forEach(pl => {
+      const cls = pl.arrow === '▲' ? 't-hi' : pl.arrow === '▼' ? 't-neutral' : 't-brand';
+      const row = el('div', 'pl ' + cls); row.appendChild(el('div', 'cic', pl.arrow));
+      const b = el('div'); b.appendChild(el('div', 'nm', pl.name)); b.appendChild(el('div', 'nt', pl.note)); row.appendChild(b); pw.appendChild(row);
+    });
+    const gb = $('gapBox'); gb.innerHTML = ''; gb.appendChild(el('b', '', mc.gapTitle + ': ')); gb.appendChild(document.createTextNode(mc.gap));
+    $('fedMeet').textContent = mc.meet;
+    $('fedLiq').textContent = mc.liq || '';
+  }
+
+  /* الضغوط */
+  fillList('pBull', data.pressures && data.pressures.bullish, '＋');
+  fillList('pBear', data.pressures && data.pressures.bearish, '－');
+
+  /* المكوّنات مرتبة بالمساهمة */
+  $('wnote').textContent = adapted.notes.length ? tr_('الأوزان متكيّفة: ') + adapted.notes.join(' — ') : tr_('الأوزان الافتراضية (لا ظرف خاص).');
+  const cw = $('comps'); cw.innerHTML = '';
+  rows.sort((a, b) => b.contrib - a.contrib).forEach(c => {
+    const l = levelOf(c.sc);
+    const row = el('div', 'comp ' + l.t);
+    row.appendChild(el('div', 'cic', l.ic));
+    const body = el('div');
+    const head = el('div', 'chead');
+    head.appendChild(el('span', 'cname', c.name || tr_(RISK_NAMES[c.key] || c.key)));
+    head.appendChild(el('span', 'cscore num', c.sc + '/10'));
+    const bar = el('div', 'cbar'); const f = el('b'); f.style.width = (c.sc * 10) + '%'; bar.appendChild(f);
+    const meta = el('div', 'cmeta');
+    meta.appendChild(el('span', '', c.note));
+    meta.appendChild(el('span', 'num', tr_('وزن ') + Math.round(c.w * 100) + '%'));
+    body.appendChild(head); body.appendChild(bar); body.appendChild(meta);
+    row.appendChild(body); cw.appendChild(row);
+  });
+
+  /* السيناريوهات */
+  const sw = $('scenarios'); sw.innerHTML = '';
+  (data.scenarios || []).forEach(s => {
+    const p = Math.max(0, Math.min(100, parseInt(String(s.probability).replace(/[^\d]/g, ''), 10) || 0));
+    const box = el('div', 'sc'), h = el('div', 'sc-h');
+    h.appendChild(el('span', 'sc-n', s.name)); h.appendChild(el('span', 'sc-p num', s.probability));
+    const pb = el('div', 'pbar'); const b = el('b'); b.style.width = p + '%'; pb.appendChild(b);
+    box.appendChild(h); box.appendChild(pb); box.appendChild(el('p', '', s.description));
+    sw.appendChild(box);
+  });
+
+  const sc = data.scenarios || []; $('scnCard').hidden = !sc.length;
+  const fillUl = (id, cardId, arr) => { const ul = $(id); ul.innerHTML = ''; (arr || []).forEach(t => ul.appendChild(el('li', '', t))); $(cardId).hidden = !(arr && arr.length); };
+  const evs = (data.events || []).map(e => (e.high ? '🔴 ' : '🟠 ') + e.time + ' — ' + e.title + (e.forecast || e.previous ? ' (توقع ' + (e.forecast || '—') + ' | سابق ' + (e.previous || '—') + ')' : ''));
+  fillUl('evList', 'evCard', evs);
+  const infoArr = [].concat(data.info || []);
+  (data.geo || []).forEach(g => infoArr.push((g.deesc ? '▼ تهدئة' : g.severity >= 2 ? '▲ تصعيد' : '◆ متابعة') + ' | ' + ((g.regions || []).join('، ') || '—') + ' | حدّة ' + g.severity + '/4 | ' + g.sources + ' مصدر: ' + g.title));
+  Object.keys(data.news || {}).forEach(k => (data.news[k] || []).forEach(h => infoArr.push(k + ': ' + h)));
+  if (data.data_age) infoArr.push('🕓 ' + data.data_age);
+  fillUl('infoList', 'infoCard', infoArr);
+  fillUl('probList', 'probCard', data.problems || []);
+  $('notifText').textContent = tr_('انحياز: ') + st.word + ' | ' + tr_('المخاطرة: ') + score + '/10 ' + lvl.emoji + ' | ' + tr_('السبب: ') + reason;
+  $('detailSummary').textContent = data.detailed_summary || '';
+  output.hidden = false;
+}
+
+$('copyNotif').addEventListener('click', async () => {
+  const b = $('copyNotif');
+  try { await navigator.clipboard.writeText($('notifText').textContent); b.textContent = tr_('تم النسخ'); }
+  catch (e) { b.textContent = tr_('تعذّر النسخ'); }
+  setTimeout(() => { b.textContent = tr_('نسخ النص'); }, 1500);
+});
+
+const DEMO_AR = {"auction":{"prior":{"high":5918,"low":5872,"close":5898,"val":5886,"poc":5895,"vah":5906},"on":{"high":5921,"low":5890,"last":5915,"inv":0.81},"loc":"above","chips":[["t-ok","▲ أعلى قيمة الأمس"],["t-hi","فجوة صاعدة 17.0 نقطة (0.29%)"],["t-hi","مخزون شرائي ليلي"],["t-neutral","VIX 24"]],"exp":"المدى المتوقع (من VIX): نحو 89 نقطة بانحراف معياري واحد، ومدى الجلسة نحو 143 نقطة (غالباً أقل فعلياً)","play":["الافتتاح أعلى القيمة: القبول خارجها يدعم الاستمرار؛ العودة وقبولها داخل القيمة تفتح قاعدة الـ80% نحو 5886 (قاعدة شائعة تحتاج تأكيدك)","المستوى الفاصل: 5906","مخزون الليل أحادي الاتجاه يزيد قابلية التصحيح عند الافتتاح"],"tilt":{"score":0.32,"word":"ميل صاعد","arrow":"▲","why":"فجوة الافتتاح ▲، تغير VIX ▲، إغلاق الأمس ▲"}},"macro":{"label":"متشدد","arrow":"▲","lean":0.45,"conf":"ثقة مرتفعة","pillars":[{"name":"التضخم","arrow":"▲","note":"PCE الأساسي 3.2% سنوياً، أعلى من هدف 2%"},{"name":"سوق العمل","arrow":"▲","note":"البطالة 3.9% وإعانات البطالة مستقرة"},{"name":"قاعدة تايلور","arrow":"▲","note":"تقترح 5.1% مقابل الفعلي 4.5%"},{"name":"الدوت بلوت","arrow":"◆","note":"وسيط نهاية العام 4.25% (‎-25bp‎) والسوق يسعّر ‎-50bp‎: السوق أكثر تيسيراً من الدوت"},{"name":"المالية العامة","arrow":"▲","note":"عجز 12 شهراً 6.1% من الناتج: إنفاق داعم وإصدار سندات كثيف"},{"name":"الظروف المالية","arrow":"◆","note":"الائتمان هادئ"}],"liq":"السيولة الصافية ≈5,100 مليار$ (‎-1.8%‎ خلال 4 أسابيع): تجفيف","gap":"السوق يسعّر تخفيضات (6 أشهر: ‎-70bp‎) بينما البيانات تميل للتشدد: خطر مفاجأة متشددة","gapTitle":"فجوة تسعير كبيرة","meet":"الاجتماع القادم: 2026-10-28 (بعد 24 يوماً)"},"quick_call":{"stance":"sell","recommendation":"ميل سلبي حذر","confidence":"متوسطة","reasons":[]},
+"trend":{"score":6,"label":"اتجاه هابط متماسك"},"confidence":{"score":7,"label":"وضوح جيد للبيانات"},"intensity":{"score":8,"label":"تقلب مرتفع متوقع"},
+"pressures":{"bullish":["أرباح قوية للسبعة الكبار","ضعف الدولار"],"bearish":["ارتفاع عائد 10 سنوات","توتر جيوسياسي يرفع النفط والذهب"]},
+"risk":{"score":7,"label":"","main_reason":"قرار الفائدة بعد 3 ساعات + VIX مرتفع","components":[
+{"key":"events","score":9,"note":"FOMC بعد 3 ساعات"},{"key":"volatility","score":7,"note":"VIX 24 وفي صعود"},{"key":"priced_in","score":4,"note":"حركة محدودة قبل الحدث"},
+{"key":"geopolitics","score":6,"note":"ذهب ونفط أعلى معاً"},{"key":"conflict","score":3,"note":"إشارات متسقة نسبياً"},{"key":"liquidity","score":2,"note":"حجم طبيعي"}]},
+"detailed_summary":"مثال توضيحي: الحدث الكبير القريب والتقلب المرتفع يرفعان المخاطرة، والتوتر الجيوسياسي يضيف ضغطاً. الأرقام هنا تجريبية فقط.",
+"scenarios":[{"name":"هبوط مع الحدث","probability":"45%","description":"خيبة توقعات الفائدة تدفع العائد للأعلى."},{"name":"تذبذب عرضي","probability":"35%","description":"انتظار حتى صدور القرار."},{"name":"ارتداد صاعد","probability":"20%","description":"قرار أهدأ من المتوقع."}]};
+
+const statics = [];
+document.querySelectorAll('.wrap *').forEach(n => { if (!n.children.length && n.textContent.trim() && !n.id.match(/^(lvlIc|lvlName|banner)$/)) statics.push([n, n.textContent]); });
+let LIVE = null;
+function setLang(l) {
+  LANG = l;
+  const dir = l === 'en' ? 'ltr' : 'rtl';
+  document.documentElement.lang = l; document.documentElement.dir = dir; document.querySelector('.wrap').dir = dir;
+  statics.forEach(([n, ar]) => { if (n.id !== 'langBtn') n.textContent = tr_(ar); });
+  $('langBtn').textContent = l === 'en' ? 'عربي' : 'EN';
+  const bn = $('banner');
+  if (LIVE) { bn.textContent = (l === 'en' ? 'Live data, updated ' : 'بيانات حقيقية — آخر تحديث ') + LIVE.updated + (l === 'en' ? ' Baghdad time. Report text stays in Arabic.' : ' بتوقيت بغداد'); bn.className = 'demo live'; }
+  else { bn.textContent = tr_('مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.'); bn.className = 'demo'; }
+  render(LIVE || (l === 'en' ? DEMO_EN : DEMO_AR));
+  try { localStorage.setItem('mirsad-lang', l); } catch (e) {}
+}
+function showTab(t) {
+  document.querySelectorAll('.tab').forEach(d => { d.hidden = d.id !== 'tab-' + t; });
+  document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
+  try { localStorage.setItem('mirsad-tab', t); } catch (e) {}
+}
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
+let tab0 = 'today'; try { tab0 = localStorage.getItem('mirsad-tab') || 'today'; } catch (e) {}
+$('langBtn').addEventListener('click', () => setLang(LANG === 'en' ? 'ar' : 'en'));
+const boot = () => { setLang(LANG); showTab(['today', 'macro', 'details'].includes(tab0) ? tab0 : 'today'); };
+fetch('data.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : null)
+  .then(j => { if (j && j.risk) LIVE = j; else if (j && j.error) { $('banner').textContent = '⚠ ' + j.error; } boot(); })
+  .catch(() => boot());
+void (['today', 'macro', 'details'].includes(tab0) ? tab0 : 'today');
+</script>
+
+</body></html>
