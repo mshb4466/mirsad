@@ -8,11 +8,13 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "test (اختبار فوري) | preopen | auto | calibrate"
+        description: "test (اختبار فوري) | preopen | auto | calibrate | backtest (اختبار تاريخي 5 سنوات)"
         default: "test"
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: mirsad
@@ -21,7 +23,9 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    environment:
+      name: github-pages
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -57,5 +61,26 @@ jobs:
         run: |
           git config user.name "mirsad-bot"
           git config user.email "mirsad-bot@users.noreply.github.com"
-          for f in state.json history.csv; do [ -f "$f" ] && git add "$f"; done
+          for f in state.json history.csv backtest.json; do [ -f "$f" ] && git add "$f"; done
           git diff --cached --quiet || (git commit -m "تحديث حالة مِرصاد" && git push)
+
+      - name: تجهيز الواجهة
+        id: site
+        if: always()
+        run: |
+          if [ -f docs/data.json ]; then echo "ready=true" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/configure-pages@v5
+        if: always() && steps.site.outputs.ready == 'true'
+        continue-on-error: true
+
+      - uses: actions/upload-pages-artifact@v3
+        if: always() && steps.site.outputs.ready == 'true'
+        continue-on-error: true
+        with:
+          path: docs
+
+      - name: نشر الواجهة
+        if: always() && steps.site.outputs.ready == 'true'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
