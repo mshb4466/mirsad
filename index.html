@@ -191,7 +191,7 @@
   .plan.paid li::before { content: '★'; color: var(--brand); }
   @media (max-width: 560px) { .plan-grid { grid-template-columns: 1fr; } }
   .plan-note { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
-  .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 6px; }
+  .tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 6px; }
   .tabs button { padding: 10px 6px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); color: var(--muted); font: 700 14px var(--font-body); cursor: pointer; }
   .tabs button[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); }
   .tab { display: flex; flex-direction: column; gap: 14px; }
@@ -221,39 +221,23 @@
   .t-crit { --tc: var(--crit); --tbg: var(--crit-bg); }
   .t-neutral { --tc: var(--neutral); --tbg: var(--neutral-bg); }
   .t-brand { --tc: var(--brand); --tbg: var(--card-2); }
+  details.ev { border-top: 1px solid var(--line); padding: 10px 0; }
+  details.ev summary { cursor: pointer; font-weight: 700; }
+  .evnums { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .evwhat, .evexp, .evnote { margin: 6px 0 0; font-size: 13px; line-height: 1.6; }
+  .evnote { color: var(--muted); }
+  .evsc { margin-top: 6px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.6; background: var(--card-2); border-inline-start: 4px solid var(--neutral); }
+  .evsc.above { border-inline-start-color: var(--hi); } .evsc.below { border-inline-start-color: var(--ok); }
   @media (max-width: 380px) { .press { grid-template-columns: 1fr; } .score { font-size: 46px; } }
 </style>
 
 <div class="wrap">
   <div class="top">
     <div class="brand"><div class="logo">م</div><div><h1>مِرصاد</h1><small>سياق السوق بنظرة واحدة</small></div></div>
-    <div class="chips" aria-label="الأصل"><button class="chip lang" id="langBtn" type="button">EN</button>
+    <div class="chips" aria-label="الأصل">
       <span class="chip on">ES</span><span class="chip soon">ذهب · قريباً</span><span class="chip soon">نفط · قريباً</span><span class="chip soon">EUR/USD · قريباً</span><span class="chip soon">BTC · قريباً</span>
     </div>
   </div>
-
-  <details class="card plans" id="plans">
-    <summary>المجاني مقابل المدفوع: ماذا تحصل عليه</summary>
-    <div class="plan-grid">
-      <div class="plan free"><h3>المجاني (الحالي)</h3><ul>
-        <li>تقرير قبل افتتاح السوق وتنبيه بعد البيانات الكبرى وتنبيه للحركات المفاجئة على تيليجرام</li>
-        <li>مقياس مخاطرة من 17 مكوّناً بأوزان متكيّفة</li>
-        <li>منظومة الفدرالي: الدوت بلوت وتسعير السوق والتضخم والعمل والعجز والسيولة</li>
-        <li>سياق المزاد من شموع 5 دقائق: قيمة الأمس والجلسة الليلية والمدى المتوقع</li>
-        <li>تصنيف الأخبار الجيوسياسية بالقواعد مع التحقق بحركة السوق</li>
-        <li>اختبار تاريخي ومعايرة بسجل الأداء</li>
-        <li>بيانات مجانية متأخرة (Yahoo وFRED) وفحص كل ~15 دقيقة</li>
-      </ul></div>
-      <div class="plan paid"><h3>المدفوع (مخطَّط)</h3><ul>
-        <li>بيانات لحظية رسمية وتنبيهات خلال ثوانٍ</li>
-        <li>ذكاء اصطناعي يفسّر الأخبار الجيوسياسية المعقدة ويقيّم أثرها</li>
-        <li>تمركز الخيارات (Gamma) واحتمالات الفائدة الدقيقة</li>
-        <li>تدفق الأوامر: الحجم عند السعر وDelta وعمق السوق</li>
-        <li>أصول متعددة: فوركس وسلع وبيتكوين، وتطبيق بإشعارات فورية</li>
-      </ul></div>
-      <div class="plan-note">المدفوع قيد التخطيط وغير متاح الآن، ويُبنى بعد إثبات جدوى النسخة المجانية.</div>
-    </div>
-  </details>
 
   <div class="demo" id="banner">مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.</div>
 
@@ -261,11 +245,16 @@
     <button type="button" role="tab" data-tab="today" aria-selected="true">اليوم</button>
     <button type="button" role="tab" data-tab="macro" aria-selected="false">المنظومة</button>
     <button type="button" role="tab" data-tab="details" aria-selected="false">التفاصيل</button>
+    <button type="button" role="tab" data-tab="settings" aria-selected="false">الإعدادات</button>
   </div>
 
   <div id="output" hidden>
 
    <div class="tab" id="tab-today">
+    <section class="card" id="evCard" hidden>
+      <h2>أحداث اليوم المؤثرة على ES (توقيت بغداد)</h2>
+      <div id="evList"></div>
+    </section>
     <section class="card hero" id="hero">
       <svg class="gauge" id="gauge" viewBox="0 0 260 150" role="img" aria-label="مقياس المخاطرة"></svg>
       <div class="gauge-center">
@@ -275,10 +264,10 @@
       <p class="why" id="riskReason"></p>
       <p class="advice" id="riskAdvice"></p>
       <div class="scale" id="riskScale">
-        <div style="--c:var(--ok);--cbg:var(--ok-bg)"><b>0–3</b><span>منخفضة</span></div>
-        <div style="--c:var(--warn);--cbg:var(--warn-bg)"><b>4–6</b><span>متوسطة</span></div>
-        <div style="--c:var(--hi);--cbg:var(--hi-bg)"><b>7–8</b><span>عالية</span></div>
-        <div style="--c:var(--crit);--cbg:var(--crit-bg)"><b>9–10</b><span>قصوى</span></div>
+        <div style="--c:var(--ok);--cbg:var(--ok-bg)"><span>منخفضة</span></div>
+        <div style="--c:var(--warn);--cbg:var(--warn-bg)"><span>متوسطة</span></div>
+        <div style="--c:var(--hi);--cbg:var(--hi-bg)"><span>عالية</span></div>
+        <div style="--c:var(--crit);--cbg:var(--crit-bg)"><span>قصوى</span></div>
       </div>
     </section>
 
@@ -332,15 +321,12 @@
 
    <div class="tab" id="tab-details" hidden>
     <section class="card">
-      <h2>ما الذي يرفع المخاطرة؟ (مرتّبة حسب المساهمة)</h2>
+      <h2>أهم ما يحرّك المخاطرة</h2>
       <div class="wnote" id="wnote"></div>
       <div class="comps" id="comps"></div>
+      <button class="btn-ghost" id="moreComps" type="button">عرض كل المكوّنات</button>
     </section>
 
-    <section class="card" id="evCard" hidden>
-      <h2>أحداث USD خلال 24 ساعة</h2>
-      <div class="scn" id="evList"></div>
-    </section>
 
     <section class="card" id="infoCard" hidden>
       <h2>السياق والعناوين</h2>
@@ -352,21 +338,49 @@
       <ul class="play" id="probList"></ul>
     </section>
 
-    <section class="card" id="scnCard">
+    <section class="card" id="scnCard" hidden>
       <h2>سيناريوهات محتملة</h2>
       <div class="scn" id="scenarios"></div>
     </section>
 
-    <section class="card">
-      <h2>شكل الإشعار على الهاتف</h2>
+    <details class="card"><summary>شكل الإشعار على الهاتف</summary>
       <div class="phone"><div class="notif"><div class="nh"><span class="logo">م</span><span>مِرصاد · الآن</span></div><div class="nt" id="notifText"></div></div></div>
       <button class="btn-ghost" id="copyNotif" type="button">نسخ النص</button>
-    </section>
+    </details>
 
-    <section class="card">
-      <h2>التقرير التفصيلي</h2>
+    <details class="card"><summary>التقرير النصي الكامل</summary>
       <p class="summary" id="detailSummary"></p>
+    </details>
+   </div>
+   <div class="tab" id="tab-settings" hidden>
+    <section class="card">
+      <h2>اللغة</h2>
+      <p class="summary">لغة عناوين الواجهة فقط. نص التقرير الحي يبقى بالعربية.</p>
+      <button class="btn-ghost" id="langBtn" type="button">EN</button>
     </section>
+  <details class="card plans" id="plans" open>
+    <summary>المجاني مقابل المدفوع: ماذا تحصل عليه</summary>
+    <div class="plan-grid">
+      <div class="plan free"><h3>المجاني (الحالي)</h3><ul>
+        <li>تقرير قبل افتتاح السوق وتنبيه بعد البيانات الكبرى وتنبيه للحركات المفاجئة على تيليجرام</li>
+        <li>مقياس مخاطرة من 17 مكوّناً بأوزان متكيّفة</li>
+        <li>منظومة الفدرالي: الدوت بلوت وتسعير السوق والتضخم والعمل والعجز والسيولة</li>
+        <li>سياق المزاد من شموع 5 دقائق: قيمة الأمس والجلسة الليلية والمدى المتوقع</li>
+        <li>تصنيف الأخبار الجيوسياسية بالقواعد مع التحقق بحركة السوق</li>
+        <li>اختبار تاريخي ومعايرة بسجل الأداء</li>
+        <li>بيانات مجانية متأخرة (Yahoo وFRED) وفحص كل ~15 دقيقة</li>
+      </ul></div>
+      <div class="plan paid"><h3>المدفوع (مخطَّط)</h3><ul>
+        <li>بيانات لحظية رسمية وتنبيهات خلال ثوانٍ</li>
+        <li>ذكاء اصطناعي يفسّر الأخبار الجيوسياسية المعقدة ويقيّم أثرها</li>
+        <li>تمركز الخيارات (Gamma) واحتمالات الفائدة الدقيقة</li>
+        <li>تدفق الأوامر: الحجم عند السعر وDelta وعمق السوق</li>
+        <li>أصول متعددة: فوركس وسلع وبيتكوين، وتطبيق بإشعارات فورية</li>
+      </ul></div>
+      <div class="plan-note">المدفوع قيد التخطيط وغير متاح الآن، ويُبنى بعد إثبات جدوى النسخة المجانية.</div>
+    </div>
+  </details>
+
    </div>
   </div>
 
@@ -429,7 +443,7 @@ const EN = {
   'تدفق الأوامر: الحجم عند السعر وDelta وعمق السوق': 'Order flow: volume at price, delta and market depth',
   'أصول متعددة: فوركس وسلع وبيتكوين، وتطبيق بإشعارات فورية': 'Multiple assets: forex, commodities, Bitcoin, plus an app with instant push',
   'المدفوع قيد التخطيط وغير متاح الآن، ويُبنى بعد إثبات جدوى النسخة المجانية.': 'The paid tier is planned, not available yet; it is built after the free version proves its worth.',
-  'اليوم': 'Today', 'المنظومة': 'Macro', 'التفاصيل': 'Details',
+  'اليوم': 'Today', 'المنظومة': 'Macro', 'التفاصيل': 'Details', 'الإعدادات': 'Settings', 'اللغة': 'Language', 'أهم ما يحرّك المخاطرة': 'Top risk drivers', 'عرض كل المكوّنات': 'Show all components', 'أحداث اليوم المؤثرة على ES (توقيت بغداد)': 'Today\'s events that matter for ES (Baghdad time)', 'عرض الأهم فقط': 'Show top only', 'شكل الإشعار على الهاتف': 'Phone notification preview', 'التقرير النصي الكامل': 'Full text report', 'لغة عناوين الواجهة فقط. نص التقرير الحي يبقى بالعربية.': 'Interface labels only. Live report text stays in Arabic.',
   'سياق المزاد للمتداول اليومي (ES)': 'Auction context for the day trader (ES)',
   'ميل تجريبي لم يُثبت بعد، يُقاس في الاختبار التاريخي. ليس إشارة دخول.': 'Experimental tilt, not yet proven; it is measured in the historical backtest. Not an entry signal.',
   'أمس': 'Prior', 'الليل': 'Overnight', 'الآن': 'Now'
@@ -600,7 +614,7 @@ function render(data) {
   drawGauge(score);
   $('riskNum').textContent = score;
   $('lvlIc').textContent = lvl.ic; $('lvlName').textContent = tr_(lvl.name);
-  $('riskReason').textContent = reason ? tr_('السبب الرئيسي: ') + reason : '';
+  $('riskReason').textContent = reason ? (real && data.risk.reason_label && data.risk.reason_label !== 'السبب' ? data.risk.reason_label + ': ' : tr_('السبب الرئيسي: ')) + reason : '';
   $('riskAdvice').textContent = real && data.risk.advice ? data.risk.advice : tr_(lvl.advice);
   document.querySelectorAll('#riskScale div').forEach((d, i) => d.classList.toggle('on', i === lvl.i));
 
@@ -658,6 +672,10 @@ function render(data) {
     body.appendChild(head); body.appendChild(bar); body.appendChild(meta);
     row.appendChild(body); cw.appendChild(row);
   });
+  const kids = Array.from(cw.children);
+  kids.forEach((k, i) => { k.hidden = !SHOWALL && i >= 5; });
+  const mb = $('moreComps'); mb.hidden = kids.length <= 5;
+  mb.textContent = tr_(SHOWALL ? 'عرض الأهم فقط' : 'عرض كل المكوّنات');
 
   /* السيناريوهات */
   const sw = $('scenarios'); sw.innerHTML = '';
@@ -672,8 +690,26 @@ function render(data) {
 
   const sc = data.scenarios || []; $('scnCard').hidden = !sc.length;
   const fillUl = (id, cardId, arr) => { const ul = $(id); ul.innerHTML = ''; (arr || []).forEach(t => ul.appendChild(el('li', '', t))); $(cardId).hidden = !(arr && arr.length); };
-  const evs = (data.events || []).map(e => (e.high ? '🔴 ' : '🟠 ') + e.time + ' — ' + e.title + (e.forecast || e.previous ? ' (توقع ' + (e.forecast || '—') + ' | سابق ' + (e.previous || '—') + ')' : ''));
-  fillUl('evList', 'evCard', evs);
+  const evBox = $('evList'); evBox.innerHTML = '';
+  (data.events || []).forEach(e => {
+    const d = document.createElement('details'); d.className = 'ev'; if (e.high) d.open = true;
+    const sm = document.createElement('summary');
+    sm.appendChild(el('span', 'num', (e.high ? '🔴 ' : '🟠 ') + e.time + ' — '));
+    sm.appendChild(document.createTextNode((e.name || e.title)));
+    d.appendChild(sm);
+    const fp = el('div', 'evnums num');
+    fp.textContent = (e.actual ? 'الفعلي ' + e.actual + ' | ' : '') + 'المتوقع ' + (e.forecast || '—') + ' | السابق ' + (e.previous || '—');
+    d.appendChild(fp);
+    if (e.what) d.appendChild(el('p', 'evwhat', e.what));
+    if (e.expect) d.appendChild(el('p', 'evexp', e.expect));
+    if (e.surprise) d.appendChild(el('p', 'evexp', 'النتيجة: ' + e.surprise));
+    (e.scenarios || []).forEach(s => {
+      const r = el('div', 'evsc ' + s.k); r.appendChild(el('b', '', s.label + ': ')); r.appendChild(document.createTextNode(s.text)); d.appendChild(r);
+    });
+    if (e.note) d.appendChild(el('p', 'evnote', e.note));
+    evBox.appendChild(d);
+  });
+  $('evCard').hidden = !(data.events && data.events.length);
   const infoArr = [].concat(data.info || []);
   (data.geo || []).forEach(g => infoArr.push((g.deesc ? '▼ تهدئة' : g.severity >= 2 ? '▲ تصعيد' : '◆ متابعة') + ' | ' + ((g.regions || []).join('، ') || '—') + ' | حدّة ' + g.severity + '/4 | ' + g.sources + ' مصدر: ' + g.title));
   Object.keys(data.news || {}).forEach(k => (data.news[k] || []).forEach(h => infoArr.push(k + ': ' + h)));
@@ -703,7 +739,7 @@ const DEMO_AR = {"auction":{"prior":{"high":5918,"low":5872,"close":5898,"val":5
 
 const statics = [];
 document.querySelectorAll('.wrap *').forEach(n => { if (!n.children.length && n.textContent.trim() && !n.id.match(/^(lvlIc|lvlName|banner)$/)) statics.push([n, n.textContent]); });
-let LIVE = null;
+let LIVE = null; let SHOWALL = false;
 function setLang(l) {
   LANG = l;
   const dir = l === 'en' ? 'ltr' : 'rtl';
@@ -723,12 +759,13 @@ function showTab(t) {
 }
 document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
 let tab0 = 'today'; try { tab0 = localStorage.getItem('mirsad-tab') || 'today'; } catch (e) {}
+$('moreComps').addEventListener('click', () => { SHOWALL = !SHOWALL; render(LIVE || (LANG === 'en' ? DEMO_EN : DEMO_AR)); });
 $('langBtn').addEventListener('click', () => setLang(LANG === 'en' ? 'ar' : 'en'));
-const boot = () => { setLang(LANG); showTab(['today', 'macro', 'details'].includes(tab0) ? tab0 : 'today'); };
+const boot = () => { setLang(LANG); showTab(['today', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today'); };
 fetch('data.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : null)
   .then(j => { if (j && j.risk) LIVE = j; else if (j && j.error) { $('banner').textContent = '⚠ ' + j.error; } boot(); })
   .catch(() => boot());
-void (['today', 'macro', 'details'].includes(tab0) ? tab0 : 'today');
+void (['today', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today');
 </script>
 
 </body></html>

@@ -5,6 +5,7 @@
 لا حسابات جديدة هنا: فقط إعادة تشكيل ما حسبه collector وmacro وauction وgeo.
 """
 import json
+import events_ctx
 import os
 from datetime import timedelta
 
@@ -96,12 +97,12 @@ def build_view(report, events, now, news_labels=None):
     upcoming = []
     for e in events or []:
         if e.get("impact") in ("High", "Medium") and now <= e["time"] <= now + timedelta(hours=24):
-            upcoming.append({"time": (e["time"] + timedelta(hours=3)).strftime("%H:%M"), "title": e["title"],
-                             "high": e["impact"] == "High", "forecast": e.get("forecast", ""), "previous": e.get("previous", "")})
+            upcoming.append(events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"),
+                                                (report.get("macro") or {}).get("label", "")))
     geo = report.get("geo") or {}
     view = {
         "live": True, "updated": _baghdad(now),
-        "risk": {"real": True, "score": r["score"], "label": r["level"], "main_reason": r["main_reason"],
+        "risk": {"real": True, "score": r["score"], "label": r["level"], "main_reason": r["main_reason"], "reason_label": r.get("reason_label", "السبب"),
                  "advice": r["advice"], "weights_note": r.get("weights_note", []), "components": comps},
         "quick_call": {"stance": stance, "recommendation": rec, "confidence": ""},
         "intensity": ({"score": vol["score"], "label": vol["note"]} if vol else None),

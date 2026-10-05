@@ -26,6 +26,7 @@ from email.utils import parsedate_to_datetime
 import calibrate
 import auction
 import dashboard
+import events_ctx
 import collector as c
 import macro
 
@@ -262,7 +263,7 @@ def risk_lines(report):
         return ["⚠ " + report["error"]]
     r = report["risk"]
     lines = [f"المخاطرة: {r['score']}/10 {r['emoji']} ({r['level']})", bar(r["score"]),
-             f"السبب: {r['main_reason']}", r["advice"]]
+             f"{r.get('reason_label', 'السبب')}: {r['main_reason']}", r["advice"]]
     comps = sorted(r["components"], key=lambda x: x["score"] * x["weight"], reverse=True)[:4]
     lines += ["", "أبرز المكوّنات:"] + [f"{dot(x['score'])} {x['name']} {x['score']:g}/10" for x in comps]
     return lines
@@ -322,7 +323,12 @@ def format_preopen(report, events, now, prefix=""):
         for e in upcoming[:6]:
             mark = "🔴" if e["impact"] == "High" else "🟠"
             extra = f" (توقع {e['forecast']} | سابق {e['previous']})" if e["forecast"] or e["previous"] else ""
-            lines.append(f"{mark} {hhmm(e['time'])} — {e['title']}{extra}")
+            d = events_ctx.describe(e, hhmm(e["time"]), ((report.get("macro") or {}).get("label", "")))
+            lines.append(f"{mark} {hhmm(e['time'])} — {e['title']}{(' · ' + d['name']) if d['name'] != e['title'] else ''}{extra}")
+            if d["expect"]:
+                lines.append(f"   ↳ {d['expect']}")
+            if d["short"] and e["impact"] == "High":
+                lines.append(f"   ↳ {d['short']}")
     for topic, label in NEWS_LABELS.items():
         items = (report.get("news") or {}).get(topic)
         if items:
@@ -339,8 +345,14 @@ def format_release(ev, es_reaction, report):
     lines = [f"📥 مِرصاد — صدرت بيانات: {ev['title']}",
              f"الفعلي: {ev['actual']} | المتوقع: {ev['forecast'] or '—'} | السابق: {ev['previous'] or '—'}"]
     s = surprise(ev)
-    if s:
-        lines.append(f"النتيجة: {s}")
+    ml = ((report or {}).get("macro") or {}).get("label", "")
+    ir = events_ctx.interpret_release(ev, ml)
+    if ir["surprise"] or s:
+        lines.append(f"النتيجة: {ir['surprise'] or s}")
+    if ir["meaning"]:
+        lines.append(f"المعنى المعتاد لـ ES: {ir['meaning']}")
+    if ir["note"]:
+        lines.append(f"ملاحظة: {ir['note']}")
     if es_reaction is not None:
         lines.append(f"حركة ES منذ الصدور: {es_reaction:+.2f}%")
     if report is not None:

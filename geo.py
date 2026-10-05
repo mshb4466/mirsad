@@ -52,6 +52,10 @@ def classify(title):
     """يُرجع dict(cats, regions, severity, deesc) أو None إن لم يكن العنوان جيوسياسياً."""
     t = " " + title.lower() + " "
     cats = [k for k, (_, _, words) in CATEGORIES.items() if _has(t, words)]
+    # الطاقة النووية المدنية/السياسة الحزبية ليست تصعيداً عسكرياً
+    if "nuclear" in cats and _has(t, ["nuclear power", "nuclear energy", "nuclear plant", "power plant", "reactor", "green party", "greens", "net zero", "renewable"]) \
+            and not _has(t, ["weapon", "warhead", "missile", "bomb", "enrichment", "iran", "north korea", "strike", "تخصيب"]):
+        cats.remove("nuclear")
     if not cats:
         return None
     sev = max(CATEGORIES[k][1] for k in cats)
