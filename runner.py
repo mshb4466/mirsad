@@ -25,6 +25,7 @@ from email.utils import parsedate_to_datetime
 
 import calibrate
 import auction
+import dashboard
 import collector as c
 import macro
 
@@ -493,7 +494,15 @@ def run_preopen(now, state, send, deps, prefix=""):
         update_history(report, prices, now, deps.get("history_path", HISTORY_FILE))
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث سجل الأداء: {e}")
-    send(format_preopen(report, events, now, prefix))
+    try:
+        dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"))
+    except Exception as e:  # noqa: BLE001
+        report["problems"].append(f"تعذّر تحديث صفحة الواجهة: {e}")
+    msg = format_preopen(report, events, now, prefix)
+    url = dashboard.page_url()
+    if url:
+        msg += f"\n\n🖥 الواجهة الكاملة: {url}"
+    send(msg)
 
 
 def run_auto(now, state, send, deps):

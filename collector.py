@@ -260,7 +260,7 @@ def fetch_fred(now, days=45, series=None):
             else:
                 problems.append(f"تعذّر جلب {sid} من FRED: لا بيانات")
     except Exception as e:  # noqa: BLE001
-        problems.append(f"تعذّر جلب FRED (طلب مجمّع لـ {len(items)} سلسلة): {type(e).__name__}: {e}")
+        problems.append(f"تعذّر جلب FRED (طلب مجمّع لـ {len(items)} سلسلة، بلا مفتاح API — FRED_API_KEY غير واصل للبرنامج): {type(e).__name__}: {e}")
     return out, problems
 
 

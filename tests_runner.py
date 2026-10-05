@@ -52,6 +52,7 @@ def deps(raw_events, intraday, headlines=None):
         "intraday": lambda now: intraday,
         "headlines": lambda now: headlines or [],
         "history_path": os.path.join(tempfile.mkdtemp(), "history.csv"),
+        "docs_dir": tempfile.mkdtemp(),
     }
 
 
