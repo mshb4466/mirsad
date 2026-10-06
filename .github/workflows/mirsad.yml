@@ -69,7 +69,8 @@ jobs:
         if: always()
         run: |
           mkdir -p docs
-          if [ ! -f docs/index.html ] && [ -f index.html ]; then cp index.html docs/index.html; fi
+          if [ -f index.html ]; then cp -f index.html docs/index.html; fi
+          if [ -d icons ]; then mkdir -p docs/icons && cp -f icons/* docs/icons/; fi
           if [ -f docs/data.json ] && [ -f docs/index.html ]; then echo "ready=true" >> "$GITHUB_OUTPUT"; fi
 
       - uses: actions/configure-pages@v5
