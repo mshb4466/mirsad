@@ -660,7 +660,7 @@ def run_preopen(now, state, send, deps, prefix=""):
     msg = format_preopen(report, events, now, prefix)
     url = dashboard.page_url()
     if url:
-        msg += f"\n\n🖥 الواجهة الكاملة: {url}"
+        msg += f"\n\n🖥 الواجهة الكاملة (اضغط على الرابط):\n{url}index.html"
     send(msg)
 
 
