@@ -137,18 +137,120 @@ def vs_previous(actual, previous):
     return f"{'أعلى' if a > p else 'أقل'} من السابق بـ {_fmt(abs(a - p))}{_unit(actual)}"
 
 
+def combined(actual, forecast, previous):
+    """قراءة مشتركة: الفعلي مقابل المتوقع ومقابل السابق معاً."""
+    a, f, p = _num(actual), _num(forecast), _num(previous)
+    if a is None or f is None or p is None:
+        return ""
+    sf = 0 if abs(a - f) < 1e-9 else (1 if a > f else -1)
+    sp = 0 if abs(a - p) < 1e-9 else (1 if a > p else -1)
+    if sf > 0 and sp > 0:
+        return "الفعلي فوق المتوقع وفوق السابق: مفاجأة مع اتجاه متصاعد، فالأثر في اتجاه «أعلى من المتوقع» أقوى من المعتاد."
+    if sf < 0 and sp < 0:
+        return "الفعلي دون المتوقع ودون السابق: مفاجأة مع اتجاه متراجع، فالأثر في اتجاه «أقل من المتوقع» أقوى من المعتاد."
+    if sf > 0 and sp <= 0:
+        return "الفعلي فوق المتوقع لكنه لم يتجاوز السابق: السوق كان يتوقع تراجعاً أكبر، فالمفاجأة موجودة لكن الاتجاه العام لم ينقلب، والأثر أخف."
+    if sf < 0 and sp >= 0:
+        return "الفعلي دون المتوقع لكنه لم ينزل عن السابق: خيبة نسبية فقط، والأثر أخف من مفاجأة سلبية كاملة."
+    if sf == 0 and sp != 0:
+        return "مطابق للمتوقع، والتغير عن السابق كان مسعَّراً مسبقاً، فرد الفعل غالباً محدود."
+    return "لا مفاجأة ولا تغيير ملحوظ، رد الفعل غالباً محدود."
+
+
 # السيناريو الأخطر على ES حسب نوع الحدث (hawk = ميل الفدرالي متشدد)
 WORST = {"infl": ("above", "above"), "labor": ("above", "below"), "unemp": ("below", "above"),
          "growth": ("above", "below"), "rate": ("above", "above"), "speech": ("above", "above"), "auction": ("above", "above")}
 
 
-def describe(ev, hhmm_baghdad, macro_label=""):
+PILLARS = {"infl": ["inflation", "taylor"], "labor": ["labor"], "unemp": ["labor"], "growth": ["growth", "fincond"],
+           "rate": ["dots", "taylor"], "speech": ["dots"], "auction": ["fincond"], "sent": ["inflation"]}
+# أي اتجاه (أعلى من المتوقع) يدفع نحو التشدد؟ +1 نعم، -1 يدفع نحو التيسير
+HAWK_DIR = {"infl": 1, "labor": 1, "unemp": -1, "growth": 1, "rate": 1, "speech": 1, "auction": 1, "sent": 1}
+
+
+# أثر كل سيناريو (أعلى، مطابق، أقل) على ES: bear ضغط، bull دعم، neu محايد — (حالة متشدد، غير متشدد)
+EFFECT = {"infl": (("bear", "neu", "bull"),) * 2, "labor": (("bear", "neu", "bull"), ("bull", "neu", "bear")),
+          "unemp": (("bull", "neu", "bear"), ("bear", "neu", "bull")), "growth": (("bear", "neu", "bull"), ("bull", "neu", "bear")),
+          "rate": (("bear", "neu", "bull"),) * 2, "speech": (("bear", "neu", "bull"),) * 2, "auction": (("bear", "neu", "bull"),) * 2,
+          "sent": (("bull", "neu", "bear"),) * 2, "housing": (("neu", "neu", "neu"),) * 2}
+
+
+def build_ctx(report):
+    """يستخرج سياق المنظومة من التقرير: الفدرالي، المخاطرة، التقلب، موقع السعر من المزاد."""
+    report = report or {}
+    risk, au = report.get("risk") or {}, report.get("auction") or {}
+    return {"macro": report.get("macro") or {}, "score": risk.get("score"), "level": risk.get("level"),
+            "vix": ((report.get("data") or {}).get("vix") or {}).get("last"), "loc": au.get("location")}
+
+
+def system_lines(kind, ev, ctx):
+    """يربط الحدث بالمنظومة الكلية وبحالة ES الآن. يعيد (سطور السياق, سطر الأثر بعد الصدور)."""
+    ctx = ctx or {}
+    m = ctx.get("macro") or {}
+    lines, effect = [], ""
+    if not m or kind not in PILLARS:
+        return lines, effect
+    by = {p["key"]: p for p in m.get("pillars", [])}
+    for k in PILLARS[kind]:
+        p = by.get(k)
+        if p:
+            lines.append(f"{p['name']} الآن {p['arrow']}: {p['note']}")
+    lines.append(f"ميل الفدرالي العام: {m.get('label', '')} (ثقة {m.get('confidence', '—')})"
+                 + (" مع تعارض بين التضخم والعمل، فالقرارات أقل قابلية للتوقع" if m.get("dilemma") else ""))
+    gap = m.get("gap")
+    g = (gap or {}).get("value")
+    if gap and gap.get("size") != "صغيرة":
+        lines.append("فجوة التسعير: " + gap["direction"])
+    mt = m.get("meeting")
+    if mt:
+        lines.append(f"الاجتماع القادم بعد {mt['days']} يوماً ({mt['date']}): هذه البيانات تدخل في حسابه")
+    es = []
+    if ctx.get("score") is not None:
+        es.append(f"مخاطرة السوق {ctx['score']} ({ctx.get('level') or '—'})")
+    if ctx.get("vix"):
+        es.append(f"VIX {ctx['vix']:.1f}")
+    loc = {"above_value": "ES فوق قيمة الأمس", "below_value": "ES تحت قيمة الأمس", "inside_value": "ES داخل قيمة الأمس"}.get(ctx.get("loc"))
+    if loc:
+        es.append(loc)
+    if es:
+        lines.append("حالة ES الآن: " + "، ".join(es))
+    # أثر النتيجة على المنظومة بعد الصدور
+    a, f = _num(ev.get("actual")), _num(ev.get("forecast"))
+    if a is not None and f is not None and abs(a - f) > 1e-9:
+        hawk = (1 if a > f else -1) * HAWK_DIR.get(kind, 1)
+        side = "متشدد" if hawk > 0 else "متساهل"
+        cur = m.get("lean", 0)
+        if (cur > 0.15 and hawk > 0) or (cur < -0.15 and hawk < 0):
+            effect = f"النتيجة تدفع في اتجاه {side} وهو نفس ميل المنظومة الحالي، فتزيد قناعة السوق بهذا المسار."
+        elif (cur > 0.15 and hawk < 0) or (cur < -0.15 and hawk > 0):
+            effect = f"النتيجة تدفع في اتجاه {side} عكس ميل المنظومة الحالي ({m.get('label', '')})، فتخفف الميل لكنها وحدها لا تقلبه."
+        else:
+            effect = f"النتيجة تدفع في اتجاه {side} والمنظومة محايدة نسبياً، فقد تكون هذه البيانات مرجّحة للاتجاه القادم."
+        if g is not None and gap.get("size") != "صغيرة":
+            if g > 0 and hawk > 0:
+                effect += " والسوق مسعّر للتيسير أكثر من المبرَّر، فهذه المفاجأة المتشددة أخطر من المعتاد."
+            elif g < 0 and hawk < 0:
+                effect += " والسوق مسعّر للتشدد أكثر من المبرَّر، فهذه المفاجأة المتساهلة قد تحرك السوق أكثر من المعتاد."
+    return lines, effect
+
+
+def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
     kind, name, what = classify(ev.get("title", ""))
     d = {"time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
          "forecast": ev.get("forecast", ""), "previous": ev.get("previous", ""), "actual": ev.get("actual", ""),
          "name": name or ev.get("title", ""), "what": what or "", "expect": expectation(ev.get("forecast"), ev.get("previous")),
          "surprise": surprise(ev.get("actual"), ev.get("forecast")) if ev.get("actual") else "", "scenarios": [], "note": "", "short": "", "vs_prev": vs_previous(ev.get("actual"), ev.get("previous")) if ev.get("actual") else "",
-         "likely": "", "worst": ""}
+         "likely": "", "worst": "",
+         "system": [], "system_effect": "",
+         "combined": combined(ev.get("actual"), ev.get("forecast"), ev.get("previous")) if ev.get("actual") else ""}
+    if ctx is not None:
+        d["system"], d["system_effect"] = system_lines(kind, ev, ctx)
+        m = (ctx or {}).get("macro") or {}
+        by = {p["key"]: p for p in m.get("pillars", [])}
+        pk = next((by[k] for k in PILLARS.get(kind, []) if k in by), None)
+        if m and pk:
+            d["chain"] = [{"t": name or ev.get("title", ""), "s": "الحدث"}, {"t": f"{pk['name']} {pk['arrow']}", "s": "الركيزة الآن"},
+                          {"t": m.get("label", ""), "s": "ميل الفدرالي"}]
     if kind in TEXT:
         up, mid, down, note = TEXT[kind]
         d["scenarios"] = [{"k": "above", "label": "أعلى من المتوقع", "text": up},
@@ -157,6 +259,9 @@ def describe(ev, hhmm_baghdad, macro_label=""):
         d["note"] = note
         d["short"] = " | ".join(SHORT[kind])
         hawk = "متشدد" in (macro_label or "")
+        eff = EFFECT.get(kind, (("neu",) * 3,) * 2)[0 if hawk else 1]
+        for sc, ef in zip(d["scenarios"], eff):
+            sc["es"] = ef
         if kind in WORST:
             d["worst"] = WORST[kind][0 if hawk else 1]
         fv, pv = _num(ev.get("forecast")), _num(ev.get("previous"))
@@ -179,12 +284,12 @@ def describe(ev, hhmm_baghdad, macro_label=""):
     return d
 
 
-def interpret_release(ev, macro_label=""):
+def interpret_release(ev, macro_label="", ctx=None):
     """بعد الصدور: نص المفاجأة ومعناها المعتاد لـ ES (قاعدة عامة)."""
-    d = describe(ev, "", macro_label)
+    d = describe(ev, "", macro_label, ctx)
     a, f = _num(ev.get("actual")), _num(ev.get("forecast"))
     key = None
     if a is not None and f is not None:
         key = "inline" if abs(a - f) < 1e-9 else ("above" if a > f else "below")
     meaning = next((s["text"] for s in d["scenarios"] if s["k"] == key), "")
-    return {"surprise": d["surprise"], "vs_prev": d["vs_prev"], "meaning": meaning, "note": d["note"], "name": d["name"]}
+    return {"surprise": d["surprise"], "vs_prev": d["vs_prev"], "combined": d["combined"], "system": d["system"], "system_effect": d["system_effect"], "meaning": meaning, "note": d["note"], "name": d["name"]}

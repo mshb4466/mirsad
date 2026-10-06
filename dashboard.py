@@ -98,14 +98,14 @@ def build_view(report, events, now, news_labels=None):
     for e in events or []:
         if e.get("impact") in ("High", "Medium") and now <= e["time"] <= now + timedelta(hours=24):
             upcoming.append(events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"),
-                                                (report.get("macro") or {}).get("label", "")))
+                                                (report.get("macro") or {}).get("label", ""), events_ctx.build_ctx(report)))
     later = []
     for e in events or []:
         if e.get("impact") == "High" and now + timedelta(hours=24) < e["time"] <= now + timedelta(days=7):
             bt = e["time"] + timedelta(hours=3)
             day = ["الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"][bt.weekday()]
             dd = events_ctx.describe(e, f"{day} {bt.strftime('%H:%M')}",
-                                     (report.get("macro") or {}).get("label", ""))
+                                     (report.get("macro") or {}).get("label", ""), events_ctx.build_ctx(report))
             later.append(dd)
     geo = report.get("geo") or {}
     view = {
