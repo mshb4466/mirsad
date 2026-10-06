@@ -99,6 +99,14 @@ def build_view(report, events, now, news_labels=None):
         if e.get("impact") in ("High", "Medium") and now <= e["time"] <= now + timedelta(hours=24):
             upcoming.append(events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"),
                                                 (report.get("macro") or {}).get("label", "")))
+    later = []
+    for e in events or []:
+        if e.get("impact") == "High" and now + timedelta(hours=24) < e["time"] <= now + timedelta(days=7):
+            bt = e["time"] + timedelta(hours=3)
+            day = ["الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"][bt.weekday()]
+            dd = events_ctx.describe(e, f"{day} {bt.strftime('%H:%M')}",
+                                     (report.get("macro") or {}).get("label", ""))
+            later.append(dd)
     geo = report.get("geo") or {}
     view = {
         "live": True, "updated": _baghdad(now),
@@ -108,7 +116,7 @@ def build_view(report, events, now, news_labels=None):
         "intensity": ({"score": vol["score"], "label": vol["note"]} if vol else None),
         "pressures": {"bullish": bullish, "bearish": bearish},
         "auction": au, "macro": _macro(report),
-        "events": upcoming,
+        "events": upcoming, "events_next": later[:3],
         "info": [info[k] for k in ("rates", "tech", "mag7", "banks", "cot", "earnings") if k in info],
         "geo": [{"title": t["title"], "severity": t["severity"], "sources": t["sources"],
                  "regions": t["regions"], "deesc": t["deesc"]} for t in (geo.get("top") or [])[:3]],
