@@ -121,6 +121,45 @@ def test_auto_shock_and_cooldown():
     assert r.run_auto(later, st, box, d2) == 1
 
 
+def rally_oil_drop_intraday():
+    return {
+        "es": series({0: 5990, 65: 5925, 185: 5900}),     # +1.1% خلال ساعة
+        "vix": series({0: 14.0, 65: 15.0, 185: 15.5}),
+        "oil": series({0: 67.0, 65: 69.5, 185: 71.0}),    # -3.6% خلال ساعة
+        "gold": series({0: 2650, 65: 2652, 185: 2650}),
+    }
+
+
+def test_big_up_move_with_oil_drop_alerts():
+    box, st = Box(), new_state()
+    d = deps([], rally_oil_drop_intraday(), headlines=["Oil slides as OPEC signals more supply"])
+    assert r.run_auto(NOW, st, box, d) == 1
+    m = box.msgs[0]
+    assert "حركة كبيرة" in m and "النفط يهبط والأسهم تصعد" in m and "OPEC" in m
+    assert "ليست تأكيداً للسبب" in m
+    assert r.run_auto(NOW + timedelta(minutes=15), st, box, d) == 0     # تهدئة ساعتان لنفس الاتجاه
+    assert len(box.msgs) == 1
+
+
+def test_driver_alone_needs_bigger_move():
+    it = calm_intraday()
+    it["oil"] = series({0: 68.5, 65: 70.0, 185: 71.0})            # -2.1%: لا يكفي وحده (يلزم 3%)
+    assert r.run_auto(NOW, new_state(), Box(), deps([], it)) == 0
+    it["oil"] = series({0: 67.0, 65: 70.0, 185: 71.0})            # -4.3%: كافٍ حتى لو ES ثابت
+    box = Box()
+    assert r.run_auto(NOW, new_state(), box, deps([], it)) == 1
+    assert "عامل مؤثر يتحرك بقوة" in box.msgs[0] and "النفط" in box.msgs[0]
+
+
+def test_yields_move_detected_with_es():
+    it = calm_intraday()
+    it["y10"] = series({0: 4.40, 65: 4.30, 185: 4.28})            # +10bp
+    it["es"] = series({0: 5870, 65: 5900, 185: 5905})             # -0.5% مع صعود العوائد
+    box = Box()
+    assert r.run_auto(NOW, new_state(), box, deps([], it)) == 1
+    assert "عائد 10 سنوات" in box.msgs[0] and "تسعير الفائدة" in box.msgs[0]
+
+
 def test_calm_market_sends_nothing():
     box = Box()
     assert r.run_auto(NOW, new_state(), box, deps([], calm_intraday())) == 0 and not box.msgs

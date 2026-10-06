@@ -43,6 +43,14 @@ def test_publish_failure_is_soft():
     assert "المخاطرة:" in box.msgs[0] and "تعذّر تحديث صفحة الواجهة" in box.msgs[0]
 
 
+def test_reason_label_matches_level():
+    v, _ = run_with_docs()
+    r = v["risk"]
+    assert r["reason_label"] == "السبب" or r["score"] <= 3
+    if r["score"] <= 3 and r["main_reason"] != "ظروف هادئة نسبياً":
+        assert "الخطر العام منخفض" in r["reason_label"]
+
+
 def test_page_url(monkeypatch=None):
     old = os.environ.get("GITHUB_REPOSITORY")
     os.environ["GITHUB_REPOSITORY"] = "MSHB4466/mirsad"

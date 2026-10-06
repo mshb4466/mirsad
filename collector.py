@@ -857,19 +857,21 @@ def build_report(prices, events, now, problems=None, extras=None):
         else:
             reasons.append(name_of(k))
     main_reason = " + ".join(reasons) if reasons else "ظروف هادئة نسبياً"
+    # حين يكون الخطر العام منخفضاً، المكوّنات المرتفعة منفردة هي «ما يُتابَع» وليست سبب الخطر
+    reason_label = "أبرز ما يُتابَع (الخطر العام منخفض)" if (score <= 3 and reasons) else "السبب"
     if missing:
         problems.append("مكوّنات استُبعدت لنقص البيانات: " + "، ".join(missing))
 
     return {
         "generated_at": now.isoformat(),
         "risk": {
-            "score": score, "level": lv, "emoji": emoji, "advice": advice, "main_reason": main_reason,
+            "score": score, "level": lv, "emoji": emoji, "advice": advice, "main_reason": main_reason, "reason_label": reason_label,
             "weights_note": wnotes or ["الأوزان الافتراضية"],
             "components": [{"key": k, "name": name_of(k), "score": round(comps[k][0], 1),
                             "weight": round(weights[k], 3), "note": comps[k][1]} for k in available],
         },
         "planned_inactive": [name_of(k) for k in PLANNED_WEIGHTS if k not in available],
-        "notification": f"المخاطرة: {score}/10 {emoji} | السبب: {main_reason}",
+        "notification": f"المخاطرة: {score}/10 {emoji} | {reason_label}: {main_reason}",
         "next_event": ({"title": ev["title"], "type": ev["type"], "time_utc": ev["time"].isoformat(),
                         "forecast": ev["forecast"], "previous": ev["previous"], "actual": ev["actual"]}
                        if ev else None),

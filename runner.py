@@ -38,8 +38,21 @@ BAGHDAD = timezone(timedelta(hours=3))
 # عتبات رصد الصدمة خلال آخر ساعة
 SHOCK = {"gold_up": 0.8, "oil_up": 1.5, "vix_up": 6.0, "es_down": -0.6}
 SHOCK_COOLDOWN_H = 3
+# العوامل المراقَبة: المفتاح -> (الاسم، الوحدة، حدّ 60 دقيقة، حدّ 180 دقيقة). الوحدة pct نسبة مئوية، bp نقاط أساس للعوائد.
+MOVE = {
+    "es": ("ES", "pct", 0.7, 1.1), "nq": ("ناسداك", "pct", 0.9, 1.4),
+    "vix": ("VIX", "pct", 10.0, 18.0), "oil": ("النفط", "pct", 2.0, 3.5), "gold": ("الذهب", "pct", 1.0, 1.8),
+    "dxy": ("الدولار DXY", "pct", 0.4, 0.7), "jpy": ("الدولار/الين", "pct", 0.6, 1.0),
+    "y10": ("عائد 10 سنوات", "bp", 6.0, 10.0), "y5": ("عائد 5 سنوات", "bp", 6.0, 10.0),
+    "hyg": ("سندات عالية العائد HYG", "pct", 0.35, 0.6), "kre": ("البنوك الإقليمية KRE", "pct", 1.5, 2.5),
+}
+MARKET_KEYS = ("es", "nq")          # حركة هذه وحدها تكفي لتنبيه
+MOVE_ES_CONFIRM = 0.3               # بقية العوامل يلزم أن يتحرك ES معها بهذا القدر
+MOVE_ALONE_MULT = 1.5               # عامل مؤثر يتحرك وحده (قبل استجابة ES): حدّه أعلى بهذا المضاعف
+MOVE_COOLDOWN_H = 2
 RELEASE_WINDOW_H = 3
 
+MARKET_QUERY = '(oil OR crude OR Brent OR OPEC OR stocks OR "Wall Street" OR Fed OR Treasury OR tariff) when:3h'
 NEWS_QUERY = ('(strike OR attack OR escalation OR sanctions OR missile OR invasion) '
               '(Iran OR Israel OR Russia OR Ukraine OR China OR Taiwan OR Hormuz OR "North Korea" OR Gulf) when:3h')
 # محاور الأخبار: (الاستعلام، نافذة الساعات، الحد الأقصى). عناوين فقط بلا تفسير.
@@ -65,6 +78,7 @@ def load_state(path=STATE_FILE):
         s = {}
     s.setdefault("seen_events", [])
     s.setdefault("last_shock", None)
+    s.setdefault("last_move", {})
     return s
 
 
@@ -145,6 +159,99 @@ def detect_shock(changes):
     return (len(sig) >= 3 or (len(sig) >= 2 and es_hard)), sig
 
 
+def _chg(series, minutes, unit):
+    if unit == "bp":
+        if not series:
+            return None
+        t_last, last = series[-1]
+        past = [x for x in series if x[0] <= t_last - timedelta(minutes=minutes)]
+        return None if not past else (last - past[-1][1]) * 100
+    return change_over(series, minutes)
+
+
+def detect_move(fresh):
+    """حركة كبيرة بأي اتجاه في أي عامل مؤثر. يعيد None أو {'keys', 'ch', 'alone'}.
+    - ES أو ناسداك: يكفيان وحدهما.
+    - عامل آخر (نفط، عوائد، دولار...): يلزم أن يتحرك ES معه، أو أن تكون حركته أكبر بمقدار MOVE_ALONE_MULT (فيُنبَّه قبل أن يستجيب ES)."""
+    ch = {k: (_chg(fresh[k], 60, MOVE[k][1]), _chg(fresh[k], 180, MOVE[k][1])) for k in MOVE if k in fresh}
+    es = ch.get("es", (None, None))
+    keys, alone = [], []
+    for k in MOVE:
+        if k not in ch:
+            continue
+        for i in (0, 1):
+            v = ch[k][i]
+            if v is None:
+                continue
+            th = MOVE[k][2 + i]
+            es_v = es[i]
+            es_moves = es_v is not None and abs(es_v) >= MOVE_ES_CONFIRM
+            if abs(v) >= th and (k in MARKET_KEYS or es_moves):
+                if k not in keys:
+                    keys.append(k)
+            elif k not in MARKET_KEYS and abs(v) >= th * MOVE_ALONE_MULT and not es_moves:
+                if k not in keys:
+                    keys.append(k)
+                    alone.append(k)
+    return {"keys": keys, "ch": ch, "alone": alone} if keys else None
+
+
+def move_dir_key(k, ch):
+    name, unit, t60, t180 = MOVE[k]
+    v = ch[k][0] if ch[k][0] is not None and abs(ch[k][0]) >= t60 * 0.7 else ch[k][1]
+    return f"{k}_{'up' if v and v > 0 else 'down'}"
+
+
+def move_in_cooldown(state, key, now):
+    ts = (state.get("last_move") or {}).get(key)
+    if not ts:
+        return False
+    try:
+        return now - datetime.fromisoformat(ts) < timedelta(hours=MOVE_COOLDOWN_H)
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def _val(ch, k):
+    v = ch.get(k)
+    if not v:
+        return None
+    return v[0] if v[0] is not None else v[1]
+
+
+def move_pattern(ch):
+    """قراءة النمط من اتجاه الأصول معاً. هذا ترابط في الحركة وليس تأكيداً للسبب."""
+    es, oil, gold, vix = _val(ch, "es"), _val(ch, "oil"), _val(ch, "gold"), _val(ch, "vix")
+    y10, dxy, jpy, hyg, kre = _val(ch, "y10"), _val(ch, "dxy"), _val(ch, "jpy"), _val(ch, "hyg"), _val(ch, "kre")
+    out = []
+    if oil is not None and abs(oil) >= 1.0 and es is not None and abs(es) >= 0.3:
+        up = es > 0
+        out.append("النفط يهبط والأسهم تصعد: نمط يرتبط عادة بتراجع تكلفة الطاقة أو تهدئة التوتر الجيوسياسي" if (up and oil < 0)
+                   else "النفط يرتفع والأسهم تهبط: نمط يرتبط عادة بمخاوف التضخم أو توتر جيوسياسي" if (not up and oil > 0)
+                   else "النفط والأسهم يصعدان معاً: نمط يرتبط عادة بتحسن توقعات النمو والطلب" if up
+                   else "النفط والأسهم يهبطان معاً: نمط يرتبط عادة بمخاوف تباطؤ الطلب")
+    elif oil is not None and abs(oil) >= 2.0:
+        out.append("النفط يتحرك بقوة قبل استجابة واضحة من الأسهم: راقب ES والطاقة")
+    if y10 is not None and abs(y10) >= 4.0:
+        if es is not None and abs(es) >= 0.3 and ((y10 > 0) != (es > 0)):
+            out.append("العوائد " + ("ترتفع" if y10 > 0 else "تنخفض") + " عكس الأسهم: السوق يعيد تسعير الفائدة، وهذا ما يحرّك التقنية خاصة")
+        else:
+            out.append("العوائد " + ("ترتفع" if y10 > 0 else "تنخفض") + " بحدّة: عامل مؤثر على تسعير الفائدة والأسهم")
+    if dxy is not None and abs(dxy) >= 0.3:
+        out.append("الدولار " + ("يقوى: ضغط على الأسهم والسلع عادةً" if dxy > 0 else "يضعف: دعم للأسهم والسلع عادةً"))
+    if jpy is not None and jpy <= -0.6:
+        out.append("الين يقوى بسرعة: قد يدل على تفكيك صفقات الفائدة (carry)، وهو ضاغط على الأسهم أحياناً")
+    if hyg is not None and hyg <= -0.3:
+        out.append("الائتمان عالي العائد يضعف: إشارة حذر")
+    if kre is not None and kre <= -1.5:
+        out.append("البنوك الإقليمية تضعف: راقب الائتمان")
+    if vix is not None and abs(vix) >= 5.0:
+        out.append("VIX " + ("يرتفع: زيادة الطلب على الحماية" if vix > 0 else "ينخفض: ارتياح وتراجع الطلب على الحماية"))
+    if gold is not None and abs(gold) >= 0.8 and es is not None and es < 0 and gold > 0:
+        out.append("الذهب يرتفع مع هبوط الأسهم: توجّه للملاذ الآمن")
+    return out
+
+
 def shock_in_cooldown(state, now):
     ls = state.get("last_shock")
     if not ls:
@@ -160,9 +267,12 @@ def shock_in_cooldown(state, now):
 def fetch_intraday(now):
     import yfinance as yf
     out = {}
-    for key in ("es", "vix", "oil", "gold"):
-        h = yf.Ticker(c.SYMBOLS[key]).history(period="2d", interval="5m").dropna(subset=["Close"])
-        out[key] = [(ts.to_pydatetime().astimezone(timezone.utc), float(v)) for ts, v in h["Close"].items()]
+    for key in MOVE:
+        try:
+            h = yf.Ticker(c.SYMBOLS[key]).history(period="2d", interval="5m").dropna(subset=["Close"])
+            out[key] = [(ts.to_pydatetime().astimezone(timezone.utc), float(v)) for ts, v in h["Close"].items()]
+        except Exception as e:  # noqa: BLE001
+            print(f"تعذّر جلب {key}: {e}")
     return out
 
 
@@ -234,6 +344,7 @@ DEPS = {
     "prices": c.fetch_prices,
     "intraday": fetch_intraday,
     "headlines": fetch_headlines,
+    "headlines_market": lambda now: fetch_headlines(now, query=MARKET_QUERY, hours=3, limit=4),
     "fred": c.fetch_fred,
     "cot": lambda now: c.fetch_cot(),
     "earnings": c.fetch_earnings,
@@ -366,6 +477,34 @@ def format_release(ev, es_reaction, report):
     if report is not None:
         lines += [""] + risk_lines(report)
     lines += ["", "ملاحظة: اتجاه التأثير يعتمد على نوع البيانات، وقد يكون الخبر مسعَّراً مسبقاً."]
+    return "\n".join(lines)
+
+
+def format_move(mv, headlines, report):
+    ch = mv["ch"]
+    unit = lambda k: "bp" if MOVE[k][1] == "bp" else "%"
+    fmt = lambda k, v: "—" if v is None else (f"{v:+.0f}bp" if MOVE[k][1] == "bp" else f"{v:+.2f}%")
+    lead = max(mv["keys"], key=lambda k: abs(_val(ch, k) or 0) / MOVE[k][2])
+    v0 = _val(ch, "es") if _val(ch, "es") is not None and abs(_val(ch, "es")) >= MOVE_ES_CONFIRM else _val(ch, lead)
+    icon = "📈" if v0 and v0 > 0 else "📉"
+    only = set(mv["keys"]) == set(mv.get("alone", [])) and bool(mv.get("alone"))
+    head = "عامل مؤثر يتحرك بقوة" if only else "حركة كبيرة في السوق"
+    lines = [f"{icon} مِرصاد — {head} ({'، '.join(MOVE[k][0] for k in mv['keys'])})", "التغير: ساعة | 3 ساعات"]
+    shown = [k for k in MOVE if k in ch and (k in mv["keys"] or k in ("es", "oil", "y10", "dxy", "vix"))]
+    for k in shown:
+        mark = " ◀" if k in mv["keys"] else ""
+        lines.append(f"• {MOVE[k][0]}: {fmt(k, ch[k][0])} | {fmt(k, ch[k][1])}{mark}")
+    pat = move_pattern(ch)
+    if pat:
+        lines += ["", "القراءة (من ترابط الحركة، وليست تأكيداً للسبب):"] + [f"• {p}" for p in pat]
+    if headlines:
+        lines += ["", "عناوين حديثة قد تكون ذات صلة:"] + [f"• {h}" for h in headlines]
+    if report is not None:
+        lines += [""] + risk_lines(report)
+        al = auction.lines(report.get("auction"), (report["tilt"]["score"], report["tilt"]["parts"]) if report.get("tilt") else (None, {}))
+        if al:
+            lines += [""] + al[:3]
+    lines += ["", "تنبيه: بيانات Yahoo المجانية متأخرة عن السوق، فقد تكون الحركة بدأت قبل التنبيه. هذا رصد لا توصية."]
     return "\n".join(lines)
 
 
@@ -569,6 +708,29 @@ def run_auto(now, state, send, deps):
             send(format_shock(signals, changes, headlines, report))
             state["last_shock"] = now.isoformat()
             sent += 1
+            _m = detect_move(fresh)      # الصدمة تغطي الحركة نفسها: لا تنبيه مكرر
+            for k in (_m["keys"] if _m else []):
+                state.setdefault("last_move", {})[move_dir_key(k, _m["ch"])] = now.isoformat()
+    # 3) حركة كبيرة بأي اتجاه (مثل صعود الأسهم مع هبوط النفط)
+    if fresh:
+        mv = detect_move(fresh)
+        shock_sent = state.get("last_shock") == now.isoformat()
+        if mv and not shock_sent:
+            dkeys = [move_dir_key(k, mv["ch"]) for k in mv["keys"]]
+            if not all(move_in_cooldown(state, dk, now) for dk in dkeys):
+                try:
+                    headlines = (deps.get("headlines_market") or deps["headlines"])(now)
+                except Exception:  # noqa: BLE001
+                    headlines = []
+                try:
+                    report = full_report(now, events, deps)
+                except Exception:  # noqa: BLE001
+                    report = None
+                send(format_move(mv, headlines, report))
+                lm = state.setdefault("last_move", {})
+                for dk in dkeys:
+                    lm[dk] = now.isoformat()
+                sent += 1
     # تحديث الواجهة: صفحة الويب تعرض آخر لقطة منشورة، فنجدّدها مع كل فحص (كل ~15 دقيقة)
     try:
         snap = full_report(now, events, deps)
