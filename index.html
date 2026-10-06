@@ -221,6 +221,23 @@
   .t-crit { --tc: var(--crit); --tbg: var(--crit-bg); }
   .t-neutral { --tc: var(--neutral); --tbg: var(--neutral-bg); }
   .t-brand { --tc: var(--brand); --tbg: var(--card-2); }
+  .evsc.hit { outline: 2px solid var(--brand); }
+  details.evsys { margin-top: 8px; } details.evsys summary { cursor: pointer; font-size: 13px; color: var(--muted); }
+  .evline { width: 100%; height: auto; margin-top: 6px; }
+  .evchips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
+  .evchip { padding: 8px 6px; border-radius: 10px; background: var(--card-2); border: 1.5px solid var(--line); text-align: center; font-size: 12px; line-height: 1.4; }
+  .evchip b, .evchip small, .evchip em { display: block; } .evchip small { color: var(--muted); } .evchip em { font-style: normal; font-size: 11px; font-weight: 700; margin-top: 2px; }
+  .evchip.es-bear { border-color: var(--crit); background: var(--crit-bg); } .evchip.es-bull { border-color: var(--ok); background: var(--ok-bg); }
+  .evchip.hit { outline: 2.5px solid var(--fg); }
+  .evchain { display: flex; flex-wrap: wrap; align-items: stretch; gap: 4px; margin-top: 10px; }
+  .evnode { flex: 1 1 70px; padding: 6px 8px; border-radius: 10px; background: var(--card-2); border: 1.5px solid var(--line); text-align: center; font-size: 12px; min-width: 0; }
+  .evnode b, .evnode small { display: block; } .evnode small { color: var(--muted); font-size: 10.5px; }
+  .evnode.es-bear { border-color: var(--crit); background: var(--crit-bg); } .evnode.es-bull { border-color: var(--ok); background: var(--ok-bg); }
+  .evar { align-self: center; color: var(--muted); font-size: 11px; }
+  .evkey { margin: 10px 0 0; font-size: 13px; line-height: 1.6; font-weight: 600; }
+  .evtime { display: inline-block; direction: ltr; unicode-bidi: isolate; }
+  .evnums { unicode-bidi: plaintext; }
+  .evh { margin: 14px 0 0; font-size: 14px; }
   details.ev { border-top: 1px solid var(--line); padding: 10px 0; }
   details.ev summary { cursor: pointer; font-weight: 700; }
   .evnums { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
@@ -235,6 +252,7 @@
   <div class="top">
     <div class="brand"><div class="logo">م</div><div><h1>مِرصاد</h1><small>سياق السوق بنظرة واحدة</small></div></div>
     <div class="chips" aria-label="الأصل">
+      <button class="chip lang" id="refreshBtn" type="button">↻ تحديث</button>
       <span class="chip on">ES</span><span class="chip soon">ذهب · قريباً</span><span class="chip soon">نفط · قريباً</span><span class="chip soon">EUR/USD · قريباً</span><span class="chip soon">BTC · قريباً</span>
     </div>
   </div>
@@ -251,14 +269,14 @@
   <div id="output" hidden>
 
    <div class="tab" id="tab-today">
-    <section class="card" id="evCard" hidden>
+    <section class="card" id="evCard">
       <h2>أحداث اليوم المؤثرة على ES (توقيت بغداد)</h2>
       <div id="evList"></div>
     </section>
     <section class="card hero" id="hero">
       <svg class="gauge" id="gauge" viewBox="0 0 260 150" role="img" aria-label="مقياس المخاطرة"></svg>
       <div class="gauge-center">
-        <div class="score num"><span id="riskNum">0</span><small>/10</small></div>
+        <div class="score num"><span id="riskNum">0</span></div>
         <div class="lvl-badge"><span class="ic" id="lvlIc"></span><span id="lvlName"></span></div>
       </div>
       <p class="why" id="riskReason"></p>
@@ -443,7 +461,7 @@ const EN = {
   'تدفق الأوامر: الحجم عند السعر وDelta وعمق السوق': 'Order flow: volume at price, delta and market depth',
   'أصول متعددة: فوركس وسلع وبيتكوين، وتطبيق بإشعارات فورية': 'Multiple assets: forex, commodities, Bitcoin, plus an app with instant push',
   'المدفوع قيد التخطيط وغير متاح الآن، ويُبنى بعد إثبات جدوى النسخة المجانية.': 'The paid tier is planned, not available yet; it is built after the free version proves its worth.',
-  'اليوم': 'Today', 'المنظومة': 'Macro', 'التفاصيل': 'Details', 'الإعدادات': 'Settings', 'اللغة': 'Language', 'أهم ما يحرّك المخاطرة': 'Top risk drivers', 'عرض كل المكوّنات': 'Show all components', 'أحداث اليوم المؤثرة على ES (توقيت بغداد)': 'Today\'s events that matter for ES (Baghdad time)', 'عرض الأهم فقط': 'Show top only', 'شكل الإشعار على الهاتف': 'Phone notification preview', 'التقرير النصي الكامل': 'Full text report', 'لغة عناوين الواجهة فقط. نص التقرير الحي يبقى بالعربية.': 'Interface labels only. Live report text stays in Arabic.',
+  'اليوم': 'Today', 'المنظومة': 'Macro', 'التفاصيل': 'Details', 'الإعدادات': 'Settings', 'اللغة': 'Language', 'أهم ما يحرّك المخاطرة': 'Top risk drivers', 'عرض كل المكوّنات': 'Show all components', 'أحداث اليوم المؤثرة على ES (توقيت بغداد)': 'Today\'s events that matter for ES (Baghdad time)', 'الأحداث الكبرى القادمة هذا الأسبوع': 'Major events later this week', 'لا أحداث مهمة لـ USD خلال الـ 24 ساعة القادمة.': 'No major USD events in the next 24h.', 'تحديث': 'Refresh', 'جارٍ التحديث': 'Refreshing', 'لا جديد': 'Up to date', 'تعذّر التحديث': 'Refresh failed', 'عرض الأهم فقط': 'Show top only', 'شكل الإشعار على الهاتف': 'Phone notification preview', 'التقرير النصي الكامل': 'Full text report', 'لغة عناوين الواجهة فقط. نص التقرير الحي يبقى بالعربية.': 'Interface labels only. Live report text stays in Arabic.',
   'سياق المزاد للمتداول اليومي (ES)': 'Auction context for the day trader (ES)',
   'ميل تجريبي لم يُثبت بعد، يُقاس في الاختبار التاريخي. ليس إشارة دخول.': 'Experimental tilt, not yet proven; it is measured in the historical backtest. Not an entry signal.',
   'أمس': 'Prior', 'الليل': 'Overnight', 'الآن': 'Now'
@@ -527,7 +545,7 @@ function adaptWeights(compsIn) {
 }
 
 function stanceInfo(data) {
-  const s = data.quick_call.stance, t = data.trend ? clamp(data.trend.score) : 5;
+  const s = (data.quick_call || {}).stance, t = data.trend ? clamp(data.trend.score) : 5;
   if (s === 'buy') return { word: tr_('صاعد') + (t <= 4 ? tr_(' ضعيف') : t >= 8 ? tr_(' قوي') : ''), ic: '▲', t: 't-ok' };
   if (s === 'sell') return { word: tr_('هابط') + (t <= 4 ? tr_(' ضعيف') : t >= 8 ? tr_(' قوي') : ''), ic: '▼', t: 't-crit' };
   return { word: tr_('محايد'), ic: '◆', t: 't-neutral' };
@@ -622,7 +640,7 @@ function render(data) {
   const st = stanceInfo(data);
   $('tBias').className = 'tile wide ' + st.t;
   $('biasArrow').textContent = st.ic; $('biasText').textContent = st.word;
-  $('biasConf').textContent = (data.quick_call.recommendation || '') + (data.quick_call.confidence ? tr_(' · الثقة: ') + data.quick_call.confidence : '');
+  $('biasConf').textContent = ((data.quick_call || {}).recommendation || '') + ((data.quick_call || {}).confidence ? tr_(' · الثقة: ') + data.quick_call.confidence : '');
   const show = (id, on) => { $(id).hidden = !on; };
   show('tTrend', !!data.trend); show('tConf', !!data.confidence); show('tInt', !!data.intensity);
   if (data.trend) { const tr = clamp(data.trend.score); $('trendNum').textContent = tr + '/10'; $('trendLabel').textContent = data.trend.label || ''; meter('trendMeter', tr, posCls(tr)); }
@@ -691,25 +709,91 @@ function render(data) {
   const sc = data.scenarios || []; $('scnCard').hidden = !sc.length;
   const fillUl = (id, cardId, arr) => { const ul = $(id); ul.innerHTML = ''; (arr || []).forEach(t => ul.appendChild(el('li', '', t))); $(cardId).hidden = !(arr && arr.length); };
   const evBox = $('evList'); evBox.innerHTML = '';
-  (data.events || []).forEach(e => {
+  const num_ = v => { const m = String(v == null ? '' : v).replace(/,/g, '').match(/-?\d+(\.\d+)?/); return m ? parseFloat(m[0]) : null; };
+  const svgEl = (n, at) => { const x = document.createElementNS('http://www.w3.org/2000/svg', n); Object.keys(at || {}).forEach(k => x.setAttribute(k, at[k])); return x; };
+  const EFC = { bear: 'var(--crit)', bull: 'var(--ok)', neu: 'var(--neutral)' };
+  const EFW = { bear: 'ضغط على ES', bull: 'دعم لـ ES', neu: 'أثر محدود' };
+  const lineDiagram = e => {
+    const P = num_(e.previous), F = num_(e.forecast), A = num_(e.actual);
+    const pts = [['السابق', P, 'var(--muted)'], ['المتوقع', F, 'var(--brand)']];
+    if (A !== null) pts.push(['الفعلي', A, (e.hit && (e.scenarios || []).find(s => s.k === e.hit) ? EFC[(e.scenarios.find(s => s.k === e.hit)).es || 'neu'] : 'var(--fg)')]);
+    const vals = pts.map(p => p[1]).filter(v => v !== null);
+    if (!vals.length) return null;
+    const lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), span = (hi - lo) || 1;
+    const X = v => 40 + ((v - lo) / span) * 280;
+    const svg = svgEl('svg', { viewBox: '0 0 360 118', class: 'evline', role: 'img', 'aria-label': 'السابق والمتوقع والفعلي', direction: 'ltr' });
+    const esOf = k => { const s = (e.scenarios || []).find(x => x.k === k); return s && s.es ? EFC[s.es] : 'var(--neutral)'; };
+    svg.appendChild(svgEl('line', { x1: 20, x2: 340, y1: 56, y2: 56, stroke: 'var(--line)', 'stroke-width': 3, 'stroke-linecap': 'round' }));
+    const fx = F !== null ? X(F) : 180;
+    svg.appendChild(svgEl('rect', { x: fx, y: 49, width: Math.max(0, 340 - fx), height: 14, fill: esOf('above'), opacity: .22, rx: 4 }));
+    svg.appendChild(svgEl('rect', { x: 20, y: 49, width: Math.max(0, fx - 20), height: 14, fill: esOf('below'), opacity: .22, rx: 4 }));
+    const hint = (x, anchor, txt) => { const t = svgEl('text', { x, y: 112, 'text-anchor': anchor, 'font-size': 10.5, fill: 'var(--muted)' }); t.textContent = txt; svg.appendChild(t); };
+    hint(340, 'end', 'أعلى من المتوقع ▸'); hint(20, 'start', '◂ أقل من المتوقع');
+    const used = [];
+    pts.forEach((p, i) => {
+      if (p[1] === null) return;
+      let x = X(p[1]); while (used.some(u => Math.abs(u - x) < 3)) x += 6; used.push(x);
+      const up = i === 1, ty = up ? 20 : 80;
+      svg.appendChild(svgEl('circle', { cx: x, cy: 56, r: i === 2 ? 9 : 7, fill: p[2], stroke: 'var(--card)', 'stroke-width': 2 }));
+      const ax = Math.max(34, Math.min(326, x));
+      const tl = svgEl('text', { x: ax, y: ty, 'text-anchor': 'middle', 'font-size': 10.5, fill: 'var(--muted)' }); tl.textContent = p[0]; svg.appendChild(tl);
+      const tv = svgEl('text', { x: ax, y: ty + 13, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, fill: 'var(--fg)' });
+      tv.textContent = String(i === 0 ? e.previous : i === 1 ? e.forecast : e.actual); svg.appendChild(tv);
+    });
+    return svg;
+  };
+  const chainDiagram = e => {
+    if (!(e.chain || []).length) return null;
+    const w = el('div', 'evchain');
+    const nodes = e.chain.slice();
+    const wc = (e.scenarios || []).find(s => s.k === (e.hit || e.worst));
+    if (wc) nodes.push({ t: (e.hit ? 'حدث: ' : 'الأخطر: ') + wc.label, s: EFW[wc.es || 'neu'], es: wc.es });
+    nodes.forEach((n, i) => {
+      if (i) w.appendChild(el('span', 'evar', '◀'));
+      const b = el('div', 'evnode' + (n.es ? ' es-' + n.es : '')); b.appendChild(el('b', '', n.t)); b.appendChild(el('small', '', n.s)); w.appendChild(b);
+    });
+    return w;
+  };
+  const addEv = e => {
     const d = document.createElement('details'); d.className = 'ev'; if (e.high) d.open = true;
     const sm = document.createElement('summary');
-    sm.appendChild(el('span', 'num', (e.high ? '🔴 ' : '🟠 ') + e.time + ' — '));
-    sm.appendChild(document.createTextNode((e.name || e.title)));
+    sm.appendChild(document.createTextNode((e.high ? '🔴 ' : '🟠 ')));
+    sm.appendChild(el('span', 'num evtime', e.time));
+    sm.appendChild(document.createTextNode('  ' + (e.name || e.title)));
     d.appendChild(sm);
+    const ld = lineDiagram(e); if (ld) d.appendChild(ld);
+    const chips = el('div', 'evchips');
+    (e.scenarios || []).forEach(s => {
+      const c = el('div', 'evchip es-' + (s.es || 'neu') + (e.hit === s.k ? ' hit' : ''));
+      c.appendChild(el('b', '', s.label)); c.appendChild(el('small', '', EFW[s.es || 'neu']));
+      const tags = []; if (e.hit === s.k) tags.push('✔ حدث'); if (!e.hit && e.likely === s.k) tags.push('الأرجح'); if (e.worst === s.k) tags.push('الأخطر');
+      if (tags.length) c.appendChild(el('em', '', tags.join(' · ')));
+      chips.appendChild(c);
+    });
+    if ((e.scenarios || []).length) d.appendChild(chips);
+    const cd = chainDiagram(e); if (cd) d.appendChild(cd);
+    const key = e.system_effect || e.combined || e.expect;
+    if (key) d.appendChild(el('p', 'evkey', key));
+    const more = document.createElement('details'); more.className = 'evsys';
+    more.appendChild(el('summary', '', 'الشرح التفصيلي'));
+    const ul = el('ul', 'play');
+    [e.what, e.expect, e.surprise && ('النتيجة مقابل المتوقع: ' + e.surprise), e.vs_prev && ('مقارنة بالسابق: ' + e.vs_prev), e.combined && ('القراءة المشتركة: ' + e.combined), e.likely_note]
+      .concat((e.system || []), (e.scenarios || []).map(s => s.label + ': ' + s.text), [e.note]).filter(Boolean).forEach(t => ul.appendChild(el('li', '', t)));
+    more.appendChild(ul); d.appendChild(more);
     const fp = el('div', 'evnums num');
     fp.textContent = (e.actual ? 'الفعلي ' + e.actual + ' | ' : '') + 'المتوقع ' + (e.forecast || '—') + ' | السابق ' + (e.previous || '—');
-    d.appendChild(fp);
-    if (e.what) d.appendChild(el('p', 'evwhat', e.what));
-    if (e.expect) d.appendChild(el('p', 'evexp', e.expect));
-    if (e.surprise) d.appendChild(el('p', 'evexp', 'النتيجة: ' + e.surprise));
-    (e.scenarios || []).forEach(s => {
-      const r = el('div', 'evsc ' + s.k); r.appendChild(el('b', '', s.label + ': ')); r.appendChild(document.createTextNode(s.text)); d.appendChild(r);
-    });
-    if (e.note) d.appendChild(el('p', 'evnote', e.note));
+    d.insertBefore(fp, d.children[1]);
     evBox.appendChild(d);
-  });
-  $('evCard').hidden = !(data.events && data.events.length);
+  };
+  if (data.events === undefined && data.live) {
+    evBox.appendChild(el('p', 'evnote', 'هذه النسخة من البرنامج لا ترسل بيانات الأحداث بعد. ارفع الملفات المحدّثة ثم شغّل البرنامج مرة أخرى.'));
+  } else if (!(data.events || []).length) {
+    evBox.appendChild(el('p', 'evnote', 'لا أحداث مهمة لـ USD خلال الـ 24 ساعة القادمة.'));
+  } else { data.events.forEach(addEv); }
+  if ((data.events_next || []).length) {
+    evBox.appendChild(el('h3', 'evh', 'الأحداث الكبرى القادمة هذا الأسبوع'));
+    data.events_next.forEach(addEv);
+  }
   const infoArr = [].concat(data.info || []);
   (data.geo || []).forEach(g => infoArr.push((g.deesc ? '▼ تهدئة' : g.severity >= 2 ? '▲ تصعيد' : '◆ متابعة') + ' | ' + ((g.regions || []).join('، ') || '—') + ' | حدّة ' + g.severity + '/4 | ' + g.sources + ' مصدر: ' + g.title));
   Object.keys(data.news || {}).forEach(k => (data.news[k] || []).forEach(h => infoArr.push(k + ': ' + h)));
@@ -738,7 +822,7 @@ const DEMO_AR = {"auction":{"prior":{"high":5918,"low":5872,"close":5898,"val":5
 "scenarios":[{"name":"هبوط مع الحدث","probability":"45%","description":"خيبة توقعات الفائدة تدفع العائد للأعلى."},{"name":"تذبذب عرضي","probability":"35%","description":"انتظار حتى صدور القرار."},{"name":"ارتداد صاعد","probability":"20%","description":"قرار أهدأ من المتوقع."}]};
 
 const statics = [];
-document.querySelectorAll('.wrap *').forEach(n => { if (!n.children.length && n.textContent.trim() && !n.id.match(/^(lvlIc|lvlName|banner)$/)) statics.push([n, n.textContent]); });
+document.querySelectorAll('.wrap *').forEach(n => { if (!n.children.length && n.textContent.trim() && !n.id.match(/^(lvlIc|lvlName|banner|refreshBtn)$/)) statics.push([n, n.textContent]); });
 let LIVE = null; let SHOWALL = false;
 function setLang(l) {
   LANG = l;
@@ -762,9 +846,32 @@ let tab0 = 'today'; try { tab0 = localStorage.getItem('mirsad-tab') || 'today'; 
 $('moreComps').addEventListener('click', () => { SHOWALL = !SHOWALL; render(LIVE || (LANG === 'en' ? DEMO_EN : DEMO_AR)); });
 $('langBtn').addEventListener('click', () => setLang(LANG === 'en' ? 'ar' : 'en'));
 const boot = () => { setLang(LANG); showTab(['today', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today'); };
-fetch('data.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : null)
-  .then(j => { if (j && j.risk) LIVE = j; else if (j && j.error) { $('banner').textContent = '⚠ ' + j.error; } boot(); })
-  .catch(() => boot());
+let booted = false, loadedAt = 0, dataAt = null;
+function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
+function stamp_() {
+  const bn = $('banner');
+  if (LIVE) { bn.textContent = (LANG === 'en' ? 'Live data, updated ' : 'بيانات حقيقية — آخر تحديث ') + LIVE.updated + (LANG === 'en' ? ' Baghdad time' : ' بتوقيت بغداد') + ' · ' + (LANG === 'en' ? 'checked ' : 'آخر فحص للصفحة: ') + ago_(Date.now() - loadedAt); bn.className = 'demo live'; }
+}
+function loadData(manual) {
+  const btn = $('refreshBtn'); btn.disabled = true; btn.textContent = '… ' + tr_('جارٍ التحديث');
+  return fetch('data.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : null)
+    .then(j => {
+      loadedAt = Date.now();
+      const changed = j && j.risk && (!LIVE || j.updated !== LIVE.updated);
+      if (j && j.risk) LIVE = j; else if (j && j.error) { $('banner').textContent = '⚠ ' + j.error; }
+      if (!booted) { booted = true; boot(); } else if (changed || manual) { render(LIVE || (LANG === 'en' ? DEMO_EN : DEMO_AR)); stamp_(); }
+      stamp_();
+      btn.textContent = manual && !changed ? '✓ ' + tr_('لا جديد') : '↻ ' + tr_('تحديث');
+      if (manual && !changed) setTimeout(() => { btn.textContent = '↻ ' + tr_('تحديث'); }, 2500);
+    })
+    .catch(() => { if (!booted) { booted = true; boot(); } btn.textContent = '⚠ ' + tr_('تعذّر التحديث'); setTimeout(() => { btn.textContent = '↻ ' + tr_('تحديث'); }, 3000); })
+    .finally(() => { btn.disabled = false; });
+}
+$('refreshBtn').addEventListener('click', () => loadData(true));
+setInterval(() => { if (!document.hidden) loadData(false); }, 300000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() - loadedAt > 120000) loadData(false); });
+setInterval(stamp_, 60000);
+loadData(false);
 void (['today', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today');
 </script>
 

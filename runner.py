@@ -323,12 +323,14 @@ def format_preopen(report, events, now, prefix=""):
         for e in upcoming[:6]:
             mark = "🔴" if e["impact"] == "High" else "🟠"
             extra = f" (توقع {e['forecast']} | سابق {e['previous']})" if e["forecast"] or e["previous"] else ""
-            d = events_ctx.describe(e, hhmm(e["time"]), ((report.get("macro") or {}).get("label", "")))
+            d = events_ctx.describe(e, hhmm(e["time"]), ((report.get("macro") or {}).get("label", "")), events_ctx.build_ctx(report))
             lines.append(f"{mark} {hhmm(e['time'])} — {e['title']}{(' · ' + d['name']) if d['name'] != e['title'] else ''}{extra}")
             if d["expect"]:
                 lines.append(f"   ↳ {d['expect']}")
             if d["short"] and e["impact"] == "High":
                 lines.append(f"   ↳ {d['short']}")
+                if d["system"]:
+                    lines.append(f"   ↳ المنظومة: {d['system'][0]} | {d['system'][-2] if len(d['system']) > 2 else d['system'][-1]}")
     for topic, label in NEWS_LABELS.items():
         items = (report.get("news") or {}).get(topic)
         if items:
@@ -346,9 +348,15 @@ def format_release(ev, es_reaction, report):
              f"الفعلي: {ev['actual']} | المتوقع: {ev['forecast'] or '—'} | السابق: {ev['previous'] or '—'}"]
     s = surprise(ev)
     ml = ((report or {}).get("macro") or {}).get("label", "")
-    ir = events_ctx.interpret_release(ev, ml)
+    ir = events_ctx.interpret_release(ev, ml, events_ctx.build_ctx(report))
     if ir["surprise"] or s:
         lines.append(f"النتيجة: {ir['surprise'] or s}")
+    if ir["vs_prev"]:
+        lines.append(f"مقارنة بالسابق: {ir['vs_prev']}")
+    if ir["combined"]:
+        lines.append(f"القراءة المشتركة: {ir['combined']}")
+    if ir["system_effect"]:
+        lines.append(f"في منظور المنظومة: {ir['system_effect']}")
     if ir["meaning"]:
         lines.append(f"المعنى المعتاد لـ ES: {ir['meaning']}")
     if ir["note"]:
@@ -561,6 +569,12 @@ def run_auto(now, state, send, deps):
             send(format_shock(signals, changes, headlines, report))
             state["last_shock"] = now.isoformat()
             sent += 1
+    # تحديث الواجهة: صفحة الويب تعرض آخر لقطة منشورة، فنجدّدها مع كل فحص (كل ~15 دقيقة)
+    try:
+        snap = full_report(now, events, deps)
+        dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"))
+    except Exception as e:  # noqa: BLE001
+        print("تعذّر تحديث لقطة الواجهة:", e)
     print(f"انتهت المراقبة: أُرسل {sent} تنبيه")
     return sent
 
