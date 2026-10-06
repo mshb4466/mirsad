@@ -128,12 +128,27 @@ def surprise(actual, forecast):
     return ("أعلى" if a > f else "أقل") + f" من المتوقع بـ {_fmt(abs(a - f))}{_unit(actual)}"
 
 
+def vs_previous(actual, previous):
+    a, p = _num(actual), _num(previous)
+    if a is None or p is None:
+        return ""
+    if abs(a - p) < 1e-9:
+        return "نفس قراءة السابق"
+    return f"{'أعلى' if a > p else 'أقل'} من السابق بـ {_fmt(abs(a - p))}{_unit(actual)}"
+
+
+# السيناريو الأخطر على ES حسب نوع الحدث (hawk = ميل الفدرالي متشدد)
+WORST = {"infl": ("above", "above"), "labor": ("above", "below"), "unemp": ("below", "above"),
+         "growth": ("above", "below"), "rate": ("above", "above"), "speech": ("above", "above"), "auction": ("above", "above")}
+
+
 def describe(ev, hhmm_baghdad, macro_label=""):
     kind, name, what = classify(ev.get("title", ""))
     d = {"time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
          "forecast": ev.get("forecast", ""), "previous": ev.get("previous", ""), "actual": ev.get("actual", ""),
          "name": name or ev.get("title", ""), "what": what or "", "expect": expectation(ev.get("forecast"), ev.get("previous")),
-         "surprise": surprise(ev.get("actual"), ev.get("forecast")) if ev.get("actual") else "", "scenarios": [], "note": "", "short": ""}
+         "surprise": surprise(ev.get("actual"), ev.get("forecast")) if ev.get("actual") else "", "scenarios": [], "note": "", "short": "", "vs_prev": vs_previous(ev.get("actual"), ev.get("previous")) if ev.get("actual") else "",
+         "likely": "", "worst": ""}
     if kind in TEXT:
         up, mid, down, note = TEXT[kind]
         d["scenarios"] = [{"k": "above", "label": "أعلى من المتوقع", "text": up},
@@ -141,6 +156,20 @@ def describe(ev, hhmm_baghdad, macro_label=""):
                           {"k": "below", "label": "أقل من المتوقع", "text": down}]
         d["note"] = note
         d["short"] = " | ".join(SHORT[kind])
+        hawk = "متشدد" in (macro_label or "")
+        if kind in WORST:
+            d["worst"] = WORST[kind][0 if hawk else 1]
+        fv, pv = _num(ev.get("forecast")), _num(ev.get("previous"))
+        d["likely"] = "inline"
+        gap = ""
+        if fv is not None and pv is not None and pv != 0 and abs(fv - pv) / abs(pv) >= 0.25:
+            gap = "الفجوة بين التوقع والسابق كبيرة، فاحتمال المفاجأة أعلى من المعتاد."
+        d["likely_note"] = ("الأرجح أن يأتي الرقم قريباً من المتوقع لأنه متوسط تقديرات المحللين، "
+                            "لكن تأثير السوق الأكبر يأتي من المفاجأة. " + gap).strip()
+        if ev.get("actual"):
+            a, f = _num(ev.get("actual")), fv
+            if a is not None and f is not None:
+                d["hit"] = "inline" if abs(a - f) < 1e-9 else ("above" if a > f else "below")
         if "متشدد" in (macro_label or "") and kind in ("labor", "growth", "unemp"):
             d["note"] += " — الفدرالي الآن ميله متشدد، فالأرقام القوية أميل لأن تُقرأ سلبية للأسهم."
         elif "متساهل" in (macro_label or "") and kind in ("labor", "growth"):
@@ -158,4 +187,4 @@ def interpret_release(ev, macro_label=""):
     if a is not None and f is not None:
         key = "inline" if abs(a - f) < 1e-9 else ("above" if a > f else "below")
     meaning = next((s["text"] for s in d["scenarios"] if s["k"] == key), "")
-    return {"surprise": d["surprise"], "meaning": meaning, "note": d["note"], "name": d["name"]}
+    return {"surprise": d["surprise"], "vs_prev": d["vs_prev"], "meaning": meaning, "note": d["note"], "name": d["name"]}

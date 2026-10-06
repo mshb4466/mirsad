@@ -349,6 +349,8 @@ def format_release(ev, es_reaction, report):
     ir = events_ctx.interpret_release(ev, ml)
     if ir["surprise"] or s:
         lines.append(f"النتيجة: {ir['surprise'] or s}")
+    if ir["vs_prev"]:
+        lines.append(f"مقارنة بالسابق: {ir['vs_prev']}")
     if ir["meaning"]:
         lines.append(f"المعنى المعتاد لـ ES: {ir['meaning']}")
     if ir["note"]:
