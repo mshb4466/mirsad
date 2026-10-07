@@ -1,6 +1,10 @@
 {
   "seen_events": [],
   "last_shock": null,
-  "last_move": {},
-  "last_move_mag": {}
+  "last_move": {
+    "hyg_down": "2026-10-07T14:01:11.855875+00:00"
+  },
+  "last_move_mag": {
+    "hyg_down": 1.5527713618114003
+  }
 }
