@@ -38,18 +38,26 @@ BAGHDAD = timezone(timedelta(hours=3))
 # عتبات رصد الصدمة خلال آخر ساعة
 SHOCK = {"gold_up": 0.8, "oil_up": 1.5, "vix_up": 6.0, "es_down": -0.6}
 SHOCK_COOLDOWN_H = 3
-# العوامل المراقَبة: المفتاح -> (الاسم، الوحدة، حدّ 60 دقيقة، حدّ 180 دقيقة). الوحدة pct نسبة مئوية، bp نقاط أساس للعوائد.
+# العوامل المراقَبة: المفتاح -> (الاسم، الوحدة، حدّ 15 دقيقة، حدّ 60 دقيقة، حدّ 180 دقيقة).
+# الوحدة pct نسبة مئوية، bp نقاط أساس للعوائد. الحدود مخفَّضة لرصد الحركات السريعة، والتصفية بالزخم والحجم تمنع الضجيج.
 MOVE = {
-    "es": ("ES", "pct", 0.7, 1.1), "nq": ("ناسداك", "pct", 0.9, 1.4),
-    "vix": ("VIX", "pct", 10.0, 18.0), "oil": ("النفط", "pct", 2.0, 3.5), "gold": ("الذهب", "pct", 1.0, 1.8),
-    "dxy": ("الدولار DXY", "pct", 0.4, 0.7), "jpy": ("الدولار/الين", "pct", 0.6, 1.0),
-    "y10": ("عائد 10 سنوات", "bp", 6.0, 10.0), "y5": ("عائد 5 سنوات", "bp", 6.0, 10.0),
-    "hyg": ("سندات عالية العائد HYG", "pct", 0.35, 0.6), "kre": ("البنوك الإقليمية KRE", "pct", 1.5, 2.5),
+    "es": ("ES", "pct", 0.30, 0.45, 0.80), "nq": ("ناسداك", "pct", 0.40, 0.60, 1.00),
+    "vix": ("VIX", "pct", 6.0, 8.0, 14.0), "oil": ("النفط", "pct", 0.9, 1.3, 2.4), "gold": ("الذهب", "pct", 0.45, 0.65, 1.2),
+    "dxy": ("الدولار DXY", "pct", 0.18, 0.28, 0.5), "jpy": ("الدولار/الين", "pct", 0.25, 0.4, 0.7),
+    "y10": ("عائد 10 سنوات", "bp", 3.0, 4.5, 7.5), "y5": ("عائد 5 سنوات", "bp", 3.0, 4.5, 7.5),
+    "hyg": ("سندات عالية العائد HYG", "pct", 0.15, 0.25, 0.45), "kre": ("البنوك الإقليمية KRE", "pct", 0.7, 1.1, 1.9),
 }
-MARKET_KEYS = ("es", "nq")          # حركة هذه وحدها تكفي لتنبيه
-MOVE_ES_CONFIRM = 0.3               # بقية العوامل يلزم أن يتحرك ES معها بهذا القدر
-MOVE_ALONE_MULT = 1.5               # عامل مؤثر يتحرك وحده (قبل استجابة ES): حدّه أعلى بهذا المضاعف
+WINDOWS = (15, 60, 180)             # دقائق؛ فهارس الحدود في MOVE هي 2 و3 و4
+MARKET_KEYS = ("es", "nq")          # حركة هذه (بعد تأكيد الزخم والحجم) تكفي لتنبيه
+VOLUME_KEYS = ("es", "nq", "oil", "gold", "hyg", "kre")   # أصول لها حجم تداول موثوق في Yahoo؛ بقية العوامل (VIX، الدولار، الين، العوائد) بلا حجم
+MOVE_ES_CONFIRM = 0.3               # بقية العوامل يلزم أن يتحرك ES معها (مؤكَّداً) بهذا القدر
+MOVE_ALONE_MULT = 1.5               # عامل مؤثر يتحرك وحده (ذو حجم): حدّه أعلى بهذا المضاعف
+MIN_Z = 1.8                         # أقل دلالة إحصائية للحركة مقارنةً بتقلب الأصل المعتاد (إن توفرت بيانات كافية)
+MIN_EFFICIENCY = 0.35               # كفاءة الاتجاه: صافي الحركة ÷ مجموع حركات الشموع (يستبعد التذبذب)
+MIN_VOL_RATIO = 1.3                 # حجم آخر 30 دقيقة ÷ متوسط الحجم قبلها (6 ساعات)
+STRICT_Z, STRICT_EFF = 3.0, 0.5     # عند غياب بيانات الحجم: شروط أشد للزخم بدلاً من الحجم
 MOVE_COOLDOWN_H = 2
+MOVE_ESCALATE = 1.5                 # يسمح بتنبيه جديد في فترة التهدئة إذا كبرت الحركة بهذا المضاعف
 RELEASE_WINDOW_H = 3
 
 MARKET_QUERY = '(oil OR crude OR Brent OR OPEC OR stocks OR "Wall Street" OR Fed OR Treasury OR tariff) when:3h'
@@ -79,6 +87,7 @@ def load_state(path=STATE_FILE):
     s.setdefault("seen_events", [])
     s.setdefault("last_shock", None)
     s.setdefault("last_move", {})
+    s.setdefault("last_move_mag", {})
     return s
 
 
@@ -169,47 +178,145 @@ def _chg(series, minutes, unit):
     return change_over(series, minutes)
 
 
-def detect_move(fresh):
-    """حركة كبيرة بأي اتجاه في أي عامل مؤثر. يعيد None أو {'keys', 'ch', 'alone'}.
-    - ES أو ناسداك: يكفيان وحدهما.
-    - عامل آخر (نفط، عوائد، دولار...): يلزم أن يتحرك ES معه، أو أن تكون حركته أكبر بمقدار MOVE_ALONE_MULT (فيُنبَّه قبل أن يستجيب ES)."""
-    ch = {k: (_chg(fresh[k], 60, MOVE[k][1]), _chg(fresh[k], 180, MOVE[k][1])) for k in MOVE if k in fresh}
-    es = ch.get("es", (None, None))
-    keys, alone = [], []
-    for k in MOVE:
-        if k not in ch:
+def _sign(x):
+    return 0 if x is None or x == 0 else (1 if x > 0 else -1)
+
+
+def _std(xs):
+    n = len(xs)
+    if n < 2:
+        return None
+    m = sum(xs) / n
+    return (sum((x - m) ** 2 for x in xs) / (n - 1)) ** 0.5
+
+
+def _bar_moves(series, unit):
+    """تغيّر كل شمعة (نسبة % أو bp) مع طابعها الزمني."""
+    out = []
+    for (t0, p0), (t1, p1) in zip(series, series[1:]):
+        if p0:
+            out.append((t1, (p1 - p0) * 100 if unit == "bp" else (p1 / p0 - 1) * 100))
+    return out
+
+
+def momentum_stats(series, vol, unit):
+    """مؤشرات الزخم والتقلب والحجم لأصل واحد:
+    roc: التغير خلال 15/60/180 دقيقة. aligned: اتساق الاتجاه عبر الأطر. eff: كفاءة الاتجاه (1 = خط مستقيم، 0 = تذبذب).
+    z: حجم حركة الساعة مقابل تقلب الأصل المعتاد (انحراف معياري). volat: توسع التقلب اللحظي مقابل المعتاد.
+    volx: حجم آخر 30 دقيقة ÷ المعتاد (None إن لم تتوفر بيانات حجم)."""
+    st = {"roc": {w: _chg(series, w, unit) for w in WINDOWS}, "aligned": False, "eff": None, "z": None, "volat": None, "volx": None}
+    if not series:
+        return st
+    t_last = series[-1][0]
+    r15, r60, r180 = (st["roc"][w] for w in WINDOWS)
+    s60 = _sign(r60)
+    ok = s60 != 0 and (r15 is None or _sign(r15) == s60)
+    if ok and r180 is not None and _sign(r180) not in (0, s60) and abs(r180) >= 0.5 * abs(r60):
+        ok = False                                  # الإطار الطويل عكس القصير وبحجم معتبر: ارتداد وليس زخماً مستمراً
+    st["aligned"] = ok
+    moves = _bar_moves(series, unit)
+    recent = [m for t, m in moves if t > t_last - timedelta(minutes=60)]
+    base = [m for t, m in moves if t <= t_last - timedelta(minutes=60)]
+    if len(recent) >= 6:
+        tot = sum(abs(m) for m in recent)
+        st["eff"] = abs(sum(recent)) / tot if tot else 0.0
+    sb = _std(base) if len(base) >= 20 else None
+    if sb and recent:
+        if r60 is not None:
+            st["z"] = r60 / (sb * (len(recent) ** 0.5))
+        rms = lambda xs: (sum(x * x for x in xs) / len(xs)) ** 0.5
+        rb = rms(base)
+        if rb:
+            st["volat"] = rms(recent) / rb          # توسع التقلب اللحظي (جذر متوسط المربعات يشمل الاتجاه)
+    if vol:
+        cut = t_last - timedelta(minutes=30)
+        rec = [v for t, v in vol if t > cut]
+        old = [v for t, v in vol if t_last - timedelta(hours=6) <= t <= cut]
+        if len(old) >= 20 and rec and sum(old) > 0:
+            st["volx"] = (sum(rec) / len(rec)) / (sum(old) / len(old))
+    return st
+
+
+def confirm_move(k, st, mult=1.0):
+    """هل الحركة مؤكَّدة؟ يعيد (مؤكَّدة، سبب نصي). الشروط: تجاوز حدّ + زخم متسق + كفاءة + دلالة إحصائية + حجم مرتفع (للأصول ذات الحجم)."""
+    name, unit = MOVE[k][0], MOVE[k][1]
+    hit = [w for i, w in enumerate(WINDOWS) if st["roc"][w] is not None and abs(st["roc"][w]) >= MOVE[k][2 + i] * mult]
+    if not hit:
+        return False, "لم يتجاوز الحد"
+    if not st["aligned"]:
+        return False, "الزخم غير متسق عبر الأطر"
+    if st["eff"] is not None and st["eff"] < MIN_EFFICIENCY:
+        return False, "الحركة متذبذبة"
+    if st["z"] is not None and abs(st["z"]) < MIN_Z:
+        return False, "الحركة ضمن تقلب الأصل المعتاد"
+    if k in VOLUME_KEYS:
+        if st["volx"] is not None:
+            if st["volx"] < MIN_VOL_RATIO:
+                return False, "الحجم لا يؤكد الحركة"
+        else:  # لا حجم متاح: شروط زخم أشد بدلاً من تجاهل الشرط
+            if not (st["z"] is not None and abs(st["z"]) >= STRICT_Z and st["eff"] is not None and st["eff"] >= STRICT_EFF):
+                return False, "الحجم غير متاح والزخم غير كافٍ"
+    return True, "مؤكَّدة"
+
+
+def detect_move(fresh, vols=None):
+    """حركة قوية مستمرة بأي اتجاه، مؤكَّدة بالزخم والحجم. يعيد None أو {'keys','ch','alone','stats'}.
+    - ES أو ناسداك: يلزم أن تتحقق شروط confirm_move على الأصل نفسه.
+    - النفط والذهب وHYG وKRE (لها حجم): تلزمها شروطها كاملة، ومع ES المؤكَّد بالحدّ العادي، أو وحدها بحدّ ×MOVE_ALONE_MULT.
+    - VIX والدولار والين والعوائد (بلا حجم): تُدرج فقط مع ES أو ناسداك المؤكَّد، ولا تنبّه وحدها."""
+    vols = vols or {}
+    st = {k: momentum_stats(fresh[k], vols.get(k), MOVE[k][1]) for k in MOVE if k in fresh}
+    ch = {k: (st[k]["roc"][60], st[k]["roc"][180], st[k]["roc"][15]) for k in st}
+    keys, alone, why = [], [], {}
+    for k in MARKET_KEYS:
+        if k in st:
+            ok, w = confirm_move(k, st[k])
+            why[k] = w
+            if ok:
+                keys.append(k)
+    market_ok = bool(keys)
+    for k in ("oil", "gold", "hyg", "kre"):
+        if k not in st:
             continue
-        for i in (0, 1):
-            v = ch[k][i]
-            if v is None:
+        ok, w = confirm_move(k, st[k]) if market_ok else (False, "")
+        if ok:
+            keys.append(k)
+        elif not market_ok:
+            ok2, w2 = confirm_move(k, st[k], MOVE_ALONE_MULT)
+            if ok2:
+                keys.append(k)
+                alone.append(k)
+    if market_ok:
+        for k in ("vix", "dxy", "jpy", "y10", "y5"):
+            if k not in st:
                 continue
-            th = MOVE[k][2 + i]
-            es_v = es[i]
-            es_moves = es_v is not None and abs(es_v) >= MOVE_ES_CONFIRM
-            if abs(v) >= th and (k in MARKET_KEYS or es_moves):
-                if k not in keys:
-                    keys.append(k)
-            elif k not in MARKET_KEYS and abs(v) >= th * MOVE_ALONE_MULT and not es_moves:
-                if k not in keys:
-                    keys.append(k)
-                    alone.append(k)
-    return {"keys": keys, "ch": ch, "alone": alone} if keys else None
+            hit = [w for i, w in enumerate(WINDOWS) if st[k]["roc"][w] is not None and abs(st[k]["roc"][w]) >= MOVE[k][2 + i]]
+            if hit and st[k]["aligned"] and (st[k]["z"] is None or abs(st[k]["z"]) >= MIN_Z):
+                keys.append(k)
+    return {"keys": keys, "ch": ch, "alone": alone, "stats": st} if keys else None
 
 
 def move_dir_key(k, ch):
-    name, unit, t60, t180 = MOVE[k]
+    name, unit, t15, t60, t180 = MOVE[k]
     v = ch[k][0] if ch[k][0] is not None and abs(ch[k][0]) >= t60 * 0.7 else ch[k][1]
     return f"{k}_{'up' if v and v > 0 else 'down'}"
 
 
-def move_in_cooldown(state, key, now):
+def move_magnitude(k, ch):
+    return abs(ch[k][0] or 0) / MOVE[k][3]
+
+
+def move_in_cooldown(state, key, now, mag=None):
     ts = (state.get("last_move") or {}).get(key)
     if not ts:
         return False
     try:
-        return now - datetime.fromisoformat(ts) < timedelta(hours=MOVE_COOLDOWN_H)
+        if now - datetime.fromisoformat(ts) >= timedelta(hours=MOVE_COOLDOWN_H):
+            return False
     except Exception:  # noqa: BLE001
         return False
+    prev = (state.get("last_move_mag") or {}).get(key)
+    return not (mag is not None and prev and mag >= prev * MOVE_ESCALATE)    # الحركة تضاعفت: يُسمح بتنبيه جديد
 
 
 def _val(ch, k):
@@ -265,14 +372,20 @@ def shock_in_cooldown(state, now):
 # ───────────────────────── جلب (حقيقي) ─────────────────────────
 
 def fetch_intraday(now):
+    """يعيد {مفتاح: [(وقت, سعر)]} مع مفتاح خاص "_vol": {مفتاح: [(وقت, حجم)]} للأصول ذات الحجم."""
     import yfinance as yf
-    out = {}
+    out, vols = {}, {}
     for key in MOVE:
         try:
             h = yf.Ticker(c.SYMBOLS[key]).history(period="2d", interval="5m").dropna(subset=["Close"])
             out[key] = [(ts.to_pydatetime().astimezone(timezone.utc), float(v)) for ts, v in h["Close"].items()]
+            if key in VOLUME_KEYS and "Volume" in h:
+                vv = [(ts.to_pydatetime().astimezone(timezone.utc), float(v)) for ts, v in h["Volume"].items()]
+                if sum(v for _, v in vv) > 0:
+                    vols[key] = vv
         except Exception as e:  # noqa: BLE001
             print(f"تعذّر جلب {key}: {e}")
+    out["_vol"] = vols
     return out
 
 
@@ -412,8 +525,11 @@ def macro_lines(report):
     return lines
 
 
-def format_preopen(report, events, now, prefix=""):
-    lines = [prefix + "📊 مِرصاد — قبل افتتاح السوق", f"🕒 {hhmm(now)} بتوقيت بغداد", ""]
+def format_preopen(report, events, now, prefix="", url=""):
+    lines = [prefix + "📊 مِرصاد — قبل افتتاح السوق", f"🕒 {hhmm(now)} بتوقيت بغداد"]
+    if url:      # الرابط في الأعلى حتى لا يضيعه طول التقرير
+        lines += ["🖥 الواجهة الكاملة:", url + "index.html"]
+    lines += [""]
     lines += risk_lines(report)
     info = report.get("info", {})
     ctx = [info[k] for k in INFO_ORDER if k in info]
@@ -484,7 +600,7 @@ def format_move(mv, headlines, report):
     ch = mv["ch"]
     unit = lambda k: "bp" if MOVE[k][1] == "bp" else "%"
     fmt = lambda k, v: "—" if v is None else (f"{v:+.0f}bp" if MOVE[k][1] == "bp" else f"{v:+.2f}%")
-    lead = max(mv["keys"], key=lambda k: abs(_val(ch, k) or 0) / MOVE[k][2])
+    lead = max(mv["keys"], key=lambda k: abs(_val(ch, k) or 0) / MOVE[k][3])
     v0 = _val(ch, "es") if _val(ch, "es") is not None and abs(_val(ch, "es")) >= MOVE_ES_CONFIRM else _val(ch, lead)
     icon = "📈" if v0 and v0 > 0 else "📉"
     only = set(mv["keys"]) == set(mv.get("alone", [])) and bool(mv.get("alone"))
@@ -494,6 +610,25 @@ def format_move(mv, headlines, report):
     for k in shown:
         mark = " ◀" if k in mv["keys"] else ""
         lines.append(f"• {MOVE[k][0]}: {fmt(k, ch[k][0])} | {fmt(k, ch[k][1])}{mark}")
+    sts = mv.get("stats") or {}
+    conf = []
+    for k in mv["keys"]:
+        s = sts.get(k)
+        if not s or k not in VOLUME_KEYS + ("vix",) and s.get("eff") is None:
+            continue
+        parts = []
+        if s.get("eff") is not None:
+            parts.append(f"كفاءة الاتجاه {s['eff']:.2f}")
+        if s.get("z") is not None:
+            parts.append(f"دلالة الحركة {abs(s['z']):.1f}σ")
+        if s.get("volat") is not None:
+            parts.append(f"التقلب اللحظي ×{s['volat']:.1f}")
+        if k in VOLUME_KEYS:
+            parts.append(f"الحجم ×{s['volx']:.1f}" if s.get("volx") is not None else "الحجم غير متاح (شروط زخم أشد)")
+        if parts:
+            conf.append(f"• {MOVE[k][0]}: " + " | ".join(parts))
+    if conf:
+        lines += ["", "تأكيد الزخم والحجم:"] + conf
     pat = move_pattern(ch)
     if pat:
         lines += ["", "القراءة (من ترابط الحركة، وليست تأكيداً للسبب):"] + [f"• {p}" for p in pat]
@@ -526,17 +661,43 @@ def format_shock(signals, changes, headlines, report):
 
 # ───────────────────────── الإرسال ─────────────────────────
 
+def split_message(text, limit=3800):
+    """يقسّم النص الطويل عند حدود الفقرات (وعند الأسطر إن لزم) دون قصّ أي جزء."""
+    if len(text) <= limit:
+        return [text]
+    parts, cur = [], ""
+    for block in text.split("\n\n"):
+        cand = block if not cur else cur + "\n\n" + block
+        if len(cand) <= limit:
+            cur = cand
+            continue
+        if cur:
+            parts.append(cur)
+            cur = ""
+        while len(block) > limit:                  # فقرة أطول من الحد: نقسّمها عند آخر سطر
+            cut = block.rfind("\n", 0, limit)
+            cut = cut if cut > 0 else limit
+            parts.append(block[:cut])
+            block = block[cut:].lstrip("\n")
+        cur = block
+    if cur:
+        parts.append(cur)
+    return parts
+
+
 def send_telegram(text):
     token, chat = os.environ.get("TELEGRAM_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if not token or not chat:
         print("—— (وضع تجريبي: لا إعدادات تيليجرام) ——")
         print(text)
         return False
-    data = json.dumps({"chat_id": chat, "text": text[:4000]}).encode("utf-8")
-    req = urllib.request.Request(f"https://api.telegram.org/bot{token}/sendMessage", data=data,
-                                 headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        ok = json.loads(r.read().decode("utf-8")).get("ok", False)
+    ok = True
+    for part in split_message(text):          # حد تيليجرام 4096 حرفاً: نقسّم بدل القصّ حتى لا يضيع الجزء الأخير
+        data = json.dumps({"chat_id": chat, "text": part, "disable_web_page_preview": True}).encode("utf-8")
+        req = urllib.request.Request(f"https://api.telegram.org/bot{token}/sendMessage", data=data,
+                                     headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            ok = ok and json.loads(resp.read().decode("utf-8")).get("ok", False)
     if not ok:
         raise RuntimeError("رفض تيليجرام الرسالة")
     return True
@@ -657,10 +818,7 @@ def run_preopen(now, state, send, deps, prefix=""):
         dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"))
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث صفحة الواجهة: {e}")
-    msg = format_preopen(report, events, now, prefix)
-    url = dashboard.page_url()
-    if url:
-        msg += f"\n\n🖥 الواجهة الكاملة (اضغط على الرابط):\n{url}index.html"
+    msg = format_preopen(report, events, now, prefix, dashboard.page_url())
     send(msg)
 
 
@@ -678,6 +836,7 @@ def run_auto(now, state, send, deps):
         print("تعذّر جلب البيانات اللحظية:", e)
         intr = {}
     # بيانات قديمة (سوق مغلق) لا تُعامَل كصدمة
+    vols = intr.pop("_vol", {}) if isinstance(intr, dict) else {}
     fresh = {k: v for k, v in intr.items() if v and now - v[-1][0] <= timedelta(minutes=45)}
 
     # 1) صدور بيانات كبرى
@@ -708,16 +867,17 @@ def run_auto(now, state, send, deps):
             send(format_shock(signals, changes, headlines, report))
             state["last_shock"] = now.isoformat()
             sent += 1
-            _m = detect_move(fresh)      # الصدمة تغطي الحركة نفسها: لا تنبيه مكرر
+            _m = detect_move(fresh, vols)      # الصدمة تغطي الحركة نفسها: لا تنبيه مكرر
             for k in (_m["keys"] if _m else []):
                 state.setdefault("last_move", {})[move_dir_key(k, _m["ch"])] = now.isoformat()
     # 3) حركة كبيرة بأي اتجاه (مثل صعود الأسهم مع هبوط النفط)
     if fresh:
-        mv = detect_move(fresh)
+        mv = detect_move(fresh, vols)
         shock_sent = state.get("last_shock") == now.isoformat()
         if mv and not shock_sent:
             dkeys = [move_dir_key(k, mv["ch"]) for k in mv["keys"]]
-            if not all(move_in_cooldown(state, dk, now) for dk in dkeys):
+            mags = {move_dir_key(k, mv["ch"]): move_magnitude(k, mv["ch"]) for k in mv["keys"]}
+            if not all(move_in_cooldown(state, dk, now, mags[dk]) for dk in dkeys):
                 try:
                     headlines = (deps.get("headlines_market") or deps["headlines"])(now)
                 except Exception:  # noqa: BLE001
@@ -728,8 +888,10 @@ def run_auto(now, state, send, deps):
                     report = None
                 send(format_move(mv, headlines, report))
                 lm = state.setdefault("last_move", {})
+                lmm = state.setdefault("last_move_mag", {})
                 for dk in dkeys:
                     lm[dk] = now.isoformat()
+                    lmm[dk] = mags[dk]
                 sent += 1
     # تحديث الواجهة: صفحة الويب تعرض آخر لقطة منشورة، فنجدّدها مع كل فحص (كل ~15 دقيقة)
     try:

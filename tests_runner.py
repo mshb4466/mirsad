@@ -121,43 +121,139 @@ def test_auto_shock_and_cooldown():
     assert r.run_auto(later, st, box, d2) == 1
 
 
-def rally_oil_drop_intraday():
-    return {
-        "es": series({0: 5990, 65: 5925, 185: 5900}),     # +1.1% خلال ساعة
-        "vix": series({0: 14.0, 65: 15.0, 185: 15.5}),
-        "oil": series({0: 67.0, 65: 69.5, 185: 71.0}),    # -3.6% خلال ساعة
-        "gold": series({0: 2650, 65: 2652, 185: 2650}),
+import math
+
+
+def synth(p180, p60, p0, noise=0.02, hours=10, jitter=None):
+    """سلسلة شموع 5 دقائق: هدوء قبل ساعة 180 ثم انتقال p180 -> p60 -> p0. noise نسبة % للضجيج الاعتيادي."""
+    pts, n = [], int(hours * 12)
+    for i in range(n, -1, -1):
+        m = i * 5
+        if m > 180:
+            p = p180 * (1 + noise / 100 * math.sin(i * 1.7))
+        elif m > 60:
+            p = p180 + (p60 - p180) * (180 - m) / 120
+        else:
+            p = p60 + (p0 - p60) * (60 - m) / 60
+        if jitter and m <= 60:
+            p *= 1 + jitter / 100 * math.sin(i * 2.3)
+        pts.append((NOW - timedelta(minutes=m), p))
+    return pts
+
+
+def vol_series(recent_mult, base=1000, hours=10):
+    out = []
+    for i in range(int(hours * 12), -1, -1):
+        m = i * 5
+        out.append((NOW - timedelta(minutes=m), base * (1 + 0.1 * math.sin(i)) * (recent_mult if m < 30 else 1.0)))
+    return out
+
+
+def calm_synth():
+    return {"es": synth(5900, 5900, 5900), "vix": synth(15, 15, 15, 0.1), "oil": synth(70, 70, 70), "gold": synth(2650, 2650, 2650)}
+
+
+def rally_oil_drop_intraday(es_vol=2.0, oil_vol=2.0):
+    it = {
+        "es": synth(5900, 5925, 5990),        # +1.1% خلال ساعة، متدرّج
+        "vix": synth(15.5, 15.0, 14.0, 0.1),
+        "oil": synth(71.0, 69.5, 67.0),       # -3.6% خلال ساعة
+        "gold": synth(2650, 2652, 2650),
     }
+    it["_vol"] = {"es": vol_series(es_vol), "oil": vol_series(oil_vol)}
+    return it
 
 
-def test_big_up_move_with_oil_drop_alerts():
+def test_big_up_move_with_oil_drop_alerts_when_momentum_and_volume_agree():
     box, st = Box(), new_state()
     d = deps([], rally_oil_drop_intraday(), headlines=["Oil slides as OPEC signals more supply"])
     assert r.run_auto(NOW, st, box, d) == 1
     m = box.msgs[0]
     assert "حركة كبيرة" in m and "النفط يهبط والأسهم تصعد" in m and "OPEC" in m
+    assert "تأكيد الزخم والحجم" in m and "الحجم ×" in m and "كفاءة الاتجاه" in m
     assert "ليست تأكيداً للسبب" in m
     assert r.run_auto(NOW + timedelta(minutes=15), st, box, d) == 0     # تهدئة ساعتان لنفس الاتجاه
     assert len(box.msgs) == 1
 
 
-def test_driver_alone_needs_bigger_move():
-    it = calm_intraday()
-    it["oil"] = series({0: 68.5, 65: 70.0, 185: 71.0})            # -2.1%: لا يكفي وحده (يلزم 3%)
-    assert r.run_auto(NOW, new_state(), Box(), deps([], it)) == 0
-    it["oil"] = series({0: 67.0, 65: 70.0, 185: 71.0})            # -4.3%: كافٍ حتى لو ES ثابت
+def test_price_move_without_volume_confirmation_is_silent():
+    # الحركة السعرية نفسها لكن الحجم عادي: لا تنبيه (شرط توافق الزخم مع ارتفاع الحجم)
     box = Box()
-    assert r.run_auto(NOW, new_state(), box, deps([], it)) == 1
+    assert r.run_auto(NOW, new_state(), box, deps([], rally_oil_drop_intraday(es_vol=1.0, oil_vol=1.0))) == 0 and not box.msgs
+
+
+def test_choppy_move_is_silent_even_with_volume():
+    it = rally_oil_drop_intraday()
+    it["es"] = synth(5900, 5925, 5990, jitter=0.25)       # تذبذب قوي داخل الساعة الأخيرة
+    it["oil"] = synth(70, 70, 70)
+    assert r.run_auto(NOW, new_state(), Box(), deps([], it)) == 0
+
+
+def test_reversal_against_longer_frame_is_silent():
+    it = rally_oil_drop_intraday()
+    it["es"] = synth(6100, 5925, 5990)                    # ساعتان هابطتان (-2.9%) ثم ارتداد: الزخم غير متسق
+    it["oil"] = synth(70, 70, 70)
+    assert r.run_auto(NOW, new_state(), Box(), deps([], it)) == 0
+
+
+def test_driver_alone_needs_bigger_move_and_own_volume():
+    it = calm_synth()
+    it["oil"] = synth(71.0, 70.0, 68.8)                    # -1.7%: لا يكفي وحده (يلزم 1.95%)
+    it["_vol"] = {"oil": vol_series(2.0)}
+    assert r.run_auto(NOW, new_state(), Box(), deps([], dict(it))) == 0
+    it = calm_synth()
+    it["oil"] = synth(71.0, 70.0, 67.0)                    # -4.3%: كافٍ حتى لو ES ثابت
+    it["_vol"] = {"oil": vol_series(2.0)}
+    box = Box()
+    assert r.run_auto(NOW, new_state(), box, deps([], dict(it))) == 1
     assert "عامل مؤثر يتحرك بقوة" in box.msgs[0] and "النفط" in box.msgs[0]
+    it["_vol"] = {"oil": vol_series(1.0)}                  # الحجم عادي: صامت
+    assert r.run_auto(NOW, new_state(), Box(), deps([], dict(it))) == 0
 
 
-def test_yields_move_detected_with_es():
-    it = calm_intraday()
-    it["y10"] = series({0: 4.40, 65: 4.30, 185: 4.28})            # +10bp
-    it["es"] = series({0: 5870, 65: 5900, 185: 5905})             # -0.5% مع صعود العوائد
+def test_yields_alone_never_alert_but_join_confirmed_es():
+    it = calm_synth()
+    it["y10"] = synth(4.30, 4.31, 4.45, 0.001)             # +15bp وحده
+    assert r.run_auto(NOW, new_state(), Box(), deps([], dict(it))) == 0
+    it = rally_oil_drop_intraday()
+    it["es"] = synth(5990, 5960, 5900)                     # هبوط مؤكَّد بحجم
+    it["oil"] = synth(70, 70, 70)
+    it["y10"] = synth(4.30, 4.33, 4.45, 0.001)
     box = Box()
     assert r.run_auto(NOW, new_state(), box, deps([], it)) == 1
     assert "عائد 10 سنوات" in box.msgs[0] and "تسعير الفائدة" in box.msgs[0]
+
+
+def test_escalation_allows_new_alert_during_cooldown():
+    box, st = Box(), new_state()
+    assert r.run_auto(NOW, st, box, deps([], rally_oil_drop_intraday())) == 1
+    big = rally_oil_drop_intraday()
+    big["es"] = synth(5900, 5960, 6100)                    # الحركة ضاعفت حجمها
+    big["oil"] = synth(71.0, 69.0, 64.0)
+    assert r.run_auto(NOW + timedelta(minutes=15), st, box, deps([], big)) >= 0
+    # نفس الاتجاه بحركة >1.5× السابقة: يُسمح (الأوقات في السلسلة ثابتة عند NOW فنحاكي بتأخير الساعة)
+    st2 = new_state()
+    st2["last_move"] = {"es_up": (NOW - timedelta(minutes=30)).isoformat(), "oil_down": (NOW - timedelta(minutes=30)).isoformat()}
+    st2["last_move_mag"] = {"es_up": 0.5, "oil_down": 0.5}
+    box2 = Box()
+    assert r.run_auto(NOW, st2, box2, deps([], big)) == 1
+
+
+def test_long_message_is_split_not_truncated():
+    big = "\n\n".join(("سطر " * 60 + str(i)) for i in range(60))
+    parts = r.split_message(big)
+    assert len(parts) > 1 and all(len(p) <= 3800 for p in parts)
+    assert "\n\n".join(parts) == big
+    assert r.split_message("قصير") == ["قصير"]
+
+
+def test_preopen_link_is_at_top():
+    import os
+    os.environ["GITHUB_REPOSITORY"] = "Owner/mirsad"
+    box = Box()
+    r.run_preopen(NOW, new_state(), box, deps([], calm_intraday()))
+    lines = box.msgs[0].split("\n")
+    assert "https://owner.github.io/mirsad/index.html" in lines[:5]
 
 
 def test_calm_market_sends_nothing():
