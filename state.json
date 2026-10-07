@@ -1,5 +1,6 @@
 {
   "seen_events": [],
   "last_shock": null,
-  "last_move": {}
+  "last_move": {},
+  "last_move_mag": {}
 }
