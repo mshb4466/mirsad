@@ -81,7 +81,38 @@ def _macro(report):
     }
 
 
-def build_view(report, events, now, news_labels=None):
+def _reaction(series, t0):
+    """تغير ES (%) من لحظة الحدث حتى آخر سعر متاح. None إن لم تتوفر بيانات تغطي الحدث."""
+    if not series:
+        return None
+    before = [p for t, p in series if t <= t0]
+    after = [p for t, p in series if t > t0]
+    if not before or not after or not before[-1]:
+        return None
+    return (series[-1][1] / before[-1] - 1) * 100
+
+
+def _past_events(events, now, report, es_series):
+    """أحداث صدرت خلال آخر 24 ساعة: تبقى ظاهرة مع النتيجة وحركة ES منذ الصدور."""
+    ml = (report.get("macro") or {}).get("label", "")
+    ctx = events_ctx.build_ctx(report)
+    out = []
+    for e in sorted(events or [], key=lambda x: x["time"], reverse=True):
+        if events_ctx.relevant(e) and now - timedelta(hours=24) <= e["time"] < now:
+            d = events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"), ml, ctx)
+            d["released"] = True
+            d["has_number"] = bool(e.get("actual"))
+            r = _reaction(es_series, e["time"])
+            d["reaction"] = None if r is None else round(r, 2)
+            out.append(d)
+    g = events_ctx.group(out)
+    for x in g:
+        if x.get("items"):
+            x["reaction"] = out[[o["kind"] for o in out].index(x["kind"])]["reaction"] if x.get("kind") else None
+    return g
+
+
+def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
         return {"live": True, "updated": _baghdad(now), "error": report["error"]}
@@ -95,10 +126,11 @@ def build_view(report, events, now, news_labels=None):
     vol = next((c for c in comps if c["key"] == "volatility"), None)
     info = report.get("info", {})
     upcoming = []
-    for e in events or []:
-        if e.get("impact") in ("High", "Medium") and now <= e["time"] <= now + timedelta(hours=24):
+    for e in sorted(events or [], key=lambda x: x["time"]):
+        if events_ctx.relevant(e) and now <= e["time"] <= now + timedelta(hours=24):
             upcoming.append(events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"),
                                                 (report.get("macro") or {}).get("label", ""), events_ctx.build_ctx(report)))
+    upcoming = events_ctx.group(upcoming)
     later = []
     for e in events or []:
         if e.get("impact") == "High" and now + timedelta(hours=24) < e["time"] <= now + timedelta(days=7):
@@ -116,8 +148,8 @@ def build_view(report, events, now, news_labels=None):
         "intensity": ({"score": vol["score"], "label": vol["note"]} if vol else None),
         "pressures": {"bullish": bullish, "bearish": bearish},
         "auction": au, "macro": _macro(report),
-        "events": upcoming, "events_next": later[:3],
-        "info": [info[k] for k in ("rates", "tech", "mag7", "banks", "cot", "earnings") if k in info],
+        "events": upcoming, "events_next": later[:3], "events_past": _past_events(events, now, report, es_series),
+        "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
         "geo": [{"title": t["title"], "severity": t["severity"], "sources": t["sources"],
                  "regions": t["regions"], "deesc": t["deesc"]} for t in (geo.get("top") or [])[:3]],
         "geo_confirmed": bool(geo.get("confirmed")),
@@ -125,15 +157,16 @@ def build_view(report, events, now, news_labels=None):
         "data_age": info.get("data_age", ""),
         "problems": report.get("problems", []),
         "detailed_summary": report.get("notification", ""),
+        "alerts": alerts or [], "pulse": pulse or [],
     }
     return view
 
 
-def publish(report, events, now, news_labels=None, docs_dir=None):
+def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None):
     """يكتب docs/data.json. فشل ناعم: لا يوقف التقرير."""
     d = docs_dir or DOCS_DIR
     os.makedirs(d, exist_ok=True)
-    view = build_view(report, events, now, news_labels)
+    view = build_view(report, events, now, news_labels, alerts, pulse, es_series)
     with open(os.path.join(d, "data.json"), "w", encoding="utf-8") as f:
         json.dump(view, f, ensure_ascii=False, indent=1, default=str)
     return view

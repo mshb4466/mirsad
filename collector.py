@@ -40,7 +40,7 @@ SYMBOLS = {
     "es": "ES=F", "nq": "NQ=F",
     "vix": "^VIX", "vix3m": "^VIX3M", "move": "^MOVE",
     "oil": "CL=F", "gold": "GC=F", "dxy": "DX-Y.NYB",
-    "y10": "^TNX", "y5": "^FVX", "irx": "^IRX",
+    "y10": "^TNX", "y5": "^FVX", "irx": "^IRX", "y30": "^TYX",
     "jpy": "JPY=X", "nikkei": "^N225", "dax": "^GDAXI", "hsi": "^HSI",
     "spy": "SPY", "rsp": "RSP", "hyg": "HYG", "ief": "IEF", "xlf": "XLF", "kre": "KRE",
 }
@@ -48,7 +48,7 @@ SYMBOLS.update({"m_" + t: t for t in MAG7})
 SYMBOLS.update({"b_" + t: t for t in BANKS})
 
 CAL_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
-FRED_SERIES = {"t10y2y": "T10Y2Y", "dgs2": "DGS2", "hy_oas": "BAMLH0A0HYM2"}
+FRED_SERIES = {"t10y2y": "T10Y2Y", "dgs2": "DGS2", "hy_oas": "BAMLH0A0HYM2", "tp10": "THREEFYTP10"}
 COT_URL = "https://www.cftc.gov/dea/newcot/deafut.txt"
 UA = {"User-Agent": "Mozilla/5.0 (mirsad-collector)"}
 
@@ -153,7 +153,7 @@ def fetch_prices(now):
                 raise ValueError("بيانات غير كافية")
             dates = [i.to_pydatetime().date().isoformat() for i in h.index]
             close = [float(x) for x in h["Close"]]
-            scale = 0.1 if key in ("y10", "y5", "irx") and close[-1] > 20 else 1.0   # بعض الإصدارات تعرض العائد ×10
+            scale = 0.1 if key in ("y10", "y5", "irx", "y30") and close[-1] > 20 else 1.0   # بعض الإصدارات تعرض العائد ×10
             close = [x * scale for x in close]
             last, prev = close[-1], close[-2]
             item = {
@@ -442,8 +442,21 @@ def score_rates(p, fred):
     if not y10:
         return None, "بيانات العوائد غير متوفرة"
     bp = y10["diff1"] * 100
-    s = 8.5 if abs(bp) >= 12 else 6.5 if abs(bp) >= 8 else 4.5 if abs(bp) >= 5 else 2.0
+    y30 = p.get("y30")
+    bp30 = y30["diff1"] * 100 if y30 else 0.0
+    big = max(abs(bp), abs(bp30))
+    s = 8.5 if big >= 12 else 6.5 if big >= 8 else 4.5 if big >= 5 else 2.0
     notes = [f"عائد 10 سنوات {y10['last']:.2f}% ({bp:+.0f} نقطة أساس)"]
+    if y30:
+        notes.append(f"30 سنة {y30['last']:.2f}% ({bp30:+.0f}bp)")
+        if bp30 >= 8 and bp30 > bp + 2:
+            notes.append("الطرف الطويل يرتفع أسرع: ضغط من التضخم/الدين/علاوة الأجل وليس من توقعات الفائدة فقط")
+    tp = ((fred or {}).get("tp10") or [])
+    if tp:
+        notes.append(f"علاوة الأجل 10Y {tp[-1][1]:.2f}%")
+        if len(tp) >= 21 and tp[-1][1] - tp[-21][1] >= 0.25:
+            s += 1.0
+            notes.append("علاوة الأجل ترتفع بحدّة خلال شهر")
     mv = p.get("move")
     if mv:
         if mv["last"] >= 130:
@@ -717,6 +730,17 @@ def build_info(p, fred, cot, earn_names, corrs, events, now):
         if p.get("move"):
             line += f" | MOVE {p['move']['last']:.0f}"
         info["rates"] = line
+    le = []
+    if p.get("y30"):
+        le.append(f"30Y {p['y30']['last']:.2f}% ({p['y30']['diff1'] * 100:+.0f}bp)")
+        le.append(f"10Y {y10['last']:.2f}%" if y10 else "")
+        if y10:
+            le.append(f"فارق 30-10 {p['y30']['last'] - y10['last']:+.2f}")
+    tpv = (fred or {}).get("tp10")
+    if tpv:
+        le.append(f"علاوة الأجل 10Y {tpv[-1][1]:.2f}%")
+    if le:
+        info["long_end"] = "الطرف الطويل (تضخم/دين/علاوة أجل): " + " | ".join(x for x in le if x)
     dx = p.get("dxy")
     if dx:
         info["dollar"] = f"الدولار DXY {dx['last']:.2f} ({dx['chg1']:+.2f}% | 5 أيام {dx['chg5']:+.2f}%)"

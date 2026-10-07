@@ -45,6 +45,7 @@ MOVE = {
     "vix": ("VIX", "pct", 6.0, 8.0, 14.0), "oil": ("النفط", "pct", 0.9, 1.3, 2.4), "gold": ("الذهب", "pct", 0.45, 0.65, 1.2),
     "dxy": ("الدولار DXY", "pct", 0.18, 0.28, 0.5), "jpy": ("الدولار/الين", "pct", 0.25, 0.4, 0.7),
     "y10": ("عائد 10 سنوات", "bp", 3.0, 4.5, 7.5), "y5": ("عائد 5 سنوات", "bp", 3.0, 4.5, 7.5),
+    "y30": ("عائد 30 سنة", "bp", 3.0, 4.5, 7.5),
     "hyg": ("سندات عالية العائد HYG", "pct", 0.15, 0.25, 0.45), "kre": ("البنوك الإقليمية KRE", "pct", 0.7, 1.1, 1.9),
 }
 WINDOWS = (15, 60, 180)             # دقائق؛ فهارس الحدود في MOVE هي 2 و3 و4
@@ -73,7 +74,7 @@ NEWS_TOPICS = {
 }
 NEWS_LABELS = {"banks": "عناوين عن توقعات البنوك", "companies": "عناوين الشركات الكبرى",
                "policy": "عناوين السياسة المالية والتجارية"}
-INFO_ORDER = ["rates", "front", "dollar", "tech", "mag7", "banks", "corr", "cot", "earnings", "fed"]
+INFO_ORDER = ["rates", "long_end", "front", "dollar", "tech", "mag7", "banks", "corr", "cot", "earnings", "fed"]
 
 
 # ───────────────────────── الحالة ─────────────────────────
@@ -88,6 +89,7 @@ def load_state(path=STATE_FILE):
     s.setdefault("last_shock", None)
     s.setdefault("last_move", {})
     s.setdefault("last_move_mag", {})
+    s.setdefault("alerts", [])
     return s
 
 
@@ -287,7 +289,7 @@ def detect_move(fresh, vols=None):
                 keys.append(k)
                 alone.append(k)
     if market_ok:
-        for k in ("vix", "dxy", "jpy", "y10", "y5"):
+        for k in ("vix", "dxy", "jpy", "y10", "y5", "y30"):
             if k not in st:
                 continue
             hit = [w for i, w in enumerate(WINDOWS) if st[k]["roc"][w] is not None and abs(st[k]["roc"][w]) >= MOVE[k][2 + i]]
@@ -344,6 +346,10 @@ def move_pattern(ch):
             out.append("العوائد " + ("ترتفع" if y10 > 0 else "تنخفض") + " عكس الأسهم: السوق يعيد تسعير الفائدة، وهذا ما يحرّك التقنية خاصة")
         else:
             out.append("العوائد " + ("ترتفع" if y10 > 0 else "تنخفض") + " بحدّة: عامل مؤثر على تسعير الفائدة والأسهم")
+    y30 = _val(ch, "y30")
+    if y30 is not None and abs(y30) >= 4.0 and (y10 is None or abs(y30) >= abs(y10) + 1.0):
+        out.append("الطرف الطويل (30 سنة) " + ("يرتفع أسرع من 10 سنوات" if y30 > 0 else "ينخفض أسرع") +
+                   ": يرتبط عادة بالتضخم والدين وعلاوة الأجل، لا بتوقعات الفائدة وحدها")
     if dxy is not None and abs(dxy) >= 0.3:
         out.append("الدولار " + ("يقوى: ضغط على الأسهم والسلع عادةً" if dxy > 0 else "يضعف: دعم للأسهم والسلع عادةً"))
     if jpy is not None and jpy <= -0.6:
@@ -544,19 +550,22 @@ def format_preopen(report, events, now, prefix="", url=""):
     gl = geo_lines(report)
     if gl:
         lines += [""] + gl
-    upcoming = [e for e in events if e["impact"] in ("High", "Medium") and now <= e["time"] <= now + timedelta(hours=24)]
+    upcoming = sorted([e for e in events if events_ctx.relevant(e) and now <= e["time"] <= now + timedelta(hours=24)], key=lambda e: e["time"])
     if upcoming:
         lines += ["", "أحداث USD خلال 24 ساعة:"]
-        for e in upcoming[:6]:
-            mark = "🔴" if e["impact"] == "High" else "🟠"
+        shown_kind = set()
+        for e in upcoming[:10]:
+            mark = "🔴" if e["impact"] == "High" else "🟠" if e["impact"] == "Medium" else "⚪"
             extra = f" (توقع {e['forecast']} | سابق {e['previous']})" if e["forecast"] or e["previous"] else ""
             d = events_ctx.describe(e, hhmm(e["time"]), ((report.get("macro") or {}).get("label", "")), events_ctx.build_ctx(report))
             lines.append(f"{mark} {hhmm(e['time'])} — {e['title']}{(' · ' + d['name']) if d['name'] != e['title'] else ''}{extra}")
             if d["expect"]:
                 lines.append(f"   ↳ {d['expect']}")
-            if d["short"] and e["impact"] == "High":
+            first = d["kind"] not in shown_kind
+            shown_kind.add(d["kind"])
+            if d["short"] and first and (e["impact"] == "High" or d["kind"] in events_ctx.ALWAYS):
                 lines.append(f"   ↳ {d['short']}")
-                if d["system"]:
+                if d["system"] and e["impact"] == "High":
                     lines.append(f"   ↳ المنظومة: {d['system'][0]} | {d['system'][-2] if len(d['system']) > 2 else d['system'][-1]}")
     for topic, label in NEWS_LABELS.items():
         items = (report.get("news") or {}).get(topic)
@@ -596,20 +605,7 @@ def format_release(ev, es_reaction, report):
     return "\n".join(lines)
 
 
-def format_move(mv, headlines, report):
-    ch = mv["ch"]
-    unit = lambda k: "bp" if MOVE[k][1] == "bp" else "%"
-    fmt = lambda k, v: "—" if v is None else (f"{v:+.0f}bp" if MOVE[k][1] == "bp" else f"{v:+.2f}%")
-    lead = max(mv["keys"], key=lambda k: abs(_val(ch, k) or 0) / MOVE[k][3])
-    v0 = _val(ch, "es") if _val(ch, "es") is not None and abs(_val(ch, "es")) >= MOVE_ES_CONFIRM else _val(ch, lead)
-    icon = "📈" if v0 and v0 > 0 else "📉"
-    only = set(mv["keys"]) == set(mv.get("alone", [])) and bool(mv.get("alone"))
-    head = "عامل مؤثر يتحرك بقوة" if only else "حركة كبيرة في السوق"
-    lines = [f"{icon} مِرصاد — {head} ({'، '.join(MOVE[k][0] for k in mv['keys'])})", "التغير: ساعة | 3 ساعات"]
-    shown = [k for k in MOVE if k in ch and (k in mv["keys"] or k in ("es", "oil", "y10", "dxy", "vix"))]
-    for k in shown:
-        mark = " ◀" if k in mv["keys"] else ""
-        lines.append(f"• {MOVE[k][0]}: {fmt(k, ch[k][0])} | {fmt(k, ch[k][1])}{mark}")
+def _conf_lines(mv):
     sts = mv.get("stats") or {}
     conf = []
     for k in mv["keys"]:
@@ -627,6 +623,81 @@ def format_move(mv, headlines, report):
             parts.append(f"الحجم ×{s['volx']:.1f}" if s.get("volx") is not None else "الحجم غير متاح (شروط زخم أشد)")
         if parts:
             conf.append(f"• {MOVE[k][0]}: " + " | ".join(parts))
+    return conf
+
+
+def _fmt_ch(k, v):
+    return "—" if v is None else (f"{v:+.0f}bp" if MOVE[k][1] == "bp" else f"{v:+.2f}%")
+
+
+ALERT_KEEP_H = 24
+ALERT_MAX = 8
+
+
+def alert_from_move(mv, headlines, now):
+    ch = mv["ch"]
+    rows = [{"name": MOVE[k][0], "c60": _fmt_ch(k, ch[k][0]), "c180": _fmt_ch(k, ch[k][1]), "lead": k in mv["keys"]}
+            for k in MOVE if k in ch and (k in mv["keys"] or k in ("es", "oil", "y10", "y30", "dxy", "vix"))]
+    only = set(mv["keys"]) == set(mv.get("alone", [])) and bool(mv.get("alone"))
+    es = _val(ch, "es")
+    return {"t": now.isoformat(), "kind": "move", "icon": "📈" if (es or 0) > 0 else "📉",
+            "title": ("عامل مؤثر يتحرك بقوة" if only else "حركة كبيرة في السوق") + " (" + "، ".join(MOVE[k][0] for k in mv["keys"]) + ")",
+            "rows": rows, "confirm": [x.lstrip("• ") for x in _conf_lines(mv)],
+            "pattern": move_pattern(ch), "headlines": list(headlines or [])[:4]}
+
+
+def alert_from_shock(signals, changes, headlines, now):
+    f = lambda k: "—" if changes.get(k) is None else f"{changes[k]:+.2f}%"
+    rows = [{"name": n, "c60": f(k), "c180": "—", "lead": False} for k, n in (("es", "ES"), ("vix", "VIX"), ("gold", "الذهب"), ("oil", "النفط")) if k in changes]
+    return {"t": now.isoformat(), "kind": "shock", "icon": "🚨", "title": "حركة سوق غير معتادة (قد تدل على حدث مفاجئ)",
+            "rows": rows, "confirm": list(signals or []), "pattern": [], "headlines": list(headlines or [])[:4]}
+
+
+def push_alert(state, rec, now):
+    keep = []
+    for a in (state.get("alerts") or []) + [rec]:
+        try:
+            if now - datetime.fromisoformat(a["t"]) <= timedelta(hours=ALERT_KEEP_H):
+                keep.append(a)
+        except Exception:  # noqa: BLE001
+            continue
+    state["alerts"] = keep[-ALERT_MAX:]
+
+
+def market_pulse(fresh, vols):
+    """نبض السوق الحالي لكل العوامل المراقَبة: التغير عبر 15/60/180 دقيقة وهل الحركة مؤكَّدة بالزخم والحجم."""
+    out = []
+    for k in MOVE:
+        if k not in fresh:
+            continue
+        try:
+            st = momentum_stats(fresh[k], vols.get(k), MOVE[k][1])
+            ok, why = confirm_move(k, st)
+        except Exception:  # noqa: BLE001
+            continue
+        out.append({"key": k, "name": MOVE[k][0], "c15": _fmt_ch(k, st["roc"][15]), "c60": _fmt_ch(k, st["roc"][60]),
+                    "c180": _fmt_ch(k, st["roc"][180]), "confirmed": bool(ok), "why": why,
+                    "eff": None if st["eff"] is None else round(st["eff"], 2),
+                    "z": None if st["z"] is None else round(abs(st["z"]), 1),
+                    "volx": None if st["volx"] is None else round(st["volx"], 1)})
+    return out
+
+
+def format_move(mv, headlines, report):
+    ch = mv["ch"]
+    unit = lambda k: "bp" if MOVE[k][1] == "bp" else "%"
+    fmt = lambda k, v: "—" if v is None else (f"{v:+.0f}bp" if MOVE[k][1] == "bp" else f"{v:+.2f}%")
+    lead = max(mv["keys"], key=lambda k: abs(_val(ch, k) or 0) / MOVE[k][3])
+    v0 = _val(ch, "es") if _val(ch, "es") is not None and abs(_val(ch, "es")) >= MOVE_ES_CONFIRM else _val(ch, lead)
+    icon = "📈" if v0 and v0 > 0 else "📉"
+    only = set(mv["keys"]) == set(mv.get("alone", [])) and bool(mv.get("alone"))
+    head = "عامل مؤثر يتحرك بقوة" if only else "حركة كبيرة في السوق"
+    lines = [f"{icon} مِرصاد — {head} ({'، '.join(MOVE[k][0] for k in mv['keys'])})", "التغير: ساعة | 3 ساعات"]
+    shown = [k for k in MOVE if k in ch and (k in mv["keys"] or k in ("es", "oil", "y10", "y30", "dxy", "vix"))]
+    for k in shown:
+        mark = " ◀" if k in mv["keys"] else ""
+        lines.append(f"• {MOVE[k][0]}: {fmt(k, ch[k][0])} | {fmt(k, ch[k][1])}{mark}")
+    conf = _conf_lines(mv)
     if conf:
         lines += ["", "تأكيد الزخم والحجم:"] + conf
     pat = move_pattern(ch)
@@ -814,8 +885,18 @@ def run_preopen(now, state, send, deps, prefix=""):
         update_history(report, prices, now, deps.get("history_path", HISTORY_FILE))
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث سجل الأداء: {e}")
+    pulse, es_s = [], None
     try:
-        dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"))
+        if deps.get("intraday"):
+            intr = deps["intraday"](now)
+            es_s = intr.get("es")
+            vols = intr.pop("_vol", {}) if isinstance(intr, dict) else {}
+            pulse = market_pulse({k: v for k, v in intr.items() if v and now - v[-1][0] <= timedelta(minutes=45)}, vols)
+    except Exception:  # noqa: BLE001
+        pulse = []
+    try:
+        dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
+                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, es_series=es_s)
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث صفحة الواجهة: {e}")
     msg = format_preopen(report, events, now, prefix, dashboard.page_url())
@@ -865,6 +946,7 @@ def run_auto(now, state, send, deps):
             except Exception:  # noqa: BLE001
                 report = None
             send(format_shock(signals, changes, headlines, report))
+            push_alert(state, alert_from_shock(signals, changes, headlines, now), now)
             state["last_shock"] = now.isoformat()
             sent += 1
             _m = detect_move(fresh, vols)      # الصدمة تغطي الحركة نفسها: لا تنبيه مكرر
@@ -887,6 +969,7 @@ def run_auto(now, state, send, deps):
                 except Exception:  # noqa: BLE001
                     report = None
                 send(format_move(mv, headlines, report))
+                push_alert(state, alert_from_move(mv, headlines, now), now)
                 lm = state.setdefault("last_move", {})
                 lmm = state.setdefault("last_move_mag", {})
                 for dk in dkeys:
@@ -896,7 +979,12 @@ def run_auto(now, state, send, deps):
     # تحديث الواجهة: صفحة الويب تعرض آخر لقطة منشورة، فنجدّدها مع كل فحص (كل ~15 دقيقة)
     try:
         snap = full_report(now, events, deps)
-        dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"))
+        try:
+            pulse = market_pulse(fresh, vols) if fresh else []
+        except Exception:  # noqa: BLE001
+            pulse = []
+        dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
+                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, es_series=intr.get("es") if isinstance(intr, dict) else None)
     except Exception as e:  # noqa: BLE001
         print("تعذّر تحديث لقطة الواجهة:", e)
     print(f"انتهت المراقبة: أُرسل {sent} تنبيه")

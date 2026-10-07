@@ -29,7 +29,8 @@ RULES = [
     (r"retail sales", "growth", "مبيعات التجزئة", "قوة إنفاق المستهلك"),
     (r"ism|pmi|empire state|philly fed|durable goods|industrial production", "growth", "مؤشر نشاط اقتصادي", "قوة النشاط الصناعي/الخدمي"),
     (r"consumer (sentiment|confidence)|michigan", "sent", "ثقة المستهلك", "تفاؤل المستهلك وتوقعاته للتضخم"),
-    (r"treasury.*auction|bond auction|note auction", "auction", "مزاد سندات الخزانة", "الطلب على الدين الأمريكي وتأثيره على العوائد"),
+    (r"crude oil inventor|crude oil stocks|eia crude|oil inventor", "oil", "مخزونات النفط الخام", "تغير مخزون النفط الأمريكي، يحرك أسعار الطاقة ومنها توقعات التضخم"),
+    (r"treasury.*auction|bond auction|note auction|bill auction|\d+-y(?:ear)? (?:note|bond)", "auction", "مزاد سندات الخزانة", "الطلب على الدين الأمريكي وتأثيره على العوائد (خصوصاً الطرف الطويل)"),
     (r"housing|home sales|building permits", "housing", "بيانات الإسكان", "حالة قطاع العقار وحساسيته للفائدة"),
 ]
 
@@ -66,6 +67,10 @@ TEXT = {
                 "تأثير محدود.",
                 "يريح الأسهم.",
                 "مزاد الخزانة يؤثر عبر العوائد"),
+    "oil": ("بناء مخزون أكبر من المتوقع يضغط على النفط، وهبوط النفط يخفف توقعات التضخم ويدعم ES عادة (مع ضعف قطاع الطاقة).",
+            "تأثير محدود.",
+            "سحب أكبر من المتوقع يدعم النفط، وصعوده يرفع توقعات التضخم والعوائد فيضغط على ES.",
+            "أثره على ES غير مباشر: عبر النفط ثم التضخم والعوائد"),
     "housing": ("قطاع العقار يتحمل الفائدة، تأثير محدود على ES.",
                 "تأثير محدود.",
                 "أثر محدود غالباً على ES.",
@@ -76,6 +81,7 @@ SHORT = {
     "unemp": ("أعلى=ضعف عمل، دعم للفائدة الأقل", "أقل=عوائد أعلى"), "growth": ("أقوى=مختلط", "أضعف=دعم للفائدة الأقل"),
     "sent": ("أعلى=إيجابي", "أقل=سلبي"), "rate": ("أشد تشدداً=ضغط", "أكثر تيسيراً=دعم"),
     "speech": ("متشددة=ضغط", "تيسيرية=دعم"), "auction": ("طلب ضعيف=ضغط", "طلب قوي=دعم"), "housing": ("ثانوي", "ثانوي"),
+    "oil": ("بناء مخزون=نفط أضعف (دعم لـ ES)", "سحب مخزون=نفط أقوى (ضغط تضخمي)"),
 }
 
 
@@ -98,6 +104,15 @@ def _unit(s):
 
 def _fmt(x):
     return f"{x:.2f}".rstrip("0").rstrip(".")
+
+
+def _is_ratio(ev):
+    """مزاد تُقاس نتيجته بنسبة التغطية (بدون %)، فالأعلى أفضل للأسهم، عكس العائد."""
+    for k in ("actual", "forecast", "previous"):
+        v = str(ev.get(k) or "")
+        if v:
+            return "%" not in v and "|" not in v
+    return False
 
 
 def classify(title):
@@ -159,20 +174,21 @@ def combined(actual, forecast, previous):
 
 # السيناريو الأخطر على ES حسب نوع الحدث (hawk = ميل الفدرالي متشدد)
 WORST = {"infl": ("above", "above"), "labor": ("above", "below"), "unemp": ("below", "above"),
-         "growth": ("above", "below"), "rate": ("above", "above"), "speech": ("above", "above"), "auction": ("above", "above")}
+         "growth": ("above", "below"), "rate": ("above", "above"), "speech": ("above", "above"), "auction": ("above", "above"),
+         "oil": ("below", "below")}
 
 
 PILLARS = {"infl": ["inflation", "taylor"], "labor": ["labor"], "unemp": ["labor"], "growth": ["growth", "fincond"],
-           "rate": ["dots", "taylor"], "speech": ["dots"], "auction": ["fincond"], "sent": ["inflation"]}
+           "rate": ["dots", "taylor"], "speech": ["dots"], "auction": ["fincond"], "sent": ["inflation"], "oil": ["energy", "inflation"]}
 # أي اتجاه (أعلى من المتوقع) يدفع نحو التشدد؟ +1 نعم، -1 يدفع نحو التيسير
-HAWK_DIR = {"infl": 1, "labor": 1, "unemp": -1, "growth": 1, "rate": 1, "speech": 1, "auction": 1, "sent": 1}
+HAWK_DIR = {"infl": 1, "labor": 1, "unemp": -1, "growth": 1, "rate": 1, "speech": 1, "auction": 1, "sent": 1, "oil": -1}
 
 
 # أثر كل سيناريو (أعلى، مطابق، أقل) على ES: bear ضغط، bull دعم، neu محايد — (حالة متشدد، غير متشدد)
 EFFECT = {"infl": (("bear", "neu", "bull"),) * 2, "labor": (("bear", "neu", "bull"), ("bull", "neu", "bear")),
           "unemp": (("bull", "neu", "bear"), ("bear", "neu", "bull")), "growth": (("bear", "neu", "bull"), ("bull", "neu", "bear")),
           "rate": (("bear", "neu", "bull"),) * 2, "speech": (("bear", "neu", "bull"),) * 2, "auction": (("bear", "neu", "bull"),) * 2,
-          "sent": (("bull", "neu", "bear"),) * 2, "housing": (("neu", "neu", "neu"),) * 2}
+          "sent": (("bull", "neu", "bear"),) * 2, "oil": (("bull", "neu", "bear"),) * 2, "housing": (("neu", "neu", "neu"),) * 2}
 
 
 def build_ctx(report):
@@ -217,7 +233,7 @@ def system_lines(kind, ev, ctx):
     # أثر النتيجة على المنظومة بعد الصدور
     a, f = _num(ev.get("actual")), _num(ev.get("forecast"))
     if a is not None and f is not None and abs(a - f) > 1e-9:
-        hawk = (1 if a > f else -1) * HAWK_DIR.get(kind, 1)
+        hawk = (1 if a > f else -1) * HAWK_DIR.get(kind, 1) * (-1 if kind == 'auction' and _is_ratio(ev) else 1)
         side = "متشدد" if hawk > 0 else "متساهل"
         cur = m.get("lean", 0)
         if (cur > 0.15 and hawk > 0) or (cur < -0.15 and hawk < 0):
@@ -236,7 +252,7 @@ def system_lines(kind, ev, ctx):
 
 def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
     kind, name, what = classify(ev.get("title", ""))
-    d = {"time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
+    d = {"kind": kind or "", "time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
          "forecast": ev.get("forecast", ""), "previous": ev.get("previous", ""), "actual": ev.get("actual", ""),
          "name": name or ev.get("title", ""), "what": what or "", "expect": expectation(ev.get("forecast"), ev.get("previous")),
          "surprise": surprise(ev.get("actual"), ev.get("forecast")) if ev.get("actual") else "", "scenarios": [], "note": "", "short": "", "vs_prev": vs_previous(ev.get("actual"), ev.get("previous")) if ev.get("actual") else "",
@@ -258,8 +274,15 @@ def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
                           {"k": "below", "label": "أقل من المتوقع", "text": down}]
         d["note"] = note
         d["short"] = " | ".join(SHORT[kind])
+        if kind == "auction" and _is_ratio(ev):
+            d["scenarios"] = [{"k": "above", "label": "أعلى من المتوقع", "text": "طلب أقوى على السندات (نسبة التغطية أعلى)، يريح العوائد ويدعم الأسهم."},
+                              {"k": "inline", "label": "مطابق", "text": "تأثير محدود."},
+                              {"k": "below", "label": "أقل من المتوقع", "text": "طلب أضعف، ترتفع العوائد وتضغط على الأسهم."}]
+            d["short"] = "تغطية أعلى=دعم | أضعف=ضغط"
         hawk = "متشدد" in (macro_label or "")
         eff = EFFECT.get(kind, (("neu",) * 3,) * 2)[0 if hawk else 1]
+        if kind == "auction" and _is_ratio(ev):
+            eff = ("bull", "neu", "bear")
         for sc, ef in zip(d["scenarios"], eff):
             sc["es"] = ef
         if kind in WORST:
@@ -293,3 +316,49 @@ def interpret_release(ev, macro_label="", ctx=None):
         key = "inline" if abs(a - f) < 1e-9 else ("above" if a > f else "below")
     meaning = next((s["text"] for s in d["scenarios"] if s["k"] == key), "")
     return {"surprise": d["surprise"], "vs_prev": d["vs_prev"], "combined": d["combined"], "system": d["system"], "system_effect": d["system_effect"], "meaning": meaning, "note": d["note"], "name": d["name"]}
+
+
+GROUP_NAME = {"speech": "الفدرالي: محضر وكلمات", "auction": "مزادات سندات الخزانة", "oil": "مخزونات النفط الخام",
+              "infl": "التضخم", "labor": "سوق العمل", "unemp": "البطالة", "growth": "النمو", "sent": "ثقة المستهلك",
+              "rate": "قرار الفائدة", "housing": "الإسكان"}
+ALWAYS = ("oil", "auction", "speech")
+
+
+def relevant(ev):
+    """الأحداث المهمة لـ ES: العالية والمتوسطة، إضافة إلى النفط والمزادات والفدرالي حتى لو صُنّفت منخفضة."""
+    if ev.get("impact") in ("High", "Medium"):
+        return True
+    kind, _, _ = classify(ev.get("title", ""))
+    return kind in ALWAYS
+
+
+ITEM_KEYS = ("time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit")
+
+
+def group(descs):
+    """يجمع الأحداث من نفس النوع: الشرح والسيناريوهات مرة واحدة، وتبقى أرقام كل حدث منفصلة."""
+    order, groups = [], {}
+    for i, d in enumerate(descs):
+        k = d.get("kind") or f"_{i}"
+        if k not in groups:
+            groups[k] = []
+            order.append(k)
+        groups[k].append(d)
+    out = []
+    for k in order:
+        ds = groups[k]
+        if len(ds) == 1:
+            g = dict(ds[0])
+            g["items"] = []
+            out.append(g)
+            continue
+        g = dict(ds[0])
+        g["name"] = GROUP_NAME.get(ds[0].get("kind"), ds[0]["name"])
+        g["time"] = ds[0]["time"]
+        g["high"] = any(x["high"] for x in ds)
+        for key in ("forecast", "previous", "actual", "surprise", "vs_prev", "combined", "expect"):
+            g[key] = ""
+        g.pop("hit", None)
+        g["items"] = [{kk: x.get(kk) for kk in ITEM_KEYS if kk in x} for x in ds]
+        out.append(g)
+    return out
