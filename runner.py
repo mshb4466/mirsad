@@ -664,6 +664,10 @@ def push_alert(state, rec, now):
     state["alerts"] = keep[-ALERT_MAX:]
 
 
+SHORT_NAME = {"es": "ES", "nq": "NQ", "vix": "VIX", "oil": "نفط", "gold": "ذهب", "dxy": "دولار", "jpy": "ين",
+              "y10": "10Y", "y5": "5Y", "y30": "30Y", "hyg": "HYG", "kre": "KRE"}
+
+
 def market_pulse(fresh, vols):
     """نبض السوق الحالي لكل العوامل المراقَبة: التغير عبر 15/60/180 دقيقة وهل الحركة مؤكَّدة بالزخم والحجم."""
     out = []
@@ -675,7 +679,19 @@ def market_pulse(fresh, vols):
             ok, why = confirm_move(k, st)
         except Exception:  # noqa: BLE001
             continue
-        out.append({"key": k, "name": MOVE[k][0], "c15": _fmt_ch(k, st["roc"][15]), "c60": _fmt_ch(k, st["roc"][60]),
+        best = None
+        for i, w in enumerate(WINDOWS):
+            v = st["roc"][w]
+            if v is None:
+                continue
+            r = abs(v) / MOVE[k][2 + i]
+            if best is None or r > best[0]:
+                best = (r, w, v, MOVE[k][2 + i])
+        r, w, v, th = best if best else (0.0, 60, 0.0, MOVE[k][3])
+        sfx = "bp" if MOVE[k][1] == "bp" else "%"
+        out.append({"key": k, "name": MOVE[k][0], "short": SHORT_NAME.get(k, MOVE[k][0]), "w": w, "v": round(v, 2), "th": th,
+                    "ratio": round(r, 2), "val": _fmt_ch(k, v), "thr": (f"±{th:g}{sfx}"),
+                    "c15": _fmt_ch(k, st["roc"][15]), "c60": _fmt_ch(k, st["roc"][60]),
                     "c180": _fmt_ch(k, st["roc"][180]), "confirmed": bool(ok), "why": why,
                     "eff": None if st["eff"] is None else round(st["eff"], 2),
                     "z": None if st["z"] is None else round(abs(st["z"]), 1),
@@ -885,15 +901,7 @@ def run_preopen(now, state, send, deps, prefix=""):
         update_history(report, prices, now, deps.get("history_path", HISTORY_FILE))
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث سجل الأداء: {e}")
-    pulse, es_s = [], None
-    try:
-        if deps.get("intraday"):
-            intr = deps["intraday"](now)
-            es_s = intr.get("es")
-            vols = intr.pop("_vol", {}) if isinstance(intr, dict) else {}
-            pulse = market_pulse({k: v for k, v in intr.items() if v and now - v[-1][0] <= timedelta(minutes=45)}, vols)
-    except Exception:  # noqa: BLE001
-        pulse = []
+    pulse, es_s = (state.get("pulse") or []), state.get("es_series_cache")
     try:
         dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
                           alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, es_series=es_s)
@@ -983,8 +991,11 @@ def run_auto(now, state, send, deps):
             pulse = market_pulse(fresh, vols) if fresh else []
         except Exception:  # noqa: BLE001
             pulse = []
+        if pulse:
+            state["pulse"] = pulse
         dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
-                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, es_series=intr.get("es") if isinstance(intr, dict) else None)
+                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse or state.get("pulse") or [],
+                          es_series=intr.get("es") if isinstance(intr, dict) else None)
     except Exception as e:  # noqa: BLE001
         print("تعذّر تحديث لقطة الواجهة:", e)
     print(f"انتهت المراقبة: أُرسل {sent} تنبيه")

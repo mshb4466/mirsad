@@ -146,9 +146,19 @@ def fetch_prices(now):
     import yfinance as yf
     out, problems = {}, []
     et = ZoneInfo("America/New_York") if ZoneInfo else timezone.utc
+    import time
     for key, sym in SYMBOLS.items():
         try:
-            h = yf.Ticker(sym).history(period="3mo", interval="1d", auto_adjust=False).dropna(subset=["Close"])
+            h = None
+            for attempt in range(3):          # Yahoo يحدّ الطلبات أحياناً: انتظار تصاعدي ثم إعادة المحاولة
+                try:
+                    h = yf.Ticker(sym).history(period="3mo", interval="1d", auto_adjust=False).dropna(subset=["Close"])
+                    break
+                except Exception as e:  # noqa: BLE001
+                    if attempt == 2 or not any(w in str(e).lower() for w in ("too many", "rate limit", "429")):
+                        raise
+                    time.sleep(4 * (attempt + 1))
+            time.sleep(0.15)
             if len(h) < 6:
                 raise ValueError("بيانات غير كافية")
             dates = [i.to_pydatetime().date().isoformat() for i in h.index]

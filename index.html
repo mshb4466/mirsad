@@ -42,7 +42,7 @@
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
-  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.6; padding-inline: 16px; padding-block: 18px 48px; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.6; padding-inline: 16px; padding-block: 18px calc(96px + env(safe-area-inset-bottom, 0px)); }
   .wrap { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
   .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; }
 
@@ -192,9 +192,31 @@
   .plan.paid li::before { content: '★'; color: var(--brand); }
   @media (max-width: 560px) { .plan-grid { grid-template-columns: 1fr; } }
   .plan-note { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
-  .tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 6px; }
-  .tabs button { padding: 10px 6px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); color: var(--muted); font: 700 14px var(--font-body); cursor: pointer; }
-  .tabs button[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); }
+  .tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; position: fixed; bottom: 0; left: 0; right: 0; margin-inline: auto; max-width: 640px; z-index: 20; background: var(--card); border-top: 1px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 20px rgba(0,0,0,.08); border-radius: 18px 18px 0 0; }
+  .tabs button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; border-radius: 12px; border: 0; background: transparent; color: var(--muted); font: 700 12px var(--font-body); cursor: pointer; }
+  .tabs button i { font-style: normal; font-size: 20px; line-height: 1.1; filter: grayscale(1); opacity: .75; }
+  .tabs button[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); } .tabs button[aria-selected="true"] i { filter: none; opacity: 1; }
+  .rel { border-top: 1px solid var(--line); padding: 12px 0; display: grid; gap: 8px; }
+  .relh { display: flex; gap: 8px; align-items: baseline; font-weight: 800; font-size: 14.5px; }
+  .nums3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; direction: rtl; }
+  .nbox { background: var(--card-2); border-radius: 12px; padding: 6px 4px; text-align: center; min-width: 0; }
+  .nbox small { display: block; color: var(--muted); font-size: 11px; } .nbox b { font-size: 16px; display: block; }
+  .nbox.act { outline: 2px solid var(--vc, var(--line)); background: var(--vbg, var(--card-2)); } .nbox.act b { color: var(--vc, var(--fg)); font-size: 18px; }
+  .vrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .pill { display: inline-flex; gap: 5px; align-items: center; padding: 4px 11px; border-radius: 99px; font-size: 12.5px; font-weight: 700; background: var(--card-2); color: var(--fg); }
+  .pill.v-bear { background: var(--crit-bg); color: var(--crit); } .pill.v-bull { background: var(--ok-bg); color: var(--ok); } .pill.v-neu { background: var(--neutral-bg); color: var(--neutral); }
+  .relrow { display: grid; gap: 6px; padding: 8px; border-radius: 12px; background: var(--card-2); }
+  .relrow .t { font-weight: 700; font-size: 13px; }
+  .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(52px, 1fr)); gap: 8px 6px; align-items: end; margin-top: 10px; direction: ltr; }
+  .pcol { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-width: 0; }
+  .ptrack { position: relative; width: 22px; height: 96px; border-radius: 8px; background: var(--card-2); border: 1px solid var(--line); overflow: visible; }
+  .pfill { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 7px; background: var(--pc, var(--neutral)); }
+  .pth { position: absolute; left: -4px; right: -4px; bottom: 66.7%; border-top: 2px dashed var(--fg); opacity: .6; }
+  .pcol .pn { font-weight: 800; font-size: 12px; } .pcol .pt { font-size: 10px; color: var(--muted); } .pcol .pv { font-size: 12px; font-weight: 800; color: var(--pc, var(--fg)); }
+  .pcol[hidden] { display: none; }
+  #pulseMore { margin-top: 8px; }
+  .legend1 { font-size: 11.5px; color: var(--muted); margin: 6px 0 0; display: flex; gap: 12px; flex-wrap: wrap; } .legend1 i { display: inline-block; width: 14px; border-top: 2px dashed var(--fg); vertical-align: middle; margin-inline-end: 4px; }
+  .who { margin: 2px 0 0; font-weight: 700; }
   .tab { display: flex; flex-direction: column; gap: 14px; }
   .ladder { width: 100%; max-width: 380px; margin: 0 auto; display: block; direction: ltr; }
   .ladder text { font: 600 10.5px var(--font-mono); fill: var(--fg); }
@@ -271,17 +293,21 @@
   <div class="statusrow"><button class="chip lang" id="refreshBtn" type="button">↻ تحديث</button><div class="demo" id="banner">مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.</div></div>
 
   <div class="tabs" role="tablist">
-    <button type="button" role="tab" data-tab="today" aria-selected="true">اليوم</button>
-    <button type="button" role="tab" data-tab="macro" aria-selected="false">المنظومة</button>
-    <button type="button" role="tab" data-tab="details" aria-selected="false">التفاصيل</button>
-    <button type="button" role="tab" data-tab="settings" aria-selected="false">الإعدادات</button>
+    <button type="button" role="tab" data-tab="today" aria-selected="true"><i>🏠</i><span>اليوم</span></button>
+    <button type="button" role="tab" data-tab="macro" aria-selected="false"><i>🧭</i><span>المنظومة</span></button>
+    <button type="button" role="tab" data-tab="details" aria-selected="false"><i>📊</i><span>التفاصيل</span></button>
+    <button type="button" role="tab" data-tab="settings" aria-selected="false"><i>⚙️</i><span>الإعدادات</span></button>
   </div>
 
   <div id="output" hidden>
 
    <div class="tab" id="tab-today">
+    <section class="card" id="relCard">
+      <h2>صدر خلال آخر 24 ساعة: النتيجة وأثرها (توقيت بغداد)</h2>
+      <div id="relList"></div>
+    </section>
     <section class="card" id="evCard">
-      <h2>أحداث اليوم المؤثرة على ES: القادمة وما صدر (توقيت بغداد)</h2>
+      <h2>القادم خلال 24 ساعة وسيناريوهاته (توقيت بغداد)</h2>
       <div id="evList"></div>
     </section>
     <section class="card" id="alertCard" hidden>
@@ -290,8 +316,9 @@
     </section>
     <section class="card" id="pulseCard" hidden>
       <h2>نبض السوق الآن</h2>
-      <p class="evnote" id="pulseNote"></p>
-      <div class="tw"><table class="pulse"><thead><tr><th>العامل</th><th>15 د</th><th>ساعة</th><th>3 ساعات</th><th>الحالة</th></tr></thead><tbody id="pulseBody"></tbody></table></div>
+      <div class="pgrid" id="pulseGrid"></div>
+      <button type="button" class="chip lang" id="pulseMore" hidden></button>
+      <p class="legend1"><span><i></i>الحد المؤثر</span><span>العمود = أكبر تغير لحظي نسبةً لحدّه</span><span>✔ مؤكَّدة بالزخم والحجم</span></p>
     </section>
     <section class="card hero" id="hero">
       <svg class="gauge" id="gauge" viewBox="0 0 260 150" role="img" aria-label="مقياس المخاطرة"></svg>
@@ -440,10 +467,12 @@
   </div>
 
   <p class="foot">تحليل توليدي لإثبات الفكرة فقط — ليس توصية استثمارية.</p>
+  <p class="foot who">إعداد: محمد شاهين</p>
 </div>
 
 <script>
 const $ = id => document.getElementById(id);
+let PULSE_ALL = false;
 const output = $('output');
 const CTX = { vix: 24, eventTiming: 'خلال 3 ساعات', eventType: 'قرار الفائدة (FOMC)', event: 'قرار الفائدة بعد ثلاث ساعات وتوتر في الخليج' };
 const LANG0 = (()=>{try{return localStorage.getItem('mirsad-lang')}catch(e){return null}})();
@@ -847,10 +876,54 @@ function render(data) {
   } else if (!(data.events || []).length) {
     evBox.appendChild(el('p', 'evnote', 'لا أحداث مهمة قادمة لـ USD خلال الـ 24 ساعة القادمة.'));
   } else { data.events.forEach(addEv); }
-  if ((data.events_past || []).length) {
-    evBox.appendChild(el('h3', 'evh', 'صدر خلال آخر 24 ساعة (النتيجة والأثر)'));
-    data.events_past.forEach(addEv);
-  }
+  const relBox = $('relList'); relBox.innerHTML = '';
+  $('relCard').hidden = !(data.live && data.events_past !== undefined);
+  const VCOL = { bear: ['var(--crit)', 'var(--crit-bg)'], bull: ['var(--ok)', 'var(--ok-bg)'], neu: ['var(--neutral)', 'var(--neutral-bg)'] };
+  const nums3 = (it, vd) => {
+    const g = el('div', 'nums3');
+    [['السابق', it.previous, false], ['المتوقع', it.forecast, false], ['الفعلي', it.actual, true]].forEach(x => {
+      const b = el('div', 'nbox' + (x[2] ? ' act' : '')); if (x[2] && vd) { const c = VCOL[vd.es] || VCOL.neu; b.style.setProperty('--vc', c[0]); b.style.setProperty('--vbg', c[1]); }
+      b.appendChild(el('small', '', x[0])); b.appendChild(el('b', 'num', x[1] || '—')); g.appendChild(b);
+    });
+    return g;
+  };
+  const verdictRow = (it, vd) => {
+    const r = el('div', 'vrow');
+    if (vd) {
+      const arrow = vd.k === 'above' ? '▲ ' : vd.k === 'below' ? '▼ ' : '◆ ';
+      r.appendChild(el('span', 'pill', arrow + vd.label + (it.surprise ? ' (' + it.surprise.replace(/^(أعلى|أقل) من المتوقع بـ ?/, '') + ')' : '')));
+      r.appendChild(el('span', 'pill v-' + vd.es, vd.effect));
+    } else if (!it.actual) r.appendChild(el('span', 'pill', 'بلا رقم (كلام/محضر)'));
+    return r;
+  };
+  (data.events_past || []).forEach(e => {
+    const w = el('div', 'rel'); const h = el('div', 'relh');
+    h.appendChild(document.createTextNode('✅ ')); h.appendChild(el('span', 'num evtime', e.time)); h.appendChild(el('span', '', e.name || e.title));
+    w.appendChild(h);
+    if ((e.items || []).length) {
+      e.items.forEach(it => {
+        const r = el('div', 'relrow'); const t = el('div', 't'); t.appendChild(el('span', 'num evtime', it.time)); t.appendChild(document.createTextNode('  ' + (it.name || it.title)));
+        r.appendChild(t);
+        if (it.actual || it.forecast || it.previous) r.appendChild(nums3(it, it.verdict));
+        r.appendChild(verdictRow(it, it.verdict)); w.appendChild(r);
+      });
+    } else {
+      if (e.actual || e.forecast || e.previous) w.appendChild(nums3(e, e.verdict));
+      w.appendChild(verdictRow(e, e.verdict));
+    }
+    const rr = el('div', 'vrow');
+    if (e.reaction !== null && e.reaction !== undefined) rr.appendChild(el('span', 'pill ' + (e.reaction > 0.05 ? 'v-bull' : e.reaction < -0.05 ? 'v-bear' : 'v-neu'), 'ES منذ الصدور ' + (e.reaction > 0 ? '+' : '') + e.reaction + '%'));
+    if (rr.children.length) w.appendChild(rr);
+    const det = (e.verdict && e.verdict.text) || e.system_effect || e.note;
+    if (det) {
+      const m = document.createElement('details'); m.className = 'evsys'; m.appendChild(el('summary', '', 'التفسير'));
+      const ul = el('ul', 'play'); [e.verdict && e.verdict.text, e.vs_prev && ('مقارنة بالسابق: ' + e.vs_prev), e.combined, e.system_effect].filter(Boolean).forEach(t => ul.appendChild(el('li', '', t)));
+      if (!ul.children.length) ul.appendChild(el('li', '', e.note));
+      m.appendChild(ul); w.appendChild(m);
+    }
+    relBox.appendChild(w);
+  });
+  if (!(data.events_past || []).length) relBox.appendChild(el('p', 'evnote', 'لا أحداث مهمة صدرت خلال آخر 24 ساعة.'));
   if ((data.events_next || []).length) {
     evBox.appendChild(el('h3', 'evh', 'الأحداث الكبرى القادمة هذا الأسبوع'));
     data.events_next.forEach(addEv);
@@ -875,13 +948,25 @@ function render(data) {
     sec('تأكيد الزخم والحجم', a.confirm); sec('القراءة (من ترابط الحركة، وليست تأكيداً للسبب)', a.pattern); sec('عناوين حديثة قد تكون ذات صلة', a.headlines);
     aBox.appendChild(d);
   });
-  const pb = $('pulseBody'); pb.innerHTML = '';
-  const pulse = data.pulse || [];
+  const pg = $('pulseGrid'); pg.innerHTML = '';
+  const pulse = (data.pulse || []).filter(r => r.ratio !== undefined);
   $('pulseCard').hidden = !pulse.length;
-  $('pulseNote').textContent = 'التغير اللحظي لكل عامل مراقَب. الحركة «مؤكَّدة» فقط إذا اجتمع الزخم والحجم. بيانات Yahoo المجانية متأخرة عن السوق.';
-  pulse.forEach(r => { const tr = document.createElement('tr'); if (r.confirmed) tr.className = 'ok';
-    tr.appendChild(el('td', '', r.name)); ['c15', 'c60', 'c180'].forEach(k => tr.appendChild(el('td', 'num-c', r[k])));
-    tr.appendChild(el('td', '', r.confirmed ? '✔ مؤكَّدة' : '· ' + r.why)); pb.appendChild(tr); });
+  const MAIN = ['es', 'nq', 'oil', 'y10', 'vix', 'dxy'];
+  const isMain = r => MAIN.indexOf(r.key) >= 0 || r.ratio >= 1 || r.confirmed;   // العامل المتجاوز لحدّه يظهر دائماً
+  const extra = pulse.filter(r => !isMain(r)).length;
+  pulse.forEach(r => {
+    const col = el('div', 'pcol'); if (!isMain(r)) col.className += ' pextra'; col.hidden = !isMain(r) && !PULSE_ALL;
+    const c = r.confirmed ? 'var(--crit)' : r.ratio >= 1 ? 'var(--hi)' : r.ratio >= 0.5 ? 'var(--warn)' : 'var(--neutral)';
+    col.style.setProperty('--pc', c);
+    col.appendChild(el('div', 'pn', (r.v > 0 ? '▲' : r.v < 0 ? '▼' : '◆') + (r.confirmed ? '✔' : '')));
+    const tr = el('div', 'ptrack'); const f = el('div', 'pfill'); f.style.height = Math.max(3, Math.min(100, r.ratio / 1.5 * 100)) + '%';
+    tr.appendChild(f); tr.appendChild(el('div', 'pth')); col.appendChild(tr);
+    col.appendChild(el('div', 'pn', r.short || r.name));
+    col.appendChild(el('div', 'pt num', r.thr)); col.appendChild(el('div', 'pv num', r.val));
+    col.title = r.name + ' — آخر ' + r.w + ' دقيقة';
+    pg.appendChild(col);
+  });
+  const pm = $('pulseMore'); pm.hidden = !extra; pm.textContent = PULSE_ALL ? 'عرض الأهم فقط' : 'عرض بقية العوامل (' + extra + ')';
   const infoArr = [].concat(data.info || []);
   (data.geo || []).forEach(g => infoArr.push((g.deesc ? '▼ تهدئة' : g.severity >= 2 ? '▲ تصعيد' : '◆ متابعة') + ' | ' + ((g.regions || []).join('، ') || '—') + ' | حدّة ' + g.severity + '/4 | ' + g.sources + ' مصدر: ' + g.title));
   Object.keys(data.news || {}).forEach(k => (data.news[k] || []).forEach(h => infoArr.push(k + ': ' + h)));
@@ -956,6 +1041,7 @@ function loadData(manual) {
     .finally(() => { btn.disabled = false; });
 }
 $('refreshBtn').addEventListener('click', () => loadData(true));
+$('pulseMore').addEventListener('click', () => { PULSE_ALL = !PULSE_ALL; render(LIVE || (LANG === 'en' ? DEMO_EN : DEMO_AR)); });
 setInterval(() => { if (!document.hidden) loadData(false); }, 300000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() - loadedAt > 120000) loadData(false); });
 setInterval(stamp_, 60000);

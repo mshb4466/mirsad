@@ -106,9 +106,19 @@ def _past_events(events, now, report, es_series):
             d["reaction"] = None if r is None else round(r, 2)
             out.append(d)
     g = events_ctx.group(out)
+    EFF = {"bear": "ضغط على ES", "bull": "دعم لـ ES", "neu": "أثر محدود"}
+
+    def verdict(hit, scs):
+        sc = next((s for s in scs if s["k"] == hit), None)
+        return None if not sc else {"k": hit, "label": sc["label"], "es": sc.get("es", "neu"), "effect": EFF.get(sc.get("es", "neu"), ""), "text": sc["text"]}
     for x in g:
+        x["verdict"] = verdict(x.get("hit"), x.get("scenarios") or [])
+        for it in x.get("items") or []:
+            it["verdict"] = verdict(it.get("hit"), x.get("scenarios") or [])
         if x.get("items"):
-            x["reaction"] = out[[o["kind"] for o in out].index(x["kind"])]["reaction"] if x.get("kind") else None
+            k = x.get("kind")
+            rs = [o["reaction"] for o in out if o.get("kind") == k and o.get("reaction") is not None]
+            x["reaction"] = rs[-1] if rs else None
     return g
 
 
