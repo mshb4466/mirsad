@@ -274,6 +274,9 @@ def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
                           {"k": "below", "label": "أقل من المتوقع", "text": down}]
         d["note"] = note
         d["short"] = " | ".join(SHORT[kind])
+        if kind == "speech":
+            for sc, lab in zip(d["scenarios"], ("نبرة متشددة", "نبرة محايدة", "نبرة تيسيرية")):
+                sc["label"] = lab
         if kind == "auction" and _is_ratio(ev):
             d["scenarios"] = [{"k": "above", "label": "أعلى من المتوقع", "text": "طلب أقوى على السندات (نسبة التغطية أعلى)، يريح العوائد ويدعم الأسهم."},
                               {"k": "inline", "label": "مطابق", "text": "تأثير محدود."},
@@ -362,3 +365,51 @@ def group(descs):
         g["items"] = [{kk: x.get(kk) for kk in ITEM_KEYS if kk in x} for x in ds]
         out.append(g)
     return out
+
+
+HAWK_WORDS = ("hawkish", "higher for longer", "no rush to cut", "rate hike", "raise rates", "more tightening", "inflation risk",
+              "inflation remains", "sticky inflation", "restrictive", "not ready to cut", "fewer cuts", "slow the pace of cuts", "upside risks to inflation")
+DOVE_WORDS = ("dovish", "rate cut", "cut rates", "cuts rates", "further cuts", "ease policy", "easing", "labor market weak", "weakening labor",
+              "downside risks", "slowdown", "lower rates", "support the labor market", "more cuts", "reduce rates")
+
+
+def fed_tone(headlines):
+    """نبرة تقريبية من عناوين الأخبار بقائمة كلمات: (hawk|dove|unclear، عدد الإشارات). ليست فهماً للنص."""
+    h = d = 0
+    for t in headlines or []:
+        low = (t or "").lower()
+        h += sum(1 for w in HAWK_WORDS if w in low)
+        d += sum(1 for w in DOVE_WORDS if w in low)
+    if h > d:
+        return "hawk", h - d
+    if d > h:
+        return "dove", d - h
+    return "unclear", 0
+
+
+def market_tone(react):
+    """قراءة استقبال السوق من العوائد والدولار بعد الحدث: ارتفاعهما معاً = متشددة، انخفاضهما = تيسيرية."""
+    y, x = (react or {}).get("y10"), (react or {}).get("dxy")
+    if y is None or x is None:
+        return "unclear"
+    if y >= 2 and x >= 0.05:
+        return "hawk"
+    if y <= -2 and x <= -0.05:
+        return "dove"
+    return "unclear"
+
+
+def speech_outcome(headlines, react):
+    """يجمع نبرة العناوين واستقبال السوق: يعيد (k: above|inline|below، شرح قصير)."""
+    ht, _ = fed_tone(headlines)
+    mt = market_tone(react)
+    tone = mt if mt != "unclear" else ht
+    if mt != "unclear" and ht != "unclear" and mt != ht:
+        tone = mt            # السوق أصدق من العناوين
+    k = {"hawk": "above", "dove": "below"}.get(tone, "inline")
+    basis = []
+    if ht != "unclear":
+        basis.append("عناوين " + ("متشددة" if ht == "hawk" else "تيسيرية"))
+    if mt != "unclear":
+        basis.append("العوائد والدولار " + ("ارتفعا" if mt == "hawk" else "انخفضا"))
+    return k, "، ".join(basis) or "لا إشارة واضحة من العناوين ولا من العوائد والدولار"

@@ -81,19 +81,47 @@ def _macro(report):
     }
 
 
-def _reaction(series, t0):
-    """تغير ES (%) من لحظة الحدث حتى آخر سعر متاح. None إن لم تتوفر بيانات تغطي الحدث."""
+def _move(series, t0, unit="pct"):
+    """تغير الأصل من لحظة الحدث حتى آخر سعر متاح (% أو نقاط أساس). None إن لم تتوفر بيانات."""
     if not series:
         return None
     before = [p for t, p in series if t <= t0]
     after = [p for t, p in series if t > t0]
     if not before or not after or not before[-1]:
         return None
-    return (series[-1][1] / before[-1] - 1) * 100
+    if unit == "bp":
+        return round((series[-1][1] - before[-1]) * 100, 1)
+    return round((series[-1][1] / before[-1] - 1) * 100, 2)
 
 
-def _past_events(events, now, report, es_series):
-    """أحداث صدرت خلال آخر 24 ساعة: تبقى ظاهرة مع النتيجة وحركة ES منذ الصدور."""
+def _react(series, t0):
+    series = series or {}
+    return {"es": _move(series.get("es"), t0), "y10": _move(series.get("y10"), t0, "bp"),
+            "dxy": _move(series.get("dxy"), t0), "oil": _move(series.get("oil"), t0)}
+
+
+EFF = {"bear": "ضغط على ES", "bull": "دعم لـ ES", "neu": "أثر محدود"}
+
+
+def _verdict(hit, scs, basis=""):
+    sc = next((s for s in scs if s["k"] == hit), None)
+    return None if not sc else {"k": hit, "label": sc["label"], "es": sc.get("es", "neu"), "effect": EFF.get(sc.get("es", "neu"), ""),
+                                "text": sc["text"], "basis": basis}
+
+
+def _agree(es_chg, vd):
+    """هل تحرك ES فعلاً في اتجاه الأثر المتوقع؟"""
+    if vd is None or es_chg is None:
+        return ""
+    if abs(es_chg) < 0.05:
+        return "flat"
+    if vd["es"] == "neu":
+        return ""
+    return "match" if (vd["es"] == "bull") == (es_chg > 0) else "mismatch"
+
+
+def _past_events(events, now, report, series, fed_heads=None):
+    """أحداث صدرت خلال آخر 24 ساعة: تبقى ظاهرة مع النتيجة وأثرها على ES والعوائد والدولار."""
     ml = (report.get("macro") or {}).get("label", "")
     ctx = events_ctx.build_ctx(report)
     out = []
@@ -102,27 +130,34 @@ def _past_events(events, now, report, es_series):
             d = events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"), ml, ctx)
             d["released"] = True
             d["has_number"] = bool(e.get("actual"))
-            r = _reaction(es_series, e["time"])
-            d["reaction"] = None if r is None else round(r, 2)
+            d["react"] = _react(series, e["time"])
+            d["reaction"] = d["react"]["es"]
+            d["_t"] = e["time"]
             out.append(d)
     g = events_ctx.group(out)
-    EFF = {"bear": "ضغط على ES", "bull": "دعم لـ ES", "neu": "أثر محدود"}
-
-    def verdict(hit, scs):
-        sc = next((s for s in scs if s["k"] == hit), None)
-        return None if not sc else {"k": hit, "label": sc["label"], "es": sc.get("es", "neu"), "effect": EFF.get(sc.get("es", "neu"), ""), "text": sc["text"]}
     for x in g:
-        x["verdict"] = verdict(x.get("hit"), x.get("scenarios") or [])
+        times = [o["_t"] for o in out if o.get("kind") == x.get("kind")] if x.get("kind") else [o["_t"] for o in out if o["title"] == x["title"]]
+        t_last = min(times) if times else None
+        x["react"] = _react(series, t_last) if (x.get("items") and t_last) else x.get("react")
+        x["reaction"] = (x.get("react") or {}).get("es")
+        if x.get("kind") == "speech":
+            k, basis = events_ctx.speech_outcome(fed_heads, x.get("react"))
+            x["verdict"] = _verdict(k, x.get("scenarios") or [], basis)
+            x["heads"] = list(fed_heads or [])[:3]
+            for it in x.get("items") or []:
+                it["verdict"] = None
+        else:
+            x["verdict"] = _verdict(x.get("hit"), x.get("scenarios") or [])
+            for it in x.get("items") or []:
+                it["verdict"] = _verdict(it.get("hit"), x.get("scenarios") or [])
+        x["agree"] = _agree(x["reaction"], x["verdict"])
         for it in x.get("items") or []:
-            it["verdict"] = verdict(it.get("hit"), x.get("scenarios") or [])
-        if x.get("items"):
-            k = x.get("kind")
-            rs = [o["reaction"] for o in out if o.get("kind") == k and o.get("reaction") is not None]
-            x["reaction"] = rs[-1] if rs else None
+            it["kind"] = x.get("kind")
+        x.pop("_t", None)
     return g
 
 
-def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None):
+def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
         return {"live": True, "updated": _baghdad(now), "error": report["error"]}
@@ -158,7 +193,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "intensity": ({"score": vol["score"], "label": vol["note"]} if vol else None),
         "pressures": {"bullish": bullish, "bearish": bearish},
         "auction": au, "macro": _macro(report),
-        "events": upcoming, "events_next": later[:3], "events_past": _past_events(events, now, report, es_series),
+        "events": upcoming, "events_next": later[:3], "events_past": _past_events(events, now, report, series or ({"es": es_series} if es_series else {}), fed_heads),
         "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
         "geo": [{"title": t["title"], "severity": t["severity"], "sources": t["sources"],
                  "regions": t["regions"], "deesc": t["deesc"]} for t in (geo.get("top") or [])[:3]],
@@ -172,11 +207,11 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
     return view
 
 
-def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None):
+def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None):
     """يكتب docs/data.json. فشل ناعم: لا يوقف التقرير."""
     d = docs_dir or DOCS_DIR
     os.makedirs(d, exist_ok=True)
-    view = build_view(report, events, now, news_labels, alerts, pulse, es_series)
+    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads)
     with open(os.path.join(d, "data.json"), "w", encoding="utf-8") as f:
         json.dump(view, f, ensure_ascii=False, indent=1, default=str)
     return view

@@ -49,6 +49,18 @@ def test_alert_persist_and_pulse():
     assert all(a["t"] != old["t"] for a in st["alerts"])
 
 
+def test_actuals_filled_and_speech_tone():
+    import extras
+    evs = [ev("Crude Oil Inventories", "Low", -4, "-1.2M", "3.7M"), ev("10-y Bond Auction", "Low", -6, "4.1|2.5", "4.0|2.6")]
+    day = (NOW - timedelta(hours=6)).astimezone(extras.ET).date().isoformat()
+    n = extras.apply_actuals(evs, NOW, None, lambda: ("2026-10-02", -2.4), lambda: [{"term": "10-Year", "date": day, "yield": 4.062, "btc": 2.55}])
+    assert n == 2 and evs[0]["actual"] == "-2.4M" and evs[1]["actual"] == "4.062|2.55"
+    assert extras.apply_actuals([ev("Crude Oil Inventories", "Low", -4)], NOW, None, lambda: None, lambda: []) == 0
+    assert events_ctx.speech_outcome(["Powell: no rush to cut, inflation remains sticky"], {"y10": 3.0, "dxy": 0.1})[0] == "above"
+    assert events_ctx.speech_outcome([], {"y10": -3.0, "dxy": -0.1})[0] == "below"
+    assert events_ctx.speech_outcome([], {})[0] == "inline"
+
+
 if __name__ == "__main__":
     n = 0
     for k, f in list(globals().items()):

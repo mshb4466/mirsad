@@ -205,12 +205,15 @@
   .vrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   .pill { display: inline-flex; gap: 5px; align-items: center; padding: 4px 11px; border-radius: 99px; font-size: 12.5px; font-weight: 700; background: var(--card-2); color: var(--fg); }
   .pill.v-bear { background: var(--crit-bg); color: var(--crit); } .pill.v-bull { background: var(--ok-bg); color: var(--ok); } .pill.v-neu { background: var(--neutral-bg); color: var(--neutral); }
+  .tone { display: flex; justify-content: space-between; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 12px; font-size: 13.5px; } .tone.v-bear { background: var(--crit-bg); color: var(--crit); } .tone.v-bull { background: var(--ok-bg); color: var(--ok); } .tone.v-neu { background: var(--neutral-bg); color: var(--neutral); }
   .relrow { display: grid; gap: 6px; padding: 8px; border-radius: 12px; background: var(--card-2); }
   .relrow .t { font-weight: 700; font-size: 13px; }
   .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(52px, 1fr)); gap: 8px 6px; align-items: end; margin-top: 10px; direction: ltr; }
   .pcol { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-width: 0; }
-  .ptrack { position: relative; width: 22px; height: 96px; border-radius: 8px; background: var(--card-2); border: 1px solid var(--line); overflow: visible; }
-  .pfill { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 7px; background: var(--pc, var(--neutral)); }
+  .psum { padding: 9px 14px; border-radius: 14px; font-weight: 800; font-size: 14px; background: var(--ok-bg); color: var(--ok); } .psum.near { background: var(--warn-bg); color: var(--warn); } .psum.hot { background: var(--crit-bg); color: var(--crit); }
+  .parrow { font-size: 15px; font-weight: 900; color: var(--pc); }
+  .ptrack { position: relative; width: 30px; height: 104px; border-radius: 15px; background: var(--card-2); border: 1px solid var(--line); overflow: visible; }
+  .pfill { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 14px; background: var(--pc, var(--neutral)); transition: height .6s; }
   .pth { position: absolute; left: -4px; right: -4px; bottom: 66.7%; border-top: 2px dashed var(--fg); opacity: .6; }
   .pcol .pn { font-weight: 800; font-size: 12px; } .pcol .pt { font-size: 10px; color: var(--muted); } .pcol .pv { font-size: 12px; font-weight: 800; color: var(--pc, var(--fg)); }
   .pcol[hidden] { display: none; }
@@ -316,9 +319,10 @@
     </section>
     <section class="card" id="pulseCard" hidden>
       <h2>نبض السوق الآن</h2>
+      <div class="psum" id="pulseSum"></div>
       <div class="pgrid" id="pulseGrid"></div>
       <button type="button" class="chip lang" id="pulseMore" hidden></button>
-      <p class="legend1"><span><i></i>الحد المؤثر</span><span>العمود = أكبر تغير لحظي نسبةً لحدّه</span><span>✔ مؤكَّدة بالزخم والحجم</span></p>
+      <p class="legend1"><span><i></i>الخط المتقطع = الحد المؤثر</span><span>🟢 هادئ · 🟡 يقترب · 🟠 تجاوز · 🔴 مؤكَّد</span></p>
     </section>
     <section class="card hero" id="hero">
       <svg class="gauge" id="gauge" viewBox="0 0 260 150" role="img" aria-label="مقياس المخاطرة"></svg>
@@ -887,13 +891,28 @@ function render(data) {
     });
     return g;
   };
-  const verdictRow = (it, vd) => {
+  const NEEDNUM = k => ['oil', 'auction', 'infl', 'labor', 'unemp', 'growth', 'sent', 'housing', 'rate'].indexOf(k) >= 0;
+  const verdictRow = (it, vd, kind) => {
     const r = el('div', 'vrow');
-    if (vd) {
+    if (vd && kind !== 'speech') {
       const arrow = vd.k === 'above' ? '▲ ' : vd.k === 'below' ? '▼ ' : '◆ ';
       r.appendChild(el('span', 'pill', arrow + vd.label + (it.surprise ? ' (' + it.surprise.replace(/^(أعلى|أقل) من المتوقع بـ ?/, '') + ')' : '')));
       r.appendChild(el('span', 'pill v-' + vd.es, vd.effect));
-    } else if (!it.actual) r.appendChild(el('span', 'pill', 'بلا رقم (كلام/محضر)'));
+    } else if (!it.actual && NEEDNUM(kind)) r.appendChild(el('span', 'pill', 'الرقم الفعلي غير متوفر من المصدر بعد'));
+    return r;
+  };
+  const arrowOf = v => v > 0 ? '▲' : v < 0 ? '▼' : '◆';
+  const reactRow = e => {
+    const r = el('div', 'vrow'); const x = e.react || {};
+    [['ES', x.es, '%', true], ['عائد 10Y', x.y10, 'bp', false], ['الدولار', x.dxy, '%', false], ['النفط', x.oil, '%', false]].forEach(c => {
+      if (c[1] === null || c[1] === undefined) return;
+      const cls = c[3] ? (c[1] > 0.05 ? 'v-bull' : c[1] < -0.05 ? 'v-bear' : 'v-neu') : 'v-neu';
+      r.appendChild(el('span', 'pill ' + cls, c[0] + ' ' + arrowOf(c[1]) + ' ' + (c[1] > 0 ? '+' : '') + c[1] + c[2]));
+    });
+    if (r.children.length) { const l = el('span', 'n', 'منذ الصدور'); r.insertBefore(l, r.firstChild); }
+    if (e.agree === 'match') r.appendChild(el('span', 'pill v-bull', '✔ ES تحرك كما هو متوقع'));
+    else if (e.agree === 'mismatch') r.appendChild(el('span', 'pill v-bear', '⚠ ES تحرك عكس المتوقع'));
+    else if (e.agree === 'flat') r.appendChild(el('span', 'pill v-neu', 'ES لم يتأثر بوضوح'));
     return r;
   };
   (data.events_past || []).forEach(e => {
@@ -905,16 +924,20 @@ function render(data) {
         const r = el('div', 'relrow'); const t = el('div', 't'); t.appendChild(el('span', 'num evtime', it.time)); t.appendChild(document.createTextNode('  ' + (it.name || it.title)));
         r.appendChild(t);
         if (it.actual || it.forecast || it.previous) r.appendChild(nums3(it, it.verdict));
-        r.appendChild(verdictRow(it, it.verdict)); w.appendChild(r);
+        r.appendChild(verdictRow(it, it.verdict, e.kind)); w.appendChild(r);
       });
     } else {
       if (e.actual || e.forecast || e.previous) w.appendChild(nums3(e, e.verdict));
-      w.appendChild(verdictRow(e, e.verdict));
+      w.appendChild(verdictRow(e, e.verdict, e.kind));
     }
-    const rr = el('div', 'vrow');
-    if (e.reaction !== null && e.reaction !== undefined) rr.appendChild(el('span', 'pill ' + (e.reaction > 0.05 ? 'v-bull' : e.reaction < -0.05 ? 'v-bear' : 'v-neu'), 'ES منذ الصدور ' + (e.reaction > 0 ? '+' : '') + e.reaction + '%'));
-    if (rr.children.length) w.appendChild(rr);
-    const det = (e.verdict && e.verdict.text) || e.system_effect || e.note;
+    if (e.kind === 'speech' && e.verdict) {
+      const t = el('div', 'tone v-' + e.verdict.es); t.appendChild(el('b', '', (e.verdict.k === 'above' ? '▲ ' : e.verdict.k === 'below' ? '▼ ' : '◆ ') + e.verdict.label + ' (مرجّحة)'));
+      t.appendChild(el('span', '', e.verdict.effect)); w.appendChild(t);
+      w.appendChild(el('p', 'evnote', 'الأساس: ' + e.verdict.basis + '. قراءة بالقواعد وليست فهماً لنص الكلام.'));
+      if ((e.heads || []).length) { const ul = el('ul', 'play'); e.heads.forEach(h => ul.appendChild(el('li', '', h))); w.appendChild(ul); }
+    }
+    const rr = reactRow(e); if (rr.children.length) w.appendChild(rr);
+    const det = e.kind !== 'speech' && ((e.verdict && e.verdict.text) || e.system_effect);
     if (det) {
       const m = document.createElement('details'); m.className = 'evsys'; m.appendChild(el('summary', '', 'التفسير'));
       const ul = el('ul', 'play'); [e.verdict && e.verdict.text, e.vs_prev && ('مقارنة بالسابق: ' + e.vs_prev), e.combined, e.system_effect].filter(Boolean).forEach(t => ul.appendChild(el('li', '', t)));
@@ -954,16 +977,18 @@ function render(data) {
   const MAIN = ['es', 'nq', 'oil', 'y10', 'vix', 'dxy'];
   const isMain = r => MAIN.indexOf(r.key) >= 0 || r.ratio >= 1 || r.confirmed;   // العامل المتجاوز لحدّه يظهر دائماً
   const extra = pulse.filter(r => !isMain(r)).length;
+  const hot = pulse.filter(r => r.confirmed).length, near = pulse.filter(r => !r.confirmed && r.ratio >= 0.7).length;
+  const sum = $('pulseSum'); sum.className = 'psum ' + (hot ? 'hot' : near ? 'near' : 'calm');
+  sum.textContent = hot ? '🔴 ' + hot + ' حركة مؤكَّدة بالزخم والحجم' : near ? '🟠 ' + near + ' عامل قرب حدّه' : '🟢 السوق هادئ، لا حركة قرب الحدود';
   pulse.forEach(r => {
     const col = el('div', 'pcol'); if (!isMain(r)) col.className += ' pextra'; col.hidden = !isMain(r) && !PULSE_ALL;
-    const c = r.confirmed ? 'var(--crit)' : r.ratio >= 1 ? 'var(--hi)' : r.ratio >= 0.5 ? 'var(--warn)' : 'var(--neutral)';
+    const c = r.confirmed ? 'var(--crit)' : r.ratio >= 1 ? 'var(--hi)' : r.ratio >= 0.5 ? 'var(--warn)' : 'var(--ok)';
     col.style.setProperty('--pc', c);
-    col.appendChild(el('div', 'pn', (r.v > 0 ? '▲' : r.v < 0 ? '▼' : '◆') + (r.confirmed ? '✔' : '')));
-    const tr = el('div', 'ptrack'); const f = el('div', 'pfill'); f.style.height = Math.max(3, Math.min(100, r.ratio / 1.5 * 100)) + '%';
+    col.appendChild(el('div', 'parrow', (r.v > 0 ? '▲' : r.v < 0 ? '▼' : '◆') + (r.confirmed ? ' ✔' : '')));
+    const tr = el('div', 'ptrack'); const f = el('div', 'pfill'); f.style.height = Math.max(6, Math.min(100, r.ratio / 1.5 * 100)) + '%';
     tr.appendChild(f); tr.appendChild(el('div', 'pth')); col.appendChild(tr);
     col.appendChild(el('div', 'pn', r.short || r.name));
-    col.appendChild(el('div', 'pt num', r.thr)); col.appendChild(el('div', 'pv num', r.val));
-    col.title = r.name + ' — آخر ' + r.w + ' دقيقة';
+    col.title = r.name + ' — ' + r.val + ' خلال ' + r.w + ' دقيقة، الحد ' + r.thr;
     pg.appendChild(col);
   });
   const pm = $('pulseMore'); pm.hidden = !extra; pm.textContent = PULSE_ALL ? 'عرض الأهم فقط' : 'عرض بقية العوامل (' + extra + ')';

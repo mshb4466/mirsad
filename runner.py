@@ -27,6 +27,7 @@ import calibrate
 import auction
 import dashboard
 import events_ctx
+import extras
 import collector as c
 import macro
 
@@ -61,6 +62,7 @@ MOVE_COOLDOWN_H = 2
 MOVE_ESCALATE = 1.5                 # يسمح بتنبيه جديد في فترة التهدئة إذا كبرت الحركة بهذا المضاعف
 RELEASE_WINDOW_H = 3
 
+FED_QUERY = '(Fed OR Powell OR FOMC OR "Federal Reserve") (says OR said OR minutes OR remarks OR speech OR signals) when:12h'
 MARKET_QUERY = '(oil OR crude OR Brent OR OPEC OR stocks OR "Wall Street" OR Fed OR Treasury OR tariff) when:3h'
 NEWS_QUERY = ('(strike OR attack OR escalation OR sanctions OR missile OR invasion) '
               '(Iran OR Israel OR Russia OR Ukraine OR China OR Taiwan OR Hormuz OR "North Korea" OR Gulf) when:3h')
@@ -464,6 +466,7 @@ DEPS = {
     "intraday": fetch_intraday,
     "headlines": fetch_headlines,
     "headlines_market": lambda now: fetch_headlines(now, query=MARKET_QUERY, hours=3, limit=4),
+    "headlines_fed": lambda now: fetch_headlines(now, query=FED_QUERY, hours=12, limit=6),
     "fred": c.fetch_fred,
     "cot": lambda now: c.fetch_cot(),
     "earnings": c.fetch_earnings,
@@ -887,6 +890,23 @@ def add_auction(report, prices, now, deps):
     report["tilt"] = ({"score": round(t[0], 2), "parts": t[1]} if t[0] is not None else None)
 
 
+def enrich_for_ui(events, now, deps, intr=None):
+    """أرقام فعلية ناقصة (نفط/مزادات)، عناوين الفدرالي إن صدر كلام خلال 24 ساعة، وسلاسل الأسعار لقياس رد الفعل."""
+    try:
+        extras.apply_actuals(events, now, c, deps.get("fetch_oil"), deps.get("fetch_auctions"))
+    except Exception as e:  # noqa: BLE001
+        print("تعذّر ملء الأرقام الفعلية:", e)
+    heads = []
+    try:
+        has_speech = any(events_ctx.classify(e.get("title", ""))[0] == "speech" and now - timedelta(hours=24) <= e["time"] < now for e in events)
+        if has_speech and deps.get("headlines_fed"):
+            heads = deps["headlines_fed"](now)
+    except Exception:  # noqa: BLE001
+        heads = []
+    series = {k: intr[k] for k in ("es", "y10", "dxy", "oil") if isinstance(intr, dict) and intr.get(k)} if intr else {}
+    return heads, series
+
+
 def run_preopen(now, state, send, deps, prefix=""):
     problems = []
     try:
@@ -901,10 +921,11 @@ def run_preopen(now, state, send, deps, prefix=""):
         update_history(report, prices, now, deps.get("history_path", HISTORY_FILE))
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث سجل الأداء: {e}")
-    pulse, es_s = (state.get("pulse") or []), state.get("es_series_cache")
+    pulse = state.get("pulse") or []
+    heads, series = enrich_for_ui(events, now, deps)
     try:
         dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
-                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, es_series=es_s)
+                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, series=series, fed_heads=heads)
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث صفحة الواجهة: {e}")
     msg = format_preopen(report, events, now, prefix, dashboard.page_url())
@@ -993,9 +1014,10 @@ def run_auto(now, state, send, deps):
             pulse = []
         if pulse:
             state["pulse"] = pulse
+        heads, series = enrich_for_ui(events, now, deps, intr)
         dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
                           alerts=list(reversed(state.get("alerts") or [])), pulse=pulse or state.get("pulse") or [],
-                          es_series=intr.get("es") if isinstance(intr, dict) else None)
+                          series=series, fed_heads=heads)
     except Exception as e:  # noqa: BLE001
         print("تعذّر تحديث لقطة الواجهة:", e)
     print(f"انتهت المراقبة: أُرسل {sent} تنبيه")
