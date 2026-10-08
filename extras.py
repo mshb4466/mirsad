@@ -69,31 +69,68 @@ def auction_actual(title, ev_time, auctions):
     return ""
 
 
-def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None):
-    """يملأ الأرقام الفعلية الناقصة للأحداث الصادرة (نفط، مزادات). يعيد عدد ما ملأ. لا يرفع استثناءً."""
-    todo = [e for e in events if not e.get("actual") and now - timedelta(hours=26) <= e["time"] < now]
+CRUDE_RE = re.compile(r"crude[^.,;]{0,25}?(?:stocks|inventories|stockpiles|supplies)[^.,;]{0,25}?\b(rose|fell|rise|fall|drew|jumped|climbed|dropped|declined|increased|decreased|build|draw)\b[^.,;]{0,25}?([\d.]+)\s*million", re.I)
+UP = ("rose", "rise", "jumped", "climbed", "increased", "build")
+
+
+def oil_from_headlines(heads):
+    """احتياط: رقم تغير مخزون الخام من عنوان خبر (صيغة صارمة). يعيد '+X.XM' أو None. يحتاج تحققاً بصرياً."""
+    for t in heads or []:
+        m = CRUDE_RE.search(t or "")
+        if m:
+            v = float(m.group(2))
+            return f"{v if m.group(1).lower() in UP else -v:+.1f}M"
+    return None
+
+
+def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None):
+    """يملأ الأرقام الفعلية الناقصة للأحداث الصادرة (نفط، مزادات) ويكتب في e['actual_note'] المصدر أو سبب الغياب.
+    يعيد عدد ما ملأ. لا يرفع استثناءً."""
+    todo = [e for e in events if not e.get("actual") and now - timedelta(hours=30) <= e["time"] < now]
     if not todo:
         return 0
     n = 0
-    oil_res, auc = None, None
+    oil_res, auc, auc_err = None, None, None
     for e in todo:
         kind, _, _ = events_ctx.classify(e.get("title", ""))
         try:
             if kind == "oil":
                 if oil_res is None:
-                    oil_res = (fetch_oil_fn or (lambda: fetch_oil(now, collector)))() or False
+                    try:
+                        oil_res = (fetch_oil_fn or (lambda: fetch_oil(now, collector)))() or False
+                    except Exception as ex:  # noqa: BLE001
+                        oil_res = False
+                        e["actual_note"] = f"تعذّر الاتصال بـ FRED ({type(ex).__name__})"
+                got = None
                 if oil_res:
                     age = (e["time"].astimezone(ET).date() - __import__("datetime").date.fromisoformat(oil_res[0])).days
                     if 2 <= age <= 9:
-                        e["actual"] = f"{oil_res[1]:+.1f}M"
-                        n += 1
+                        got, src = f"{oil_res[1]:+.1f}M", "المصدر: FRED (EIA)"
+                    else:
+                        e["actual_note"] = f"FRED لم يُحدَّث بعد (آخر قراءة {oil_res[0]})"
+                if got is None and fetch_heads_fn:
+                    try:
+                        got = oil_from_headlines(fetch_heads_fn())
+                        src = "المصدر: عنوان خبر، تحقق منه"
+                    except Exception:  # noqa: BLE001
+                        got = None
+                if got:
+                    e["actual"], e["actual_note"] = got, src
+                    n += 1
+                elif not e.get("actual_note"):
+                    e["actual_note"] = "لم يصل الرقم من FRED بعد"
             elif kind == "auction":
                 if auc is None:
-                    auc = (fetch_auctions_fn or (lambda: fetch_auctions(now, collector)))() or []
+                    try:
+                        auc = (fetch_auctions_fn or (lambda: fetch_auctions(now, collector)))() or []
+                    except Exception as ex:  # noqa: BLE001
+                        auc, auc_err = [], f"تعذّر الاتصال بـ TreasuryDirect ({type(ex).__name__})"
                 a = auction_actual(e.get("title", ""), e["time"], auc)
                 if a:
-                    e["actual"] = a
+                    e["actual"], e["actual_note"] = a, "المصدر: TreasuryDirect (العائد|نسبة التغطية)"
                     n += 1
-        except Exception:  # noqa: BLE001
-            continue
+                else:
+                    e["actual_note"] = auc_err or ("TreasuryDirect لم يعد نتيجة هذا المزاد بعد" if auc else "TreasuryDirect لم يعد أي مزاد (تعذّر الجلب أو لم يُنشر)")
+        except Exception as ex:  # noqa: BLE001
+            e["actual_note"] = f"خطأ داخلي: {type(ex).__name__}"
     return n

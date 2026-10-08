@@ -252,7 +252,7 @@ def system_lines(kind, ev, ctx):
 
 def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
     kind, name, what = classify(ev.get("title", ""))
-    d = {"kind": kind or "", "time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
+    d = {"kind": kind or "", "actual_note": ev.get("actual_note", ""), "time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
          "forecast": ev.get("forecast", ""), "previous": ev.get("previous", ""), "actual": ev.get("actual", ""),
          "name": name or ev.get("title", ""), "what": what or "", "expect": expectation(ev.get("forecast"), ev.get("previous")),
          "surprise": surprise(ev.get("actual"), ev.get("forecast")) if ev.get("actual") else "", "scenarios": [], "note": "", "short": "", "vs_prev": vs_previous(ev.get("actual"), ev.get("previous")) if ev.get("actual") else "",
@@ -335,7 +335,7 @@ def relevant(ev):
     return kind in ALWAYS
 
 
-ITEM_KEYS = ("time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit")
+ITEM_KEYS = ("time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit", "actual_note")
 
 
 def group(descs):

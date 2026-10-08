@@ -893,7 +893,8 @@ def add_auction(report, prices, now, deps):
 def enrich_for_ui(events, now, deps, intr=None):
     """أرقام فعلية ناقصة (نفط/مزادات)، عناوين الفدرالي إن صدر كلام خلال 24 ساعة، وسلاسل الأسعار لقياس رد الفعل."""
     try:
-        extras.apply_actuals(events, now, c, deps.get("fetch_oil"), deps.get("fetch_auctions"))
+        extras.apply_actuals(events, now, c, deps.get("fetch_oil"), deps.get("fetch_auctions"),
+                             (lambda: fetch_headlines(now, query="EIA crude oil inventories", hours=36, limit=6)) if "fetch_oil" not in deps else None)
     except Exception as e:  # noqa: BLE001
         print("تعذّر ملء الأرقام الفعلية:", e)
     heads = []
