@@ -26,7 +26,9 @@ import urllib.request
 from datetime import date, datetime, timedelta, timezone
 
 import geo
+import impact
 import macro
+import safety
 
 try:
     from zoneinfo import ZoneInfo
@@ -165,6 +167,7 @@ def fetch_prices(now):
             close = [float(x) for x in h["Close"]]
             scale = 0.1 if key in ("y10", "y5", "irx", "y30") and close[-1] > 20 else 1.0   # بعض الإصدارات تعرض العائد ×10
             close = [x * scale for x in close]
+            scaled = scale != 1.0
             last, prev = close[-1], close[-2]
             item = {
                 "symbol": sym, "last": last,
@@ -173,6 +176,8 @@ def fetch_prices(now):
                 "bar_time": h.index[-1].to_pydatetime().astimezone(timezone.utc).isoformat(),
                 "closes": list(zip(dates, close))[-70:],
             }
+            if scaled:
+                item["scaled"] = True
             if key == "es":
                 if "High" in h and "Low" in h:
                     item["bars"] = [(dates[i], float(h["High"].iloc[i]), float(h["Low"].iloc[i]), close[i])
@@ -475,12 +480,7 @@ def score_rates(p, fred):
         elif mv["last"] >= 110:
             s += 1.0
             notes.append(f"MOVE مرتفع ({mv['last']:.0f})")
-    d2 = (fred or {}).get("dgs2")
-    if d2 and len(d2) >= 2:
-        d2bp = (d2[-1][1] - d2[-2][1]) * 100
-        if abs(d2bp) >= 8:
-            s += 1.0
-            notes.append(f"عائد سنتين {d2bp:+.0f} نقطة أساس (توقعات الفائدة تتبدّل)")
+    # عائد السنتين يُحتسب في الطرف القصير (front_end) فقط لتفادي العد المزدوج
     return clamp(s), "، ".join(notes)
 
 
@@ -645,6 +645,20 @@ def score_calendar(now):
 
 # ───────────────────────── الأوزان والمقياس ─────────────────────────
 
+def dominant_floor(comps, available):
+    """حد أدنى للدرجة النهائية حين يبلغ مكوّن ضغط واحد مستوى شديداً (المتوسط الموزون يخفف الإشارة الحادة).
+    مكوّنات الضغط فقط (لا الأحداث/التقويم/التسعير المسبق). قاعدة تقديرية غير معايَرة تاريخياً."""
+    best = None
+    for k in safety.STRESS:
+        if k in available and comps[k][0] is not None and (best is None or comps[k][0] > best[0]):
+            best = (comps[k][0], k)
+    if not best:
+        return None, None
+    sc, k = best
+    floor = 6 if sc >= 9 else 5 if sc >= 8 else None
+    return floor, k
+
+
 def adapt_weights(available, ev, now, vix, comps, earn_soon):
     w = {k: ALL_WEIGHTS[k] for k in available}
     notes = []
@@ -800,6 +814,12 @@ def build_report(prices, events, now, problems=None, extras=None):
     extras = extras or {}
     fred, cot, news = extras.get("fred") or {}, extras.get("cot"), extras.get("news") or {}
     earn_names = earnings_within(extras.get("earnings"), now)
+    # مراقب السلامة: فحص المدخلات قبل الحساب (يستبعد المعيب ويُفصح، ولا يستبدل بأرقام مفترضة)
+    prices, sissues = safety.check_inputs(prices, events, fred, now, {int(d[:4]) for d in HOLIDAYS},
+                                          {int(d[:4]) for d in macro.FOMC_2026})
+    for i in sissues:
+        if i["sev"] != safety.WARN:
+            problems.append(f"{i['sev_ar']}: {i['msg']}")
     ev = pick_event(events, now) if events else None
     corrs = compute_correlations(prices)
 
@@ -843,10 +863,18 @@ def build_report(prices, events, now, problems=None, extras=None):
     missing = [NAMES[k] for k in BASE_WEIGHTS if k not in available]
     if len(available) < 3 or "volatility" not in available and "events" not in available:
         return {"generated_at": now.isoformat(), "error": "بيانات غير كافية لحساب مقياس موثوق",
-                "problems": problems, "missing": missing}
+                "problems": problems, "missing": missing, "safety": {"state": "incomplete", "label": safety.INCOMPLETE,
+                "issues": sissues, "coverage": 0.0}}
 
     weights, wnotes = adapt_weights(available, ev, now, prices.get("vix"), comps, bool(earn_names))
     score = round(sum(comps[k][0] * weights[k] for k in available))
+    floor, floor_key = dominant_floor(comps, available)
+    if floor and score < floor:
+        wnotes = list(wnotes) + [f"حد أدنى للمكوّن المسيطر ({name_of(floor_key)} {comps[floor_key][0]:.1f}/10): رُفعت الدرجة من {score} إلى {floor}"]
+        score = floor
+    rissues, cov = safety.check_result(comps, available, BASE_WEIGHTS, score, weights)
+    sissues = sissues + rissues
+    sstate = safety.state_of(sissues, cov)
     lv, emoji, advice = level(score)
 
     contrib = sorted(((comps[k][0] * weights[k], k) for k in available if comps[k][0] >= 5), reverse=True)
@@ -896,16 +924,24 @@ def build_report(prices, events, now, problems=None, extras=None):
     if missing:
         problems.append("مكوّنات استُبعدت لنقص البيانات: " + "، ".join(missing))
 
+    drv = impact.drivers(prices, fred, macro_view)
+    conf = safety.confidence(sissues, cov, (macro_view or {}).get("confidence"))
+    incomplete = sstate in ("incomplete", "critical") and cov < 0.6
     return {
         "generated_at": now.isoformat(),
+        "safety": {"state": sstate, "label": safety.INCOMPLETE if cov < 0.6 else safety.STATE_AR[sstate], "issues": sissues,
+                   "coverage": round(cov, 3), "checked_at": now.isoformat()},
+        "drivers": drv, "regime": impact.regime(macro_view), "intensity": impact.intensity(drv),
+        "confidence": conf, "liquidity": impact.liquidity_view((macro_view or {}).get("net_liquidity")),
         "risk": {
+            "incomplete": bool(incomplete),
             "score": score, "level": lv, "emoji": emoji, "advice": advice, "main_reason": main_reason, "reason_label": reason_label,
             "weights_note": wnotes or ["الأوزان الافتراضية"],
             "components": [{"key": k, "name": name_of(k), "score": round(comps[k][0], 1),
                             "weight": round(weights[k], 3), "note": comps[k][1]} for k in available],
         },
         "planned_inactive": [name_of(k) for k in PLANNED_WEIGHTS if k not in available],
-        "notification": f"المخاطرة: {score}/10 {emoji} | {reason_label}: {main_reason}",
+        "notification": (safety.INCOMPLETE + " | " if cov < 0.6 else "") + f"المخاطرة: {score}/10 {emoji} | {reason_label}: {main_reason}",
         "next_event": ({"title": ev["title"], "type": ev["type"], "time_utc": ev["time"].isoformat(),
                         "forecast": ev["forecast"], "previous": ev["previous"], "actual": ev["actual"]}
                        if ev else None),

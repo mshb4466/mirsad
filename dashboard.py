@@ -6,6 +6,7 @@
 """
 import json
 import events_ctx
+import impact
 import os
 from datetime import timedelta
 
@@ -75,6 +76,7 @@ def _macro(report):
         "label": m["label"], "arrow": m["arrow"], "lean": m["lean"], "conf": f"ثقة {m['confidence']}",
         "pillars": [{"name": x["name"], "arrow": x["arrow"], "note": x["note"]} for x in m["pillars"]],
         "liq": (f"السيولة الصافية ≈{nl['net_bn']:,.0f} مليار$ ({nl['chg_pct']:+.1f}% خلال 4 أسابيع)" if nl else ""),
+        "liqView": impact.liquidity_view(nl),
         "gapTitle": ("فجوة تسعير " + gap["size"]) if gap else "تسعير السوق",
         "gap": gap["direction"] if gap else "تعذّر تقدير ما يسعّره السوق",
         "meet": (f"الاجتماع القادم: {meet['date']} (بعد {meet['days']} يوماً)" if meet else ""),
@@ -120,8 +122,16 @@ def _agree(es_chg, vd):
     return "match" if (vd["es"] == "bull") == (es_chg > 0) else "mismatch"
 
 
+def _day_label(t, now, past=True):
+    """تسمية اليوم حسب تاريخ بغداد (وليس نافذة 24 ساعة المتدحرجة)."""
+    d, n = (t + timedelta(hours=3)).date(), (now + timedelta(hours=3)).date()
+    if d == n:
+        return "اليوم"
+    return "أمس" if d < n else "غداً"
+
+
 def _past_events(events, now, report, series, fed_heads=None):
-    """أحداث صدرت خلال آخر 24 ساعة: تبقى ظاهرة مع النتيجة وأثرها على ES والعوائد والدولار."""
+    """أحداث صدرت خلال آخر 24 ساعة، مفصولة حسب يوم بغداد (اليوم ثم أمس)، مع نتيجتها وأثرها على ES والعوائد والدولار."""
     ml = (report.get("macro") or {}).get("label", "")
     ctx = events_ctx.build_ctx(report)
     out = []
@@ -129,53 +139,80 @@ def _past_events(events, now, report, series, fed_heads=None):
         if events_ctx.relevant(e) and now - timedelta(hours=24) <= e["time"] < now:
             d = events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"), ml, ctx)
             d["released"] = True
+            d["day"] = _day_label(e["time"], now)
             d["has_number"] = bool(e.get("actual"))
             d["react"] = _react(series, e["time"])
             d["reaction"] = d["react"]["es"]
             d["_t"] = e["time"]
             out.append(d)
-    g = events_ctx.group(out)
-    for x in g:
-        times = [o["_t"] for o in out if o.get("kind") == x.get("kind")] if x.get("kind") else [o["_t"] for o in out if o["title"] == x["title"]]
-        t_last = min(times) if times else None
-        x["react"] = _react(series, t_last) if (x.get("items") and t_last) else x.get("react")
-        x["reaction"] = (x.get("react") or {}).get("es")
-        if x.get("kind") == "speech":
-            k, basis = events_ctx.speech_outcome(fed_heads, x.get("react"))
-            x["verdict"] = _verdict(k, x.get("scenarios") or [], basis)
-            x["heads"] = list(fed_heads or [])[:3]
+    result = []
+    for day in ("اليوم", "أمس"):
+        part = [o for o in out if o["day"] == day]
+        for x in events_ctx.group(part):
+            kind = x.get("kind")
+            times = [o["_t"] for o in part if o.get("kind") == kind] if kind else [o["_t"] for o in part if o["title"] == x["title"]]
+            t_last = min(times) if times else None
+            x["day"] = day
+            x["react"] = _react(series, t_last) if (x.get("items") and t_last) else x.get("react")
+            x["reaction"] = (x.get("react") or {}).get("es")
+            if kind == "speech":
+                k, basis = events_ctx.speech_outcome(fed_heads, x.get("react"))
+                x["verdict"] = _verdict(k, x.get("scenarios") or [], basis)
+                x["heads"] = list(fed_heads or [])[:3]
+                for it in x.get("items") or []:
+                    it["verdict"] = None
+            else:
+                x["verdict"] = _verdict(x.get("hit"), x.get("scenarios") or [])
+                for it in x.get("items") or []:
+                    it["verdict"] = _verdict(it.get("hit"), x.get("scenarios") or [])
+            x["agree"] = _agree(x["reaction"], x["verdict"])
             for it in x.get("items") or []:
-                it["verdict"] = None
-        else:
-            x["verdict"] = _verdict(x.get("hit"), x.get("scenarios") or [])
-            for it in x.get("items") or []:
-                it["verdict"] = _verdict(it.get("hit"), x.get("scenarios") or [])
-        x["agree"] = _agree(x["reaction"], x["verdict"])
-        for it in x.get("items") or []:
-            it["kind"] = x.get("kind")
-        x.pop("_t", None)
-    return g
+                it["kind"] = kind
+            x.pop("_t", None)
+            result.append(x)
+    return result
 
 
-def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None):
+def _safety(sf):
+    if not sf:
+        return None
+    return {"state": sf["state"], "label": sf["label"], "coverage": sf.get("coverage"), "checked_at": sf.get("checked_at"),
+            "issues": [{"sev": i["sev"], "sev_ar": i["sev_ar"], "msg": i["msg"], "code": i["code"]} for i in sf.get("issues", [])]}
+
+
+def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
         return {"live": True, "updated": _baghdad(now), "error": report["error"]}
     r = report["risk"]
     comps = [{"key": c["key"], "name": c["name"], "score": c["score"], "weight": c["weight"], "note": c.get("note", "")}
              for c in r["components"]]
-    bearish = [f"{c['name']}: {c['note']}" for c in sorted(comps, key=lambda x: -x["score"]) if c["score"] >= 6][:4]
-    bullish = [f"{c['name']}: {c['note']}" for c in sorted(comps, key=lambda x: x["score"]) if c["score"] <= 2][:4]
+    # الدعم والضغط يُحسبان باتجاه التأثير (impact.py) لا بهدوء المكوّن: الهدوء ليس دعماً.
+    # المكوّنات الاتجاهية (دولار/عوائد/سيولة) تُمثَّل بعواملها الاتجاهية، والبقية تدخل الضغوط إن كانت مرتفعة.
+    drv = report.get("drivers") or []
+    DIRECTIONAL = {"dollar", "rates", "front_end", "net_liq"}
+    bearish = [f"{d['name']}: {d['text']}" for d in drv if d["tone"] == "bear"]
+    bearish += [f"{c['name']}: {c['note']}" for c in sorted(comps, key=lambda x: -x["score"]) if c["score"] >= 6 and c["key"] not in DIRECTIONAL]
+    bullish = [f"{d['name']}: {d['text']}" for d in drv if d["tone"] == "bull"]
+    bearish, bullish = bearish[:5], bullish[:5]
+    calm = [c["name"] for c in sorted(comps, key=lambda x: x["score"]) if c["score"] <= 2][:6]
     au = _auction(report)
     stance, rec = _stance((report.get("tilt") or {}).get("score"))
     vol = next((c for c in comps if c["key"] == "volatility"), None)
     info = report.get("info", {})
     upcoming = []
+    ml_, ctx_ = (report.get("macro") or {}).get("label", ""), events_ctx.build_ctx(report)
     for e in sorted(events or [], key=lambda x: x["time"]):
         if events_ctx.relevant(e) and now <= e["time"] <= now + timedelta(hours=24):
-            upcoming.append(events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"),
-                                                (report.get("macro") or {}).get("label", ""), events_ctx.build_ctx(report)))
-    upcoming = events_ctx.group(upcoming)
+            dd = events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"), ml_, ctx_)
+            dd["day"] = _day_label(e["time"], now)
+            upcoming.append(dd)
+    _up = []
+    for day in ("اليوم", "غداً"):
+        for g in events_ctx.group([u for u in upcoming if u["day"] == day]):
+            g["day"] = day
+            _up.append(g)
+    upcoming = _up
     later = []
     for e in events or []:
         if e.get("impact") == "High" and now + timedelta(hours=24) < e["time"] <= now + timedelta(days=7):
@@ -189,9 +226,15 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "live": True, "updated": _baghdad(now),
         "risk": {"real": True, "score": r["score"], "label": r["level"], "main_reason": r["main_reason"], "reason_label": r.get("reason_label", "السبب"),
                  "advice": r["advice"], "weights_note": r.get("weights_note", []), "components": comps},
-        "quick_call": {"stance": stance, "recommendation": rec, "confidence": ""},
-        "intensity": ({"score": vol["score"], "label": vol["note"]} if vol else None),
-        "pressures": {"bullish": bullish, "bearish": bearish},
+        "quick_call": {"stance": stance, "recommendation": rec, "confidence": (report.get("confidence") or {}).get("label", "")},
+        "confidence": ({"score": round((report["confidence"]["points"]) / 10), "label": report["confidence"]["label"],
+                        "why": report["confidence"].get("why", [])} if report.get("confidence") else None),
+        "intensity": ({"score": report["intensity"], "label": (vol["note"] if vol else "")} if report.get("intensity") is not None else
+                      ({"score": vol["score"], "label": vol["note"]} if vol else None)),
+        "drivers": [{k: d[k] for k in ("key", "name", "val", "tone", "arrow", "last", "text")} for d in drv],
+        "regime": report.get("regime"), "liquidity": report.get("liquidity"),
+        "safety": _safety(report.get("safety")),
+        "pressures": {"bullish": bullish, "bearish": bearish, "calm": calm},
         "auction": au, "macro": _macro(report),
         "events": upcoming, "events_next": later[:3], "events_past": _past_events(events, now, report, series or ({"es": es_series} if es_series else {}), fed_heads),
         "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
@@ -203,18 +246,32 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "problems": report.get("problems", []),
         "detailed_summary": report.get("notification", ""),
         "alerts": alerts or [], "pulse": pulse or [],
+        "health": health,
     }
     return view
 
 
-def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None):
+def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None):
     """يكتب docs/data.json. فشل ناعم: لا يوقف التقرير."""
     d = docs_dir or DOCS_DIR
     os.makedirs(d, exist_ok=True)
-    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads)
+    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health)
     with open(os.path.join(d, "data.json"), "w", encoding="utf-8") as f:
         json.dump(view, f, ensure_ascii=False, indent=1, default=str)
     return view
+
+
+def patch_health(hv, docs_dir=None):
+    """يحدّث حقل الصحة فقط في data.json القائم (عند تعذّر بناء لقطة جديدة)، فلا تبقى حالة «سليمة» قديمة."""
+    p = os.path.join(docs_dir or DOCS_DIR, "data.json")
+    try:
+        with open(p, encoding="utf-8") as f:
+            v = json.load(f)
+    except Exception:  # noqa: BLE001
+        v = {"live": True}
+    v["health"] = hv
+    with open(p, "w", encoding="utf-8") as f:
+        json.dump(v, f, ensure_ascii=False, indent=1, default=str)
 
 
 def page_url():

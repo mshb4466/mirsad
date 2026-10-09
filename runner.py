@@ -28,6 +28,9 @@ import auction
 import dashboard
 import events_ctx
 import extras
+import health
+import impact
+import safety
 import collector as c
 import macro
 
@@ -386,7 +389,8 @@ def fetch_intraday(now):
     for key in MOVE:
         try:
             h = yf.Ticker(c.SYMBOLS[key]).history(period="2d", interval="5m").dropna(subset=["Close"])
-            out[key] = [(ts.to_pydatetime().astimezone(timezone.utc), float(v)) for ts, v in h["Close"].items()]
+            sc = 0.1 if key in ("y10", "y5", "y30") and len(h) and float(h["Close"].iloc[-1]) > 20 else 1.0   # بعض الإصدارات تعرض العائد ×10 (كما في الجلب اليومي)
+            out[key] = [(ts.to_pydatetime().astimezone(timezone.utc), float(v) * sc) for ts, v in h["Close"].items()]
             if key in VOLUME_KEYS and "Volume" in h:
                 vv = [(ts.to_pydatetime().astimezone(timezone.utc), float(v)) for ts, v in h["Volume"].items()]
                 if sum(v for _, v in vv) > 0:
@@ -695,7 +699,7 @@ def market_pulse(fresh, vols):
         out.append({"key": k, "name": MOVE[k][0], "short": SHORT_NAME.get(k, MOVE[k][0]), "w": w, "v": round(v, 2), "th": th,
                     "ratio": round(r, 2), "val": _fmt_ch(k, v), "thr": (f"±{th:g}{sfx}"),
                     "c15": _fmt_ch(k, st["roc"][15]), "c60": _fmt_ch(k, st["roc"][60]),
-                    "c180": _fmt_ch(k, st["roc"][180]), "confirmed": bool(ok), "why": why,
+                    "c180": _fmt_ch(k, st["roc"][180]), "confirmed": bool(ok), "why": why, "tone": impact.tone(k, v),
                     "eff": None if st["eff"] is None else round(st["eff"], 2),
                     "z": None if st["z"] is None else round(abs(st["z"]), 1),
                     "volx": None if st["volx"] is None else round(st["volx"], 1)})
@@ -924,12 +928,16 @@ def run_preopen(now, state, send, deps, prefix=""):
         report["problems"].append(f"تعذّر تحديث سجل الأداء: {e}")
     pulse = state.get("pulse") or []
     heads, series = enrich_for_ui(events, now, deps)
+    hv = None
     try:
+        hv = health.build(report, events, now, state)
         dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
-                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, series=series, fed_heads=heads)
+                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, series=series, fed_heads=heads, health=hv)
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث صفحة الواجهة: {e}")
     msg = format_preopen(report, events, now, prefix, dashboard.page_url())
+    if hv and (health.daily_enabled() or health.should_notify(hv, state, now)):
+        msg += "\n\n" + health.format_message(hv)      # لا تقرير يومي للصحة إلا إن فُعّل أو ظهر خلل مؤثر
     send(msg)
 
 
@@ -949,6 +957,11 @@ def run_auto(now, state, send, deps):
     # بيانات قديمة (سوق مغلق) لا تُعامَل كصدمة
     vols = intr.pop("_vol", {}) if isinstance(intr, dict) else {}
     fresh = {k: v for k, v in intr.items() if v and now - v[-1][0] <= timedelta(minutes=45)}
+    bad = [k for k, v in fresh.items() if not safety.valid_quote(k, v[-1][1])]
+    for k in bad:                       # قيمة بوحدة/نطاق غير منطقي: لا تنبيه مبني عليها
+        fresh.pop(k, None)
+        health.bump(state, "suppressed", now)
+        print(f"استُبعد {k} من المراقبة اللحظية: قيمة خارج النطاق المنطقي")
 
     # 1) صدور بيانات كبرى
     for ev in due_releases(events, now, state):
@@ -960,9 +973,14 @@ def run_auto(now, state, send, deps):
             report = None
         send(format_release(ev, reaction, report))
         state["seen_events"].append(event_id(ev))
+        health.bump(state, "sent", now)
         sent += 1
 
     # 2) صدمة مفاجئة
+    if fresh and shock_in_cooldown(state, now):
+        _chg0 = {k: change_over(fresh[k], 60) for k in ("es", "vix", "oil", "gold") if k in fresh}
+        if detect_shock(_chg0)[0]:
+            health.bump(state, "suppressed", now)      # صدمة مكررة منعتها فترة التهدئة
     if fresh and not shock_in_cooldown(state, now):
         changes = {k: change_over(fresh[k], 60) for k in ("es", "vix", "oil", "gold") if k in fresh}
         hit, signals = detect_shock(changes)
@@ -978,6 +996,7 @@ def run_auto(now, state, send, deps):
             send(format_shock(signals, changes, headlines, report))
             push_alert(state, alert_from_shock(signals, changes, headlines, now), now)
             state["last_shock"] = now.isoformat()
+            health.bump(state, "sent", now)
             sent += 1
             _m = detect_move(fresh, vols)      # الصدمة تغطي الحركة نفسها: لا تنبيه مكرر
             for k in (_m["keys"] if _m else []):
@@ -989,6 +1008,8 @@ def run_auto(now, state, send, deps):
         if mv and not shock_sent:
             dkeys = [move_dir_key(k, mv["ch"]) for k in mv["keys"]]
             mags = {move_dir_key(k, mv["ch"]): move_magnitude(k, mv["ch"]) for k in mv["keys"]}
+            if all(move_in_cooldown(state, dk, now, mags[dk]) for dk in dkeys):
+                health.bump(state, "suppressed", now)   # تنبيه مكرر منعته فترة التهدئة
             if not all(move_in_cooldown(state, dk, now, mags[dk]) for dk in dkeys):
                 try:
                     headlines = (deps.get("headlines_market") or deps["headlines"])(now)
@@ -999,6 +1020,7 @@ def run_auto(now, state, send, deps):
                 except Exception:  # noqa: BLE001
                     report = None
                 send(format_move(mv, headlines, report))
+                health.bump(state, "sent", now)
                 push_alert(state, alert_from_move(mv, headlines, now), now)
                 lm = state.setdefault("last_move", {})
                 lmm = state.setdefault("last_move_mag", {})
@@ -1016,11 +1038,18 @@ def run_auto(now, state, send, deps):
         if pulse:
             state["pulse"] = pulse
         heads, series = enrich_for_ui(events, now, deps, intr)
+        hv = health.build(snap, events, now, state)
         dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
                           alerts=list(reversed(state.get("alerts") or [])), pulse=pulse or state.get("pulse") or [],
-                          series=series, fed_heads=heads)
+                          series=series, fed_heads=heads, health=hv)
+        if health.should_notify(hv, state, now):
+            send(health.format_message(hv))
     except Exception as e:  # noqa: BLE001
         print("تعذّر تحديث لقطة الواجهة:", e)
+        try:       # لا نُبقي حالة «سليمة» قديمة: نكتب أن الفحص تعذّر
+            dashboard.patch_health(health.build(None, events, now, state, error=f"تعذّر بناء اللقطة: {e}"), deps.get("docs_dir"))
+        except Exception:  # noqa: BLE001
+            pass
     print(f"انتهت المراقبة: أُرسل {sent} تنبيه")
     return sent
 

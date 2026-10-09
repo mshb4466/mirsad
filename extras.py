@@ -33,16 +33,31 @@ def fetch_oil(now, collector):
     return oil_change((data or {}).get("crude"))
 
 
-def fetch_auctions(now, collector):
-    """نتائج المزادات خلال آخر 4 أيام: [{term, date, yield, btc}]."""
+def _term_years(term):
+    """«9-Year 11-Month» → 10 ، «29-Year 10-Month» → 30 ، «10-Year» → 10. None إن لم يُفهم."""
+    m = re.match(r"\s*(\d+)-Year(?:\s+(\d+)-Month)?", term or "", re.I)
+    if not m:
+        return None
+    return round(int(m.group(1)) + (int(m.group(2) or 0)) / 12.0)
+
+
+def _term_weeks(term):
+    m = re.match(r"\s*(\d+)-Week", term or "", re.I)
+    return int(m.group(1)) if m else None
+
+
+def fetch_auctions(now, collector, errors=None):
+    """نتائج المزادات خلال آخر 4 أيام: [{type, term, years, weeks, date, yield, btc}]. أسباب الفشل تُضاف إلى errors إن مُرِّرت."""
     out = []
     start, end = (now - timedelta(days=4)).date().isoformat(), (now + timedelta(days=1)).date().isoformat()
-    for typ in ("Note", "Bond"):
+    for typ in ("Note", "Bond", "TIPS", "Bill"):
         url = ("https://www.treasurydirect.gov/TA_WS/securities/search?format=json&type=" + typ +
                f"&dateFieldName=auctionDate&startDate={start}&endDate={end}")
         try:
             rows = json.loads(collector._http_get(url, 20).decode("utf-8"))
-        except Exception:  # noqa: BLE001
+        except Exception as ex:  # noqa: BLE001
+            if errors is not None:
+                errors.append(f"{typ}: {type(ex).__name__}")
             continue
         for r in rows if isinstance(rows, list) else []:
             try:
@@ -50,21 +65,28 @@ def fetch_auctions(now, collector):
                 btc = r.get("bidToCoverRatio")
                 if not y or not btc:
                     continue
-                out.append({"term": r.get("securityTerm", ""), "date": str(r.get("auctionDate", ""))[:10],
-                            "yield": float(y), "btc": float(btc)})
+                term = r.get("securityTerm", "")
+                out.append({"type": r.get("securityType") or typ, "term": term, "years": _term_years(term), "weeks": _term_weeks(term),
+                            "date": str(r.get("auctionDate", ""))[:10], "yield": float(y), "btc": float(btc)})
             except Exception:  # noqa: BLE001
                 continue
     return out
 
 
 def auction_actual(title, ev_time, auctions):
-    m = re.search(r"(\d+)-y", (title or "").lower())
-    if not m:
-        return ""
-    term = TERMS.get(int(m.group(1)))
+    """العائد|نسبة التغطية لمزاد العنوان، بمطابقة المدة (تشمل إعادات الإصدار مثل 9-Year 11-Month = 10 سنوات) والنوع (TIPS منفصل)."""
+    t = (title or "").lower()
+    want_tips = "tips" in t
+    ym = re.search(r"(\d+)\s*-?\s*(?:y|yr|year)", t)
+    wm = re.search(r"(\d+)\s*-?\s*(?:w|wk|week)", t)
     day = ev_time.astimezone(ET).date().isoformat()
     for a in auctions:
-        if a["term"].lower().startswith(term.lower()) and a["date"] == day:
+        if a["date"] != day or (a["type"].upper() == "TIPS") != want_tips:
+            continue
+        if wm and ("bill" in t or not ym):
+            if a.get("weeks") == int(wm.group(1)):
+                return f"{a['yield']:.3f}|{a['btc']:.2f}"
+        elif ym and a.get("years") == int(ym.group(1)):
             return f"{a['yield']:.3f}|{a['btc']:.2f}"
     return ""
 
@@ -121,8 +143,11 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                     e["actual_note"] = "لم يصل الرقم من FRED بعد"
             elif kind == "auction":
                 if auc is None:
+                    errs = []
                     try:
-                        auc = (fetch_auctions_fn or (lambda: fetch_auctions(now, collector)))() or []
+                        auc = (fetch_auctions_fn or (lambda: fetch_auctions(now, collector, errs)))() or []
+                        if errs and not auc:
+                            auc_err = "تعذّر الاتصال بـ TreasuryDirect (" + "، ".join(errs) + ")"
                     except Exception as ex:  # noqa: BLE001
                         auc, auc_err = [], f"تعذّر الاتصال بـ TreasuryDirect ({type(ex).__name__})"
                 a = auction_actual(e.get("title", ""), e["time"], auc)

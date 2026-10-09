@@ -101,7 +101,9 @@ def test_rates_score():
     with_move = c.score_rates({"y10": px(4.4, diff1=0.02), "move": px(135)}, {})[0]
     assert spike >= 8.5 and quiet == 2.0 and with_move == 4.0
     two_y = c.score_rates({"y10": px(4.4, diff1=0.02)}, {"dgs2": [("a", 4.0), ("b", 4.10)]})[0]
-    assert two_y == 3.0
+    assert two_y == 2.0   # 2Y يُحتسب في الطرف القصير فقط (لا عد مزدوج)
+    fe = c.score_front_end({}, {"dgs2": [("a", 4.0), ("b", 4.10)]})[0]
+    assert fe >= 6.0
 
 
 def test_credit_scores():

@@ -30,7 +30,7 @@ RULES = [
     (r"ism|pmi|empire state|philly fed|durable goods|industrial production", "growth", "مؤشر نشاط اقتصادي", "قوة النشاط الصناعي/الخدمي"),
     (r"consumer (sentiment|confidence)|michigan", "sent", "ثقة المستهلك", "تفاؤل المستهلك وتوقعاته للتضخم"),
     (r"crude oil inventor|crude oil stocks|eia crude|oil inventor", "oil", "مخزونات النفط الخام", "تغير مخزون النفط الأمريكي، يحرك أسعار الطاقة ومنها توقعات التضخم"),
-    (r"treasury.*auction|bond auction|note auction|bill auction|\d+-y(?:ear)? (?:note|bond)", "auction", "مزاد سندات الخزانة", "الطلب على الدين الأمريكي وتأثيره على العوائد (خصوصاً الطرف الطويل)"),
+    (r"treasury.*auction|bond auction|note auction|bill auction|tips auction|frn auction|\d+-y(?:ear)? (?:note|bond|tips)|\d+-w(?:eek)? bill", "auction", "مزاد سندات الخزانة", "الطلب على الدين الأمريكي وتأثيره على العوائد (خصوصاً الطرف الطويل)"),
     (r"housing|home sales|building permits", "housing", "بيانات الإسكان", "حالة قطاع العقار وحساسيته للفائدة"),
 ]
 
@@ -250,8 +250,30 @@ def system_lines(kind, ev, ctx):
     return lines, effect
 
 
+AUCTION_KIND = (("tips", "سندات محمية من التضخم (TIPS)"), ("frn", "سندات بفائدة عائمة (FRN)"))
+
+
+def auction_name(title):
+    """اسم مزاد الخزانة مع مدته ونوعه: «مزاد 10 سنوات — سندات متوسطة الأجل (Note)». None إن لم يُتعرَّف عليه."""
+    t = (title or "").lower()
+    kind = next((ar for k, ar in AUCTION_KIND if k in t), None)
+    m = re.search(r"(\d+)\s*-?\s*(?:y|yr|year)", t)
+    w = re.search(r"(\d+)\s*-?\s*(?:w|wk|week)", t)
+    if w and ("bill" in t or not m):
+        return f"مزاد أذون خزانة {int(w.group(1))} أسبوعاً — قصيرة الأجل (Bills)"
+    if not m:
+        return None
+    n = int(m.group(1))
+    if kind is None:
+        # التقويم يسمّي الجميع «Bond Auction»؛ التصنيف الرسمي بالمدة: 2–10 سنوات Notes، و20/30 Bonds
+        kind = "سندات متوسطة الأجل (Notes)" if n <= 10 else "سندات طويلة الأجل (Bonds)"
+    return f"مزاد {n} سنوات — {kind}"
+
+
 def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
     kind, name, what = classify(ev.get("title", ""))
+    if kind == "auction":
+        name = auction_name(ev.get("title", "")) or name
     d = {"kind": kind or "", "actual_note": ev.get("actual_note", ""), "time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
          "forecast": ev.get("forecast", ""), "previous": ev.get("previous", ""), "actual": ev.get("actual", ""),
          "name": name or ev.get("title", ""), "what": what or "", "expect": expectation(ev.get("forecast"), ev.get("previous")),
@@ -335,7 +357,7 @@ def relevant(ev):
     return kind in ALWAYS
 
 
-ITEM_KEYS = ("time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit", "actual_note")
+ITEM_KEYS = ("day", "time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit", "actual_note")
 
 
 def group(descs):

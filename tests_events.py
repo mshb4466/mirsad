@@ -18,10 +18,14 @@ def test_relevance_and_grouping():
     rep = {"error": None}
     view = dashboard.build_view({"risk": {"score": 3, "level": "x", "main_reason": "", "advice": "", "components": []}}, EVS, NOW)
     kinds = [g["kind"] for g in view["events"]]
-    assert kinds.count("speech") == 1, kinds
+    # التجميع داخل اليوم نفسه (بتوقيت بغداد): كلمة بعد منتصف الليل تظهر تحت «غداً» لا «اليوم»
+    assert kinds.count("speech") == 2, kinds
     assert "oil" in kinds and "auction" in kinds and "housing" not in kinds
-    sp = next(g for g in view["events"] if g["kind"] == "speech")
-    assert len(sp["items"]) == 3 and len(sp["scenarios"]) == 3
+    sps = [g for g in view["events"] if g["kind"] == "speech"]
+    assert {g["day"] for g in sps} == {"اليوم", "غداً"}
+    today = next(g for g in sps if g["day"] == "اليوم")
+    assert len(today["items"]) == 2 and len(today["scenarios"]) == 3
+    assert all(g["day"] == "اليوم" for g in view["events"] if g["kind"] in ("oil", "auction"))
 
 
 def test_ratio_auction_polarity():
@@ -53,7 +57,7 @@ def test_actuals_filled_and_speech_tone():
     import extras
     evs = [ev("Crude Oil Inventories", "Low", -4, "-1.2M", "3.7M"), ev("10-y Bond Auction", "Low", -6, "4.1|2.5", "4.0|2.6")]
     day = (NOW - timedelta(hours=6)).astimezone(extras.ET).date().isoformat()
-    n = extras.apply_actuals(evs, NOW, None, lambda: ("2026-10-02", -2.4), lambda: [{"term": "10-Year", "date": day, "yield": 4.062, "btc": 2.55}])
+    n = extras.apply_actuals(evs, NOW, None, lambda: ("2026-10-02", -2.4), lambda: [{"type": "Note", "term": "9-Year 11-Month", "years": 10, "weeks": None, "date": day, "yield": 4.062, "btc": 2.55}])
     assert n == 2 and evs[0]["actual"] == "-2.4M" and evs[1]["actual"] == "4.062|2.55"
     assert extras.apply_actuals([ev("Crude Oil Inventories", "Low", -4)], NOW, None, lambda: None, lambda: []) == 0
     assert events_ctx.speech_outcome(["Powell: no rush to cut, inflation remains sticky"], {"y10": 3.0, "dxy": 0.1})[0] == "above"

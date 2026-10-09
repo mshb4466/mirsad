@@ -94,18 +94,25 @@ def cluster(items, now):
             if tk and s["tokens"] and inter / len(tk | s["tokens"]) >= 0.4:
                 s["sources"].add(src or title)
                 s["severity"] = max(s["severity"], info["severity"])
-                s["deesc"] = s["deesc"] and info["deesc"]
+                _mark = "deesc_when" if info["deesc"] else "esc_when"
+                s[_mark] = max(s.get(_mark) or when, when)
                 s["cats"] |= set(info["cats"])
                 s["regions"] |= set(info["regions"])
                 break
         else:
             stories.append({"title": title, "when": when, "tokens": tk, "sources": {src or title},
                             "severity": info["severity"], "deesc": info["deesc"],
+                            ("deesc_when" if info["deesc"] else "esc_when"): when,
                             "cats": set(info["cats"]), "regions": set(info["regions"])})
     for s in stories:
+        # أخبار متعارضة داخل القصة نفسها: الأحدث يحكم. تهدئة أحدث من التصعيد تخفض القيمة إلى النصف (قاعدة تقديرية)
+        s["mixed"] = bool(s.get("esc_when") and s.get("deesc_when"))
+        s["deesc"] = bool(s.get("deesc_when")) and (not s.get("esc_when") or s["deesc_when"] >= s["esc_when"])
         age = max(0.0, (now - s["when"]).total_seconds() / 3600)
         breadth = 1 + 0.25 * min(len(s["sources"]) - 1, 4)
         s["value"] = s["severity"] * breadth * math.exp(-age / DECAY_HOURS * math.log(2))
+        if s["mixed"] and s["deesc"]:
+            s["value"] *= 0.5
     stories.sort(key=lambda s: s["value"], reverse=True)
     return stories
 
@@ -121,7 +128,9 @@ def score_geo_news(items, market_geo_score, now):
         un = market_geo_score is not None and market_geo_score >= MARKET_CONFIRMS
         note = "لا قصص جيوسياسية بارزة في آخر 24 ساعة" + (" — حركة سوق جيوسياسية الطابع بلا عناوين مطابقة" if un else "")
         return 1.0, note, {"stories": 0, "confirmed": False, "unexplained_market_move": un}
-    top = live[0]["value"] + 0.3 * sum(s["value"] for s in live[1:3])
+    # قصص التهدئة المستقلة لا تُضاف إلى الخطر (كانت تُضاف سابقاً فيرتفع الخطر بخبر وقف إطلاق نار)
+    others = [s for s in live[1:] if not s["deesc"]][:2]
+    top = live[0]["value"] + 0.3 * sum(s["value"] for s in others)
     text_score = max(0.0, min(10.0, top * 1.6))
     confirmed = market_geo_score is not None and market_geo_score >= MARKET_CONFIRMS
     score, verdict = text_score, ""
@@ -138,11 +147,14 @@ def score_geo_news(items, market_geo_score, now):
     first = live[0]
     cats = "، ".join(CATEGORIES[k][0] for k in sorted(first["cats"]))
     reg = "، ".join(sorted(first["regions"])) or "منطقة غير محددة"
+    conflict = any(s["mixed"] for s in live[:3])
+    if conflict:
+        verdict = (verdict + "؛ " if verdict else "") + "أخبار متعارضة (تصعيد وتهدئة): الأحدث يحكم"
     note = f"{cats} — {reg} — {len(first['sources'])} مصدر؛ {verdict}"
     unexplained = (market_geo_score is not None and market_geo_score >= MARKET_CONFIRMS and text_score < 3)
     if unexplained:
         note += " — حركة سوق جيوسياسية الطابع بلا عناوين مطابقة"
-    detail = {"stories": len(live), "text_score": round(text_score, 1), "confirmed": confirmed,
+    detail = {"stories": len(live), "text_score": round(text_score, 1), "confirmed": confirmed, "conflict": conflict,
               "unexplained_market_move": unexplained,
               "top": [{"title": s["title"][:110], "severity": s["severity"], "sources": len(s["sources"]),
                        "regions": sorted(s["regions"]), "cats": sorted(s["cats"]), "deesc": s["deesc"]}
