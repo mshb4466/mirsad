@@ -106,7 +106,7 @@ def oil_from_headlines(heads):
     return None
 
 
-def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None):
+def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None):
     """يملأ الأرقام الفعلية الناقصة للأحداث الصادرة (نفط، مزادات) ويكتب في e['actual_note'] المصدر أو سبب الغياب.
     يعيد عدد ما ملأ. لا يرفع استثناءً."""
     todo = [e for e in events if not e.get("actual") and now - timedelta(hours=30) <= e["time"] < now]
@@ -182,7 +182,16 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                     e["actual"], e["actual_note"] = val, note + "؛ محسوب من السلسلة وقد يختلف عن القراءة الرسمية بكسر عشري"
                     n += 1
                 else:
-                    e["actual_note"] = ind_err or note or "لا رقم فعلي متاح"
+                    why = ind_err or note or "لا رقم فعلي متاح"
+                    if fetch_heads_q_fn:
+                        hv, hn = indicators.from_headlines(e.get("title", ""), fetch_heads_q_fn)
+                        if hv:
+                            e["actual"], e["actual_note"] = hv, hn + " (FRED: " + why + ")"
+                            n += 1
+                            continue
+                        if hn:
+                            why = why + " | " + hn
+                    e["actual_note"] = why
         except Exception as ex:  # noqa: BLE001
             e["actual_note"] = f"خطأ داخلي: {type(ex).__name__}"
     return n

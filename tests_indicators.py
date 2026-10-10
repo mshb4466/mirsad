@@ -65,6 +65,32 @@ def test_proprietary_and_failure_reasons_visible():
     assert n == 0 and "FRED" in e["actual_note"] and not e["actual"]
 
 
+def test_headline_fallback_michigan_and_claims():
+    heads = {"University of Michigan consumer sentiment when:2d": ["US consumer sentiment rises to 57.3 in preliminary October reading, University of Michigan says"],
+             "University of Michigan year-ahead inflation expectations when:2d": ["Michigan survey: year-ahead inflation expectations ease to 4.3% in early October"],
+             "initial jobless claims when:2d": ["Initial jobless claims fall to 219,000 last week"]}
+    fq = lambda q: heads.get(q, [])
+    stale = {"umcsent": [("2026-08-01", 54.0)], "mich": [("2026-08-01", 4.9)]}
+    e1 = ev("Prelim UoM Consumer Sentiment", NOW - timedelta(hours=2)); e2 = ev("Prelim UoM Inflation Expectations", NOW - timedelta(hours=2))
+    n = extras.apply_actuals([e1, e2], NOW, None, fetch_series_fn=lambda need: stale, fetch_heads_q_fn=fq)
+    assert n == 2 and e1["actual"] == "57.3" and e2["actual"] == "4.3%" and "تحقق منه" in e1["actual_note"] and "FRED" in e1["actual_note"]
+    c = ev("Unemployment Claims", NOW - timedelta(hours=2))
+    assert extras.apply_actuals([c], NOW, None, fetch_series_fn=lambda need: {}, fetch_heads_q_fn=fq) == 1 and c["actual"] == "219K"
+
+
+def test_headline_fallback_is_strict():
+    e = ev("Prelim UoM Consumer Sentiment", NOW - timedelta(hours=2))
+    # عنوان نهائي (final) لا يُقبل لحدث أولي، وعناوين متضاربة لا تُعتمد، وغياب العنوان يُذكر
+    fq = lambda q: ["Michigan consumer sentiment final reading rises to 58.0"]
+    assert extras.apply_actuals([e], NOW, None, fetch_series_fn=lambda n: {}, fetch_heads_q_fn=fq) == 0 and not e["actual"] and "لم يُنشر" in e["actual_note"]
+    e2 = ev("Prelim UoM Consumer Sentiment", NOW - timedelta(hours=2))
+    fq2 = lambda q: ["Michigan sentiment preliminary reading rises to 57.3", "Michigan sentiment early look falls to 52.0"]
+    assert extras.apply_actuals([e2], NOW, None, fetch_series_fn=lambda n: {}, fetch_heads_q_fn=fq2) == 0 and "متضاربة" in e2["actual_note"]
+    e3 = ev("Prelim UoM Consumer Sentiment", NOW - timedelta(hours=2))
+    def boom(q): raise OSError("x")
+    assert extras.apply_actuals([e3], NOW, None, fetch_series_fn=lambda n: {}, fetch_heads_q_fn=boom) == 0 and not e3["actual"]
+
+
 if __name__ == "__main__":
     n = 0
     for k, f in list(globals().items()):
