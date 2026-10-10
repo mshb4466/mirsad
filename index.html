@@ -207,7 +207,8 @@
   .tabs button i { font-style: normal; font-size: 20px; line-height: 1.1; filter: grayscale(1); opacity: .75; }
   .tabs button[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); } .tabs button[aria-selected="true"] i { filter: none; opacity: 1; }
   .rel { border-top: 1px solid var(--line); padding: 12px 0; display: grid; gap: 8px; }
-  .relh { display: flex; gap: 8px; align-items: baseline; font-weight: 800; font-size: 14.5px; }
+  .relh { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-weight: 800; font-size: 14.5px; cursor: pointer; list-style: none; }
+  details.rel > summary::-webkit-details-marker { display: none; } details.rel > summary::after { content: '▾'; margin-inline-start: auto; color: var(--muted); } details.rel[open] > summary::after { content: '▴'; }
   .nums3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; direction: rtl; }
   .nbox { background: var(--card-2); border-radius: 12px; padding: 6px 4px; text-align: center; min-width: 0; }
   .nbox small { display: block; color: var(--muted); font-size: 11px; } .nbox b { font-size: 16px; display: block; }
@@ -990,7 +991,7 @@ function render(data) {
     return w;
   };
   const addEv = e => {
-    const d = document.createElement('details'); d.className = 'ev'; if (e.high) d.open = true;
+    const d = document.createElement('details'); d.className = 'ev';
     const sm = document.createElement('summary');
     sm.appendChild(document.createTextNode(e.released ? '✅ ' : (e.high ? '🔴 ' : '🟠 ')));
     sm.appendChild(el('span', 'num evtime', e.time));
@@ -1083,8 +1084,13 @@ function render(data) {
   let _pd = null;
   (data.events_past || []).forEach(e => {
     if (e.day && e.day !== _pd) { _pd = e.day; relBox.appendChild(el('div', 'dayh', e.day)); }
-    const w = el('div', 'rel'); const h = el('div', 'relh');
+    const w = document.createElement('details'); w.className = 'rel'; const h = document.createElement('summary'); h.className = 'relh';
     h.appendChild(document.createTextNode('✅ ')); h.appendChild(el('span', 'num evtime', e.time)); h.appendChild(el('span', '', e.name || e.title));
+    /* شارة واحدة مختصرة؛ كل التفاصيل داخل البطاقة المطوية */
+    const vd0 = e.verdict;
+    if (vd0 && e.kind === 'speech') h.appendChild(el('span', 'pill v-' + vd0.es, (vd0.k === 'above' ? '▲ ' : vd0.k === 'below' ? '▼ ' : '◆ ') + vd0.label));
+    else if (vd0 && !(e.items || []).length) h.appendChild(el('span', 'pill v-' + vd0.es, (vd0.k === 'above' ? '▲ ' : vd0.k === 'below' ? '▼ ' : '◆ ') + vd0.label));
+    else if (!(e.items || []).length && !e.actual && NEEDNUM(e.kind)) h.appendChild(el('span', 'pill', 'الرقم غير متوفر'));
     w.appendChild(h);
     if ((e.items || []).length) {
       e.items.forEach(it => {
