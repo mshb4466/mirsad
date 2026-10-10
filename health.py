@@ -40,10 +40,15 @@ def _sources(report, events, now):
                      + (": " + (miss_a[0].get("actual_note") or "لم تصل") if miss_a else ""))}
     oi = {"key": "oil", "name": "مخزونات النفط (FRED/EIA)", "ok": not miss_o,
           "detail": ("لا إصدار مؤخراً" if not oil else f"{len(oil) - len(miss_o)}/{len(oil)} وصل" + (": " + (miss_o[0].get("actual_note") or "لم يصل") if miss_o else ""))}
+    ind = [e for e in rel if events_ctx.classify(e.get("title", ""))[0] in NEEDNUM and events_ctx.classify(e.get("title", ""))[0] not in ("oil", "auction", "rate")]
+    miss_i = [e for e in ind if not e.get("actual")]
+    ie = {"key": "indicators", "name": "أرقام المؤشرات الفعلية (تقويم + FRED)", "ok": not miss_i,
+          "detail": ("لا مؤشرات صدرت مؤخراً" if not ind else f"{len(ind) - len(miss_i)}/{len(ind)} وصل رقمه"
+                     + ("؛ ".join([""] + [f"{e.get('title', '')}: {e.get('actual_note') or 'لم يصل'}" for e in miss_i[:3]]) if miss_i else ""))}
     news = {"key": "news", "name": "الأخبار (Google News)", "ok": bool(report.get("news") or report.get("geo")),
             "detail": "عناوين متوفرة" if (report.get("news") or report.get("geo")) else "لا عناوين"}
     cot = {"key": "cot", "name": "تمركز CFTC", "ok": "cot" in (report.get("info") or {}), "detail": "متوفر" if "cot" in (report.get("info") or {}) else "غير متوفر"}
-    return [yahoo, fred, cal, tr, oi, news, cot]
+    return [yahoo, fred, cal, tr, oi, ie, news, cot]
 
 
 def _events_stats(events, now):

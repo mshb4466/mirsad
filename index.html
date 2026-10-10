@@ -93,6 +93,7 @@
   .meter i.f { background: var(--tc); }
   #output { display: flex; flex-direction: column; gap: 14px; }
   .tile.wide { grid-column: 1 / -1; }
+  .dchips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; } span.dchip { cursor: default; }
   .wkday { margin: 12px 0 4px; font-weight: 900; font-size: 14px; display: flex; gap: 8px; align-items: center; }
   .wkday.today { color: var(--brand); } .wkday small { font-weight: 500; color: var(--muted); }
   .wkit { border: 1px solid var(--line); border-radius: 12px; padding: 9px 11px; margin: 6px 0; display: grid; gap: 3px; }
@@ -389,16 +390,11 @@
       <h2>القادم خلال 24 ساعة وسيناريوهاته (توقيت بغداد)</h2>
       <div id="evList"></div>
     </section>
-    <section class="card" id="alertCard" hidden>
-      <h2>تنبيهات السوق الأخيرة (آخر 24 ساعة)</h2>
-      <div id="alertList"></div>
-    </section>
-    <section class="card" id="pulseCard" hidden>
-      <h2>نبض السوق الآن</h2>
-      <div class="psum" id="pulseSum"></div>
-      <div class="pgrid" id="pulseGrid"></div>
-      <button type="button" class="chip lang" id="pulseMore" hidden></button>
-      <p class="legend1"><span><i></i>الخط المتقطع = الحد المؤثر</span><span>🟢 هادئ · 🟡 يقترب · 🟠 تجاوز · 🔴 مؤكَّد</span></p>
+    <section class="card" id="moveCard" hidden>
+      <h2>حركة السوق</h2>
+      <div class="psum" id="moveSum"></div>
+      <div class="dchips" id="moveChips"></div>
+      <button type="button" class="chip lang" id="moveDetails">التفاصيل ←</button>
     </section>
     <section class="card" id="aucCard">
       <h2>سياق المزاد للمتداول اليومي (ES)</h2>
@@ -492,6 +488,17 @@
     <details class="card"><summary>التقرير النصي الكامل</summary>
       <p class="summary" id="detailSummary"></p>
     </details>
+    <section class="card" id="alertCard" hidden>
+      <h2>تفاصيل حركات السوق: التنبيهات الأخيرة (24 ساعة)</h2>
+      <div id="alertList"></div>
+    </section>
+    <section class="card" id="pulseCard" hidden>
+      <h2>تفاصيل حركات السوق: النبض الآن</h2>
+      <div class="psum" id="pulseSum"></div>
+      <div class="pgrid" id="pulseGrid"></div>
+      <button type="button" class="chip lang" id="pulseMore" hidden></button>
+      <p class="legend1"><span><i></i>الخط المتقطع = الحد المؤثر</span><span>🟢 هادئ · 🟡 يقترب · 🟠 تجاوز · 🔴 مؤكَّد</span></p>
+    </section>
    </div>
    <div class="tab" id="tab-settings" hidden>
     <section class="card" id="healthCard">
@@ -1153,6 +1160,16 @@ function render(data) {
     pg.appendChild(col);
   });
   const pm = $('pulseMore'); pm.hidden = !extra; pm.textContent = PULSE_ALL ? 'عرض الأهم فقط' : 'عرض بقية العوامل (' + extra + ')';
+  /* حركة السوق (مختصرة في اليوم): العوامل المؤكَّدة بالزخم والحجم فقط، والتفاصيل في تبويب التفاصيل */
+  const mvCard = $('moveCard'), mcs = $('moveChips'); mcs.innerHTML = '';
+  const chips = [], seen = {};
+  pulse.filter(r => r.confirmed).forEach(r => { seen[r.short || r.name] = 1; chips.push({tone: r.tone, up: r.v > 0, name: r.short || r.name, val: r.val}); });
+  alerts.forEach(a => (a.rows || []).filter(r => r.lead).forEach(r => { if (!seen[r.name] && chips.length < 6) { seen[r.name] = 1; chips.push({tone: '', up: String(r.c60).indexOf('-') < 0, name: r.name, val: r.c60, recent: true}); } }));
+  mvCard.hidden = !(data.live && (pulse.length || alerts.length));
+  const msum = $('moveSum'); msum.className = 'psum ' + (hot ? 'hot' : 'calm');
+  msum.textContent = hot ? '🔴 ' + hot + ' حركة مؤكَّدة بالزخم والحجم الآن' : (chips.length ? '🟠 حركات مؤكَّدة خلال آخر 24 ساعة' : '🟢 لا حركة قوية مؤكَّدة');
+  chips.slice(0, 6).forEach(c => { const b = el('span', 'dchip tone-' + (c.tone || 'flat')); b.appendChild(el('span', 'a', c.up ? '▲' : '▼')); b.appendChild(el('span', '', c.name)); b.appendChild(el('span', 'v', c.val)); mcs.appendChild(b); });
+  $('moveDetails').onclick = () => { showTab('details'); const ac = $('pulseCard'); if (ac && ac.scrollIntoView) ac.scrollIntoView(); };
   const infoArr = [].concat(data.info || []);
   (data.geo || []).forEach(g => infoArr.push((g.deesc ? '▼ تهدئة' : g.severity >= 2 ? '▲ تصعيد' : '◆ متابعة') + ' | ' + ((g.regions || []).join('، ') || '—') + ' | حدّة ' + g.severity + '/4 | ' + g.sources + ' مصدر: ' + g.title));
   Object.keys(data.news || {}).forEach(k => (data.news[k] || []).forEach(h => infoArr.push(k + ': ' + h)));

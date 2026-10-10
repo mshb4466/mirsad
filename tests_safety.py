@@ -197,7 +197,7 @@ def test_health_view_and_source_history():
     rep = c.build_report(p, e, NOW, [], x)
     st = {}
     v = health.build(rep, e, NOW, st)
-    assert v["checked_at"] == NOW.isoformat() and v["sources_total"] == 7
+    assert v["checked_at"] == NOW.isoformat() and v["sources_total"] == 8
     assert v["state"] in ("ok", "warn", "incomplete", "major")
     cal = next(s for s in v["sources"] if s["key"] == "calendar")
     assert cal["ok"] and cal["ok_at"] == NOW.isoformat()
