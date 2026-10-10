@@ -93,6 +93,15 @@
   .meter i.f { background: var(--tc); }
   #output { display: flex; flex-direction: column; gap: 14px; }
   .tile.wide { grid-column: 1 / -1; }
+  .wkday { margin: 12px 0 4px; font-weight: 900; font-size: 14px; display: flex; gap: 8px; align-items: center; }
+  .wkday.today { color: var(--brand); } .wkday small { font-weight: 500; color: var(--muted); }
+  .wkit { border: 1px solid var(--line); border-radius: 12px; padding: 9px 11px; margin: 6px 0; display: grid; gap: 3px; }
+  .wkit .t { display: flex; gap: 8px; align-items: baseline; font-weight: 700; font-size: 14px; }
+  .wkit .t span.tm { font-family: var(--font-num, monospace); color: var(--muted); font-weight: 500; font-size: 12.5px; }
+  .wkit .n { font-size: 12.5px; color: var(--muted); }
+  .wkit.bull { border-color: #1a9d57; background: rgba(26,157,87,.08); } .wkit.bear { border-color: #d6283c; background: rgba(214,40,60,.08); }
+  .wkit .st { font-size: 11.5px; font-weight: 700; }
+
 
   /* الضغوط */
   .press { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -192,7 +201,7 @@
   .plan.paid li::before { content: '★'; color: var(--brand); }
   @media (max-width: 560px) { .plan-grid { grid-template-columns: 1fr; } }
   .plan-note { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
-  .tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; position: fixed; bottom: 0; left: 0; right: 0; margin-inline: auto; max-width: 640px; z-index: 20; background: var(--card); border-top: 1px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 20px rgba(0,0,0,.08); border-radius: 18px 18px 0 0; }
+  .tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; position: fixed; bottom: 0; left: 0; right: 0; margin-inline: auto; max-width: 640px; z-index: 20; background: var(--card); border-top: 1px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 20px rgba(0,0,0,.08); border-radius: 18px 18px 0 0; }
   .tabs button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; border-radius: 12px; border: 0; background: transparent; color: var(--muted); font: 700 12px var(--font-body); cursor: pointer; }
   .tabs button i { font-style: normal; font-size: 20px; line-height: 1.1; filter: grayscale(1); opacity: .75; }
   .tabs button[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); } .tabs button[aria-selected="true"] i { filter: none; opacity: 1; }
@@ -283,11 +292,39 @@
   .evsc { margin-top: 6px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.6; background: var(--card-2); border-inline-start: 4px solid var(--neutral); }
   .evsc.above { border-inline-start-color: var(--hi); } .evsc.below { border-inline-start-color: var(--ok); }
   @media (max-width: 380px) { .press { grid-template-columns: 1fr; } .score { font-size: 46px; } }
+
+  /* v0.13: خطوط أوضح وتوافق الهاتف */
+  html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+  body { font-size: 15.5px; }
+  .card h2 { font-size: 15px; } .play li { font-size: 14px; } .tabs button { min-height: 50px; font-size: 12.5px; }
+  button, summary { min-height: 40px; }
+  .tone-bear { --tc: var(--crit); --tbg: var(--crit-bg); } .tone-bull { --tc: var(--ok); --tbg: var(--ok-bg); } .tone-flat { --tc: var(--neutral); --tbg: var(--neutral-bg); } .tone-warn { --tc: var(--warn); --tbg: var(--warn-bg); }
+  .drv { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .dchip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 14px; border: 1.5px solid var(--tc); background: var(--tbg); color: var(--tc); font: 800 14px var(--font-body); cursor: pointer; }
+  .dchip .a { font-size: 15px; } .dchip .v { font-family: var(--font-mono); direction: ltr; font-weight: 600; font-size: 13px; }
+  .dexp { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: var(--card-2); font-size: 13.5px; }
+  .dleg { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+  .safe { border: 2px solid var(--tc); background: var(--tbg); color: var(--fg); }
+  .safe h2 { color: var(--tc); margin-bottom: 8px; } .safe ul { margin: 6px 0 0; padding-inline-start: 18px; font-size: 13.5px; }
+  .safe button { margin-top: 10px; }
+  .dayh { font-weight: 900; font-size: 13px; color: var(--muted); margin: 14px 0 6px; padding-bottom: 4px; border-bottom: 1px dashed var(--line); }
+  .dayh:first-child { margin-top: 0; }
+  .liqbox { margin-top: 12px; padding: 12px; border-radius: 14px; border: 1.5px solid var(--tc); background: var(--tbg); }
+  .liqbox .lh { font-weight: 900; color: var(--tc); font-size: 15px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .liqbox p { margin: 6px 0 0; font-size: 13.5px; color: var(--fg); }
+  .regime { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: var(--card-2); font-size: 13.5px; }
+  .hpill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 99px; background: var(--tbg); color: var(--tc); border: 1.5px solid var(--tc); font-weight: 900; }
+  .hrow { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+  .hrow small { display: block; color: var(--muted); font-size: 12px; }
+  .hgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 10px 0; }
+  .hbox { background: var(--card-2); border-radius: 12px; padding: 8px 10px; font-size: 12.5px; color: var(--muted); } .hbox b { display: block; color: var(--fg); font-size: 17px; }
+  .parrow.tone-bear { color: var(--crit); } .parrow.tone-bull { color: var(--ok); }
+  .about p { margin: 6px 0; font-size: 14px; } .slogan { font-weight: 900; font-size: 18px; color: var(--brand); }
 </style>
 
 <div class="wrap">
   <div class="top">
-    <div class="brand"><img class="logoimg" src="data:image/png;base64,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" alt="" width="42" height="42"><div><h1>مِرصاد</h1><small>سياق السوق الاقتصادي بنظرة واحدة</small></div></div>
+    <div class="brand"><img class="logoimg" src="data:image/png;base64,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" alt="" width="42" height="42"><div><h1>مِرصاد</h1><small>افهم ما يحرك السوق</small></div></div>
     <div class="chips" aria-label="الأصل">
       <span class="chip on">ES</span><span class="chip soon">ذهب · قريباً</span><span class="chip soon">نفط · قريباً</span><span class="chip soon">EUR/USD · قريباً</span><span class="chip soon">BTC · قريباً</span>
     </div>
@@ -297,6 +334,7 @@
 
   <div class="tabs" role="tablist">
     <button type="button" role="tab" data-tab="today" aria-selected="true"><i>🏠</i><span>اليوم</span></button>
+    <button type="button" role="tab" data-tab="week" aria-selected="false"><i>🗞️</i><span>أخبار ES</span></button>
     <button type="button" role="tab" data-tab="macro" aria-selected="false"><i>🧭</i><span>المنظومة</span></button>
     <button type="button" role="tab" data-tab="details" aria-selected="false"><i>📊</i><span>التفاصيل</span></button>
     <button type="button" role="tab" data-tab="settings" aria-selected="false"><i>⚙️</i><span>الإعدادات</span></button>
@@ -305,24 +343,10 @@
   <div id="output" hidden>
 
    <div class="tab" id="tab-today">
-    <section class="card" id="relCard">
-      <h2>صدر خلال آخر 24 ساعة: النتيجة وأثرها (توقيت بغداد)</h2>
-      <div id="relList"></div>
-    </section>
-    <section class="card" id="evCard">
-      <h2>القادم خلال 24 ساعة وسيناريوهاته (توقيت بغداد)</h2>
-      <div id="evList"></div>
-    </section>
-    <section class="card" id="alertCard" hidden>
-      <h2>تنبيهات السوق الأخيرة (آخر 24 ساعة)</h2>
-      <div id="alertList"></div>
-    </section>
-    <section class="card" id="pulseCard" hidden>
-      <h2>نبض السوق الآن</h2>
-      <div class="psum" id="pulseSum"></div>
-      <div class="pgrid" id="pulseGrid"></div>
-      <button type="button" class="chip lang" id="pulseMore" hidden></button>
-      <p class="legend1"><span><i></i>الخط المتقطع = الحد المؤثر</span><span>🟢 هادئ · 🟡 يقترب · 🟠 تجاوز · 🔴 مؤكَّد</span></p>
+    <section class="card safe" id="safeCard" hidden>
+      <h2 id="safeTitle"></h2>
+      <ul id="safeList"></ul>
+      <button type="button" class="chip lang" id="safeBtn">تفاصيل «صحة مرصاد»</button>
     </section>
     <section class="card hero" id="hero">
       <svg class="gauge" id="gauge" viewBox="0 0 260 150" role="img" aria-label="مقياس المخاطرة"></svg>
@@ -348,9 +372,34 @@
       </div>
       <div class="tile" id="tTrend"><div class="k">قوة الاتجاه</div><div class="v num" id="trendNum"></div><div class="s" id="trendLabel"></div><div class="meter" id="trendMeter"></div></div>
       <div class="tile" id="tConf"><div class="k">درجة الثقة</div><div class="v num" id="confNum"></div><div class="s" id="confLabel"></div><div class="meter" id="confMeter"></div></div>
-      <div class="tile wide" id="tInt"><div class="k">حدة التقلب المتوقعة</div><div class="v num" id="intNum"></div><div class="s" id="intLabel"></div><div class="meter" id="intMeter"></div></div>
+      <div class="tile" id="tInt"><div class="k">حدة التقلب المتوقعة</div><div class="v num" id="intNum"></div><div class="s" id="intLabel"></div><div class="meter" id="intMeter"></div></div>
     </div>
 
+    <section class="card" id="drvCard" hidden>
+      <h2>اتجاه العوامل المؤثرة الآن</h2>
+      <div class="drv" id="drvList"></div>
+      <div class="dexp" id="drvExp" hidden></div>
+      <div class="dleg"><span>🔴 تحرّك يضغط على الأسهم</span><span>🟢 تحرّك يدعمها</span><span>اضغط على أي عامل لشرحه</span></div>
+    </section>
+    <section class="card" id="relCard">
+      <h2>صدر خلال آخر 24 ساعة: اليوم وأمس، النتيجة وأثرها (توقيت بغداد)</h2>
+      <div id="relList"></div>
+    </section>
+    <section class="card" id="evCard">
+      <h2>القادم خلال 24 ساعة وسيناريوهاته (توقيت بغداد)</h2>
+      <div id="evList"></div>
+    </section>
+    <section class="card" id="alertCard" hidden>
+      <h2>تنبيهات السوق الأخيرة (آخر 24 ساعة)</h2>
+      <div id="alertList"></div>
+    </section>
+    <section class="card" id="pulseCard" hidden>
+      <h2>نبض السوق الآن</h2>
+      <div class="psum" id="pulseSum"></div>
+      <div class="pgrid" id="pulseGrid"></div>
+      <button type="button" class="chip lang" id="pulseMore" hidden></button>
+      <p class="legend1"><span><i></i>الخط المتقطع = الحد المؤثر</span><span>🟢 هادئ · 🟡 يقترب · 🟠 تجاوز · 🔴 مؤكَّد</span></p>
+    </section>
     <section class="card" id="aucCard">
       <h2>سياق المزاد للمتداول اليومي (ES)</h2>
       <svg class="ladder" id="ladder" viewBox="0 0 370 214" role="img" aria-label="سلّم الأسعار"></svg>
@@ -365,6 +414,27 @@
     </section>
    </div>
 
+   <div class="tab" id="tab-week" hidden>
+    <section class="card" id="weekNewsCard">
+      <h2 id="weekNewsH">أخبار الأسبوع المهمة لـ ES (توقيت بغداد)</h2>
+      <p class="summary" id="weekNewsNote"></p>
+      <div id="weekNews"></div>
+    </section>
+    <section class="card">
+      <h2>أحداث الأسبوع الاقتصادية عالية التأثير (توقيت بغداد)</h2>
+      <p class="summary" id="weekNote"></p>
+      <div id="weekList"></div>
+    </section>
+    <section class="card" id="weekEarnCard" hidden>
+      <h2>أرباح الأسبوع التي تحرّك ES</h2>
+      <p class="summary">السبعة الكبار وزنهم كبير في المؤشر، فأرباحهم تحرّك ES نفسه. التواريخ من Yahoo وقد تتغير.</p>
+      <div id="weekEarn"></div>
+    </section>
+    <section class="card" id="weekGeoCard" hidden>
+      <h2>أبرز الأخبار الجيوسياسية الآن (أثرها عبر النفط وVIX)</h2>
+      <div id="weekGeo"></div>
+    </section>
+   </div>
    <div class="tab" id="tab-macro" hidden>
     <section class="card" id="fedCard">
       <h2>المنظومة الكلية وتوقع الفدرالي</h2>
@@ -375,6 +445,8 @@
       <div class="pil" id="pillars"></div>
       <div class="gapbox" id="gapBox"></div>
       <div class="fed-meet num" id="fedLiq"></div>
+      <div class="liqbox" id="liqBox" hidden><div class="lh"><span id="liqArrow"></span><span id="liqTitle"></span></div><p id="liqText"></p></div>
+      <div class="regime" id="regimeBox" hidden></div>
       <div class="fed-meet num" id="fedMeet"></div>
     </section>
 
@@ -422,6 +494,18 @@
     </details>
    </div>
    <div class="tab" id="tab-settings" hidden>
+    <section class="card" id="healthCard">
+      <h2>صحة مرصاد</h2>
+      <div id="healthSum"></div>
+      <details id="healthDet"><summary>التفاصيل</summary><div id="healthBody"></div></details>
+    </section>
+    <section class="card about" id="aboutCard">
+      <h2>ما هو مرصاد؟</h2>
+      <p class="slogan">افهم ما يحرك السوق</p>
+      <p>مِرصاد يجمع تلقائياً الأحداث الاقتصادية والعوائد والدولار والنفط والأخبار الجيوسياسية، ويحلّلها كمنظومة واحدة ليخبرك: ما مستوى <b>الخطر</b> الآن؟ وإلى أين تميل <b>القوى المؤثرة</b>؟ وما قرار الفدرالي الأرجح؟</p>
+      <p><b>الخطر</b> يقيس مدى اضطراب السوق، بينما <b>الانحياز</b> يقيس الاتجاه الأرجح للتأثير، وهما منفصلان: قد يكون الخطر عالياً دون اتجاه واضح. <b>الثقة</b> تقول لك هل البيانات كافية ومتسقة.</p>
+      <p>مِرصاد لا يعطي إشارات شراء أو بيع، ويقول صراحةً «التقييم غير مكتمل» حين لا تكفي البيانات.</p>
+    </section>
     <section class="card">
       <h2>اللغة</h2>
       <p class="summary">لغة عناوين الواجهة فقط. نص التقرير الحي يبقى بالعربية.</p>
@@ -430,6 +514,15 @@
       <section class="card" id="guide">
       <h2>دليل المستخدم</h2>
       <p class="summary">اضغط على أي موضوع لتفتحه. اللغة الإنجليزية لا تشمل هذا الدليل حالياً.</p>
+      <details class="gd" id="glossInd"><summary>شرح المؤشرات المعروضة</summary><ul class="play">
+        <li><b>الدولار DXY:</b> قوة الدولار أمام سلة عملات. صعوده يشدّ الأوضاع المالية ويضغط غالباً على الأسهم.</li>
+        <li><b>عائد 10 و30 سنة:</b> كلفة الاقتراض طويل الأجل. ارتفاعه يخفض قيمة الأرباح المستقبلية فيضغط على الأسهم، وانخفاضه يدعمها (إلا إن كان سببه هروباً للأمان).</li>
+        <li><b>النفط:</b> ارتفاعه يرفع توقعات التضخم وكلفة الشركات فيضغط على الأسهم عادةً.</li>
+        <li><b>VIX:</b> مؤشر الخوف المتوقع في الأسهم. صعوده تحوّط وقلق.</li>
+        <li><b>فروق الائتمان:</b> علاوة المخاطرة على سندات الشركات الضعيفة. اتساعها إنذار ضغط مالي.</li>
+        <li><b>السيولة الصافية:</b> ميزانية الفدرالي − حساب الخزانة − RRP. <b>ضخّ</b> = زيادة النقد المتاح (داعم للأصول الخطرة)، <b>سحب</b> = انكماشه (ضاغط).</li>
+        <li><b>حدة الاتجاه:</b> مدى قوة تحرك العوامل الاتجاهية معاً (تقدير تجريبي). <b>الثقة:</b> تنخفض بنقص البيانات والتحذيرات.</li>
+      </ul></details>
       <details class="gd"><summary>ابدأ من هنا: كيف تقرأ الصفحة في دقيقة</summary><ul class="play"><li><b>تبويب اليوم:</b> مقياس المخاطرة العام، ثم أحداث اليوم، ثم سياق المزاد لـ ES. هذا ما تنظر إليه قبل الافتتاح.</li><li><b>تبويب المنظومة:</b> الصورة الكبرى: ماذا يميل الفدرالي أن يفعل، وما الضغوط الداعمة والضاغطة على السوق.</li><li><b>تبويب التفاصيل:</b> أهم ما يحرّك المخاطرة، والسياق والعناوين، وتنبيهات جودة البيانات. للرجوع عند الحاجة وليس لقراءته كله كل يوم.</li><li><b>الفكرة العامة:</b> البرنامج يعطيك <b>سياقاً ومخاطرة</b> وليس إشارة دخول. قرار الدخول والخروج من تحليلك أنت.</li><li><b>زر ↻ تحديث:</b> يجلب آخر لقطة منشورة. تتجدد اللقطة نحو كل 15 دقيقة في أيام العمل، والبيانات المجانية نفسها متأخرة عن السوق.</li></ul></details>
       <details class="gd"><summary>مقياس المخاطرة (من صفر إلى عشرة)</summary><ul class="play"><li><b>ما هو:</b> درجة حذر تجمع 17 مكوّناً (تقلب وأحداث وجيوسياسة وعوائد ودولار وائتمان وسيولة ومنظومة الفدرالي...). ليس توقعاً بأن السوق سيهبط، بل مستوى الحذر المناسب.</li><li><b>الألوان:</b> منخفضة (ظروف طبيعية) ← متوسطة (انتبه) ← عالية (قلّل الحجم أو انتظر) ← قصوى (تقلب غير معتاد).</li><li><b>كيف تُحسب:</b> لكل مكوّن درجة ووزن، والمجموع المرجّح هو الدرجة العامة. الأوزان تتكيّف: إذا اقترب حدث كبير ارتفع وزن الأحداث، وإذا غاب مصدر بيانات سقط مكوّنه وأُعيد توزيع الأوزان وظهر تنبيه ⚠.</li><li><b>«أبرز ما يُتابَع»:</b> المكوّنان الأعلى مساهمة. عندما تكون المخاطرة منخفضة فهو ليس سبباً للقلق بل أكثر ما يستحق النظر.</li><li><b>تنبيه:</b> الأوزان تقديرية وتُعايَر لاحقاً من سجل الأداء. استخدم الدرجة للمقارنة بين يوم وآخر أكثر من الاعتماد على رقمها المطلق.</li></ul></details>
       <details class="gd"><summary>المكوّنات السبعة عشر ومعناها</summary><ul class="play"><li><b>قرب الأحداث الكبرى:</b> كلما اقترب حدث عالي التأثير (CPI أو الفائدة أو الوظائف) ارتفعت الدرجة.</li><li><b>التقلب (VIX):</b> مؤشر الخوف. مستواه المرتفع يعني حركات أكبر وتوقعات أوسع.</li><li><b>هيكل VIX:</b> نسبة VIX إلى VIX3M. إن زادت عن 1 (مقلوب) فالضغط قصير الأجل أشد من الطويل.</li><li><b>التسعير المسبق:</b> هل تحرك ES كثيراً قبل الحدث؟ إن تحرك فجزء من الخبر مسعَّر.</li><li><b>التوتر الجيوسياسي من السوق:</b> ارتفاع الذهب والنفط معاً قد يدل على قلق جيوسياسي.</li><li><b>الأخبار الجيوسياسية:</b> عناوين مصنّفة بقواعد ثابتة (انظر قسم الأخبار).</li><li><b>تعارض الإشارات:</b> حين تتحرك أصول مترابطة عادة في اتجاهات متضادة، فهذا يعني ارتباكاً.</li><li><b>السيولة:</b> هل حجم التداول طبيعي أم ضعيف؟</li><li><b>العوائد والفائدة:</b> مستوى وحركة عائد 10 و30 سنة وعلاوة الأجل. الطرف الطويل يعكس التضخم والدين، وليس توقعات الفائدة فقط.</li><li><b>تنبيهات الحركة ونبض السوق (في تبويب اليوم):</b> كل تنبيه يصلك على تيليجرام يظهر هنا بتفاصيله، وجدول النبض يعرض تغير كل عامل الآن ومدى تأكيده بالزخم والحجم.</li><li><b>الطرف القصير من العوائد:</b> عوائد 13 أسبوعاً وسنتين و5 سنوات، وهي الأقرب لتوقعات الفائدة.</li><li><b>الدولار DXY:</b> الدولار القوي السريع يضغط عادةً على الأسهم.</li><li><b>الائتمان والبنوك:</b> إجهاد الشركات والبنوك علامة مبكرة للخطر.</li><li><b>اتساع السوق:</b> هل يقود الصعود عدد قليل من الأسهم الكبرى أم السوق كله؟</li><li><b>الأسواق العالمية والين:</b> هزة في آسيا/أوروبا أو قفزة الين قد تنتقل إلى ES.</li><li><b>التقويم:</b> انتهاء الخيارات ونهاية الفصل والعطل (سيولة أقل وتقلب أعلى).</li><li><b>منظومة الفدرالي:</b> مدى ميل الفدرالي للتشدد، ويرتفع الخطر عند الفجوة الكبيرة مع التسعير.</li><li><b>السيولة الصافية:</b> تجفيف السيولة من النظام المالي يضغط على الأصول الخطرة.</li></ul></details>
@@ -531,7 +624,7 @@ const EN = {
   'تدفق الأوامر: الحجم عند السعر وDelta وعمق السوق': 'Order flow: volume at price, delta and market depth',
   'أصول متعددة: فوركس وسلع وبيتكوين، وتطبيق بإشعارات فورية': 'Multiple assets: forex, commodities, Bitcoin, plus an app with instant push',
   'المدفوع قيد التخطيط وغير متاح الآن، ويُبنى بعد إثبات جدوى النسخة المجانية.': 'The paid tier is planned, not available yet; it is built after the free version proves its worth.',
-  'اليوم': 'Today', 'المنظومة': 'Macro', 'التفاصيل': 'Details', 'الإعدادات': 'Settings', 'اللغة': 'Language', 'أهم ما يحرّك المخاطرة': 'Top risk drivers', 'عرض كل المكوّنات': 'Show all components', 'أحداث اليوم المؤثرة على ES (توقيت بغداد)': 'Today\'s events that matter for ES (Baghdad time)', 'الأحداث الكبرى القادمة هذا الأسبوع': 'Major events later this week', 'لا أحداث مهمة لـ USD خلال الـ 24 ساعة القادمة.': 'No major USD events in the next 24h.', 'تحديث': 'Refresh', 'جارٍ التحديث': 'Refreshing', 'لا جديد': 'Up to date', 'تعذّر التحديث': 'Refresh failed', 'عرض الأهم فقط': 'Show top only', 'شكل الإشعار على الهاتف': 'Phone notification preview', 'التقرير النصي الكامل': 'Full text report', 'لغة عناوين الواجهة فقط. نص التقرير الحي يبقى بالعربية.': 'Interface labels only. Live report text stays in Arabic.',
+  'اليوم': 'Today', 'أخبار ES': 'ES news', 'المنظومة': 'Macro', 'التفاصيل': 'Details', 'الإعدادات': 'Settings', 'اللغة': 'Language', 'أهم ما يحرّك المخاطرة': 'Top risk drivers', 'عرض كل المكوّنات': 'Show all components', 'أحداث اليوم المؤثرة على ES (توقيت بغداد)': 'Today\'s events that matter for ES (Baghdad time)', 'الأحداث الكبرى القادمة هذا الأسبوع': 'Major events later this week', 'لا أحداث مهمة لـ USD خلال الـ 24 ساعة القادمة.': 'No major USD events in the next 24h.', 'تحديث': 'Refresh', 'جارٍ التحديث': 'Refreshing', 'لا جديد': 'Up to date', 'تعذّر التحديث': 'Refresh failed', 'عرض الأهم فقط': 'Show top only', 'شكل الإشعار على الهاتف': 'Phone notification preview', 'التقرير النصي الكامل': 'Full text report', 'لغة عناوين الواجهة فقط. نص التقرير الحي يبقى بالعربية.': 'Interface labels only. Live report text stays in Arabic.',
   'سياق المزاد للمتداول اليومي (ES)': 'Auction context for the day trader (ES)',
   'ميل تجريبي لم يُثبت بعد، يُقاس في الاختبار التاريخي. ليس إشارة دخول.': 'Experimental tilt, not yet proven; it is measured in the historical backtest. Not an entry signal.',
   'أمس': 'Prior', 'الليل': 'Overnight', 'الآن': 'Now'
@@ -579,7 +672,7 @@ function drawGauge(score) {
 function meter(id, score, tcls) {
   const m = $(id); m.innerHTML = '';
   for (let i = 1; i <= 10; i++) m.appendChild(el('i', i <= Math.round(score) ? 'f' : ''));
-  m.parentElement.className = 'tile ' + tcls + (id === 'intMeter' ? ' wide' : '');
+  m.parentElement.className = 'tile ' + tcls;
 }
 const posCls = s => s >= 7 ? 't-ok' : s >= 4 ? 't-warn' : 't-hi';       // أعلى = أفضل
 const riskCls = s => s <= 3 ? 't-ok' : s <= 6 ? 't-warn' : s <= 8 ? 't-hi' : 't-crit'; // أعلى = أخطر
@@ -677,6 +770,68 @@ function renderAuction(a) {
   $('tiltMark').style.left = (50 + 50 * Math.max(-1, Math.min(1, t.score))) + '%';
 }
 
+
+const TONE_AR_ = { bear: 'ضغط على الأسهم', bull: 'دعم للأسهم', flat: 'أثر محدود' };
+const GLOSS_ = {
+  dxy: 'الدولار: صعوده يشدّ الأوضاع المالية ويضغط غالباً على الأسهم، وهبوطه يدعمها.',
+  y10: 'عائد 10 سنوات: كلفة الاقتراض الأساسية. ارتفاعه يضغط على تقييم الأسهم.',
+  y30: 'عائد 30 سنة: يعكس التضخم والدين وعلاوة الأجل. ارتفاعه ضغط على الأسهم.',
+  oil: 'النفط: ارتفاعه يرفع توقعات التضخم وكلفة الشركات، فيضغط على الأسهم عادةً.',
+  vix: 'VIX: مقياس الخوف المتوقع. صعوده يعني قلقاً وتحوطاً.',
+  hy_oas: 'فروق الائتمان: اتساعها يعني ضغطاً مالياً وخوفاً من التعثر.',
+  net_liq: 'السيولة الصافية: ضخّ = زيادة النقد في النظام (داعم)، سحب = انكماشه (ضاغط).'
+};
+const bgd_ = iso => { try { const d = new Date(new Date(iso).getTime() + 3 * 3600e3); const p = n => String(n).padStart(2, '0'); return d.getUTCFullYear() + '-' + p(d.getUTCMonth() + 1) + '-' + p(d.getUTCDate()) + ' ' + p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()); } catch (e) { return '—'; } };
+function openHealth_() { showTab('settings'); const d = $('healthDet'); if (d) d.open = true; const c = $('healthCard'); if (c && c.scrollIntoView) c.scrollIntoView(); }
+function renderExtras(data) {
+  /* بانر السلامة */
+  const sf = data.safety, sc = $('safeCard');
+  const bad = !!sf && sf.state !== 'ok';
+  sc.hidden = !bad;
+  if (bad) {
+    const crit = sf.state !== 'warn';
+    sc.className = 'card safe ' + (crit ? 'tone-bear' : 'tone-warn');
+    $('safeTitle').textContent = (crit ? '⚠️ ' : 'ℹ️ ') + sf.label;
+    const ul = $('safeList'); ul.innerHTML = '';
+    (sf.issues || []).slice().sort((a, b) => (a.sev === 'warn') - (b.sev === 'warn')).slice(0, 4).forEach(i => ul.appendChild(el('li', '', i.sev_ar + ': ' + i.msg)));
+  }
+  /* العوامل الاتجاهية */
+  const dv = data.drivers || [], dc = $('drvCard'); dc.hidden = !dv.length;
+  const dl = $('drvList'); dl.innerHTML = ''; const dx = $('drvExp'); dx.hidden = true;
+  dv.forEach(d => {
+    const b = el('button', 'dchip tone-' + d.tone); b.type = 'button';
+    b.appendChild(el('span', 'a', d.arrow)); b.appendChild(el('span', '', d.name)); b.appendChild(el('span', 'v', d.val));
+    b.addEventListener('click', () => { dx.hidden = false; dx.textContent = d.name + ' ' + (d.last ? '(' + d.last + ') ' : '') + d.val + ' — ' + (TONE_AR_[d.tone] || '') + '. ' + (GLOSS_[d.key] || ''); });
+    dl.appendChild(b);
+  });
+  /* السيولة والنظام الاقتصادي */
+  const lq = data.macro && data.macro.liqView, lb = $('liqBox'); lb.hidden = !lq;
+  if (lq) {
+    lb.className = 'liqbox tone-' + lq.tone;
+    $('liqArrow').textContent = lq.arrow;
+    $('liqTitle').textContent = 'السيولة الصافية ≈ ' + lq.net_bn.toLocaleString('en') + ' مليار$ · ' + lq.word + ' (' + (lq.chg > 0 ? '+' : '') + lq.chg + '% خلال 4 أسابيع)';
+    $('liqText').textContent = lq.meaning; $('fedLiq').textContent = '';
+  }
+  const rg = data.regime, rb = $('regimeBox'); rb.hidden = !rg; if (rg) rb.textContent = 'النظام الاقتصادي السائد: ' + rg.text;
+  /* صحة مرصاد */
+  const h = data.health, hs = $('healthSum'), hb = $('healthBody'); hs.innerHTML = ''; hb.innerHTML = '';
+  if (!h) { hs.appendChild(el('p', 'summary', 'لم يُجرَ الفحص بعد: تظهر الحالة بعد أول دورة تشغيل حقيقية. لا تُعرض حالة سليمة دون فحص فعلي.')); return; }
+  const ageMin = (Date.now() - new Date(h.checked_at).getTime()) / 60000;
+  let st = h.state, label = h.label;
+  if (isFinite(ageMin) && ageMin > 90 && st === 'ok') { st = 'warn'; label = 'الفحص قديم: لم تُجرَ دورة حديثة'; }
+  const tcls = st === 'ok' ? 'bull' : st === 'warn' ? 'warn' : 'bear';
+  const pill = el('span', 'hpill tone-' + tcls, (st === 'ok' ? '✅ ' : st === 'warn' ? '🟡 ' : '🔴 ') + label); hs.appendChild(pill);
+  hs.appendChild(el('p', 'summary', 'آخر فحص فعلي: ' + bgd_(h.checked_at) + ' (بغداد)'));
+  const g = el('div', 'hgrid'); const box = (k, v) => { const b = el('div', 'hbox', k); b.appendChild(el('b', 'num', v)); g.appendChild(b); };
+  if (h.sources) { box('مصادر تعمل', h.sources_ok + '/' + h.sources_total); box('تغطية البيانات', Math.round((h.coverage || 0) * 100) + '%'); box('أحداث تم التحقق منها', h.events_verified + '/' + (h.events_checked || 0)); box('أحداث تعذّر تحليلها', String(h.events_unanalysed || 0)); box('تعارضات/أخطاء', String(h.conflicts || 0)); box('تنبيهات اليوم (مرسلة/مكررة مُنعت)', (h.alerts_sent || 0) + ' / ' + (h.alerts_suppressed || 0)); }
+  hb.appendChild(g);
+  (h.sources || []).forEach(s => { const r = el('div', 'hrow'); r.appendChild(el('span', '', s.ok ? '🟢' : '🔴')); const d = el('div'); d.appendChild(document.createTextNode(s.name)); d.appendChild(el('small', '', s.detail + ' — آخر نجاح: ' + (s.ok_at ? bgd_(s.ok_at) : 'لم يسبق')));  r.appendChild(d); hb.appendChild(r); });
+  if (h.engine) { const e = h.engine; hb.appendChild(el('p', 'summary', 'محرك المخاطر: ' + (e.incomplete ? 'التقييم غير مكتمل — البيانات غير كافية' : 'يعمل') + (e.risk != null ? ' | الدرجة ' + e.risk + '/10' : '') + (e.confidence ? ' | الثقة ' + e.confidence : '') + (e.regime ? ' | ' + e.regime : ''))); }
+  const iss = h.issues || []; if (iss.length) { hb.appendChild(el('h4', '', 'المشكلات المكتشفة')); const ul = el('ul', 'play'); iss.forEach(i => ul.appendChild(el('li', '', i.sev_ar + ': ' + i.msg))); hb.appendChild(ul); }
+  const td = h.todo || []; if (td.length) { hb.appendChild(el('h4', '', 'تتطلب مراجعة')); const ul = el('ul', 'play'); td.forEach(t => ul.appendChild(el('li', '', t))); hb.appendChild(ul); }
+}
+$('safeBtn').addEventListener('click', openHealth_);
+
 function render(data) {
   const comps = data.risk.components || [];
   const real = !!data.risk.real;
@@ -713,9 +868,11 @@ function render(data) {
   $('biasConf').textContent = ((data.quick_call || {}).recommendation || '') + ((data.quick_call || {}).confidence ? tr_(' · الثقة: ') + data.quick_call.confidence : '');
   const show = (id, on) => { $(id).hidden = !on; };
   show('tTrend', !!data.trend); show('tConf', !!data.confidence); show('tInt', !!data.intensity);
+  /* الثقة والتقلب المتوقع جنباً إلى جنب؛ إن بقي بلا زوج (عدد فردي) يأخذ العرض كاملاً */
   if (data.trend) { const tr = clamp(data.trend.score); $('trendNum').textContent = tr + '/10'; $('trendLabel').textContent = data.trend.label || ''; meter('trendMeter', tr, posCls(tr)); }
   if (data.confidence) { const cf = clamp(data.confidence.score); $('confNum').textContent = cf + '/10'; $('confLabel').textContent = data.confidence.label || ''; meter('confMeter', cf, posCls(cf)); }
   if (data.intensity) { const it = clamp(data.intensity.score); $('intNum').textContent = it + '/10'; $('intLabel').textContent = data.intensity.label || ''; meter('intMeter', it, riskCls(it)); }
+  $('tInt').classList.toggle('wide', !!data.trend);  /* الثقة والتقلب جنباً إلى جنب؛ يمتد التقلب فقط إن ظهرت بطاقة الاتجاه (عدد فردي) */
 
   renderAuction(data.auction);
 
@@ -739,6 +896,7 @@ function render(data) {
   }
 
   /* الضغوط */
+  try { renderWeek_(data); } catch (e) {}
   fillList('pBull', data.pressures && data.pressures.bullish, '＋');
   fillList('pBear', data.pressures && data.pressures.bearish, '－');
 
@@ -879,7 +1037,7 @@ function render(data) {
     evBox.appendChild(el('p', 'evnote', 'هذه النسخة من البرنامج لا ترسل بيانات الأحداث بعد. ارفع الملفات المحدّثة ثم شغّل البرنامج مرة أخرى.'));
   } else if (!(data.events || []).length) {
     evBox.appendChild(el('p', 'evnote', 'لا أحداث مهمة قادمة لـ USD خلال الـ 24 ساعة القادمة.'));
-  } else { data.events.forEach(addEv); }
+  } else { let _d = null; data.events.forEach(e => { if (e.day && e.day !== _d) { _d = e.day; evBox.appendChild(el('div', 'dayh', e.day)); } addEv(e); }); }
   const relBox = $('relList'); relBox.innerHTML = '';
   $('relCard').hidden = !(data.live && data.events_past !== undefined);
   const VCOL = { bear: ['var(--crit)', 'var(--crit-bg)'], bull: ['var(--ok)', 'var(--ok-bg)'], neu: ['var(--neutral)', 'var(--neutral-bg)'] };
@@ -898,7 +1056,7 @@ function render(data) {
       const arrow = vd.k === 'above' ? '▲ ' : vd.k === 'below' ? '▼ ' : '◆ ';
       r.appendChild(el('span', 'pill', arrow + vd.label + (it.surprise ? ' (' + it.surprise.replace(/^(أعلى|أقل) من المتوقع بـ ?/, '') + ')' : '')));
       r.appendChild(el('span', 'pill v-' + vd.es, vd.effect));
-    } else if (!it.actual && NEEDNUM(kind)) r.appendChild(el('span', 'pill', 'الرقم الفعلي غير متوفر من المصدر بعد'));
+    } else if (!it.actual && NEEDNUM(kind)) { r.appendChild(el('span', 'pill', 'الرقم الفعلي غير متوفر')); if (it.actual_note) r.appendChild(el('span', 'n', it.actual_note)); }
     return r;
   };
   const arrowOf = v => v > 0 ? '▲' : v < 0 ? '▼' : '◆';
@@ -915,7 +1073,9 @@ function render(data) {
     else if (e.agree === 'flat') r.appendChild(el('span', 'pill v-neu', 'ES لم يتأثر بوضوح'));
     return r;
   };
+  let _pd = null;
   (data.events_past || []).forEach(e => {
+    if (e.day && e.day !== _pd) { _pd = e.day; relBox.appendChild(el('div', 'dayh', e.day)); }
     const w = el('div', 'rel'); const h = el('div', 'relh');
     h.appendChild(document.createTextNode('✅ ')); h.appendChild(el('span', 'num evtime', e.time)); h.appendChild(el('span', '', e.name || e.title));
     w.appendChild(h);
@@ -924,10 +1084,11 @@ function render(data) {
         const r = el('div', 'relrow'); const t = el('div', 't'); t.appendChild(el('span', 'num evtime', it.time)); t.appendChild(document.createTextNode('  ' + (it.name || it.title)));
         r.appendChild(t);
         if (it.actual || it.forecast || it.previous) r.appendChild(nums3(it, it.verdict));
-        r.appendChild(verdictRow(it, it.verdict, e.kind)); w.appendChild(r);
+        r.appendChild(verdictRow(it, it.verdict, e.kind)); if (it.actual && it.actual_note) r.appendChild(el('span', 'n', it.actual_note)); w.appendChild(r);
       });
     } else {
       if (e.actual || e.forecast || e.previous) w.appendChild(nums3(e, e.verdict));
+      if (e.actual && e.actual_note) w.appendChild(el('p', 'evnote', e.actual_note));
       w.appendChild(verdictRow(e, e.verdict, e.kind));
     }
     if (e.kind === 'speech' && e.verdict) {
@@ -984,7 +1145,7 @@ function render(data) {
     const col = el('div', 'pcol'); if (!isMain(r)) col.className += ' pextra'; col.hidden = !isMain(r) && !PULSE_ALL;
     const c = r.confirmed ? 'var(--crit)' : r.ratio >= 1 ? 'var(--hi)' : r.ratio >= 0.5 ? 'var(--warn)' : 'var(--ok)';
     col.style.setProperty('--pc', c);
-    col.appendChild(el('div', 'parrow', (r.v > 0 ? '▲' : r.v < 0 ? '▼' : '◆') + (r.confirmed ? ' ✔' : '')));
+    col.appendChild(el('div', 'parrow' + (r.tone === 'bear' || r.tone === 'bull' ? ' tone-' + r.tone : ''), (r.v > 0 ? '▲' : r.v < 0 ? '▼' : '◆') + (r.confirmed ? ' ✔' : '')));
     const tr = el('div', 'ptrack'); const f = el('div', 'pfill'); f.style.height = Math.max(6, Math.min(100, r.ratio / 1.5 * 100)) + '%';
     tr.appendChild(f); tr.appendChild(el('div', 'pth')); col.appendChild(tr);
     col.appendChild(el('div', 'pn', r.short || r.name));
@@ -1000,6 +1161,7 @@ function render(data) {
   fillUl('probList', 'probCard', data.problems || []);
   $('notifText').textContent = tr_('انحياز: ') + st.word + ' | ' + tr_('المخاطرة: ') + score + '/10 ' + lvl.emoji + ' | ' + tr_('السبب: ') + reason;
   $('detailSummary').textContent = data.detailed_summary || '';
+  try { renderExtras(data); } catch (e) { console.error(e); }
   output.hidden = false;
 }
 
@@ -1034,6 +1196,38 @@ function setLang(l) {
   render(LIVE || (l === 'en' ? DEMO_EN : DEMO_AR));
   try { localStorage.setItem('mirsad-lang', l); } catch (e) {}
 }
+
+function renderWeek_(data) {
+  const wl = $('weekList'); wl.innerHTML = '';
+  const wn = data.week_news, nb = $('weekNews'); nb.innerHTML = '';
+  if (!wn || !(wn.topics || []).length) {
+    $('weekNewsNote').textContent = 'لم تُجلب عناوين الأسبوع بعد' + (wn && wn.failed && wn.failed.length ? ' (تعذّر: ' + wn.failed.join('، ') + ')' : '') + '. تُحدَّث كل ساعة تقريباً، ولا تُعرض أخبار قديمة على أنها جديدة.';
+  } else {
+    $('weekNewsNote').textContent = 'عناوين فقط مرتبة بالأحدث ضمن كل محور، بلا تقييم لأهميتها ولا تفسير. مصدرها أخبار Google وقد تتكرر الأخبار بصياغات مختلفة.' + (wn.failed && wn.failed.length ? ' تعذّر: ' + wn.failed.join('، ') + '.' : '');
+    wn.topics.forEach(tp => {
+      nb.appendChild(el('div', 'wkday', tp.label));
+      tp.items.forEach(i => { const b = el('div', 'wkit'); b.appendChild(el('div', 't', i.title)); b.appendChild(el('div', 'n', i.when + (i.src ? ' — ' + i.src : ''))); nb.appendChild(b); });
+    });
+  }
+
+  const wk = data.week || [];
+  $('weekNote').textContent = wk.length ? 'الأحداث عالية التأثير في تقويم الأسبوع الحالي. ما صدر يظهر برقمه الفعلي إن توفر، وإلا يُذكر السبب.' : 'لا أحداث عالية التأثير مسجلة لهذا الأسبوع (أو لم يصل التقويم).';
+  wk.forEach(d => {
+    const h = el('div', 'wkday' + (d.today ? ' today' : ''), d.label); if (d.rel) h.appendChild(el('small', '', '· ' + d.rel)); wl.appendChild(h);
+    d.items.forEach(i => {
+      const b = el('div', 'wkit ' + (i.tone === 'bull' ? 'bull' : i.tone === 'bear' ? 'bear' : ''));
+      const t = el('div', 't'); t.appendChild(el('span', 'tm', i.time)); t.appendChild(document.createTextNode(i.name)); b.appendChild(t);
+      const nums = ['المتوقع ' + (i.forecast || '—'), 'السابق ' + (i.previous || '—')]; if (i.actual) nums.unshift('الفعلي ' + i.actual);
+      b.appendChild(el('div', 'n', nums.join(' | ')));
+      b.appendChild(el('div', 'st', i.released ? (i.actual ? ('صدر' + (i.surprise ? ' — ' + i.surprise : '') + (i.effect ? ' — ' + i.effect : '')) : 'صدر — ' + (i.note || 'الرقم الفعلي غير متوفر')) : 'لم يصدر بعد'));
+      wl.appendChild(b);
+    });
+  });
+  const we = data.week_earnings || [], ec = $('weekEarnCard'), el_ = $('weekEarn'); el_.innerHTML = ''; ec.hidden = !we.length;
+  we.forEach(d => { const b = el('div', 'wkit'); b.appendChild(el('div', 't', d.label)); b.appendChild(el('div', 'n', d.items.map(i => (i.mag7 ? '★ ' : '') + i.name).join('، '))); el_.appendChild(b); });
+  const g = data.geo || [], gc = $('weekGeoCard'), gl = $('weekGeo'); gl.innerHTML = ''; gc.hidden = !g.length;
+  g.forEach(x => { const b = el('div', 'wkit'); b.appendChild(el('div', 't', x.title)); b.appendChild(el('div', 'n', (x.regions || []).join('، ') + (x.sources ? ' — ' + x.sources + ' مصادر' : '') + (x.deesc ? ' — مؤشرات تهدئة' : ''))); gl.appendChild(b); });
+}
 function showTab(t) {
   document.querySelectorAll('.tab').forEach(d => { d.hidden = d.id !== 'tab-' + t; });
   document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
@@ -1043,7 +1237,7 @@ document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click
 let tab0 = 'today'; try { tab0 = localStorage.getItem('mirsad-tab') || 'today'; } catch (e) {}
 $('moreComps').addEventListener('click', () => { SHOWALL = !SHOWALL; render(LIVE || (LANG === 'en' ? DEMO_EN : DEMO_AR)); });
 $('langBtn').addEventListener('click', () => setLang(LANG === 'en' ? 'ar' : 'en'));
-const boot = () => { setLang(LANG); showTab(['today', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today'); };
+const boot = () => { setLang(LANG); showTab(['today', 'week', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today'); };
 let booted = false, loadedAt = 0, dataAt = null;
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
 function stamp_() {
@@ -1071,7 +1265,7 @@ setInterval(() => { if (!document.hidden) loadData(false); }, 300000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() - loadedAt > 120000) loadData(false); });
 setInterval(stamp_, 60000);
 loadData(false);
-void (['today', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today');
+void (['today', 'week', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today');
 </script>
 
 </body></html>

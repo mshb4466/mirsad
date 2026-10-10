@@ -8,7 +8,7 @@ import json
 import events_ctx
 import impact
 import os
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 DOCS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
 LOC_AR = {"above_value": "أعلى قيمة الأمس", "below_value": "أسفل قيمة الأمس", "inside_value": "داخل قيمة الأمس"}
@@ -180,7 +180,72 @@ def _safety(sf):
             "issues": [{"sev": i["sev"], "sev_ar": i["sev_ar"], "msg": i["msg"], "code": i["code"]} for i in sf.get("issues", [])]}
 
 
-def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None):
+DAYS_AR = ["الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"]
+
+
+def _week(events, now, report):
+    """أهم أحداث الأسبوع (عالية التأثير + محاضر الفدرالي) مرتبة حسب يوم بغداد، ما صدر منها وما سيصدر.
+    مصدرها تقويم الأسبوع الحالي فقط؛ لا تُعرض أحداث بلا بيانات."""
+    ml, ctx = (report.get("macro") or {}).get("label", ""), events_ctx.build_ctx(report)
+    today = (now + timedelta(hours=3)).date()
+    days = {}
+    for e in sorted(events or [], key=lambda x: x["time"]):
+        title = (e.get("title") or "").lower()
+        if not (e.get("impact") == "High" or "minutes" in title):
+            continue
+        bt = e["time"] + timedelta(hours=3)
+        d = events_ctx.describe(e, bt.strftime("%H:%M"), ml, ctx)
+        vd = _verdict(d.get("hit"), d.get("scenarios") or []) if e.get("actual") else None
+        item = {"time": bt.strftime("%H:%M"), "name": d.get("name") or e.get("title", ""), "title": e.get("title", ""),
+                "released": e["time"] < now, "forecast": e.get("forecast", ""), "previous": e.get("previous", ""),
+                "actual": e.get("actual", ""), "surprise": d.get("surprise", ""), "note": e.get("actual_note", ""),
+                "tone": (vd or {}).get("es", "") , "effect": (vd or {}).get("effect", ""), "kind": d.get("kind", "")}
+        days.setdefault(bt.date(), []).append(item)
+    out = []
+    for dt in sorted(days):
+        rel = "اليوم" if dt == today else "أمس" if dt == today - timedelta(days=1) else "غداً" if dt == today + timedelta(days=1) else ""
+        out.append({"label": f"{DAYS_AR[dt.weekday()]} {dt.day}/{dt.month}", "rel": rel, "today": dt == today, "items": days[dt]})
+    return out
+
+
+def _week_news(wn, now):
+    """أخبار الأصل خلال الأسبوع بتوقيت بغداد. None إن لم يُجلب شيء (تُعرض الواجهة السبب)."""
+    if not wn:
+        return None
+    topics = []
+    today = (now + timedelta(hours=3)).date()
+    for key, g in (wn.get("data") or {}).items():
+        items = []
+        for it in g.get("items", []):
+            try:
+                bt = datetime.fromisoformat(it["t"]) + timedelta(hours=3)
+            except Exception:  # noqa: BLE001
+                continue
+            d = bt.date()
+            rel = "اليوم" if d == today else "أمس" if d == today - timedelta(days=1) else f"{DAYS_AR[d.weekday()]} {d.day}/{d.month}"
+            items.append({"when": f"{rel} {bt.strftime('%H:%M')}", "title": it["title"], "src": it.get("src", "")})
+        if items:
+            topics.append({"key": key, "label": g.get("label", key), "items": items})
+    return {"topics": topics, "failed": wn.get("failed") or [], "at": wn.get("at"), "error": wn.get("error")}
+
+
+MAG7_AR = {"AAPL": "أبل", "MSFT": "مايكروسوفت", "NVDA": "إنفيديا", "AMZN": "أمازون", "GOOGL": "ألفابت", "META": "ميتا", "TSLA": "تسلا",
+           "JPM": "جيه بي مورغان", "GS": "غولدمان", "MS": "مورغان ستانلي", "C": "سيتي", "BAC": "بنك أمريكا", "WFC": "ويلز فارغو"}
+MAG7 = ("AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA")
+
+
+def _week_earnings(report):
+    """أرباح الأسبوع التي تحرّك ES: السبعة الكبار (نحو ثلث وزن المؤشر تقريباً) والبنوك الكبرى. تواريخ Yahoo غير رسمية."""
+    out = []
+    for ds, tickers in report.get("earnings_week") or []:
+        import datetime as _dt
+        dt = _dt.date.fromisoformat(ds)
+        out.append({"label": f"{DAYS_AR[dt.weekday()]} {dt.day}/{dt.month}",
+                    "items": [{"t": t, "name": MAG7_AR.get(t, t), "mag7": t in MAG7} for t in tickers]})
+    return out
+
+
+def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
         return {"live": True, "updated": _baghdad(now), "error": report["error"]}
@@ -247,15 +312,20 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "detailed_summary": report.get("notification", ""),
         "alerts": alerts or [], "pulse": pulse or [],
         "health": health,
+        "week": _week(events, now, report),
+        "week_earnings": _week_earnings(report),
+        "asset": "ES",
+        "week_news": _week_news(week_news, now),
+        "asset": "ES",
     }
     return view
 
 
-def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None):
+def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None):
     """يكتب docs/data.json. فشل ناعم: لا يوقف التقرير."""
     d = docs_dir or DOCS_DIR
     os.makedirs(d, exist_ok=True)
-    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health)
+    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health, week_news)
     with open(os.path.join(d, "data.json"), "w", encoding="utf-8") as f:
         json.dump(view, f, ensure_ascii=False, indent=1, default=str)
     return view

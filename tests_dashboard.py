@@ -63,6 +63,50 @@ def test_page_url(monkeypatch=None):
             os.environ["GITHUB_REPOSITORY"] = old
 
 
+def test_week_groups_by_baghdad_day_and_marks_released():
+    from datetime import datetime, timedelta, timezone
+    now = datetime(2026, 10, 8, 14, 0, tzinfo=timezone.utc)
+    mk = lambda title, h, **k: dict({"title": title, "impact": "High", "time": now + timedelta(hours=h), "forecast": "", "previous": "", "actual": ""}, **k)
+    evs = [mk("Unemployment Claims", -1.5, forecast="230K", previous="225K", actual="219K"), mk("CPI m/m", 24, forecast="0.3%"),
+           mk("Building Permits", 2, impact="Low"), mk("Non-Farm Employment Change", -30, actual="")]
+    wk = dashboard._week(evs, now, {"risk": {}})
+    assert [d["rel"] for d in wk] == ["أمس", "اليوم", "غداً"], wk
+    today = next(d for d in wk if d["today"])
+    assert today["items"][0]["released"] and today["items"][0]["actual"] == "219K"
+    assert all("Permits" not in i["title"] for d in wk for i in d["items"])
+
+
+def test_week_news_dedupe_cache_and_view():
+    from datetime import datetime, timedelta, timezone
+    import runner
+    now = datetime(2026, 10, 9, 12, 0, tzinfo=timezone.utc)
+    rows = [(now - timedelta(hours=2), "Fed holds rates steady", "Reuters"), (now - timedelta(hours=3), "FED HOLDS RATES STEADY!", "AP"),
+            (now - timedelta(days=2), "Powell signals patience", "CNBC")]
+    calls = []
+    def fake(n, q):
+        calls.append(q)
+        if "Apple" in q:
+            raise OSError("down")
+        return rows
+    data, failed = runner.fetch_week_news(now, "es", fake)
+    assert [i["title"] for i in data["fed"]["items"]] == ["Fed holds rates steady", "Powell signals patience"]   # التكرار حُذف والأحدث أولاً
+    assert failed == ["الشركات الكبرى والأرباح"] and "companies" not in data
+    st = {}
+    deps = {"week_news": lambda n, a: (data, failed)}
+    r1 = runner.get_week_news(now, deps, st)
+    r2 = runner.get_week_news(now + timedelta(minutes=30), {"week_news": lambda n, a: (_ for _ in ()).throw(AssertionError("لا طلب جديد"))}, st)
+    assert r2["at"] == r1["at"]
+    assert runner.get_week_news(now, {}, {}) is None
+    v = dashboard._week_news(r1, now)
+    assert v["topics"][0]["items"][0]["when"].startswith("اليوم") and v["failed"] == failed
+
+
+def test_week_earnings_marks_mag7():
+    w = dashboard._week_earnings({"earnings_week": [["2026-10-14", ["NVDA", "JPM"]]]})
+    assert w[0]["label"].startswith("الأربعاء") and w[0]["items"][0] == {"t": "NVDA", "name": "إنفيديا", "mag7": True} and w[0]["items"][1]["mag7"] is False
+    assert dashboard._week_earnings({}) == []
+
+
 if __name__ == "__main__":
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:

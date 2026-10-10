@@ -10,6 +10,7 @@ import re
 from datetime import timedelta, timezone
 
 import events_ctx
+import indicators
 
 try:
     from zoneinfo import ZoneInfo
@@ -105,7 +106,7 @@ def oil_from_headlines(heads):
     return None
 
 
-def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None):
+def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None):
     """يملأ الأرقام الفعلية الناقصة للأحداث الصادرة (نفط، مزادات) ويكتب في e['actual_note'] المصدر أو سبب الغياب.
     يعيد عدد ما ملأ. لا يرفع استثناءً."""
     todo = [e for e in events if not e.get("actual") and now - timedelta(hours=30) <= e["time"] < now]
@@ -113,6 +114,7 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
         return 0
     n = 0
     oil_res, auc, auc_err = None, None, None
+    ind_rows, ind_err = None, None
     for e in todo:
         kind, _, _ = events_ctx.classify(e.get("title", ""))
         try:
@@ -156,6 +158,31 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                     n += 1
                 else:
                     e["actual_note"] = auc_err or ("TreasuryDirect لم يعد نتيجة هذا المزاد بعد" if auc else "TreasuryDirect لم يعد أي مزاد (تعذّر الجلب أو لم يُنشر)")
+            else:
+                spec = indicators.match(e.get("title", ""))
+                if not spec:
+                    why = indicators.no_source_reason(e.get("title", ""))
+                    if why:
+                        e["actual_note"] = why
+                    continue
+                if ind_rows is None:
+                    need = indicators.series_needed(todo)
+                    try:
+                        if fetch_series_fn:
+                            ind_rows = fetch_series_fn(need) or {}
+                        else:
+                            ind_rows, _p = collector.fetch_fred(now, 460, need)
+                            ind_rows = ind_rows or {}
+                        if not ind_rows:
+                            ind_err = "تعذّر الاتصال بـ FRED"
+                    except Exception as ex:  # noqa: BLE001
+                        ind_rows, ind_err = {}, f"تعذّر الاتصال بـ FRED ({type(ex).__name__})"
+                val, note = indicators.resolve(e.get("title", ""), e["time"], ind_rows, ET)
+                if val:
+                    e["actual"], e["actual_note"] = val, note + "؛ محسوب من السلسلة وقد يختلف عن القراءة الرسمية بكسر عشري"
+                    n += 1
+                else:
+                    e["actual_note"] = ind_err or note or "لا رقم فعلي متاح"
         except Exception as ex:  # noqa: BLE001
             e["actual_note"] = f"خطأ داخلي: {type(ex).__name__}"
     return n

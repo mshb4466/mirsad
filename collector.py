@@ -728,6 +728,20 @@ def fmt_hours(h):
     return f"بعد {h / 24:.0f} يوم"
 
 
+def earnings_week(earnings, now, days=7):
+    """[(تاريخ ISO، [رموز])] لأرباح السبعة الكبار والبنوك خلال الأيام القادمة (تواريخ Yahoo غير رسمية)."""
+    d0 = et_date(now)
+    by = {}
+    for t, ds in earnings or []:
+        try:
+            d = date.fromisoformat(str(ds)[:10])
+        except ValueError:
+            continue
+        if 0 <= (d - d0).days <= days and t not in by.setdefault(d.isoformat(), []):
+            by[d.isoformat()].append(t)
+    return sorted((k, v) for k, v in by.items())
+
+
 def earnings_within(earnings, now, days=2):
     d0 = et_date(now)
     out = []
@@ -940,6 +954,7 @@ def build_report(prices, events, now, problems=None, extras=None):
             "components": [{"key": k, "name": name_of(k), "score": round(comps[k][0], 1),
                             "weight": round(weights[k], 3), "note": comps[k][1]} for k in available],
         },
+        "earnings_week": earnings_week(extras.get("earnings"), now),
         "planned_inactive": [name_of(k) for k in PLANNED_WEIGHTS if k not in available],
         "notification": (safety.INCOMPLETE + " | " if cov < 0.6 else "") + f"المخاطرة: {score}/10 {emoji} | {reason_label}: {main_reason}",
         "next_event": ({"title": ev["title"], "type": ev["type"], "time_utc": ev["time"].isoformat(),

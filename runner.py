@@ -475,7 +475,87 @@ DEPS = {
     "cot": lambda now: c.fetch_cot(),
     "earnings": c.fetch_earnings,
     "news": lambda topic, now: fetch_headlines(now, *NEWS_TOPICS[topic]),
+    "week_news": lambda now, asset="es": fetch_week_news(now, asset),
 }
+
+
+# ───────── أخبار الأصل المختار (الآن ES) خلال الأسبوع ─────────
+# كل أصل له قائمة محاور خاصة به (انظر ROADMAP.md: ملف تعريف لكل أصل). العناوين فقط، مرتبة بالأحدث، بلا تقييم أهمية.
+ASSET_NEWS = {
+    "es": [
+        ("fed", "الفدرالي والفائدة", '(Fed OR Powell OR FOMC OR "Federal Reserve" OR "rate cut" OR "rate hike") when:7d', 5),
+        ("stocks", "الأسهم الأمريكية و S&P 500", '("S&P 500" OR "Wall Street" OR "stock futures" OR "E-mini") when:7d', 5),
+        ("companies", "الشركات الكبرى والأرباح", '(Apple OR Microsoft OR Nvidia OR Amazon OR Alphabet OR Meta OR Tesla) (earnings OR guidance OR antitrust OR probe) when:7d', 5),
+        ("macro", "الاقتصاد والبيانات", '(inflation OR CPI OR "jobs report" OR payrolls OR GDP OR "consumer sentiment") when:7d', 5),
+        ("policy", "السياسة التجارية والمالية", '(tariffs OR "government shutdown" OR "debt ceiling" OR "Treasury yields") when:7d', 4),
+        ("geo", "الجيوسياسة والنفط", '(Iran OR Israel OR Russia OR Ukraine OR China OR Taiwan OR Hormuz OR OPEC) (oil OR strike OR attack OR sanctions OR ceasefire) when:7d', 4),
+    ],
+}
+WEEK_NEWS_TTL_MIN = 60
+
+
+def fetch_rss_items(now, query, days=7):
+    """[(وقت UTC، عنوان نظيف، مصدر)] من أخبار Google RSS."""
+    url = "https://news.google.com/rss/search?" + urllib.parse.urlencode({"q": query, "hl": "en-US", "gl": "US", "ceid": "US:en"})
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (mirsad)"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        root = ET.fromstring(r.read())
+    out = []
+    for it in root.iter("item"):
+        title = (it.findtext("title") or "").strip()
+        src = (it.findtext("source") or "").strip()
+        if src and title.endswith(" - " + src):
+            title = title[: -len(src) - 3].strip()
+        try:
+            when = parsedate_to_datetime(it.findtext("pubDate")).astimezone(timezone.utc)
+        except Exception:  # noqa: BLE001
+            continue
+        if title and timedelta(0) <= now - when <= timedelta(days=days):
+            out.append((when, title, src))
+    return out
+
+
+def fetch_week_news(now, asset="es", fetch=None):
+    """{محور: {label, items:[{t, title, src}]}} لأخبار الأسبوع. يفشل ناعماً محوراً محوراً؛ يعيد (النتيجة، أسماء المحاور الفاشلة)."""
+    fetch = fetch or fetch_rss_items
+    res, failed, seen = {}, [], set()
+    for key, label, query, limit in ASSET_NEWS.get(asset, []):
+        try:
+            rows = fetch(now, query)
+        except Exception:  # noqa: BLE001
+            failed.append(label)
+            continue
+        items = []
+        for when, title, src in sorted(rows, key=lambda r: r[0], reverse=True):
+            norm = re.sub(r"[^a-z0-9]+", "", title.lower())[:60]
+            if not norm or norm in seen:
+                continue
+            seen.add(norm)
+            items.append({"t": when.isoformat(), "title": title, "src": src})
+            if len(items) >= limit:
+                break
+        if items:
+            res[key] = {"label": label, "items": items}
+    return res, failed
+
+
+def get_week_news(now, deps, state, asset="es"):
+    """يعيد أخبار الأسبوع من الذاكرة إن كانت أحدث من ساعة (لا نطلب RSS كل 15 دقيقة)، وإلا يجلبها. فشل ناعم."""
+    try:
+        cache = (state or {}).get("week_news") or {}
+        if cache.get("at") and cache.get("asset") == asset and now - datetime.fromisoformat(cache["at"]) < timedelta(minutes=WEEK_NEWS_TTL_MIN):
+            return {"data": cache["data"], "at": cache["at"], "failed": cache.get("failed", [])}
+        fn = deps.get("week_news") if isinstance(deps, dict) else None
+        if not fn:
+            return None        # بلا مزوّد (مثلاً في الاختبارات) لا طلب شبكة
+        data, failed = fn(now, asset)
+        if data or failed:
+            if state is not None and data:
+                state["week_news"] = {"at": now.isoformat(), "asset": asset, "data": data, "failed": failed}
+            return {"data": data, "at": now.isoformat(), "failed": failed}
+    except Exception as e:  # noqa: BLE001
+        return {"data": {}, "at": None, "failed": [], "error": type(e).__name__}
+    return None
 
 
 # ───────────────────────── صياغة الرسائل ─────────────────────────
@@ -932,7 +1012,7 @@ def run_preopen(now, state, send, deps, prefix=""):
     try:
         hv = health.build(report, events, now, state)
         dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
-                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, series=series, fed_heads=heads, health=hv)
+                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, series=series, fed_heads=heads, health=hv, week_news=get_week_news(now, deps, state))
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث صفحة الواجهة: {e}")
     msg = format_preopen(report, events, now, prefix, dashboard.page_url())
@@ -1041,7 +1121,7 @@ def run_auto(now, state, send, deps):
         hv = health.build(snap, events, now, state)
         dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
                           alerts=list(reversed(state.get("alerts") or [])), pulse=pulse or state.get("pulse") or [],
-                          series=series, fed_heads=heads, health=hv)
+                          series=series, fed_heads=heads, health=hv, week_news=get_week_news(now, deps, state))
         if health.should_notify(hv, state, now):
             send(health.format_message(hv))
     except Exception as e:  # noqa: BLE001
