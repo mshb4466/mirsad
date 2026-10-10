@@ -25,6 +25,7 @@ import time
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
 
+import bias
 import geo
 import impact
 import macro
@@ -946,6 +947,7 @@ def build_report(prices, events, now, problems=None, extras=None):
         "safety": {"state": sstate, "label": safety.INCOMPLETE if cov < 0.6 else safety.STATE_AR[sstate], "issues": sissues,
                    "coverage": round(cov, 3), "checked_at": now.isoformat()},
         "drivers": drv, "regime": impact.regime(macro_view), "intensity": impact.intensity(drv),
+        "bias": bias.compute(macro_view, prices, fred, impact.regime(macro_view)),
         "confidence": conf, "liquidity": impact.liquidity_view((macro_view or {}).get("net_liquidity")),
         "risk": {
             "incomplete": bool(incomplete),
