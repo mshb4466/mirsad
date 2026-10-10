@@ -394,37 +394,214 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-09T23:55:03.467038+00:00",
-        "ok_at": "2026-10-09T23:55:03.467038+00:00"
+        "last_try": "2026-10-10T11:34:16.756550+00:00",
+        "ok_at": "2026-10-10T11:34:16.756550+00:00"
       },
       "fred": {
-        "last_try": "2026-10-09T23:55:03.467038+00:00",
-        "ok_at": "2026-10-09T23:55:03.467038+00:00"
+        "last_try": "2026-10-10T11:34:16.756550+00:00",
+        "ok_at": "2026-10-10T11:34:16.756550+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-09T23:55:03.467038+00:00",
-        "ok_at": "2026-10-09T23:55:03.467038+00:00"
+        "last_try": "2026-10-10T11:34:16.756550+00:00",
+        "ok_at": "2026-10-10T11:34:16.756550+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-09T23:55:03.467038+00:00",
-        "ok_at": "2026-10-09T23:55:03.467038+00:00"
+        "last_try": "2026-10-10T11:34:16.756550+00:00",
+        "ok_at": "2026-10-10T11:34:16.756550+00:00"
       },
       "oil": {
-        "last_try": "2026-10-09T23:55:03.467038+00:00",
-        "ok_at": "2026-10-09T23:55:03.467038+00:00"
+        "last_try": "2026-10-10T11:34:16.756550+00:00",
+        "ok_at": "2026-10-10T11:34:16.756550+00:00"
       },
       "news": {
-        "last_try": "2026-10-09T23:55:03.467038+00:00",
-        "ok_at": "2026-10-09T23:55:03.467038+00:00"
+        "last_try": "2026-10-10T11:34:16.756550+00:00",
+        "ok_at": "2026-10-10T11:34:16.756550+00:00"
       },
       "cot": {
-        "last_try": "2026-10-09T23:55:03.467038+00:00",
-        "ok_at": "2026-10-09T23:55:03.467038+00:00"
+        "last_try": "2026-10-10T11:34:16.756550+00:00",
+        "ok_at": "2026-10-10T11:34:16.756550+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-09T23:55:03.467038+00:00"
+      "at": "2026-10-10T11:34:16.756550+00:00"
     }
+  },
+  "week_news": {
+    "at": "2026-10-10T11:34:16.756550+00:00",
+    "asset": "es",
+    "data": {
+      "fed": {
+        "label": "الفدرالي والفائدة",
+        "items": [
+          {
+            "t": "2026-10-09T23:31:54+00:00",
+            "title": "Trump escalates effort to fire Federal Reserve governor Lisa Cook",
+            "src": "The Washington Post"
+          },
+          {
+            "t": "2026-10-09T22:24:25+00:00",
+            "title": "Trump Announces White House Inquiry Into Fed Governor Lisa Cook",
+            "src": "The New York Times"
+          },
+          {
+            "t": "2026-10-09T20:33:22+00:00",
+            "title": "Trump establishes committee to investigate Federal Reserve's Lisa Cook in latest effort to fire her",
+            "src": "PBS"
+          },
+          {
+            "t": "2026-10-09T20:25:17+00:00",
+            "title": "Trump Announces White House Hearing to Investigate Fed’s Lisa Cook",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-09T19:49:00+00:00",
+            "title": "Fed Minutes Offer a Guide to Future Interest Rate Moves. First, You Must Decode Them.",
+            "src": "Barron's"
+          }
+        ]
+      },
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
+        "items": [
+          {
+            "t": "2026-10-10T10:25:02+00:00",
+            "title": "Warren Buffett Is Sending Shockwaves Through Wall Street With This Warning. Here’s What History Says May Happen Next.",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-09T23:45:03+00:00",
+            "title": "Margaret Hamilton, Who Developed Software for First Moon Landing, Dies at 90",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-09T23:33:00+00:00",
+            "title": "Wall Street posts weekly gains with earnings, inflation data on tap",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-09T21:04:49+00:00",
+            "title": "Wall St Week Ahead Bank earnings, CPI headline busy markets week as S&P 500 hovers near records",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-09T20:34:41+00:00",
+            "title": "Wall Street’s Rate Shock Spreads Beneath AI-Fueled Market Rally",
+            "src": "Bloomberg.com"
+          }
+        ]
+      },
+      "companies": {
+        "label": "الشركات الكبرى والأرباح",
+        "items": [
+          {
+            "t": "2026-10-10T11:20:00+00:00",
+            "title": "Tim Cook's Final Apple Earnings Call Showed the Company Made More Quarterly Revenue Than It Booked in All of Fiscal 2011, the Year He Became CEO. What Does That Growth Curve Mean for Apple Under John Ternus?",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-10T06:36:53+00:00",
+            "title": "Meta To Alphabet: Top AI Companies To Drive Most Third-Quarter US Earnings Gains",
+            "src": "NDTV Profit"
+          },
+          {
+            "t": "2026-10-10T01:54:00+00:00",
+            "title": "Apple, Amazon Hit With New IPad Sale Antitrust Suit",
+            "src": "Law360"
+          },
+          {
+            "t": "2026-10-10T00:12:52+00:00",
+            "title": "Amazon Can't Push Back FTC Antitrust Trial",
+            "src": "Law360"
+          },
+          {
+            "t": "2026-10-09T20:51:41+00:00",
+            "title": "Tesla Q3 2026 Earnings Date and Estimates",
+            "src": "MarketBeat"
+          }
+        ]
+      },
+      "macro": {
+        "label": "الاقتصاد والبيانات",
+        "items": [
+          {
+            "t": "2026-10-10T08:00:00+00:00",
+            "title": "2 Inflation reports, retail sales and big bank profits all arrive in the coming week",
+            "src": "AP News"
+          },
+          {
+            "t": "2026-10-10T01:46:41+00:00",
+            "title": "Expert speaks about proposed Metro fare hike as inflation drives costs",
+            "src": "WJLA"
+          },
+          {
+            "t": "2026-10-10T00:35:00+00:00",
+            "title": "Consumer Sentiment Falls To 5-Month Low",
+            "src": "Seeking Alpha"
+          },
+          {
+            "t": "2026-10-10T00:22:00+00:00",
+            "title": "Bad vibes or big warning? The disconnect between consumer sentiment and actual spending keeps growing",
+            "src": "kare11.com"
+          },
+          {
+            "t": "2026-10-09T23:52:44+00:00",
+            "title": "Your debt, my inflation: The role of trust in the ECB",
+            "src": "CEPR"
+          }
+        ]
+      },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-10-10T09:26:24+00:00",
+            "title": "Gold futures surged despite rising Treasury yields.",
+            "src": "CME Group"
+          },
+          {
+            "t": "2026-10-10T00:07:00+00:00",
+            "title": "New York Fed study: 2025-2026 tariffs raised consumer goods prices",
+            "src": "ABC15 Arizona"
+          },
+          {
+            "t": "2026-10-09T20:55:00+00:00",
+            "title": "In hotly contested TX35, candidates debate affordability, immigration and tariffs’ impact on business owners",
+            "src": "Texas Public Radio | TPR"
+          },
+          {
+            "t": "2026-10-09T20:52:00+00:00",
+            "title": "Weekly Wrap: Rising Treasury Yields Sink Bitcoin",
+            "src": "Yahoo Finance"
+          }
+        ]
+      },
+      "geo": {
+        "label": "الجيوسياسة والنفط",
+        "items": [
+          {
+            "t": "2026-10-10T10:59:43+00:00",
+            "title": "Germany sticks to Russia sanctions after Trump announcement on diesel",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-10T07:13:26+00:00",
+            "title": "Is Russia Preparing To Attack The Baltics?",
+            "src": "Radio Free Europe/Radio Liberty"
+          },
+          {
+            "t": "2026-10-10T06:39:00+00:00",
+            "title": "Russian attack on Ukraine's Zaporizhzhia kills seven, governor says",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-10T04:13:50+00:00",
+            "title": "FlyDubai co-pilot planned 9/11-style attack on Israel’s main airport, UAE says",
+            "src": "The Washington Post"
+          }
+        ]
+      }
+    },
+    "failed": []
   }
 }
