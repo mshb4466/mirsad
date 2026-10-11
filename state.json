@@ -394,45 +394,45 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-10T22:24:59.132402+00:00",
-        "ok_at": "2026-10-10T22:24:59.132402+00:00"
+        "last_try": "2026-10-11T11:11:06.741293+00:00",
+        "ok_at": "2026-10-11T11:11:06.741293+00:00"
       },
       "fred": {
-        "last_try": "2026-10-10T22:24:59.132402+00:00",
-        "ok_at": "2026-10-10T22:24:59.132402+00:00"
+        "last_try": "2026-10-11T11:11:06.741293+00:00",
+        "ok_at": "2026-10-11T11:11:06.741293+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-10T22:24:59.132402+00:00",
-        "ok_at": "2026-10-10T22:24:59.132402+00:00"
+        "last_try": "2026-10-11T11:11:06.741293+00:00",
+        "ok_at": "2026-10-11T11:11:06.741293+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-10T22:24:59.132402+00:00",
-        "ok_at": "2026-10-10T22:24:59.132402+00:00"
+        "last_try": "2026-10-11T11:11:06.741293+00:00",
+        "ok_at": "2026-10-11T11:11:06.741293+00:00"
       },
       "oil": {
-        "last_try": "2026-10-10T22:24:59.132402+00:00",
-        "ok_at": "2026-10-10T22:24:59.132402+00:00"
+        "last_try": "2026-10-11T11:11:06.741293+00:00",
+        "ok_at": "2026-10-11T11:11:06.741293+00:00"
       },
       "news": {
-        "last_try": "2026-10-10T22:24:59.132402+00:00",
-        "ok_at": "2026-10-10T22:24:59.132402+00:00"
+        "last_try": "2026-10-11T11:11:06.741293+00:00",
+        "ok_at": "2026-10-11T11:11:06.741293+00:00"
       },
       "cot": {
-        "last_try": "2026-10-10T22:24:59.132402+00:00",
-        "ok_at": "2026-10-10T22:24:59.132402+00:00"
+        "last_try": "2026-10-11T11:11:06.741293+00:00",
+        "ok_at": "2026-10-11T11:11:06.741293+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-10T22:24:59.132402+00:00",
-        "ok_at": "2026-10-10T22:24:59.132402+00:00"
+        "last_try": "2026-10-11T11:11:06.741293+00:00",
+        "ok_at": "2026-10-11T11:11:06.741293+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-10T22:24:59.132402+00:00"
+      "at": "2026-10-11T11:11:06.741293+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-10T22:24:59.132402+00:00",
+    "at": "2026-10-11T11:11:06.741293+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -469,29 +469,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-10T18:02:20+00:00",
-            "title": "Wall Street banks had a blockbuster first half. Higher rates will test the boom.",
-            "src": "Yahoo Finance"
+            "t": "2026-10-11T08:37:54+00:00",
+            "title": "Wall Street retreats from its record as stocks fall worldwide",
+            "src": "AP News"
           },
           {
-            "t": "2026-10-10T15:39:17+00:00",
-            "title": "U.S. Stocks Mixed as Oil Spikes, AI Profit Doubts Hit Tech",
+            "t": "2026-10-11T07:35:28+00:00",
+            "title": "The Silent Electronic Battleground Shaping the Future of Warfare",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-10T14:55:00+00:00",
-            "title": "Prediction: This Is What a $5,000 Investment in the Vanguard S&P 500 ETF (VOO) Will Be Worth by 2040",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-10T14:09:12+00:00",
-            "title": "U.S. Stocks Rise as AI Bets Offset Bond Yield Fears",
+            "t": "2026-10-11T00:54:00+00:00",
+            "title": "Justice Department Probes TV Networks Over Suspension of Trump Press-Pool Coverage",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-10T11:59:18+00:00",
-            "title": "‘Some upside before year-end’: Why Wall Street is bullish on stocks despite higher bond yields",
+            "t": "2026-10-10T22:23:54+00:00",
+            "title": "A COVID Vaccine Stock on the S&P 500 Is Up 600% This Year",
             "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-10T18:08:00+00:00",
+            "title": "Exclusive | At Davos, Kimberly Guilfoyle Boasted of Private Jet Trips, Luxury Stays",
+            "src": "WSJ"
           }
         ]
       },
@@ -499,29 +499,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-10-11T06:49:24+00:00",
+            "title": "Q3 earnings season kicks off! ASML Holding and Taiwan Semico... - Futubull Community",
+            "src": "富途牛牛"
+          },
+          {
+            "t": "2026-10-11T03:25:56+00:00",
+            "title": "Chinese Apple supplier Luxshare sees little negative impact from US patent infringement probe",
+            "src": "WSAU"
+          },
+          {
+            "t": "2026-10-11T02:38:00+00:00",
+            "title": "Apple Supplier Luxshare Expects No Material Impact From US Probe",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-10-10T22:14:27+00:00",
+            "title": "2G Energy (XTRA:2GB) Is Down 6.8% After Lifting 2027–2028 Revenue Guidance",
+            "src": "Yahoo Finance Singapore"
+          },
+          {
             "t": "2026-10-10T17:35:11+00:00",
             "title": "Apple’s Q2 2026 Earnings Explained by Tim Cook and CFO Kevan Parekh",
             "src": "The Mac Observer"
-          },
-          {
-            "t": "2026-10-10T12:30:00+00:00",
-            "title": "Opinion: Why Nvidia’s stock is dodging the AI credit scare that is crushing Broadcom and Oracle",
-            "src": "MarketWatch"
-          },
-          {
-            "t": "2026-10-10T12:00:00+00:00",
-            "title": "Tim Cook's Final Apple Earnings Call Showed the Company Made More Quarterly Revenue Than It Booked in All of Fiscal 2011, the Year He Became CEO. What Does That Growth Curve Mean for Apple Under John Ternus?",
-            "src": "The Motley Fool"
-          },
-          {
-            "t": "2026-10-10T06:36:53+00:00",
-            "title": "Meta To Alphabet: Top AI Companies To Drive Most Third-Quarter US Earnings Gains",
-            "src": "NDTV Profit"
-          },
-          {
-            "t": "2026-10-10T01:54:00+00:00",
-            "title": "Apple, Amazon Hit With New IPad Sale Antitrust Suit",
-            "src": "Law360"
           }
         ]
       },
@@ -529,9 +529,14 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-10T14:52:00+00:00",
-            "title": "2 Inflation reports, retail sales and big bank profits all arrive in the coming week",
-            "src": "AP News"
+            "t": "2026-10-10T20:00:00+00:00",
+            "title": "US CPI to Show Overall Inflation Boosted by Higher Gasoline Prices",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-10-10T16:17:35+00:00",
+            "title": "Jobs report shows US unexpectedly lost jobs in July",
+            "src": "ABC7 Bay Area"
           },
           {
             "t": "2026-10-10T14:18:43+00:00",
@@ -547,11 +552,6 @@
             "t": "2026-10-10T09:26:24+00:00",
             "title": "Canadian Dollar futures hit 18-month low on weak jobs report.",
             "src": "CME Group"
-          },
-          {
-            "t": "2026-10-10T09:00:00+00:00",
-            "title": "Charting the Global Economy: Sentiment Among US Consumers Wanes",
-            "src": "Bloomberg.com"
           }
         ]
       },
@@ -559,14 +559,14 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-10T17:39:28+00:00",
-            "title": "U.S. Treasury Yields Retreat From Early Highs; Eurozone Yields Remain Elevated",
-            "src": "WSJ"
+            "t": "2026-10-11T06:10:19+00:00",
+            "title": "Tariffs, millions in extra costs, Iran war: Trump’s policies hammer US firms",
+            "src": "South China Morning Post"
           },
           {
-            "t": "2026-10-10T16:46:00+00:00",
-            "title": "Healthcare, energy, tariffs top Kansas .U.S. Senate race",
-            "src": "The Center Square"
+            "t": "2026-10-11T05:30:00+00:00",
+            "title": "Trump’s Tariffs Put a Spotlight on Forced Labor. It Isn’t Going Away.",
+            "src": "WSJ"
           },
           {
             "t": "2026-10-10T14:43:24+00:00",
@@ -584,24 +584,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-10T20:30:47+00:00",
-            "title": "Deadly Russian attack levels apartment building in Ukraine, killing at least 20: Officials",
-            "src": "ABC News - Breaking News, Latest News and Videos"
+            "t": "2026-10-11T10:09:11+00:00",
+            "title": "Major attack on Saudi airport kills 12 and leads Trump to weigh joining fight",
+            "src": "NBC News"
           },
           {
-            "t": "2026-10-10T19:22:00+00:00",
-            "title": "IDF Officials Warn Pre-Election Iran Strike Could Seem Politically Motivated",
-            "src": "Haaretz"
+            "t": "2026-10-11T04:19:54+00:00",
+            "title": "US weighs strikes on Houthis and Iran after deadly Saudi airport attack",
+            "src": "Iran International"
           },
           {
-            "t": "2026-10-10T17:19:00+00:00",
-            "title": "Ukraine Strikes Major Russian Oil Hub Hours After Trump’s Deal With Putin",
-            "src": "Newsweek"
-          },
-          {
-            "t": "2026-10-10T16:42:46+00:00",
-            "title": "Germany sticks to Russia sanctions after Trump diesel deal",
+            "t": "2026-10-11T02:22:07+00:00",
+            "title": "How Russia turned sanctions into a diesel deal",
             "src": "DW.com"
+          },
+          {
+            "t": "2026-10-10T23:44:15+00:00",
+            "title": "Attack on Riyadh airport killed 12 people and wounded over 300 more, Saudi authorities say",
+            "src": "NPR"
           }
         ]
       }
