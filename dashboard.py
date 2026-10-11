@@ -245,6 +245,56 @@ def _week_earnings(report):
     return out
 
 
+TONE_AR_ = {"bear": "ضغط على الأسهم", "bull": "دعم للأسهم", "flat": "أثر محدود", "warn": "تنبيه"}
+KIND_CAP = 2   # أقصى عدد من النوع الواحد حتى لا تتكرر الصورة نفسها
+
+
+def _top3(report, pulse, past):
+    """أهم ثلاثة تطورات جوهرية الآن: ترتيب عرض فقط من مخرجات المحرك الموجودة (لا حساب جديد للمخاطر أو الانحياز).
+    الأولوية: خلل بيانات مؤثر > حركة سوق مؤكَّدة بالزخم والحجم > حدث صدر وله أثر > خبر جيوسياسي > فجوة تسعير الفدرالي > عوامل اتجاهية > السيولة."""
+    c = []
+    for i in ((report.get("safety") or {}).get("issues") or []):
+        if i.get("sev") in ("major", "critical"):
+            c.append({"p": 100 if i["sev"] == "critical" else 90, "kind": "safety", "tone": "warn", "arrow": "⚠", "title": "خلل في البيانات: " + i["msg"][:90],
+                      "why": "رصده مراقب السلامة؛ الاستنتاج المتأثر معلَّق أو مخفَّضة ثقته حتى يُصحَّح.", "src": "مراقب سلامة التحليل"})
+    for r in pulse or []:
+        if r.get("confirmed"):
+            c.append({"p": 80 + min(10.0, float(r.get("ratio") or 1) * 2), "kind": "move", "tone": r.get("tone") or "flat", "arrow": "▲" if (r.get("v") or 0) > 0 else "▼",
+                      "title": f"{r.get('name')} {r.get('val')} خلال {r.get('w')} دقيقة", "why": "حركة مؤكَّدة بالزخم وارتفاع حجم التداول معاً؛ " + str(r.get("why") or ""),
+                      "src": "Yahoo (متأخر 15–30 دقيقة)"})
+    for x in past or []:
+        vd = x.get("verdict")
+        if vd and not x.get("items"):
+            c.append({"p": 70 + (10 if x.get("high") else 0), "kind": "event", "tone": vd.get("es") or "flat", "arrow": "▲" if vd.get("k") == "above" else "▼" if vd.get("k") == "below" else "◆",
+                      "title": f"{x.get('name') or x.get('title')}: {vd.get('label')}",
+                      "why": f"الفعلي {x.get('actual') or '—'} مقابل المتوقع {x.get('forecast') or '—'}. {vd.get('effect') or ''}", "src": x.get("actual_note") or "تقويم الأحداث"})
+    for t in ((report.get("geo") or {}).get("top") or [])[:3]:
+        if (t.get("severity") or 0) >= 2:
+            c.append({"p": 50 + 5 * t["severity"], "kind": "geo", "tone": "bear", "arrow": "▲", "title": "جيوسياسة: " + t["title"][:90],
+                      "why": f"حدّة {t['severity']}/4، {t.get('sources')} مصدر. تصنيف بالقواعد وليس تفسيراً بالذكاء الاصطناعي.", "src": "أخبار Google (قواعد)"})
+    g = (report.get("macro") or {}).get("gap")
+    if g and g.get("size") in ("كبيرة", "متوسطة"):
+        c.append({"p": 55 if g["size"] == "كبيرة" else 45, "kind": "fed", "tone": "warn", "arrow": "◆", "title": f"فجوة تسعير الفدرالي {g['size']}",
+                  "why": g.get("direction", ""), "src": "FRED + منحنى الأذون"})
+    for d in report.get("drivers") or []:
+        if d.get("tone") in ("bear", "bull"):
+            c.append({"p": 40 + 5 * min(5.0, float(d.get("strength") or 0)), "kind": "driver", "tone": d["tone"], "arrow": d.get("arrow") or "◆",
+                      "title": f"{d['name']} {d.get('val', '')}".strip(), "why": f"{d.get('text', '')}. القاعدة: ارتفاع الدولار والعوائد والنفط وVIX يضغط على الأسهم، وهبوطها يدعمها.", "src": "Yahoo/FRED"})
+    lq = report.get("liquidity")
+    if lq and lq.get("tone") in ("bear", "bull"):
+        c.append({"p": 35, "kind": "liq", "tone": lq["tone"], "arrow": lq.get("arrow") or "◆", "title": f"السيولة الصافية: {lq.get('word')}", "why": lq.get("meaning", ""), "src": "FRED"})
+    c.sort(key=lambda x: -x["p"])
+    out, per = [], {}
+    for x in c:
+        if per.get(x["kind"], 0) >= KIND_CAP:
+            continue
+        per[x["kind"]] = per.get(x["kind"], 0) + 1
+        out.append({k: x[k] for k in ("kind", "tone", "arrow", "title", "why", "src")})
+        if len(out) == 3:
+            break
+    return out
+
+
 def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
@@ -271,6 +321,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         if events_ctx.relevant(e) and now <= e["time"] <= now + timedelta(hours=24):
             dd = events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"), ml_, ctx_)
             dd["day"] = _day_label(e["time"], now)
+            dd["in_min"] = int((e["time"] - now).total_seconds() // 60)
             upcoming.append(dd)
     _up = []
     for day in ("اليوم", "غداً"):
@@ -285,23 +336,27 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
             day = ["الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"][bt.weekday()]
             dd = events_ctx.describe(e, f"{day} {bt.strftime('%H:%M')}",
                                      (report.get("macro") or {}).get("label", ""), events_ctx.build_ctx(report))
+            dd["in_min"] = int((e["time"] - now).total_seconds() // 60)
             later.append(dd)
     geo = report.get("geo") or {}
+    past_ = _past_events(events, now, report, series or ({"es": es_series} if es_series else {}), fed_heads)
     view = {
         "live": True, "updated": _baghdad(now),
         "risk": {"real": True, "score": r["score"], "label": r["level"], "main_reason": r["main_reason"], "reason_label": r.get("reason_label", "السبب"),
                  "advice": r["advice"], "weights_note": r.get("weights_note", []), "components": comps},
-        "quick_call": {"stance": stance, "recommendation": rec, "confidence": (report.get("confidence") or {}).get("label", "")},
+        "quick_call": {"stance": stance, "available": report.get("tilt") is not None, "recommendation": rec, "confidence": (report.get("confidence") or {}).get("label", "")},
         "confidence": ({"score": round((report["confidence"]["points"]) / 10), "label": report["confidence"]["label"],
                         "why": report["confidence"].get("why", [])} if report.get("confidence") else None),
         "intensity": ({"score": report["intensity"], "label": (vol["note"] if vol else "")} if report.get("intensity") is not None else
                       ({"score": vol["score"], "label": vol["note"]} if vol else None)),
         "drivers": [{k: d[k] for k in ("key", "name", "val", "tone", "arrow", "last", "text")} for d in drv],
-        "regime": report.get("regime"), "liquidity": report.get("liquidity"),
+        "regime": report.get("regime"), "liquidity": report.get("liquidity"), "bias": report.get("bias"),
         "safety": _safety(report.get("safety")),
         "pressures": {"bullish": bullish, "bearish": bearish, "calm": calm},
         "auction": au, "macro": _macro(report),
-        "events": upcoming, "events_next": later[:3], "events_past": _past_events(events, now, report, series or ({"es": es_series} if es_series else {}), fed_heads),
+        "events": upcoming, "events_next": later[:3], "events_past": past_,
+        "top3": _top3(report, pulse, past_),
+        "next_event": next((u for u in upcoming if u.get("high")), None) or (upcoming[0] if upcoming else None) or (later[0] if later else None),
         "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
         "geo": [{"title": t["title"], "severity": t["severity"], "sources": t["sources"],
                  "regions": t["regions"], "deesc": t["deesc"]} for t in (geo.get("top") or [])[:3]],

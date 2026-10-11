@@ -107,6 +107,22 @@ def test_week_earnings_marks_mag7():
     assert dashboard._week_earnings({}) == []
 
 
+def test_top3_priorities_and_caps():
+    rep = {"drivers": [{"name": "الدولار", "val": "+0.9%", "tone": "bear", "arrow": "▲", "text": "x", "strength": 3.0},
+                       {"name": "عائد 10 سنوات", "val": "+11bp", "tone": "bear", "arrow": "▲", "text": "y", "strength": 2.0},
+                       {"name": "النفط", "val": "-2%", "tone": "bull", "arrow": "▼", "text": "z", "strength": 1.0}],
+           "safety": {"issues": [{"sev": "warn", "code": "a", "msg": "تحذير فقط"}, {"sev": "critical", "code": "b", "msg": "قيمة VIX خارج النطاق"}]},
+           "macro": {"gap": {"size": "كبيرة", "direction": "فجوة"}}}
+    pulse = [{"name": "ES", "val": "-0.55%", "w": 60, "v": -0.55, "ratio": 1.2, "confirmed": True, "tone": "bear", "why": "ok"},
+             {"name": "VIX", "val": "+9%", "w": 15, "v": 9, "ratio": 1.1, "confirmed": False, "tone": "bear"}]
+    t = dashboard._top3(rep, pulse, [])
+    assert [x["kind"] for x in t] == ["safety", "move", "fed"], t           # الخلل الحرج أولاً، ثم الحركة المؤكَّدة، ولا تحذير بسيط
+    assert all(x["title"] and x["why"] and x["src"] for x in t)
+    t2 = dashboard._top3({"drivers": rep["drivers"]}, [], [])
+    assert [x["kind"] for x in t2] == ["driver", "driver"] and len(t2) == 2   # سقف النوع الواحد 2
+    assert dashboard._top3({}, [], []) == []                                # لا شيء مختلق عند غياب البيانات
+
+
 if __name__ == "__main__":
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:
