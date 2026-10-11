@@ -199,7 +199,8 @@ def _week(events, now, report):
         item = {"time": bt.strftime("%H:%M"), "name": d.get("name") or e.get("title", ""), "title": e.get("title", ""),
                 "released": e["time"] < now, "forecast": e.get("forecast", ""), "previous": e.get("previous", ""),
                 "actual": e.get("actual", ""), "surprise": d.get("surprise", ""), "note": e.get("actual_note", ""),
-                "tone": (vd or {}).get("es", "") , "effect": (vd or {}).get("effect", ""), "kind": d.get("kind", "")}
+                "tone": (vd or {}).get("es", "") , "effect": (vd or {}).get("effect", ""), "kind": d.get("kind", ""),
+                "status": d.get("status", ""), "status_ar": d.get("status_ar", ""), "last_attempt": d.get("last_attempt", "")}
         days.setdefault(bt.date(), []).append(item)
     out = []
     for dt in sorted(days):
@@ -355,6 +356,18 @@ def _changes(top3, prev_titles):
     return {"has_prev": True, "items": items, "new_count": len(items)}
 
 
+def _actuals_summary(events, now):
+    """ملخص حالة الأرقام الفعلية للأحداث عالية التأثير الصادرة خلال 48 ساعة، وآخر محاولة جلب (بغداد)."""
+    past = [e for e in events or [] if e.get("impact") == "High" and timedelta(0) <= now - e["time"] <= timedelta(hours=48)]
+    cnt = {}
+    for e in past:
+        k = e.get("status") or ("verified" if e.get("actual") else "awaiting")
+        cnt[k] = cnt.get(k, 0) + 1
+    last = max((e.get("last_attempt") or "" for e in past), default="")
+    return {"total": len(past), "verified": cnt.get("verified", 0) + cnt.get("revised", 0), "awaiting": cnt.get("awaiting", 0),
+            "failed": cnt.get("failed", 0), "revised": cnt.get("revised", 0), "last_attempt": events_ctx._hhmm_attempt(last) if last else ""}
+
+
 def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
@@ -418,6 +431,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "top3": _top3(report, pulse, past_),
         "changes": _changes(_top3(report, pulse, past_), prev_titles),
         "pulse8": _pulse8(report),
+        "actuals_status": _actuals_summary(events, now),
         "next_event": next((u for u in upcoming if u.get("high")), None) or (upcoming[0] if upcoming else None) or (later[0] if later else None),
         "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
         "geo": [{"title": t["title"], "severity": t["severity"], "sources": t["sources"],

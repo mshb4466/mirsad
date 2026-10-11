@@ -126,6 +126,11 @@ def check_inputs(prices, events, fred, now, holidays_years=(), fomc_years=()):
         bad = [e for e in events if e.get("actual") and e["time"] > now + timedelta(minutes=5)]
         if bad:
             issues.append(issue(MAJOR, "future_actual", f"{len(bad)} حدث له رقم فعلي مع أن موعده لم يحن: بيانات التقويم غير موثوقة."))
+        wait = [e for e in events if e.get("impact") == "High" and not e.get("actual") and e.get("status") in ("awaiting", "failed")
+                and timedelta(0) <= now - e["time"] <= timedelta(hours=6)]
+        if wait:
+            issues.append(issue(WARN, "actual_pending", f"{len(wait)} حدث عالي التأثير صدر ولم يصل رقمه الفعلي بعد ({wait[0].get('title', '')}): "
+                                "التفسير المعتمد على المفاجأة معلّق والثقة مخفّضة."))
     if holidays_years and now.year not in holidays_years:
         issues.append(issue(WARN, "calendar_expired", f"قائمة عطل البورصة لا تغطي سنة {now.year}: حدّثها."))
     if fomc_years and now.year not in fomc_years:

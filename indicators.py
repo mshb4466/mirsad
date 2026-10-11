@@ -38,6 +38,13 @@ NO_FREE_SOURCE = [
     (r"adp", "بيانات ADP لا تتوفر مجاناً عبر FRED"),
 ]
 
+# معرّفات BLS الرسمية (SA = معدّلة موسمياً، NS = غير معدّلة تُستعمل للتغير السنوي). غير المذكور لا مصدر BLS له هنا (يبقى FRED).
+BLS_IDS = {
+    "unrate": "LNS14000000", "payems": "CES0000000001", "ahe": "CES0500000003",
+    "cpi": "CUSR0000SA0", "cpi_ny": "CUUR0000SA0", "cpilfe": "CUSR0000SA0L1E", "cpilfe_ny": "CUUR0000SA0L1E",
+    "jolts": "JTS000000000000000JOL",
+}
+
 NOTE_LAG = "مراحل التحديث: FRED قد يتأخر ساعات عن الإصدار الرسمي"
 
 
@@ -110,23 +117,47 @@ def compute(tr, rows, i):
     return None
 
 
-def resolve(title, ev_time, rows_by_key, et):
-    """(رقم أو None، ملاحظة). rows_by_key: {مفتاح: [(تاريخ، قيمة)]} أو يفتقد المفتاح عند فشل الجلب."""
+def resolve(title, ev_time, rows_by_key, et, src="FRED", sid_map=None):
+    """(رقم أو None، ملاحظة). rows_by_key: {مفتاح: [(تاريخ، قيمة)]} أو يفتقد المفتاح عند فشل الجلب.
+    src: اسم المصدر في الملاحظة ("FRED" أو "BLS")؛ sid_map: معرّف السلسلة لكل مفتاح عند اختلافه عن FRED."""
     spec = match(title)
     if not spec:
         return None, no_source_reason(title)
+    sid = (sid_map or {}).get(spec["key"], spec["sid"])
     rows = (rows_by_key or {}).get(spec["key"])
     if not rows:
-        return None, f"تعذّر جلب {spec['sid']} من FRED (لا بيانات)"
+        return None, f"تعذّر جلب {sid} من {src} (لا بيانات)"
     d = ev_time.astimezone(et).date()
     exp = expected_obs(spec["rule"], d)
     i = _find(rows, exp)
     if i is None:
-        return None, f"FRED لم يُحدَّث بعد ({spec['sid']}: آخر قراءة {rows[-1][0][:10]})"
+        return None, f"{src} لم يُحدَّث بعد ({sid}: آخر قراءة {rows[-1][0][:10]})"
     val = compute(spec["tr"], rows, i)
     if val is None:
-        return None, f"بيانات {spec['sid']} غير كافية للحساب"
-    return val, f"المصدر: FRED ({spec['sid']}، فترة {rows[i][0][:10]}) — {spec['label']}"
+        return None, f"بيانات {sid} غير كافية للحساب"
+    return val, f"المصدر: {src} ({sid}، فترة {rows[i][0][:10]}) — {spec['label']}"
+
+
+def previous_revised(title, ev_time, rows_by_key, et):
+    """قيمة الفترة السابقة كما هي الآن في المصدر (للمقارنة مع «السابق» في التقويم وكشف التعديل). None إن تعذّر."""
+    spec = match(title)
+    rows = (rows_by_key or {}).get(spec["key"]) if spec else None
+    if not rows:
+        return None
+    i = _find(rows, expected_obs(spec["rule"], ev_time.astimezone(et).date()))
+    if i is None or i < 1:
+        return None
+    return compute(spec["tr"], rows, i - 1)
+
+
+def bls_needed(events):
+    """{مفتاح: معرّف BLS} للأحداث التي لها مصدر BLS."""
+    out = {}
+    for e in events:
+        s = match(e.get("title", ""))
+        if s and s["key"] in BLS_IDS:
+            out[s["key"]] = BLS_IDS[s["key"]]
+    return out
 
 
 def series_needed(events):

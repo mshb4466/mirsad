@@ -270,11 +270,36 @@ def auction_name(title):
     return f"مزاد {n} سنوات — {kind}"
 
 
+STATUS_AR = {"upcoming": "لم يصدر بعد", "awaiting": "صدر وننتظر وصول القيمة", "verified": "استُلمت القيمة وتم التحقق منها",
+             "revised": "صدرت مراجعة للقيمة", "failed": "تعذّر جلب البيانات"}
+
+
+def _hhmm_attempt(iso):
+    """آخر محاولة جلب بتوقيت بغداد (يوم/ساعة) أو ''."""
+    if not iso:
+        return ""
+    try:
+        from datetime import datetime, timedelta
+        return (datetime.fromisoformat(iso) + timedelta(hours=3)).strftime("%d-%m %H:%M")
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def _surprise_num(ev):
+    """Surprise = Actual − Forecast رقمياً بإشارته، أو '' إن غاب أحدهما (لا نعتبر غياب التوقع صفراً)."""
+    a, f = _num(ev.get("actual")), _num(ev.get("forecast"))
+    if a is None or f is None:
+        return ""
+    return f"{a - f:+g}{_unit(ev.get('actual'))}"
+
+
 def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
     kind, name, what = classify(ev.get("title", ""))
     if kind == "auction":
         name = auction_name(ev.get("title", "")) or name
-    d = {"kind": kind or "", "actual_note": ev.get("actual_note", ""), "time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
+    d = {"status": ev.get("status", ""), "status_ar": STATUS_AR.get(ev.get("status", ""), ""), "last_attempt": _hhmm_attempt(ev.get("last_attempt")),
+         "surprise_num": _surprise_num(ev), "prev_revised": ev.get("prev_revised", ""), "revised_from": ev.get("revised_from", ""),
+         "kind": kind or "", "actual_note": ev.get("actual_note", ""), "time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
          "forecast": ev.get("forecast", ""), "previous": ev.get("previous", ""), "actual": ev.get("actual", ""),
          "name": name or ev.get("title", ""), "what": what or "", "expect": expectation(ev.get("forecast"), ev.get("previous")),
          "surprise": surprise(ev.get("actual"), ev.get("forecast")) if ev.get("actual") else "", "scenarios": [], "note": "", "short": "", "vs_prev": vs_previous(ev.get("actual"), ev.get("previous")) if ev.get("actual") else "",
@@ -357,7 +382,7 @@ def relevant(ev):
     return kind in ALWAYS
 
 
-ITEM_KEYS = ("day", "time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit", "actual_note")
+ITEM_KEYS = ("status", "status_ar", "last_attempt", "surprise_num", "prev_revised", "revised_from", "day", "time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit", "actual_note")
 
 
 def group(descs):

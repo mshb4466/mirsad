@@ -106,15 +106,16 @@ def oil_from_headlines(heads):
     return None
 
 
-def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None):
+def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None, fetch_bls_fn=None, window_h=30):
     """يملأ الأرقام الفعلية الناقصة للأحداث الصادرة (نفط، مزادات) ويكتب في e['actual_note'] المصدر أو سبب الغياب.
     يعيد عدد ما ملأ. لا يرفع استثناءً."""
-    todo = [e for e in events if not e.get("actual") and now - timedelta(hours=30) <= e["time"] < now]
+    todo = [e for e in events if not e.get("actual") and now - timedelta(hours=window_h) <= e["time"] < now]
     if not todo:
         return 0
     n = 0
     oil_res, auc, auc_err = None, None, None
     ind_rows, ind_err = None, None
+    bls_rows, bls_err = None, None
     for e in todo:
         kind, _, _ = events_ctx.classify(e.get("title", ""))
         try:
@@ -165,6 +166,30 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                     if why:
                         e["actual_note"] = why
                     continue
+                if bls_rows is None:
+                    bls_rows = {}
+                    need_b = indicators.bls_needed(todo)
+                    if need_b and fetch_bls_fn:
+                        try:
+                            by_sid, berrs = fetch_bls_fn(sorted(set(need_b.values())))
+                            bls_err = "؛ ".join(berrs) if berrs else None
+                            for k, sid in need_b.items():
+                                if (by_sid or {}).get(sid):
+                                    bls_rows[k] = by_sid[sid]
+                        except Exception as ex:  # noqa: BLE001
+                            bls_err = f"BLS: خطأ ({type(ex).__name__})"
+                val, bnote = (None, None)
+                if spec["key"] in indicators.BLS_IDS and fetch_bls_fn:
+                    val, bnote = indicators.resolve(e.get("title", ""), e["time"], bls_rows, ET, "BLS", indicators.BLS_IDS)
+                    if val:
+                        e["actual"], e["actual_note"] = val, bnote + " (مصدر رسمي)؛ محسوب من السلسلة وقد يختلف عن القراءة الرسمية بكسر عشري"
+                        pr = indicators.previous_revised(e.get("title", ""), e["time"], bls_rows, ET)
+                        if pr:
+                            e["prev_revised"] = pr
+                        n += 1
+                        continue
+                    if bls_err and not bls_rows:
+                        bnote = bls_err
                 if ind_rows is None:
                     need = indicators.series_needed(todo)
                     try:
@@ -183,6 +208,8 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                     n += 1
                 else:
                     why = ind_err or note or "لا رقم فعلي متاح"
+                    if bnote:
+                        why = bnote + " | FRED: " + why
                     if fetch_heads_q_fn:
                         hv, hn = indicators.from_headlines(e.get("title", ""), fetch_heads_q_fn)
                         if hv:

@@ -25,6 +25,8 @@ from email.utils import parsedate_to_datetime
 
 import calibrate
 import auction
+import actuals
+import bls
 import dashboard
 import events_ctx
 import extras
@@ -974,14 +976,57 @@ def add_auction(report, prices, now, deps):
     report["tilt"] = ({"score": round(t[0], 2), "parts": t[1]} if t[0] is not None else None)
 
 
-def enrich_for_ui(events, now, deps, intr=None):
-    """أرقام فعلية ناقصة (نفط/مزادات)، عناوين الفدرالي إن صدر كلام خلال 24 ساعة، وسلاسل الأسعار لقياس رد الفعل."""
+def calendar_events(now, state, deps, problems=None):
+    """التقويم الاقتصادي مع نسخة احتياطية: إن فشل الجلب (حدّ الطلبات أو انقطاع) نستعمل آخر نسخة ناجحة (حتى 3 أيام)
+    بدل فقدان كل الأحداث وما يتبعها من أرقام. تُذكر النسخة القديمة صراحة في المشاكل."""
     try:
-        extras.apply_actuals(events, now, c, deps.get("fetch_oil"), deps.get("fetch_auctions"),
-                             (lambda: fetch_headlines(now, query="EIA crude oil inventories", hours=36, limit=6)) if "fetch_oil" not in deps else None,
-                             fetch_heads_q_fn=(lambda q: fetch_headlines(now, query=q, hours=48, limit=10)) if "fetch_oil" not in deps else None)
+        ev = deps["calendar"](now)
+        if ev:
+            state["cal_cache"] = {"at": now.isoformat(), "events": [
+                {"title": e["title"], "impact": e["impact"], "time": e["time"].isoformat(), "forecast": e.get("forecast", ""),
+                 "previous": e.get("previous", ""), "type": e.get("type", "OTHER")} for e in ev]}
+        return ev
+    except Exception as e:  # noqa: BLE001
+        cc = state.get("cal_cache") or {}
+        try:
+            at = datetime.fromisoformat(cc["at"])
+            if now - at <= timedelta(days=3) and cc.get("events"):
+                if problems is not None:
+                    problems.append(f"التقويم الاقتصادي من نسخة محفوظة قبل {int((now - at).total_seconds() // 60)} دقيقة (تعذّر الجلب: {type(e).__name__})")
+                return [dict(x, time=datetime.fromisoformat(x["time"]), actual="") for x in cc["events"]]
+        except Exception:  # noqa: BLE001
+            pass
+        raise
+
+
+def resolve_actuals(events, now, state, deps):
+    """يملأ الأرقام الفعلية قبل أي استعمال لها (تنبيه الصدور، التحليل، الواجهة): استرجاع المحفوظ، ثم جلب ما يستحق من
+    BLS ثم FRED ثم العناوين، ثم التسجيل الدائم والحالات. يُنفَّذ مرة واحدة لكل تشغيل. لا يرفع استثناءً."""
+    marker = now.isoformat()
+    if events and all(e.get("_res") == marker for e in events):
+        return
+    for e in events:
+        e["_res"] = marker
+    try:
+        actuals.restore(events, state)
+        todo, checks = actuals.pending(events, state, now)
+        live = "fetch_oil" not in deps
+        if todo or checks:
+            key = os.environ.get("BLS_API_KEY", "").strip() or None
+            fb = deps.get("fetch_bls") or ((lambda ids: bls.fetch(ids, now, key, state=state)) if live else None)
+            extras.apply_actuals(todo + checks, now, c, deps.get("fetch_oil"), deps.get("fetch_auctions"),
+                                 (lambda: fetch_headlines(now, query="EIA crude oil inventories", hours=36, limit=6)) if live else None,
+                                 fetch_series_fn=deps.get("fetch_series"),
+                                 fetch_heads_q_fn=(lambda q: fetch_headlines(now, query=q, hours=48, limit=10)) if live else None,
+                                 fetch_bls_fn=fb, window_h=24 * 7 + 1)
+        actuals.record(events, checks, todo + [x["_clone_of"] for x in checks], state, now)
     except Exception as e:  # noqa: BLE001
         print("تعذّر ملء الأرقام الفعلية:", e)
+
+
+def enrich_for_ui(events, now, deps, intr=None, state=None):
+    """أرقام فعلية ناقصة (تُحلّ مرة واحدة لكل تشغيل)، عناوين الفدرالي إن صدر كلام خلال 24 ساعة، وسلاسل الأسعار لقياس رد الفعل."""
+    resolve_actuals(events, now, state if state is not None else {}, deps)
     heads = []
     try:
         has_speech = any(events_ctx.classify(e.get("title", ""))[0] == "speech" and now - timedelta(hours=24) <= e["time"] < now for e in events)
@@ -996,10 +1041,11 @@ def enrich_for_ui(events, now, deps, intr=None):
 def run_preopen(now, state, send, deps, prefix=""):
     problems = []
     try:
-        events = deps["calendar"](now)
+        events = calendar_events(now, state, deps, problems)
     except Exception as e:  # noqa: BLE001
         events = []
         problems.append(f"تعذّر جلب التقويم الاقتصادي: {e}")
+    resolve_actuals(events, now, state, deps)
     report, prices = full_report(now, events, deps, want_prices=True)
     report.setdefault("problems", []).extend(problems)
     add_auction(report, prices, now, deps)
@@ -1008,7 +1054,7 @@ def run_preopen(now, state, send, deps, prefix=""):
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث سجل الأداء: {e}")
     pulse = state.get("pulse") or []
-    heads, series = enrich_for_ui(events, now, deps)
+    heads, series = enrich_for_ui(events, now, deps, state=state)
     hv = None
     try:
         hv = health.build(report, events, now, state)
@@ -1025,10 +1071,11 @@ def run_preopen(now, state, send, deps, prefix=""):
 def run_auto(now, state, send, deps):
     sent = 0
     try:
-        events = deps["calendar"](now)
+        events = calendar_events(now, state, deps)
     except Exception as e:  # noqa: BLE001
         print("تعذّر جلب التقويم:", e)
         events = []
+    resolve_actuals(events, now, state, deps)      # قبل due_releases: التقويم لا يحمل الرقم الفعلي أصلاً
 
     try:
         intr = deps["intraday"](now)
@@ -1118,7 +1165,7 @@ def run_auto(now, state, send, deps):
             pulse = []
         if pulse:
             state["pulse"] = pulse
-        heads, series = enrich_for_ui(events, now, deps, intr)
+        heads, series = enrich_for_ui(events, now, deps, intr, state)
         hv = health.build(snap, events, now, state)
         dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
                           alerts=list(reversed(state.get("alerts") or [])), pulse=pulse or state.get("pulse") or [],

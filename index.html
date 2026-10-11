@@ -1170,7 +1170,10 @@ function render(data) {
       const arrow = vd.k === 'above' ? '▲ ' : vd.k === 'below' ? '▼ ' : '◆ ';
       r.appendChild(el('span', 'pill', arrow + vd.label + (it.surprise ? ' (' + it.surprise.replace(/^(أعلى|أقل) من المتوقع بـ ?/, '') + ')' : '')));
       r.appendChild(el('span', 'pill v-' + vd.es, vd.effect));
-    } else if (!it.actual && NEEDNUM(kind)) { r.appendChild(el('span', 'pill', 'الرقم الفعلي غير متوفر')); if (it.actual_note) r.appendChild(el('span', 'n', it.actual_note)); }
+    } else if (!it.actual && NEEDNUM(kind)) { r.appendChild(el('span', 'pill', (it.status_ar || 'الرقم الفعلي غير متوفر') + (it.last_attempt ? ' · آخر محاولة ' + it.last_attempt + ' بغداد' : ''))); if (it.actual_note) r.appendChild(el('span', 'n', it.actual_note)); }
+    if (it.actual && it.status === 'revised') r.appendChild(el('span', 'pill', '↻ عُدّلت القيمة' + (it.revised_from ? ' (كانت ' + it.revised_from + ')' : '')));
+    if (it.actual && it.surprise_num) r.appendChild(el('span', 'pill', 'المفاجأة ' + it.surprise_num));
+    if (it.actual && it.prev_revised && it.previous && it.prev_revised !== it.previous) r.appendChild(el('span', 'pill', 'السابق بعد المراجعة ' + it.prev_revised));
     return r;
   };
   const arrowOf = v => v > 0 ? '▲' : v < 0 ? '▼' : '◆';
@@ -1196,7 +1199,7 @@ function render(data) {
     const vd0 = e.verdict;
     if (vd0 && e.kind === 'speech') h.appendChild(el('span', 'pill v-' + vd0.es, (vd0.k === 'above' ? '▲ ' : vd0.k === 'below' ? '▼ ' : '◆ ') + vd0.label));
     else if (vd0 && !(e.items || []).length) h.appendChild(el('span', 'pill v-' + vd0.es, (vd0.k === 'above' ? '▲ ' : vd0.k === 'below' ? '▼ ' : '◆ ') + vd0.label));
-    else if (!(e.items || []).length && !e.actual && NEEDNUM(e.kind)) h.appendChild(el('span', 'pill', 'الرقم غير متوفر'));
+    else if (!(e.items || []).length && !e.actual && NEEDNUM(e.kind)) h.appendChild(el('span', 'pill', e.status === 'failed' ? 'تعذّر الجلب' : e.status === 'awaiting' ? 'بانتظار الرقم' : 'الرقم غير متوفر'));
     w.appendChild(h);
     if ((e.items || []).length) {
       e.items.forEach(it => {
@@ -1379,7 +1382,8 @@ function renderSummary_(data, score, lvl) {
   const cn = b && b.confirm;
   $('sConfirmW').textContent = cn ? ({ yes: '✔ ', no: '✖ ', mixed: '◆ ', na: '' }[cn.key] || '') + cn.label : 'غير متاح'; $('sConfirmW').className = cn && cn.key !== 'na' ? '' : 'unavail';
   $('sConfirm').onclick = () => xp_('cnf', $('sConfirm'), 'تأكيد الأسواق', [cn ? cn.why : 'غير متاح', 'يقارن اتجاه حركة الدولار والعوائد والنفط وغيرها الآن مع الانحياز الماكروي.'], 'Yahoo · ' + upd);
-  $('sSrc').textContent = upd;
+  const as_ = data.actuals_status;
+  $('sSrc').textContent = upd + (as_ && as_.total ? ' · الأرقام الفعلية: ' + as_.verified + '/' + as_.total + ' وصلت' + (as_.awaiting ? '، ' + as_.awaiting + ' بالانتظار' : '') + (as_.failed ? '، ' + as_.failed + ' تعذّر' : '') + (as_.last_attempt ? ' (آخر محاولة ' + as_.last_attempt + ' بغداد)' : '') : '');
   if (XP_OPEN) { const id = XP_OPEN; XP_OPEN = null; ({ bias: sb, risk: $('sRisk'), reg: $('sRegime'), cnf: $('sConfirm') })[id].click(); }
 
   /* ماذا تغيّر منذ الفحص السابق */
@@ -1445,7 +1449,7 @@ function renderWeek_(data) {
       const t = el('div', 't'); t.appendChild(el('span', 'tm', i.time)); t.appendChild(document.createTextNode(i.name)); b.appendChild(t);
       const nums = ['المتوقع ' + (i.forecast || '—'), 'السابق ' + (i.previous || '—')]; if (i.actual) nums.unshift('الفعلي ' + i.actual);
       b.appendChild(el('div', 'n', nums.join(' | ')));
-      b.appendChild(el('div', 'st', i.released ? (i.actual ? ('صدر' + (i.surprise ? ' — ' + i.surprise : '') + (i.effect ? ' — ' + i.effect : '')) : 'صدر — ' + (i.note || 'الرقم الفعلي غير متوفر')) : 'لم يصدر بعد'));
+      b.appendChild(el('div', 'st', i.released ? (i.actual ? ('صدر' + (i.surprise ? ' — ' + i.surprise : '') + (i.effect ? ' — ' + i.effect : '') + (i.status === 'revised' ? ' — ↻ عُدّلت القيمة' : '')) : 'صدر — ' + (i.status_ar || 'الرقم الفعلي غير متوفر') + (i.note ? ': ' + i.note : '') + (i.last_attempt ? ' (آخر محاولة ' + i.last_attempt + ' بغداد)' : '')) : 'لم يصدر بعد'));
       wl.appendChild(b);
     });
   });
