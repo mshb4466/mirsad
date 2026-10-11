@@ -394,50 +394,60 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-11T12:05:23.591872+00:00",
-        "ok_at": "2026-10-11T12:05:23.591872+00:00"
+        "last_try": "2026-10-11T16:33:37.359677+00:00",
+        "ok_at": "2026-10-11T16:33:37.359677+00:00"
       },
       "fred": {
-        "last_try": "2026-10-11T12:05:23.591872+00:00",
-        "ok_at": "2026-10-11T12:05:23.591872+00:00"
+        "last_try": "2026-10-11T16:33:37.359677+00:00",
+        "ok_at": "2026-10-11T16:33:37.359677+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-11T12:05:23.591872+00:00",
-        "ok_at": "2026-10-11T12:05:23.591872+00:00"
+        "last_try": "2026-10-11T16:33:37.359677+00:00",
+        "ok_at": "2026-10-11T16:33:37.359677+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-11T12:05:23.591872+00:00",
-        "ok_at": "2026-10-11T12:05:23.591872+00:00"
+        "last_try": "2026-10-11T16:33:37.359677+00:00",
+        "ok_at": "2026-10-11T16:33:37.359677+00:00"
       },
       "oil": {
-        "last_try": "2026-10-11T12:05:23.591872+00:00",
-        "ok_at": "2026-10-11T12:05:23.591872+00:00"
+        "last_try": "2026-10-11T16:33:37.359677+00:00",
+        "ok_at": "2026-10-11T16:33:37.359677+00:00"
       },
       "news": {
-        "last_try": "2026-10-11T12:05:23.591872+00:00",
-        "ok_at": "2026-10-11T12:05:23.591872+00:00"
+        "last_try": "2026-10-11T16:33:37.359677+00:00",
+        "ok_at": "2026-10-11T16:33:37.359677+00:00"
       },
       "cot": {
-        "last_try": "2026-10-11T12:05:23.591872+00:00",
-        "ok_at": "2026-10-11T12:05:23.591872+00:00"
+        "last_try": "2026-10-11T16:33:37.359677+00:00",
+        "ok_at": "2026-10-11T16:33:37.359677+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-11T12:05:23.591872+00:00",
-        "ok_at": "2026-10-11T12:05:23.591872+00:00"
+        "last_try": "2026-10-11T16:33:37.359677+00:00",
+        "ok_at": "2026-10-11T16:33:37.359677+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-11T12:05:23.591872+00:00"
+      "at": "2026-10-11T16:33:37.359677+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-11T11:11:06.741293+00:00",
+    "at": "2026-10-11T16:33:37.359677+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-11T14:01:50+00:00",
+            "title": "When Companies Stop Driving a Hard Bargain, This Fed Official Starts Worrying",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-11T10:30:51+00:00",
+            "title": "The hawk Fed Chair who broke the bond market?",
+            "src": "Fortune"
+          },
           {
             "t": "2026-10-10T18:45:00+00:00",
             "title": "Fed Minutes Offer a Guide to Future Interest Rate Moves. First, You Must Decode Them.",
@@ -452,16 +462,6 @@
             "t": "2026-10-10T00:00:00+00:00",
             "title": "Health officials investigate possible measles exposure at Powell restaurant",
             "src": "NBC4 WCMH-TV"
-          },
-          {
-            "t": "2026-10-09T23:31:54+00:00",
-            "title": "Trump escalates effort to fire Federal Reserve governor Lisa Cook",
-            "src": "The Washington Post"
-          },
-          {
-            "t": "2026-10-09T20:33:22+00:00",
-            "title": "Trump establishes committee to investigate Federal Reserve's Lisa Cook in latest effort to fire her",
-            "src": "PBS"
           }
         ]
       },
@@ -469,18 +469,13 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-11T08:37:54+00:00",
-            "title": "Wall Street retreats from its record as stocks fall worldwide",
-            "src": "AP News"
+            "t": "2026-10-11T13:18:00+00:00",
+            "title": "S&P 500 Earnings Expected to Rise 31% in Q3 as AI-Related Companies Lead Growth",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-10-11T07:35:28+00:00",
             "title": "The Silent Electronic Battleground Shaping the Future of Warfare",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-11T00:54:00+00:00",
-            "title": "Justice Department Probes TV Networks Over Suspension of Trump Press-Pool Coverage",
             "src": "WSJ"
           },
           {
@@ -489,9 +484,14 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-10T18:08:00+00:00",
+            "t": "2026-10-10T18:10:55+00:00",
             "title": "Exclusive | At Davos, Kimberly Guilfoyle Boasted of Private Jet Trips, Luxury Stays",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-10-10T18:02:20+00:00",
+            "title": "Wall Street banks had a blockbuster first half. Higher rates will test the boom.",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -499,35 +499,45 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-10-11T15:24:11+00:00",
+            "title": "Nvidia stays a Buy as AI demand boosts earnings and new financing expands its market.",
+            "src": "Pluang"
+          },
+          {
+            "t": "2026-10-11T14:04:25+00:00",
+            "title": "Prediction: Meta Platforms Stock Will Drop After Earnings, and That Could Be an Incredible Buying Opportunity",
+            "src": "The Globe and Mail"
+          },
+          {
+            "t": "2026-10-11T13:18:00+00:00",
+            "title": "AI and Technology Expected to Drive Two-Thirds of S&P 500 Earnings Growth in Q3",
+            "src": "Yahoo Finance UK"
+          },
+          {
+            "t": "2026-10-11T11:06:33+00:00",
+            "title": "Chinese Apple supplier Luxshare sees little negative impact from US patent infringement probe",
+            "src": "The Standard (HK)"
+          },
+          {
             "t": "2026-10-11T06:49:24+00:00",
             "title": "Q3 earnings season kicks off! ASML Holding and Taiwan Semico... - Futubull Community",
             "src": "富途牛牛"
-          },
-          {
-            "t": "2026-10-11T03:25:56+00:00",
-            "title": "Chinese Apple supplier Luxshare sees little negative impact from US patent infringement probe",
-            "src": "WSAU"
-          },
-          {
-            "t": "2026-10-11T02:38:00+00:00",
-            "title": "Apple Supplier Luxshare Expects No Material Impact From US Probe",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-10-10T22:14:27+00:00",
-            "title": "2G Energy (XTRA:2GB) Is Down 6.8% After Lifting 2027–2028 Revenue Guidance",
-            "src": "Yahoo Finance Singapore"
-          },
-          {
-            "t": "2026-10-10T17:35:11+00:00",
-            "title": "Apple’s Q2 2026 Earnings Explained by Tim Cook and CFO Kevan Parekh",
-            "src": "The Mac Observer"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-11T11:18:55+00:00",
+            "title": "D-FW Business Datebook: Workforce forum, CPI and stuffed animals on this week's calendar",
+            "src": "Dallas News"
+          },
+          {
+            "t": "2026-10-11T11:00:07+00:00",
+            "title": "Will September inflation cement US interest rate policy for the rest of the year?",
+            "src": "Financial Times"
+          },
           {
             "t": "2026-10-10T20:00:00+00:00",
             "title": "US CPI to Show Overall Inflation Boosted by Higher Gasoline Prices",
@@ -542,16 +552,6 @@
             "t": "2026-10-10T14:18:43+00:00",
             "title": "The Bureau of the Assembly of States Parties regrets sanctions against the ICC as an institution",
             "src": "| International Criminal Court"
-          },
-          {
-            "t": "2026-10-10T12:11:25+00:00",
-            "title": "Inflation fell more than expected in June as gas prices eased",
-            "src": "ABC11 News"
-          },
-          {
-            "t": "2026-10-10T09:26:24+00:00",
-            "title": "Canadian Dollar futures hit 18-month low on weak jobs report.",
-            "src": "CME Group"
           }
         ]
       },
@@ -559,24 +559,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-11T06:10:19+00:00",
-            "title": "Tariffs, millions in extra costs, Iran war: Trump’s policies hammer US firms",
-            "src": "South China Morning Post"
+            "t": "2026-10-11T12:16:49+00:00",
+            "title": "GOP candidates face backlash as workers squeezed out of jobs by Trump's tariffs",
+            "src": "NBC10 Philadelphia"
           },
           {
-            "t": "2026-10-11T05:30:00+00:00",
-            "title": "Trump’s Tariffs Put a Spotlight on Forced Labor. It Isn’t Going Away.",
+            "t": "2026-10-11T12:04:34+00:00",
+            "title": "Trump sticks with tariffs even as US voters turn against them before the midterms",
+            "src": "Stamford Advocate"
+          },
+          {
+            "t": "2026-10-11T11:50:00+00:00",
+            "title": "Republicans face midterm backlash from factory workers squeezed out of jobs by Trump's tariffs",
+            "src": "AP News"
+          },
+          {
+            "t": "2026-10-11T07:31:30+00:00",
+            "title": "Global Bond Yields Turn Lower",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-10T14:43:24+00:00",
-            "title": "The Morning Risk Report: Trump’s Tariffs Put a Spotlight on Forced Labor. It Isn’t Going Away.",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-10T12:00:01+00:00",
-            "title": "America’s Steel Revival Looks Like a House of Cards",
-            "src": "Bloomberg.com"
           }
         ]
       },
@@ -584,28 +584,306 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-11T10:09:11+00:00",
-            "title": "Major attack on Saudi airport kills 12 and leads Trump to weigh joining fight",
-            "src": "NBC News"
+            "t": "2026-10-11T16:28:49+00:00",
+            "title": "Strait of Hormuz: After more oil left the Gulf, Iran tries to regain its stranglehold on shipping",
+            "src": "CNN"
           },
           {
-            "t": "2026-10-11T04:19:54+00:00",
-            "title": "US weighs strikes on Houthis and Iran after deadly Saudi airport attack",
-            "src": "Iran International"
+            "t": "2026-10-11T16:13:00+00:00",
+            "title": "Trump announces partial ceasefire in Ukraine war as Zelenskyy says deal is ‘news to me’",
+            "src": "The Guardian"
           },
           {
-            "t": "2026-10-11T02:22:07+00:00",
-            "title": "How Russia turned sanctions into a diesel deal",
-            "src": "DW.com"
+            "t": "2026-10-11T16:11:47+00:00",
+            "title": "Trump claims Russia and Ukraine agree to energy ceasefire",
+            "src": "Axios"
           },
           {
-            "t": "2026-10-10T23:44:15+00:00",
-            "title": "Attack on Riyadh airport killed 12 people and wounded over 300 more, Saudi authorities say",
-            "src": "NPR"
+            "t": "2026-10-11T15:27:56+00:00",
+            "title": "Ukraine's Zelenskiy tells ABC he will organize elections if Russia agrees to 60-day ceasefire",
+            "src": "Reuters"
           }
         ]
       }
     },
     "failed": []
-  }
+  },
+  "cal_cache": {
+    "at": "2026-10-11T16:33:37.359677+00:00",
+    "events": [
+      {
+        "title": "Bank Holiday",
+        "impact": "Holiday",
+        "time": "2026-10-12T11:00:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "FOMC Member Hammack Speaks",
+        "impact": "Low",
+        "time": "2026-10-12T16:10:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "FOMC Member Waller Speaks",
+        "impact": "Low",
+        "time": "2026-10-13T07:45:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "NFIB Small Business Index",
+        "impact": "Low",
+        "time": "2026-10-13T10:00:00+00:00",
+        "forecast": "98.0",
+        "previous": "98.7",
+        "type": "OTHER"
+      },
+      {
+        "title": "ADP Weekly Employment Change",
+        "impact": "Low",
+        "time": "2026-10-13T12:15:00+00:00",
+        "forecast": "",
+        "previous": "23.8K",
+        "type": "OTHER"
+      },
+      {
+        "title": "Existing Home Sales",
+        "impact": "Low",
+        "time": "2026-10-13T14:00:00+00:00",
+        "forecast": "3.96M",
+        "previous": "3.98M",
+        "type": "OTHER"
+      },
+      {
+        "title": "FOMC Member Barkin Speaks",
+        "impact": "Low",
+        "time": "2026-10-13T17:00:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "FOMC Member Collins Speaks",
+        "impact": "Low",
+        "time": "2026-10-13T20:00:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "FOMC Member Bowman Speaks",
+        "impact": "Low",
+        "time": "2026-10-14T09:40:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "Core CPI m/m",
+        "impact": "High",
+        "time": "2026-10-14T12:30:00+00:00",
+        "forecast": "0.2%",
+        "previous": "0.3%",
+        "type": "CPI"
+      },
+      {
+        "title": "Core CPI y/y",
+        "impact": "High",
+        "time": "2026-10-14T12:30:00+00:00",
+        "forecast": "2.5%",
+        "previous": "2.4%",
+        "type": "CPI"
+      },
+      {
+        "title": "CPI m/m",
+        "impact": "High",
+        "time": "2026-10-14T12:30:00+00:00",
+        "forecast": "0.6%",
+        "previous": "0.4%",
+        "type": "CPI"
+      },
+      {
+        "title": "CPI y/y",
+        "impact": "High",
+        "time": "2026-10-14T12:30:00+00:00",
+        "forecast": "3.6%",
+        "previous": "3.4%",
+        "type": "CPI"
+      },
+      {
+        "title": "FOMC Member Barkin Speaks",
+        "impact": "Low",
+        "time": "2026-10-14T17:30:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "Beige Book",
+        "impact": "Low",
+        "time": "2026-10-14T18:00:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "API Weekly Statistical Bulletin",
+        "impact": "Low",
+        "time": "2026-10-14T20:30:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "FOMC Member Bowman Speaks",
+        "impact": "Low",
+        "time": "2026-10-15T02:55:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "Core PPI m/m",
+        "impact": "High",
+        "time": "2026-10-15T12:30:00+00:00",
+        "forecast": "0.3%",
+        "previous": "0.2%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Core Retail Sales m/m",
+        "impact": "High",
+        "time": "2026-10-15T12:30:00+00:00",
+        "forecast": "0.5%",
+        "previous": "1.4%",
+        "type": "OTHER"
+      },
+      {
+        "title": "PPI m/m",
+        "impact": "High",
+        "time": "2026-10-15T12:30:00+00:00",
+        "forecast": "0.5%",
+        "previous": "0.4%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Retail Sales m/m",
+        "impact": "High",
+        "time": "2026-10-15T12:30:00+00:00",
+        "forecast": "0.3%",
+        "previous": "1.2%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Philly Fed Manufacturing Index",
+        "impact": "Medium",
+        "time": "2026-10-15T12:30:00+00:00",
+        "forecast": "26.5",
+        "previous": "37.8",
+        "type": "OTHER"
+      },
+      {
+        "title": "Unemployment Claims",
+        "impact": "Medium",
+        "time": "2026-10-15T12:30:00+00:00",
+        "forecast": "195K",
+        "previous": "197K",
+        "type": "OTHER"
+      },
+      {
+        "title": "Empire State Manufacturing Index",
+        "impact": "Low",
+        "time": "2026-10-15T12:30:00+00:00",
+        "forecast": "3.2",
+        "previous": "7.6",
+        "type": "OTHER"
+      },
+      {
+        "title": "Business Inventories m/m",
+        "impact": "Low",
+        "time": "2026-10-15T14:00:00+00:00",
+        "forecast": "0.4%",
+        "previous": "0.8%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Natural Gas Storage",
+        "impact": "Low",
+        "time": "2026-10-15T14:30:00+00:00",
+        "forecast": "",
+        "previous": "85B",
+        "type": "OTHER"
+      },
+      {
+        "title": "Crude Oil Inventories",
+        "impact": "Low",
+        "time": "2026-10-15T16:00:00+00:00",
+        "forecast": "",
+        "previous": "-3.2M",
+        "type": "OTHER"
+      },
+      {
+        "title": "FOMC Member Hammack Speaks",
+        "impact": "Low",
+        "time": "2026-10-15T20:30:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "Fed Chairman Warsh Speaks",
+        "impact": "High",
+        "time": "2026-10-16T03:30:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "Import Prices m/m",
+        "impact": "Low",
+        "time": "2026-10-16T12:30:00+00:00",
+        "forecast": "0.6%",
+        "previous": "0.7%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Capacity Utilization Rate",
+        "impact": "Low",
+        "time": "2026-10-16T13:15:00+00:00",
+        "forecast": "76.5%",
+        "previous": "76.3%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Industrial Production m/m",
+        "impact": "Low",
+        "time": "2026-10-16T13:15:00+00:00",
+        "forecast": "0.4%",
+        "previous": "0.0%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Federal Budget Balance",
+        "impact": "Low",
+        "time": "2026-10-16T18:00:00+00:00",
+        "forecast": "75.3B",
+        "previous": "-166.8B",
+        "type": "OTHER"
+      },
+      {
+        "title": "TIC Long-Term Purchases",
+        "impact": "Low",
+        "time": "2026-10-16T20:00:00+00:00",
+        "forecast": "125.7B",
+        "previous": "-27.9B",
+        "type": "OTHER"
+      }
+    ]
+  },
+  "actuals": {}
 }
