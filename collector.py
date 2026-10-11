@@ -947,6 +947,7 @@ def build_report(prices, events, now, problems=None, extras=None):
         "safety": {"state": sstate, "label": safety.INCOMPLETE if cov < 0.6 else safety.STATE_AR[sstate], "issues": sissues,
                    "coverage": round(cov, 3), "checked_at": now.isoformat()},
         "drivers": drv, "regime": impact.regime(macro_view), "intensity": impact.intensity(drv),
+        "fred_last": {k: {"date": v[-1][0], "last": v[-1][1], "diff1": (v[-1][1] - v[-2][1]) if len(v) > 1 else None} for k, v in (fred or {}).items() if k == "dgs2" and v},
         "bias": bias.compute(macro_view, prices, fred, impact.regime(macro_view), drv),
         "confidence": conf, "liquidity": impact.liquidity_view((macro_view or {}).get("net_liquidity")),
         "risk": {
@@ -968,7 +969,7 @@ def build_report(prices, events, now, problems=None, extras=None):
         "macro": macro_view,
         "correlations": {k: {"c20": round(v["c20"], 2), "c60": None if v["c60"] is None else round(v["c60"], 2)}
                          for k, v in corrs.items()},
-        "data": {k: {"last": round(v["last"], 2), "chg1_pct": round(v["chg1"], 2), "bar_time": v["bar_time"]}
+        "data": {k: {"last": round(v["last"], 2), "chg1_pct": round(v["chg1"], 2), "diff1": round(v["diff1"], 4), "bar_time": v["bar_time"]}
                  for k, v in prices.items()},
         "problems": problems,
         "disclaimer": "إشارات إحصائية لأغراض إثبات الفكرة، لا توصية استثمارية. بيانات مجانية غير رسمية وقد تتأخر.",

@@ -30,7 +30,7 @@ def test_each_component_direction():
 
 def test_neutral_when_flat():
     b = bias.compute(*full())
-    assert b["label"] == "محايد" and abs(b["score"]) < 0.25
+    assert b["label"] == "مختلط" and abs(b["score"]) < 0.25
 
 
 def test_unavailable_when_coverage_low():

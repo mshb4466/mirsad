@@ -295,7 +295,67 @@ def _top3(report, pulse, past):
     return out
 
 
-def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None):
+PULSE_SYMS = [("es", "ES", "pct", "es"), ("nq", "NQ", "pct", "nq"), ("y2", "2Y", "bp", "y2"), ("y10", "10Y", "bp", "y10"),
+              ("dxy", "DXY", "pct", "dxy"), ("vix", "VIX", "pct", "vix"), ("oil", "WTI", "pct", "oil"), ("gold", "Gold", "pct", None)]
+
+
+def _intensity_word(x):
+    return None if x is None else ("خفيفة" if x < 3.5 else "متوسطة" if x < 6.5 else "قوية")
+
+
+def _hhmm_baghdad(iso):
+    """وقت آخر شمعة بتوقيت بغداد HH:MM، أو «غير معروف» إن تعذّر التحليل (لا نخمّن)."""
+    try:
+        return (datetime.fromisoformat(str(iso)) + timedelta(hours=3)).strftime("%H:%M") if datetime.fromisoformat(str(iso)).utcoffset() is not None else "غير معروف"
+    except Exception:  # noqa: BLE001
+        return "غير معروف"
+
+
+def _pulse8(report):
+    """نبض الأسواق: 8 رموز بالاتجاه والتغير والتوقيت، وهل يؤكد/يعارض الانحياز الماكروي. لا قيم افتراضية: الناقص «غير متاح»."""
+    import impact
+    prices = report.get("data") or {}
+    bias = report.get("bias") or {}
+    bk = bias.get("key") if bias.get("available") else None
+    out = []
+    for key, sym, unit, pk in PULSE_SYMS:
+        chg = last = when = src = None
+        if key == "y2":
+            f = (report.get("fred_last") or {}).get("dgs2")
+            if f and f.get("diff1") is not None:
+                chg, last, when, src = f["diff1"] * 100, f["last"], f["date"], "FRED"
+        else:
+            p = prices.get(key)
+            if p:
+                last, when, src = p["last"], p.get("bar_time") or "", "Yahoo"
+                chg = p.get("chg1_pct")
+                if unit == "bp":
+                    chg = p["diff1"] * 100 if p.get("diff1") is not None else None
+        if chg is None or last is None:
+            out.append({"sym": sym, "available": False})
+            continue
+        tone = impact.tone(pk, chg) if pk else "flat"
+        if bk is None:
+            cf = "na"
+        elif tone == "flat":
+            cf = "flat"
+        else:
+            cf = "yes" if ((bk == "pressure" and tone == "bear") or (bk == "support" and tone == "bull")) else \
+                 "flat" if bk == "neutral" else "no"
+        out.append({"sym": sym, "available": True, "last": last, "chg": round(chg, 2), "unit": unit, "arrow": "▲" if chg > 0 else "▼" if chg < 0 else "◆",
+                    "tone": tone, "confirm": cf, "time": _hhmm_baghdad(when) if src == "Yahoo" else str(when)[:10], "src": src})
+    return out
+
+
+def _changes(top3, prev_titles):
+    """التغيرات منذ الفحص السابق: ما لم يكن في اللقطة السابقة فقط."""
+    if prev_titles is None:
+        return {"has_prev": False, "items": top3, "new_count": 0}
+    items = [dict(t, new=True) for t in top3 if t["title"] not in prev_titles]
+    return {"has_prev": True, "items": items, "new_count": len(items)}
+
+
+def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
         return {"live": True, "updated": _baghdad(now), "error": report["error"]}
@@ -347,7 +407,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "quick_call": {"stance": stance, "available": report.get("tilt") is not None, "recommendation": rec, "confidence": (report.get("confidence") or {}).get("label", "")},
         "confidence": ({"score": round((report["confidence"]["points"]) / 10), "label": report["confidence"]["label"],
                         "why": report["confidence"].get("why", [])} if report.get("confidence") else None),
-        "intensity": ({"score": report["intensity"], "label": (vol["note"] if vol else "")} if report.get("intensity") is not None else
+        "intensity": ({"score": report["intensity"], "word": _intensity_word(report["intensity"]), "label": (vol["note"] if vol else "")} if report.get("intensity") is not None else
                       ({"score": vol["score"], "label": vol["note"]} if vol else None)),
         "drivers": [{k: d[k] for k in ("key", "name", "val", "tone", "arrow", "last", "text")} for d in drv],
         "regime": report.get("regime"), "liquidity": report.get("liquidity"), "bias": report.get("bias"),
@@ -356,6 +416,8 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "auction": au, "macro": _macro(report),
         "events": upcoming, "events_next": later[:3], "events_past": past_,
         "top3": _top3(report, pulse, past_),
+        "changes": _changes(_top3(report, pulse, past_), prev_titles),
+        "pulse8": _pulse8(report),
         "next_event": next((u for u in upcoming if u.get("high")), None) or (upcoming[0] if upcoming else None) or (later[0] if later else None),
         "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
         "geo": [{"title": t["title"], "severity": t["severity"], "sources": t["sources"],
@@ -376,11 +438,19 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
     return view
 
 
-def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None):
+def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None):
     """يكتب docs/data.json. فشل ناعم: لا يوقف التقرير."""
     d = docs_dir or DOCS_DIR
     os.makedirs(d, exist_ok=True)
-    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health, week_news)
+    prev_titles = None
+    try:
+        with open(os.path.join(d, "data.json"), encoding="utf-8") as f:
+            pv = json.load(f)
+        if pv.get("top3") is not None:
+            prev_titles = {t.get("title") for t in pv["top3"]}
+    except Exception:  # noqa: BLE001
+        prev_titles = None
+    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health, week_news, prev_titles)
     with open(os.path.join(d, "data.json"), "w", encoding="utf-8") as f:
         json.dump(view, f, ensure_ascii=False, indent=1, default=str)
     return view

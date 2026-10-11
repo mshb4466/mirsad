@@ -97,7 +97,7 @@ def confirm(b, drivers):
     bt = {"support": "bull", "pressure": "bear", "neutral": "flat"}[b["key"]]
     if bt == "flat" or mt == "flat":
         k, l = "mixed", "غير حاسم"
-        w = "الانحياز محايد" if bt == "flat" else "حركة الأسواق مختلطة"
+        w = "الانحياز مختلط" if bt == "flat" else "حركة الأسواق مختلطة"
     elif bt == mt:
         k, l, w = "yes", "الأسواق تؤكد", "حركة الدولار والعوائد والنفط وغيرها تسير في اتجاه الانحياز نفسه"
     else:
@@ -127,7 +127,7 @@ def compute(macro_view, prices, fred, regime, drivers=None):
     elif score <= -LABEL_T:
         label, arrow, key = "ضاغط", "▼", "pressure"
     else:
-        label, arrow, key = "محايد", "◆", "neutral"
+        label, arrow, key = "مختلط", "◆", "neutral"
     conf = "مرتفعة" if cov >= 0.8 and agree >= 0.75 else "متوسطة" if cov >= 0.6 and agree >= 0.55 else "منخفضة"
     comps = []
     for k in sorted(sig, key=lambda k: abs(W[k][0] * sig[k][0]), reverse=True):

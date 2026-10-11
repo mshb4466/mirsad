@@ -350,7 +350,7 @@
   .xp { background: var(--card-2); border-inline-start: 4px solid var(--brand); border-radius: 12px; padding: 12px 14px; font-size: 16px; line-height: 1.8; } .xp b { display: block; font-size: 17px; margin-bottom: 2px; } .xp ul { margin: 6px 0 0; padding-inline-start: 20px; } .xp small { color: var(--muted); display: block; margin-top: 6px; font-size: 14px; }
   .src { margin: 0; font-size: 13.5px; color: var(--muted); }
   .t3 { width: 100%; text-align: start; font-family: inherit; color: inherit; background: var(--card-2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin-bottom: 8px; display: block; cursor: pointer; font-size: 17px; line-height: 1.6; }
-  .t3 .h { display: flex; gap: 10px; align-items: flex-start; font-weight: 700; } .t3 .ar { font-size: 20px; min-width: 24px; text-align: center; } .t3 .w { display: none; margin-top: 8px; font-size: 16px; font-weight: 400; color: var(--muted); } .t3[aria-expanded="true"] .w { display: block; }
+  .t3 .h { display: flex; gap: 10px; align-items: flex-start; font-weight: 700; } .t3 .ar { font-size: 20px; min-width: 24px; text-align: center; } .t3 .w { display: block; margin-top: 8px; font-size: 16px; font-weight: 400; color: var(--muted); } 
   .t3.bull .ar { color: var(--ok); } .t3.bear .ar { color: var(--hi); } .t3.flat .ar { color: var(--neutral); }
   #nextEv .nm { font-size: 18px; font-weight: 800; } #nextEv .mt { font-size: 15.5px; color: var(--muted); margin-top: 2px; } #nextEv .ex { font-size: 16px; margin-top: 6px; display: none; } #nextEv.open .ex { display: block; }
   #nextEv { cursor: pointer; }
@@ -360,6 +360,22 @@
   .unavail { color: var(--muted); font-weight: 700; }
   @media (max-width: 360px) { .sbias .bw { font-size: 28px; } .sm .num { font-size: 24px; } .trio, .srow { gap: 8px; } }
   .chip.soon { display: none; }
+
+  .sbias .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; } .tag { border: 1px solid var(--line); border-radius: 99px; padding: 2px 12px; font-size: 16px; background: var(--card); } .tag b { font-weight: 800; }
+  .sbias .bs { font-size: 17px; color: var(--fg); line-height: 1.7; margin-top: 4px; }
+  .trio3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; } .trio3 .chipb { text-align: center; align-items: center; padding: 10px 6px; min-height: 92px; } .trio3 .chipb b { font-size: 18px; line-height: 1.4; } .trio3 .num { font-size: 24px !important; } .trio3 .rbar { width: 100%; margin-top: 4px; } .trio3 i { font-style: normal; font-size: 14px; color: var(--muted); }
+  .pl8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; } .pc8 { background: var(--card-2); border-radius: 12px; padding: 8px 4px; text-align: center; line-height: 1.5; } .pc8 b { display: block; font-size: 17px; } .pc8 .v { font-size: 16px; font-weight: 700; direction: ltr; unicode-bidi: isolate; } .pc8 small { display: block; font-size: 14px; color: var(--muted); } .pc8.bull .v { color: var(--ok); } .pc8.bear .v { color: var(--hi); } .pc8.na .v { color: var(--muted); }
+  .lnk { background: none; border: 0; color: var(--brand); font: 700 17px var(--font-body); padding: 10px 0 0; cursor: pointer; }
+  .sec { display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: 0; border-bottom: 1px solid var(--line); font: 600 17px var(--font-body); color: var(--fg); padding: 12px 0; min-height: 50px; cursor: pointer; text-align: start; } .sec:last-child { border: 0; }
+  #backHome { position: sticky; top: 6px; z-index: 5; align-self: flex-start; font-size: 16px; padding: 8px 16px; }
+  @media (max-width: 360px) { .pl8 { grid-template-columns: repeat(2, 1fr); } .trio3 .chipb b { font-size: 16px; } }
+
+  /* ===== النموذج A (Minimal) ===== */
+  .sbias { align-items: center; text-align: center; padding: 22px 16px; } .sbias .bv { justify-content: center; } .sbias .barrow { font-size: 58px; } .sbias .bw { font-size: 46px; }
+  .sbias .tags { justify-content: center; gap: 0; } .tag { border: 0; background: none; padding: 0; font-size: 17px; color: var(--muted); } .tag + .tag::before { content: " · "; white-space: pre; } .tag b { color: var(--fg); }
+  .sbias .bs { font-size: 17px; }
+  #secCard summary { font-size: 18px; font-weight: 800; cursor: pointer; min-height: 48px; display: flex; align-items: center; } #secCard .sec { font-size: 17px; }
+  .t3 { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; padding: 10px 0; margin: 0; } .t3:last-child { border-bottom: 0; }
 </style>
 
 <dialog id="aboutDlg"><div id="aboutBody"></div><button type="button" class="btn-ghost" id="aboutClose">إغلاق</button></dialog>
@@ -382,6 +398,7 @@
     <button type="button" role="tab" data-tab="settings" aria-selected="false"><i>⚙️</i><span>الإعدادات</span></button>
   </div>
 
+  <button type="button" class="chip lang" id="backHome" hidden>← الرئيسية</button>
   <div id="output" hidden>
 
    <div class="tab" id="tab-today">
@@ -394,42 +411,45 @@
       <button type="button" class="sbias" id="sBias" aria-expanded="false">
         <span class="k">الانحياز الماكروي لـ ES</span>
         <span class="bv"><span class="barrow" id="sBiasArrow">◆</span><span class="bw" id="sBiasWord">غير متاح</span></span>
+        <span class="tags"><span class="tag" id="sConf">الثقة: <b id="sConfWord">—</b></span><span class="tag" id="sInt">الحدة: <b id="sIntWord">—</b></span></span>
+        <span class="bs" id="sBiasWhy"></span>
       </button>
-      <div class="trio">
-        <button type="button" class="sm" id="sConf" aria-expanded="false"><span class="k">الثقة</span><span class="mv"><b class="num" id="sConfNum">—</b><i id="sConfWord">غير متاح</i></span><span class="mb" id="sConfBar"></span></button>
-        <button type="button" class="sm" id="sInt" aria-expanded="false"><span class="k">الحدة</span><span class="mv"><b class="num" id="sIntNum">—</b><i id="sIntWord">غير متاح</i></span><span class="mb" id="sIntBar"></span></button>
-      </div>
-      <button type="button" class="srisk" id="sRisk" aria-expanded="false">
-        <span class="k">مقياس المخاطر</span>
-        <span class="rv"><b class="num" id="sRiskNum">—</b><i id="sRiskWord">غير متاح</i></span>
-        <span class="rbar" id="sRiskBar"><u></u></span>
-      </button>
-      <div class="srow">
+      <div class="trio3">
+        <button type="button" class="chipb" id="sRisk" aria-expanded="false"><span class="k">المخاطر</span><b class="num" id="sRiskNum">—</b><span class="rbar" id="sRiskBar"><u></u></span><i id="sRiskWord"></i></button>
         <button type="button" class="chipb" id="sRegime" aria-expanded="false"><span class="k">النظام</span><b id="sRegimeW">غير متاح</b></button>
-        <button type="button" class="chipb" id="sConfirm" aria-expanded="false"><span class="k">تأكيد الأسواق</span><b id="sConfirmW">غير متاح</b></button>
+        <button type="button" class="chipb" id="sConfirm" aria-expanded="false"><span class="k">الأسواق</span><b id="sConfirmW">غير متاح</b></button>
       </div>
       <div class="xp" id="sXp" hidden></div>
       <p class="src" id="sSrc"></p>
     </section>
 
-    <section class="card" id="top3Card" hidden>
-      <h2>أهم التطورات الآن</h2>
+    <section class="card" id="top3Card">
+      <h2>ماذا تغيّر منذ الفحص السابق؟</h2>
       <div id="top3List"></div>
     </section>
 
-    <section class="card" id="moveCard" hidden>
+
+    <section class="card" id="nextCard">
+      <h2>الحدث الاقتصادي القادم</h2>
+      <div id="nextEv"></div>
+      <button type="button" class="lnk" id="allEvBtn">كل الأحداث ←</button>
+    </section>
+
+    <section class="card" id="secCard"><details id="secDet"><summary>كل التفاصيل ←</summary><div id="secList"></div></details></section>
+
+    <div class="folds">
+      <h2 class="fh">تفاصيل إضافية</h2>
+      <details class="fd" id="fdPulse"><summary>نبض الأسواق (8 رموز)</summary><section class="card" id="pulse8Card">
+      <h2>نبض الأسواق</h2>
+      <div class="pl8" id="pulse8"></div>
+      <p class="src" id="pulse8Note"></p>
+    </section></details>
+      <details class="fd" id="fdMove"><summary>حركة السوق (تنبيهات لحظية)</summary><section class="card" id="moveCard" hidden>
       <h2>حركة السوق</h2>
       <div class="psum" id="moveSum"></div>
       <div class="dchips" id="moveChips"></div>
       <button type="button" class="chip lang" id="moveDetails">التفاصيل ←</button>
-    </section>
-    <section class="card" id="nextCard">
-      <h2>أقرب حدث اقتصادي مهم</h2>
-      <div id="nextEv"></div>
-    </section>
-
-    <div class="folds">
-      <h2 class="fh">التفاصيل عند الطلب</h2>
+    </section></details>
       <details class="fd"><summary>مقياس المخاطر بالتفصيل</summary>
     <section class="card hero" id="hero">
       <svg class="gauge" id="gauge" viewBox="0 0 260 150" role="img" aria-label="مقياس المخاطرة"></svg>
@@ -1334,25 +1354,21 @@ function renderSummary_(data, score, lvl) {
   /* الانحياز */
   const sb = $('sBias'); sb.className = 'sbias ' + (ok ? b.key : '');
   $('sBiasArrow').textContent = ok ? b.arrow : '—'; $('sBiasWord').textContent = ok ? b.label : 'غير متاح';
-  let sub = sb.querySelector('.bs'); if (!sub) { sub = el('span', 'bs'); sb.appendChild(sub); }
-  sub.textContent = ok ? (b.why || '') : ((b && b.why) || 'لا بيانات كافية');
+  $('sBiasWhy').textContent = ok ? ('السبب: ' + (b.why || '')) : ((b && b.why) || 'لا بيانات كافية لإصدار انحياز.');
   sb.onclick = () => xp_('bias', sb, 'الانحياز الماكروي لـ ES: ' + (ok ? b.label : 'غير متاح'), ok ? [
     'اتجاه الظروف الماكروية الأوسع (الفدرالي، العوائد، الدولار، الائتمان، السيولة، النفط، النظام الاقتصادي). ليس توقعاً لاتجاه اليوم وليس إشارة دخول.',
     'الدرجة ' + b.score.toFixed(2) + ' من -1 (ضاغط) إلى +1 (داعم)، تغطية ' + Math.round(b.coverage * 100) + '%.',
     ...b.components.slice(0, 5).map(c => c.arrow + ' ' + c.name + ': ' + c.note),
     b.missing && b.missing.length ? 'غير متاح: ' + b.missing.join('، ') : '',
+    'الثقة (' + (data.confidence ? data.confidence.label : 'غير متاح') + '): مدى موثوقية التحليل الحالي من اكتمال البيانات وتناسق المصادر وفحوص السلامة. ' + ((data.confidence && data.confidence.why) || []).join('، '),
+    'الحدة (' + (data.intensity ? (data.intensity.word || '') + ' ' + clamp(data.intensity.score) + '/10' : 'غير متاح') + '): قوة تحرك العوامل الاتجاهية الآن بصرف النظر عن اتجاهها. تقدير تجريبي غير معاير.',
     'الأوزان تقديرية غير معايَرة ولم تُختبر على بيانات تاريخية.'
   ] : [(b && b.why) || 'لا توجد بيانات ماكروية كافية لإصدار انحياز. لا يُعرض رقم مخمَّن.'], 'FRED (الفائدة، الائتمان، السيولة) + Yahoo (العوائد، الدولار، النفط) · ' + upd);
-  /* الثقة */
-  const cf = data.confidence;
-  $('sConfNum').textContent = cf ? clamp(cf.score) + '/10' : '—'; $('sConfWord').textContent = cf ? (cf.label || '') : 'غير متاح';
-  $('sConf').onclick = () => xp_('conf', $('sConf'), 'الثقة: ' + (cf ? cf.label : 'غير متاح'), cf ? ['مدى موثوقية التحليل الحالي: اكتمال البيانات، وتناسق المصادر، وفحوص السلامة.'].concat(cf.why || []) : ['لا يمكن حسابها دون بيانات كافية.'], 'فحوص «صحة مرصاد» · ' + upd);
-  /* الحدة */
-  const it = data.intensity;
-  $('sIntNum').textContent = it ? clamp(it.score) + '/10' : '—'; $('sIntWord').textContent = it ? (it.label || '') : 'غير متاح';
-  $('sInt').onclick = () => xp_('int', $('sInt'), 'الحدة: ' + (it ? clamp(it.score) + '/10' : 'غير متاح'), ['قوة تحرك العوامل الاتجاهية الآن (الدولار، العوائد، النفط، VIX...) بصرف النظر عن اتجاهها. تقدير تجريبي غير معاير.'], 'Yahoo (تأخير 15–30 دقيقة) · ' + upd);
+  const cf = data.confidence, it = data.intensity;
+  $('sConfWord').textContent = cf ? (cf.label || '') : 'غير متاح';
+  $('sIntWord').textContent = it ? (it.word || '') : 'غير متاح';
   /* المخاطر */
-  $('sRiskNum').textContent = score + '/10'; $('sRiskWord').textContent = (lvl.ic || '') + ' ' + tr_(lvl.name);
+  $('sRiskNum').textContent = score + '/10'; $('sRiskWord').textContent = tr_(lvl.name);
   const bar = $('sRiskBar').firstElementChild; bar.style.width = (score * 10) + '%'; bar.style.background = 'var(' + (score <= 3 ? '--ok' : score <= 6 ? '--warn' : score <= 8 ? '--hi' : '--crit') + ')';
   $('sRisk').onclick = () => xp_('risk', $('sRisk'), 'مقياس المخاطر ' + score + '/10', ['مدى اضطراب السوق والأحداث القادمة، منفصل عن الاتجاه: قد يكون الخطر عالياً دون اتجاه واضح.', data.risk.main_reason ? ((data.risk.reason_label || 'السبب') + ': ' + data.risk.main_reason) : '', data.risk.advice || ''], 'مكوّنات المخاطر (17) · ' + upd);
   /* النظام */
@@ -1364,17 +1380,37 @@ function renderSummary_(data, score, lvl) {
   $('sConfirmW').textContent = cn ? ({ yes: '✔ ', no: '✖ ', mixed: '◆ ', na: '' }[cn.key] || '') + cn.label : 'غير متاح'; $('sConfirmW').className = cn && cn.key !== 'na' ? '' : 'unavail';
   $('sConfirm').onclick = () => xp_('cnf', $('sConfirm'), 'تأكيد الأسواق', [cn ? cn.why : 'غير متاح', 'يقارن اتجاه حركة الدولار والعوائد والنفط وغيرها الآن مع الانحياز الماكروي.'], 'Yahoo · ' + upd);
   $('sSrc').textContent = upd;
-  if (XP_OPEN) { const id = XP_OPEN; XP_OPEN = null; ({ bias: sb, conf: $('sConf'), int: $('sInt'), risk: $('sRisk'), reg: $('sRegime'), cnf: $('sConfirm') })[id].click(); }
+  if (XP_OPEN) { const id = XP_OPEN; XP_OPEN = null; ({ bias: sb, risk: $('sRisk'), reg: $('sRegime'), cnf: $('sConfirm') })[id].click(); }
 
-  /* أهم ثلاثة تطورات */
-  const t3 = data.top3 || [], tc = $('top3Card'), tl = $('top3List'); tl.innerHTML = ''; tc.hidden = !t3.length;
-  t3.forEach(x => {
-    const r = el('button', 't3 ' + (x.tone || 'flat')); r.type = 'button'; r.setAttribute('aria-expanded', 'false');
-    const h = el('div', 'h'); h.appendChild(el('span', 'ar', x.arrow || '◆')); h.appendChild(el('span', '', x.title)); r.appendChild(h);
-    r.appendChild(el('div', 'w', (x.why || '') + (x.src ? ' — المصدر: ' + x.src : '')));
-    r.onclick = () => r.setAttribute('aria-expanded', String(r.getAttribute('aria-expanded') !== 'true'));
-    tl.appendChild(r);
+  /* ماذا تغيّر منذ الفحص السابق */
+  const ch = data.changes || { has_prev: false, items: data.top3 || [] }, tl = $('top3List'); tl.innerHTML = '';
+  const chi = ch.items || [];
+  if (ch.has_prev && !chi.length) tl.appendChild(el('div', 'unavail', 'لا يوجد تغير مهم منذ الفحص السابق'));
+  else {
+    if (!ch.has_prev && chi.length) tl.appendChild(el('p', 'src', 'لا توجد لقطة سابقة للمقارنة، فهذه أبرز العوامل المؤثرة الآن.'));
+    if (!chi.length) tl.appendChild(el('div', 'unavail', 'لا تطورات جوهرية متاحة الآن'));
+    chi.forEach(x => {
+      const r = el('div', 't3 ' + (x.tone || 'flat'));
+      const h = el('div', 'h'); h.appendChild(el('span', 'ar', x.arrow || '◆')); h.appendChild(el('span', '', x.title)); r.appendChild(h);
+      r.appendChild(el('div', 'w', (x.why ? 'الأثر على ES: ' + x.why : '') + (x.src ? ' (المصدر: ' + x.src + ')' : '')));
+      tl.appendChild(r);
+    });
+  }
+  /* نبض الأسواق (8 رموز) */
+  const pg = $('pulse8'); pg.innerHTML = '';
+  (data.pulse8 || []).forEach(x => {
+    const c = el('div', 'pc8 ' + (x.available ? (x.tone === 'bull' ? 'bull' : x.tone === 'bear' ? 'bear' : '') : 'na'));
+    c.appendChild(el('b', '', x.sym));
+    if (!x.available) { c.appendChild(el('div', 'v', 'غير متاح')); }
+    else {
+      const sg = x.chg > 0 ? '+' : '';
+      const v = el('div', 'v', x.arrow + ' ' + sg + x.chg + (x.unit === 'bp' ? 'bp' : '%')); c.appendChild(v);
+      c.appendChild(el('small', '', ({ yes: '✔ يؤكد', no: '✖ يعارض', flat: '◆ محايد', na: '— غير متاح' })[x.confirm] || ''));
+      c.appendChild(el('small', '', x.time || ''));
+    }
+    pg.appendChild(c);
   });
+  $('pulse8Note').textContent = 'الأخضر = داعم لـ ES والأحمر = ضاغط بحسب الأثر المعتاد (ارتفاع الدولار والعوائد وVIX والنفط ضغط). الوقت = وقت آخر بيانات (Yahoo متأخر 15–30 دقيقة، 2Y من FRED يومي). «يؤكد/يعارض» مقارنة باتجاه الانحياز.';
   /* أقرب حدث */
   const ne = data.next_event, nb = $('nextEv'); nb.innerHTML = ''; nb.classList.remove('open');
   if (!ne) { nb.appendChild(el('div', 'unavail', 'لا حدث عالي التأثير قادم هذا الأسبوع (أو لم يصل التقويم)')); }
@@ -1418,7 +1454,20 @@ function renderWeek_(data) {
   const g = data.geo || [], gc = $('weekGeoCard'), gl = $('weekGeo'); gl.innerHTML = ''; gc.hidden = !g.length;
   g.forEach(x => { const b = el('div', 'wkit'); b.appendChild(el('div', 't', x.title)); b.appendChild(el('div', 'n', (x.regions || []).join('، ') + (x.sources ? ' — ' + x.sources + ' مصادر' : '') + (x.deesc ? ' — مؤشرات تهدئة' : ''))); gl.appendChild(b); });
 }
+const SECS = [['النظام الاقتصادي السائد', 'macro', 'fedCard'], ['الفيدرالي والفائدة', 'macro', 'fedCard'], ['التضخم والنمو والعمل', 'macro', 'pillars'], ['العوائد والسيولة', 'today', 'drvCard'],
+  ['الجيوسياسة والطاقة', 'week', 'weekGeoCard'], ['الأسواق المتقاطعة', 'details', 'infoCard'], ['نبض الأسواق (8 رموز)', 'today', 'pulse8Card'], ['الأخبار الاقتصادية', 'week', 'weekNewsCard'], ['الشركات الثقيلة والأرباح', 'week', 'weekEarnCard'],
+  ['سجل الأحداث والتغيرات', 'today', 'relCard'], ['صحة البيانات والمحرك', 'settings', 'healthCard']];
+function goSec(tab, id) {
+  showTab(tab);
+  const t = $(id); if (!t) return;
+  let d = t.closest('details.fd'); if (d) d.open = true;
+  setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}
+(function () { const sl = $('secList'); SECS.forEach(x => { const b = el('button', 'sec'); b.type = 'button'; b.appendChild(el('span', '', x[0])); b.appendChild(el('span', 'mut', '←')); b.onclick = () => goSec(x[1], x[2]); sl.appendChild(b); }); })();
+$('allEvBtn').addEventListener('click', () => goSec('today', 'evCard'));
+$('backHome').addEventListener('click', () => { showTab('today'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 function showTab(t) {
+  $('backHome').hidden = t === 'today';
   document.querySelectorAll('.tab').forEach(d => { d.hidden = d.id !== 'tab-' + t; });
   document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
   try { localStorage.setItem('mirsad-tab', t); } catch (e) {}

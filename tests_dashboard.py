@@ -123,6 +123,32 @@ def test_top3_priorities_and_caps():
     assert dashboard._top3({}, [], []) == []                                # لا شيء مختلق عند غياب البيانات
 
 
+def test_pulse8_and_changes():
+    v, d = run_with_docs()
+    p = {x["sym"]: x for x in v["pulse8"]}
+    assert list(p) == ["ES", "NQ", "2Y", "10Y", "DXY", "VIX", "WTI", "Gold"]
+    for x in p.values():
+        assert x["available"] is False or (x["confirm"] in ("yes", "no", "flat", "na") and x["tone"] in ("bull", "bear", "flat"))
+    assert p["Gold"].get("tone", "flat") == "flat"
+    assert v["changes"]["has_prev"] is False        # أول تشغيل: لا لقطة سابقة
+    r.run_preopen(ta.NOW, {"seen_events": [], "last_shock": None}, Box(), d)
+    v2 = json.load(open(os.path.join(d["docs_dir"], "data.json"), encoding="utf-8"))
+    assert v2["changes"]["has_prev"] is True and v2["changes"]["new_count"] == len(v2["changes"]["items"])
+
+
+def test_pulse8_confirm_logic():
+    rep = {"data": {"es": {"last": 5900, "chg1_pct": -0.5, "bar_time": "2026-10-11T15:00:00+00:00"}, "dxy": {"last": 104, "chg1_pct": 0.5, "bar_time": "2026-10-11T15:00:00+00:00"},
+                    "y10": {"last": 4.3, "chg1_pct": 0.0, "diff1": 0.06, "bar_time": "2026-10-11T15:00:00+00:00"}},
+           "bias": {"available": True, "key": "pressure"}, "fred_last": {"dgs2": {"date": "2026-10-10", "last": 4.0, "diff1": -0.05}}}
+    p = {x["sym"]: x for x in dashboard._pulse8(rep)}
+    assert p["ES"]["confirm"] == "yes" and p["DXY"]["confirm"] == "yes" and p["10Y"]["confirm"] == "yes"
+    assert p["2Y"]["confirm"] == "no"                  # العائد هبط = داعم، يعارض الانحياز الضاغط
+    assert p["NQ"]["available"] is False and p["VIX"]["available"] is False
+    assert p["ES"]["time"] == "18:00"            # 15:00 UTC = 18:00 بغداد
+    rep["bias"] = {"available": False}
+    assert dashboard._pulse8(rep)[0]["confirm"] == "na"
+
+
 if __name__ == "__main__":
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:
