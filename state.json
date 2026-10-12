@@ -281,38 +281,38 @@
       "name": "ES",
       "short": "ES",
       "w": 15,
-      "v": 0.04,
+      "v": -0.05,
       "th": 0.3,
-      "ratio": 0.15,
-      "val": "+0.04%",
+      "ratio": 0.18,
+      "val": "-0.05%",
       "thr": "±0.3%",
-      "c15": "+0.04%",
-      "c60": "+0.00%",
-      "c180": "-0.01%",
+      "c15": "-0.05%",
+      "c60": "-0.05%",
+      "c180": "-0.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.0,
-      "z": 0.0,
-      "volx": 0.6
+      "eff": 0.27,
+      "z": 0.6,
+      "volx": 0.5
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 15,
-      "v": 0.05,
+      "v": -0.04,
       "th": 0.4,
-      "ratio": 0.12,
-      "val": "+0.05%",
+      "ratio": 0.11,
+      "val": "-0.04%",
       "thr": "±0.4%",
-      "c15": "+0.05%",
-      "c60": "-0.05%",
-      "c180": "-0.02%",
+      "c15": "-0.04%",
+      "c60": "-0.06%",
+      "c180": "-0.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.19,
+      "eff": 0.29,
       "z": 0.3,
       "volx": 0.5
     },
@@ -320,19 +320,19 @@
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
-      "w": 180,
-      "v": -0.59,
-      "th": 14.0,
+      "w": 60,
+      "v": -0.33,
+      "th": 8.0,
       "ratio": 0.04,
-      "val": "-0.59%",
-      "thr": "±14%",
+      "val": "-0.33%",
+      "thr": "±8%",
       "c15": "+0.00%",
-      "c60": "-0.26%",
-      "c180": "-0.59%",
+      "c60": "-0.33%",
+      "c180": "-0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.18,
+      "eff": 0.26,
       "z": 0.3,
       "volx": null
     },
@@ -340,60 +340,60 @@
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": -0.1,
-      "th": 2.4,
-      "ratio": 0.04,
-      "val": "-0.10%",
-      "thr": "±2.4%",
-      "c15": "+0.01%",
-      "c60": "+0.03%",
-      "c180": "-0.10%",
+      "w": 15,
+      "v": 0.37,
+      "th": 0.9,
+      "ratio": 0.41,
+      "val": "+0.37%",
+      "thr": "±0.9%",
+      "c15": "+0.37%",
+      "c60": "+0.32%",
+      "c180": "+0.47%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.06,
-      "z": 0.1,
-      "volx": 0.8
+      "eff": 0.43,
+      "z": 0.7,
+      "volx": 0.9
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 60,
-      "v": 0.16,
+      "v": 0.07,
       "th": 0.65,
-      "ratio": 0.24,
-      "val": "+0.16%",
+      "ratio": 0.11,
+      "val": "+0.07%",
       "thr": "±0.65%",
-      "c15": "+0.05%",
-      "c60": "+0.16%",
+      "c15": "+0.03%",
+      "c60": "+0.07%",
       "c180": "+0.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.53,
-      "z": 0.8,
-      "volx": 0.9
+      "eff": 0.36,
+      "z": 0.4,
+      "volx": 0.3
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": 0.11,
+      "v": 0.09,
       "th": 0.5,
-      "ratio": 0.22,
-      "val": "+0.11%",
+      "ratio": 0.18,
+      "val": "+0.09%",
       "thr": "±0.5%",
-      "c15": "+0.00%",
-      "c60": "-0.02%",
-      "c180": "+0.11%",
+      "c15": "-0.02%",
+      "c60": "-0.00%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.27,
-      "z": 0.3,
+      "eff": 0.08,
+      "z": 0.1,
       "volx": null
     },
     {
@@ -403,7 +403,7 @@
       "w": 15,
       "v": 0.01,
       "th": 0.25,
-      "ratio": 0.04,
+      "ratio": 0.02,
       "val": "+0.01%",
       "thr": "±0.25%",
       "c15": "+0.01%",
@@ -412,8 +412,8 @@
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.07,
-      "z": 0.1,
+      "eff": 0.01,
+      "z": 0.0,
       "volx": null
     },
     {
@@ -480,99 +480,104 @@
       "key": "hyg",
       "name": "سندات عالية العائد HYG",
       "short": "HYG",
-      "w": 180,
-      "v": 0.14,
-      "th": 0.45,
-      "ratio": 0.3,
-      "val": "+0.14%",
-      "thr": "±0.45%",
-      "c15": "+0.01%",
-      "c60": "+0.05%",
-      "c180": "+0.14%",
+      "w": 15,
+      "v": -0.08,
+      "th": 0.15,
+      "ratio": 0.56,
+      "val": "-0.08%",
+      "thr": "±0.15%",
+      "c15": "-0.08%",
+      "c60": "-0.09%",
+      "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.57,
-      "z": 0.9,
-      "volx": 0.7
+      "tone": "flat",
+      "eff": 0.64,
+      "z": 1.6,
+      "volx": 3.3
     },
     {
       "key": "kre",
       "name": "البنوك الإقليمية KRE",
       "short": "KRE",
-      "w": 180,
-      "v": 0.46,
-      "th": 1.9,
-      "ratio": 0.24,
-      "val": "+0.46%",
-      "thr": "±1.9%",
-      "c15": "+0.06%",
-      "c60": "+0.02%",
-      "c180": "+0.46%",
+      "w": 15,
+      "v": -0.14,
+      "th": 0.7,
+      "ratio": 0.19,
+      "val": "-0.14%",
+      "thr": "±0.7%",
+      "c15": "-0.14%",
+      "c60": "-0.18%",
+      "c180": "+0.31%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.04,
-      "z": 0.1,
-      "volx": 0.7
+      "tone": "flat",
+      "eff": 0.32,
+      "z": 0.6,
+      "volx": 0.5
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-12T17:57:15.306759+00:00",
-        "ok_at": "2026-10-12T17:57:15.306759+00:00"
+        "last_try": "2026-10-12T18:18:09.397865+00:00",
+        "ok_at": "2026-10-12T18:18:09.397865+00:00"
       },
       "fred": {
-        "last_try": "2026-10-12T17:57:15.306759+00:00",
-        "ok_at": "2026-10-12T17:57:15.306759+00:00"
+        "last_try": "2026-10-12T18:18:09.397865+00:00",
+        "ok_at": "2026-10-12T18:18:09.397865+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-12T17:57:15.306759+00:00",
-        "ok_at": "2026-10-12T17:57:15.306759+00:00"
+        "last_try": "2026-10-12T18:18:09.397865+00:00",
+        "ok_at": "2026-10-12T18:18:09.397865+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-12T17:57:15.306759+00:00",
-        "ok_at": "2026-10-12T17:57:15.306759+00:00"
+        "last_try": "2026-10-12T18:18:09.397865+00:00",
+        "ok_at": "2026-10-12T18:18:09.397865+00:00"
       },
       "oil": {
-        "last_try": "2026-10-12T17:57:15.306759+00:00",
-        "ok_at": "2026-10-12T17:57:15.306759+00:00"
+        "last_try": "2026-10-12T18:18:09.397865+00:00",
+        "ok_at": "2026-10-12T18:18:09.397865+00:00"
       },
       "news": {
-        "last_try": "2026-10-12T17:57:15.306759+00:00",
-        "ok_at": "2026-10-12T17:57:15.306759+00:00"
+        "last_try": "2026-10-12T18:18:09.397865+00:00",
+        "ok_at": "2026-10-12T18:18:09.397865+00:00"
       },
       "cot": {
-        "last_try": "2026-10-12T17:57:15.306759+00:00",
-        "ok_at": "2026-10-12T17:57:15.306759+00:00"
+        "last_try": "2026-10-12T18:18:09.397865+00:00",
+        "ok_at": "2026-10-12T18:18:09.397865+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-12T17:57:15.306759+00:00",
-        "ok_at": "2026-10-12T17:57:15.306759+00:00"
+        "last_try": "2026-10-12T18:18:09.397865+00:00",
+        "ok_at": "2026-10-12T18:18:09.397865+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-12T17:57:15.306759+00:00"
+      "at": "2026-10-12T18:18:09.397865+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-12T17:12:53.906357+00:00",
+    "at": "2026-10-12T18:18:09.397865+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-12T17:08:43+00:00",
+            "title": "Higher rates could be needed to avoid 'inflationary mindset' taking hold, says Fed's Hammack",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-12T17:01:00+00:00",
+            "title": "Cleveland Fed’s Hammack Says Interest Rates Need to Be Higher",
+            "src": "Barron's"
+          },
+          {
             "t": "2026-10-12T16:51:43+00:00",
             "title": "Fed's Hammack backs restrictive policy, says better if it comes 'relatively quickly'",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-12T16:43:00+00:00",
-            "title": "Cleveland Fed’s Hammack Says Interest Rates Need to Be Higher",
-            "src": "Barron's"
           },
           {
             "t": "2026-10-12T14:34:43+00:00",
@@ -583,11 +588,6 @@
             "t": "2026-10-12T13:00:00+00:00",
             "title": "Renton High boys basketball coach on leave after investigation",
             "src": "The Seattle Times"
-          },
-          {
-            "t": "2026-10-12T09:30:45+00:00",
-            "title": "Fed officials are warning of more pain. Many Americans are already feeling it",
-            "src": "CNN"
           }
         ]
       },
@@ -615,15 +615,20 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-12T13:04:00+00:00",
-            "title": "Russia Pounds Ukrainian Energy Despite Trump’s Ceasefire Announcement",
-            "src": "WSJ"
+            "t": "2026-10-12T11:35:21+00:00",
+            "title": "Stock futures mixed ahead of bank earnings, CPI data",
+            "src": "Quartz"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-10-12T16:50:14+00:00",
+            "title": "Starbucks Denies A Chipotle Bid As Tesla Faces NHTSA Probe",
+            "src": "Finimize"
+          },
           {
             "t": "2026-10-12T14:59:00+00:00",
             "title": "Tesla's robotaxis face new regulator scrutiny over school zone-speeding claim",
@@ -641,13 +646,8 @@
           },
           {
             "t": "2026-10-12T13:31:07+00:00",
-            "title": "Tesla Robotaxis Accused of Speeding in School Zones As US Weighs New Safety Probe",
+            "title": "Tesla Robotaxis Face New Speeding Safety Probe - Tesla (NASDAQ:TSLA)",
             "src": "Benzinga"
-          },
-          {
-            "t": "2026-10-12T13:24:00+00:00",
-            "title": "NHTSA weighs probe into claims Tesla Robotaxis speed in school zones",
-            "src": "Electrek"
           }
         ]
       },
@@ -655,9 +655,14 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-12T17:08:43+00:00",
-            "title": "Fed's Hammack says higher rates could be needed as risks of 'inflationary mindset' forming grow",
-            "src": "CNBC"
+            "t": "2026-10-12T18:05:55+00:00",
+            "title": "CPI Forecasts Show Moderated Inflation in September, Keeping the Fed on Hold",
+            "src": "Morningstar"
+          },
+          {
+            "t": "2026-10-12T18:05:45+00:00",
+            "title": "India’s inflation accelerates as food and energy rise",
+            "src": "The Real Economy Blog"
           },
           {
             "t": "2026-10-12T15:37:26+00:00",
@@ -670,20 +675,20 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-12T13:03:00+00:00",
-            "title": "Higher Inflation on Tap as Oil Prices Rise Amid Geopolitical Turmoil | National News | U.S. News",
-            "src": "U.S. News & World Report"
-          },
-          {
-            "t": "2026-10-12T12:40:00+00:00",
-            "title": "What To Expect From Wednesday’s Report On Inflation",
-            "src": "Investopedia"
+            "t": "2026-10-12T14:03:00+00:00",
+            "title": "‘BYD effect’: electric vehicle boom becomes unexpected tool to combat inflation",
+            "src": "The Guardian"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-12T16:00:00+00:00",
+            "title": "Without Trump’s tariffs, goods prices would have dipped, say New York Fed economists. Here’s the real cost to Americans",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-10-12T13:31:31+00:00",
             "title": "President Trump says tariffs funded relief for farmers at Clarksville rally",
@@ -698,17 +703,22 @@
             "t": "2026-10-12T10:13:54+00:00",
             "title": "Republican US Senate candidate Mark Baisley on Trump, tariffs and Space Command",
             "src": "Colorado Public Radio"
-          },
-          {
-            "t": "2026-10-12T09:07:14+00:00",
-            "title": "Treasury Yields Are Giving Investors a Safer Exit From the AI Trade",
-            "src": "StoneX"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-10-12T17:17:00+00:00",
+            "title": "Ukraine war briefing: Russia attacks multiple power plants after Trump energy ceasefire claim",
+            "src": "The Guardian"
+          },
+          {
+            "t": "2026-10-12T17:09:19+00:00",
+            "title": "Trump calls for Zelenskyy to be replaced amid Russia-Ukraine ceasefire dispute",
+            "src": "Fox Business"
+          },
           {
             "t": "2026-10-12T16:43:28+00:00",
             "title": "China says sanctions on Latin American ministers over Taiwan ties 'a warning to others'",
@@ -718,16 +728,6 @@
             "t": "2026-10-12T16:29:00+00:00",
             "title": "Bipartisan lawmakers criticize Trump's diesel deal with Russia",
             "src": "Spectrum News"
-          },
-          {
-            "t": "2026-10-12T16:07:13+00:00",
-            "title": "Zelenskyy says Russia strikes energy facilities despite Trump claim of an energy ceasefire",
-            "src": "PBS"
-          },
-          {
-            "t": "2026-10-12T15:35:22+00:00",
-            "title": "Kyiv says Russia hits energy targets despite Trump ceasefire announcement",
-            "src": "Reuters"
           }
         ]
       }
@@ -735,7 +735,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-12T17:57:15.306759+00:00",
+    "at": "2026-10-12T18:18:09.397865+00:00",
     "events": [
       {
         "title": "Bank Holiday",
