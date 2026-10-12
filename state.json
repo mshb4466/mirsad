@@ -277,103 +277,23 @@
   ],
   "pulse": [
     {
-      "key": "es",
-      "name": "ES",
-      "short": "ES",
-      "w": 180,
-      "v": 0.05,
-      "th": 0.8,
-      "ratio": 0.06,
-      "val": "+0.05%",
-      "thr": "±0.8%",
-      "c15": "+0.01%",
-      "c60": "+0.00%",
-      "c180": "+0.05%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.04,
-      "z": 0.0,
-      "volx": 0.2
-    },
-    {
-      "key": "nq",
-      "name": "ناسداك",
-      "short": "NQ",
-      "w": 60,
-      "v": -0.06,
-      "th": 0.6,
-      "ratio": 0.1,
-      "val": "-0.06%",
-      "thr": "±0.6%",
-      "c15": "-0.00%",
-      "c60": "-0.06%",
-      "c180": "-0.00%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.3,
-      "z": 0.4,
-      "volx": 0.2
-    },
-    {
-      "key": "oil",
-      "name": "النفط",
-      "short": "نفط",
-      "w": 180,
-      "v": -0.76,
-      "th": 2.4,
-      "ratio": 0.32,
-      "val": "-0.76%",
-      "thr": "±2.4%",
-      "c15": "-0.01%",
-      "c60": "-0.21%",
-      "c180": "-0.76%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.36,
-      "z": 0.4,
-      "volx": 0.1
-    },
-    {
-      "key": "gold",
-      "name": "الذهب",
-      "short": "ذهب",
-      "w": 60,
-      "v": 0.06,
-      "th": 0.65,
-      "ratio": 0.09,
-      "val": "+0.06%",
-      "thr": "±0.65%",
-      "c15": "+0.03%",
-      "c60": "+0.06%",
-      "c180": "+0.05%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.39,
-      "z": 0.3,
-      "volx": 0.2
-    },
-    {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 60,
-      "v": -0.02,
+      "v": -0.01,
       "th": 0.28,
-      "ratio": 0.07,
-      "val": "-0.02%",
+      "ratio": 0.05,
+      "val": "-0.01%",
       "thr": "±0.28%",
       "c15": "-0.00%",
-      "c60": "-0.02%",
-      "c180": "+0.00%",
+      "c60": "-0.01%",
+      "c180": "-0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.42,
-      "z": 0.4,
+      "eff": 0.29,
+      "z": 0.3,
       "volx": null
     },
     {
@@ -381,93 +301,93 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": -0.04,
+      "v": -0.07,
       "th": 0.7,
-      "ratio": 0.06,
-      "val": "-0.04%",
+      "ratio": 0.1,
+      "val": "-0.07%",
       "thr": "±0.7%",
-      "c15": "-0.00%",
-      "c60": "-0.02%",
-      "c180": "-0.04%",
+      "c15": "+0.01%",
+      "c60": "-0.01%",
+      "c180": "-0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.16,
-      "z": 0.4,
+      "eff": 0.07,
+      "z": 0.2,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-12T21:31:19.464767+00:00",
-        "ok_at": "2026-10-12T21:31:19.464767+00:00"
+        "last_try": "2026-10-12T21:56:41.716195+00:00",
+        "ok_at": "2026-10-12T21:56:41.716195+00:00"
       },
       "fred": {
-        "last_try": "2026-10-12T21:31:19.464767+00:00",
-        "ok_at": "2026-10-12T21:31:19.464767+00:00"
+        "last_try": "2026-10-12T21:56:41.716195+00:00",
+        "ok_at": "2026-10-12T21:56:41.716195+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-12T21:31:19.464767+00:00",
-        "ok_at": "2026-10-12T21:31:19.464767+00:00"
+        "last_try": "2026-10-12T21:56:41.716195+00:00",
+        "ok_at": "2026-10-12T21:56:41.716195+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-12T21:31:19.464767+00:00",
-        "ok_at": "2026-10-12T21:31:19.464767+00:00"
+        "last_try": "2026-10-12T21:56:41.716195+00:00",
+        "ok_at": "2026-10-12T21:56:41.716195+00:00"
       },
       "oil": {
-        "last_try": "2026-10-12T21:31:19.464767+00:00",
-        "ok_at": "2026-10-12T21:31:19.464767+00:00"
+        "last_try": "2026-10-12T21:56:41.716195+00:00",
+        "ok_at": "2026-10-12T21:56:41.716195+00:00"
       },
       "news": {
-        "last_try": "2026-10-12T21:31:19.464767+00:00",
-        "ok_at": "2026-10-12T21:31:19.464767+00:00"
+        "last_try": "2026-10-12T21:56:41.716195+00:00",
+        "ok_at": "2026-10-12T21:56:41.716195+00:00"
       },
       "cot": {
-        "last_try": "2026-10-12T21:31:19.464767+00:00",
-        "ok_at": "2026-10-12T21:31:19.464767+00:00"
+        "last_try": "2026-10-12T21:56:41.716195+00:00",
+        "ok_at": "2026-10-12T21:56:41.716195+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-12T21:31:19.464767+00:00",
-        "ok_at": "2026-10-12T21:31:19.464767+00:00"
+        "last_try": "2026-10-12T21:56:41.716195+00:00",
+        "ok_at": "2026-10-12T21:56:41.716195+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-12T21:31:19.464767+00:00"
+      "at": "2026-10-12T21:56:41.716195+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-12T20:47:09.259346+00:00",
+    "at": "2026-10-12T21:56:41.716195+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-12T21:37:43+00:00",
+            "title": "Fed's Hammack: Hope to cool demand, and inflation, without job market pain",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-12T20:54:20+00:00",
+            "title": "Fed's Hammack backs restrictive policy, says better if it comes 'relatively quickly'",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-12T20:45:33+00:00",
+            "title": "Trimming the Sails: Communicating My Reaction Function",
+            "src": "Federal Reserve Bank of Cleveland"
+          },
+          {
             "t": "2026-10-12T20:21:54+00:00",
             "title": "Rashaad Powell, Renton High boys basketball coach and administrator, on leave after investigation",
             "src": "The Seattle Times"
           },
           {
-            "t": "2026-10-12T18:19:38+00:00",
-            "title": "Fed's Hammack backs restrictive policy, says better if it comes 'relatively quickly'",
-            "src": "Reuters"
-          },
-          {
             "t": "2026-10-12T17:08:43+00:00",
             "title": "Higher rates could be needed to avoid 'inflationary mindset' taking hold, says Fed's Hammack",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-10-12T17:01:00+00:00",
-            "title": "Cleveland Fed’s Hammack Says Interest Rates Need to Be Higher",
-            "src": "Barron's"
-          },
-          {
-            "t": "2026-10-12T16:50:00+00:00",
-            "title": "Fed’s Hammack Says Smaller, Frequent Rate Adjustments Preferable",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -475,28 +395,28 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-12T21:01:31+00:00",
+            "title": "OpenAI Makes Progress in Preventing AI-Driven ChatGPT Delusions",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-12T20:38:15+00:00",
+            "title": "Nasdaq falls ahead of earnings, economic data while oil rallies",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-10-12T20:10:00+00:00",
             "title": "Meta Says New AI Model Is State-of-the-Art, Will Make Muse Agent Smarter",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-12T18:48:14+00:00",
-            "title": "US stocks hover near their latest record in mixed trading on Wall Street - Boston News, Weather, Sports",
-            "src": "WHDH"
+            "t": "2026-10-12T19:25:23+00:00",
+            "title": "The Silent Electronic Battleground Shaping the Future of Warfare",
+            "src": "WSJ"
           },
           {
             "t": "2026-10-12T18:43:00+00:00",
             "title": "S&P 500, Nasdaq Slip as Oil Rises on Russia Strikes in Ukraine",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-12T18:40:40+00:00",
-            "title": "Wall Street mixed as oil prices surge, investors await earnings, economic data",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-12T18:31:00+00:00",
-            "title": "Iran-Backed Militants Are Tightening the Screws on Saudi Arabia’s Crown Prince",
             "src": "WSJ"
           }
         ]
@@ -510,14 +430,14 @@
             "src": "Finimize"
           },
           {
-            "t": "2026-10-12T15:05:21+00:00",
-            "title": "U.S. Markets Steady Ahead of Bank Earnings; Meta Platforms (META) Shares Rise 3.3%",
-            "src": "GuruFocus"
-          },
-          {
             "t": "2026-10-12T14:49:00+00:00",
             "title": "Tesla Cybercabs Face Regulatory Probe For Speeding In School Zones",
             "src": "Investor's Business Daily"
+          },
+          {
+            "t": "2026-10-12T14:29:55+00:00",
+            "title": "NVIDIA Corporation (NVDA) stock price, news, quote and history",
+            "src": "Yahoo Finance Singapore"
           },
           {
             "t": "2026-10-12T13:44:21+00:00",
@@ -540,6 +460,11 @@
             "src": "CBS News"
           },
           {
+            "t": "2026-10-12T20:20:00+00:00",
+            "title": "MLB payrolls 2026: Dodgers spend more than other three LCS teams combined",
+            "src": "USA Today"
+          },
+          {
             "t": "2026-10-12T20:01:00+00:00",
             "title": "‘BYD effect’: electric vehicle boom becomes unexpected tool to combat inflation",
             "src": "The Guardian"
@@ -553,11 +478,6 @@
             "t": "2026-10-12T18:05:55+00:00",
             "title": "CPI Forecasts Show Moderated Inflation in September, Keeping the Fed on Hold",
             "src": "Morningstar"
-          },
-          {
-            "t": "2026-10-12T18:05:45+00:00",
-            "title": "India’s inflation accelerates as food and energy rise",
-            "src": "The Real Economy Blog"
           }
         ]
       },
@@ -570,9 +490,9 @@
             "src": "WSJ"
           },
           {
-            "t": "2026-10-12T16:35:01+00:00",
+            "t": "2026-10-12T16:35:27+00:00",
             "title": "Republicans face midterm backlash from factory workers squeezed out of jobs by Trump’s tariffs",
-            "src": "Fort Bragg Advocate-News"
+            "src": "The Press Democrat"
           },
           {
             "t": "2026-10-12T16:00:00+00:00",
@@ -590,6 +510,16 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-10-12T21:43:48+00:00",
+            "title": "Trump announced a partial Russia-Ukraine ceasefire. Did either country know about it?",
+            "src": "NPR"
+          },
+          {
+            "t": "2026-10-12T19:44:00+00:00",
+            "title": "Oil Futures Extend Gains on Persistent Supply Concerns",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-10-12T19:15:00+00:00",
             "title": "Energy prices rise after Trump’s ‘energy ceasefire’ fails to move Russia or Ukraine",
             "src": "NBC News"
@@ -598,16 +528,6 @@
             "t": "2026-10-12T18:12:20+00:00",
             "title": "Kremlin relishes in U.S.-Russia diesel deal and Trump's criticism of Zelenskyy",
             "src": "PBS"
-          },
-          {
-            "t": "2026-10-12T17:17:00+00:00",
-            "title": "Ukraine war briefing: Russia attacks multiple power plants after Trump energy ceasefire claim",
-            "src": "The Guardian"
-          },
-          {
-            "t": "2026-10-12T17:09:19+00:00",
-            "title": "Trump calls for Zelenskyy to be replaced amid Russia-Ukraine ceasefire dispute",
-            "src": "Fox Business"
           }
         ]
       }
@@ -615,7 +535,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-12T21:31:19.464767+00:00",
+    "at": "2026-10-12T21:56:41.716195+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -661,7 +581,7 @@
         "title": "Existing Home Sales",
         "impact": "Low",
         "time": "2026-10-13T14:00:00+00:00",
-        "forecast": "3.96M",
+        "forecast": "3.95M",
         "previous": "3.98M",
         "type": "OTHER"
       },
@@ -765,7 +685,7 @@
         "title": "Core Retail Sales m/m",
         "impact": "High",
         "time": "2026-10-15T12:30:00+00:00",
-        "forecast": "0.5%",
+        "forecast": "0.6%",
         "previous": "1.4%",
         "type": "OTHER"
       },
@@ -773,7 +693,7 @@
         "title": "PPI m/m",
         "impact": "High",
         "time": "2026-10-15T12:30:00+00:00",
-        "forecast": "0.5%",
+        "forecast": "0.6%",
         "previous": "0.4%",
         "type": "OTHER"
       },
@@ -789,7 +709,7 @@
         "title": "Philly Fed Manufacturing Index",
         "impact": "Medium",
         "time": "2026-10-15T12:30:00+00:00",
-        "forecast": "26.5",
+        "forecast": "28.2",
         "previous": "37.8",
         "type": "OTHER"
       },
@@ -797,7 +717,7 @@
         "title": "Unemployment Claims",
         "impact": "Medium",
         "time": "2026-10-15T12:30:00+00:00",
-        "forecast": "195K",
+        "forecast": "199K",
         "previous": "197K",
         "type": "OTHER"
       },
@@ -805,7 +725,7 @@
         "title": "Empire State Manufacturing Index",
         "impact": "Low",
         "time": "2026-10-15T12:30:00+00:00",
-        "forecast": "3.2",
+        "forecast": "12.1",
         "previous": "7.6",
         "type": "OTHER"
       },
@@ -853,7 +773,7 @@
         "title": "Import Prices m/m",
         "impact": "Low",
         "time": "2026-10-16T12:30:00+00:00",
-        "forecast": "0.6%",
+        "forecast": "0.9%",
         "previous": "0.7%",
         "type": "OTHER"
       },
@@ -877,7 +797,7 @@
         "title": "Federal Budget Balance",
         "impact": "Low",
         "time": "2026-10-16T18:00:00+00:00",
-        "forecast": "75.3B",
+        "forecast": "-34.7B",
         "previous": "-166.8B",
         "type": "OTHER"
       },
@@ -885,7 +805,7 @@
         "title": "TIC Long-Term Purchases",
         "impact": "Low",
         "time": "2026-10-16T20:00:00+00:00",
-        "forecast": "125.7B",
+        "forecast": "75.2B",
         "previous": "-27.9B",
         "type": "OTHER"
       }
