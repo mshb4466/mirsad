@@ -280,60 +280,60 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 180,
-      "v": -0.21,
-      "th": 0.8,
-      "ratio": 0.26,
-      "val": "-0.21%",
-      "thr": "±0.8%",
-      "c15": "+0.02%",
-      "c60": "-0.06%",
-      "c180": "-0.21%",
+      "w": 15,
+      "v": 0.03,
+      "th": 0.3,
+      "ratio": 0.08,
+      "val": "+0.03%",
+      "thr": "±0.3%",
+      "c15": "+0.03%",
+      "c60": "+0.02%",
+      "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.37,
-      "z": 1.1,
+      "tone": "flat",
+      "eff": 0.16,
+      "z": 0.4,
       "volx": 1.1
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 180,
-      "v": -0.31,
-      "th": 1.0,
-      "ratio": 0.31,
-      "val": "-0.31%",
-      "thr": "±1%",
-      "c15": "+0.04%",
-      "c60": "-0.08%",
-      "c180": "-0.31%",
+      "w": 15,
+      "v": 0.02,
+      "th": 0.4,
+      "ratio": 0.06,
+      "val": "+0.02%",
+      "thr": "±0.4%",
+      "c15": "+0.02%",
+      "c60": "-0.01%",
+      "c180": "-0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.21,
-      "z": 0.6,
-      "volx": 1.1
+      "tone": "flat",
+      "eff": 0.04,
+      "z": 0.1,
+      "volx": 0.7
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 15,
-      "v": -0.32,
+      "v": -0.06,
       "th": 6.0,
-      "ratio": 0.05,
-      "val": "-0.32%",
+      "ratio": 0.01,
+      "val": "-0.06%",
       "thr": "±6%",
-      "c15": "-0.32%",
-      "c60": "-0.19%",
-      "c180": "+0.39%",
+      "c15": "-0.06%",
+      "c60": "-0.06%",
+      "c180": "+0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.2,
-      "z": 0.2,
+      "eff": 0.08,
+      "z": 0.1,
       "volx": null
     },
     {
@@ -341,20 +341,20 @@
       "name": "النفط",
       "short": "نفط",
       "w": 180,
-      "v": 1.78,
+      "v": 1.09,
       "th": 2.4,
-      "ratio": 0.74,
-      "val": "+1.78%",
+      "ratio": 0.45,
+      "val": "+1.09%",
       "thr": "±2.4%",
-      "c15": "-0.06%",
-      "c60": "+0.33%",
-      "c180": "+1.78%",
+      "c15": "+0.16%",
+      "c60": "+0.34%",
+      "c180": "+1.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.29,
-      "z": 0.6,
-      "volx": 1.0
+      "eff": 0.31,
+      "z": 0.7,
+      "volx": 1.2
     },
     {
       "key": "gold",
@@ -363,37 +363,37 @@
       "w": 60,
       "v": -0.17,
       "th": 0.65,
-      "ratio": 0.26,
+      "ratio": 0.27,
       "val": "-0.17%",
       "thr": "±0.65%",
-      "c15": "-0.03%",
+      "c15": "-0.04%",
       "c60": "-0.17%",
-      "c180": "-0.13%",
+      "c180": "-0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.47,
-      "z": 0.8,
-      "volx": 0.8
+      "eff": 0.65,
+      "z": 0.9,
+      "volx": 1.1
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": 0.13,
+      "v": 0.1,
       "th": 0.5,
-      "ratio": 0.27,
-      "val": "+0.13%",
+      "ratio": 0.21,
+      "val": "+0.10%",
       "thr": "±0.5%",
-      "c15": "+0.00%",
-      "c60": "+0.06%",
-      "c180": "+0.13%",
+      "c15": "-0.01%",
+      "c60": "+0.01%",
+      "c180": "+0.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.8,
-      "z": 1.4,
+      "eff": 0.17,
+      "z": 0.3,
       "volx": null
     },
     {
@@ -401,64 +401,64 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": 0.13,
+      "v": 0.09,
       "th": 0.7,
-      "ratio": 0.19,
-      "val": "+0.13%",
+      "ratio": 0.13,
+      "val": "+0.09%",
       "thr": "±0.7%",
-      "c15": "+0.01%",
-      "c60": "+0.01%",
-      "c180": "+0.13%",
+      "c15": "+0.00%",
+      "c60": "-0.03%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.13,
-      "z": 0.1,
+      "eff": 0.46,
+      "z": 0.5,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-12T11:34:07.061767+00:00",
-        "ok_at": "2026-10-12T11:34:07.061767+00:00"
+        "last_try": "2026-10-12T12:02:04.381648+00:00",
+        "ok_at": "2026-10-12T12:02:04.381648+00:00"
       },
       "fred": {
-        "last_try": "2026-10-12T11:34:07.061767+00:00",
-        "ok_at": "2026-10-12T11:34:07.061767+00:00"
+        "last_try": "2026-10-12T12:02:04.381648+00:00",
+        "ok_at": "2026-10-12T12:02:04.381648+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-12T11:34:07.061767+00:00",
-        "ok_at": "2026-10-12T11:34:07.061767+00:00"
+        "last_try": "2026-10-12T12:02:04.381648+00:00",
+        "ok_at": "2026-10-12T12:02:04.381648+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-12T11:34:07.061767+00:00",
-        "ok_at": "2026-10-12T11:34:07.061767+00:00"
+        "last_try": "2026-10-12T12:02:04.381648+00:00",
+        "ok_at": "2026-10-12T12:02:04.381648+00:00"
       },
       "oil": {
-        "last_try": "2026-10-12T11:34:07.061767+00:00",
-        "ok_at": "2026-10-12T11:34:07.061767+00:00"
+        "last_try": "2026-10-12T12:02:04.381648+00:00",
+        "ok_at": "2026-10-12T12:02:04.381648+00:00"
       },
       "news": {
-        "last_try": "2026-10-12T11:34:07.061767+00:00",
-        "ok_at": "2026-10-12T11:34:07.061767+00:00"
+        "last_try": "2026-10-12T12:02:04.381648+00:00",
+        "ok_at": "2026-10-12T12:02:04.381648+00:00"
       },
       "cot": {
-        "last_try": "2026-10-12T11:34:07.061767+00:00",
-        "ok_at": "2026-10-12T11:34:07.061767+00:00"
+        "last_try": "2026-10-12T12:02:04.381648+00:00",
+        "ok_at": "2026-10-12T12:02:04.381648+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-12T11:34:07.061767+00:00",
-        "ok_at": "2026-10-12T11:34:07.061767+00:00"
+        "last_try": "2026-10-12T12:02:04.381648+00:00",
+        "ok_at": "2026-10-12T12:02:04.381648+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-12T11:34:07.061767+00:00"
+      "at": "2026-10-12T12:02:04.381648+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-12T10:34:30.185858+00:00",
+    "at": "2026-10-12T12:02:04.381648+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -485,9 +485,9 @@
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-10-11T17:01:08+00:00",
-            "title": "Supreme Court blocks Trump, for now, from firing Fed Board member Lisa Cook",
-            "src": "ABC7 New York"
+            "t": "2026-10-11T17:56:12+00:00",
+            "title": "The hawk Fed Chair who broke the bond market?",
+            "src": "Fortune"
           }
         ]
       },
@@ -495,29 +495,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-12T10:10:23+00:00",
-            "title": "US stock futures muted as oil stays above $100 ahead of earnings",
+            "t": "2026-10-12T11:59:21+00:00",
+            "title": "Exclusive | At Davos, Kimberly Guilfoyle Boasted of Private Jet Trips, Luxury Stays",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-12T11:35:26+00:00",
+            "title": "US stock futures steady as oil jumps to two-week high ahead of key earnings",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-12T09:01:43+00:00",
-            "title": "Wall Street's big but narrow rally: 4 in 10 S&P stocks are down this year",
-            "src": "Reuters"
+            "t": "2026-10-12T11:34:11+00:00",
+            "title": "CEO and Executive Compensation Practices in the Russell 3000 and S&P 500: 2026",
+            "src": "The Harvard Law School Forum on Corporate Governance"
           },
           {
-            "t": "2026-10-12T08:05:00+00:00",
-            "title": "Iran-Backed Militants Are Tightening the Screws on Saudi Arabia’s Crown Prince",
-            "src": "WSJ"
+            "t": "2026-10-12T11:09:08+00:00",
+            "title": "S&P 500 futures rise with big banks set to kick off earnings season",
+            "src": "CNBC"
           },
           {
-            "t": "2026-10-12T07:58:10+00:00",
-            "title": "Wall Street Bonus Bonanza; Plus, U.S. Trade Deficit Widens",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-12T05:38:13+00:00",
-            "title": "U.S. Stocks Rise as AI Momentum Builds",
-            "src": "WSJ"
+            "t": "2026-10-12T10:07:03+00:00",
+            "title": "2 S&P 500 Stocks to Own for Decades and 1 We Ignore",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -528,11 +528,6 @@
             "t": "2026-10-12T07:12:00+00:00",
             "title": "Across Latin America, Interpol probe links 161 firms to Amazon clearing, arrests 233",
             "src": "The Cool Down"
-          },
-          {
-            "t": "2026-10-12T06:03:38+00:00",
-            "title": "Tesla Q3 2026 Earnings Call: 5 Details That Matter",
-            "src": "BASENOR - Tesla Accessories"
           },
           {
             "t": "2026-10-11T21:40:00+00:00",
@@ -548,6 +543,11 @@
             "t": "2026-10-11T14:04:25+00:00",
             "title": "Prediction: Meta Platforms Stock Will Drop After Earnings, and That Could Be an Incredible Buying Opportunity",
             "src": "The Globe and Mail"
+          },
+          {
+            "t": "2026-10-11T13:40:32+00:00",
+            "title": "Nvidia Earnings Put the AI Boom Back in Focus - The Financial Exchange Show",
+            "src": "iHeart"
           }
         ]
       },
@@ -555,29 +555,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-10-12T11:51:44+00:00",
+            "title": "India Sept inflation nears RBI tolerance ceiling, boosting case for further rate hikes",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-12T11:00:58+00:00",
+            "title": "VIEW India inflation jumps to 5.54% in September, strengthening case for further rate hikes",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-12T10:36:23+00:00",
+            "title": "India’s retail inflation jumps to 5.54% in September, above estimates",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-12T10:03:32+00:00",
+            "title": "US Equity Investors to Monitor Q3 Earnings, September's Inflation Data, Crude Oil Moves This Week",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-10-12T10:00:31+00:00",
             "title": "Market Minute: As CPI stays elevated, real wages decline",
             "src": "The Real Economy Blog"
-          },
-          {
-            "t": "2026-10-12T05:18:00+00:00",
-            "title": "Indian rupee to rally on fresh RBI measures, bonds eye inflation prints",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-12T03:13:00+00:00",
-            "title": "Gold slips from one-week high as firm US dollar weighs",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-12T02:29:00+00:00",
-            "title": "Indian shares give up early gains as investors weigh RBI moves, inflation outlook",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-12T01:52:00+00:00",
-            "title": "MLB payrolls 2026: Dodgers spend more than other three LCS teams combined",
-            "src": "USA Today"
           }
         ]
       },
@@ -590,19 +590,19 @@
             "src": "Colorado Public Radio"
           },
           {
+            "t": "2026-10-12T09:07:14+00:00",
+            "title": "Treasury Yields Are Giving Investors a Safer Exit From the AI Trade",
+            "src": "StoneX"
+          },
+          {
             "t": "2026-10-12T09:00:00+00:00",
             "title": "GOP faces ire from workers who have lost jobs to tariffs",
-            "src": "The Arkansas Democrat-Gazette"
+            "src": "Northwest Arkansas Democrat-Gazette"
           },
           {
             "t": "2026-10-12T05:59:17+00:00",
             "title": "We expect Treasury yields to fall further, eventually",
             "src": "Capital Economics"
-          },
-          {
-            "t": "2026-10-12T04:24:00+00:00",
-            "title": "US Tariffs Could Give Kimberly Clark Stock And Peers More Pricing Power",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -610,24 +610,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-12T09:56:40+00:00",
-            "title": "Ukraine accuses Russia of violating Trump's energy ceasefire as EU imposes new sanctions",
-            "src": "Tacoma News Tribune"
+            "t": "2026-10-12T11:44:00+00:00",
+            "title": "Zelenskyy blindsided after Trump announces ‘energy ceasefire’ in Ukraine war | First Thing",
+            "src": "The Guardian"
           },
           {
-            "t": "2026-10-12T09:38:00+00:00",
-            "title": "Oil Tanker Rates Surge Amid Rising Attacks, Longer Voyages",
-            "src": "WSJ"
+            "t": "2026-10-12T11:38:31+00:00",
+            "title": "‘Energy ceasefire’: What’s behind Trump’s love-hate ties to Russian oil?",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-10-12T08:44:22+00:00",
-            "title": "Russia’ war against Ukraine: EU adopts 22nd package of sanctions",
-            "src": "EU NEIGHBOURS east"
+            "t": "2026-10-12T10:48:00+00:00",
+            "title": "Global travel warnings after Iran-backed Houthi militants strike Riyadh airport",
+            "src": "CNBC"
           },
           {
-            "t": "2026-10-12T08:21:00+00:00",
-            "title": "Trump claims ‘energy ceasefire,’ but Ukraine says Russia keeps striking its energy facilities",
-            "src": "NBC News"
+            "t": "2026-10-12T10:37:05+00:00",
+            "title": "Russia’s war of aggression against Ukraine: EU agrees largest-ever package of listings targeting almost 1600 individuals and entities in Russia’s military-industrial complex",
+            "src": "Consilium.europa.eu"
           }
         ]
       }
@@ -635,7 +635,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-12T11:34:07.061767+00:00",
+    "at": "2026-10-12T12:02:04.381648+00:00",
     "events": [
       {
         "title": "Bank Holiday",
