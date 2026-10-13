@@ -84,140 +84,140 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 180,
-      "v": 0.15,
-      "th": 0.8,
-      "ratio": 0.18,
-      "val": "+0.15%",
-      "thr": "±0.8%",
-      "c15": "-0.05%",
-      "c60": "+0.04%",
+      "w": 15,
+      "v": 0.07,
+      "th": 0.3,
+      "ratio": 0.22,
+      "val": "+0.07%",
+      "thr": "±0.3%",
+      "c15": "+0.07%",
+      "c60": "+0.08%",
       "c180": "+0.15%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.11,
-      "z": 0.4,
-      "volx": 0.5
+      "tone": "flat",
+      "eff": 0.29,
+      "z": 0.9,
+      "volx": 0.6
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 15,
-      "v": -0.11,
+      "v": 0.07,
       "th": 0.4,
-      "ratio": 0.28,
-      "val": "-0.11%",
+      "ratio": 0.19,
+      "val": "+0.07%",
       "thr": "±0.4%",
-      "c15": "-0.11%",
-      "c60": "-0.02%",
-      "c180": "+0.18%",
+      "c15": "+0.07%",
+      "c60": "+0.03%",
+      "c180": "-0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.04,
+      "tone": "flat",
+      "eff": 0.07,
       "z": 0.1,
-      "volx": 0.4
+      "volx": 0.5
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
-      "w": 15,
-      "v": 0.26,
-      "th": 6.0,
-      "ratio": 0.04,
-      "val": "+0.26%",
-      "thr": "±6%",
-      "c15": "+0.26%",
-      "c60": "-0.06%",
-      "c180": "+0.45%",
+      "w": 60,
+      "v": 0.19,
+      "th": 8.0,
+      "ratio": 0.02,
+      "val": "+0.19%",
+      "thr": "±8%",
+      "c15": "-0.06%",
+      "c60": "+0.19%",
+      "c180": "+0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.03,
-      "z": 0.1,
+      "eff": 0.13,
+      "z": 0.2,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 15,
-      "v": 0.07,
-      "th": 0.9,
-      "ratio": 0.08,
-      "val": "+0.07%",
-      "thr": "±0.9%",
-      "c15": "+0.07%",
-      "c60": "-0.03%",
-      "c180": "+0.05%",
+      "w": 180,
+      "v": 0.49,
+      "th": 2.4,
+      "ratio": 0.2,
+      "val": "+0.49%",
+      "thr": "±2.4%",
+      "c15": "+0.12%",
+      "c60": "+0.00%",
+      "c180": "+0.49%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.03,
-      "z": 0.1,
-      "volx": 2.0
+      "eff": 0.0,
+      "z": 0.0,
+      "volx": 0.3
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 60,
-      "v": 0.28,
+      "v": 0.1,
       "th": 0.65,
-      "ratio": 0.43,
-      "val": "+0.28%",
+      "ratio": 0.15,
+      "val": "+0.10%",
       "thr": "±0.65%",
-      "c15": "+0.05%",
-      "c60": "+0.28%",
-      "c180": "+0.07%",
+      "c15": "-0.00%",
+      "c60": "+0.10%",
+      "c180": "+0.12%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.53,
-      "z": 1.6,
-      "volx": 0.4
+      "eff": 0.35,
+      "z": 0.5,
+      "volx": 0.2
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 60,
-      "v": -0.08,
-      "th": 0.28,
-      "ratio": 0.27,
-      "val": "-0.08%",
-      "thr": "±0.28%",
-      "c15": "-0.03%",
-      "c60": "-0.08%",
-      "c180": "-0.09%",
+      "w": 180,
+      "v": -0.04,
+      "th": 0.5,
+      "ratio": 0.08,
+      "val": "-0.04%",
+      "thr": "±0.5%",
+      "c15": "+0.00%",
+      "c60": "+0.01%",
+      "c180": "-0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.39,
-      "z": 1.5,
+      "eff": 0.08,
+      "z": 0.2,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": -0.05,
-      "th": 0.4,
-      "ratio": 0.13,
-      "val": "-0.05%",
-      "thr": "±0.4%",
-      "c15": "-0.02%",
-      "c60": "-0.05%",
-      "c180": "-0.06%",
+      "w": 180,
+      "v": -0.04,
+      "th": 0.7,
+      "ratio": 0.06,
+      "val": "-0.04%",
+      "thr": "±0.7%",
+      "c15": "-0.01%",
+      "c60": "-0.01%",
+      "c180": "-0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.26,
-      "z": 1.0,
+      "eff": 0.05,
+      "z": 0.1,
       "volx": null
     },
     {
@@ -225,39 +225,39 @@
       "name": "عائد 10 سنوات",
       "short": "10Y",
       "w": 15,
-      "v": 0.4,
+      "v": -0.4,
       "th": 3.0,
       "ratio": 0.13,
-      "val": "+0bp",
+      "val": "-0bp",
       "thr": "±3bp",
-      "c15": "+0bp",
-      "c60": "+0bp",
+      "c15": "-0bp",
+      "c60": "-0bp",
       "c180": "-0bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.14,
-      "z": 0.2,
+      "eff": 0.06,
+      "z": 0.1,
       "volx": null
     },
     {
       "key": "y5",
       "name": "عائد 5 سنوات",
       "short": "5Y",
-      "w": 180,
-      "v": -0.9,
-      "th": 7.5,
-      "ratio": 0.12,
+      "w": 15,
+      "v": -0.7,
+      "th": 3.0,
+      "ratio": 0.23,
       "val": "-1bp",
-      "thr": "±7.5bp",
-      "c15": "+0bp",
-      "c60": "+0bp",
+      "thr": "±3bp",
+      "c15": "-1bp",
+      "c60": "-1bp",
       "c180": "-1bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.0,
-      "z": 0.0,
+      "eff": 0.21,
+      "z": 0.5,
       "volx": null
     },
     {
@@ -265,18 +265,18 @@
       "name": "عائد 30 سنة",
       "short": "30Y",
       "w": 15,
-      "v": 0.4,
+      "v": -0.3,
       "th": 3.0,
-      "ratio": 0.13,
-      "val": "+0bp",
+      "ratio": 0.1,
+      "val": "-0bp",
       "thr": "±3bp",
-      "c15": "+0bp",
-      "c60": "+0bp",
-      "c180": "-1bp",
+      "c15": "-0bp",
+      "c60": "-0bp",
+      "c180": "-0bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.12,
+      "eff": 0.1,
       "z": 0.2,
       "volx": null
     },
@@ -285,93 +285,103 @@
       "name": "سندات عالية العائد HYG",
       "short": "HYG",
       "w": 180,
-      "v": 0.1,
+      "v": 0.09,
       "th": 0.45,
-      "ratio": 0.22,
-      "val": "+0.10%",
+      "ratio": 0.2,
+      "val": "+0.09%",
       "thr": "±0.45%",
-      "c15": "+0.03%",
-      "c60": "+0.01%",
-      "c180": "+0.10%",
+      "c15": "+0.02%",
+      "c60": "+0.02%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.07,
-      "z": 0.2,
-      "volx": 0.2
+      "eff": 0.12,
+      "z": 0.3,
+      "volx": 0.4
     },
     {
       "key": "kre",
       "name": "البنوك الإقليمية KRE",
       "short": "KRE",
-      "w": 60,
-      "v": 0.25,
-      "th": 1.1,
-      "ratio": 0.22,
-      "val": "+0.25%",
-      "thr": "±1.1%",
-      "c15": "-0.05%",
-      "c60": "+0.25%",
-      "c180": "-0.01%",
+      "w": 180,
+      "v": 0.36,
+      "th": 1.9,
+      "ratio": 0.19,
+      "val": "+0.36%",
+      "thr": "±1.9%",
+      "c15": "-0.01%",
+      "c60": "+0.04%",
+      "c180": "+0.36%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.38,
-      "z": 0.6,
-      "volx": 0.5
+      "tone": "bull",
+      "eff": 0.08,
+      "z": 0.1,
+      "volx": 0.6
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-13T18:56:48.799169+00:00",
-        "ok_at": "2026-10-13T18:56:48.799169+00:00"
+        "last_try": "2026-10-13T19:27:56.666696+00:00",
+        "ok_at": "2026-10-13T19:27:56.666696+00:00"
       },
       "fred": {
-        "last_try": "2026-10-13T18:56:48.799169+00:00",
-        "ok_at": "2026-10-13T18:56:48.799169+00:00"
+        "last_try": "2026-10-13T19:27:56.666696+00:00",
+        "ok_at": "2026-10-13T19:27:56.666696+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-13T18:56:48.799169+00:00",
-        "ok_at": "2026-10-13T18:56:48.799169+00:00"
+        "last_try": "2026-10-13T19:27:56.666696+00:00",
+        "ok_at": "2026-10-13T19:27:56.666696+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-13T18:56:48.799169+00:00",
-        "ok_at": "2026-10-13T18:56:48.799169+00:00"
+        "last_try": "2026-10-13T19:27:56.666696+00:00",
+        "ok_at": "2026-10-13T19:27:56.666696+00:00"
       },
       "oil": {
-        "last_try": "2026-10-13T18:56:48.799169+00:00",
-        "ok_at": "2026-10-13T18:56:48.799169+00:00"
+        "last_try": "2026-10-13T19:27:56.666696+00:00",
+        "ok_at": "2026-10-13T19:27:56.666696+00:00"
       },
       "news": {
-        "last_try": "2026-10-13T18:56:48.799169+00:00",
-        "ok_at": "2026-10-13T18:56:48.799169+00:00"
+        "last_try": "2026-10-13T19:27:56.666696+00:00",
+        "ok_at": "2026-10-13T19:27:56.666696+00:00"
       },
       "cot": {
-        "last_try": "2026-10-13T18:56:48.799169+00:00",
-        "ok_at": "2026-10-13T18:56:48.799169+00:00"
+        "last_try": "2026-10-13T19:27:56.666696+00:00",
+        "ok_at": "2026-10-13T19:27:56.666696+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-13T18:56:48.799169+00:00",
-        "ok_at": "2026-10-13T18:56:48.799169+00:00"
+        "last_try": "2026-10-13T19:27:56.666696+00:00",
+        "ok_at": "2026-10-13T19:27:56.666696+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-13T18:56:48.799169+00:00"
+      "at": "2026-10-13T19:27:56.666696+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-13T18:17:57.066329+00:00",
+    "at": "2026-10-13T19:27:56.666696+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-13T18:30:33+00:00",
+            "title": "Fed's Williams currently sees no need for rate hike in 2027, Bloomberg News reports",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-10-13T17:15:11+00:00",
             "title": "How the Fed Usually Handles Rates Near an Election",
             "src": "CME Group"
+          },
+          {
+            "t": "2026-10-13T11:21:33+00:00",
+            "title": "US inflation expectations are well anchored, Fed's Waller says",
+            "src": "Reuters"
           },
           {
             "t": "2026-10-13T10:59:00+00:00",
@@ -379,19 +389,9 @@
             "src": "Yale Climate Connections"
           },
           {
-            "t": "2026-10-13T08:33:04+00:00",
-            "title": "Fed’s Waller Says Higher US Yields Could Help Cool Demand",
+            "t": "2026-10-13T08:45:18+00:00",
+            "title": "BOJ Is Said to Lean Against Back-to-Back Rate Hike in October",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-10-13T06:33:03+00:00",
-            "title": "Dallas Fed COO Robert Triplett to Discuss Federal Reserve Career Path",
-            "src": "The University of Texas at El Paso - UTEP"
-          },
-          {
-            "t": "2026-10-13T02:01:00+00:00",
-            "title": "IMF expects gradual BOJ rate hike towards neutral setting",
-            "src": "Reuters"
           }
         ]
       },
@@ -399,29 +399,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-13T17:19:22+00:00",
-            "title": "Wall St edges lower as chips fall; markets assess big bank earnings",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-13T17:13:36+00:00",
-            "title": "Tech Stocks Are Crushing the Market, but There's a Sneaky (and Dangerous) Risk for S&P 500 Investors",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-13T17:02:34+00:00",
-            "title": "Rising Interest Rates Bite Some Wall Street Banks",
+            "t": "2026-10-13T18:32:57+00:00",
+            "title": "Rising Interest Rates Bite Some Wall St. Banks",
             "src": "The New York Times"
           },
           {
-            "t": "2026-10-13T16:47:26+00:00",
+            "t": "2026-10-13T18:27:11+00:00",
             "title": "Wall Street banks see deals slow on market jitters but pipeline is strong",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-13T15:40:21+00:00",
-            "title": "The first big batch of US profit reports for the summer has Wall Street mixed",
-            "src": "Boston Herald"
+            "t": "2026-10-13T17:54:00+00:00",
+            "title": "Opinion: New SEC rules would fleece everyday investors to enrich Wall Street",
+            "src": "MarketWatch"
+          },
+          {
+            "t": "2026-10-13T17:30:00+00:00",
+            "title": "Higher Rates Are Coming for Private Equity—and Smaller Firms Are Already Hurting",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-13T17:19:22+00:00",
+            "title": "Wall St edges lower as chips fall; markets assess big bank earnings",
+            "src": "Reuters"
           }
         ]
       },
@@ -489,30 +489,35 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-13T15:52:45+00:00",
-            "title": "US Treasury yields yet to peak as Fed may tighten further, PIMCO's Ivascyn says",
+            "t": "2026-10-13T18:47:00+00:00",
+            "title": "Treasury, Eurozone Yields Decline as Markets Look to U.S. Inflation Data",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-13T18:35:06+00:00",
+            "title": "From Tariffs to Broken Supply Chains, Small Business Owners under Siege",
+            "src": "National Press Foundation"
+          },
+          {
+            "t": "2026-10-13T16:28:58+00:00",
+            "title": "US Treasury yield peak still ahead as Fed likely to tighten again, PIMCO's Ivascyn says",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-13T13:35:17+00:00",
-            "title": "Caterpillar (CAT) and Deere (DE) Slide as Treasury Yields Surge. Why Valuations Matter",
+            "t": "2026-10-13T15:52:19+00:00",
+            "title": "US Treasury yields yet to peak as Fed may tighten further, PIMCO's Ivascyn says",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-13T11:56:29+00:00",
-            "title": "BlackRock takes profits on stocks as it turns to Treasurys after six years",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-13T10:01:32+00:00",
-            "title": "US dollar strength masks growing disconnect with Treasury yields",
-            "src": "FOREX.com"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-10-13T18:15:22+00:00",
+            "title": "Allies gave Ukraine no warning of impending missile attack, Zelenskiy says",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-13T17:39:21+00:00",
             "title": "Ukraine had no intelligence from partners about missiles headed to Kyiv, Zelenskyy says",
@@ -524,14 +529,9 @@
             "src": "The Hill"
           },
           {
-            "t": "2026-10-13T15:44:53+00:00",
-            "title": "Allies failed to warn Ukraine of impending missile attack, Zelenskiy says",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-13T15:11:04+00:00",
-            "title": "‘Block, blunt, break’: What’s in NATO’s new Russia war plan?",
-            "src": "Al Jazeera"
+            "t": "2026-10-13T16:28:00+00:00",
+            "title": "Bipartisan senators urge Trump to rescind Russian diesel deal, calling it a \"betrayal\" of Ukraine",
+            "src": "CBS News"
           }
         ]
       }
@@ -539,7 +539,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-13T18:56:48.799169+00:00",
+    "at": "2026-10-13T19:27:56.666696+00:00",
     "events": [
       {
         "title": "Bank Holiday",
