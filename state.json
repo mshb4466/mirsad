@@ -280,165 +280,165 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": -0.04,
-      "th": 0.45,
-      "ratio": 0.09,
-      "val": "-0.04%",
-      "thr": "±0.45%",
-      "c15": "-0.02%",
-      "c60": "-0.04%",
-      "c180": "+0.06%",
+      "w": 15,
+      "v": 0.05,
+      "th": 0.3,
+      "ratio": 0.16,
+      "val": "+0.05%",
+      "thr": "±0.3%",
+      "c15": "+0.05%",
+      "c60": "+0.05%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.16,
-      "z": 0.5,
-      "volx": 0.7
+      "eff": 0.2,
+      "z": 0.7,
+      "volx": 1.2
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 60,
-      "v": -0.23,
+      "v": -0.06,
       "th": 0.6,
-      "ratio": 0.39,
-      "val": "-0.23%",
-      "thr": "±0.6%",
-      "c15": "-0.07%",
-      "c60": "-0.23%",
-      "c180": "-0.07%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.39,
-      "z": 1.3,
-      "volx": 0.6
-    },
-    {
-      "key": "oil",
-      "name": "النفط",
-      "short": "نفط",
-      "w": 60,
-      "v": 0.14,
-      "th": 1.3,
       "ratio": 0.11,
-      "val": "+0.14%",
-      "thr": "±1.3%",
-      "c15": "+0.05%",
-      "c60": "+0.14%",
-      "c180": "-0.06%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.12,
-      "z": 0.3,
-      "volx": 1.1
-    },
-    {
-      "key": "gold",
-      "name": "الذهب",
-      "short": "ذهب",
-      "w": 60,
-      "v": -0.26,
-      "th": 0.65,
-      "ratio": 0.4,
-      "val": "-0.26%",
-      "thr": "±0.65%",
-      "c15": "-0.11%",
-      "c60": "-0.26%",
-      "c180": "+0.26%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.73,
-      "z": 1.5,
-      "volx": 0.7
-    },
-    {
-      "key": "dxy",
-      "name": "الدولار DXY",
-      "short": "دولار",
-      "w": 15,
-      "v": 0.03,
-      "th": 0.18,
-      "ratio": 0.16,
-      "val": "+0.03%",
-      "thr": "±0.18%",
-      "c15": "+0.03%",
-      "c60": "-0.02%",
-      "c180": "-0.03%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.17,
-      "z": 0.5,
-      "volx": null
-    },
-    {
-      "key": "jpy",
-      "name": "الدولار/الين",
-      "short": "ين",
-      "w": 15,
-      "v": 0.02,
-      "th": 0.25,
-      "ratio": 0.07,
-      "val": "+0.02%",
-      "thr": "±0.25%",
-      "c15": "+0.02%",
-      "c60": "-0.02%",
+      "val": "-0.06%",
+      "thr": "±0.6%",
+      "c15": "+0.01%",
+      "c60": "-0.06%",
       "c180": "+0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
       "eff": 0.11,
       "z": 0.4,
+      "volx": 0.8
+    },
+    {
+      "key": "oil",
+      "name": "النفط",
+      "short": "نفط",
+      "w": 60,
+      "v": -0.3,
+      "th": 1.3,
+      "ratio": 0.23,
+      "val": "-0.30%",
+      "thr": "±1.3%",
+      "c15": "+0.00%",
+      "c60": "-0.30%",
+      "c180": "-0.24%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.41,
+      "z": 0.7,
+      "volx": 0.9
+    },
+    {
+      "key": "gold",
+      "name": "الذهب",
+      "short": "ذهب",
+      "w": 15,
+      "v": 0.14,
+      "th": 0.45,
+      "ratio": 0.31,
+      "val": "+0.14%",
+      "thr": "±0.45%",
+      "c15": "+0.14%",
+      "c60": "-0.03%",
+      "c180": "+0.13%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.07,
+      "z": 0.2,
+      "volx": 0.9
+    },
+    {
+      "key": "dxy",
+      "name": "الدولار DXY",
+      "short": "دولار",
+      "w": 15,
+      "v": -0.07,
+      "th": 0.18,
+      "ratio": 0.36,
+      "val": "-0.07%",
+      "thr": "±0.18%",
+      "c15": "-0.07%",
+      "c60": "-0.05%",
+      "c180": "-0.08%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.28,
+      "z": 1.1,
+      "volx": null
+    },
+    {
+      "key": "jpy",
+      "name": "الدولار/الين",
+      "short": "ين",
+      "w": 60,
+      "v": -0.05,
+      "th": 0.4,
+      "ratio": 0.12,
+      "val": "-0.05%",
+      "thr": "±0.4%",
+      "c15": "+0.03%",
+      "c60": "-0.05%",
+      "c180": "-0.08%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.24,
+      "z": 1.0,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-13T06:27:54.831404+00:00",
-        "ok_at": "2026-10-13T06:27:54.831404+00:00"
+        "last_try": "2026-10-13T06:59:59.724280+00:00",
+        "ok_at": "2026-10-13T06:59:59.724280+00:00"
       },
       "fred": {
-        "last_try": "2026-10-13T06:27:54.831404+00:00",
-        "ok_at": "2026-10-13T06:27:54.831404+00:00"
+        "last_try": "2026-10-13T06:59:59.724280+00:00",
+        "ok_at": "2026-10-13T06:59:59.724280+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-13T06:27:54.831404+00:00",
-        "ok_at": "2026-10-13T06:27:54.831404+00:00"
+        "last_try": "2026-10-13T06:59:59.724280+00:00",
+        "ok_at": "2026-10-13T06:59:59.724280+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-13T06:27:54.831404+00:00",
-        "ok_at": "2026-10-13T06:27:54.831404+00:00"
+        "last_try": "2026-10-13T06:59:59.724280+00:00",
+        "ok_at": "2026-10-13T06:59:59.724280+00:00"
       },
       "oil": {
-        "last_try": "2026-10-13T06:27:54.831404+00:00",
-        "ok_at": "2026-10-13T06:27:54.831404+00:00"
+        "last_try": "2026-10-13T06:59:59.724280+00:00",
+        "ok_at": "2026-10-13T06:59:59.724280+00:00"
       },
       "news": {
-        "last_try": "2026-10-13T06:27:54.831404+00:00",
-        "ok_at": "2026-10-13T06:27:54.831404+00:00"
+        "last_try": "2026-10-13T06:59:59.724280+00:00",
+        "ok_at": "2026-10-13T06:59:59.724280+00:00"
       },
       "cot": {
-        "last_try": "2026-10-13T06:27:54.831404+00:00",
-        "ok_at": "2026-10-13T06:27:54.831404+00:00"
+        "last_try": "2026-10-13T06:59:59.724280+00:00",
+        "ok_at": "2026-10-13T06:59:59.724280+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-13T06:27:54.831404+00:00",
-        "ok_at": "2026-10-13T06:27:54.831404+00:00"
+        "last_try": "2026-10-13T06:59:59.724280+00:00",
+        "ok_at": "2026-10-13T06:59:59.724280+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-13T06:27:54.831404+00:00"
+      "at": "2026-10-13T06:59:59.724280+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-13T05:59:14.098931+00:00",
+    "at": "2026-10-13T06:59:59.724280+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -475,9 +475,9 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-13T01:18:33+00:00",
-            "title": "E-mini Dow futures hit 2.5-week high on sector rotation.",
-            "src": "CME Group"
+            "t": "2026-10-13T05:48:00+00:00",
+            "title": "Stock Market: Will S&P 500 Open Up or Down Today?",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-10-13T00:55:00+00:00",
@@ -485,17 +485,17 @@
             "src": "Yahoo Finance"
           },
           {
+            "t": "2026-10-13T00:28:00+00:00",
+            "title": "Trump Says He’s Considering Whether to Fire Kimberly Guilfoyle",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-10-12T23:50:15+00:00",
             "title": "Nasdaq falls ahead of earnings, economic data while oil rallies",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-12T23:30:24+00:00",
-            "title": "COMMENTARY: Wall Street’s AI bet is now too big to hit",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-12T22:00:40+00:00",
+            "t": "2026-10-12T23:30:40+00:00",
             "title": "Starving Ukrainians Are Risking Death to Escape Their Front-Line Town",
             "src": "WSJ"
           }
@@ -535,6 +535,11 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-10-13T06:05:00+00:00",
+            "title": "German September inflation confirmed at 3.3%",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-10-13T03:19:00+00:00",
             "title": "IMF warns bond yields could see a 'disorderly' spike as debt, inflation risks worsen",
             "src": "CNBC"
@@ -553,11 +558,6 @@
             "t": "2026-10-13T02:05:00+00:00",
             "title": "AI investment props up global growth, but war and debt threaten outlook, IMF says",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-13T02:01:00+00:00",
-            "title": "IMF sees milder global slowdown as AI boom offsets war hit — warns resilience is nearing limits",
-            "src": "CNBC"
           }
         ]
       },
@@ -570,11 +570,6 @@
             "src": "Hawaii News Now"
           },
           {
-            "t": "2026-10-13T00:16:00+00:00",
-            "title": "Republican U.S. Lauren Boebert vs. Democrat Eileen Laubacher on tariffs | Debate for Colorado's 4th Congressional District",
-            "src": "9News"
-          },
-          {
             "t": "2026-10-13T00:06:17+00:00",
             "title": "Beyond the Podium: Josh Turek discusses tariffs, healthcare and responds to GOP criticism",
             "src": "KGAN"
@@ -583,6 +578,11 @@
             "t": "2026-10-12T23:47:31+00:00",
             "title": "Election 2026 Tariffs",
             "src": "Columbia Missourian"
+          },
+          {
+            "t": "2026-10-12T23:24:50+00:00",
+            "title": "U.S./Canada Tariffs Raise Tensions and Costs",
+            "src": "Glass Magazine - NGA"
           }
         ]
       },
@@ -595,19 +595,19 @@
             "src": "Al Jazeera"
           },
           {
-            "t": "2026-10-13T02:51:08+00:00",
+            "t": "2026-10-13T02:55:54+00:00",
             "title": "UKMTO issues four Hormuz attack alerts, Iran claims ADNOC tanker strike",
             "src": "Seatrade Maritime News"
+          },
+          {
+            "t": "2026-10-13T02:31:35+00:00",
+            "title": "Ukraine disputes ceasefire as Trump's diesel deal draws fire",
+            "src": "PBS"
           },
           {
             "t": "2026-10-12T23:03:00+00:00",
             "title": "Ukraine's Zelenskyy says it's \"increasingly evident that Russia is unwilling to accept an energy ceasefire\"",
             "src": "CBS News"
-          },
-          {
-            "t": "2026-10-12T22:45:37+00:00",
-            "title": "Ukraine disputes Trump's claim of energy ceasefire as Russian diesel deal draws fire",
-            "src": "PBS"
           }
         ]
       }
@@ -615,7 +615,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-13T06:27:54.831404+00:00",
+    "at": "2026-10-13T06:59:59.724280+00:00",
     "events": [
       {
         "title": "Bank Holiday",
