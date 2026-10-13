@@ -6,272 +6,76 @@
     "oil_down": "2026-10-08T16:59:39.833745+00:00",
     "nq_down": "2026-10-08T17:44:38.039516+00:00",
     "y5_down": "2026-10-08T17:44:38.039516+00:00",
-    "kre_up": "2026-10-08T17:44:38.039516+00:00"
+    "kre_up": "2026-10-08T17:44:38.039516+00:00",
+    "nq_up": "2026-10-13T13:55:52.901761+00:00"
   },
   "last_move_mag": {
     "hyg_down": 1.5527713618114003,
     "oil_down": 1.5160944957777882,
     "nq_down": 1.7511009396997124,
     "y5_down": 1.0444429185655382,
-    "kre_up": 1.0885300566982083
+    "kre_up": 1.0885300566982083,
+    "nq_up": 0.5692687274466331
   },
   "alerts": [
     {
-      "t": "2026-10-08T16:39:31.923280+00:00",
+      "t": "2026-10-13T13:55:52.901761+00:00",
       "kind": "move",
       "icon": "📈",
-      "title": "عامل مؤثر يتحرك بقوة (النفط)",
+      "title": "حركة كبيرة في السوق (ناسداك)",
       "rows": [
         {
           "name": "ES",
-          "c60": "+0.12%",
-          "c180": "+0.09%",
-          "lead": false
-        },
-        {
-          "name": "VIX",
-          "c60": "-1.80%",
-          "c180": "-1.42%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "-1.82%",
-          "c180": "-0.78%",
-          "lead": true
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "+0.04%",
-          "c180": "-0.02%",
-          "lead": false
-        },
-        {
-          "name": "عائد 10 سنوات",
-          "c60": "-4bp",
-          "c180": "-3bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 30 سنة",
-          "c60": "-3bp",
-          "c180": "-3bp",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "النفط: كفاءة الاتجاه 0.62 | دلالة الحركة 3.8σ | التقلب اللحظي ×3.5 | الحجم ×3.0"
-      ],
-      "pattern": [],
-      "headlines": [
-        "Wholesale, tariff refunds deliver for Levi’s in rough Q3 - Retail Dive",
-        "In Trump’s Russian Oil Deal, Middle East Funds Are the Biggest Owners - The New York Times",
-        "Watch Crude Prices, Bond Yields Climb on Fears of Middle East Escalation - Bloomberg.com",
-        "QIC slows Gulf equity allocations, prioritizes liquidity amid Middle East conflict - Markets Group"
-      ]
-    },
-    {
-      "t": "2026-10-08T16:59:39.833745+00:00",
-      "kind": "move",
-      "icon": "📉",
-      "title": "حركة كبيرة في السوق (ناسداك، النفط)",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-0.13%",
-          "c180": "-0.25%",
+          "c60": "+0.09%",
+          "c180": "+0.13%",
           "lead": false
         },
         {
           "name": "ناسداك",
-          "c60": "-0.41%",
-          "c180": "-0.48%",
+          "c60": "+0.34%",
+          "c180": "+0.16%",
           "lead": true
         },
         {
           "name": "VIX",
-          "c60": "-1.35%",
-          "c180": "-1.03%",
+          "c60": "-0.72%",
+          "c180": "-2.19%",
           "lead": false
         },
         {
           "name": "النفط",
-          "c60": "-1.97%",
-          "c180": "-1.28%",
-          "lead": true
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "-0.05%",
-          "c180": "+0.01%",
-          "lead": false
-        },
-        {
-          "name": "عائد 10 سنوات",
-          "c60": "-3bp",
-          "c180": "-2bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 30 سنة",
-          "c60": "-3bp",
-          "c180": "-3bp",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "ناسداك: كفاءة الاتجاه 0.42 | دلالة الحركة 2.6σ | التقلب اللحظي ×2.7 | الحجم ×1.4",
-        "النفط: كفاءة الاتجاه 0.83 | دلالة الحركة 4.1σ | التقلب اللحظي ×3.3 | الحجم ×1.8"
-      ],
-      "pattern": [],
-      "headlines": [
-        "Trump Administration Seeks to Exempt Oil and Gas Exploration in the Western Arctic from Environmental Review and Public Comment - Earthjustice",
-        "Stocks at a crossroads? The rally and rising rate risk - CNBC",
-        "Shares slip as oil spikes and bond bashing rumbles on - Euronext Markets: Real-time Stock Market Data | live",
-        "Fed officials deemed another rate hike “appropriate” but didn’t commit - CFO Brew"
-      ]
-    },
-    {
-      "t": "2026-10-08T17:19:54.814913+00:00",
-      "kind": "move",
-      "icon": "📉",
-      "title": "حركة كبيرة في السوق (ناسداك، عائد 5 سنوات)",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-0.26%",
-          "c180": "-0.41%",
-          "lead": false
-        },
-        {
-          "name": "ناسداك",
-          "c60": "-0.78%",
-          "c180": "-0.97%",
-          "lead": true
-        },
-        {
-          "name": "VIX",
-          "c60": "+3.55%",
-          "c180": "+3.95%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "-1.76%",
-          "c180": "-1.38%",
+          "c60": "+0.41%",
+          "c180": "+1.18%",
           "lead": false
         },
         {
           "name": "الدولار DXY",
-          "c60": "-0.17%",
-          "c180": "-0.05%",
+          "c60": "-0.01%",
+          "c180": "-0.08%",
           "lead": false
         },
         {
           "name": "عائد 10 سنوات",
-          "c60": "-4bp",
-          "c180": "-3bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 5 سنوات",
-          "c60": "-5bp",
+          "c60": "+1bp",
           "c180": "-4bp",
-          "lead": true
+          "lead": false
         },
         {
           "name": "عائد 30 سنة",
-          "c60": "-3bp",
-          "c180": "-2bp",
+          "c60": "+0bp",
+          "c180": "-4bp",
           "lead": false
         }
       ],
       "confirm": [
-        "ناسداك: كفاءة الاتجاه 0.64 | دلالة الحركة 5.0σ | التقلب اللحظي ×3.3 | الحجم ×3.5",
-        "عائد 5 سنوات: كفاءة الاتجاه 0.75 | دلالة الحركة 2.0σ | التقلب اللحظي ×0.9"
+        "ناسداك: كفاءة الاتجاه 0.46 | دلالة الحركة 2.0σ | التقلب اللحظي ×2.3 | الحجم ×13.1"
       ],
       "pattern": [],
       "headlines": [
-        "Crude Oil Pares Gains After Trump Post That U.S. Will Not Attack Iran Before Midterms -- Market Talk - Moomoo",
-        "Fed grows more hawkish on inflation but sees room to wait on rate hikes - WKEF",
-        "Why High-Yield REITs and BDCs Can Be Powerful Income Stocks Inside a Roth IRA - 24/7 Wall St.",
-        "Bitcoin Falls Below $81,000 As Oil Spikes, Fed Talks Tough - Bitcoin Magazine"
-      ]
-    },
-    {
-      "t": "2026-10-08T17:44:38.039516+00:00",
-      "kind": "move",
-      "icon": "📉",
-      "title": "حركة كبيرة في السوق (ناسداك، البنوك الإقليمية KRE، عائد 5 سنوات)",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-0.43%",
-          "c180": "-0.57%",
-          "lead": false
-        },
-        {
-          "name": "ناسداك",
-          "c60": "-1.05%",
-          "c180": "-1.35%",
-          "lead": true
-        },
-        {
-          "name": "VIX",
-          "c60": "+6.79%",
-          "c180": "+7.07%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "+0.24%",
-          "c180": "-0.74%",
-          "lead": false
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "-0.23%",
-          "c180": "+0.04%",
-          "lead": false
-        },
-        {
-          "name": "عائد 10 سنوات",
-          "c60": "-3bp",
-          "c180": "-5bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 5 سنوات",
-          "c60": "-5bp",
-          "c180": "-6bp",
-          "lead": true
-        },
-        {
-          "name": "عائد 30 سنة",
-          "c60": "-2bp",
-          "c180": "-3bp",
-          "lead": false
-        },
-        {
-          "name": "البنوك الإقليمية KRE",
-          "c60": "+1.20%",
-          "c180": "+1.26%",
-          "lead": true
-        }
-      ],
-      "confirm": [
-        "ناسداك: كفاءة الاتجاه 0.55 | دلالة الحركة 6.7σ | التقلب اللحظي ×4.2 | الحجم ×2.3",
-        "البنوك الإقليمية KRE: كفاءة الاتجاه 0.73 | دلالة الحركة 3.2σ | التقلب اللحظي ×1.5 | الحجم ×2.7",
-        "عائد 5 سنوات: كفاءة الاتجاه 0.92 | دلالة الحركة 2.0σ | التقلب اللحظي ×0.8"
-      ],
-      "pattern": [
-        "VIX يرتفع: زيادة الطلب على الحماية"
-      ],
-      "headlines": [
-        "Oil jumps 5% as Hormuz tanker attacks escalate, US Gulf hurricane shuts in production - Oil & Gas Journal",
-        "Cincinnati drivers face long-term Fort Washington Way closures under Brent Spence construction plan - The Business Journals",
-        "TSMC Stocks Fall Despite Record NT$1.49 Trillion Quarter - Yahoo Finance",
-        "Shares slip as oil spikes and bond bashing rumbles on - Kitco"
+        "Fed Hike Puts Bond Investors at a Crossroads - ETF Database",
+        "Gold rises on weaker dollar, lower oil ahead of US inflation data - Kitco",
+        "Dollar slips with oil prices, geopolitical risks seen easing before midterms - Kitco",
+        "Micron, SK Hynix stocks tumble as chip sell-off deepens following South Korean market rout - Yahoo Finance"
       ]
     }
   ],
@@ -280,120 +84,120 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 180,
-      "v": -0.18,
-      "th": 0.8,
-      "ratio": 0.23,
-      "val": "-0.18%",
-      "thr": "±0.8%",
-      "c15": "-0.03%",
-      "c60": "-0.05%",
-      "c180": "-0.18%",
+      "w": 15,
+      "v": 0.08,
+      "th": 0.3,
+      "ratio": 0.25,
+      "val": "+0.08%",
+      "thr": "±0.3%",
+      "c15": "+0.08%",
+      "c60": "+0.09%",
+      "c180": "+0.13%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.32,
-      "z": 0.6,
-      "volx": 1.5
+      "tone": "flat",
+      "eff": 0.3,
+      "z": 1.1,
+      "volx": 8.5
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 180,
-      "v": -0.35,
-      "th": 1.0,
-      "ratio": 0.35,
-      "val": "-0.35%",
-      "thr": "±1%",
-      "c15": "-0.03%",
-      "c60": "-0.10%",
-      "c180": "-0.35%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.39,
-      "z": 0.6,
-      "volx": 1.7
+      "w": 15,
+      "v": 0.4,
+      "th": 0.4,
+      "ratio": 1.01,
+      "val": "+0.40%",
+      "thr": "±0.4%",
+      "c15": "+0.40%",
+      "c60": "+0.34%",
+      "c180": "+0.16%",
+      "confirmed": true,
+      "why": "مؤكَّدة",
+      "tone": "bull",
+      "eff": 0.46,
+      "z": 2.0,
+      "volx": 13.1
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
-      "w": 60,
-      "v": -0.65,
-      "th": 8.0,
-      "ratio": 0.08,
-      "val": "-0.65%",
-      "thr": "±8%",
-      "c15": "-0.07%",
-      "c60": "-0.65%",
-      "c180": "-0.52%",
+      "w": 15,
+      "v": -0.98,
+      "th": 6.0,
+      "ratio": 0.16,
+      "val": "-0.98%",
+      "thr": "±6%",
+      "c15": "-0.98%",
+      "c60": "-0.72%",
+      "c180": "-2.19%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.55,
-      "z": 0.8,
+      "eff": 0.35,
+      "z": 0.9,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": 0.97,
-      "th": 1.3,
-      "ratio": 0.74,
-      "val": "+0.97%",
-      "thr": "±1.3%",
-      "c15": "+0.20%",
-      "c60": "+0.97%",
-      "c180": "+1.33%",
+      "w": 180,
+      "v": 1.18,
+      "th": 2.4,
+      "ratio": 0.49,
+      "val": "+1.18%",
+      "thr": "±2.4%",
+      "c15": "-0.11%",
+      "c60": "+0.41%",
+      "c180": "+1.18%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.67,
-      "z": 2.5,
-      "volx": 2.8
+      "eff": 0.24,
+      "z": 1.0,
+      "volx": 2.4
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 60,
-      "v": -0.14,
-      "th": 0.65,
-      "ratio": 0.22,
-      "val": "-0.14%",
-      "thr": "±0.65%",
-      "c15": "+0.08%",
-      "c60": "-0.14%",
-      "c180": "-0.11%",
+      "w": 15,
+      "v": -0.13,
+      "th": 0.45,
+      "ratio": 0.29,
+      "val": "-0.13%",
+      "thr": "±0.45%",
+      "c15": "-0.13%",
+      "c60": "-0.10%",
+      "c180": "-0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.31,
-      "z": 0.9,
-      "volx": 2.3
+      "eff": 0.11,
+      "z": 0.6,
+      "volx": 2.5
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 15,
-      "v": -0.05,
+      "v": 0.04,
       "th": 0.18,
-      "ratio": 0.26,
-      "val": "-0.05%",
+      "ratio": 0.24,
+      "val": "+0.04%",
       "thr": "±0.18%",
-      "c15": "-0.05%",
-      "c60": "-0.05%",
-      "c180": "-0.09%",
+      "c15": "+0.04%",
+      "c60": "-0.01%",
+      "c180": "-0.08%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.25,
-      "z": 1.1,
+      "eff": 0.06,
+      "z": 0.3,
       "volx": null
     },
     {
@@ -401,120 +205,160 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": 0.11,
+      "v": 0.14,
       "th": 0.4,
-      "ratio": 0.28,
-      "val": "+0.11%",
+      "ratio": 0.36,
+      "val": "+0.14%",
       "thr": "±0.4%",
-      "c15": "+0.01%",
-      "c60": "+0.11%",
-      "c180": "+0.09%",
+      "c15": "+0.03%",
+      "c60": "+0.14%",
+      "c180": "+0.18%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.68,
-      "z": 2.2,
+      "eff": 0.86,
+      "z": 2.8,
       "volx": null
     },
     {
       "key": "y10",
       "name": "عائد 10 سنوات",
       "short": "10Y",
-      "w": 60,
-      "v": -2.9,
-      "th": 4.5,
-      "ratio": 0.64,
-      "val": "-3bp",
-      "thr": "±4.5bp",
-      "c15": "+1bp",
-      "c60": "-3bp",
-      "c180": "-3bp",
+      "w": 180,
+      "v": -3.6,
+      "th": 7.5,
+      "ratio": 0.48,
+      "val": "-4bp",
+      "thr": "±7.5bp",
+      "c15": "+0bp",
+      "c60": "+1bp",
+      "c180": "-4bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.36,
-      "z": null,
+      "eff": 0.37,
+      "z": 0.8,
       "volx": null
     },
     {
       "key": "y5",
       "name": "عائد 5 سنوات",
       "short": "5Y",
-      "w": 15,
-      "v": 1.5,
-      "th": 3.0,
-      "ratio": 0.5,
+      "w": 60,
+      "v": 2.3,
+      "th": 4.5,
+      "ratio": 0.51,
       "val": "+2bp",
-      "thr": "±3bp",
-      "c15": "+2bp",
-      "c60": "-1bp",
-      "c180": "-1bp",
+      "thr": "±4.5bp",
+      "c15": "+1bp",
+      "c60": "+2bp",
+      "c180": "-2bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.15,
-      "z": null,
+      "tone": "bear",
+      "eff": 0.51,
+      "z": 1.5,
       "volx": null
     },
     {
       "key": "y30",
       "name": "عائد 30 سنة",
       "short": "30Y",
-      "w": 60,
-      "v": -3.7,
-      "th": 4.5,
-      "ratio": 0.82,
+      "w": 180,
+      "v": -4.4,
+      "th": 7.5,
+      "ratio": 0.59,
       "val": "-4bp",
-      "thr": "±4.5bp",
+      "thr": "±7.5bp",
       "c15": "+0bp",
-      "c60": "-4bp",
+      "c60": "+0bp",
       "c180": "-4bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.52,
-      "z": null,
+      "eff": 0.11,
+      "z": 0.2,
+      "volx": null
+    },
+    {
+      "key": "hyg",
+      "name": "سندات عالية العائد HYG",
+      "short": "HYG",
+      "w": 60,
+      "v": -0.15,
+      "th": 0.25,
+      "ratio": 0.6,
+      "val": "-0.15%",
+      "thr": "±0.25%",
+      "c15": "-0.06%",
+      "c60": "-0.15%",
+      "c180": "-0.15%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "bear",
+      "eff": 0.79,
+      "z": 4.3,
+      "volx": null
+    },
+    {
+      "key": "kre",
+      "name": "البنوك الإقليمية KRE",
+      "short": "KRE",
+      "w": 15,
+      "v": -0.77,
+      "th": 0.7,
+      "ratio": 1.11,
+      "val": "-0.77%",
+      "thr": "±0.7%",
+      "c15": "-0.77%",
+      "c60": "-0.39%",
+      "c180": "-0.39%",
+      "confirmed": false,
+      "why": "الحركة متذبذبة",
+      "tone": "bear",
+      "eff": 0.2,
+      "z": 2.3,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-13T13:28:25.203229+00:00",
-        "ok_at": "2026-10-13T13:28:25.203229+00:00"
+        "last_try": "2026-10-13T13:55:52.901761+00:00",
+        "ok_at": "2026-10-13T13:55:52.901761+00:00"
       },
       "fred": {
-        "last_try": "2026-10-13T13:28:25.203229+00:00",
-        "ok_at": "2026-10-13T13:28:25.203229+00:00"
+        "last_try": "2026-10-13T13:55:52.901761+00:00",
+        "ok_at": "2026-10-13T13:55:52.901761+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-13T13:28:25.203229+00:00",
-        "ok_at": "2026-10-13T13:28:25.203229+00:00"
+        "last_try": "2026-10-13T13:55:52.901761+00:00",
+        "ok_at": "2026-10-13T13:55:52.901761+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-13T13:28:25.203229+00:00",
-        "ok_at": "2026-10-13T13:28:25.203229+00:00"
+        "last_try": "2026-10-13T13:55:52.901761+00:00",
+        "ok_at": "2026-10-13T13:55:52.901761+00:00"
       },
       "oil": {
-        "last_try": "2026-10-13T13:28:25.203229+00:00",
-        "ok_at": "2026-10-13T13:28:25.203229+00:00"
+        "last_try": "2026-10-13T13:55:52.901761+00:00",
+        "ok_at": "2026-10-13T13:55:52.901761+00:00"
       },
       "news": {
-        "last_try": "2026-10-13T13:28:25.203229+00:00",
-        "ok_at": "2026-10-13T13:28:25.203229+00:00"
+        "last_try": "2026-10-13T13:55:52.901761+00:00",
+        "ok_at": "2026-10-13T13:55:52.901761+00:00"
       },
       "cot": {
-        "last_try": "2026-10-13T13:28:25.203229+00:00",
-        "ok_at": "2026-10-13T13:28:25.203229+00:00"
+        "last_try": "2026-10-13T13:55:52.901761+00:00",
+        "ok_at": "2026-10-13T13:55:52.901761+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-13T13:28:25.203229+00:00",
-        "ok_at": "2026-10-13T13:28:25.203229+00:00"
+        "last_try": "2026-10-13T13:55:52.901761+00:00",
+        "ok_at": "2026-10-13T13:55:52.901761+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-13T13:28:25.203229+00:00"
+      "at": "2026-10-13T13:55:52.901761+00:00"
     }
   },
   "week_news": {
@@ -695,7 +539,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-13T13:28:25.203229+00:00",
+    "at": "2026-10-13T13:55:52.901761+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -971,5 +815,9 @@
       }
     ]
   },
-  "actuals": {}
+  "actuals": {},
+  "stats": {
+    "date": "2026-10-13",
+    "sent": 1
+  }
 }
