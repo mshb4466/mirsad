@@ -280,170 +280,175 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": -0.08,
-      "th": 0.45,
-      "ratio": 0.18,
-      "val": "-0.08%",
-      "thr": "±0.45%",
-      "c15": "+0.04%",
-      "c60": "-0.08%",
-      "c180": "-0.12%",
+      "w": 180,
+      "v": -0.2,
+      "th": 0.8,
+      "ratio": 0.25,
+      "val": "-0.20%",
+      "thr": "±0.8%",
+      "c15": "+0.01%",
+      "c60": "-0.10%",
+      "c180": "-0.20%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.3,
-      "z": 1.1,
+      "tone": "bear",
+      "eff": 0.25,
+      "z": 1.5,
       "volx": 0.4
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 60,
-      "v": -0.27,
-      "th": 0.6,
-      "ratio": 0.45,
-      "val": "-0.27%",
-      "thr": "±0.6%",
-      "c15": "+0.04%",
-      "c60": "-0.27%",
-      "c180": "-0.36%",
+      "w": 180,
+      "v": -0.53,
+      "th": 1.0,
+      "ratio": 0.53,
+      "val": "-0.53%",
+      "thr": "±1%",
+      "c15": "-0.04%",
+      "c60": "-0.32%",
+      "c180": "-0.53%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.42,
-      "z": 1.7,
-      "volx": 1.5
+      "eff": 0.33,
+      "z": 2.0,
+      "volx": 0.9
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": -0.48,
-      "th": 1.3,
-      "ratio": 0.37,
-      "val": "-0.48%",
-      "thr": "±1.3%",
-      "c15": "-0.30%",
-      "c60": "-0.48%",
-      "c180": "-0.32%",
+      "w": 180,
+      "v": 0.13,
+      "th": 2.4,
+      "ratio": 0.05,
+      "val": "+0.13%",
+      "thr": "±2.4%",
+      "c15": "+0.04%",
+      "c60": "+0.04%",
+      "c180": "+0.13%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.69,
-      "z": 1.1,
-      "volx": 0.4
+      "eff": 0.05,
+      "z": 0.1,
+      "volx": 0.9
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 60,
-      "v": -0.19,
+      "v": -0.34,
       "th": 0.65,
-      "ratio": 0.29,
-      "val": "-0.19%",
+      "ratio": 0.53,
+      "val": "-0.34%",
       "thr": "±0.65%",
-      "c15": "+0.05%",
-      "c60": "-0.19%",
-      "c180": "-0.14%",
+      "c15": "-0.11%",
+      "c60": "-0.34%",
+      "c180": "-0.38%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.36,
-      "z": 1.1,
-      "volx": 1.8
+      "eff": 0.5,
+      "z": 1.9,
+      "volx": 1.9
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 60,
-      "v": -0.03,
-      "th": 0.28,
-      "ratio": 0.11,
-      "val": "-0.03%",
-      "thr": "±0.28%",
+      "w": 15,
+      "v": -0.01,
+      "th": 0.18,
+      "ratio": 0.05,
+      "val": "-0.01%",
+      "thr": "±0.18%",
       "c15": "-0.01%",
-      "c60": "-0.03%",
-      "c180": "-0.04%",
+      "c60": "+0.01%",
+      "c180": "-0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.35,
-      "z": 0.9,
+      "eff": 0.09,
+      "z": 0.2,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": -0.16,
-      "th": 0.7,
-      "ratio": 0.22,
-      "val": "-0.16%",
-      "thr": "±0.7%",
-      "c15": "-0.02%",
-      "c60": "-0.08%",
+      "w": 15,
+      "v": -0.06,
+      "th": 0.25,
+      "ratio": 0.23,
+      "val": "-0.06%",
+      "thr": "±0.25%",
+      "c15": "-0.06%",
+      "c60": "-0.04%",
       "c180": "-0.16%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.41,
-      "z": 2.0,
+      "eff": 0.18,
+      "z": 1.1,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-13T00:32:58.468085+00:00",
-        "ok_at": "2026-10-13T00:32:58.468085+00:00"
+        "last_try": "2026-10-13T01:07:18.406573+00:00",
+        "ok_at": "2026-10-13T01:07:18.406573+00:00"
       },
       "fred": {
-        "last_try": "2026-10-13T00:32:58.468085+00:00",
-        "ok_at": "2026-10-13T00:32:58.468085+00:00"
+        "last_try": "2026-10-13T01:07:18.406573+00:00",
+        "ok_at": "2026-10-13T01:07:18.406573+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-13T00:32:58.468085+00:00",
-        "ok_at": "2026-10-13T00:32:58.468085+00:00"
+        "last_try": "2026-10-13T01:07:18.406573+00:00",
+        "ok_at": "2026-10-13T01:07:18.406573+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-13T00:32:58.468085+00:00",
-        "ok_at": "2026-10-13T00:32:58.468085+00:00"
+        "last_try": "2026-10-13T01:07:18.406573+00:00",
+        "ok_at": "2026-10-13T01:07:18.406573+00:00"
       },
       "oil": {
-        "last_try": "2026-10-13T00:32:58.468085+00:00",
-        "ok_at": "2026-10-13T00:32:58.468085+00:00"
+        "last_try": "2026-10-13T01:07:18.406573+00:00",
+        "ok_at": "2026-10-13T01:07:18.406573+00:00"
       },
       "news": {
-        "last_try": "2026-10-13T00:32:58.468085+00:00",
-        "ok_at": "2026-10-13T00:32:58.468085+00:00"
+        "last_try": "2026-10-13T01:07:18.406573+00:00",
+        "ok_at": "2026-10-13T01:07:18.406573+00:00"
       },
       "cot": {
-        "last_try": "2026-10-13T00:32:58.468085+00:00",
-        "ok_at": "2026-10-13T00:32:58.468085+00:00"
+        "last_try": "2026-10-13T01:07:18.406573+00:00",
+        "ok_at": "2026-10-13T01:07:18.406573+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-13T00:32:58.468085+00:00",
-        "ok_at": "2026-10-13T00:32:58.468085+00:00"
+        "last_try": "2026-10-13T01:07:18.406573+00:00",
+        "ok_at": "2026-10-13T01:07:18.406573+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-13T00:32:58.468085+00:00"
+      "at": "2026-10-13T01:07:18.406573+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-12T23:59:27.481878+00:00",
+    "at": "2026-10-13T01:07:18.406573+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-13T00:07:00+00:00",
+            "title": "Japan's wholesale inflation remains elevated, keeps alive BOJ rate-hike view",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-12T21:50:28+00:00",
             "title": "Fed's Hammack: Hope to cool demand, and inflation, without job market pain",
@@ -463,11 +468,6 @@
             "t": "2026-10-12T20:45:33+00:00",
             "title": "Trimming the Sails: Communicating My Reaction Function",
             "src": "Federal Reserve Bank of Cleveland"
-          },
-          {
-            "t": "2026-10-12T17:08:43+00:00",
-            "title": "Higher rates could be needed to avoid 'inflationary mindset' taking hold, says Fed's Hammack",
-            "src": "CNBC"
           }
         ]
       },
@@ -475,29 +475,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-13T01:05:22+00:00",
+            "title": "Exclusive | At Davos, Kimberly Guilfoyle Boasted of Private Jet Trips, Luxury Stays",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-13T00:01:31+00:00",
+            "title": "OpenAI Makes Progress in Preventing AI-Driven ChatGPT Delusions",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-10-12T23:30:24+00:00",
             "title": "COMMENTARY: Wall Street’s AI bet is now too big to hit",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-12T22:16:12+00:00",
-            "title": "Jim Cramer says the bull market's remarkable 4-year run offers a crucial lesson for investors",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-12T21:30:00+00:00",
-            "title": "Frenzied Stock-Options Trading Shows Individual Investors Are Still Hungry for Risk",
+            "t": "2026-10-12T22:32:49+00:00",
+            "title": "The Silent Electronic Battleground Shaping the Future of Warfare",
             "src": "WSJ"
           },
           {
             "t": "2026-10-12T21:19:00+00:00",
             "title": "Energy Stocks Rise as Global Conflicts Push Up Oil Prices",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-12T20:47:00+00:00",
-            "title": "US stocks hover near their latest record in mixed trading on Wall Street",
-            "src": "AP News"
           }
         ]
       },
@@ -505,14 +505,14 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-10-12T22:54:16+00:00",
+            "title": "Meta offers updated ad placement control guidance",
+            "src": "Social Media Today"
+          },
+          {
             "t": "2026-10-12T21:09:00+00:00",
             "title": "Tesla Robotaxis Accused of Speeding in School Zones, NHTSA Launches Probe",
             "src": "Not a Tesla App"
-          },
-          {
-            "t": "2026-10-12T20:55:13+00:00",
-            "title": "Meta to release Q3 2026 earnings on Oct 21 with a live call and webcast",
-            "src": "Pluang"
           },
           {
             "t": "2026-10-12T20:38:15+00:00",
@@ -535,14 +535,14 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-12T23:23:34+00:00",
-            "title": "Squeezed by inflation, more Americans are falling behind on debt payments",
-            "src": "CBS News"
-          },
-          {
             "t": "2026-10-12T23:15:45+00:00",
             "title": "The American consumer keeps spending. How much longer can it last?",
             "src": "NBC News"
+          },
+          {
+            "t": "2026-10-12T22:43:46+00:00",
+            "title": "Watch Current High Inflation Is a Real Concern: Jennifer McKeown",
+            "src": "Bloomberg.com"
           },
           {
             "t": "2026-10-12T22:36:00+00:00",
@@ -555,15 +555,20 @@
             "src": "Yahoo Sports"
           },
           {
-            "t": "2026-10-12T20:20:00+00:00",
-            "title": "MLB payrolls 2026: Dodgers spend more than other three LCS teams combined",
-            "src": "USA Today"
+            "t": "2026-10-12T20:29:00+00:00",
+            "title": "Squeezed by inflation, more Americans are falling behind on debt payments",
+            "src": "CBS News"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-12T23:24:50+00:00",
+            "title": "U.S./Canada Tariffs Raise Tensions and Costs",
+            "src": "Glass Magazine - NGA"
+          },
           {
             "t": "2026-10-12T21:12:04+00:00",
             "title": "Customs Compass: New Tariffs, Canadian Import Bans and CBP Filing Changes",
@@ -578,11 +583,6 @@
             "t": "2026-10-12T16:35:27+00:00",
             "title": "Republicans face midterm backlash from factory workers squeezed out of jobs by Trump’s tariffs",
             "src": "The Press Democrat"
-          },
-          {
-            "t": "2026-10-12T16:00:00+00:00",
-            "title": "Without Trump’s tariffs, goods prices would have dipped, say New York Fed economists. Here’s the real cost to Americans",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -595,6 +595,11 @@
             "src": "CBS News"
           },
           {
+            "t": "2026-10-12T22:45:37+00:00",
+            "title": "Ukraine disputes Trump's claim of energy ceasefire as Russian diesel deal draws fire",
+            "src": "PBS"
+          },
+          {
             "t": "2026-10-12T21:55:43+00:00",
             "title": "Kyiv says Russia hits energy targets despite Trump ceasefire announcement",
             "src": "Reuters"
@@ -603,11 +608,6 @@
             "t": "2026-10-12T21:43:48+00:00",
             "title": "Trump announced a partial Russia-Ukraine ceasefire. Did either country know about it?",
             "src": "NPR"
-          },
-          {
-            "t": "2026-10-12T21:42:27+00:00",
-            "title": "Energy prices rise after Trump’s ‘energy ceasefire’ fails to move Russia or Ukraine",
-            "src": "NBC News"
           }
         ]
       }
@@ -615,7 +615,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-13T00:32:58.468085+00:00",
+    "at": "2026-10-13T01:07:18.406573+00:00",
     "events": [
       {
         "title": "Bank Holiday",
