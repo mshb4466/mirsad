@@ -81,66 +81,6 @@
   ],
   "pulse": [
     {
-      "key": "es",
-      "name": "ES",
-      "short": "ES",
-      "w": 180,
-      "v": 0.14,
-      "th": 0.8,
-      "ratio": 0.17,
-      "val": "+0.14%",
-      "thr": "±0.8%",
-      "c15": "+0.01%",
-      "c60": "-0.01%",
-      "c180": "+0.14%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.03,
-      "z": 0.1,
-      "volx": 0.1
-    },
-    {
-      "key": "nq",
-      "name": "ناسداك",
-      "short": "NQ",
-      "w": 180,
-      "v": 0.21,
-      "th": 1.0,
-      "ratio": 0.21,
-      "val": "+0.21%",
-      "thr": "±1%",
-      "c15": "+0.03%",
-      "c60": "-0.02%",
-      "c180": "+0.21%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.09,
-      "z": 0.1,
-      "volx": 0.1
-    },
-    {
-      "key": "oil",
-      "name": "النفط",
-      "short": "نفط",
-      "w": 180,
-      "v": 0.63,
-      "th": 2.4,
-      "ratio": 0.26,
-      "val": "+0.63%",
-      "thr": "±2.4%",
-      "c15": "-0.19%",
-      "c60": "+0.10%",
-      "c180": "+0.63%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.1,
-      "z": 0.2,
-      "volx": 0.1
-    },
-    {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
@@ -164,85 +104,85 @@
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 180,
-      "v": -0.04,
-      "th": 0.5,
+      "w": 15,
+      "v": 0.01,
+      "th": 0.18,
       "ratio": 0.08,
-      "val": "-0.04%",
-      "thr": "±0.5%",
-      "c15": "-0.00%",
-      "c60": "+0.00%",
-      "c180": "-0.04%",
+      "val": "+0.01%",
+      "thr": "±0.18%",
+      "c15": "+0.01%",
+      "c60": "-0.01%",
+      "c180": "+0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.02,
-      "z": 0.0,
+      "eff": 0.15,
+      "z": 0.2,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": -0.02,
-      "th": 0.4,
-      "ratio": 0.06,
-      "val": "-0.02%",
-      "thr": "±0.4%",
+      "w": 15,
+      "v": -0.01,
+      "th": 0.25,
+      "ratio": 0.03,
+      "val": "-0.01%",
+      "thr": "±0.25%",
       "c15": "-0.01%",
-      "c60": "-0.02%",
-      "c180": "+0.01%",
+      "c60": "-0.00%",
+      "c180": "-0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.35,
-      "z": 0.5,
+      "eff": 0.03,
+      "z": 0.1,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-13T21:10:07.656213+00:00",
-        "ok_at": "2026-10-13T21:10:07.656213+00:00"
+        "last_try": "2026-10-13T21:41:24.457705+00:00",
+        "ok_at": "2026-10-13T21:41:24.457705+00:00"
       },
       "fred": {
-        "last_try": "2026-10-13T21:10:07.656213+00:00",
-        "ok_at": "2026-10-13T21:10:07.656213+00:00"
+        "last_try": "2026-10-13T21:41:24.457705+00:00",
+        "ok_at": "2026-10-13T21:41:24.457705+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-13T21:10:07.656213+00:00",
-        "ok_at": "2026-10-13T21:10:07.656213+00:00"
+        "last_try": "2026-10-13T21:41:24.457705+00:00",
+        "ok_at": "2026-10-13T21:41:24.457705+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-13T21:10:07.656213+00:00",
-        "ok_at": "2026-10-13T21:10:07.656213+00:00"
+        "last_try": "2026-10-13T21:41:24.457705+00:00",
+        "ok_at": "2026-10-13T21:41:24.457705+00:00"
       },
       "oil": {
-        "last_try": "2026-10-13T21:10:07.656213+00:00",
-        "ok_at": "2026-10-13T21:10:07.656213+00:00"
+        "last_try": "2026-10-13T21:41:24.457705+00:00",
+        "ok_at": "2026-10-13T21:41:24.457705+00:00"
       },
       "news": {
-        "last_try": "2026-10-13T21:10:07.656213+00:00",
-        "ok_at": "2026-10-13T21:10:07.656213+00:00"
+        "last_try": "2026-10-13T21:41:24.457705+00:00",
+        "ok_at": "2026-10-13T21:41:24.457705+00:00"
       },
       "cot": {
-        "last_try": "2026-10-13T21:10:07.656213+00:00",
-        "ok_at": "2026-10-13T21:10:07.656213+00:00"
+        "last_try": "2026-10-13T21:41:24.457705+00:00",
+        "ok_at": "2026-10-13T21:41:24.457705+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-13T21:10:07.656213+00:00",
-        "ok_at": "2026-10-13T21:10:07.656213+00:00"
+        "last_try": "2026-10-13T21:41:24.457705+00:00",
+        "ok_at": "2026-10-13T21:41:24.457705+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-13T21:10:07.656213+00:00"
+      "at": "2026-10-13T21:41:24.457705+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-13T20:31:30.043947+00:00",
+    "at": "2026-10-13T21:41:24.457705+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -252,6 +192,11 @@
             "t": "2026-10-13T20:08:52+00:00",
             "title": "Fed's Collins sees another rate hike on the table before end of 2026",
             "src": "Reuters"
+          },
+          {
+            "t": "2026-10-13T20:07:00+00:00",
+            "title": "One More U.S. Interest-Rate Increase May Be Appropriate, Fed’s Williams Says",
+            "src": "WSJ"
           },
           {
             "t": "2026-10-13T19:46:12+00:00",
@@ -267,11 +212,6 @@
             "t": "2026-10-13T18:06:13+00:00",
             "title": "Fed’s Williams Currently Sees No Need for Rate Hike in 2027",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-10-13T17:15:11+00:00",
-            "title": "How the Fed Usually Handles Rates Near an Election",
-            "src": "CME Group"
           }
         ]
       },
@@ -279,8 +219,8 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-13T18:28:46+00:00",
-            "title": "S&P 500 flat as chipmakers fall and bank earnings roll in",
+            "t": "2026-10-13T20:17:36+00:00",
+            "title": "Nasdaq ends down as chipmakers fall and bank earnings roll in",
             "src": "Reuters"
           },
           {
@@ -299,9 +239,9 @@
             "src": "MarketWatch"
           },
           {
-            "t": "2026-10-13T17:13:50+00:00",
-            "title": "Warren Buffett's Simple Way To Build Wealth With the S&P 500",
-            "src": "Yahoo Finance"
+            "t": "2026-10-13T17:28:15+00:00",
+            "title": "Breakingviews - COMMENTARY: Wall Street’s doomsayer is discordantly optimistic",
+            "src": "Reuters"
           }
         ]
       },
@@ -309,35 +249,45 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-13T14:15:45+00:00",
-            "title": "Tesla Trades at 219x Earnings. Here’s Why I’m Not Buying the Bet on Its Future.",
-            "src": "Yahoo Finance"
+            "t": "2026-10-13T21:15:48+00:00",
+            "title": "Feds Eye Probe Into Reports of Tesla Robotaxis Zooming Through School Zones",
+            "src": "Gizmodo"
           },
           {
-            "t": "2026-10-13T14:14:18+00:00",
-            "title": "Apple (AAPL): Services Growth and iPhone Mix Set the Next Earnings Bar",
-            "src": "AlphaStreet"
+            "t": "2026-10-13T19:16:29+00:00",
+            "title": "Amazon's $220 Billion AI Bet Is Getting Bigger—Can Earnings Justify the Spending?",
+            "src": "MarketBeat"
           },
           {
-            "t": "2026-10-13T13:59:00+00:00",
-            "title": "Amazon Wins Appeal in Case Seeking Internal Antitrust Documents",
-            "src": "Bloomberg Law News"
+            "t": "2026-10-13T19:11:15+00:00",
+            "title": "AI Doubts Push Chip Stocks Lower Ahead Of Big Tech Earnings",
+            "src": "Finimize"
           },
           {
-            "t": "2026-10-13T13:42:12+00:00",
-            "title": "School zone petition adds to Tesla’s robotaxi probe pile",
-            "src": "Automotive World"
+            "t": "2026-10-13T14:26:52+00:00",
+            "title": "Apple Inc. (AAPL) Stock Price, News, Quote & History",
+            "src": "Yahoo! Finance Canada"
           },
           {
-            "t": "2026-10-13T13:15:00+00:00",
-            "title": "Nvidia: The Share Price Already Assumes No China Data Center Sales (NASDAQ:NVDA)",
-            "src": "Seeking Alpha"
+            "t": "2026-10-13T14:16:52+00:00",
+            "title": "NHTSA may probe Tesla robotaxis over speeding in school zones",
+            "src": "Transport Topics"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-13T20:57:55+00:00",
+            "title": "What’s fueling inflation? Fuel.",
+            "src": "NBC News"
+          },
+          {
+            "t": "2026-10-13T20:42:56+00:00",
+            "title": "Don't let inflation bite — how to hedge with TIPS, commodities and infrastructure funds",
+            "src": "CNBC"
+          },
           {
             "t": "2026-10-13T18:05:57+00:00",
             "title": "The latest inflation data is expected to show price increases are accelerating",
@@ -352,16 +302,6 @@
             "t": "2026-10-13T15:34:18+00:00",
             "title": "September CPI Report: What the Inflation Data Is Expected to Show",
             "src": "Kiplinger"
-          },
-          {
-            "t": "2026-10-13T13:12:49+00:00",
-            "title": "Social Security inflation impact on seniors: How 2027 COLA is driving a projected $73 monthly boost",
-            "src": "Clarin.com"
-          },
-          {
-            "t": "2026-10-13T13:02:47+00:00",
-            "title": "COMMENTARY: AI may be rocket fuel for US stocks, less so for GDP",
-            "src": "Reuters"
           }
         ]
       },
@@ -374,6 +314,11 @@
             "src": "WSJ"
           },
           {
+            "t": "2026-10-13T18:41:13+00:00",
+            "title": "Canada Tariffs Are Changing Freight Strategy Fast",
+            "src": "FreightWaves"
+          },
+          {
             "t": "2026-10-13T18:35:06+00:00",
             "title": "From Tariffs to Broken Supply Chains, Small Business Owners under Siege",
             "src": "National Press Foundation"
@@ -382,11 +327,6 @@
             "t": "2026-10-13T17:05:56+00:00",
             "title": "Tariffs take a toll on construction",
             "src": "Pit & Quarry"
-          },
-          {
-            "t": "2026-10-13T16:28:58+00:00",
-            "title": "US Treasury yield peak still ahead as Fed likely to tighten again, PIMCO's Ivascyn says",
-            "src": "Reuters"
           }
         ]
       },
@@ -394,24 +334,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-13T18:51:55+00:00",
-            "title": "Zelenskyy tells NPR Ukraine wants peace but will hit Russia until it follows ceasefire",
-            "src": "NPR"
+            "t": "2026-10-13T20:57:00+00:00",
+            "title": "Putin snubs Trump’s ceasefire as Russia aims to make Ukraine unlivable",
+            "src": "Atlantic Council"
           },
           {
-            "t": "2026-10-13T18:15:22+00:00",
+            "t": "2026-10-13T20:26:54+00:00",
             "title": "Allies gave Ukraine no warning of impending missile attack, Zelenskiy says",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-13T17:39:21+00:00",
-            "title": "Ukraine had no intelligence from partners about missiles headed to Kyiv, Zelenskyy says",
-            "src": "PBS"
+            "t": "2026-10-13T20:24:44+00:00",
+            "title": "Don’t hold your breath for Russia sanctions",
+            "src": "Politico"
           },
           {
-            "t": "2026-10-13T16:28:00+00:00",
-            "title": "Bipartisan senators urge Trump to rescind Russian diesel deal, calling it a \"betrayal\" of Ukraine",
-            "src": "CBS News"
+            "t": "2026-10-13T18:51:55+00:00",
+            "title": "The Trump administration warns Ukraine it could cut off intel, Zelenskyy tells NPR",
+            "src": "NPR"
           }
         ]
       }
@@ -419,7 +359,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-13T21:10:07.656213+00:00",
+    "at": "2026-10-13T21:41:24.457705+00:00",
     "events": [
       {
         "title": "Bank Holiday",
