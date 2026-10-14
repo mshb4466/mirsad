@@ -85,19 +85,19 @@
       "name": "ES",
       "short": "ES",
       "w": 60,
-      "v": -0.07,
+      "v": -0.11,
       "th": 0.45,
-      "ratio": 0.16,
-      "val": "-0.07%",
+      "ratio": 0.25,
+      "val": "-0.11%",
       "thr": "±0.45%",
-      "c15": "-0.04%",
-      "c60": "-0.07%",
-      "c180": "-0.02%",
+      "c15": "-0.03%",
+      "c60": "-0.11%",
+      "c180": "-0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.39,
-      "z": 0.8,
+      "tone": "bear",
+      "eff": 0.64,
+      "z": 1.3,
       "volx": 0.1
     },
     {
@@ -105,39 +105,39 @@
       "name": "ناسداك",
       "short": "NQ",
       "w": 60,
-      "v": -0.14,
+      "v": -0.2,
       "th": 0.6,
-      "ratio": 0.24,
-      "val": "-0.14%",
+      "ratio": 0.34,
+      "val": "-0.20%",
       "thr": "±0.6%",
-      "c15": "-0.08%",
-      "c60": "-0.14%",
-      "c180": "-0.02%",
+      "c15": "-0.04%",
+      "c60": "-0.20%",
+      "c180": "-0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.36,
-      "z": 0.8,
+      "eff": 0.58,
+      "z": 1.1,
       "volx": 0.2
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": -0.21,
-      "th": 2.4,
-      "ratio": 0.09,
-      "val": "-0.21%",
-      "thr": "±2.4%",
-      "c15": "+0.02%",
-      "c60": "+0.02%",
-      "c180": "-0.21%",
+      "w": 60,
+      "v": 0.21,
+      "th": 1.3,
+      "ratio": 0.16,
+      "val": "+0.21%",
+      "thr": "±1.3%",
+      "c15": "+0.13%",
+      "c60": "+0.21%",
+      "c180": "+0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.05,
-      "z": 0.1,
+      "eff": 0.35,
+      "z": 0.5,
       "volx": 0.1
     },
     {
@@ -145,92 +145,112 @@
       "name": "الذهب",
       "short": "ذهب",
       "w": 60,
-      "v": -0.11,
+      "v": -0.13,
       "th": 0.65,
-      "ratio": 0.18,
-      "val": "-0.11%",
+      "ratio": 0.2,
+      "val": "-0.13%",
       "thr": "±0.65%",
-      "c15": "-0.05%",
-      "c60": "-0.11%",
+      "c15": "+0.01%",
+      "c60": "-0.13%",
       "c180": "-0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.43,
-      "z": 0.7,
+      "eff": 0.52,
+      "z": 0.8,
       "volx": 0.4
+    },
+    {
+      "key": "dxy",
+      "name": "الدولار DXY",
+      "short": "دولار",
+      "w": 15,
+      "v": -0.02,
+      "th": 0.18,
+      "ratio": 0.11,
+      "val": "-0.02%",
+      "thr": "±0.18%",
+      "c15": "-0.02%",
+      "c60": "-0.02%",
+      "c180": "-0.01%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": null,
+      "z": 0.9,
+      "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
       "w": 15,
-      "v": -0.01,
+      "v": 0.01,
       "th": 0.25,
-      "ratio": 0.03,
-      "val": "-0.01%",
+      "ratio": 0.05,
+      "val": "+0.01%",
       "thr": "±0.25%",
-      "c15": "-0.01%",
-      "c60": "+0.01%",
-      "c180": "+0.02%",
+      "c15": "+0.01%",
+      "c60": "-0.01%",
+      "c180": "+0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.22,
-      "z": 0.3,
+      "eff": 0.15,
+      "z": 0.2,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-13T23:39:05.172681+00:00",
-        "ok_at": "2026-10-13T23:39:05.172681+00:00"
+        "last_try": "2026-10-14T00:03:13.979401+00:00",
+        "ok_at": "2026-10-14T00:03:13.979401+00:00"
       },
       "fred": {
-        "last_try": "2026-10-13T23:39:05.172681+00:00",
-        "ok_at": "2026-10-13T23:39:05.172681+00:00"
+        "last_try": "2026-10-14T00:03:13.979401+00:00",
+        "ok_at": "2026-10-14T00:03:13.979401+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-13T23:39:05.172681+00:00",
-        "ok_at": "2026-10-13T23:39:05.172681+00:00"
+        "last_try": "2026-10-14T00:03:13.979401+00:00",
+        "ok_at": "2026-10-14T00:03:13.979401+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-13T23:39:05.172681+00:00",
-        "ok_at": "2026-10-13T23:39:05.172681+00:00"
+        "last_try": "2026-10-14T00:03:13.979401+00:00",
+        "ok_at": "2026-10-14T00:03:13.979401+00:00"
       },
       "oil": {
-        "last_try": "2026-10-13T23:39:05.172681+00:00",
-        "ok_at": "2026-10-13T23:39:05.172681+00:00"
+        "last_try": "2026-10-14T00:03:13.979401+00:00",
+        "ok_at": "2026-10-14T00:03:13.979401+00:00"
       },
       "news": {
-        "last_try": "2026-10-13T23:39:05.172681+00:00",
-        "ok_at": "2026-10-13T23:39:05.172681+00:00"
+        "last_try": "2026-10-14T00:03:13.979401+00:00",
+        "ok_at": "2026-10-14T00:03:13.979401+00:00"
       },
       "cot": {
-        "last_try": "2026-10-13T23:39:05.172681+00:00",
-        "ok_at": "2026-10-13T23:39:05.172681+00:00"
+        "last_try": "2026-10-14T00:03:13.979401+00:00",
+        "ok_at": "2026-10-14T00:03:13.979401+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-13T23:39:05.172681+00:00",
-        "ok_at": "2026-10-13T23:39:05.172681+00:00"
+        "last_try": "2026-10-14T00:03:13.979401+00:00",
+        "ok_at": "2026-10-14T00:03:13.979401+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-13T23:39:05.172681+00:00"
+      "at": "2026-10-14T00:03:13.979401+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-13T22:41:52.708856+00:00",
+    "at": "2026-10-14T00:03:13.979401+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-13T21:45:21+00:00",
-            "title": "Lawyer for Fed's Cook denounces Trump's latest attempt to remove her",
+            "t": "2026-10-13T22:34:56+00:00",
+            "title": "Fed Governor Cook's lawyer denounces Trump's latest attempt to remove her",
             "src": "Reuters"
           },
           {
@@ -259,8 +279,13 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-13T21:56:15+00:00",
-            "title": "U.S. Stocks Tick Down as Bank Earnings Don’t Excite",
+            "t": "2026-10-13T23:25:08+00:00",
+            "title": "Nasdaq ends down as chipmakers fall and bank earnings roll in",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-13T22:17:00+00:00",
+            "title": "Cornell Suspends Fraternity Parties in Wake of Rape Allegations",
             "src": "WSJ"
           },
           {
@@ -269,19 +294,14 @@
             "src": "WSJ"
           },
           {
-            "t": "2026-10-13T20:17:36+00:00",
-            "title": "Nasdaq ends down as chipmakers fall and bank earnings roll in",
-            "src": "Reuters"
+            "t": "2026-10-13T19:30:08+00:00",
+            "title": "US stocks edge back from their record following the first big batch of profit reports for the summer",
+            "src": "Boston Herald"
           },
           {
             "t": "2026-10-13T19:02:00+00:00",
             "title": "Guilfoyle’s Collapse Comes as White House Struggles to Fend Off Allegations of Excess",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-13T18:27:11+00:00",
-            "title": "Wall Street banks see deals slow on market jitters but pipeline is strong",
-            "src": "Reuters"
           }
         ]
       },
@@ -304,20 +324,25 @@
             "src": "Finimize"
           },
           {
-            "t": "2026-10-13T15:35:53+00:00",
-            "title": "NVIDIA Corporation (NVDA) Stock Price, News, Quote & History",
+            "t": "2026-10-13T17:21:14+00:00",
+            "title": "Amazon.com, Inc. (AMZN) Stock Price, News, Quote & History",
             "src": "Yahoo! Finance Canada"
           },
           {
-            "t": "2026-10-13T14:16:52+00:00",
-            "title": "NHTSA may probe Tesla robotaxis over speeding in school zones",
-            "src": "Transport Topics"
+            "t": "2026-10-13T15:35:53+00:00",
+            "title": "NVIDIA Corporation (NVDA) Stock Price, News, Quote & History",
+            "src": "Yahoo! Finance Canada"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-13T23:05:43+00:00",
+            "title": "Big UK firms focus on cost-cutting as inflation bites, Deloitte survey shows",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-13T20:57:55+00:00",
             "title": "What’s fueling inflation? Fuel.",
@@ -329,19 +354,14 @@
             "src": "CNBC"
           },
           {
+            "t": "2026-10-13T19:14:17+00:00",
+            "title": "Argentina Posts Second Straight Month of Inflation Below 2%",
+            "src": "Bloomberg.com"
+          },
+          {
             "t": "2026-10-13T18:05:57+00:00",
             "title": "The latest inflation data is expected to show price increases are accelerating",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-10-13T16:01:01+00:00",
-            "title": "Historic Tax Credit Drives $9.2 Billion in GDP in FY 2025, Supports 163,000 Jobs in FY 2025",
-            "src": "National Park Service (.gov)"
-          },
-          {
-            "t": "2026-10-13T15:34:18+00:00",
-            "title": "September CPI Report: What the Inflation Data Is Expected to Show",
-            "src": "Kiplinger"
           }
         ]
       },
@@ -374,9 +394,9 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-13T22:04:56+00:00",
-            "title": "The Trump administration warns Ukraine it could cut off intel, Zelenskyy tells NPR",
-            "src": "NPR"
+            "t": "2026-10-13T23:07:11+00:00",
+            "title": "Trump says US still sharing intel, even as Ukraine reports attacks with no warnings",
+            "src": "Reuters"
           },
           {
             "t": "2026-10-13T20:57:00+00:00",
@@ -389,9 +409,9 @@
             "src": "Time Magazine"
           },
           {
-            "t": "2026-10-13T20:26:54+00:00",
-            "title": "Allies gave Ukraine no warning of impending missile attack, Zelenskiy says",
-            "src": "Reuters"
+            "t": "2026-10-13T18:51:55+00:00",
+            "title": "The Trump administration warns Ukraine it could cut off intel, Zelenskyy tells NPR",
+            "src": "NPR"
           }
         ]
       }
@@ -399,7 +419,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-13T23:39:05.172681+00:00",
+    "at": "2026-10-14T00:03:13.979401+00:00",
     "events": [
       {
         "title": "Bank Holiday",
