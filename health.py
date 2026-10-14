@@ -8,6 +8,7 @@
 import os
 from datetime import timedelta
 
+import actuals
 import events_ctx
 import safety
 
@@ -40,11 +41,15 @@ def _sources(report, events, now):
                      + (": " + (miss_a[0].get("actual_note") or "لم تصل") if miss_a else ""))}
     oi = {"key": "oil", "name": "مخزونات النفط (FRED/EIA)", "ok": not miss_o,
           "detail": ("لا إصدار مؤخراً" if not oil else f"{len(oil) - len(miss_o)}/{len(oil)} وصل" + (": " + (miss_o[0].get("actual_note") or "لم يصل") if miss_o else ""))}
-    ind = [e for e in rel if events_ctx.classify(e.get("title", ""))[0] in NEEDNUM and events_ctx.classify(e.get("title", ""))[0] not in ("oil", "auction", "rate")]
-    miss_i = [e for e in ind if not e.get("actual")]
-    ie = {"key": "indicators", "name": "أرقام المؤشرات الفعلية (تقويم + FRED)", "ok": not miss_i,
-          "detail": ("لا مؤشرات صدرت مؤخراً" if not ind else f"{len(ind) - len(miss_i)}/{len(ind)} وصل رقمه"
-                     + ("؛ ".join([""] + [f"{e.get('title', '')}: {e.get('actual_note') or 'لم يصل'}" for e in miss_i[:3]]) if miss_i else ""))}
+    ind = [e for e in rel if actuals.wants_number(e) and events_ctx.classify(e.get("title", ""))[0] not in ("oil", "auction")]
+    bk = {id(e): actuals.bucket(e) for e in ind}
+    miss_i = [e for e in ind if bk[id(e)] in ("awaiting", "failed", "needs_check")]      # المدعوم الذي لم يتحقق: يُحسب خللاً
+    unsup = [e for e in ind if bk[id(e)] == "unsupported"]                              # غير المدعوم: يُذكر ولا يُحسب خللاً في المصدر
+    n_ok = sum(1 for e in ind if bk[id(e)] == "verified")
+    ie = {"key": "indicators", "name": "أرقام المؤشرات الفعلية (BLS/FRED)", "ok": not miss_i,
+          "detail": ("لا مؤشرات صدرت مؤخراً" if not ind else f"{n_ok}/{len(ind)} وصل ومتحقق"
+                     + (f"، غير مدعوم حالياً: {len(unsup)}" if unsup else "")
+                     + ("؛ ".join([""] + [f"{e.get('title', '')}: {actuals.BUCKET_AR[bk[id(e)]]}" for e in miss_i[:3]]) if miss_i else ""))}
     news = {"key": "news", "name": "الأخبار (Google News)", "ok": bool(report.get("news") or report.get("geo")),
             "detail": "عناوين متوفرة" if (report.get("news") or report.get("geo")) else "لا عناوين"}
     cot = {"key": "cot", "name": "تمركز CFTC", "ok": "cot" in (report.get("info") or {}), "detail": "متوفر" if "cot" in (report.get("info") or {}) else "غير متوفر"}
@@ -55,12 +60,11 @@ def _events_stats(events, now):
     rel = [e for e in events or [] if events_ctx.relevant(e) and now - timedelta(hours=24) <= e["time"] < now]
     verified = unanalysed = 0
     for e in rel:
-        kind = events_ctx.classify(e.get("title", ""))[0]
-        if kind in NEEDNUM:
-            if e.get("actual"):
-                verified += 1
-            else:
-                unanalysed += 1
+        b = actuals.bucket(e)           # التعريف الموحّد نفسه: الخطب والعطل (None) لا تدخل، وغير الموثّق لا يُحسب «متحققاً»
+        if b == "verified":
+            verified += 1
+        elif b is not None:
+            unanalysed += 1
     return len(rel), verified, unanalysed
 
 

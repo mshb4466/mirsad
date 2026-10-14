@@ -18,7 +18,7 @@ POLARITY = {
     "y30": (-1, 2.0, "bp", "عائد 30 سنة"),
     "y5": (-1, 2.0, "bp", "عائد 5 سنوات"),
     "y2": (-1, 2.0, "bp", "عائد سنتين"),
-    "oil": (-1, 0.5, "pct", "النفط"),
+    "oil": (0, 0.5, "pct", "النفط"),      # قطبية 0: لا اتجاه آلي للنفط؛ يُحدَّد بالسياق في oil_cause()
     "vix": (-1, 3.0, "pct", "VIX"),
     "hy_oas": (-1, 0.05, "pt", "فروق الائتمان"),
     "net_liq": (+1, 0.5, "pct", "السيولة الصافية"),
@@ -28,6 +28,47 @@ POLARITY = {
     "es": (+1, 0.1, "pct", "ES"),
     "nq": (+1, 0.1, "pct", "ناسداك"),
 }
+
+OIL_BAND = 0.5
+
+
+def oil_cause(oil_chg, es_chg=None, dxy_chg=None, vix_chg=None, geo_supply=False, geo_relief=False):
+    """اتجاه أثر النفط على الأسهم بحسب السبب، لا بحسب الاتجاه وحده. (tone, cause, text). قواعد صريحة وليست نموذجاً إحصائياً:
+    - ارتفاع + أخبار إمداد/طاقة جيوسياسية والأسهم لا ترتفع = صدمة عرض → ضاغط.
+    - ارتفاع مع صعود الأسهم دون صعود VIX أو الدولار = يشبه تحسن الطلب → مختلط.
+    - ارتفاع بلا دليل = مشروط.
+    - هبوط مع هبوط الأسهم وصعود VIX = ضعف طلب/تجنب مخاطرة → ضاغط.
+    - هبوط مع تهدئة جيوسياسية أو مع صعود الأسهم دون صعود VIX = يخفف ضغط التكلفة → داعم.
+    - هبوط بلا دليل = مشروط. الناقص من الأدلة (None) لا يُعامل صفراً: يمنع الحكم القاطع."""
+    if oil_chg is None:
+        return "flat", "na", ""
+    if abs(oil_chg) <= OIL_BAND:
+        return "flat", "flat", "تغير طفيف"
+    es_up = es_chg is not None and es_chg > 0.1
+    es_dn = es_chg is not None and es_chg < -0.1
+    vix_up = vix_chg is not None and vix_chg > 3.0
+    vix_ok = vix_chg is not None and vix_chg <= 3.0
+    dxy_up = dxy_chg is not None and dxy_chg > 0.15
+    if oil_chg > 0:
+        if geo_supply and not es_up:
+            return "bear", "supply", "صعود النفط مع أخبار إمداد/طاقة: صدمة عرض تضغط على الأسهم"
+        if es_up and vix_ok and not dxy_up:
+            return "flat", "demand_up", "صعود النفط مع صعود الأسهم: يشبه تحسن الطلب، أثره مختلط"
+        return "flat", "unclear", "صعود النفط بسبب غير واضح: أثره مشروط بالسبب"
+    if es_dn and vix_up:
+        return "bear", "demand_down", "هبوط النفط مع هبوط الأسهم وصعود VIX: ضعف طلب/تجنب مخاطرة"
+    if geo_relief or (es_up and vix_ok):
+        return "bull", "relief", "هبوط النفط مع تهدئة أو صعود الأسهم: يخفف ضغط التكلفة"
+    return "flat", "unclear", "هبوط النفط بسبب غير واضح: أثره مشروط بالسبب"
+
+
+def geo_flags(geo):
+    """(إمداد/طاقة، تهدئة) من تفاصيل الجيوسياسة الحية. geo = report['geo'] أو None."""
+    top = (geo or {}).get("top") or []
+    supply = any("energy" in (t.get("cats") or []) or "طاقة" in (t.get("cats") or []) for t in top if not t.get("deesc"))
+    relief = bool(top) and top[0].get("deesc") is True
+    return supply, relief
+
 
 TONE_AR = {"bear": "ضغط على الأسهم", "bull": "دعم للأسهم", "flat": "أثر محدود"}
 
@@ -68,7 +109,7 @@ def _fmt(unit, v):
     return f"{v:+.2f}%"
 
 
-def drivers(p, fred=None, macro_view=None):
+def drivers(p, fred=None, macro_view=None, geo=None):
     """عوامل ذات اتجاه واضح: [{key,name,val,tone,arrow,strength,text}] مرتبة بالقوة. لا تُبنى إلا من بيانات حقيقية متاحة."""
     p = p or {}
     out = []
@@ -89,7 +130,13 @@ def drivers(p, fred=None, macro_view=None):
             add(k, y["diff1"] * 100, f"{y['last']:.2f}%")
     o = p.get("oil")
     if o:
-        add("oil", o["chg1"], f"{o['last']:.2f}$")
+        gs, gr = geo_flags(geo)
+        t, cause, why = oil_cause(o["chg1"], (p.get("es") or {}).get("chg1"), (p.get("dxy") or {}).get("chg1"),
+                                  (p.get("vix") or {}).get("chg1"), gs, gr)
+        ch = o["chg1"]
+        out.append({"key": "oil", "name": "النفط", "val": _fmt("pct", ch), "tone": t, "arrow": arrow(ch, OIL_BAND), "cause": cause,
+                    "strength": round(min(5.0, abs(ch) / OIL_BAND) if t != "flat" else 0.0, 2), "last": f"{o['last']:.2f}$",
+                    "text": f"{o['last']:.2f}$ {arrow(ch, OIL_BAND)} {_fmt('pct', ch)} — {why or TONE_AR[t]}"})
     v = p.get("vix")
     if v:
         add("vix", v["chg1"], f"{v['last']:.1f}")

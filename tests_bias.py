@@ -24,7 +24,10 @@ def test_signs_support_vs_pressure():
 
 
 def test_each_component_direction():
-    c = {x["key"]: x["signal"] for x in bias.compute(*full(lean=0.6, y=(4.0, 4.3), dxy=(100, 103), oil=(70, 80), liq=-3))["components"]}
+    args = list(full(lean=0.6, y=(4.0, 4.3), dxy=(100, 103), oil=(70, 80), liq=-3))
+    c0 = {x["key"]: x["signal"] for x in bias.compute(*args)["components"]}
+    assert c0["oil"] == 0                                  # ارتفاع النفط بلا سبب واضح: مشروط، لا ضغط آلي
+    c = {x["key"]: x["signal"] for x in bias.compute(*args, drivers=[{"key": "oil", "cause": "supply"}])["components"]}
     assert c["fed"] < 0 and c["y10"] < 0 and c["dxy"] < 0 and c["oil"] < 0 and c["liq"] < 0
 
 

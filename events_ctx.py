@@ -7,6 +7,8 @@
 """
 import re
 
+import values
+
 # (نمط بالعنوان, النوع, الاسم العربي, ماذا يقيس)
 RULES = [
     (r"federal funds rate|fomc statement|interest rate decision", "rate", "قرار الفائدة (FOMC)", "قرار الفدرالي بشأن سعر الفائدة وبيانه"),
@@ -124,41 +126,37 @@ def classify(title):
 
 
 def expectation(forecast, previous):
-    f, p = _num(forecast), _num(previous)
-    if f is None or p is None:
+    sg = values.sign(forecast, previous)
+    if sg is None:
         return ""
-    u = _unit(forecast) or _unit(previous)
-    d = f - p
-    if abs(d) < 1e-9:
+    if sg == 0:
         return "السوق يتوقع نفس قراءة السابق"
-    return f"السوق يتوقع قراءة {'أعلى' if d > 0 else 'أقل'} من السابق بـ {_fmt(abs(d))}{u}"
+    return f"السوق يتوقع قراءة {'أعلى' if sg > 0 else 'أقل'} من السابق بـ {values.diff_abs_text(forecast, previous)}"
 
 
 def surprise(actual, forecast):
-    a, f = _num(actual), _num(forecast)
-    if a is None or f is None:
+    sg = values.sign(actual, forecast)
+    if sg is None:
         return ""
-    if abs(a - f) < 1e-9:
+    if sg == 0:
         return "مطابق للتوقع"
-    return ("أعلى" if a > f else "أقل") + f" من المتوقع بـ {_fmt(abs(a - f))}{_unit(actual)}"
+    return ("أعلى" if sg > 0 else "أقل") + f" من المتوقع بـ {values.diff_abs_text(actual, forecast)}"
 
 
 def vs_previous(actual, previous):
-    a, p = _num(actual), _num(previous)
-    if a is None or p is None:
+    sg = values.sign(actual, previous)
+    if sg is None:
         return ""
-    if abs(a - p) < 1e-9:
+    if sg == 0:
         return "نفس قراءة السابق"
-    return f"{'أعلى' if a > p else 'أقل'} من السابق بـ {_fmt(abs(a - p))}{_unit(actual)}"
+    return f"{'أعلى' if sg > 0 else 'أقل'} من السابق بـ {values.diff_abs_text(actual, previous)}"
 
 
 def combined(actual, forecast, previous):
     """قراءة مشتركة: الفعلي مقابل المتوقع ومقابل السابق معاً."""
-    a, f, p = _num(actual), _num(forecast), _num(previous)
-    if a is None or f is None or p is None:
+    sf, sp = values.sign(actual, forecast), values.sign(actual, previous)
+    if sf is None or sp is None:
         return ""
-    sf = 0 if abs(a - f) < 1e-9 else (1 if a > f else -1)
-    sp = 0 if abs(a - p) < 1e-9 else (1 if a > p else -1)
     if sf > 0 and sp > 0:
         return "الفعلي فوق المتوقع وفوق السابق: مفاجأة مع اتجاه متصاعد، فالأثر في اتجاه «أعلى من المتوقع» أقوى من المعتاد."
     if sf < 0 and sp < 0:
@@ -231,9 +229,9 @@ def system_lines(kind, ev, ctx):
     if es:
         lines.append("حالة ES الآن: " + "، ".join(es))
     # أثر النتيجة على المنظومة بعد الصدور
-    a, f = _num(ev.get("actual")), _num(ev.get("forecast"))
-    if a is not None and f is not None and abs(a - f) > 1e-9:
-        hawk = (1 if a > f else -1) * HAWK_DIR.get(kind, 1) * (-1 if kind == 'auction' and _is_ratio(ev) else 1)
+    sg = values.sign(ev.get("actual"), ev.get("forecast"))
+    if sg:
+        hawk = sg * HAWK_DIR.get(kind, 1) * (-1 if kind == 'auction' and _is_ratio(ev) else 1)
         side = "متشدد" if hawk > 0 else "متساهل"
         cur = m.get("lean", 0)
         if (cur > 0.15 and hawk > 0) or (cur < -0.15 and hawk < 0):
@@ -270,8 +268,10 @@ def auction_name(title):
     return f"مزاد {n} سنوات — {kind}"
 
 
-STATUS_AR = {"upcoming": "لم يصدر بعد", "awaiting": "صدر وننتظر وصول القيمة", "verified": "استُلمت القيمة وتم التحقق منها",
+STATUS_AR = {"upcoming": "لم يصدر بعد", "awaiting": "صدر وننتظر وصول القيمة", "verified_official": "رسمي ومتحقق",
+             "verified_secondary": "مصدر ثانوي موثوق ومتحقق", "needs_check": "مستخرج من خبر ويحتاج تحققاً",
              "revised": "صدرت مراجعة للقيمة", "failed": "تعذّر جلب البيانات"}
+UNAVAILABLE_AR = "Actual غير متوفر من المصدر الحالي"
 
 
 def _hhmm_attempt(iso):
@@ -287,10 +287,7 @@ def _hhmm_attempt(iso):
 
 def _surprise_num(ev):
     """Surprise = Actual − Forecast رقمياً بإشارته، أو '' إن غاب أحدهما (لا نعتبر غياب التوقع صفراً)."""
-    a, f = _num(ev.get("actual")), _num(ev.get("forecast"))
-    if a is None or f is None:
-        return ""
-    return f"{a - f:+g}{_unit(ev.get('actual'))}"
+    return values.diff_text(ev.get("actual"), ev.get("forecast"))
 
 
 def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
@@ -298,6 +295,8 @@ def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
     if kind == "auction":
         name = auction_name(ev.get("title", "")) or name
     d = {"status": ev.get("status", ""), "status_ar": STATUS_AR.get(ev.get("status", ""), ""), "last_attempt": _hhmm_attempt(ev.get("last_attempt")),
+         "trust": ev.get("actual_src", "") if ev.get("actual") else "", "verified": __import__("verification").is_verified(ev),
+         "actual_unverified": ev.get("actual_unverified", ""), "unavailable": (not ev.get("actual")) and bool(__import__("indicators").no_source_reason(ev.get("title", ""))), "source": ev.get("actual_source", ""), "period": ev.get("actual_period", ""),
          "surprise_num": _surprise_num(ev), "prev_revised": ev.get("prev_revised", ""), "revised_from": ev.get("revised_from", ""),
          "kind": kind or "", "actual_note": ev.get("actual_note", ""), "time": hhmm_baghdad, "title": ev.get("title", ""), "high": ev.get("impact") == "High",
          "forecast": ev.get("forecast", ""), "previous": ev.get("previous", ""), "actual": ev.get("actual", ""),
@@ -337,7 +336,8 @@ def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
             sc["es"] = ef
         if kind in WORST:
             d["worst"] = WORST[kind][0 if hawk else 1]
-        fv, pv = _num(ev.get("forecast")), _num(ev.get("previous"))
+        fp = values.pair(ev.get("forecast"), ev.get("previous"))
+        fv, pv = fp if fp else (None, None)
         d["likely"] = "inline"
         gap = ""
         if fv is not None and pv is not None and pv != 0 and abs(fv - pv) / abs(pv) >= 0.25:
@@ -345,9 +345,9 @@ def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
         d["likely_note"] = ("الأرجح أن يأتي الرقم قريباً من المتوقع لأنه متوسط تقديرات المحللين، "
                             "لكن تأثير السوق الأكبر يأتي من المفاجأة. " + gap).strip()
         if ev.get("actual"):
-            a, f = _num(ev.get("actual")), fv
-            if a is not None and f is not None:
-                d["hit"] = "inline" if abs(a - f) < 1e-9 else ("above" if a > f else "below")
+            sg = values.sign(ev.get("actual"), ev.get("forecast"))
+            if sg is not None:
+                d["hit"] = "inline" if sg == 0 else ("above" if sg > 0 else "below")
         if "متشدد" in (macro_label or "") and kind in ("labor", "growth", "unemp"):
             d["note"] += " — الفدرالي الآن ميله متشدد، فالأرقام القوية أميل لأن تُقرأ سلبية للأسهم."
         elif "متساهل" in (macro_label or "") and kind in ("labor", "growth"):
@@ -360,10 +360,8 @@ def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
 def interpret_release(ev, macro_label="", ctx=None):
     """بعد الصدور: نص المفاجأة ومعناها المعتاد لـ ES (قاعدة عامة)."""
     d = describe(ev, "", macro_label, ctx)
-    a, f = _num(ev.get("actual")), _num(ev.get("forecast"))
-    key = None
-    if a is not None and f is not None:
-        key = "inline" if abs(a - f) < 1e-9 else ("above" if a > f else "below")
+    sg = values.sign(ev.get("actual"), ev.get("forecast"))
+    key = None if sg is None else ("inline" if sg == 0 else ("above" if sg > 0 else "below"))
     meaning = next((s["text"] for s in d["scenarios"] if s["k"] == key), "")
     return {"surprise": d["surprise"], "vs_prev": d["vs_prev"], "combined": d["combined"], "system": d["system"], "system_effect": d["system_effect"], "meaning": meaning, "note": d["note"], "name": d["name"]}
 
@@ -382,7 +380,7 @@ def relevant(ev):
     return kind in ALWAYS
 
 
-ITEM_KEYS = ("status", "status_ar", "last_attempt", "surprise_num", "prev_revised", "revised_from", "day", "time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit", "actual_note")
+ITEM_KEYS = ("unavailable", "status", "status_ar", "trust", "verified", "actual_unverified", "source", "period", "last_attempt", "surprise_num", "prev_revised", "revised_from", "day", "time", "title", "name", "high", "forecast", "previous", "actual", "surprise", "vs_prev", "combined", "hit", "actual_note")
 
 
 def group(descs):

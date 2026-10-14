@@ -42,7 +42,7 @@ def _chg(prices, key, n=20, pct=True):
     return (a / b - 1) * 100 if pct else (a - b)
 
 
-def signals(macro_view, prices, fred, regime):
+def signals(macro_view, prices, fred, regime, drivers=None):
     """{مفتاح: (إشارة [-1,1], ملاحظة)} للمتاح فقط."""
     out = {}
     m = macro_view or {}
@@ -61,7 +61,15 @@ def signals(macro_view, prices, fred, regime):
         out["dxy"] = (clip(-d / 3.0), f"الدولار {d:+.1f}% خلال 20 يوماً")
     o = _chg(prices, "oil", 20)
     if o is not None:
-        out["oil"] = (clip(-o / 15.0), f"النفط {o:+.1f}% خلال 20 يوماً")
+        # النفط لا يُحسب ضاغطاً بالاتجاه وحده: يُحسب بسبب الحركة (من عامل النفط). بلا سبب واضح = 0 (مشروط)
+        cause = next((d.get("cause") for d in (drivers or []) if d.get("key") == "oil"), None)
+        mag = clip(abs(o) / 15.0, 0.0, 1.0)
+        if cause in ("supply", "demand_down"):
+            out["oil"] = (-mag, f"النفط {o:+.1f}% خلال 20 يوماً — {'صدمة عرض' if cause == 'supply' else 'ضعف طلب'}")
+        elif cause == "relief":
+            out["oil"] = (mag, f"النفط {o:+.1f}% خلال 20 يوماً — يخفف ضغط التكلفة")
+        else:
+            out["oil"] = (0.0, f"النفط {o:+.1f}% خلال 20 يوماً — السبب غير واضح، أثره مشروط")
     nl = m.get("net_liquidity")
     if nl and nl.get("chg_pct") is not None:
         out["liq"] = (clip(nl["chg_pct"] / 3.0), f"السيولة الصافية {nl['chg_pct']:+.1f}% خلال 4 أسابيع")
@@ -107,7 +115,7 @@ def confirm(b, drivers):
 
 def compute(macro_view, prices, fred, regime, drivers=None):
     """قاموس الانحياز. available=False عند ضعف التغطية."""
-    sig = signals(macro_view, prices, fred, regime)
+    sig = signals(macro_view, prices, fred, regime, drivers)
     tot = sum(v[0] for v in W.values())
     wsum = sum(W[k][0] for k in sig)
     cov = wsum / tot if tot else 0.0

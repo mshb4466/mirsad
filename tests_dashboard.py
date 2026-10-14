@@ -142,7 +142,7 @@ def test_pulse8_confirm_logic():
            "bias": {"available": True, "key": "pressure"}, "fred_last": {"dgs2": {"date": "2026-10-10", "last": 4.0, "diff1": -0.05}}}
     p = {x["sym"]: x for x in dashboard._pulse8(rep)}
     assert p["ES"]["confirm"] == "yes" and p["DXY"]["confirm"] == "yes" and p["10Y"]["confirm"] == "yes"
-    assert p["2Y"]["confirm"] == "no"                  # العائد هبط = داعم، يعارض الانحياز الضاغط
+    assert p["2Y"]["confirm"] == "daily"               # سلسلة يومية (إغلاق أمس): ليست تأكيداً لحظياً ولو عارضت الانحياز (v0.18.1)
     assert p["NQ"]["available"] is False and p["VIX"]["available"] is False
     assert p["ES"]["time"] == "18:00"            # 15:00 UTC = 18:00 بغداد
     rep["bias"] = {"available": False}

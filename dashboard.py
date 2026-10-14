@@ -5,6 +5,7 @@
 لا حسابات جديدة هنا: فقط إعادة تشكيل ما حسبه collector وmacro وauction وgeo.
 """
 import json
+import actuals
 import events_ctx
 import impact
 import os
@@ -335,9 +336,16 @@ def _pulse8(report):
         if chg is None or last is None:
             out.append({"sym": sym, "available": False})
             continue
-        tone = impact.tone(pk, chg) if pk else "flat"
+        if pk == "oil":                      # النفط بالسياق لا بالاتجاه وحده
+            gs, gr = impact.geo_flags(report.get("geo"))
+            tone = impact.oil_cause(chg, (prices.get("es") or {}).get("chg1"), (prices.get("dxy") or {}).get("chg1"),
+                                    (prices.get("vix") or {}).get("chg1"), gs, gr)[0]
+        else:
+            tone = impact.tone(pk, chg) if pk else "flat"
         if bk is None:
             cf = "na"
+        elif src == "FRED":                  # سلسلة يومية (إغلاق أمس): ليست تأكيداً لحظياً بعد خبر
+            cf = "daily"
         elif tone == "flat":
             cf = "flat"
         else:
@@ -357,18 +365,19 @@ def _changes(top3, prev_titles):
 
 
 def _actuals_summary(events, now):
-    """ملخص حالة الأرقام الفعلية للأحداث عالية التأثير الصادرة خلال 48 ساعة، وآخر محاولة جلب (بغداد)."""
-    past = [e for e in events or [] if e.get("impact") == "High" and timedelta(0) <= now - e["time"] <= timedelta(hours=48)]
-    cnt = {}
-    for e in past:
-        k = e.get("status") or ("verified" if e.get("actual") else "awaiting")
-        cnt[k] = cnt.get(k, 0) + 1
-    last = max((e.get("last_attempt") or "" for e in past), default="")
-    return {"total": len(past), "verified": cnt.get("verified", 0) + cnt.get("revised", 0), "awaiting": cnt.get("awaiting", 0),
-            "failed": cnt.get("failed", 0), "revised": cnt.get("revised", 0), "last_attempt": events_ctx._hhmm_attempt(last) if last else ""}
+    """ملخص حالة الأرقام الفعلية للأحداث عالية التأثير الصادرة خلال 48 ساعة: التعريف نفسه المستعمل في quality وصحة مرصاد
+    (actuals.summary). الخطب والعطل لا تدخل لا في المعلّق ولا في التغطية."""
+    sm = actuals.summary(events, now, 48, True)
+    rev = sum(1 for e in events or [] if e.get("impact") == "High" and e.get("status") == "revised" and actuals.is_verified(e)
+              and timedelta(0) <= now - e["time"] <= timedelta(hours=48))
+    return {"total": sm["total"], "verified": sm["verified"], "official": sum(1 for e in events or [] if e.get("status") == "verified_official" and e.get("impact") == "High"
+                                                                              and timedelta(0) <= now - e["time"] <= timedelta(hours=48)),
+            "needs_check": sm["needs_check"], "awaiting": sm["awaiting"], "unsupported": sm["unsupported"], "failed": sm["failed"], "revised": rev,
+            "coverage_pct": sm["coverage_pct"], "supported_coverage_pct": sm["supported_coverage_pct"],
+            "last_attempt": events_ctx._hhmm_attempt(sm["last_attempt"]) if sm["last_attempt"] else ""}
 
 
-def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None):
+def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None, quality=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
         return {"live": True, "updated": _baghdad(now), "error": report["error"]}
@@ -414,7 +423,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
     geo = report.get("geo") or {}
     past_ = _past_events(events, now, report, series or ({"es": es_series} if es_series else {}), fed_heads)
     view = {
-        "live": True, "updated": _baghdad(now),
+        "live": True, "updated": _baghdad(now), "published_at": now.isoformat(), "run_id": os.environ.get("GITHUB_RUN_ID", ""),
         "risk": {"real": True, "score": r["score"], "label": r["level"], "main_reason": r["main_reason"], "reason_label": r.get("reason_label", "السبب"),
                  "advice": r["advice"], "weights_note": r.get("weights_note", []), "components": comps},
         "quick_call": {"stance": stance, "available": report.get("tilt") is not None, "recommendation": rec, "confidence": (report.get("confidence") or {}).get("label", "")},
@@ -422,7 +431,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
                         "why": report["confidence"].get("why", [])} if report.get("confidence") else None),
         "intensity": ({"score": report["intensity"], "word": _intensity_word(report["intensity"]), "label": (vol["note"] if vol else "")} if report.get("intensity") is not None else
                       ({"score": vol["score"], "label": vol["note"]} if vol else None)),
-        "drivers": [{k: d[k] for k in ("key", "name", "val", "tone", "arrow", "last", "text")} for d in drv],
+        "drivers": [dict({k: d[k] for k in ("key", "name", "val", "tone", "arrow", "last", "text")}, **({"cause": d["cause"]} if d.get("cause") else {})) for d in drv],
         "regime": report.get("regime"), "liquidity": report.get("liquidity"), "bias": report.get("bias"),
         "safety": _safety(report.get("safety")),
         "pressures": {"bullish": bullish, "bearish": bearish, "calm": calm},
@@ -432,6 +441,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "changes": _changes(_top3(report, pulse, past_), prev_titles),
         "pulse8": _pulse8(report),
         "actuals_status": _actuals_summary(events, now),
+        "quality": quality,
         "next_event": next((u for u in upcoming if u.get("high")), None) or (upcoming[0] if upcoming else None) or (later[0] if later else None),
         "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
         "geo": [{"title": t["title"], "severity": t["severity"], "sources": t["sources"],
@@ -452,7 +462,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
     return view
 
 
-def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None):
+def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None, quality=None):
     """يكتب docs/data.json. فشل ناعم: لا يوقف التقرير."""
     d = docs_dir or DOCS_DIR
     os.makedirs(d, exist_ok=True)
@@ -464,10 +474,17 @@ def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, p
             prev_titles = {t.get("title") for t in pv["top3"]}
     except Exception:  # noqa: BLE001
         prev_titles = None
-    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health, week_news, prev_titles)
-    with open(os.path.join(d, "data.json"), "w", encoding="utf-8") as f:
-        json.dump(view, f, ensure_ascii=False, indent=1, default=str)
+    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health, week_news, prev_titles, quality)
+    _write_json(os.path.join(d, "data.json"), view)
     return view
+
+
+def _write_json(path, obj):
+    """كتابة ذرّية (ملف مؤقت ثم استبدال): لا يبقى data.json نصف مكتوب إن توقفت العملية."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, indent=1, default=str)
+    os.replace(tmp, path)
 
 
 def patch_health(hv, docs_dir=None):

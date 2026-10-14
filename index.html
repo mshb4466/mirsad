@@ -76,8 +76,8 @@
   .lvl-badge .ic { font-size: 16px; }
   .why { margin: 12px auto 0; font-size: 15px; font-weight: 500; max-width: 46ch; }
   .advice { margin: 4px auto 0; color: var(--muted); font-size: 13px; }
-  .scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 14px; }
-  .scale div { font-size: 11px; padding: 6px 2px; border-radius: 8px; background: var(--card-2); color: var(--muted); border: 1.5px solid transparent; line-height: 1.3; }
+  .scale { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; margin-top: 14px; }
+  .scale div { overflow-wrap: anywhere; min-width: 0; font-size: 11px; padding: 6px 2px; border-radius: 8px; background: var(--card-2); color: var(--muted); border: 1.5px solid transparent; line-height: 1.3; }
   .scale div b { display: block; font-family: var(--font-mono); font-size: 12px; }
   .scale div.on { border-color: var(--c); color: var(--c); background: var(--cbg); font-weight: 700; }
 
@@ -129,6 +129,10 @@
   .cmeta { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); margin-top: 4px; }
   .cmeta span:first-child { min-width: 0; }
 
+  .play li, .notif .nt, .notif .nh { overflow-wrap: anywhere; min-width: 0; }
+  .cname, .cmeta span { overflow-wrap: anywhere; } .cscore { white-space: normal; }
+  @media (max-width: 220px) { .comp { grid-template-columns: minmax(0, 1fr); } .cic { display: none; } .chead, .cmeta { flex-wrap: wrap; } .hgrid { grid-template-columns: minmax(0, 1fr); } .hbox, .hrow, .hrow > div { overflow-wrap: anywhere; min-width: 0; } }
+
   /* السيناريوهات */
   .scn { display: flex; flex-direction: column; gap: 12px; }
   .sc { border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: var(--card-2); }
@@ -167,6 +171,7 @@
   .go { width: 100%; padding: 15px; border: 0; border-radius: 14px; background: var(--brand); color: var(--brand-ink); font: 900 17px var(--font-body); cursor: pointer; box-shadow: var(--shadow); }
   .go:disabled { opacity: .55; cursor: default; }
   .status { text-align: center; color: var(--muted); font-size: 13px; min-height: 18px; margin: 0; }
+  .demo.failed { background: var(--crit-bg); color: var(--crit); border-color: var(--crit); font-weight: 700; }
   .demo.live { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
   .demo { background: var(--neutral-bg); color: var(--neutral); border: 1px solid var(--neutral); border-radius: 12px; padding: 9px 12px; font-size: 13px; font-weight: 500; }
   .fed-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
@@ -202,18 +207,26 @@
   .plan.paid li::before { content: '★'; color: var(--brand); }
   @media (max-width: 560px) { .plan-grid { grid-template-columns: 1fr; } }
   .plan-note { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
-  .tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; position: fixed; bottom: 0; left: 0; right: 0; margin-inline: auto; max-width: 640px; z-index: 20; background: var(--card); border-top: 1px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 20px rgba(0,0,0,.08); border-radius: 18px 18px 0 0; }
+  .tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; position: fixed; bottom: 0; left: 0; right: 0; margin-inline: auto; max-width: 640px; z-index: 20; background: var(--card); border-top: 1px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 20px rgba(0,0,0,.08); border-radius: 18px 18px 0 0; }
   .tabs button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; border-radius: 12px; border: 0; background: transparent; color: var(--muted); font: 700 12px var(--font-body); cursor: pointer; }
+  .statusrow { flex-wrap: wrap; } .statusrow > * { min-width: 0; overflow-wrap: anywhere; } @media (max-width: 300px) { .statusrow .demo { flex: 1 1 100%; } .gauge-center, .gauge-center * { max-width: 100%; overflow-wrap: anywhere; } }
+  .tabs button { min-width: 0; } .tabs button span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  @media (max-width: 260px) { .tabs { padding-inline: 4px; gap: 2px; } .tabs button span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .chead { flex-wrap: wrap; } }
   .tabs button i { font-style: normal; font-size: 20px; line-height: 1.1; filter: grayscale(1); opacity: .75; }
   .tabs button[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); } .tabs button[aria-selected="true"] i { filter: none; opacity: 1; }
   .rel { border-top: 1px solid var(--line); padding: 12px 0; display: grid; gap: 8px; }
   .relh { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-weight: 800; font-size: 14.5px; cursor: pointer; list-style: none; }
   details.rel > summary::-webkit-details-marker { display: none; } details.rel > summary::after { content: '▾'; margin-inline-start: auto; color: var(--muted); } details.rel[open] > summary::after { content: '▴'; }
-  .nums3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; direction: rtl; }
+  .nums3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; direction: rtl; } .nums3 .nbox { overflow-wrap: anywhere; } @media (max-width: 260px) { .nums3 { grid-template-columns: minmax(0, 1fr); } }
+  .rel, .relrow { grid-template-columns: minmax(0, 1fr); } .pill { max-width: 100%; white-space: normal; } .vrow { flex-wrap: wrap; min-width: 0; } .relrow, .rel, .relh { min-width: 0; } .relrow > * { min-width: 0; overflow-wrap: anywhere; } .brand { flex-wrap: wrap; min-width: 0; } .brand h1, .brand small { overflow-wrap: anywhere; min-width: 0; }
   .nbox { background: var(--card-2); border-radius: 12px; padding: 6px 4px; text-align: center; min-width: 0; }
   .nbox small { display: block; color: var(--muted); font-size: 11px; } .nbox b { font-size: 16px; display: block; }
   .nbox.act { outline: 2px solid var(--vc, var(--line)); background: var(--vbg, var(--card-2)); } .nbox.act b { color: var(--vc, var(--fg)); font-size: 18px; }
   .vrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .nbox.miss b { font-size: 13px; color: var(--mut, #888); } .nbox .why { display: block; font-size: 10.5px; line-height: 1.35; margin-top: 3px; }
+  details.srcd { width: 100%; margin-top: 4px; } details.srcd > summary { font-size: 12px; color: var(--mut, #888); cursor: pointer; }
+  details.srcd .srow { display: flex; gap: 8px; font-size: 12.5px; padding: 3px 0; border-bottom: 1px dashed var(--line); } details.srcd .srow small { min-width: 96px; color: var(--mut, #888); } details.srcd .srow span { min-width: 0; flex: 1; overflow-wrap: anywhere; } @media (max-width: 300px) { details.srcd .srow { flex-direction: column; gap: 0; } details.srcd .srow small { min-width: 0; } }
+  .qrow span { min-width: 0; overflow-wrap: anywhere; } .qrow { display: flex; gap: 8px; font-size: 12.5px; padding: 4px 0; border-bottom: 1px dashed var(--line); flex-wrap: wrap; } .qrow b { min-width: 120px; }
   .pill { display: inline-flex; gap: 5px; align-items: center; padding: 4px 11px; border-radius: 99px; font-size: 12.5px; font-weight: 700; background: var(--card-2); color: var(--fg); }
   .pill.v-bear { background: var(--crit-bg); color: var(--crit); } .pill.v-bull { background: var(--ok-bg); color: var(--ok); } .pill.v-neu { background: var(--neutral-bg); color: var(--neutral); }
   .tone { display: flex; justify-content: space-between; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 12px; font-size: 13.5px; } .tone.v-bear { background: var(--crit-bg); color: var(--crit); } .tone.v-bull { background: var(--ok-bg); color: var(--ok); } .tone.v-neu { background: var(--neutral-bg); color: var(--neutral); }
@@ -301,7 +314,7 @@
   .card h2 { font-size: 15px; } .play li { font-size: 14px; } .tabs button { min-height: 50px; font-size: 12.5px; }
   button, summary { min-height: 40px; }
   .tone-bear { --tc: var(--crit); --tbg: var(--crit-bg); } .tone-bull { --tc: var(--ok); --tbg: var(--ok-bg); } .tone-flat { --tc: var(--neutral); --tbg: var(--neutral-bg); } .tone-warn { --tc: var(--warn); --tbg: var(--warn-bg); }
-  .drv { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .drv { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; } .drv > * { max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
   .dchip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 14px; border: 1.5px solid var(--tc); background: var(--tbg); color: var(--tc); font: 800 14px var(--font-body); cursor: pointer; }
   .dchip .a { font-size: 15px; } .dchip .v { font-family: var(--font-mono); direction: ltr; font-weight: 600; font-size: 13px; }
   .dexp { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: var(--card-2); font-size: 13.5px; }
@@ -363,12 +376,12 @@
 
   .sbias .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; } .tag { border: 1px solid var(--line); border-radius: 99px; padding: 2px 12px; font-size: 16px; background: var(--card); } .tag b { font-weight: 800; }
   .sbias .bs { font-size: 17px; color: var(--fg); line-height: 1.7; margin-top: 4px; }
-  .trio3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; } .trio3 .chipb { text-align: center; align-items: center; padding: 10px 6px; min-height: 92px; } .trio3 .chipb b { font-size: 18px; line-height: 1.4; } .trio3 .num { font-size: 24px !important; } .trio3 .rbar { width: 100%; margin-top: 4px; } .trio3 i { font-style: normal; font-size: 14px; color: var(--muted); }
+  .trio3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .chipb { min-width: 0; overflow-wrap: anywhere; } @media (max-width: 300px) { .trio3 { grid-template-columns: minmax(0, 1fr); } .pl8 { grid-template-columns: minmax(0, 1fr) !important; } } .trio3 .chipb { text-align: center; align-items: center; padding: 10px 6px; min-height: 92px; } .trio3 .chipb b { font-size: 18px; line-height: 1.4; } .trio3 .num { font-size: 24px !important; } .trio3 .rbar { width: 100%; margin-top: 4px; } .trio3 i { font-style: normal; font-size: 14px; color: var(--muted); }
   .pl8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; } .pc8 { background: var(--card-2); border-radius: 12px; padding: 8px 4px; text-align: center; line-height: 1.5; } .pc8 b { display: block; font-size: 17px; } .pc8 .v { font-size: 16px; font-weight: 700; direction: ltr; unicode-bidi: isolate; } .pc8 small { display: block; font-size: 14px; color: var(--muted); } .pc8.bull .v { color: var(--ok); } .pc8.bear .v { color: var(--hi); } .pc8.na .v { color: var(--muted); }
   .lnk { background: none; border: 0; color: var(--brand); font: 700 17px var(--font-body); padding: 10px 0 0; cursor: pointer; }
   .sec { display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: 0; border-bottom: 1px solid var(--line); font: 600 17px var(--font-body); color: var(--fg); padding: 12px 0; min-height: 50px; cursor: pointer; text-align: start; } .sec:last-child { border: 0; }
   #backHome { position: sticky; top: 6px; z-index: 5; align-self: flex-start; font-size: 16px; padding: 8px 16px; }
-  @media (max-width: 360px) { .pl8 { grid-template-columns: repeat(2, 1fr); } .trio3 .chipb b { font-size: 16px; } }
+  @media (max-width: 360px) { .pl8 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .trio3 .chipb b { font-size: 16px; } }
 
   /* ===== النموذج A (Minimal) ===== */
   .sbias { align-items: center; text-align: center; padding: 22px 16px; } .sbias .bv { justify-content: center; } .sbias .barrow { font-size: 58px; } .sbias .bw { font-size: 46px; }
@@ -391,11 +404,11 @@
   <div class="statusrow"><button class="chip lang" id="refreshBtn" type="button">↻ تحديث</button><div class="demo" id="banner">مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.</div></div>
 
   <div class="tabs" role="tablist">
-    <button type="button" role="tab" data-tab="today" aria-selected="true"><i>🏠</i><span>اليوم</span></button>
-    <button type="button" role="tab" data-tab="week" aria-selected="false"><i>🗞️</i><span>أخبار ES</span></button>
-    <button type="button" role="tab" data-tab="macro" aria-selected="false"><i>🧭</i><span>المنظومة</span></button>
-    <button type="button" role="tab" data-tab="details" aria-selected="false"><i>📊</i><span>التفاصيل</span></button>
-    <button type="button" role="tab" data-tab="settings" aria-selected="false"><i>⚙️</i><span>الإعدادات</span></button>
+    <button type="button" role="tab" data-tab="today" aria-label="اليوم" aria-selected="true"><i>🏠</i><span>اليوم</span></button>
+    <button type="button" role="tab" data-tab="week" aria-label="أخبار ES" aria-selected="false"><i>🗞️</i><span>أخبار ES</span></button>
+    <button type="button" role="tab" data-tab="macro" aria-label="المنظومة" aria-selected="false"><i>🧭</i><span>المنظومة</span></button>
+    <button type="button" role="tab" data-tab="details" aria-label="التفاصيل" aria-selected="false"><i>📊</i><span>التفاصيل</span></button>
+    <button type="button" role="tab" data-tab="settings" aria-label="الإعدادات" aria-selected="false"><i>⚙️</i><span>الإعدادات</span></button>
   </div>
 
   <button type="button" class="chip lang" id="backHome" hidden>← الرئيسية</button>
@@ -611,12 +624,14 @@
       <h2>صحة مرصاد</h2>
       <div id="healthSum"></div>
       <details id="healthDet"><summary>التفاصيل</summary><div id="healthBody"></div></details>
+      <details id="qualDet"><summary>جودة الأرقام الفعلية</summary><div id="qualBody"></div></details>
     </section>
     <section class="card about" id="aboutCard">
       <h2>ما هو مرصاد؟</h2>
       <p class="slogan">افهم ما يحرك السوق</p>
       <p>مِرصاد يجمع تلقائياً الأحداث الاقتصادية والعوائد والدولار والنفط والأخبار الجيوسياسية، ويحلّلها كمنظومة واحدة ليخبرك: ما مستوى <b>الخطر</b> الآن؟ وإلى أين تميل <b>القوى المؤثرة</b>؟ وما قرار الفدرالي الأرجح؟</p>
       <p><b>الخطر</b> يقيس مدى اضطراب السوق، بينما <b>الانحياز</b> يقيس الاتجاه الأرجح للتأثير، وهما منفصلان: قد يكون الخطر عالياً دون اتجاه واضح. <b>الثقة</b> تقول لك هل البيانات كافية ومتسقة.</p>
+      <p>ترتيب العمل: الماكرو ← سياق الأسبوع ← إيقاع اليوم ← تدفق الأوامر؛ فلا قرار شراء أو بيع من الماكرو وحده.</p>
       <p>مِرصاد لا يعطي إشارات شراء أو بيع، ويقول صراحةً «التقييم غير مكتمل» حين لا تكفي البيانات.</p>
     </section>
     <section class="card">
@@ -646,7 +661,7 @@
       <details class="gd"><summary>السيولة الصافية والمالية العامة</summary><ul class="play"><li><b>السيولة الصافية:</b> ميزانية الفدرالي − حساب الخزانة (TGA) − اتفاقيات إعادة الشراء العكسية (RRP). هي تقدير لما يتبقى من سيولة في النظام للأسواق.</li><li><b>التغير خلال 4 أسابيع:</b> هبوط 1.5% أو أكثر = تجفيف (ضاغط). صعود 1.5% أو أكثر = دعم. بينهما = محايد.</li><li><b>العجز المالي من الناتج:</b> عجز الحكومة الكبير يعني إصدار سندات أكثر (ضغط على العوائد) مع إنفاق داعم للاقتصاد. أثره بطيء ولا يغيّر اليوم وحده.</li></ul></details>
       <details class="gd"><summary>سياق المزاد لـ ES</summary><ul class="play"><li><b>الفكرة:</b> نظرية المزاد تعتبر السوق مزاداً يبحث عن «السعر العادل». نرى أين تقبل السوق التداول وأين رفضه.</li><li><b>منطقة القيمة:</b> المدى الذي جرى فيه نحو 70% من تداول الأمس. حدّها الأعلى VAH والأدنى VAL.</li><li><b>POC:</b> السعر الأكثر تداولاً، وهو غالباً مغناطيس للسعر.</li><li><b>موقع الافتتاح:</b> أعلى القيمة (قبول خارجها يدعم الاستمرار)، أسفلها، أو داخلها (التذبذب أرجح). قاعدة الـ80%: إن عاد السعر إلى داخل القيمة وقُبل فيها فغالباً يعبرها حتى الطرف المقابل. قاعدة شائعة تحتاج تأكيدك.</li><li><b>الجلسة الليلية:</b> المدى والمخزون: مخزون شرائي أو بيعي أحادي يزيد قابلية التصحيح عند الافتتاح.</li><li><b>الفجوة:</b> الفرق بين إغلاق الأمس والافتتاح.</li><li><b>المدى المتوقع من VIX:</b> انحراف معياري يومي ≈ السعر × VIX ÷ 16 تقريباً. مدى الجلسة نحو 1.6 ضعفه، وغالباً ما يكون الفعلي أقل.</li><li><b>الميل السياقي:</b> مزج لستة عوامل: فجوة الافتتاح وموقع إغلاق الأمس في مداه وتغير VIX وناسداك مقابل ES والدولار واتجاه 5 أيام. <b>تجريبي لم يُثبت</b>، ويُقاس في الاختبار التاريخي، وليس إشارة دخول.</li></ul></details>
       <details class="gd"><summary>الأخبار الجيوسياسية</summary><ul class="play"><li><b>كيف تُصنَّف:</b> بقواعد كلمات مفتاحية (دون ذكاء اصطناعي): نوع الحدث (تصعيد/عقوبات/نووي...) والمنطقة وحدّة من 1 إلى 4 وتجميع العناوين المتشابهة وتناقص الأهمية مع الوقت.</li><li><b>التحقق بالسوق:</b> يُعطى الخبر وزناً أكبر إن تحركت الأسواق (ذهب/نفط/VIX) بما يؤيده.</li><li><b>حدود:</b> القواعد لا تفهم السياق ولا الاتجاه الحقيقي للخبر؛ قد يُصنَّف خبر عادي خطأً. لذلك العناوين «للاطلاع فقط». التفسير بالذكاء الاصطناعي ضمن الخطة المدفوعة المخطَّطة.</li></ul></details>
-      <details class="gd"><summary>التقارير التي تصلك</summary><ul class="play"><li><b>قبل الافتتاح:</b> كل يوم عمل 3:00 ظهراً بتوقيت بغداد: المخاطرة والسياق والمزاد والمنظومة والأحداث.</li><li><b>بعد صدور بيانات كبرى:</b> فحص كل 15 دقيقة. عند صدور رقم عالي التأثير يصلك الفعلي والمتوقع والسابق ومقارنتها وأثرها على ES في منظور المنظومة.</li><li><b>حركة سوق مفاجئة (دفاعية):</b> هبوط ES مع ارتفاع الذهب والنفط وVIX معاً. رصد للحركة وليس تفسيراً لسببها.</li><li><b>حركة قوية بأي اتجاه (مؤكَّدة بالزخم والحجم):</b> يراقب البرنامج ES وناسداك وVIX والنفط والذهب والدولار والين وعوائد 5 و10 سنوات والائتمان والبنوك الإقليمية على ثلاثة أطر: 15 دقيقة و60 دقيقة و3 ساعات (الحدود مخفَّضة لرصد الحركات السريعة). لا يصلك تنبيه إلا إذا اجتمعت الشروط: (1) <b>الزخم متسق</b>: الاتجاه نفسه في الأطر القصيرة، ولا ارتداد على الإطار الطويل. (2) <b>كفاءة الاتجاه</b> ≥ 0.35: صافي الحركة مقابل مجموع حركات الشموع، فيُستبعد التذبذب. (3) <b>دلالة إحصائية</b>: حركة الساعة تتجاوز 1.8 انحراف معياري من تقلب الأصل المعتاد. (4) <b>ارتفاع الحجم</b> ≥ 1.3 ضعف المعتاد في آخر 30 دقيقة، لأصول لها حجم (ES وناسداك والنفط والذهب وHYG وKRE). إن لم يتوفر الحجم تُشترط دلالة 3σ وكفاءة 0.5 بدلاً منه. VIX والدولار والين والعوائد لا تنبّه وحدها بل تُضاف إلى تنبيه ES أو ناسداك المؤكَّد. النفط والذهب وHYG وKRE تنبّه وحدها بحدّ أعلى 1.5 مرة وبحجمها هي. لكل اتجاه فترة تهدئة ساعتان، ويُسمح بتنبيه جديد إن كبرت الحركة 1.5 ضعف. يعرض التنبيه «تأكيد الزخم والحجم» (الكفاءة والدلالة وتوسع التقلب والحجم) ثم قراءة النمط والعناوين. تأخر بيانات Yahoo يعني أن التنبيه قد يصل بعد بداية الحركة.</li><li><b>ملخص أسبوعي:</b> السبت للمعايرة وسجل الأداء.</li></ul></details>
+      <details class="gd"><summary>التقارير التي تصلك</summary><ul class="play"><li><b>قبل الافتتاح:</b> كل يوم عمل 2:30 ظهراً بتوقيت بغداد: المخاطرة والسياق والمزاد والمنظومة والأحداث.</li><li><b>بعد صدور بيانات كبرى:</b> فحص كل 15 دقيقة، وفحص مخصص عند الدقيقة 31 بعد إصدارات 8:30 بتوقيت نيويورك (3:31 عصراً بغداد صيفاً و4:31 شتاءً) ينتظر وصول الرقم نحو 5 دقائق. المشغّل المجدول في GitHub قد يتأخر دقائق، فلا يُدَّعى تحديث لحظي. عند صدور رقم عالي التأثير يصلك الفعلي والمتوقع والسابق ومقارنتها وأثرها على ES في منظور المنظومة.</li><li><b>حركة سوق مفاجئة (دفاعية):</b> هبوط ES مع ارتفاع الذهب والنفط وVIX معاً. رصد للحركة وليس تفسيراً لسببها.</li><li><b>حركة قوية بأي اتجاه (مؤكَّدة بالزخم والحجم):</b> يراقب البرنامج ES وناسداك وVIX والنفط والذهب والدولار والين وعوائد 5 و10 سنوات والائتمان والبنوك الإقليمية على ثلاثة أطر: 15 دقيقة و60 دقيقة و3 ساعات (الحدود مخفَّضة لرصد الحركات السريعة). لا يصلك تنبيه إلا إذا اجتمعت الشروط: (1) <b>الزخم متسق</b>: الاتجاه نفسه في الأطر القصيرة، ولا ارتداد على الإطار الطويل. (2) <b>كفاءة الاتجاه</b> ≥ 0.35: صافي الحركة مقابل مجموع حركات الشموع، فيُستبعد التذبذب. (3) <b>دلالة إحصائية</b>: حركة الساعة تتجاوز 1.8 انحراف معياري من تقلب الأصل المعتاد. (4) <b>ارتفاع الحجم</b> ≥ 1.3 ضعف المعتاد في آخر 30 دقيقة، لأصول لها حجم (ES وناسداك والنفط والذهب وHYG وKRE). إن لم يتوفر الحجم تُشترط دلالة 3σ وكفاءة 0.5 بدلاً منه. VIX والدولار والين والعوائد لا تنبّه وحدها بل تُضاف إلى تنبيه ES أو ناسداك المؤكَّد. النفط والذهب وHYG وKRE تنبّه وحدها بحدّ أعلى 1.5 مرة وبحجمها هي. لكل اتجاه فترة تهدئة ساعتان، ويُسمح بتنبيه جديد إن كبرت الحركة 1.5 ضعف. يعرض التنبيه «تأكيد الزخم والحجم» (الكفاءة والدلالة وتوسع التقلب والحجم) ثم قراءة النمط والعناوين. تأخر بيانات Yahoo يعني أن التنبيه قد يصل بعد بداية الحركة.</li><li><b>ملخص أسبوعي:</b> السبت للمعايرة وسجل الأداء.</li></ul></details>
       <details class="gd"><summary>حدود البرنامج وتنبيهات</summary><ul class="play"><li><b>ليس توصية:</b> الإشارات إحصائية لأغراض التجربة. القرار مسؤوليتك.</li><li><b>بيانات مجانية متأخرة:</b> Yahoo غير رسمي وقد يتأخر أو ينقطع، وFRED يتحدث يومياً أو شهرياً. ما يتعذر جلبه يُحذف من الحساب ويظهر ⚠.</li><li><b>الأوزان تقديرية:</b> وسنعايرها لاحقاً بسجل الأداء والاختبار التاريخي.</li><li><b>غير متاح مجاناً:</b> تمركز الخيارات (Gamma) واحتمالات الفائدة الدقيقة (FedWatch) وتدفق الأوامر، وهي ضمن الخطة المدفوعة المخطَّطة.</li></ul></details>
       <details class="gd"><summary>قاموس المصطلحات</summary><ul class="play"><li><b>CPI:</b> مؤشر أسعار المستهلك (التضخم). <b>PPI:</b> أسعار المنتجين. <b>PCE:</b> مقياس التضخم المفضّل للفدرالي.</li><li><b>NFP:</b> الوظائف غير الزراعية الشهرية. <b>JOLTS:</b> الوظائف الشاغرة. <b>FOMC:</b> لجنة الفدرالي التي تقرر الفائدة.</li><li><b>VIX:</b> مؤشر الخوف (تقلب متوقع للأسهم). <b>DXY:</b> مؤشر الدولار.</li><li><b>bp:</b> نقطة أساس = 0.01%. <b>NFCI:</b> مؤشر الظروف المالية. <b>COT:</b> تقرير تمركز المضاربين في العقود الآجلة.</li><li><b>TGA:</b> حساب الخزانة لدى الفدرالي. <b>RRP:</b> اتفاقيات إعادة الشراء العكسية.</li><li><b>POC / VAH / VAL:</b> أكثر سعر تداولاً / أعلى / أدنى منطقة القيمة.</li><li><b>ES:</b> عقد E-mini S&P 500 الآجل. <b>σ:</b> انحراف معياري.</li></ul></details>
     </section>
@@ -926,6 +941,19 @@ function renderExtras(data) {
     $('liqText').textContent = lq.meaning; $('fedLiq').textContent = '';
   }
   const rg = data.regime, rb = $('regimeBox'); rb.hidden = !rg; if (rg) rb.textContent = 'النظام الاقتصادي السائد: ' + rg.text;
+  /* جودة الأرقام الفعلية */
+  const qb = $('qualBody'), qd = $('qualDet'); qb.innerHTML = ''; qd.hidden = !data.quality;
+  if (data.quality) {
+    const q = data.quality, line = (k, v) => { const r = el('div', 'qrow'); r.appendChild(el('b', '', k)); r.appendChild(el('span', 'num', v)); qb.appendChild(r); };
+    line('وصل رقمها ومتحقق', q.arrived + ' من ' + q.total + ' (رسمي ' + q.official + '، ثانوي ' + q.secondary + ')');
+    line('مستخرج من خبر ويحتاج تحققاً', String(q.needs_check)); line('لم يصل بعد', q.missing + ' (تعذّر الجلب: ' + q.failed + ')');
+    line('تغطية المؤشرات المهمة', q.coverage_pct == null ? 'غير محسوبة' : q.coverage_pct + '% (' + q.important_arrived + '/' + q.important_total + ')');
+    if (q.latency_median_min != null) line('من الإصدار إلى الاستلام', 'وسيط ' + q.latency_median_min + ' د، أقصى ' + q.latency_max_min + ' د (بدقة دورة الجدولة)');
+    [['bls', 'BLS'], ['fred', 'FRED'], ['treasury', 'TreasuryDirect']].forEach(x => { const s_ = q.sources[x[0]] || {}; line(x[1], (s_.ok === true ? '🟢 تعمل' : s_.ok === false ? '🔴 فشلت' : '⚪ لم تُجرَّب') + (s_.detail ? ' — ' + s_.detail : '')); });
+    line('آخر نجاح للجدولة', q.scheduler_last_ok_ar ? q.scheduler_last_ok_ar + ' بغداد' : 'لا يوجد'); line('آخر نشر ناجح', q.publish_last_ok_ar ? q.publish_last_ok_ar + ' بغداد' : 'لا يوجد');
+    (q.events || []).filter(x => !x.verified).forEach(x => line(x.title + ' (' + x.release_ar + ')', x.status_ar + ' — ' + x.reason));
+    if ((q.unsupported || []).length) line('مصادر غير مدعومة', q.unsupported.join('؛ '));
+  }
   /* صحة مرصاد */
   const h = data.health, hs = $('healthSum'), hb = $('healthBody'); hs.innerHTML = ''; hb.innerHTML = '';
   if (!h) { hs.appendChild(el('p', 'summary', 'لم يُجرَ الفحص بعد: تظهر الحالة بعد أول دورة تشغيل حقيقية. لا تُعرض حالة سليمة دون فحص فعلي.')); return; }
@@ -1159,7 +1187,14 @@ function render(data) {
     const g = el('div', 'nums3');
     [['السابق', it.previous, false], ['المتوقع', it.forecast, false], ['الفعلي', it.actual, true]].forEach(x => {
       const b = el('div', 'nbox' + (x[2] ? ' act' : '')); if (x[2] && vd) { const c = VCOL[vd.es] || VCOL.neu; b.style.setProperty('--vc', c[0]); b.style.setProperty('--vbg', c[1]); }
-      b.appendChild(el('small', '', x[0])); b.appendChild(el('b', 'num', x[1] || '—')); g.appendChild(b);
+      b.appendChild(el('small', '', x[0]));
+      if (x[2] && !x[1] && it.status && it.status !== 'upcoming') {      /* الفعلي غائب: نقول السبب في الخانة نفسها، لا شرطة صامتة */
+        b.classList.add('miss');
+        b.appendChild(el('b', 'num', it.unavailable ? 'غير متوفر' : it.status === 'needs_check' ? 'يحتاج تحققاً' : it.status === 'failed' ? 'تعذّر الجلب' : 'بانتظار الرقم'));
+        if (it.unavailable) b.appendChild(el('small', 'why', 'Actual غير متوفر من المصدر الحالي'));
+        else if (it.actual_unverified) b.appendChild(el('small', 'why', 'من خبر: ' + it.actual_unverified + ' (غير موثّق)'));
+      } else b.appendChild(el('b', 'num', x[1] || '—'));
+      g.appendChild(b);
     });
     return g;
   };
@@ -1170,11 +1205,28 @@ function render(data) {
       const arrow = vd.k === 'above' ? '▲ ' : vd.k === 'below' ? '▼ ' : '◆ ';
       r.appendChild(el('span', 'pill', arrow + vd.label + (it.surprise ? ' (' + it.surprise.replace(/^(أعلى|أقل) من المتوقع بـ ?/, '') + ')' : '')));
       r.appendChild(el('span', 'pill v-' + vd.es, vd.effect));
-    } else if (!it.actual && NEEDNUM(kind)) { r.appendChild(el('span', 'pill', (it.status_ar || 'الرقم الفعلي غير متوفر') + (it.last_attempt ? ' · آخر محاولة ' + it.last_attempt + ' بغداد' : ''))); if (it.actual_note) r.appendChild(el('span', 'n', it.actual_note)); }
+    } else if (!it.actual && (NEEDNUM(kind) || it.unavailable)) { r.appendChild(el('span', 'pill', (it.unavailable ? 'Actual غير متوفر من المصدر الحالي' : (it.status_ar || 'الرقم الفعلي غير متوفر')) + (it.last_attempt && !it.unavailable ? ' · آخر محاولة ' + it.last_attempt + ' بغداد' : ''))); }
+    if (it.actual) r.appendChild(el('span', 'pill v-' + (it.trust === 'official' ? 'bull' : 'neu'), it.trust === 'official' ? '✔ رسمي ومتحقق' : '✔ مصدر ثانوي موثوق'));
+    const sd = srcDetails_(it); if (sd) r.appendChild(sd);
     if (it.actual && it.status === 'revised') r.appendChild(el('span', 'pill', '↻ عُدّلت القيمة' + (it.revised_from ? ' (كانت ' + it.revised_from + ')' : '')));
     if (it.actual && it.surprise_num) r.appendChild(el('span', 'pill', 'المفاجأة ' + it.surprise_num));
     if (it.actual && it.prev_revised && it.previous && it.prev_revised !== it.previous) r.appendChild(el('span', 'pill', 'السابق بعد المراجعة ' + it.prev_revised));
     return r;
+  };
+  /* تفاصيل المصدر عند الضغط فقط: الحالة، المصدر، فترة التقرير، سبب التأخر، آخر محاولة */
+  const srcDetails_ = it => {
+    if (!it.status || it.status === 'upcoming') return null;
+    const rows = [];
+    if (it.status_ar) rows.push(['الحالة', it.status_ar]);
+    if (it.source) rows.push(['المصدر', it.source]);
+    if (it.period) rows.push(['فترة التقرير', it.period]);
+    if (it.actual_unverified) rows.push(['رقم من خبر (غير موثّق)', it.actual_unverified]);
+    if (it.actual_note) rows.push([it.actual ? 'ملاحظة' : 'السبب', it.actual_note]);
+    if (it.last_attempt) rows.push(['آخر محاولة (بغداد)', it.last_attempt]);
+    if (!rows.length) return null;
+    const d = document.createElement('details'); d.className = 'srcd'; d.appendChild(el('summary', '', 'تفاصيل المصدر'));
+    rows.forEach(x => { const q = el('div', 'srow'); q.appendChild(el('small', '', x[0])); q.appendChild(el('span', '', x[1])); d.appendChild(q); });
+    return d;
   };
   const arrowOf = v => v > 0 ? '▲' : v < 0 ? '▼' : '◆';
   const reactRow = e => {
@@ -1206,11 +1258,10 @@ function render(data) {
         const r = el('div', 'relrow'); const t = el('div', 't'); t.appendChild(el('span', 'num evtime', it.time)); t.appendChild(document.createTextNode('  ' + (it.name || it.title)));
         r.appendChild(t);
         if (it.actual || it.forecast || it.previous) r.appendChild(nums3(it, it.verdict));
-        r.appendChild(verdictRow(it, it.verdict, e.kind)); if (it.actual && it.actual_note) r.appendChild(el('span', 'n', it.actual_note)); w.appendChild(r);
+        r.appendChild(verdictRow(it, it.verdict, e.kind)); w.appendChild(r);
       });
     } else {
       if (e.actual || e.forecast || e.previous) w.appendChild(nums3(e, e.verdict));
-      if (e.actual && e.actual_note) w.appendChild(el('p', 'evnote', e.actual_note));
       w.appendChild(verdictRow(e, e.verdict, e.kind));
     }
     if (e.kind === 'speech' && e.verdict) {
@@ -1409,12 +1460,12 @@ function renderSummary_(data, score, lvl) {
     else {
       const sg = x.chg > 0 ? '+' : '';
       const v = el('div', 'v', x.arrow + ' ' + sg + x.chg + (x.unit === 'bp' ? 'bp' : '%')); c.appendChild(v);
-      c.appendChild(el('small', '', ({ yes: '✔ يؤكد', no: '✖ يعارض', flat: '◆ محايد', na: '— غير متاح' })[x.confirm] || ''));
+      c.appendChild(el('small', '', ({ yes: '✔ يؤكد', no: '✖ يعارض', flat: '◆ محايد', na: '— غير متاح', daily: '◷ يومي: ليس تأكيداً لحظياً' })[x.confirm] || ''));
       c.appendChild(el('small', '', x.time || ''));
     }
     pg.appendChild(c);
   });
-  $('pulse8Note').textContent = 'الأخضر = داعم لـ ES والأحمر = ضاغط بحسب الأثر المعتاد (ارتفاع الدولار والعوائد وVIX والنفط ضغط). الوقت = وقت آخر بيانات (Yahoo متأخر 15–30 دقيقة، 2Y من FRED يومي). «يؤكد/يعارض» مقارنة باتجاه الانحياز.';
+  $('pulse8Note').textContent = 'الأخضر = داعم لـ ES والأحمر = ضاغط بحسب الأثر المعتاد (ارتفاع الدولار والعوائد وVIX ضغط؛ والنفط بحسب سبب حركته: صدمة عرض ضغط، وتحسن الطلب مختلط، وبلا سبب واضح مشروط). الوقت = وقت آخر بيانات (Yahoo متأخر 15–30 دقيقة، 2Y من FRED يومي). «يؤكد/يعارض» مقارنة باتجاه الانحياز.';
   /* أقرب حدث */
   const ne = data.next_event, nb = $('nextEv'); nb.innerHTML = ''; nb.classList.remove('open');
   if (!ne) { nb.appendChild(el('div', 'unavail', 'لا حدث عالي التأثير قادم هذا الأسبوع (أو لم يصل التقويم)')); }
@@ -1449,7 +1500,7 @@ function renderWeek_(data) {
       const t = el('div', 't'); t.appendChild(el('span', 'tm', i.time)); t.appendChild(document.createTextNode(i.name)); b.appendChild(t);
       const nums = ['المتوقع ' + (i.forecast || '—'), 'السابق ' + (i.previous || '—')]; if (i.actual) nums.unshift('الفعلي ' + i.actual);
       b.appendChild(el('div', 'n', nums.join(' | ')));
-      b.appendChild(el('div', 'st', i.released ? (i.actual ? ('صدر' + (i.surprise ? ' — ' + i.surprise : '') + (i.effect ? ' — ' + i.effect : '') + (i.status === 'revised' ? ' — ↻ عُدّلت القيمة' : '')) : 'صدر — ' + (i.status_ar || 'الرقم الفعلي غير متوفر') + (i.note ? ': ' + i.note : '') + (i.last_attempt ? ' (آخر محاولة ' + i.last_attempt + ' بغداد)' : '')) : 'لم يصدر بعد'));
+      b.appendChild(el('div', 'st', i.released ? (i.actual ? ('صدر' + (i.surprise ? ' — ' + i.surprise : '') + (i.effect ? ' — ' + i.effect : '') + (i.status === 'revised' ? ' — ↻ عُدّلت القيمة' : '')) : 'صدر — ' + (i.unavailable ? 'Actual غير متوفر من المصدر الحالي' : (i.status_ar || 'الرقم الفعلي غير متوفر')) + (i.last_attempt && !i.unavailable ? ' (آخر محاولة ' + i.last_attempt + ' بغداد)' : '')) : 'لم يصدر بعد'));
       wl.appendChild(b);
     });
   });
@@ -1483,25 +1534,47 @@ let tab0 = 'today'; try { tab0 = localStorage.getItem('mirsad-tab') || 'today'; 
 $('moreComps').addEventListener('click', () => { SHOWALL = !SHOWALL; render0_(); });
 $('langBtn').addEventListener('click', () => setLang(LANG === 'en' ? 'ar' : 'en'));
 const boot = () => { setLang(LANG); showTab(['today', 'week', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today'); };
-let booted = false, loadedAt = 0, dataAt = null;
+let booted = false, loadedAt = 0, lastTry = 0, FAIL = null, btnTimer = null;
+/* ثلاثة أزمنة منفصلة: وقت البيانات المعروضة (LIVE.updated)، آخر جلب ناجح (loadedAt)، آخر محاولة (lastTry). فشل المحاولة لا يحدّث الثانية ولا يمحو اللقطة. */
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
+const FAILMSG = { http: 'الخادم رفض الطلب', network: 'لا اتصال بالشبكة', json: 'ملف البيانات تالف', source: 'المصدر أبلغ عن خطأ', render: 'تعذّر عرض البيانات' };
 function stamp_() {
-  const bn = $('banner');
-  if (LIVE) { bn.textContent = (LANG === 'en' ? 'Live data, updated ' : 'بيانات حقيقية — آخر تحديث ') + LIVE.updated + (LANG === 'en' ? ' Baghdad time' : ' بتوقيت بغداد') + ' · ' + (LANG === 'en' ? 'checked ' : 'آخر فحص للصفحة: ') + ago_(Date.now() - loadedAt); bn.className = 'demo live'; }
+  const bn = $('banner'), en = LANG === 'en';
+  if (FAIL) {
+    const why = (en ? '' : FAILMSG[FAIL.kind] || 'خطأ') + (FAIL.msg ? ' (' + FAIL.msg + ')' : '');
+    bn.textContent = LIVE
+      ? '⚠ ' + (en ? 'Refresh failed — showing the last successful snapshot' : 'تعذّر التحديث — تُعرض آخر لقطة ناجحة') + ': ' + (en ? 'data time ' : 'وقت بياناتها ') + LIVE.updated + (en ? ' Baghdad' : ' بتوقيت بغداد') +
+        ' · ' + (en ? 'last good fetch ' : 'آخر جلب ناجح ') + ago_(Date.now() - loadedAt) + ' · ' + (en ? 'last attempt ' : 'آخر محاولة ') + ago_(Date.now() - lastTry) + ' · ' + why
+      : '⚠ ' + (en ? 'Could not load live data; the page shows an illustrative example, not real data' : 'تعذّر تحميل البيانات الحية والمعروض مثال توضيحي لا بيانات حقيقية') + ' · ' + why;
+    bn.className = 'demo failed'; return;
+  }
+  if (LIVE) {
+    bn.textContent = (en ? 'Live data, updated ' : 'بيانات حقيقية — آخر تحديث ') + LIVE.updated + (en ? ' Baghdad time' : ' بتوقيت بغداد') + ' · ' + (en ? 'checked ' : 'آخر فحص للصفحة: ') + ago_(Date.now() - loadedAt); bn.className = 'demo live';
+    /* نسخة قديمة: الجدولة تعمل الاثنين–الجمعة كل 15 دقيقة؛ تأخر أكثر من 90 دقيقة في يوم عمل = تحذير صريح */
+    const pa = LIVE.published_at ? new Date(LIVE.published_at).getTime() : NaN, wd = new Date().getUTCDay();
+    if (isFinite(pa) && wd >= 1 && wd <= 5 && Date.now() - pa > 90 * 60000) { bn.textContent += ' · ⚠ ' + (en ? 'stale: last publish ' : 'قد تكون البيانات قديمة: آخر نشر ') + ago_(Date.now() - pa); bn.className = 'demo'; }
+  }
 }
 function loadData(manual) {
-  const btn = $('refreshBtn'); btn.disabled = true; btn.textContent = '… ' + tr_('جارٍ التحديث');
-  return fetch('data.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : null)
+  const btn = $('refreshBtn'); btn.disabled = true; btn.textContent = '… ' + tr_('جارٍ التحديث'); lastTry = Date.now();
+  return fetch('data.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw { kind: 'http', msg: 'HTTP ' + r.status }; return r.json().catch(() => { throw { kind: 'json', msg: '' }; }); })
     .then(j => {
-      loadedAt = Date.now();
-      const changed = j && j.risk && (!LIVE || j.updated !== LIVE.updated);
-      if (j && j.risk) LIVE = j; else if (j && j.error) { $('banner').textContent = '⚠ ' + j.error; }
-      if (!booted) { booted = true; boot(); } else if (changed || manual) { render0_(); stamp_(); }
+      if (!j || typeof j !== 'object') throw { kind: 'json', msg: '' };
+      if (j.error || !j.risk) throw { kind: 'source', msg: String(j.error || 'بلا قياس مخاطر').slice(0, 120) };
+      const changed = !LIVE || j.updated !== LIVE.updated || j.published_at !== LIVE.published_at;
+      LIVE = j; loadedAt = Date.now(); FAIL = null;                       /* نجاح حقيقي فقط يحدّث وقت الجلب ويزيل التحذير */
+      if (!booted) { booted = true; boot(); } else if (changed || manual) { render0_(); }
       stamp_();
       btn.textContent = manual && !changed ? '✓ ' + tr_('لا جديد') : '↻ ' + tr_('تحديث');
-      if (manual && !changed) setTimeout(() => { btn.textContent = '↻ ' + tr_('تحديث'); }, 2500);
+      clearTimeout(btnTimer); if (manual && !changed) btnTimer = setTimeout(() => { if (!FAIL) btn.textContent = '↻ ' + tr_('تحديث'); }, 2500);
     })
-    .catch(() => { if (!booted) { booted = true; boot(); } btn.textContent = '⚠ ' + tr_('تعذّر التحديث'); setTimeout(() => { btn.textContent = '↻ ' + tr_('تحديث'); }, 3000); })
+    .catch(e => {
+      FAIL = e && e.kind ? { kind: e.kind, msg: e.msg } : (e instanceof TypeError && !LIVE ? { kind: 'network', msg: '' } : e instanceof TypeError && /fetch|network|load failed/i.test(e.message) ? { kind: 'network', msg: '' } : { kind: 'render', msg: String(e && e.message || e).slice(0, 80) });   /* TypeError من fetch = شبكة، وغيره خطأ عرض */
+      if (!booted) { booted = true; boot(); }
+      stamp_(); btn.textContent = '⚠ ' + tr_('تعذّر التحديث');
+      clearTimeout(btnTimer); btnTimer = setTimeout(() => { if (!btn.disabled) btn.textContent = '↻ ' + tr_('تحديث'); }, 3000);
+    })
     .finally(() => { btn.disabled = false; });
 }
 $('refreshBtn').addEventListener('click', () => loadData(true));

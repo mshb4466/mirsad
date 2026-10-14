@@ -79,8 +79,13 @@ def test_due_releases_filters():
         ev_raw("Future", "High", 2, actual=""),                    # لم يصدر ✘
     ]
     ev = c.parse_events(raw)
+    for e in ev:                         # التنبيه لا يخصّ إلا الرقم الموثّق (v0.18.1): نضع مصدراً مقبولاً لهذا الاختبار
+        if e.get("actual"):
+            e["actual_src"], e["status"] = "secondary", "verified_secondary"
     got = r.due_releases(ev, NOW, new_state())
     assert [e["title"] for e in got] == ["Core PCE"]
+    ev2 = c.parse_events([ev_raw("Core PCE", "High", -0.5, actual="0.4%")])
+    assert r.due_releases(ev2, NOW, new_state()) == []     # الرقم بلا مصدر موثّق لا ينبّه
     st = new_state()
     st["seen_events"].append(r.event_id(got[0]))
     assert r.due_releases(ev, NOW, st) == []
@@ -102,7 +107,9 @@ def test_change_over_and_shock():
 
 def test_auto_release_sent_once():
     box, st = Box(), new_state()
-    d = deps([ev_raw("Core PCE Price Index m/m", "High", -0.5, actual="0.4%")], calm_intraday())
+    d = deps([ev_raw("Core PCE Price Index m/m", "High", -0.5)], calm_intraday())
+    d.update({"fetch_oil": lambda: None, "fetch_auctions": lambda: [], "fetch_bls": lambda ids: ({}, []),
+              "fetch_series": lambda need: {"pcelfe": [("2026-08-01", 100.0), ("2026-09-01", 100.4)]}})      # مصدر ثانوي حقيقي الشكل: 0.4%
     assert r.run_auto(NOW, st, box, d) == 1
     assert "أعلى من المتوقع" in box.msgs[0] and "Core PCE" in box.msgs[0]
     assert r.run_auto(NOW + timedelta(minutes=15), st, box, d) == 0     # لا تكرار

@@ -33,9 +33,9 @@ SPECS = [
 
 # مؤشرات معروفة بلا مصدر مجاني تلقائي: نقول ذلك صراحة بدل الصمت
 NO_FREE_SOURCE = [
-    (r"cb consumer confidence|conference board", "مؤشر Conference Board ملكية خاصة، لا يتوفر مجاناً عبر FRED"),
-    (r"\bism\b|pmi", "مؤشرات ISM/PMI ملكية خاصة، لا تتوفر مجاناً عبر FRED"),
-    (r"adp", "بيانات ADP لا تتوفر مجاناً عبر FRED"),
+    (r"cb consumer confidence|conference board", "Conference Board: غير مدعوم حالياً في مرصاد (بياناته ملكية خاصة ولا يحملها FRED، ولا مصدر مرخّص مربوط بعد)"),
+    (r"\bism\b|pmi", "ISM/PMI: غير مدعوم حالياً في مرصاد (ملكية خاصة ولا يحملها FRED، ولا مصدر مرخّص مربوط بعد)"),
+    (r"adp", "ADP: غير مدعوم حالياً في مرصاد (ملكية خاصة ولا يحملها FRED، ولا مصدر مرخّص مربوط بعد)"),
 ]
 
 # معرّفات BLS الرسمية (SA = معدّلة موسمياً، NS = غير معدّلة تُستعمل للتغير السنوي). غير المذكور لا مصدر BLS له هنا (يبقى FRED).
@@ -79,11 +79,53 @@ def expected_obs(rule, d):
         p = (first - timedelta(days=1)).replace(day=1)
         return ("exact", (p - timedelta(days=1)).replace(day=1))
     if rule == "quarter":
-        m = d.month - 1 or 12
-        y = d.year if d.month > 1 else d.year - 1
-        qm = 3 * ((m - 1) // 3) + 1
-        return ("exact", date(y, qm, 1))
+        return ("exact", gdp_ref_quarter(d))
     return None
+
+
+# ───────── GDP: فترة التقرير ومرحلة الإصدار من جدول BEA لا من الشهر السابق ─────────
+# BEA تصدر ثلاث تقديرات للربع نفسه في أشهر الربع التالي: الشهر الأول Advance، الثاني Second (Prelim في التقويم)، الثالث Third (Final).
+# إذن الربع المقصود = الربع السابق للربع الذي يقع فيه شهر الإصدار (آب/أغسطس 2026 ← الربع الثاني 2026-04-01 لا 2026-07-01).
+GDP_STAGES = ("advance", "second", "third")
+GDP_STAGE_AR = {"advance": "التقدير المبدئي (Advance)", "second": "التقدير الثاني (Second/Preliminary)", "third": "التقدير الثالث (Third/Final)"}
+GDP_MAX_AGE_DAYS = 20      # بعدها يصدر التقدير التالي ولا يمكن اعتبار قراءة FRED الحالية هي الإصدار الأصلي (لا نسخ تاريخية هنا)
+
+
+def gdp_ref_quarter(d):
+    q_rel = (d.month - 1) // 3
+    if q_rel == 0:
+        return date(d.year - 1, 10, 1)
+    return date(d.year, 3 * (q_rel - 1) + 1, 1)
+
+
+def gdp_stage_by_schedule(d):
+    return GDP_STAGES[(d.month - 1) % 3]
+
+
+def gdp_stage_from_title(title):
+    t = (title or "").lower()
+    if "advance" in t:
+        return "advance"
+    if "prelim" in t or "second" in t:
+        return "second"
+    if "final" in t or "third" in t:
+        return "third"
+    return None
+
+
+def gdp_info(title, d):
+    """{ref, stage, ok, why}: المرحلة من العنوان إن وُجدت ويجب أن توافق جدول الإصدار، وإلا يُرفض الربط (لا تخمين)."""
+    sched = gdp_stage_by_schedule(d)
+    ts = gdp_stage_from_title(title)
+    if ts and ts != sched:
+        return {"ref": gdp_ref_quarter(d), "stage": ts, "ok": False,
+                "why": f"مرحلة الإصدار في العنوان ({GDP_STAGE_AR[ts]}) لا توافق جدول BEA لشهر هذا الإصدار ({GDP_STAGE_AR[sched]}): تعذّر تحديد الربع بأمان"}
+    return {"ref": gdp_ref_quarter(d), "stage": ts or sched, "ok": True, "why": ""}
+
+
+def shift_months(d, k):
+    m = d.year * 12 + (d.month - 1) + k
+    return date(m // 12, m % 12 + 1, d.day)
 
 
 def _find(rows, exp):
@@ -97,57 +139,135 @@ def _find(rows, exp):
     return None
 
 
-def compute(tr, rows, i):
-    """الرقم المنسَّق من الصفوف عند الفهرس i، أو None إن نقصت البيانات المرجعية."""
-    v = rows[i][1]
-    if tr == "claims_k":
-        return f"{v / 1000.0:.0f}K"
-    if tr == "level":
-        return f"{v:.1f}"
-    if tr == "level_pct":
-        return f"{v:.1f}%"
-    if tr == "jolts_m":
-        return f"{v / 1000.0:.2f}M"
-    if tr == "diff_k":
-        return None if i < 1 else f"{v - rows[i - 1][1]:.0f}K"
-    if tr == "mm":
-        return None if i < 1 or not rows[i - 1][1] else f"{(v / rows[i - 1][1] - 1) * 100:.1f}%"
-    if tr == "yy":
-        return None if i < 12 or not rows[i - 12][1] else f"{(v / rows[i - 12][1] - 1) * 100:.1f}%"
+def validate_rows(rows):
+    """(صالحة؟، سبب). السلسلة يجب أن تكون مرتبة تصاعدياً بلا تكرار وبقيم عددية منتهية. لا نحسب على سلسلة فاسدة."""
+    import math
+    prev = None
+    for dt, v in rows or []:
+        try:
+            d = date.fromisoformat(str(dt)[:10])
+        except ValueError:
+            return False, f"تاريخ غير صالح في السلسلة ({dt})"
+        if not isinstance(v, (int, float)) or isinstance(v, bool) or not math.isfinite(v):
+            return False, f"قيمة غير صالحة عند {d}"
+        if prev is not None and d == prev:
+            return False, f"تاريخ مكرر في السلسلة ({d})"
+        if prev is not None and d < prev:
+            return False, f"السلسلة غير مرتبة تصاعدياً عند {d}"
+        prev = d
+    return True, ""
+
+
+def _row_at(rows, d):
+    for dt, v in rows:
+        if date.fromisoformat(str(dt)[:10]) == d:
+            return v
     return None
 
 
-def resolve(title, ev_time, rows_by_key, et, src="FRED", sid_map=None):
-    """(رقم أو None، ملاحظة). rows_by_key: {مفتاح: [(تاريخ، قيمة)]} أو يفتقد المفتاح عند فشل الجلب.
-    src: اسم المصدر في الملاحظة ("FRED" أو "BLS")؛ sid_map: معرّف السلسلة لكل مفتاح عند اختلافه عن FRED."""
+METHOD_AR = {
+    "claims_k": "القيمة المنشورة مقسومة على 1000", "level": "القيمة المنشورة كما هي", "level_pct": "القيمة المنشورة كما هي (نسبة)",
+    "jolts_m": "القيمة المنشورة (ألف) مقسومة على 1000", "diff_k": "فرق المستوى عن الشهر السابق في السلسلة نفسها",
+    "mm": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100", "yy": "(مؤشر الشهر ÷ مؤشر الشهر نفسه قبل سنة − 1) × 100",
+}
+
+
+def compute_full(tr, rows, i):
+    """(نص منسَّق أو None، قيمة خام قبل التقريب أو None، سبب الرفض أو ''). المرجع يُختار بالتاريخ الفعلي لا بموضع الصف:
+    غياب الشهر المرجعي يمنع الحساب بدل إنتاج معدل مضلل."""
+    ok, why = validate_rows(rows)
+    if not ok:
+        return None, None, why
+    dt, v = rows[i]
+    d = date.fromisoformat(str(dt)[:10])
+    if tr == "claims_k":
+        return f"{v / 1000.0:.0f}K", v / 1000.0, ""
+    if tr == "level":
+        return f"{v:.1f}", v, ""
+    if tr == "level_pct":
+        return f"{v:.1f}%", v, ""
+    if tr == "jolts_m":
+        return f"{v / 1000.0:.2f}M", v / 1000.0, ""
+    if tr in ("diff_k", "mm", "yy"):
+        ref = shift_months(d, -12 if tr == "yy" else -1)
+        rv = _row_at(rows, ref)
+        if rv is None:
+            return None, None, f"الشهر المرجعي {ref.isoformat()[:7]} غير موجود في السلسلة: رُفض الحساب"
+        if tr == "diff_k":
+            return f"{v - rv:.0f}K", v - rv, ""
+        if not rv:
+            return None, None, "قيمة الشهر المرجعي صفر"
+        raw = (v / rv - 1) * 100
+        return f"{raw:.1f}%", raw, ""
+    return None, None, "نوع حساب غير معروف"
+
+
+def compute(tr, rows, i):
+    """الرقم المنسَّق من الصفوف عند الفهرس i، أو None إن نقصت البيانات المرجعية (انظر compute_full)."""
+    return compute_full(tr, rows, i)[0]
+
+
+def resolve_detail(title, ev_time, rows_by_key, et, src="FRED", sid_map=None, now=None):
+    """تفصيل كامل: {value, raw, note, why, series, period, method, stage}. value=None مع why إن لم يتحقق الربط.
+    now: عند تمريره يُرفض GDP الأقدم من GDP_MAX_AGE_DAYS (قراءة FRED الحالية قد تكون نسخة لاحقة لا الإصدار الأصلي)."""
     spec = match(title)
     if not spec:
-        return None, no_source_reason(title)
+        return {"value": None, "why": no_source_reason(title), "note": no_source_reason(title)}
     sid = (sid_map or {}).get(spec["key"], spec["sid"])
+    out = {"value": None, "raw": None, "series": sid, "source": src, "period": "", "method": METHOD_AR.get(spec["tr"], ""), "stage": ""}
     rows = (rows_by_key or {}).get(spec["key"])
     if not rows:
-        return None, f"تعذّر جلب {sid} من {src} (لا بيانات)"
+        out["why"] = out["note"] = f"تعذّر جلب {sid} من {src} (لا بيانات)"
+        return out
     d = ev_time.astimezone(et).date()
+    if spec["rule"] == "quarter":
+        gi = gdp_info(title, d)
+        out["stage"] = gi["stage"]
+        if not gi["ok"]:
+            out["why"] = out["note"] = gi["why"]
+            return out
+        if now is not None and (now - ev_time).days > GDP_MAX_AGE_DAYS:
+            out["why"] = out["note"] = (f"مرّ أكثر من {GDP_MAX_AGE_DAYS} يوماً على {GDP_STAGE_AR[gi['stage']]}: قراءة {src} الحالية قد تكون "
+                                        "نسخة مراجَعة لاحقة لا الإصدار الأصلي، فلا تُعرض كأنها الأصلية")
+            return out
     exp = expected_obs(spec["rule"], d)
     i = _find(rows, exp)
     if i is None:
-        return None, f"{src} لم يُحدَّث بعد ({sid}: آخر قراءة {rows[-1][0][:10]})"
-    val = compute(spec["tr"], rows, i)
-    if val is None:
-        return None, f"بيانات {sid} غير كافية للحساب"
-    return val, f"المصدر: {src} ({sid}، فترة {rows[i][0][:10]}) — {spec['label']}"
+        last = max((str(r[0])[:10] for r in rows), default="—")
+        out["why"] = out["note"] = f"{src} لم يُحدَّث بعد ({sid}: آخر قراءة {last})"
+        return out
+    text, raw, why = compute_full(spec["tr"], rows, i)
+    if text is None:
+        out["why"] = out["note"] = why or f"بيانات {sid} غير كافية للحساب"
+        return out
+    out.update(value=text, raw=raw, period=str(rows[i][0])[:10], why="")
+    stg = f" — {GDP_STAGE_AR[out['stage']]}" if out["stage"] else ""
+    out["note"] = f"المصدر: {src} ({sid}، فترة {out['period']}) — {spec['label']}{stg}"
+    return out
+
+
+def resolve(title, ev_time, rows_by_key, et, src="FRED", sid_map=None, now=None):
+    """(رقم أو None، ملاحظة). rows_by_key: {مفتاح: [(تاريخ، قيمة)]} أو يفتقد المفتاح عند فشل الجلب.
+    src: اسم المصدر في الملاحظة ("FRED" أو "BLS"); sid_map: معرّف السلسلة لكل مفتاح عند اختلافه عن FRED."""
+    r = resolve_detail(title, ev_time, rows_by_key, et, src, sid_map, now)
+    return r["value"], r["note"]
 
 
 def previous_revised(title, ev_time, rows_by_key, et):
-    """قيمة الفترة السابقة كما هي الآن في المصدر (للمقارنة مع «السابق» في التقويم وكشف التعديل). None إن تعذّر."""
+    """قيمة الفترة السابقة كما هي الآن في المصدر (للمقارنة مع «السابق» في التقويم وكشف التعديل). None إن تعذّر.
+    الفترة السابقة تُحدَّد بالتاريخ (شهر/أسبوع/ربع قبل) لا بالصف المجاور."""
     spec = match(title)
     rows = (rows_by_key or {}).get(spec["key"]) if spec else None
-    if not rows:
+    if not rows or not validate_rows(rows)[0]:
         return None
     i = _find(rows, expected_obs(spec["rule"], ev_time.astimezone(et).date()))
-    if i is None or i < 1:
+    if i is None:
         return None
-    return compute(spec["tr"], rows, i - 1)
+    d = date.fromisoformat(str(rows[i][0])[:10])
+    step = {"week": -7, "quarter": -3}.get(spec["rule"], -1)
+    pd = d + timedelta(days=-7) if spec["rule"] == "week" else shift_months(d, step)
+    j = next((k for k, (dt, _) in enumerate(rows) if date.fromisoformat(str(dt)[:10]) == pd), None)
+    return None if j is None else compute(spec["tr"], rows, j)
 
 
 def bls_needed(events):

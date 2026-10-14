@@ -90,7 +90,7 @@ def test_actual_appears_for_required_indicators_from_official_then_fred():
     assert ev["Advance GDP q/q"]["actual"] == "2.1%"
     assert ev["PPI m/m"]["actual"] == "0.1%" and ev["Retail Sales m/m"]["actual"] == "0.4%" and ev["Core PCE Price Index m/m"]["actual"] == "0.2%"
     for t in ("CPI m/m", "Core CPI m/m", "Non-Farm Employment Change", "Unemployment Claims", "Advance GDP q/q"):
-        assert ev[t]["status"] == "verified"
+        assert ev[t]["status"] in ("verified_official", "verified_secondary")
 
 
 def test_ism_has_no_free_source_and_is_never_guessed():
@@ -115,14 +115,14 @@ def test_late_release_then_arrives_and_survives_restart():
     later = NOW + timedelta(minutes=20)
     evs2 = c.parse_events([raw("Unemployment Rate", 0.3)])
     ev2 = run(evs2, state, mk_deps(bls_rows, lambda: {}), later)
-    assert ev2["Unemployment Rate"]["actual"] == "4.3%" and ev2["Unemployment Rate"]["status"] == "verified"
+    assert ev2["Unemployment Rate"]["actual"] == "4.3%" and ev2["Unemployment Rate"]["status"] == "verified_official"
     # إعادة تشغيل: الحالة تُحفظ في JSON، والتقويم الجديد بلا رقم، والمصادر كلها معطّلة: الرقم المحفوظ يبقى
     state2 = json.loads(json.dumps(state))
     def dead(_):
         raise RuntimeError("down")
     evs3 = c.parse_events([raw("Unemployment Rate", 0.3)])
     ev3 = run(evs3, state2, {"fetch_oil": lambda: None, "fetch_auctions": lambda: [], "fetch_bls": dead, "fetch_series": dead}, later + timedelta(minutes=15))
-    assert ev3["Unemployment Rate"]["actual"] == "4.3%" and ev3["Unemployment Rate"]["status"] == "verified"
+    assert ev3["Unemployment Rate"]["actual"] == "4.3%" and ev3["Unemployment Rate"]["status"] == "verified_official"
 
 
 def test_revision_detected_and_marked():
@@ -161,7 +161,7 @@ def test_event_ids_are_stable_and_distinguish_similar_events():
     by = {e["title"]: actuals.event_id(e) for e in evs}
     assert by["CPI m/m"] != by["Core CPI m/m"] != by["CPI y/y"] and by["CPI m/m"] != by["CPI y/y"]
     assert by["Unemployment Rate"] != by["Unemployment Claims"] and by["PPI m/m"] != by["CPI m/m"]
-    assert "|cpi|2026-09|" in by["CPI m/m"] and "|cpi_ny|2026-09|" in by["CPI y/y"]
+    assert "|cpi|mm|2026-09|" in by["CPI m/m"] and "|cpi_ny|yy|2026-09|" in by["CPI y/y"]
 
 
 def test_time_conversion_et_to_utc_and_baghdad():
@@ -200,12 +200,12 @@ def test_poll_schedule_and_giveup():
     last = lambda mins: {"status": "awaiting", "last_attempt": (e["time"] + timedelta(minutes=mins)).isoformat()}
     assert not sp(120, last(100)) and sp(160, last(100))                        # ثم كل ساعة تقريباً
     assert not sp(60 * 24 * 8)                                                  # يتوقف بعد 7 أيام
-    v = lambda mins: {"status": "verified", "last_attempt": (e["time"] + timedelta(minutes=mins)).isoformat()}
+    v = lambda mins: {"status": "verified_official", "last_attempt": (e["time"] + timedelta(minutes=mins)).isoformat()}
     assert not sp(120, v(100)) and sp(60 * 4, v(10)) and not sp(60 * 50, v(10))
 
 
 def test_surprise_numeric_and_missing_forecast():
-    assert actuals.surprise_value("0.4%", "0.3%")["text"] == "+0.1%"
+    assert actuals.surprise_value("0.4%", "0.3%")["text"] == "+0.1 نقطة مئوية"
     assert actuals.surprise_value("0.4%", "") is None and actuals.surprise_value("", "0.3%") is None
     assert actuals.surprise_value("150K", "150K")["value"] == 0
     assert events_ctx._surprise_num({"actual": "231K", "forecast": ""}) == ""
@@ -252,7 +252,7 @@ def test_view_shows_status_and_summary_without_fake_values():
     evs = events_all()
     run(evs, {}, mk_deps(bls_rows, fred_rows))
     summ = dashboard._actuals_summary(evs, NOW)
-    assert summ["total"] == len(ALL) and 0 < summ["verified"] < summ["total"] and summ["awaiting"] + summ["failed"] >= 2
+    assert summ["total"] == len(ALL) and 0 < summ["verified"] < summ["total"] and summ["awaiting"] + summ["failed"] + summ["unsupported"] >= 2 and summ["unsupported"] == 2
     ism = next(e for e in evs if "Manufacturing" in e["title"])
     d = events_ctx.describe(ism, "17:00")
     assert d["actual"] == "" and d["status_ar"] in ("صدر وننتظر وصول القيمة", "تعذّر جلب البيانات")
@@ -272,6 +272,84 @@ def test_safety_lowers_confidence_when_actual_pending():
     run(ok, {}, mk_deps(bls_rows))
     _, issues2 = safety.check_inputs({}, ok, {}, NOW)
     assert not [i for i in issues2 if i["code"] == "actual_pending"]
+
+
+# ───────── v0.18: فصل حالات التحقق ─────────
+import safety
+import health
+
+STALE_FRED = lambda: {"claims": [("2026-09-26", 225000.0), ("2026-10-03", 228000.0)]}      # FRED لم يُحدَّث لأسبوع الإصدار
+HEADS = lambda q: ["Initial jobless claims fall to 231,000 in latest week"]
+
+
+def claims_ev(hours_ago=2):
+    return c.parse_events([raw("Unemployment Claims", hours_ago, forecast="230K", previous="228K")])
+
+
+def deps_news(fred_fn):
+    d = mk_deps(None, fred_fn)
+    d["fetch_heads_q"] = HEADS
+    return d
+
+
+def test_headline_number_is_never_verified_and_never_acts_as_actual():
+    state, evs = {}, claims_ev()
+    run(evs, state, deps_news(STALE_FRED))
+    e = evs[0]
+    assert e["status"] == "needs_check" and e["actual"] == "" and e["actual_unverified"] == "231K"
+    d = events_ctx.describe(e, "15:30")
+    assert d["actual"] == "" and d["verified"] is False and d["actual_unverified"] == "231K" and d["surprise"] == "" and d["surprise_num"] == ""
+    assert d["status_ar"] == "مستخرج من خبر ويحتاج تحققاً"
+    assert r.due_releases(evs, NOW, {"seen_events": []}) == []                    # لا تنبيه صدور برقم غير متحقق
+    summ = dashboard._actuals_summary(evs, NOW)
+    assert summ["verified"] == 0 and summ["needs_check"] == 1
+    assert health._events_stats(evs, NOW)[1] == 0                                  # لا يُحسب «متحقق منه» في صحة مرصاد
+    _, issues = safety.check_inputs({}, evs, {}, NOW)
+    assert [i for i in issues if i["code"] == "actual_pending"]                    # والثقة تبقى مخفّضة كالمعلّق
+
+
+def test_needs_check_is_upgraded_when_official_source_arrives_and_never_downgraded():
+    state = {}
+    evs = claims_ev()
+    run(evs, state, deps_news(STALE_FRED))
+    state = json.loads(json.dumps(state))                                          # إعادة تشغيل: التخزين يستمر
+    later = NOW + timedelta(hours=1)
+    evs2 = claims_ev(3)
+    r.resolve_actuals(evs2, later, state, deps_news(lambda: fred_rows()))
+    e = evs2[0]
+    assert e["actual"] == "231K" and e["status"] == "verified_secondary"
+    assert state["actuals"][actuals.event_id(e)]["trust"] == "secondary"
+    # بعد التحقق لا يستبدله خبر لاحق أبداً
+    evs3 = claims_ev(5)
+    r.resolve_actuals(evs3, later + timedelta(hours=4), state, deps_news(STALE_FRED))
+    assert evs3[0]["actual"] == "231K" and evs3[0]["status"] == "verified_secondary"
+
+
+def test_headline_replaced_by_official_value_when_different():
+    state, evs = {}, claims_ev()
+    run(evs, state, deps_news(STALE_FRED))
+    fred_other = lambda: {"claims": [("2026-10-03", 228000.0), ("2026-10-10", 233000.0)]}
+    evs2 = claims_ev(3)
+    r.resolve_actuals(evs2, NOW + timedelta(hours=1), state, deps_news(fred_other))
+    e = evs2[0]
+    assert e["actual"] == "233K" and e["status"] == "verified_secondary" and not e.get("revised_from")   # استبدال لا «مراجعة»
+
+
+def test_official_bls_status_and_audit_log_fields():
+    state, evs = {}, c.parse_events([raw("Unemployment Rate", 2)])
+    run(evs, state, mk_deps(bls_rows))
+    assert evs[0]["status"] == "verified_official" and evs[0]["actual_source"] == "BLS" and evs[0]["actual_period"] == "2026-09-01"
+    lg = state["actuals_log"][-1]
+    assert lg["source"] == "BLS" and lg["value"] == "4.3%" and lg["period"] == "2026-09-01" and lg["tier"] == "official"
+    assert lg["release_time"] and lg["fetched_at"] and lg["match"]
+
+
+def test_unknown_provenance_is_treated_as_unverified():
+    assert actuals.tier_of({"actual": "1"}) == "news" and not actuals.is_verified({"status": "needs_check", "actual_src": "news"})
+    assert actuals.is_verified({"status": "revised", "actual_src": "official", "actual": "1.0%"}) and not actuals.is_verified({"status": "revised", "actual_src": "news", "actual": "1.0%"})
+    assert not actuals.is_verified({"status": "verified_official", "actual_src": "official", "actual": ""})          # حالة سليمة بلا قيمة
+    assert not actuals.is_verified({"status": "verified_official", "actual_src": "official", "actual": "n/a"})      # قيمة غير مفهومة
+    assert not actuals.is_verified({"status": "verified", "actual": "0.2%"})                                        # كلمة verified القديمة بلا trust
 
 
 if __name__ == "__main__":

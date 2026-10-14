@@ -29,7 +29,7 @@ def view_for(prices, events=None, extras_=None):
 def test_tone_rules():
     assert impact.tone("dxy", 0.5) == "bear" and impact.tone("dxy", -0.5) == "bull" and impact.tone("dxy", 0.05) == "flat"
     assert impact.tone("y10", 5) == "bear" and impact.tone("y10", -5) == "bull"
-    assert impact.tone("oil", 1.0) == "bear" and impact.tone("oil", -1.0) == "bull"
+    assert impact.tone("oil", 1.0) == "flat" and impact.tone("oil", -1.0) == "flat"      # v0.18.1: لا اتجاه آلي للنفط (انظر oil_cause)
     assert impact.tone("vix", 10) == "bear" and impact.tone("vix", -10) == "bull"
     assert impact.tone("net_liq", 1.0) == "bull" and impact.tone("net_liq", -1.0) == "bear"
     assert impact.tone("unknown", 5) == "flat" and impact.tone("dxy", None) == "flat"
@@ -52,6 +52,7 @@ def test_falling_dollar_yield_oil_are_supportive():
     p["dxy"]["chg1"] = -0.5
     p["y10"]["diff1"] = -0.08
     p["oil"]["chg1"] = -2.0
+    p["es"]["chg1"], p["vix"]["chg1"] = 0.5, -2.0          # الأسهم ترتفع وVIX هادئ: هبوط النفط يخفف ضغط التكلفة (دليل السياق)
     rep, v = view_for(p)
     bull = " ".join(v["pressures"]["bullish"])
     assert "الدولار" in bull and "عائد 10 سنوات" in bull and "النفط" in bull

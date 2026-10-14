@@ -2,13 +2,15 @@ name: mirsad
 
 on:
   schedule:
-    - cron: "0 12 * * 1-5"      # قبل الافتتاح: 12:00 UTC = 3:00 ظهراً بتوقيت بغداد
+    - cron: "30 11 * * 1-5"     # قبل الافتتاح: 11:30 UTC = 2:30 ظهراً بتوقيت بغداد (بغداد ثابتة UTC+3)
     - cron: "*/15 * * * 1-5"    # مراقبة: صدور البيانات والحركات المفاجئة
+    - cron: "31 12 * * 1-5"     # بعد إصدارات 8:30 نيويورك صيفاً (15:31 بغداد)
+    - cron: "31 13 * * 1-5"     # بعد إصدارات 8:30 نيويورك شتاءً (16:31 بغداد)
     - cron: "0 9 * * 6"         # ملخص معايرة أسبوعي: السبت 12:00 ظهراً بتوقيت بغداد
   workflow_dispatch:
     inputs:
       mode:
-        description: "test (اختبار فوري) | preopen | auto | calibrate | backtest (اختبار تاريخي 5 سنوات)"
+        description: "test (اختبار فوري) | preopen | auto | calibrate | backtest (اختبار تاريخي 5 سنوات) | actuals-check (فحص الأرقام الفعلية من BLS/FRED/ALFRED)"
         default: "test"
 
 permissions:
@@ -48,7 +50,7 @@ jobs:
           INPUT_MODE: ${{ github.event.inputs.mode }}
         run: |
           if [ "$EVENT_NAME" = "schedule" ]; then
-            if [ "$SCHEDULE" = "0 12 * * 1-5" ]; then MODE=preopen
+            if [ "$SCHEDULE" = "30 11 * * 1-5" ]; then MODE=preopen
             elif [ "$SCHEDULE" = "0 9 * * 6" ]; then MODE=calibrate
             else MODE=auto; fi
           else
@@ -86,6 +88,14 @@ jobs:
           path: docs
 
       - name: نشر الواجهة
+        id: deploy
         if: always() && steps.site.outputs.ready == 'true'
         continue-on-error: true
         uses: actions/deploy-pages@v4
+
+      - name: التحقق من أن الصفحة المنشورة ليست نسخة قديمة
+        if: always() && steps.deploy.outcome == 'success'
+        continue-on-error: true
+        env:
+          PAGE_URL: ${{ steps.deploy.outputs.page_url }}
+        run: python verify.py published docs/data.json "$PAGE_URL"

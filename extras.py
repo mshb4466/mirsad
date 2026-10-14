@@ -106,7 +106,19 @@ def oil_from_headlines(heads):
     return None
 
 
-def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None, fetch_bls_fn=None, window_h=30):
+def _period(e, note):
+    """فترة التقرير المطابقة من نص المصدر (تواريخ المشاهدة) لتوثيقها في سجل الفحص."""
+    m = re.search(r"فترة (\d{4}-\d{2}-\d{2})", note or "")
+    if m:
+        e["actual_period"] = m.group(1)
+
+
+def _detail(e, det):
+    """يحفظ توثيق الحساب على الحدث: معرّف السلسلة، طريقة الحساب، القيمة قبل التقريب، مرحلة الإصدار."""
+    e["actual_series"], e["actual_method"], e["actual_raw"], e["actual_stage"] = det.get("series", ""), det.get("method", ""), det.get("raw"), det.get("stage", "")
+
+
+def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None, fetch_bls_fn=None, window_h=30, diag=None):
     """يملأ الأرقام الفعلية الناقصة للأحداث الصادرة (نفط، مزادات) ويكتب في e['actual_note'] المصدر أو سبب الغياب.
     يعيد عدد ما ملأ. لا يرفع استثناءً."""
     todo = [e for e in events if not e.get("actual") and now - timedelta(hours=window_h) <= e["time"] < now]
@@ -130,17 +142,18 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                 if oil_res:
                     age = (e["time"].astimezone(ET).date() - __import__("datetime").date.fromisoformat(oil_res[0])).days
                     if 2 <= age <= 9:
-                        got, src = f"{oil_res[1]:+.1f}M", "المصدر: FRED (EIA)"
+                        got, src, tier, sname = f"{oil_res[1]:+.1f}M", "المصدر: FRED (EIA)", "secondary", "FRED (EIA)"
+                        e["actual_period"] = oil_res[0]
                     else:
                         e["actual_note"] = f"FRED لم يُحدَّث بعد (آخر قراءة {oil_res[0]})"
                 if got is None and fetch_heads_fn:
                     try:
                         got = oil_from_headlines(fetch_heads_fn())
-                        src = "المصدر: عنوان خبر، تحقق منه"
+                        src, tier, sname = "المصدر: عنوان خبر، تحقق منه", "news", "عنوان خبر (Google News)"
                     except Exception:  # noqa: BLE001
                         got = None
                 if got:
-                    e["actual"], e["actual_note"] = got, src
+                    e["actual"], e["actual_note"], e["actual_src"], e["actual_source"] = got, src, tier, sname
                     n += 1
                 elif not e.get("actual_note"):
                     e["actual_note"] = "لم يصل الرقم من FRED بعد"
@@ -153,9 +166,12 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                             auc_err = "تعذّر الاتصال بـ TreasuryDirect (" + "، ".join(errs) + ")"
                     except Exception as ex:  # noqa: BLE001
                         auc, auc_err = [], f"تعذّر الاتصال بـ TreasuryDirect ({type(ex).__name__})"
+                    if diag is not None:
+                        diag["treasury"] = {"ok": bool(auc) and not auc_err, "detail": auc_err or f"{len(auc)} مزاد"}
                 a = auction_actual(e.get("title", ""), e["time"], auc)
                 if a:
                     e["actual"], e["actual_note"] = a, "المصدر: TreasuryDirect (العائد|نسبة التغطية)"
+                    e["actual_src"], e["actual_source"] = "official", "TreasuryDirect"
                     n += 1
                 else:
                     e["actual_note"] = auc_err or ("TreasuryDirect لم يعد نتيجة هذا المزاد بعد" if auc else "TreasuryDirect لم يعد أي مزاد (تعذّر الجلب أو لم يُنشر)")
@@ -173,16 +189,24 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                         try:
                             by_sid, berrs = fetch_bls_fn(sorted(set(need_b.values())))
                             bls_err = "؛ ".join(berrs) if berrs else None
+                            if diag is not None:
+                                diag["bls"] = {"ok": bool(by_sid) and not berrs, "detail": bls_err or f"{len(by_sid or {})} سلسلة"}
                             for k, sid in need_b.items():
                                 if (by_sid or {}).get(sid):
                                     bls_rows[k] = by_sid[sid]
                         except Exception as ex:  # noqa: BLE001
                             bls_err = f"BLS: خطأ ({type(ex).__name__})"
+                            if diag is not None:
+                                diag["bls"] = {"ok": False, "detail": bls_err}
                 val, bnote = (None, None)
                 if spec["key"] in indicators.BLS_IDS and fetch_bls_fn:
-                    val, bnote = indicators.resolve(e.get("title", ""), e["time"], bls_rows, ET, "BLS", indicators.BLS_IDS)
+                    det = indicators.resolve_detail(e.get("title", ""), e["time"], bls_rows, ET, "BLS", indicators.BLS_IDS, now)
+                    val, bnote = det["value"], det["note"]
                     if val:
-                        e["actual"], e["actual_note"] = val, bnote + " (مصدر رسمي)؛ محسوب من السلسلة وقد يختلف عن القراءة الرسمية بكسر عشري"
+                        e["actual"], e["actual_note"] = val, bnote + " (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+                        e["actual_src"], e["actual_source"] = "official", "BLS"
+                        _detail(e, det)
+                        _period(e, bnote)
                         pr = indicators.previous_revised(e.get("title", ""), e["time"], bls_rows, ET)
                         if pr:
                             e["prev_revised"] = pr
@@ -200,11 +224,19 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                             ind_rows = ind_rows or {}
                         if not ind_rows:
                             ind_err = "تعذّر الاتصال بـ FRED"
+                        if diag is not None:
+                            diag["fred"] = {"ok": bool(ind_rows), "detail": ind_err or f"{len(ind_rows)} سلسلة"}
                     except Exception as ex:  # noqa: BLE001
                         ind_rows, ind_err = {}, f"تعذّر الاتصال بـ FRED ({type(ex).__name__})"
-                val, note = indicators.resolve(e.get("title", ""), e["time"], ind_rows, ET)
+                        if diag is not None:
+                            diag["fred"] = {"ok": False, "detail": ind_err}
+                det = indicators.resolve_detail(e.get("title", ""), e["time"], ind_rows, ET, "FRED", None, now)
+                val, note = det["value"], det["note"]
                 if val:
-                    e["actual"], e["actual_note"] = val, note + "؛ محسوب من السلسلة وقد يختلف عن القراءة الرسمية بكسر عشري"
+                    e["actual"], e["actual_note"] = val, note + "؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+                    e["actual_src"], e["actual_source"] = "secondary", "FRED"
+                    _detail(e, det)
+                    _period(e, note)
                     n += 1
                 else:
                     why = ind_err or note or "لا رقم فعلي متاح"
@@ -214,6 +246,7 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                         hv, hn = indicators.from_headlines(e.get("title", ""), fetch_heads_q_fn)
                         if hv:
                             e["actual"], e["actual_note"] = hv, hn + " (FRED: " + why + ")"
+                            e["actual_src"], e["actual_source"] = "news", "عنوان خبر (Google News)"
                             n += 1
                             continue
                         if hn:

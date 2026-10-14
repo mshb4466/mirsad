@@ -336,6 +336,8 @@ def parse_events(raw):
             "forecast": e.get("forecast", ""), "previous": e.get("previous", ""),
             "actual": e.get("actual", ""), "type": classify(e.get("title", "")),
         })
+        if events[-1]["actual"]:                       # رقم جاء من التقويم نفسه: مصدر ثانوي موثوق (لا يصل عادةً في الخلاصة المجانية)
+            events[-1]["actual_src"], events[-1]["actual_source"] = "secondary", "التقويم الاقتصادي"
     return sorted(events, key=lambda x: x["time"])
 
 
@@ -939,7 +941,7 @@ def build_report(prices, events, now, problems=None, extras=None):
     if missing:
         problems.append("مكوّنات استُبعدت لنقص البيانات: " + "، ".join(missing))
 
-    drv = impact.drivers(prices, fred, macro_view)
+    drv = impact.drivers(prices, fred, macro_view, geo_detail)
     conf = safety.confidence(sissues, cov, (macro_view or {}).get("confidence"))
     incomplete = sstate in ("incomplete", "critical") and cov < 0.6
     return {
