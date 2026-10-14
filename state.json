@@ -84,120 +84,120 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 180,
-      "v": 0.11,
-      "th": 0.8,
+      "w": 15,
+      "v": -0.04,
+      "th": 0.3,
       "ratio": 0.14,
-      "val": "+0.11%",
-      "thr": "±0.8%",
-      "c15": "-0.01%",
-      "c60": "+0.03%",
-      "c180": "+0.11%",
+      "val": "-0.04%",
+      "thr": "±0.3%",
+      "c15": "-0.04%",
+      "c60": "-0.03%",
+      "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.17,
+      "tone": "flat",
+      "eff": 0.14,
       "z": 0.4,
-      "volx": 0.6
+      "volx": 1.5
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 15,
-      "v": -0.08,
+      "v": -0.11,
       "th": 0.4,
-      "ratio": 0.2,
-      "val": "-0.08%",
+      "ratio": 0.28,
+      "val": "-0.11%",
       "thr": "±0.4%",
-      "c15": "-0.08%",
-      "c60": "+0.03%",
-      "c180": "-0.03%",
+      "c15": "-0.11%",
+      "c60": "-0.12%",
+      "c180": "-0.27%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.08,
-      "z": 0.2,
-      "volx": 0.7
+      "tone": "bear",
+      "eff": 0.25,
+      "z": 0.7,
+      "volx": 1.1
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
-      "w": 15,
-      "v": 0.26,
-      "th": 6.0,
-      "ratio": 0.04,
-      "val": "+0.26%",
-      "thr": "±6%",
-      "c15": "+0.26%",
-      "c60": "+0.00%",
-      "c180": "+0.33%",
+      "w": 60,
+      "v": 0.86,
+      "th": 8.0,
+      "ratio": 0.11,
+      "val": "+0.86%",
+      "thr": "±8%",
+      "c15": "+0.00%",
+      "c60": "+0.86%",
+      "c180": "+0.79%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.0,
-      "z": 0.0,
+      "eff": 0.52,
+      "z": 1.2,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": 0.58,
-      "th": 1.3,
-      "ratio": 0.45,
-      "val": "+0.58%",
-      "thr": "±1.3%",
-      "c15": "-0.02%",
-      "c60": "+0.58%",
-      "c180": "+0.76%",
+      "w": 180,
+      "v": 1.53,
+      "th": 2.4,
+      "ratio": 0.64,
+      "val": "+1.53%",
+      "thr": "±2.4%",
+      "c15": "+0.35%",
+      "c60": "+0.30%",
+      "c180": "+1.53%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.49,
-      "z": 1.6,
-      "volx": 1.1
+      "eff": 0.28,
+      "z": 0.8,
+      "volx": 1.5
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 15,
-      "v": -0.06,
+      "v": -0.18,
       "th": 0.45,
-      "ratio": 0.12,
-      "val": "-0.06%",
+      "ratio": 0.41,
+      "val": "-0.18%",
       "thr": "±0.45%",
-      "c15": "-0.06%",
-      "c60": "+0.00%",
-      "c180": "-0.11%",
+      "c15": "-0.18%",
+      "c60": "-0.09%",
+      "c180": "-0.34%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.02,
-      "z": 0.0,
-      "volx": 0.7
+      "eff": 0.2,
+      "z": 0.5,
+      "volx": 0.9
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 180,
-      "v": 0.13,
-      "th": 0.5,
-      "ratio": 0.26,
-      "val": "+0.13%",
-      "thr": "±0.5%",
+      "w": 15,
+      "v": 0.03,
+      "th": 0.18,
+      "ratio": 0.15,
+      "val": "+0.03%",
+      "thr": "±0.18%",
       "c15": "+0.03%",
       "c60": "+0.02%",
-      "c180": "+0.13%",
+      "c180": "+0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.17,
-      "z": 0.3,
+      "eff": 0.24,
+      "z": 0.5,
       "volx": null
     },
     {
@@ -205,72 +205,72 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": 0.1,
+      "v": 0.06,
       "th": 0.7,
-      "ratio": 0.14,
-      "val": "+0.10%",
+      "ratio": 0.09,
+      "val": "+0.06%",
       "thr": "±0.7%",
-      "c15": "+0.01%",
+      "c15": "+0.02%",
       "c60": "+0.00%",
-      "c180": "+0.10%",
+      "c180": "+0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.05,
-      "z": 0.1,
+      "eff": 0.02,
+      "z": 0.0,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-14T10:44:57.096024+00:00",
-        "ok_at": "2026-10-14T10:44:57.096024+00:00"
+        "last_try": "2026-10-14T11:14:39.612067+00:00",
+        "ok_at": "2026-10-14T11:14:39.612067+00:00"
       },
       "fred": {
-        "last_try": "2026-10-14T10:44:57.096024+00:00",
-        "ok_at": "2026-10-14T10:44:57.096024+00:00"
+        "last_try": "2026-10-14T11:14:39.612067+00:00",
+        "ok_at": "2026-10-14T11:14:39.612067+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-14T10:44:57.096024+00:00",
-        "ok_at": "2026-10-14T10:44:57.096024+00:00"
+        "last_try": "2026-10-14T11:14:39.612067+00:00",
+        "ok_at": "2026-10-14T11:14:39.612067+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-14T10:44:57.096024+00:00",
-        "ok_at": "2026-10-14T10:44:57.096024+00:00"
+        "last_try": "2026-10-14T11:14:39.612067+00:00",
+        "ok_at": "2026-10-14T11:14:39.612067+00:00"
       },
       "oil": {
-        "last_try": "2026-10-14T10:44:57.096024+00:00",
-        "ok_at": "2026-10-14T10:44:57.096024+00:00"
+        "last_try": "2026-10-14T11:14:39.612067+00:00",
+        "ok_at": "2026-10-14T11:14:39.612067+00:00"
       },
       "news": {
-        "last_try": "2026-10-14T10:44:57.096024+00:00",
-        "ok_at": "2026-10-14T10:44:57.096024+00:00"
+        "last_try": "2026-10-14T11:14:39.612067+00:00",
+        "ok_at": "2026-10-14T11:14:39.612067+00:00"
       },
       "cot": {
-        "last_try": "2026-10-14T10:44:57.096024+00:00",
-        "ok_at": "2026-10-14T10:44:57.096024+00:00"
+        "last_try": "2026-10-14T11:14:39.612067+00:00",
+        "ok_at": "2026-10-14T11:14:39.612067+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-14T10:44:57.096024+00:00",
-        "ok_at": "2026-10-14T10:44:57.096024+00:00"
+        "last_try": "2026-10-14T11:14:39.612067+00:00",
+        "ok_at": "2026-10-14T11:14:39.612067+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-14T10:44:57.096024+00:00"
+      "at": "2026-10-14T11:14:39.612067+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-14T10:01:44.510715+00:00",
+    "at": "2026-10-14T11:14:39.612067+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-14T05:15:19+00:00",
-            "title": "Dollar languishes as focus turns to CPI, Fed speakers",
+            "t": "2026-10-14T01:18:00+00:00",
+            "title": "Dollar eases as investors await CPI data, Fed speakers",
             "src": "Reuters"
           },
           {
@@ -299,29 +299,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-14T09:58:49+00:00",
-            "title": "NATO’s Top Commander Lays Out Plan to Thwart a Russian Attack on the Alliance",
+            "t": "2026-10-14T10:05:04+00:00",
+            "title": "S&P 500, Dow futures rise ahead of big bank results, CPI data",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-14T09:14:47+00:00",
+            "title": "1 S&P 500 Stock with Solid Fundamentals and 2 We Avoid",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-14T08:54:59+00:00",
+            "title": "US futures edge higher, oil prices dip and bond yields hover near record highs",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-10-14T08:41:00+00:00",
+            "title": "Stock Futures Tick Higher, Treasurys Strengthen Ahead of Inflation Data",
             "src": "WSJ"
           },
           {
             "t": "2026-10-14T08:14:05+00:00",
             "title": "US Stock Market Today: S&P 500 Futures Edge Higher As Traders Brace For CPI",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-14T07:22:00+00:00",
-            "title": "Oil Prices Rise as Traders Weigh Saudi Aramco Attack Report, Hormuz Shipping Risks",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-14T05:20:00+00:00",
-            "title": "The S&P 500 Just Hit a Record High. Here's Why History Says It's Still a Smart Time to Invest.",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-14T02:00:14+00:00",
-            "title": "Exclusive | The Houthis Are Building an Advanced Missile With Chinese Parts",
-            "src": "WSJ"
           }
         ]
       },
@@ -329,14 +329,19 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-10-14T10:10:51+00:00",
+            "title": "Ahead of Earnings, Is Tesla Stock a Buy, a Sell, or Fairly Valued?",
+            "src": "Morningstar"
+          },
+          {
+            "t": "2026-10-14T09:41:18+00:00",
+            "title": "Meta Platforms, Inc. (META) Stock Price, News, Quote & History",
+            "src": "Yahoo! Finance Canada"
+          },
+          {
             "t": "2026-10-14T09:31:00+00:00",
             "title": "Dow Futures Rise; ASML Earnings Beat, CPI Inflation Due",
             "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-10-14T07:06:15+00:00",
-            "title": "Meta Platforms, Inc. (META) Stock Price, News, Quote & History",
-            "src": "Yahoo! Finance Canada"
           },
           {
             "t": "2026-10-14T02:41:05+00:00",
@@ -347,17 +352,22 @@
             "t": "2026-10-14T01:53:00+00:00",
             "title": "Consumers Win Partial Class Cert. In Amazon Antitrust Suit",
             "src": "Law360"
-          },
-          {
-            "t": "2026-10-14T01:12:04+00:00",
-            "title": "A $11 Million Tesla Call Bet Ahead of Earnings | Options Income Daily",
-            "src": "Moomoo"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-14T10:51:50+00:00",
+            "title": "Sterling at 1-week high against dollar ahead of US CPI",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-14T09:46:11+00:00",
+            "title": "PODCAST: The CPI test",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-14T09:07:47+00:00",
             "title": "Inflation report will provide snapshot of prices as midterms approach",
@@ -372,16 +382,6 @@
             "t": "2026-10-14T08:45:28+00:00",
             "title": "Labor Department to release latest inflation report",
             "src": "NPR"
-          },
-          {
-            "t": "2026-10-14T08:24:04+00:00",
-            "title": "CPI ahead; more banks to report; ASML earnings - what’s moving markets",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-14T08:21:00+00:00",
-            "title": "Gold Steady Ahead of U.S. Inflation Data",
-            "src": "WSJ"
           }
         ]
       },
@@ -389,24 +389,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-14T08:51:00+00:00",
-            "title": "Exclusive / Canadian official says Europe erred on Trump tariffs",
-            "src": "Semafor"
+            "t": "2026-10-14T10:44:22+00:00",
+            "title": "Treasury Yields at 5.35% Favor Funded Gold Developers",
+            "src": "Crux Investor"
           },
           {
-            "t": "2026-10-14T07:20:57+00:00",
-            "title": "U.S. Treasury yields inch lower as investors await key inflation report",
+            "t": "2026-10-14T10:41:14+00:00",
+            "title": "Republican Candidates Break with Trump on Tariffs: News Article",
+            "src": "Independent Institute"
+          },
+          {
+            "t": "2026-10-14T10:34:25+00:00",
+            "title": "Canada sees record surge in U.S. exports ahead of new tariffs in August",
+            "src": "constructconnect.com"
+          },
+          {
+            "t": "2026-10-14T10:30:01+00:00",
+            "title": "How Trump’s tariffs and Iran war are becoming liabilities in Michigan’s Senate race",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-10-14T07:11:15+00:00",
-            "title": "3 Bank Stocks to Screen as Treasury Yields Test Wells Fargo and Citigroup",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-14T03:13:35+00:00",
-            "title": "Moore, Crosby debate data centers, Trump tariffs and GSL",
-            "src": "FOX 13 News Utah"
           }
         ]
       },
@@ -414,14 +414,9 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-14T09:45:00+00:00",
-            "title": "600,000 without power in Ukraine as Russia launches 'massive' aerial attack",
+            "t": "2026-10-14T10:18:45+00:00",
+            "title": "600,000 without power in Ukraine as Russia launches 'massive' attack amid Trump's 'energy ceasefire'",
             "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
-            "t": "2026-10-14T07:16:20+00:00",
-            "title": "‘Massive’ Russian attack on Ukraine kills at least six, cuts power in Kyiv",
-            "src": "Al Jazeera"
           },
           {
             "t": "2026-10-14T06:34:00+00:00",
@@ -432,6 +427,11 @@
             "t": "2026-10-14T05:04:23+00:00",
             "title": "Several Republicans vote with Democrats to pass Ukraine aid, Russia sanctions package",
             "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-10-14T04:14:00+00:00",
+            "title": "Russian strikes kill three, damage dozens of power facilities",
+            "src": "Reuters"
           }
         ]
       }
@@ -439,7 +439,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-14T10:44:57.096024+00:00",
+    "at": "2026-10-14T11:14:39.612067+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -737,10 +737,10 @@
     "kept": 0
   },
   "actuals_log": [],
-  "last_publish_ok": "2026-10-14T10:44:57.096024+00:00",
+  "last_publish_ok": "2026-10-14T11:14:39.612067+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-14T10:45:25.825275+00:00"
+    "at": "2026-10-14T11:15:16.944682+00:00"
   },
   "alerted": {}
 }
