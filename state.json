@@ -224,50 +224,60 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-14T11:51:26.299807+00:00",
-        "ok_at": "2026-10-14T11:51:26.299807+00:00"
+        "last_try": "2026-10-14T12:17:09.226125+00:00",
+        "ok_at": "2026-10-14T12:17:09.226125+00:00"
       },
       "fred": {
-        "last_try": "2026-10-14T11:51:26.299807+00:00",
-        "ok_at": "2026-10-14T11:51:26.299807+00:00"
+        "last_try": "2026-10-14T12:17:09.226125+00:00",
+        "ok_at": "2026-10-14T12:17:09.226125+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-14T11:51:26.299807+00:00",
-        "ok_at": "2026-10-14T11:51:26.299807+00:00"
+        "last_try": "2026-10-14T12:17:09.226125+00:00",
+        "ok_at": "2026-10-14T12:17:09.226125+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-14T11:51:26.299807+00:00",
-        "ok_at": "2026-10-14T11:51:26.299807+00:00"
+        "last_try": "2026-10-14T12:17:09.226125+00:00",
+        "ok_at": "2026-10-14T12:17:09.226125+00:00"
       },
       "oil": {
-        "last_try": "2026-10-14T11:51:26.299807+00:00",
-        "ok_at": "2026-10-14T11:51:26.299807+00:00"
+        "last_try": "2026-10-14T12:17:09.226125+00:00",
+        "ok_at": "2026-10-14T12:17:09.226125+00:00"
       },
       "news": {
-        "last_try": "2026-10-14T11:51:26.299807+00:00",
-        "ok_at": "2026-10-14T11:51:26.299807+00:00"
+        "last_try": "2026-10-14T12:17:09.226125+00:00",
+        "ok_at": "2026-10-14T12:17:09.226125+00:00"
       },
       "cot": {
-        "last_try": "2026-10-14T11:51:26.299807+00:00",
-        "ok_at": "2026-10-14T11:51:26.299807+00:00"
+        "last_try": "2026-10-14T12:17:09.226125+00:00",
+        "ok_at": "2026-10-14T12:17:09.226125+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-14T11:51:26.299807+00:00",
-        "ok_at": "2026-10-14T11:51:26.299807+00:00"
+        "last_try": "2026-10-14T12:17:09.226125+00:00",
+        "ok_at": "2026-10-14T12:17:09.226125+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-14T11:51:26.299807+00:00"
+      "at": "2026-10-14T12:17:09.226125+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-14T11:14:39.612067+00:00",
+    "at": "2026-10-14T12:17:09.226125+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-14T11:39:43+00:00",
+            "title": "Fed's Bowman says there's time to 'wait and see' before any more action",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-14T10:44:08+00:00",
+            "title": "President Musalem Answers Four Questions about the Fed",
+            "src": "Federal Reserve Bank of St. Louis"
+          },
           {
             "t": "2026-10-14T01:18:00+00:00",
             "title": "Dollar eases as investors await CPI data, Fed speakers",
@@ -282,22 +292,17 @@
             "t": "2026-10-13T22:34:56+00:00",
             "title": "Fed Governor Cook's lawyer denounces Trump's latest attempt to remove her",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-13T21:03:30+00:00",
-            "title": "Lawyer for Fed Governor Cook Denounces Trump’s New Investigation",
-            "src": "The New York Times"
-          },
-          {
-            "t": "2026-10-13T20:08:52+00:00",
-            "title": "Fed's Collins sees another rate hike on the table before end of 2026",
-            "src": "Reuters"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-10-14T11:31:07+00:00",
+            "title": "Exclusive | Ken Paxton Partied in Dubai With Fugitives Ahead of High-Stakes Texas Senate Race",
+            "src": "WSJ"
+          },
           {
             "t": "2026-10-14T10:05:04+00:00",
             "title": "S&P 500, Dow futures rise ahead of big bank results, CPI data",
@@ -317,11 +322,6 @@
             "t": "2026-10-14T08:41:00+00:00",
             "title": "Stock Futures Tick Higher, Treasurys Strengthen Ahead of Inflation Data",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-14T08:14:05+00:00",
-            "title": "US Stock Market Today: S&P 500 Futures Edge Higher As Traders Brace For CPI",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -329,35 +329,45 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-10-14T11:31:04+00:00",
+            "title": "Tesla to Post Q3 Earnings: Will Automotive Margins Play a Spoilsport?",
+            "src": "Zacks Investment Research"
+          },
+          {
+            "t": "2026-10-14T11:15:32+00:00",
+            "title": "Erste Group Bank Comments on Meta Platforms FY2027 Earnings",
+            "src": "MarketBeat"
+          },
+          {
+            "t": "2026-10-14T10:49:14+00:00",
+            "title": "Meta Platforms, Inc. (META) Stock Price, News, Quote & History",
+            "src": "Yahoo! Finance Canada"
+          },
+          {
             "t": "2026-10-14T10:10:51+00:00",
             "title": "Ahead of Earnings, Is Tesla Stock a Buy, a Sell, or Fairly Valued?",
             "src": "Morningstar"
           },
           {
-            "t": "2026-10-14T09:41:18+00:00",
-            "title": "Meta Platforms, Inc. (META) Stock Price, News, Quote & History",
-            "src": "Yahoo! Finance Canada"
-          },
-          {
             "t": "2026-10-14T09:31:00+00:00",
             "title": "Dow Futures Rise; ASML Earnings Beat, CPI Inflation Due",
             "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-10-14T02:41:05+00:00",
-            "title": "Does Meta (META) Have A Bigger AI Revenue Story After Muse Wonder?",
-            "src": "Simply Wall Street"
-          },
-          {
-            "t": "2026-10-14T01:53:00+00:00",
-            "title": "Consumers Win Partial Class Cert. In Amazon Antitrust Suit",
-            "src": "Law360"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-14T11:01:41+00:00",
+            "title": "Inflation report expected to show soaring prices and Pope Leo diagnosed with lung cancer: Morning Rundown",
+            "src": "NBC News"
+          },
+          {
+            "t": "2026-10-14T11:00:00+00:00",
+            "title": "Will US Consumer Price Index data revive expectations for an October Fed rate hike?",
+            "src": "FXStreet"
+          },
           {
             "t": "2026-10-14T10:51:50+00:00",
             "title": "Sterling at 1-week high against dollar ahead of US CPI",
@@ -372,16 +382,6 @@
             "t": "2026-10-14T09:07:47+00:00",
             "title": "Inflation report will provide snapshot of prices as midterms approach",
             "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
-            "t": "2026-10-14T08:55:29+00:00",
-            "title": "AI driven inflation has peaked: Goldman Sachs",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-14T08:45:28+00:00",
-            "title": "Labor Department to release latest inflation report",
-            "src": "NPR"
           }
         ]
       },
@@ -419,6 +419,11 @@
             "src": "ABC News - Breaking News, Latest News and Videos"
           },
           {
+            "t": "2026-10-14T07:04:44+00:00",
+            "title": "Ukraine warns Starlink limits are disrupting military operations as Russia pounds its energy infrastructure",
+            "src": "CNBC"
+          },
+          {
             "t": "2026-10-14T06:34:00+00:00",
             "title": "Ukraine says SpaceX limits Starlink operations, disrupting military",
             "src": "Reuters"
@@ -427,11 +432,6 @@
             "t": "2026-10-14T05:04:23+00:00",
             "title": "Several Republicans vote with Democrats to pass Ukraine aid, Russia sanctions package",
             "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
-            "t": "2026-10-14T04:14:00+00:00",
-            "title": "Russian strikes kill three, damage dozens of power facilities",
-            "src": "Reuters"
           }
         ]
       }
@@ -439,7 +439,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-14T11:51:26.299807+00:00",
+    "at": "2026-10-14T12:17:09.226125+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -737,10 +737,10 @@
     "kept": 0
   },
   "actuals_log": [],
-  "last_publish_ok": "2026-10-14T11:51:26.299807+00:00",
+  "last_publish_ok": "2026-10-14T12:17:09.226125+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-10-14T11:51:52.687273+00:00"
+    "mode": "preopen",
+    "at": "2026-10-14T12:17:34.082170+00:00"
   },
   "alerted": {}
 }
