@@ -84,40 +84,40 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": 0.09,
-      "th": 0.45,
-      "ratio": 0.2,
-      "val": "+0.09%",
-      "thr": "±0.45%",
-      "c15": "+0.03%",
-      "c60": "+0.09%",
-      "c180": "+0.06%",
+      "w": 180,
+      "v": 0.04,
+      "th": 0.8,
+      "ratio": 0.04,
+      "val": "+0.04%",
+      "thr": "±0.8%",
+      "c15": "-0.01%",
+      "c60": "-0.00%",
+      "c180": "+0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.34,
-      "z": 1.0,
+      "eff": 0.02,
+      "z": 0.0,
       "volx": 0.2
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 60,
-      "v": 0.18,
-      "th": 0.6,
-      "ratio": 0.3,
-      "val": "+0.18%",
-      "thr": "±0.6%",
-      "c15": "+0.02%",
-      "c60": "+0.18%",
-      "c180": "+0.15%",
+      "w": 15,
+      "v": -0.03,
+      "th": 0.4,
+      "ratio": 0.08,
+      "val": "-0.03%",
+      "thr": "±0.4%",
+      "c15": "-0.03%",
+      "c60": "-0.03%",
+      "c180": "+0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.34,
-      "z": 1.0,
+      "tone": "flat",
+      "eff": 0.07,
+      "z": 0.2,
       "volx": 0.6
     },
     {
@@ -125,59 +125,59 @@
       "name": "النفط",
       "short": "نفط",
       "w": 60,
-      "v": 0.07,
+      "v": 0.54,
       "th": 1.3,
-      "ratio": 0.06,
-      "val": "+0.07%",
+      "ratio": 0.41,
+      "val": "+0.54%",
       "thr": "±1.3%",
-      "c15": "+0.01%",
-      "c60": "+0.07%",
-      "c180": "+0.13%",
+      "c15": "+0.03%",
+      "c60": "+0.54%",
+      "c180": "+0.65%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.09,
-      "z": 0.2,
-      "volx": 0.7
+      "tone": "bear",
+      "eff": 0.55,
+      "z": 1.4,
+      "volx": 1.9
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 15,
-      "v": -0.11,
-      "th": 0.45,
-      "ratio": 0.24,
-      "val": "-0.11%",
-      "thr": "±0.45%",
-      "c15": "-0.11%",
-      "c60": "+0.00%",
-      "c180": "-0.12%",
+      "w": 60,
+      "v": -0.33,
+      "th": 0.65,
+      "ratio": 0.51,
+      "val": "-0.33%",
+      "thr": "±0.65%",
+      "c15": "-0.16%",
+      "c60": "-0.33%",
+      "c180": "-0.26%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.01,
-      "z": 0.0,
-      "volx": 1.5
+      "eff": 0.71,
+      "z": 2.0,
+      "volx": 2.4
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 60,
-      "v": -0.05,
-      "th": 0.28,
-      "ratio": 0.17,
-      "val": "-0.05%",
-      "thr": "±0.28%",
-      "c15": "-0.01%",
-      "c60": "-0.05%",
-      "c180": "-0.04%",
+      "w": 180,
+      "v": -0.03,
+      "th": 0.5,
+      "ratio": 0.06,
+      "val": "-0.03%",
+      "thr": "±0.5%",
+      "c15": "+0.01%",
+      "c60": "+0.01%",
+      "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.48,
-      "z": 1.0,
+      "eff": 0.21,
+      "z": 0.3,
       "volx": null
     },
     {
@@ -185,78 +185,83 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": 0.07,
+      "v": 0.09,
       "th": 0.4,
-      "ratio": 0.17,
-      "val": "+0.07%",
+      "ratio": 0.22,
+      "val": "+0.09%",
       "thr": "±0.4%",
-      "c15": "+0.04%",
-      "c60": "+0.07%",
-      "c180": "+0.07%",
+      "c15": "-0.01%",
+      "c60": "+0.09%",
+      "c180": "+0.08%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.54,
-      "z": 1.1,
+      "eff": 0.61,
+      "z": 1.5,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-14T00:54:36.092291+00:00",
-        "ok_at": "2026-10-14T00:54:36.092291+00:00"
+        "last_try": "2026-10-14T01:27:33.897037+00:00",
+        "ok_at": "2026-10-14T01:27:33.897037+00:00"
       },
       "fred": {
-        "last_try": "2026-10-14T00:54:36.092291+00:00",
-        "ok_at": "2026-10-14T00:54:36.092291+00:00"
+        "last_try": "2026-10-14T01:27:33.897037+00:00",
+        "ok_at": "2026-10-14T01:27:33.897037+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-14T00:54:36.092291+00:00",
-        "ok_at": "2026-10-14T00:54:36.092291+00:00"
+        "last_try": "2026-10-14T01:27:33.897037+00:00",
+        "ok_at": "2026-10-14T01:27:33.897037+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-14T00:54:36.092291+00:00",
-        "ok_at": "2026-10-14T00:54:36.092291+00:00"
+        "last_try": "2026-10-14T01:27:33.897037+00:00",
+        "ok_at": "2026-10-14T01:27:33.897037+00:00"
       },
       "oil": {
-        "last_try": "2026-10-14T00:54:36.092291+00:00",
-        "ok_at": "2026-10-14T00:54:36.092291+00:00"
+        "last_try": "2026-10-14T01:27:33.897037+00:00",
+        "ok_at": "2026-10-14T01:27:33.897037+00:00"
       },
       "news": {
-        "last_try": "2026-10-14T00:54:36.092291+00:00",
-        "ok_at": "2026-10-14T00:54:36.092291+00:00"
+        "last_try": "2026-10-14T01:27:33.897037+00:00",
+        "ok_at": "2026-10-14T01:27:33.897037+00:00"
       },
       "cot": {
-        "last_try": "2026-10-14T00:54:36.092291+00:00",
-        "ok_at": "2026-10-14T00:54:36.092291+00:00"
+        "last_try": "2026-10-14T01:27:33.897037+00:00",
+        "ok_at": "2026-10-14T01:27:33.897037+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-14T00:54:36.092291+00:00",
-        "ok_at": "2026-10-14T00:54:36.092291+00:00"
+        "last_try": "2026-10-14T01:27:33.897037+00:00",
+        "ok_at": "2026-10-14T01:27:33.897037+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-14T00:54:36.092291+00:00"
+      "at": "2026-10-14T01:27:33.897037+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-14T00:03:13.979401+00:00",
+    "at": "2026-10-14T01:27:33.897037+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-14T00:04:56+00:00",
+            "title": "Lawyer for Fed Governor Cook Denounces Trump’s New Investigation",
+            "src": "The New York Times"
+          },
+          {
+            "t": "2026-10-13T23:30:10+00:00",
+            "title": "Perspectives on the Economy and the Banking Landscape",
+            "src": "Federal Reserve Bank of Boston"
+          },
+          {
             "t": "2026-10-13T22:34:56+00:00",
             "title": "Fed Governor Cook's lawyer denounces Trump's latest attempt to remove her",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-13T21:03:30+00:00",
-            "title": "Lawyer for Fed Governor Cook Denounces Trump’s New Investigation",
-            "src": "The New York Times"
           },
           {
             "t": "2026-10-13T20:08:52+00:00",
@@ -267,11 +272,6 @@
             "t": "2026-10-13T20:07:00+00:00",
             "title": "One More U.S. Interest-Rate Increase May Be Appropriate, Fed’s Williams Says",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-13T19:46:12+00:00",
-            "title": "Williams says Fed may not have to hike rates in 2027, at odds with traders",
-            "src": "CNBC"
           }
         ]
       },
@@ -279,35 +279,40 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-14T01:14:00+00:00",
+            "title": "OpenAI Engineer Allegedly Hid Toilet Paper-Wrapped Mic in Conference Room",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-14T00:01:21+00:00",
+            "title": "U.S. Stocks Rise as AI Bets Offset Bond Yield Fears",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-10-13T23:25:08+00:00",
             "title": "Nasdaq ends down as chipmakers fall and bank earnings roll in",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-13T22:17:00+00:00",
-            "title": "Cornell Suspends Fraternity Parties in Wake of Rape Allegations",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-13T21:01:34+00:00",
-            "title": "OpenAI Makes Progress in Preventing AI-Driven ChatGPT Delusions",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-13T19:30:08+00:00",
-            "title": "US stocks edge back from their record following the first big batch of profit reports for the summer",
-            "src": "Boston Herald"
-          },
-          {
             "t": "2026-10-13T19:02:00+00:00",
             "title": "Guilfoyle’s Collapse Comes as White House Struggles to Fend Off Allegations of Excess",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-10-13T18:32:57+00:00",
+            "title": "Rising Interest Rates Bite Some Wall St. Banks",
+            "src": "The New York Times"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-10-14T01:12:04+00:00",
+            "title": "A $11 Million Tesla Call Bet Ahead of Earnings | Options Income Daily",
+            "src": "Moomoo"
+          },
           {
             "t": "2026-10-13T21:15:48+00:00",
             "title": "Feds Eye Probe Into Reports of Tesla Robotaxis Zooming Through School Zones",
@@ -327,11 +332,6 @@
             "t": "2026-10-13T17:21:14+00:00",
             "title": "Amazon.com, Inc. (AMZN) Stock Price, News, Quote & History",
             "src": "Yahoo! Finance Canada"
-          },
-          {
-            "t": "2026-10-13T15:35:53+00:00",
-            "title": "NVIDIA Corporation (NVDA) Stock Price, News, Quote & History",
-            "src": "Yahoo! Finance Canada"
           }
         ]
       },
@@ -339,35 +339,40 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-13T23:05:43+00:00",
-            "title": "Big UK firms focus on cost-cutting as inflation bites, Deloitte survey shows",
+            "t": "2026-10-14T01:18:00+00:00",
+            "title": "Dollar languishes as focus turns to CPI, Fed speakers",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-13T20:57:55+00:00",
-            "title": "What’s fueling inflation? Fuel.",
-            "src": "NBC News"
+            "t": "2026-10-14T01:05:00+00:00",
+            "title": "Gold Steady Ahead of U.S. Inflation Data",
+            "src": "WSJ"
           },
           {
-            "t": "2026-10-13T20:42:56+00:00",
-            "title": "Don't let inflation bite — how to hedge with TIPS, commodities and infrastructure funds",
+            "t": "2026-10-14T00:55:00+00:00",
+            "title": "Asian Currencies Consolidate Ahead of U.S. CPI Data",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-14T00:09:00+00:00",
+            "title": "Singapore third-quarter GDP growth softens from four-year high but beats estimates",
             "src": "CNBC"
           },
           {
-            "t": "2026-10-13T19:14:17+00:00",
-            "title": "Argentina Posts Second Straight Month of Inflation Below 2%",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-10-13T18:05:57+00:00",
-            "title": "The latest inflation data is expected to show price increases are accelerating",
-            "src": "CNBC"
+            "t": "2026-10-13T23:31:38+00:00",
+            "title": "COMMENTARY: AI may be rocket fuel for US stocks, less so for GDP: McGeever",
+            "src": "Reuters"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-13T23:14:54+00:00",
+            "title": "Trump's 50% tariffs on Canada take effect as Carney vows to retaliate",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
           {
             "t": "2026-10-13T22:00:00+00:00",
             "title": "Unexpected tariffs increase the cost of West Maui’s Olowalu Fire Station project",
@@ -382,17 +387,22 @@
             "t": "2026-10-13T18:47:00+00:00",
             "title": "Treasury, Eurozone Yields Decline as Markets Look to U.S. Inflation Data",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-13T18:41:13+00:00",
-            "title": "Canada Tariffs Are Changing Freight Strategy Fast",
-            "src": "FreightWaves"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-10-14T00:56:15+00:00",
+            "title": "Russia’s Leading Sanctions Evasion Tool Is a New Kind of Illicit Finance Threat",
+            "src": "Foundation for Defense of Democracies"
+          },
+          {
+            "t": "2026-10-13T23:13:39+00:00",
+            "title": "Russian missile attack on Kyiv kills two, Zelenskiy says no warning received",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-13T23:07:11+00:00",
             "title": "Trump says US still sharing intel, even as Ukraine reports attacks with no warnings",
@@ -402,16 +412,6 @@
             "t": "2026-10-13T20:57:00+00:00",
             "title": "Putin snubs Trump’s ceasefire as Russia aims to make Ukraine unlivable",
             "src": "Atlantic Council"
-          },
-          {
-            "t": "2026-10-13T20:31:53+00:00",
-            "title": "Lawmakers Argue Trump's Russia Diesel Deal 'Violates' the Law. Here's What Legal Experts Say",
-            "src": "Time Magazine"
-          },
-          {
-            "t": "2026-10-13T18:51:55+00:00",
-            "title": "The Trump administration warns Ukraine it could cut off intel, Zelenskyy tells NPR",
-            "src": "NPR"
           }
         ]
       }
@@ -419,7 +419,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-14T00:54:36.092291+00:00",
+    "at": "2026-10-14T01:27:33.897037+00:00",
     "events": [
       {
         "title": "Bank Holiday",
