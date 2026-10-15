@@ -182,190 +182,195 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 180,
-      "v": 0.23,
-      "th": 0.8,
-      "ratio": 0.28,
-      "val": "+0.23%",
-      "thr": "±0.8%",
-      "c15": "+0.02%",
-      "c60": "-0.03%",
-      "c180": "+0.23%",
+      "w": 60,
+      "v": -0.06,
+      "th": 0.45,
+      "ratio": 0.13,
+      "val": "-0.06%",
+      "thr": "±0.45%",
+      "c15": "-0.03%",
+      "c60": "-0.06%",
+      "c180": "-0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.1,
-      "z": 0.1,
-      "volx": 0.7
+      "tone": "flat",
+      "eff": 0.29,
+      "z": 0.3,
+      "volx": 0.5
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 180,
-      "v": 0.25,
-      "th": 1.0,
-      "ratio": 0.25,
-      "val": "+0.25%",
-      "thr": "±1%",
-      "c15": "+0.04%",
-      "c60": "-0.05%",
-      "c180": "+0.25%",
+      "w": 15,
+      "v": -0.06,
+      "th": 0.4,
+      "ratio": 0.16,
+      "val": "-0.06%",
+      "thr": "±0.4%",
+      "c15": "-0.06%",
+      "c60": "-0.07%",
+      "c180": "-0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.1,
-      "z": 0.2,
-      "volx": 0.5
+      "tone": "flat",
+      "eff": 0.23,
+      "z": 0.3,
+      "volx": 0.4
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
-      "w": 180,
-      "v": 3.74,
-      "th": 14.0,
-      "ratio": 0.27,
-      "val": "+3.74%",
-      "thr": "±14%",
-      "c15": "-0.23%",
-      "c60": "+0.29%",
-      "c180": "+3.74%",
+      "w": 15,
+      "v": 0.4,
+      "th": 6.0,
+      "ratio": 0.07,
+      "val": "+0.40%",
+      "thr": "±6%",
+      "c15": "+0.40%",
+      "c60": "+0.46%",
+      "c180": "+0.51%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.12,
-      "z": 0.1,
+      "tone": "flat",
+      "eff": 0.22,
+      "z": 0.2,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": -1.79,
-      "th": 1.3,
-      "ratio": 1.37,
-      "val": "-1.79%",
-      "thr": "±1.3%",
-      "c15": "-0.43%",
-      "c60": "-1.79%",
-      "c180": "-0.85%",
-      "confirmed": true,
-      "why": "مؤكَّدة",
+      "w": 15,
+      "v": 0.21,
+      "th": 0.9,
+      "ratio": 0.24,
+      "val": "+0.21%",
+      "thr": "±0.9%",
+      "c15": "+0.21%",
+      "c60": "-0.01%",
+      "c180": "-0.28%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.65,
-      "z": 4.3,
-      "volx": 3.7
+      "eff": 0.01,
+      "z": 0.0,
+      "volx": 0.5
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 180,
-      "v": 0.57,
+      "v": 0.29,
       "th": 1.2,
-      "ratio": 0.48,
-      "val": "+0.57%",
+      "ratio": 0.24,
+      "val": "+0.29%",
       "thr": "±1.2%",
-      "c15": "+0.00%",
-      "c60": "+0.13%",
-      "c180": "+0.57%",
+      "c15": "+0.03%",
+      "c60": "-0.12%",
+      "c180": "+0.29%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.31,
+      "eff": 0.36,
       "z": 0.4,
-      "volx": 1.4
+      "volx": 0.7
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 180,
-      "v": -0.14,
-      "th": 0.5,
-      "ratio": 0.28,
-      "val": "-0.14%",
-      "thr": "±0.5%",
-      "c15": "+0.04%",
-      "c60": "-0.04%",
-      "c180": "-0.14%",
+      "w": 60,
+      "v": 0.14,
+      "th": 0.28,
+      "ratio": 0.51,
+      "val": "+0.14%",
+      "thr": "±0.28%",
+      "c15": "+0.00%",
+      "c60": "+0.14%",
+      "c180": "+0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.18,
-      "z": 0.3,
+      "eff": 0.81,
+      "z": 1.3,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": -0.15,
-      "th": 0.7,
-      "ratio": 0.21,
-      "val": "-0.15%",
-      "thr": "±0.7%",
-      "c15": "-0.01%",
-      "c60": "-0.08%",
-      "c180": "-0.15%",
+      "w": 60,
+      "v": 0.08,
+      "th": 0.4,
+      "ratio": 0.2,
+      "val": "+0.08%",
+      "thr": "±0.4%",
+      "c15": "-0.00%",
+      "c60": "+0.08%",
+      "c180": "-0.08%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.41,
-      "z": 0.8,
+      "eff": 0.35,
+      "z": 0.9,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-15T10:02:17.033495+00:00",
-        "ok_at": "2026-10-15T10:02:17.033495+00:00"
+        "last_try": "2026-10-15T10:45:01.473357+00:00",
+        "ok_at": "2026-10-15T10:45:01.473357+00:00"
       },
       "fred": {
-        "last_try": "2026-10-15T10:02:17.033495+00:00",
-        "ok_at": "2026-10-15T10:02:17.033495+00:00"
+        "last_try": "2026-10-15T10:45:01.473357+00:00",
+        "ok_at": "2026-10-15T10:45:01.473357+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-15T10:02:17.033495+00:00",
-        "ok_at": "2026-10-15T10:02:17.033495+00:00"
+        "last_try": "2026-10-15T10:45:01.473357+00:00",
+        "ok_at": "2026-10-15T10:45:01.473357+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-15T10:02:17.033495+00:00",
-        "ok_at": "2026-10-15T10:02:17.033495+00:00"
+        "last_try": "2026-10-15T10:45:01.473357+00:00",
+        "ok_at": "2026-10-15T10:45:01.473357+00:00"
       },
       "oil": {
-        "last_try": "2026-10-15T10:02:17.033495+00:00",
-        "ok_at": "2026-10-15T10:02:17.033495+00:00"
+        "last_try": "2026-10-15T10:45:01.473357+00:00",
+        "ok_at": "2026-10-15T10:45:01.473357+00:00"
       },
       "news": {
-        "last_try": "2026-10-15T10:02:17.033495+00:00",
-        "ok_at": "2026-10-15T10:02:17.033495+00:00"
+        "last_try": "2026-10-15T10:45:01.473357+00:00",
+        "ok_at": "2026-10-15T10:45:01.473357+00:00"
       },
       "cot": {
-        "last_try": "2026-10-15T10:02:17.033495+00:00",
-        "ok_at": "2026-10-15T10:02:17.033495+00:00"
+        "last_try": "2026-10-15T10:45:01.473357+00:00",
+        "ok_at": "2026-10-15T10:45:01.473357+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-15T10:02:17.033495+00:00",
-        "ok_at": "2026-10-15T10:02:17.033495+00:00"
+        "last_try": "2026-10-15T10:45:01.473357+00:00",
+        "ok_at": "2026-10-15T10:45:01.473357+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-15T10:02:17.033495+00:00"
+      "at": "2026-10-15T10:45:01.473357+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-15T09:26:22.177678+00:00",
+    "at": "2026-10-15T10:45:01.473357+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-15T10:18:47+00:00",
+            "title": "Warsh's quest for quiet Fed gets vocal pushback",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-15T04:45:00+00:00",
             "title": "BoE's Pill says a rate hike need not be start of long series",
@@ -385,11 +390,6 @@
             "t": "2026-10-15T01:28:51+00:00",
             "title": "The Beige Book – First District",
             "src": "Federal Reserve Bank of Boston"
-          },
-          {
-            "t": "2026-10-15T01:14:21+00:00",
-            "title": "Gold futures slump as U.S. CPI jump fuels rate hike concerns.",
-            "src": "CME Group"
           }
         ]
       },
@@ -397,28 +397,28 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-15T10:28:45+00:00",
+            "title": "S&P 500's march to 8,000 hinges on 'very, very strong' third quarter",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-15T10:18:14+00:00",
+            "title": "Inside Kimberly Guilfoyle’s Final Days as Ambassador to Greece",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-15T09:30:00+00:00",
+            "title": "Rising Rates Threaten Wall Street’s Golden Goose in Trading",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-15T09:26:02+00:00",
+            "title": "A Staggering 84% of S&P 500 Stocks Are Now in Correction Territory, and History Says This Foreshadows Disaster for Wall Street",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-10-15T08:12:03+00:00",
             "title": "US Stock Market Today: S&P 500 Futures Edge Up On Energy Driven Inflation Focus",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-15T03:16:00+00:00",
-            "title": "Dow, S&P 500, Nasdaq Decline Amid Hot Inflation Data, AI Selloff: CRWV, NBIS, NVDA, IBRX Stocks In Focus",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-15T02:00:00+00:00",
-            "title": "A Swiss Banking Giant Thinks the Unthinkable: Moving Out of Switzerland",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-15T01:32:00+00:00",
-            "title": "Exclusive | White House Press Secretary Katie Zacharia Didn’t Pass Bar Exam",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-15T01:00:00+00:00",
-            "title": "U.S. stock futures fall as hot inflation revives Fed hike concerns",
             "src": "Yahoo Finance"
           }
         ]
@@ -426,6 +426,11 @@
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-10-15T08:04:02+00:00",
+            "title": "The 1 Thing I'd Want Elon Musk to Answer on Tesla's Oct. 21 Call",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-10-15T07:37:53+00:00",
             "title": "TSLA Stock Slips — Investors Await Tesla’s Q2 Earnings And Semi Progress",
@@ -435,11 +440,6 @@
             "t": "2026-10-15T07:00:43+00:00",
             "title": "NVIDIA Corporation | History, GPUs, & Artificial Intelligence",
             "src": "Britannica"
-          },
-          {
-            "t": "2026-10-15T06:34:13+00:00",
-            "title": "Tesla opens the Q&A for its biggest earnings call yet",
-            "src": "Teslarati"
           },
           {
             "t": "2026-10-15T05:12:23+00:00",
@@ -462,9 +462,14 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-14T23:44:33+00:00",
-            "title": "New inflation warning sign",
-            "src": "Axios"
+            "t": "2026-10-15T04:20:00+00:00",
+            "title": "Soaring Energy Prices Push Inflation Higher",
+            "src": "The New York Times"
+          },
+          {
+            "t": "2026-10-15T02:26:00+00:00",
+            "title": "IT, financials lead Indian shares higher; hot US inflation caps gains",
+            "src": "Reuters"
           },
           {
             "t": "2026-10-14T23:33:39+00:00",
@@ -475,11 +480,6 @@
             "t": "2026-10-14T22:55:14+00:00",
             "title": "Economist breaks down new inflation report and what's driving prices higher",
             "src": "PBS"
-          },
-          {
-            "t": "2026-10-14T22:01:43+00:00",
-            "title": "Prices increased sharply in September in last inflation report ahead of elections",
-            "src": "The Washington Post"
           }
         ]
       },
@@ -487,7 +487,17 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-15T09:08:26+00:00",
+            "t": "2026-10-15T10:18:56+00:00",
+            "title": "US toy prices surge ahead of holiday shopping season as tariffs, Iran war bite",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-15T09:30:06+00:00",
+            "title": "Analysis: Why a $2 trillion deficit and 5% Treasury yields are becoming America's biggest economic challenge",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-15T09:07:00+00:00",
             "title": "Treasury, Eurozone Bond Yields Fall to Multiweek Lows as U.S. Inflation Shock Fades",
             "src": "WSJ"
           },
@@ -495,16 +505,6 @@
             "t": "2026-10-15T09:01:00+00:00",
             "title": "Some Republicans in key races break with Trump over tariffs",
             "src": "NBC News"
-          },
-          {
-            "t": "2026-10-15T07:52:47+00:00",
-            "title": "U.S. Treasury yields plunge after hot CPI print as investors await more economic data",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-15T06:11:53+00:00",
-            "title": "Dollar retreats from 18-month high as Treasury yields dip; Fed hike bets ease",
-            "src": "Euronext Markets: Real-time Stock Market Data | live"
           }
         ]
       },
@@ -512,24 +512,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-15T09:01:27+00:00",
+            "t": "2026-10-15T10:25:33+00:00",
+            "title": "Ukraine to resume strikes on Russian refineries, Zelenskyy says",
+            "src": "Financial Times"
+          },
+          {
+            "t": "2026-10-15T10:25:17+00:00",
             "title": "‘We’re done’: Ukraine resumes strikes on Russian oil refineries as anger mounts with Trump",
             "src": "NBC News"
           },
           {
-            "t": "2026-10-15T07:46:30+00:00",
-            "title": "Ukraine to resume strikes on Russian refineries, shattering hopes of an 'energy ceasefire'",
-            "src": "CNBC"
+            "t": "2026-10-15T10:12:58+00:00",
+            "title": "Russia says Ukraine resumes attacks on oil refineries",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-10-15T05:15:38+00:00",
-            "title": "'Mother of all bombs': US potential Iran strike plans include largest non-nuclear weapon - report",
-            "src": "The Jerusalem Post"
-          },
-          {
-            "t": "2026-10-15T05:11:00+00:00",
-            "title": "Taiwan president calls for Micron, workers to negotiate 'sincerely' ahead of possible strike",
-            "src": "Reuters"
+            "t": "2026-10-15T10:05:58+00:00",
+            "title": "Ukraine resumes attacks on Russian oil refineries, officials say, after brief truce",
+            "src": "NPR"
           }
         ]
       }
@@ -537,7 +537,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-15T10:02:17.033495+00:00",
+    "at": "2026-10-15T10:45:01.473357+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -1766,10 +1766,10 @@
       "note": "المصدر: BLS (CUUR0000SA0، فترة 2026-09-01) — CPI سنوياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-15T10:02:17.033495+00:00",
+  "last_publish_ok": "2026-10-15T10:45:01.473357+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-15T10:02:58.165966+00:00"
+    "at": "2026-10-15T10:45:38.431006+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
