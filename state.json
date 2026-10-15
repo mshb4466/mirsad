@@ -3,7 +3,8 @@
     "Core CPI m/m|2026-10-14T12:30:00+00:00",
     "Core CPI y/y|2026-10-14T12:30:00+00:00",
     "CPI m/m|2026-10-14T12:30:00+00:00",
-    "CPI y/y|2026-10-14T12:30:00+00:00"
+    "CPI y/y|2026-10-14T12:30:00+00:00",
+    "Retail Sales m/m|2026-10-15T12:30:00+00:00"
   ],
   "last_shock": null,
   "last_move": {
@@ -183,58 +184,58 @@
       "name": "ES",
       "short": "ES",
       "w": 15,
-      "v": 0.06,
+      "v": 0.04,
       "th": 0.3,
-      "ratio": 0.19,
-      "val": "+0.06%",
+      "ratio": 0.13,
+      "val": "+0.04%",
       "thr": "±0.3%",
-      "c15": "+0.06%",
-      "c60": "+0.04%",
-      "c180": "+0.00%",
+      "c15": "+0.04%",
+      "c60": "+0.05%",
+      "c180": "+0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.1,
-      "z": 0.2,
-      "volx": 1.2
+      "eff": 0.09,
+      "z": 0.3,
+      "volx": 1.6
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 15,
-      "v": 0.06,
+      "v": 0.07,
       "th": 0.4,
-      "ratio": 0.16,
-      "val": "+0.06%",
+      "ratio": 0.18,
+      "val": "+0.07%",
       "thr": "±0.4%",
-      "c15": "+0.06%",
+      "c15": "+0.07%",
       "c60": "+0.04%",
-      "c180": "-0.11%",
+      "c180": "-0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.08,
+      "eff": 0.05,
       "z": 0.1,
-      "volx": 1.1
+      "volx": 2.0
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 180,
-      "v": 0.81,
+      "v": -0.85,
       "th": 14.0,
       "ratio": 0.06,
-      "val": "+0.81%",
+      "val": "-0.85%",
       "thr": "±14%",
-      "c15": "+0.06%",
-      "c60": "-0.28%",
-      "c180": "+0.81%",
+      "c15": "-0.23%",
+      "c60": "-0.29%",
+      "c180": "-0.85%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.08,
+      "eff": 0.13,
       "z": 0.1,
       "volx": null
     },
@@ -242,21 +243,21 @@
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": -0.96,
-      "th": 2.4,
-      "ratio": 0.4,
-      "val": "-0.96%",
-      "thr": "±2.4%",
-      "c15": "-0.10%",
-      "c60": "+0.12%",
-      "c180": "-0.96%",
+      "w": 15,
+      "v": 0.26,
+      "th": 0.9,
+      "ratio": 0.28,
+      "val": "+0.26%",
+      "thr": "±0.9%",
+      "c15": "+0.26%",
+      "c60": "-0.07%",
+      "c180": "+0.48%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.16,
+      "eff": 0.03,
       "z": 0.2,
-      "volx": 1.0
+      "volx": 1.9
     },
     {
       "key": "gold",
@@ -265,109 +266,169 @@
       "w": 15,
       "v": 0.09,
       "th": 0.45,
-      "ratio": 0.2,
+      "ratio": 0.19,
       "val": "+0.09%",
       "thr": "±0.45%",
       "c15": "+0.09%",
-      "c60": "-0.10%",
-      "c180": "-0.11%",
+      "c60": "-0.03%",
+      "c180": "-0.21%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.19,
-      "z": 0.3,
-      "volx": 1.8
+      "eff": 0.01,
+      "z": 0.1,
+      "volx": 2.4
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 60,
-      "v": 0.09,
-      "th": 0.28,
-      "ratio": 0.33,
-      "val": "+0.09%",
-      "thr": "±0.28%",
-      "c15": "+0.02%",
-      "c60": "+0.09%",
-      "c180": "+0.11%",
+      "w": 15,
+      "v": 0.03,
+      "th": 0.18,
+      "ratio": 0.17,
+      "val": "+0.03%",
+      "thr": "±0.18%",
+      "c15": "+0.03%",
+      "c60": "+0.03%",
+      "c180": "+0.08%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.52,
-      "z": 0.8,
+      "eff": 0.04,
+      "z": 0.2,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": 0.18,
-      "th": 0.4,
-      "ratio": 0.46,
-      "val": "+0.18%",
-      "thr": "±0.4%",
-      "c15": "+0.09%",
-      "c60": "+0.18%",
-      "c180": "+0.26%",
+      "w": 15,
+      "v": -0.06,
+      "th": 0.25,
+      "ratio": 0.25,
+      "val": "-0.06%",
+      "thr": "±0.25%",
+      "c15": "-0.06%",
+      "c60": "-0.09%",
+      "c180": "+0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.77,
-      "z": 2.0,
+      "eff": 0.14,
+      "z": 1.0,
+      "volx": null
+    },
+    {
+      "key": "y10",
+      "name": "عائد 10 سنوات",
+      "short": "10Y",
+      "w": 60,
+      "v": -13.2,
+      "th": 4.5,
+      "ratio": 2.93,
+      "val": "-13bp",
+      "thr": "±4.5bp",
+      "c15": "-1bp",
+      "c60": "-13bp",
+      "c180": "-13bp",
+      "confirmed": true,
+      "why": "مؤكَّدة",
+      "tone": "bull",
+      "eff": 0.69,
+      "z": 3.5,
+      "volx": null
+    },
+    {
+      "key": "y5",
+      "name": "عائد 5 سنوات",
+      "short": "5Y",
+      "w": 60,
+      "v": -12.0,
+      "th": 4.5,
+      "ratio": 2.67,
+      "val": "-12bp",
+      "thr": "±4.5bp",
+      "c15": "-2bp",
+      "c60": "-12bp",
+      "c180": "-12bp",
+      "confirmed": true,
+      "why": "مؤكَّدة",
+      "tone": "bull",
+      "eff": 0.54,
+      "z": 2.6,
+      "volx": null
+    },
+    {
+      "key": "y30",
+      "name": "عائد 30 سنة",
+      "short": "30Y",
+      "w": 60,
+      "v": -12.9,
+      "th": 4.5,
+      "ratio": 2.87,
+      "val": "-13bp",
+      "thr": "±4.5bp",
+      "c15": "+0bp",
+      "c60": "-13bp",
+      "c180": "-13bp",
+      "confirmed": false,
+      "why": "الزخم غير متسق عبر الأطر",
+      "tone": "bull",
+      "eff": 0.8,
+      "z": 5.3,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-15T12:33:59.534307+00:00",
-        "ok_at": "2026-10-15T12:33:59.534307+00:00"
+        "last_try": "2026-10-15T13:16:47.396181+00:00",
+        "ok_at": "2026-10-15T13:16:47.396181+00:00"
       },
       "fred": {
-        "last_try": "2026-10-15T12:33:59.534307+00:00",
-        "ok_at": "2026-10-15T12:33:59.534307+00:00"
+        "last_try": "2026-10-15T13:16:47.396181+00:00",
+        "ok_at": "2026-10-15T13:16:47.396181+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-15T12:33:59.534307+00:00",
-        "ok_at": "2026-10-15T12:33:59.534307+00:00"
+        "last_try": "2026-10-15T13:16:47.396181+00:00",
+        "ok_at": "2026-10-15T13:16:47.396181+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-15T12:33:59.534307+00:00",
-        "ok_at": "2026-10-15T12:33:59.534307+00:00"
+        "last_try": "2026-10-15T13:16:47.396181+00:00",
+        "ok_at": "2026-10-15T13:16:47.396181+00:00"
       },
       "oil": {
-        "last_try": "2026-10-15T12:33:59.534307+00:00",
-        "ok_at": "2026-10-15T12:33:59.534307+00:00"
+        "last_try": "2026-10-15T13:16:47.396181+00:00",
+        "ok_at": "2026-10-15T13:16:47.396181+00:00"
       },
       "news": {
-        "last_try": "2026-10-15T12:33:59.534307+00:00",
-        "ok_at": "2026-10-15T12:33:59.534307+00:00"
+        "last_try": "2026-10-15T13:16:47.396181+00:00",
+        "ok_at": "2026-10-15T13:16:47.396181+00:00"
       },
       "cot": {
-        "last_try": "2026-10-15T12:33:59.534307+00:00",
-        "ok_at": "2026-10-15T12:33:59.534307+00:00"
+        "last_try": "2026-10-15T13:16:47.396181+00:00",
+        "ok_at": "2026-10-15T13:16:47.396181+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-15T12:33:59.534307+00:00",
+        "last_try": "2026-10-15T13:16:47.396181+00:00",
         "ok_at": "2026-10-15T12:16:35.300569+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-15T12:33:59.534307+00:00"
+      "at": "2026-10-15T13:16:47.396181+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-15T11:50:04.501051+00:00",
+    "at": "2026-10-15T13:16:47.396181+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-15T10:18:47+00:00",
+            "t": "2026-10-15T12:01:34+00:00",
             "title": "Warsh's quest for quiet Fed gets vocal pushback",
             "src": "Reuters"
           },
@@ -383,7 +444,7 @@
           },
           {
             "t": "2026-10-15T01:49:00+00:00",
-            "title": "Dollar pulls back from 18-month high as Treasury yields fall; Fed hike bets ease",
+            "title": "Dollar eases from 18-month high as Treasury yields fall; Fed hike bets ease",
             "src": "Reuters"
           },
           {
@@ -397,35 +458,40 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-15T11:18:37+00:00",
-            "title": "Inside Kimberly Guilfoyle’s Final Days as Ambassador to Greece",
+            "t": "2026-10-15T12:05:00+00:00",
+            "title": "Kimberly-Clark Forecasts Quarterly Sales Decline Following Social-Media Firestorm in China",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-15T12:05:00+00:00",
+            "title": "The S&P 500 Is Expecting Something Extraordinary. History Says Investors Should Be Careful What They Wish For.",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-15T10:58:00+00:00",
+            "title": "PNC Revenue Rises on National Expansion",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-15T10:47:00+00:00",
+            "title": "Starlink Suspicions and a Frantic Warning: Inside Trump’s Turn on Zelensky",
             "src": "WSJ"
           },
           {
             "t": "2026-10-15T10:31:14+00:00",
             "title": "On Wall Street, there’s trouble stirring for biotech",
             "src": "STAT"
-          },
-          {
-            "t": "2026-10-15T10:28:45+00:00",
-            "title": "S&P 500's march to 8,000 hinges on 'very, very strong' third quarter",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-15T10:19:00+00:00",
-            "title": "Suddenly, Wall Street is worried that the U.S. economy is more ‘vulnerable’ than it looks",
-            "src": "Fortune"
-          },
-          {
-            "t": "2026-10-15T09:30:00+00:00",
-            "title": "Rising Rates Threaten Wall Street’s Golden Goose in Trading",
-            "src": "WSJ"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-10-15T12:06:39+00:00",
+            "title": "Battery Stocks Earnings Preview: Tesla’s Premium Multiple vs. Deep-Value Lithium Suppliers",
+            "src": "ChartMill"
+          },
           {
             "t": "2026-10-15T08:04:02+00:00",
             "title": "The 1 Thing I'd Want Elon Musk to Answer on Tesla's Oct. 21 Call",
@@ -437,25 +503,25 @@
             "src": "Stocktwits"
           },
           {
+            "t": "2026-10-15T07:01:09+00:00",
+            "title": "NVIDIA Corporation (NVDA) stock price, news, quote and history",
+            "src": "Yahoo Finance Australia"
+          },
+          {
             "t": "2026-10-15T05:12:23+00:00",
             "title": "Sens. Probe Meta For Claiming Tax Credits On AI Data Centers",
             "src": "Law360"
-          },
-          {
-            "t": "2026-10-15T00:57:32+00:00",
-            "title": "Tesla opens the Q&A for its biggest earnings call yet",
-            "src": "Teslarati"
-          },
-          {
-            "t": "2026-10-14T22:51:13+00:00",
-            "title": "Meta Platforms, Inc. (META) Stock Price, News, Quote & History",
-            "src": "Yahoo! Finance Canada"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-15T12:38:55+00:00",
+            "title": "Wholesale inflation jumped in September by most in four years",
+            "src": "CNN"
+          },
           {
             "t": "2026-10-15T06:47:00+00:00",
             "title": "French inflation rises to 3.4% in September, highest since January 2024",
@@ -467,25 +533,25 @@
             "src": "The New York Times"
           },
           {
-            "t": "2026-10-14T23:33:39+00:00",
-            "title": "Nasdaq ends sharply lower as hot inflation data stirs rate-hike worries",
+            "t": "2026-10-15T02:26:00+00:00",
+            "title": "IT, financials lead Indian shares higher; hot US inflation caps gains",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-14T22:55:14+00:00",
-            "title": "Economist breaks down new inflation report and what's driving prices higher",
-            "src": "PBS"
-          },
-          {
-            "t": "2026-10-14T22:01:43+00:00",
-            "title": "Prices increased sharply in September in last inflation report ahead of elections",
-            "src": "The Washington Post"
+            "t": "2026-10-15T00:51:00+00:00",
+            "title": "Tech sell-off gathers pace as chipmakers hammered",
+            "src": "Reuters"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-15T12:42:00+00:00",
+            "title": "Treasury Yields Dive For Wrong Reason As Neocloud Bonds Blow Up",
+            "src": "Investor's Business Daily"
+          },
           {
             "t": "2026-10-15T11:01:30+00:00",
             "title": "Some GOP walk the line on Trump’s tariffs and a look at Apple HomeView: Morning Rundown",
@@ -500,11 +566,6 @@
             "t": "2026-10-15T09:30:06+00:00",
             "title": "Analysis: Why a $2 trillion deficit and 5% Treasury yields are becoming America's biggest economic challenge",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-10-15T09:07:00+00:00",
-            "title": "Treasury, Eurozone Bond Yields Fall to Multiweek Lows as U.S. Inflation Shock Fades",
-            "src": "WSJ"
           }
         ]
       },
@@ -517,19 +578,19 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-15T10:25:17+00:00",
-            "title": "‘We’re done’: Ukraine resumes strikes on Russian oil refineries as anger mounts with Trump",
+            "t": "2026-10-15T11:21:28+00:00",
+            "title": "Russia targets Ukraine with 'massive' aerial attack, including hundreds of drones, Zelenskyy says",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-10-15T11:02:09+00:00",
+            "title": "‘We’re done’: Ukraine resumes strikes on Russian oil refineries as anger at Trump mounts",
             "src": "NBC News"
           },
           {
             "t": "2026-10-15T10:12:58+00:00",
             "title": "Russia says Ukraine resumes attacks on oil refineries",
             "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-10-15T10:05:58+00:00",
-            "title": "Ukraine resumes attacks on Russian oil refineries, officials say, after brief truce",
-            "src": "NPR"
           }
         ]
       }
@@ -537,7 +598,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-15T12:28:29.534307+00:00",
+    "at": "2026-10-15T13:16:47.396181+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -913,73 +974,88 @@
     "US|ppife|mm|2026-09|-|2026-10-15": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 8,
+      "attempts": 9,
       "title": "Core PPI m/m",
       "time": "2026-10-15T12:30:00+00:00",
       "impact": "High",
       "forecast": "0.3%",
       "previous": "0.2%",
       "country": "USD",
-      "last_attempt": "2026-10-15T12:33:59.534307+00:00",
+      "last_attempt": "2026-10-15T13:16:47.396181+00:00",
       "note": "FRED لم يُحدَّث بعد (PPIFES: آخر قراءة 2026-08-01)"
     },
     "US|growth:core-retail-sales-m-m|2026-10-15|1230": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 8,
+      "attempts": 9,
       "title": "Core Retail Sales m/m",
       "time": "2026-10-15T12:30:00+00:00",
       "impact": "High",
       "forecast": "0.6%",
       "previous": "1.4%",
       "country": "USD",
-      "last_attempt": "2026-10-15T12:33:59.534307+00:00",
+      "last_attempt": "2026-10-15T13:16:47.396181+00:00",
       "note": ""
     },
     "US|ppi|mm|2026-09|-|2026-10-15": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 8,
+      "attempts": 9,
       "title": "PPI m/m",
       "time": "2026-10-15T12:30:00+00:00",
       "impact": "High",
       "forecast": "0.6%",
       "previous": "0.4%",
       "country": "USD",
-      "last_attempt": "2026-10-15T12:33:59.534307+00:00",
+      "last_attempt": "2026-10-15T13:16:47.396181+00:00",
       "note": "FRED لم يُحدَّث بعد (PPIFIS: آخر قراءة 2026-08-01)"
     },
     "US|retail|mm|2026-09|-|2026-10-15": {
-      "actual": "",
-      "status": "awaiting",
-      "attempts": 8,
+      "actual": "0.8%",
+      "note": "المصدر: FRED (RSAFS، فترة 2026-09-01) — مبيعات التجزئة شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري",
+      "status": "verified_secondary",
+      "trust": "secondary",
+      "source": "FRED",
+      "period": "2026-09-01",
+      "received_at": "2026-10-15T13:16:47.396181+00:00",
+      "last_attempt": "2026-10-15T13:16:47.396181+00:00",
+      "attempts": 9,
       "title": "Retail Sales m/m",
       "time": "2026-10-15T12:30:00+00:00",
+      "series": "RSAFS",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.7708413925190838,
+      "stage": "",
       "impact": "High",
       "forecast": "0.3%",
       "previous": "1.2%",
-      "country": "USD",
-      "last_attempt": "2026-10-15T12:33:59.534307+00:00",
-      "note": "FRED لم يُحدَّث بعد (RSAFS: آخر قراءة 2026-08-01)"
+      "country": "USD"
     },
     "US|claims|claims_k|w2026-10-11|-|2026-10-15": {
-      "actual": "",
-      "status": "awaiting",
-      "attempts": 8,
+      "actual": "199K",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-10) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري",
+      "status": "verified_secondary",
+      "trust": "secondary",
+      "source": "FRED",
+      "period": "2026-10-10",
+      "received_at": "2026-10-15T13:16:47.396181+00:00",
+      "last_attempt": "2026-10-15T13:16:47.396181+00:00",
+      "attempts": 9,
       "title": "Unemployment Claims",
       "time": "2026-10-15T12:30:00+00:00",
+      "series": "ICSA",
+      "method": "القيمة المنشورة مقسومة على 1000",
+      "raw": 199.0,
+      "stage": "",
       "impact": "Medium",
       "forecast": "199K",
       "previous": "197K",
-      "country": "USD",
-      "last_attempt": "2026-10-15T12:33:59.534307+00:00",
-      "note": "FRED لم يُحدَّث بعد (ICSA: آخر قراءة 2026-10-03) | لم يُنشر الرقم في عناوين الأخبار بعد"
+      "country": "USD"
     }
   },
   "stats": {
-    "date": "2026-10-14",
-    "sent": 5,
-    "suppressed": 1
+    "date": "2026-10-15",
+    "sent": 1
   },
   "schema_version": 2,
   "migration": {
@@ -2753,12 +2829,117 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (ICSA: آخر قراءة 2026-10-03) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|ppife|mm|2026-09|-|2026-10-15",
+      "title": "Core PPI m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-15T13:16:47.396181+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "",
+      "forecast": "0.3%",
+      "previous": "0.2%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (PPIFES: آخر قراءة 2026-08-01)"
+    },
+    {
+      "id": "US|growth:core-retail-sales-m-m|2026-10-15|1230",
+      "title": "Core Retail Sales m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-15T13:16:47.396181+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "",
+      "forecast": "0.6%",
+      "previous": "1.4%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": ""
+    },
+    {
+      "id": "US|ppi|mm|2026-09|-|2026-10-15",
+      "title": "PPI m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-15T13:16:47.396181+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "",
+      "forecast": "0.6%",
+      "previous": "0.4%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (PPIFIS: آخر قراءة 2026-08-01)"
+    },
+    {
+      "id": "US|retail|mm|2026-09|-|2026-10-15",
+      "title": "Retail Sales m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-15T13:16:47.396181+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.8%",
+      "period": "2026-09-01",
+      "series": "RSAFS",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.7708413925190838,
+      "stage": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.3%",
+      "previous": "1.2%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (RSAFS، فترة 2026-09-01) — مبيعات التجزئة شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|claims|claims_k|w2026-10-11|-|2026-10-15",
+      "title": "Unemployment Claims",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-15T13:16:47.396181+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "199K",
+      "period": "2026-10-10",
+      "series": "ICSA",
+      "method": "القيمة المنشورة مقسومة على 1000",
+      "raw": 199.0,
+      "stage": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "199K",
+      "previous": "197K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-10) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-15T12:33:59.534307+00:00",
+  "last_publish_ok": "2026-10-15T13:16:47.396181+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-15T12:34:41.412696+00:00"
+    "at": "2026-10-15T13:17:37.807793+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -2784,6 +2965,12 @@
       "kind": "release",
       "title": "CPI y/y",
       "at": "2026-10-14T12:30:00+00:00"
+    },
+    "US|retail|mm|2026-09|-|2026-10-15": {
+      "value": "0.8%",
+      "kind": "release",
+      "title": "Retail Sales m/m",
+      "at": "2026-10-15T12:30:00+00:00"
     }
   },
   "source_status": {
@@ -2795,7 +2982,7 @@
     "fred": {
       "ok": true,
       "detail": "4 سلسلة",
-      "at": "2026-10-15T12:33:59.534307+00:00"
+      "at": "2026-10-15T13:16:47.396181+00:00"
     }
   },
   "bls_calls": {
