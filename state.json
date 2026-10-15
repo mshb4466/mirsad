@@ -101,102 +101,22 @@
   ],
   "pulse": [
     {
-      "key": "es",
-      "name": "ES",
-      "short": "ES",
-      "w": 15,
-      "v": -0.04,
-      "th": 0.3,
-      "ratio": 0.15,
-      "val": "-0.04%",
-      "thr": "±0.3%",
-      "c15": "-0.04%",
-      "c60": "-0.06%",
-      "c180": "-0.00%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.37,
-      "z": 0.4,
-      "volx": 0.1
-    },
-    {
-      "key": "nq",
-      "name": "ناسداك",
-      "short": "NQ",
-      "w": 15,
-      "v": -0.17,
-      "th": 0.4,
-      "ratio": 0.42,
-      "val": "-0.17%",
-      "thr": "±0.4%",
-      "c15": "-0.17%",
-      "c60": "-0.21%",
-      "c180": "+0.07%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.45,
-      "z": 0.7,
-      "volx": 0.2
-    },
-    {
-      "key": "oil",
-      "name": "النفط",
-      "short": "نفط",
-      "w": 180,
-      "v": -0.32,
-      "th": 2.4,
-      "ratio": 0.13,
-      "val": "-0.32%",
-      "thr": "±2.4%",
-      "c15": "-0.10%",
-      "c60": "-0.15%",
-      "c180": "-0.32%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.29,
-      "z": 0.3,
-      "volx": 0.2
-    },
-    {
-      "key": "gold",
-      "name": "الذهب",
-      "short": "ذهب",
-      "w": 180,
-      "v": 0.44,
-      "th": 1.2,
-      "ratio": 0.37,
-      "val": "+0.44%",
-      "thr": "±1.2%",
-      "c15": "+0.03%",
-      "c60": "-0.08%",
-      "c180": "+0.44%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.25,
-      "z": 0.2,
-      "volx": 0.3
-    },
-    {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
-      "v": 0.02,
-      "th": 0.18,
-      "ratio": 0.12,
-      "val": "+0.02%",
-      "thr": "±0.18%",
-      "c15": "+0.02%",
-      "c60": "-0.01%",
-      "c180": "+0.01%",
+      "w": 180,
+      "v": -0.02,
+      "th": 0.5,
+      "ratio": 0.04,
+      "val": "-0.02%",
+      "thr": "±0.5%",
+      "c15": "+0.00%",
+      "c60": "+0.01%",
+      "c180": "-0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.12,
+      "eff": 0.1,
       "z": 0.1,
       "volx": null
     },
@@ -204,72 +124,72 @@
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": -0.09,
-      "th": 0.4,
-      "ratio": 0.22,
-      "val": "-0.09%",
-      "thr": "±0.4%",
-      "c15": "-0.02%",
-      "c60": "-0.09%",
-      "c180": "-0.08%",
+      "w": 180,
+      "v": -0.06,
+      "th": 0.7,
+      "ratio": 0.09,
+      "val": "-0.06%",
+      "thr": "±0.7%",
+      "c15": "+0.00%",
+      "c60": "-0.03%",
+      "c180": "-0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.49,
-      "z": 0.9,
+      "eff": 0.26,
+      "z": 0.3,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-15T21:14:05.532856+00:00",
-        "ok_at": "2026-10-15T21:14:05.532856+00:00"
+        "last_try": "2026-10-15T21:48:23.074199+00:00",
+        "ok_at": "2026-10-15T21:48:23.074199+00:00"
       },
       "fred": {
-        "last_try": "2026-10-15T21:14:05.532856+00:00",
-        "ok_at": "2026-10-15T21:14:05.532856+00:00"
+        "last_try": "2026-10-15T21:48:23.074199+00:00",
+        "ok_at": "2026-10-15T21:48:23.074199+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-15T21:14:05.532856+00:00",
-        "ok_at": "2026-10-15T21:14:05.532856+00:00"
+        "last_try": "2026-10-15T21:48:23.074199+00:00",
+        "ok_at": "2026-10-15T21:48:23.074199+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-15T21:14:05.532856+00:00",
-        "ok_at": "2026-10-15T21:14:05.532856+00:00"
+        "last_try": "2026-10-15T21:48:23.074199+00:00",
+        "ok_at": "2026-10-15T21:48:23.074199+00:00"
       },
       "oil": {
-        "last_try": "2026-10-15T21:14:05.532856+00:00",
+        "last_try": "2026-10-15T21:48:23.074199+00:00",
         "ok_at": "2026-10-15T15:28:20.260973+00:00"
       },
       "news": {
-        "last_try": "2026-10-15T21:14:05.532856+00:00",
-        "ok_at": "2026-10-15T21:14:05.532856+00:00"
+        "last_try": "2026-10-15T21:48:23.074199+00:00",
+        "ok_at": "2026-10-15T21:48:23.074199+00:00"
       },
       "cot": {
-        "last_try": "2026-10-15T21:14:05.532856+00:00",
-        "ok_at": "2026-10-15T21:14:05.532856+00:00"
+        "last_try": "2026-10-15T21:48:23.074199+00:00",
+        "ok_at": "2026-10-15T21:48:23.074199+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-15T21:14:05.532856+00:00",
+        "last_try": "2026-10-15T21:48:23.074199+00:00",
         "ok_at": "2026-10-15T12:16:35.300569+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-15T21:14:05.532856+00:00"
+      "at": "2026-10-15T21:48:23.074199+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-15T20:43:37.289750+00:00",
+    "at": "2026-10-15T21:48:23.074199+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-15T19:59:09+00:00",
+            "t": "2026-10-15T20:28:24+00:00",
             "title": "Will the Fed raise interest rates this month? A Kevin Warsh speech could offer clues",
             "src": "NBC News"
           },
@@ -284,14 +204,14 @@
             "src": "Federal Reserve Bank of Atlanta"
           },
           {
-            "t": "2026-10-15T16:54:30+00:00",
-            "title": "Not Your Grandpa's Farm: High Tech Boosts Output, Stewards Resources",
-            "src": "Federal Reserve Bank of Atlanta"
-          },
-          {
             "t": "2026-10-15T16:31:25+00:00",
             "title": "Fed's Beige Book tells inflation story",
             "src": "Axios"
+          },
+          {
+            "t": "2026-10-15T15:37:59+00:00",
+            "title": "Economists: Hot PPI shows Fed's work is not done",
+            "src": "CNBC"
           }
         ]
       },
@@ -299,14 +219,14 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-15T20:24:00+00:00",
-            "title": "Wall Street muscles higher despite more swings for AI stocks",
-            "src": "Los Angeles Times"
-          },
-          {
             "t": "2026-10-15T20:14:49+00:00",
             "title": "S&P 500 ends higher as traders shift from AI to healthcare",
             "src": "Reuters"
+          },
+          {
+            "t": "2026-10-15T19:53:00+00:00",
+            "title": "KFC to Ditch Pepsi for Coke in Thousands of Restaurants",
+            "src": "WSJ"
           },
           {
             "t": "2026-10-15T19:37:23+00:00",
@@ -389,6 +309,16 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-10-15T20:29:00+00:00",
+            "title": "Stocks Gain as Treasury Yields Give Back Some Recent Gains",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-15T20:02:52+00:00",
+            "title": "Trump trade chief denies tariffs behind inflation ahead of midterms",
+            "src": "Deseret News"
+          },
+          {
             "t": "2026-10-15T19:07:11+00:00",
             "title": "Mexico Zeroes Auto Tariffs to Boost Nearshoring: The Week in Auto",
             "src": "Mexico Business News"
@@ -397,22 +327,17 @@
             "t": "2026-10-15T16:59:27+00:00",
             "title": "Update: US Equity Indexes Mixed After Hot Producer Price Inflation, Slumping Treasury Yields",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-15T16:35:08+00:00",
-            "title": "Even Blue-Collar Workers Have Turned Against Trump's Unpopular Tariffs",
-            "src": "Reason Magazine"
-          },
-          {
-            "t": "2026-10-15T16:31:13+00:00",
-            "title": "Exchange rates react immediately to the threat of tariffs",
-            "src": "EurekAlert!"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-10-15T20:35:57+00:00",
+            "title": "Zelensky Says Ukraine Will Resume Russian Refinery Strikes, Defying Trump",
+            "src": "The New York Times"
+          },
           {
             "t": "2026-10-15T18:30:38+00:00",
             "title": "PODCAST: Ukraine oil strike, Fort Hood execution, AI stock slide (Updated)",
@@ -427,11 +352,6 @@
             "t": "2026-10-15T17:04:29+00:00",
             "title": "Trump and Netanyahu unlikely to strike Iran before elections, but Israel fears surprise attack",
             "src": "Ynetnews"
-          },
-          {
-            "t": "2026-10-15T16:22:26+00:00",
-            "title": "Data Centers Become Targets in Wars in Ukraine, Russia and the Middle East",
-            "src": "The New York Times"
           }
         ]
       }
@@ -439,7 +359,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-15T21:14:05.532856+00:00",
+    "at": "2026-10-15T21:48:23.074199+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -732,7 +652,7 @@
       "source": "BLS",
       "period": "2026-09-01",
       "received_at": "2026-10-14T12:31:53.572275+00:00",
-      "last_attempt": "2026-10-15T18:29:13.515558+00:00",
+      "last_attempt": "2026-10-15T21:48:23.074199+00:00",
       "attempts": 4,
       "title": "Core CPI m/m",
       "time": "2026-10-14T12:30:00+00:00",
@@ -754,7 +674,7 @@
       "source": "BLS",
       "period": "2026-09-01",
       "received_at": "2026-10-14T12:31:53.572275+00:00",
-      "last_attempt": "2026-10-15T18:29:13.515558+00:00",
+      "last_attempt": "2026-10-15T21:48:23.074199+00:00",
       "attempts": 4,
       "title": "Core CPI y/y",
       "time": "2026-10-14T12:30:00+00:00",
@@ -776,7 +696,7 @@
       "source": "BLS",
       "period": "2026-09-01",
       "received_at": "2026-10-14T12:31:53.572275+00:00",
-      "last_attempt": "2026-10-15T18:29:13.515558+00:00",
+      "last_attempt": "2026-10-15T21:48:23.074199+00:00",
       "attempts": 4,
       "title": "CPI m/m",
       "time": "2026-10-14T12:30:00+00:00",
@@ -798,7 +718,7 @@
       "source": "BLS",
       "period": "2026-09-01",
       "received_at": "2026-10-14T12:31:53.572275+00:00",
-      "last_attempt": "2026-10-15T18:29:13.515558+00:00",
+      "last_attempt": "2026-10-15T21:48:23.074199+00:00",
       "attempts": 4,
       "title": "CPI y/y",
       "time": "2026-10-14T12:30:00+00:00",
@@ -836,14 +756,14 @@
     "US|growth:core-retail-sales-m-m|2026-10-15|1230": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 15,
+      "attempts": 16,
       "title": "Core Retail Sales m/m",
       "time": "2026-10-15T12:30:00+00:00",
       "impact": "High",
       "forecast": "0.6%",
       "previous": "1.4%",
       "country": "USD",
-      "last_attempt": "2026-10-15T20:43:37.289750+00:00",
+      "last_attempt": "2026-10-15T21:48:23.074199+00:00",
       "note": ""
     },
     "US|ppi|mm|2026-09|-|2026-10-15": {
@@ -912,15 +832,15 @@
     "US|oil:crude-oil-inventories|2026-10-15|1600": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 6,
+      "attempts": 7,
       "title": "Crude Oil Inventories",
       "time": "2026-10-15T16:00:00+00:00",
       "impact": "Low",
       "forecast": "0.2M",
       "previous": "-3.2M",
       "country": "USD",
-      "last_attempt": "2026-10-15T20:43:37.289750+00:00",
-      "note": ""
+      "last_attempt": "2026-10-15T21:48:23.074199+00:00",
+      "note": "لم يصل الرقم من FRED بعد"
     }
   },
   "stats": {
@@ -3434,12 +3354,138 @@
       "bulletin_check": "لم تُقارَن بنشرة الإصدار",
       "match": "مطابقة فترة التقرير",
       "note": "المصدر: FRED (PPIFIS، فترة 2026-09-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|cpilfe|mm|2026-09|-|2026-10-14",
+      "title": "Core CPI m/m",
+      "release_time": "2026-10-14T12:30:00+00:00",
+      "fetched_at": "2026-10-15T21:48:23.074199+00:00",
+      "source": "BLS",
+      "tier": "official",
+      "value": "0.3%",
+      "period": "2026-09-01",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "0.2%",
+      "previous": "0.3%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: BLS (CUSR0000SA0L1E، فترة 2026-09-01) — CPI الأساسي شهرياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|cpilfe_ny|yy|2026-09|-|2026-10-14",
+      "title": "Core CPI y/y",
+      "release_time": "2026-10-14T12:30:00+00:00",
+      "fetched_at": "2026-10-15T21:48:23.074199+00:00",
+      "source": "BLS",
+      "tier": "official",
+      "value": "2.6%",
+      "period": "2026-09-01",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "2.5%",
+      "previous": "2.4%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: BLS (CUUR0000SA0L1E، فترة 2026-09-01) — CPI الأساسي سنوياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|cpi|mm|2026-09|-|2026-10-14",
+      "title": "CPI m/m",
+      "release_time": "2026-10-14T12:30:00+00:00",
+      "fetched_at": "2026-10-15T21:48:23.074199+00:00",
+      "source": "BLS",
+      "tier": "official",
+      "value": "0.6%",
+      "period": "2026-09-01",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "0.6%",
+      "previous": "0.4%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: BLS (CUSR0000SA0، فترة 2026-09-01) — CPI شهرياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|cpi_ny|yy|2026-09|-|2026-10-14",
+      "title": "CPI y/y",
+      "release_time": "2026-10-14T12:30:00+00:00",
+      "fetched_at": "2026-10-15T21:48:23.074199+00:00",
+      "source": "BLS",
+      "tier": "official",
+      "value": "3.7%",
+      "period": "2026-09-01",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "3.6%",
+      "previous": "3.4%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: BLS (CUUR0000SA0، فترة 2026-09-01) — CPI سنوياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|growth:core-retail-sales-m-m|2026-10-15|1230",
+      "title": "Core Retail Sales m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-15T21:48:23.074199+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "",
+      "forecast": "0.6%",
+      "previous": "1.4%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": ""
+    },
+    {
+      "id": "US|oil:crude-oil-inventories|2026-10-15|1600",
+      "title": "Crude Oil Inventories",
+      "release_time": "2026-10-15T16:00:00+00:00",
+      "fetched_at": "2026-10-15T21:48:23.074199+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "",
+      "forecast": "0.2M",
+      "previous": "-3.2M",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-15T21:14:05.532856+00:00",
+  "last_publish_ok": "2026-10-15T21:48:23.074199+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-15T21:14:44.879666+00:00"
+    "at": "2026-10-15T21:49:06.812942+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -3489,7 +3535,7 @@
     "bls": {
       "ok": true,
       "detail": "4 سلسلة",
-      "at": "2026-10-15T18:29:13.515558+00:00"
+      "at": "2026-10-15T21:48:23.074199+00:00"
     },
     "fred": {
       "ok": true,
@@ -3498,6 +3544,6 @@
     }
   },
   "bls_calls": {
-    "2026-10-15": 6
+    "2026-10-15": 7
   }
 }
