@@ -65,6 +65,7 @@ jobs:
           git config user.name "mirsad-bot"
           git config user.email "mirsad-bot@users.noreply.github.com"
           for f in state.json history.csv backtest.json; do [ -f "$f" ] && git add "$f"; done
+          [ -d backups ] && git add backups     # نسخة ترحيل الحالة تبقى في المستودع (دائمة، تُستعاد بعد انتهاء التشغيل)
           git diff --cached --quiet || (git commit -m "تحديث حالة مِرصاد" && git push)
 
       - name: تجهيز الواجهة

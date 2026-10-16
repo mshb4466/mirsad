@@ -1,0 +1,4 @@
+# متطلبات الاختبار (غير لازمة للتشغيل الفعلي): pip install -r requirements-dev.txt --break-system-packages
+-r requirements.txt
+PyYAML>=6.0        # يعتمد عليه اختباران يقرآن .github/workflows/mirsad.yml (tests_v0181b.py)
+playwright>=1.40   # tests_browser.py فقط؛ يحتاج Chromium: playwright install chromium (أو PLAYWRIGHT_BROWSERS_PATH مضبوط مسبقاً)

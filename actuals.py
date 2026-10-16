@@ -42,6 +42,7 @@ def _log(state, e, eid, now, value, tier, source, note, period):
     lg.append({"id": eid, "title": e.get("title", ""), "release_time": e["time"].isoformat(), "fetched_at": now.isoformat(),
                "source": source or "", "tier": tier or "", "value": value or "", "period": period or "",
                "series": e.get("actual_series", ""), "method": e.get("actual_method", ""), "raw": e.get("actual_raw"), "stage": e.get("actual_stage", ""),
+               "stage_ok": e.get("actual_stage_ok"), "prev_revised": e.get("prev_revised", ""),
                "basis": ("محسوب من سلسلة رسمية" if tier == "official" else "محسوب من سلسلة ثانوية" if tier == "secondary" else "مستخرج من خبر") if value else "",
                "forecast": e.get("forecast", ""), "previous": e.get("previous", ""),
                "period_check": "مطابقة فترة التقرير" if ok else ("غير مُتحقَّق" if value else "لا رقم"),
@@ -61,6 +62,11 @@ def quarantine(events):
 
 
 KEEP_DAYS = 14
+# كل ما يشتق من جلب الرقم: يُحدَّث معاً أو يُمسح معاً (لا يبقى منه شيء قديم بعد مراجعة)
+DERIVED = ("actual", "actual_note", "actual_src", "actual_source", "actual_period", "actual_series", "actual_method", "actual_raw",
+           "actual_stage", "actual_stage_ok", "prev_revised", "revised_from", "received_at", "status")
+_PAIRS = (("series", "actual_series"), ("method", "actual_method"), ("raw", "actual_raw"), ("stage", "actual_stage"),
+          ("stage_ok", "actual_stage_ok"), ("period", "actual_period"), ("source", "actual_source"))
 GIVE_UP_DAYS = 7
 
 
@@ -141,6 +147,9 @@ def restore(events, state):
             e["actual"] = rec["actual"]
             e["actual_note"] = rec.get("note", "")
         if rec.get("actual"):
+            for rk, ek in _PAIRS:
+                if rec.get(rk) not in (None, ""):
+                    e[ek] = rec[rk]
             # سجل بلا trust (v0.17 أو تالف) لا يُصدَّق: يُعامل خبراً يحتاج تحققاً حتى يصل مصدر مقبول
             e["actual_src"], e["actual_source"], e["actual_period"] = tier_of(rec), rec.get("source", ""), rec.get("period", "")
         for k in ("status", "last_attempt", "received_at", "revised_from", "prev_revised"):
@@ -241,11 +250,25 @@ def pending(events, state, now):
             continue
         if e.get("actual"):
             if rec and (rec.get("status") in VERIFIED_STATUSES or rec.get("status") in ("revised", "needs_check")):
-                c = dict(e, actual="", actual_note="", _clone_of=e)     # نسخة تُعاد حلّها لمقارنتها بالمحفوظ
+                c = {k: v for k, v in e.items() if k not in DERIVED}      # نسخة تُعاد حلّها لمقارنتها بالمحفوظ، بلا بيانات مشتقة قديمة
+                c.update(actual="", actual_note="", _clone_of=e)
                 checks.append(c)
         else:
             out.append(e)
     return out, checks
+
+
+def apply_result(rec, e, src, tier, status):
+    """يكتب نتيجة جلب واحدة على السجل المحفوظ وعلى الحدث معاً وبالقيم نفسها: القيمة، المصدر ودرجته، الفترة، السلسلة، طريقة الحساب،
+    القيمة الخام، المرحلة، «السابق المعدَّل»، والحالة. لا يبقى حقل قديم: غياب prev_revised في الجلب الجديد يمسحه من الاثنين."""
+    rec["actual"], rec["note"], rec["trust"], rec["status"] = src.get("actual", ""), src.get("actual_note", ""), tier, status
+    for rk, ek in _PAIRS:
+        v = src.get(ek)
+        rec[rk] = v if v is not None else ("" if rk != "raw" else None)
+        e[ek] = rec[rk]
+    pr = src.get("prev_revised") or ""
+    rec["prev_revised"], e["prev_revised"] = pr, pr
+    e["actual"], e["actual_note"], e["status"], e["actual_src"] = rec["actual"], rec["note"], status, tier
 
 
 def record(events, checks, polled, state, now):
@@ -263,7 +286,7 @@ def record(events, checks, polled, state, now):
             continue
         rec["last_attempt"] = iso
         new, tier = c.get("actual"), tier_of(c)
-        _log(state, e, eid, now, new, tier if new else "", c.get("actual_source"), c.get("actual_note"), c.get("actual_period"))
+        _log(state, c, eid, now, new, tier if new else "", c.get("actual_source"), c.get("actual_note"), c.get("actual_period"))   # من نتيجة الجلب الجديدة لا من الحدث القديم
         if not new:
             continue
         old_tier = rec.get("trust") or "news"
@@ -271,7 +294,8 @@ def record(events, checks, polled, state, now):
             continue                                      # لا نستبدل رقماً أوثق برقم أضعف
         changed = new != rec["actual"]
         if changed or tier != old_tier:
-            rec.setdefault("history", []).append({"value": rec["actual"], "trust": old_tier, "until": iso})
+            rec.setdefault("history", []).append({"value": rec["actual"], "trust": old_tier, "until": iso, "raw": rec.get("raw"),
+                                                  "prev_revised": rec.get("prev_revised", ""), "source": rec.get("source", ""), "period": rec.get("period", "")})
         if tier == "news":
             status = "needs_check"
         elif old_tier == "news":                          # حلّ رقم رسمي/ثانوي محل رقم الخبر: ليس «مراجعة»
@@ -283,13 +307,10 @@ def record(events, checks, polled, state, now):
             rec["revised_from"] = rec["actual"]
         else:
             status = verified_status(tier)
-        rec["actual"], rec["note"], rec["trust"], rec["status"] = new, c.get("actual_note", ""), tier, status
-        rec["source"], rec["period"] = c.get("actual_source", ""), c.get("actual_period", "")
-        e["actual"], e["actual_note"], e["status"] = new, rec["note"], status
-        e["actual_src"], e["actual_source"], e["actual_period"] = tier, rec["source"], rec["period"]
+        apply_result(rec, e, c, tier, status)
+        e["received_at"] = rec.get("received_at", iso)
         if rec.get("revised_from"):
             e["revised_from"] = rec["revised_from"]
-        e["received_at"] = rec.get("received_at", iso)
     for e in events:
         if e["time"] > now or not (e.get("actual") or wants_number(e)):
             continue
@@ -304,7 +325,7 @@ def record(events, checks, polled, state, now):
                                  "source": e.get("actual_source", ""), "period": e.get("actual_period", ""), "received_at": iso,
                                  "last_attempt": iso, "attempts": (rec or {}).get("attempts", 0) + 1, "title": e.get("title", ""),
                                  "time": e["time"].isoformat(), "series": e.get("actual_series", ""), "method": e.get("actual_method", ""),
-                                 "raw": e.get("actual_raw"), "stage": e.get("actual_stage", ""), **_ev_fields(e), **keep}
+                                 "raw": e.get("actual_raw"), "stage": e.get("actual_stage", ""), "stage_ok": e.get("actual_stage_ok"), **_ev_fields(e), **keep}
                 _log(state, e, eid, now, e["actual"], tier, rec["source"], rec["note"], rec["period"])
             if pr:
                 rec["prev_revised"] = pr

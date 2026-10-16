@@ -76,8 +76,8 @@
   .lvl-badge .ic { font-size: 16px; }
   .why { margin: 12px auto 0; font-size: 15px; font-weight: 500; max-width: 46ch; }
   .advice { margin: 4px auto 0; color: var(--muted); font-size: 13px; }
-  .scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 14px; }
-  .scale div { font-size: 11px; padding: 6px 2px; border-radius: 8px; background: var(--card-2); color: var(--muted); border: 1.5px solid transparent; line-height: 1.3; }
+  .scale { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; margin-top: 14px; }
+  .scale div { overflow-wrap: anywhere; min-width: 0; font-size: 11px; padding: 6px 2px; border-radius: 8px; background: var(--card-2); color: var(--muted); border: 1.5px solid transparent; line-height: 1.3; }
   .scale div b { display: block; font-family: var(--font-mono); font-size: 12px; }
   .scale div.on { border-color: var(--c); color: var(--c); background: var(--cbg); font-weight: 700; }
 
@@ -129,6 +129,10 @@
   .cmeta { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); margin-top: 4px; }
   .cmeta span:first-child { min-width: 0; }
 
+  .play li, .notif .nt, .notif .nh { overflow-wrap: anywhere; min-width: 0; }
+  .cname, .cmeta span { overflow-wrap: anywhere; } .cscore { white-space: normal; }
+  @media (max-width: 220px) { .comp { grid-template-columns: minmax(0, 1fr); } .cic { display: none; } .chead, .cmeta { flex-wrap: wrap; } .hgrid { grid-template-columns: minmax(0, 1fr); } .hbox, .hrow, .hrow > div { overflow-wrap: anywhere; min-width: 0; } }
+
   /* السيناريوهات */
   .scn { display: flex; flex-direction: column; gap: 12px; }
   .sc { border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: var(--card-2); }
@@ -167,6 +171,7 @@
   .go { width: 100%; padding: 15px; border: 0; border-radius: 14px; background: var(--brand); color: var(--brand-ink); font: 900 17px var(--font-body); cursor: pointer; box-shadow: var(--shadow); }
   .go:disabled { opacity: .55; cursor: default; }
   .status { text-align: center; color: var(--muted); font-size: 13px; min-height: 18px; margin: 0; }
+  .demo.failed { background: var(--crit-bg); color: var(--crit); border-color: var(--crit); font-weight: 700; }
   .demo.live { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
   .demo { background: var(--neutral-bg); color: var(--neutral); border: 1px solid var(--neutral); border-radius: 12px; padding: 9px 12px; font-size: 13px; font-weight: 500; }
   .fed-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
@@ -202,18 +207,26 @@
   .plan.paid li::before { content: '★'; color: var(--brand); }
   @media (max-width: 560px) { .plan-grid { grid-template-columns: 1fr; } }
   .plan-note { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
-  .tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; position: fixed; bottom: 0; left: 0; right: 0; margin-inline: auto; max-width: 640px; z-index: 20; background: var(--card); border-top: 1px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 20px rgba(0,0,0,.08); border-radius: 18px 18px 0 0; }
+  .tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; position: fixed; bottom: 0; left: 0; right: 0; margin-inline: auto; max-width: 640px; z-index: 20; background: var(--card); border-top: 1px solid var(--line); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 20px rgba(0,0,0,.08); border-radius: 18px 18px 0 0; }
   .tabs button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; border-radius: 12px; border: 0; background: transparent; color: var(--muted); font: 700 12px var(--font-body); cursor: pointer; }
+  .statusrow { flex-wrap: wrap; } .statusrow > * { min-width: 0; overflow-wrap: anywhere; } @media (max-width: 300px) { .statusrow .demo { flex: 1 1 100%; } .gauge-center, .gauge-center * { max-width: 100%; overflow-wrap: anywhere; } }
+  .tabs button { min-width: 0; } .tabs button span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  @media (max-width: 260px) { .tabs { padding-inline: 4px; gap: 2px; } .tabs button span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .chead { flex-wrap: wrap; } }
   .tabs button i { font-style: normal; font-size: 20px; line-height: 1.1; filter: grayscale(1); opacity: .75; }
   .tabs button[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); } .tabs button[aria-selected="true"] i { filter: none; opacity: 1; }
   .rel { border-top: 1px solid var(--line); padding: 12px 0; display: grid; gap: 8px; }
   .relh { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-weight: 800; font-size: 14.5px; cursor: pointer; list-style: none; }
   details.rel > summary::-webkit-details-marker { display: none; } details.rel > summary::after { content: '▾'; margin-inline-start: auto; color: var(--muted); } details.rel[open] > summary::after { content: '▴'; }
-  .nums3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; direction: rtl; }
+  .nums3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; direction: rtl; } .nums3 .nbox { overflow-wrap: anywhere; } @media (max-width: 260px) { .nums3 { grid-template-columns: minmax(0, 1fr); } }
+  .rel, .relrow { grid-template-columns: minmax(0, 1fr); } .pill { max-width: 100%; white-space: normal; } .vrow { flex-wrap: wrap; min-width: 0; } .relrow, .rel, .relh { min-width: 0; } .relrow > * { min-width: 0; overflow-wrap: anywhere; } .brand { flex-wrap: wrap; min-width: 0; } .brand h1, .brand small { overflow-wrap: anywhere; min-width: 0; }
   .nbox { background: var(--card-2); border-radius: 12px; padding: 6px 4px; text-align: center; min-width: 0; }
   .nbox small { display: block; color: var(--muted); font-size: 11px; } .nbox b { font-size: 16px; display: block; }
   .nbox.act { outline: 2px solid var(--vc, var(--line)); background: var(--vbg, var(--card-2)); } .nbox.act b { color: var(--vc, var(--fg)); font-size: 18px; }
   .vrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .nbox.miss b { font-size: 13px; color: var(--mut, #888); } .nbox .why { display: block; font-size: 10.5px; line-height: 1.35; margin-top: 3px; }
+  details.srcd { width: 100%; margin-top: 4px; } details.srcd > summary { font-size: 12px; color: var(--mut, #888); cursor: pointer; }
+  details.srcd .srow { display: flex; gap: 8px; font-size: 12.5px; padding: 3px 0; border-bottom: 1px dashed var(--line); } details.srcd .srow small { min-width: 96px; color: var(--mut, #888); } details.srcd .srow span { min-width: 0; flex: 1; overflow-wrap: anywhere; } @media (max-width: 300px) { details.srcd .srow { flex-direction: column; gap: 0; } details.srcd .srow small { min-width: 0; } }
+  .qrow span { min-width: 0; overflow-wrap: anywhere; } .qrow { display: flex; gap: 8px; font-size: 12.5px; padding: 4px 0; border-bottom: 1px dashed var(--line); flex-wrap: wrap; } .qrow b { min-width: 120px; }
   .pill { display: inline-flex; gap: 5px; align-items: center; padding: 4px 11px; border-radius: 99px; font-size: 12.5px; font-weight: 700; background: var(--card-2); color: var(--fg); }
   .pill.v-bear { background: var(--crit-bg); color: var(--crit); } .pill.v-bull { background: var(--ok-bg); color: var(--ok); } .pill.v-neu { background: var(--neutral-bg); color: var(--neutral); }
   .tone { display: flex; justify-content: space-between; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 12px; font-size: 13.5px; } .tone.v-bear { background: var(--crit-bg); color: var(--crit); } .tone.v-bull { background: var(--ok-bg); color: var(--ok); } .tone.v-neu { background: var(--neutral-bg); color: var(--neutral); }
@@ -301,7 +314,7 @@
   .card h2 { font-size: 15px; } .play li { font-size: 14px; } .tabs button { min-height: 50px; font-size: 12.5px; }
   button, summary { min-height: 40px; }
   .tone-bear { --tc: var(--crit); --tbg: var(--crit-bg); } .tone-bull { --tc: var(--ok); --tbg: var(--ok-bg); } .tone-flat { --tc: var(--neutral); --tbg: var(--neutral-bg); } .tone-warn { --tc: var(--warn); --tbg: var(--warn-bg); }
-  .drv { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .drv { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; } .drv > * { max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
   .dchip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 14px; border: 1.5px solid var(--tc); background: var(--tbg); color: var(--tc); font: 800 14px var(--font-body); cursor: pointer; }
   .dchip .a { font-size: 15px; } .dchip .v { font-family: var(--font-mono); direction: ltr; font-weight: 600; font-size: 13px; }
   .dexp { margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: var(--card-2); font-size: 13.5px; }
@@ -363,12 +376,12 @@
 
   .sbias .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; } .tag { border: 1px solid var(--line); border-radius: 99px; padding: 2px 12px; font-size: 16px; background: var(--card); } .tag b { font-weight: 800; }
   .sbias .bs { font-size: 17px; color: var(--fg); line-height: 1.7; margin-top: 4px; }
-  .trio3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; } .trio3 .chipb { text-align: center; align-items: center; padding: 10px 6px; min-height: 92px; } .trio3 .chipb b { font-size: 18px; line-height: 1.4; } .trio3 .num { font-size: 24px !important; } .trio3 .rbar { width: 100%; margin-top: 4px; } .trio3 i { font-style: normal; font-size: 14px; color: var(--muted); }
+  .trio3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .chipb { min-width: 0; overflow-wrap: anywhere; } @media (max-width: 300px) { .trio3 { grid-template-columns: minmax(0, 1fr); } .pl8 { grid-template-columns: minmax(0, 1fr) !important; } } .trio3 .chipb { text-align: center; align-items: center; padding: 10px 6px; min-height: 92px; } .trio3 .chipb b { font-size: 18px; line-height: 1.4; } .trio3 .num { font-size: 24px !important; } .trio3 .rbar { width: 100%; margin-top: 4px; } .trio3 i { font-style: normal; font-size: 14px; color: var(--muted); }
   .pl8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; } .pc8 { background: var(--card-2); border-radius: 12px; padding: 8px 4px; text-align: center; line-height: 1.5; } .pc8 b { display: block; font-size: 17px; } .pc8 .v { font-size: 16px; font-weight: 700; direction: ltr; unicode-bidi: isolate; } .pc8 small { display: block; font-size: 14px; color: var(--muted); } .pc8.bull .v { color: var(--ok); } .pc8.bear .v { color: var(--hi); } .pc8.na .v { color: var(--muted); }
   .lnk { background: none; border: 0; color: var(--brand); font: 700 17px var(--font-body); padding: 10px 0 0; cursor: pointer; }
   .sec { display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: 0; border-bottom: 1px solid var(--line); font: 600 17px var(--font-body); color: var(--fg); padding: 12px 0; min-height: 50px; cursor: pointer; text-align: start; } .sec:last-child { border: 0; }
   #backHome { position: sticky; top: 6px; z-index: 5; align-self: flex-start; font-size: 16px; padding: 8px 16px; }
-  @media (max-width: 360px) { .pl8 { grid-template-columns: repeat(2, 1fr); } .trio3 .chipb b { font-size: 16px; } }
+  @media (max-width: 360px) { .pl8 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .trio3 .chipb b { font-size: 16px; } }
 
   /* ===== النموذج A (Minimal) ===== */
   .sbias { align-items: center; text-align: center; padding: 22px 16px; } .sbias .bv { justify-content: center; } .sbias .barrow { font-size: 58px; } .sbias .bw { font-size: 46px; }
@@ -376,9 +389,102 @@
   .sbias .bs { font-size: 17px; }
   #secCard summary { font-size: 18px; font-weight: 800; cursor: pointer; min-height: 48px; display: flex; align-items: center; } #secCard .sec { font-size: 17px; }
   .t3 { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; padding: 10px 0; margin: 0; } .t3:last-child { border-bottom: 0; }
+
+  /* ===== v0.19 ===== */
+  .btn-main { font: 800 17px var(--font-body); background: var(--brand); color: var(--brand-ink); border: 0; border-radius: 14px; padding: 12px 22px; min-height: 48px; cursor: pointer; }
+  .btn-main:focus-visible, .bigbtn:focus-visible, .pcb:focus-visible, .lrow:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+  .ucount { display: inline-block; background: var(--crit); color: #fff; border-radius: 99px; padding: 1px 10px; font: 800 13px var(--font-body); }
+  /* تحديث مهم */
+  .upd { border: 2px solid var(--hi); background: var(--card); }
+  .upd .uh { display: flex; align-items: center; justify-content: space-between; gap: 8px; } .upd h2 { color: var(--hi); margin: 0 0 6px; font-size: 16px; } .upd h2::before { background: var(--hi); }
+  .upd .ut { font-size: 19px; font-weight: 800; line-height: 1.5; overflow-wrap: anywhere; } .upd .um { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+  .upd dl, .ev-dl { margin: 0; display: grid; gap: 6px; } .upd dl div, .ev-dl div { display: grid; gap: 0; } .upd dt, .ev-dl dt { font-size: 13px; color: var(--muted); font-weight: 700; } .upd dd, .ev-dl dd { margin: 0; font-size: 16px; overflow-wrap: anywhere; }
+  .unums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 10px 0 4px; } .unums:empty { display: none; }
+  .nb { background: var(--card-2); border-radius: 12px; padding: 6px 8px; text-align: center; min-width: 0; } .nb small { display: block; color: var(--muted); font-size: 12.5px; } .nb b { font: 700 16px var(--font-mono); direction: ltr; unicode-bidi: isolate; overflow-wrap: anywhere; } .nb.act { outline: 2px solid var(--hi); } .nb.miss b { font: 700 14px var(--font-body); color: var(--muted); }
+  .usrc { font-size: 13.5px; color: var(--muted); margin-top: 6px; } .usrc:empty { display: none; }
+  .ubtns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; } .ubtns button { flex: 1 1 140px; }
+  /* التقرير الرئيسي */
+  .main { border-top: 6px solid var(--mc, var(--line)); display: flex; flex-direction: column; gap: 10px; }
+  .main[data-key="support"] { --mc: var(--ok); --mbg: var(--ok-bg); } .main[data-key="pressure"] { --mc: var(--crit); --mbg: var(--crit-bg); } .main[data-key="mixed"] { --mc: var(--warn); --mbg: var(--warn-bg); } .main[data-key="na"] { --mc: #7d8896; --mbg: var(--card-2); }
+  .madv { margin: 0; font-size: 19px; font-weight: 800; line-height: 1.65; overflow-wrap: anywhere; }
+  .mchange { background: var(--warn-bg); color: var(--fg); border: 1px solid var(--warn); border-radius: 12px; padding: 8px 12px; font-size: 15px; font-weight: 700; } .mchange.inv { background: var(--card-2); border-color: #7d8896; }
+  .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .cell { background: var(--card-2); border-radius: 14px; padding: 10px; display: flex; flex-direction: column; gap: 2px; min-width: 0; border-inline-start: 5px solid var(--cc, var(--line)); }
+  .cell.support { --cc: var(--ok); } .cell.pressure { --cc: var(--crit); } .cell.mixed { --cc: var(--warn); } .cell.na { --cc: #7d8896; }
+  .cell .k { font-size: 13px; color: var(--muted); font-weight: 700; } .cell .v { display: flex; align-items: center; gap: 6px; font-size: 24px; font-weight: 900; color: var(--cc, var(--fg)); } .cell .v .ar { font-size: 22px; } .cell small { font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+  .mrel { margin: 0; font-size: 15.5px; background: var(--mbg); border-radius: 12px; padding: 8px 12px; overflow-wrap: anywhere; }
+  .gs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .g { display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; align-items: center; } .g .k { font-size: 13px; color: var(--muted); font-weight: 700; } .g b { font-size: 16px; text-align: end; } .g .seg3, .g .bar { grid-column: 1 / -1; }
+  .seg3 { display: flex; gap: 4px; } .seg3 i { flex: 1; height: 8px; border-radius: 5px; background: var(--track); } .seg3 i.f { background: var(--brand); }
+  .g .bar { height: 8px; background: var(--track); border-radius: 5px; overflow: hidden; display: block; } .g .bar u { display: block; height: 100%; background: var(--warn); text-decoration: none; }
+  .mreason { margin: 0; font-size: 16px; font-weight: 700; overflow-wrap: anywhere; }
+  .mdrv { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; } .mdrv li { display: flex; gap: 8px; font-size: 15px; align-items: baseline; } .mdrv .a { font-weight: 900; width: 1.2em; flex: none; text-align: center; } .mdrv .support .a { color: var(--ok); } .mdrv .pressure .a { color: var(--crit); }
+  .ci { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .ci > div { background: var(--card-2); border-radius: 12px; padding: 8px 10px; min-width: 0; } .ci h3 { margin: 0 0 4px; font-size: 14px; } .ci .cy h3 { color: var(--ok); } .ci .cn h3 { color: var(--crit); } .ci ul { margin: 0; padding-inline-start: 16px; font-size: 14px; } .ci li { overflow-wrap: anywhere; margin-bottom: 3px; }
+  .mnews { font-size: 15px; padding: 8px 12px; border-radius: 12px; background: var(--card-2); overflow-wrap: anywhere; } .mnews.pending { background: var(--warn-bg); border: 1px solid var(--warn); } .mnews.integrated { border: 1px solid var(--ok); }
+  .mtags { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 14px; color: var(--muted); } .mtags b { color: var(--fg); }
+  .mstamp { margin: 0; font-size: 13.5px; color: var(--muted); }
+  .how summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; color: var(--brand); } .how ul { margin: 6px 0; padding-inline-start: 18px; font-size: 14px; } .how li { margin-bottom: 4px; overflow-wrap: anywhere; } .how h4 { margin: 8px 0 2px; font-size: 14px; }
+  /* الخبر القادم */
+  .nextc .nm { font-size: 18px; font-weight: 800; overflow-wrap: anywhere; } .nextc .mt { color: var(--muted); font-size: 14.5px; margin: 2px 0; } .nextc .rm { display: inline-block; background: var(--neutral-bg); color: var(--neutral); border-radius: 99px; padding: 1px 12px; font-weight: 800; font-size: 14.5px; } .nextc .imp { display: inline-block; margin-inline-start: 6px; border-radius: 99px; padding: 1px 10px; font-size: 13px; font-weight: 800; border: 1px solid var(--hi); color: var(--hi); } .nextc .imp.mid { border-color: var(--warn); color: var(--warn); }
+  .scch { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; } .scch span { font-size: 13.5px; border-radius: 10px; padding: 3px 10px; background: var(--card-2); border-inline-start: 4px solid var(--neutral); } .scch .bear { border-color: var(--crit); } .scch .bull { border-color: var(--ok); }
+  .more > summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; color: var(--brand); font-weight: 700; } .mrow { display: flex; flex-wrap: wrap; gap: 2px 10px; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 15px; } .mrow:last-child { border: 0; } .mrow .tm { font: 600 14px var(--font-mono); color: var(--muted); flex: none; min-width: 5.2em; direction: ltr; unicode-bidi: isolate; text-align: start; }
+  /* نبض الأسواق: بطاقة لكل مؤشر */
+  .pcards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .pc { background: var(--card-2); border: 2px solid var(--line); border-radius: 14px; min-width: 0; } .pc.support { border-color: var(--ok); } .pc.pressure { border-color: var(--crit); } .pc.mixed { border-color: var(--warn); } .pc.na { border-color: #9aa5b1; border-style: dashed; opacity: .85; } .pc.isnew { box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 28%, transparent); }
+  .pcb { width: 100%; background: none; border: 0; font: inherit; color: inherit; text-align: start; padding: 9px 10px; cursor: pointer; display: flex; flex-direction: column; gap: 1px; min-height: 92px; }
+  .pcb .n { font-size: 14px; color: var(--muted); font-weight: 700; } .pcb .p { font: 800 19px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; } .pcb .c { font-size: 15px; font-weight: 700; direction: ltr; unicode-bidi: isolate; text-align: start; } .pcb .c small { color: var(--muted); font-weight: 500; font-family: var(--font-body); direction: rtl; unicode-bidi: isolate; } .pcb .e { font-size: 13.5px; color: var(--fg); } .pc.support .e { color: var(--ok); } .pc.pressure .e { color: var(--crit); } .pc.mixed .e { color: var(--warn); }
+  .pcb .nw { align-self: flex-start; font-size: 12.5px; font-weight: 800; background: var(--brand); color: var(--brand-ink); border-radius: 99px; padding: 0 9px; }
+  .pcd { padding: 0 10px 10px; font-size: 13.5px; color: var(--muted); display: grid; gap: 3px; } .pcd[hidden] { display: none; } .pcd b { color: var(--fg); }
+  /* الزر السفلي والسجل */
+  .bigbtn { font: 800 18px var(--font-body); background: var(--card); color: var(--brand); border: 2px solid var(--brand); border-radius: 16px; padding: 14px; min-height: 54px; cursor: pointer; width: 100%; }
+  .lrow { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; width: 100%; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 2px; min-height: 52px; font: inherit; color: inherit; text-align: start; cursor: pointer; } .lrow:last-child { border: 0; }
+  .lrow .dot { width: 10px; height: 10px; border-radius: 50%; background: transparent; flex: none; } .lrow.unread .dot { background: var(--crit); } .lrow .tm { font: 600 14px var(--font-mono); color: var(--muted); flex: none; direction: ltr; unicode-bidi: isolate; } .lrow .tt { flex: 1 1 8em; min-width: 0; overflow-wrap: anywhere; font-size: 15.5px; } .lrow .kd { font-size: 12.5px; color: var(--muted); flex: 0 1 auto; min-width: 0; overflow-wrap: anywhere; }
+  dialog#evDlg { border: 2px solid var(--line); border-radius: 18px; padding: 18px; max-width: min(640px, 94vw); width: 94vw; background: var(--card); color: var(--fg); max-height: 90vh; overflow: auto; } dialog#evDlg::backdrop { background: rgba(0,0,0,.55); }
+  .evbody h3 { margin: 0 0 4px; font-size: 19px; overflow-wrap: anywhere; } .evold { background: var(--warn-bg); border: 1px solid var(--warn); border-radius: 12px; padding: 8px 12px; font-size: 14.5px; margin: 8px 0; } .evupd { margin: 8px 0; padding: 8px 12px; border-radius: 12px; background: var(--card-2); font-size: 14.5px; } .evupd li { margin-bottom: 3px; } .dbtns { margin-top: 12px; display: flex; gap: 8px; }
+  .vpill { display: inline-block; border-radius: 99px; padding: 1px 10px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); background: var(--card-2); }
+  /* جدول الأخبار (الكمبيوتر فقط) */
+  .newsT { display: none; } .ntab { width: 100%; border-collapse: collapse; font-size: 14.5px; } .ntab th { text-align: start; color: var(--muted); font-size: 13px; padding: 6px 8px; border-bottom: 2px solid var(--line); white-space: nowrap; } .ntab td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; } .ntab td.num, .ntab td.n { font-family: var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; white-space: nowrap; } .ntab tr.grp td { background: var(--card-2); font-weight: 800; color: var(--muted); font-size: 13px; } .ntab td.act.bull { color: var(--ok); font-weight: 800; } .ntab td.act.bear { color: var(--crit); font-weight: 800; } .ntab td.miss { color: var(--muted); font: 500 13px var(--font-body); }
+  .deskonly { display: none; }
+  /* العرض على الكمبيوتر */
+  @media (min-width: 900px) {
+    body { padding-inline: 28px; }
+    .wrap { max-width: 1280px; }
+    .tabs { max-width: 1280px; }
+    #tab-today { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+    #tab-today[hidden] { display: none; }
+    #tab-today > #updCard, #tab-today > #safeCard, #tab-today > #pulseSec, #tab-today > #newsTable, #tab-today > #toDetails { grid-column: 1 / -1; }
+    #tab-today > #mainCard { grid-column: 1; } #tab-today > #nextCard { grid-column: 2; }
+    .pcards { grid-template-columns: repeat(4, minmax(0, 1fr)); } .newsT { display: block; } #moreNews { display: none; }
+    .upd dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } .unums { max-width: 520px; }
+    .deskonly { display: block; } .deskonly.inl { display: inline-flex; }
+    body.tint-support { background: color-mix(in srgb, var(--ok) 15%, var(--bg)); } body.tint-pressure { background: color-mix(in srgb, var(--crit) 15%, var(--bg)); } body.tint-mixed { background: color-mix(in srgb, var(--warn) 17%, var(--bg)); } body.tint-invalid { background: color-mix(in srgb, #7d8896 24%, var(--bg)); }
+  }
+  @media (max-width: 899px) { .newsT { display: none !important; } }
+  @media (max-width: 360px) { .pcards, .duo, .gs, .ci { grid-template-columns: minmax(0, 1fr); } .unums { grid-template-columns: minmax(0, 1fr); } .madv { font-size: 17.5px; } }
+  /* وضع المراقبة من بعيد */
+  #watchView { position: fixed; inset: 0; z-index: 60; background: var(--bg); color: var(--fg); overflow: auto; padding: 3vh 4vw; display: flex; flex-direction: column; gap: 2.2vh; --mc: #7d8896; }
+  #watchView[hidden] { display: none; }
+  #watchView[data-key="support"] { --mc: var(--ok); background: color-mix(in srgb, var(--ok) 17%, var(--bg)); } #watchView[data-key="pressure"] { --mc: var(--crit); background: color-mix(in srgb, var(--crit) 17%, var(--bg)); } #watchView[data-key="mixed"] { --mc: var(--warn); background: color-mix(in srgb, var(--warn) 19%, var(--bg)); } #watchView[data-key="na"] { background: color-mix(in srgb, #7d8896 26%, var(--bg)); }
+  #watchView .wtop { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; } #watchView .wtop small { font-size: clamp(16px, 1.6vw, 24px); color: var(--muted); }
+  #watchView .wbias { font-size: clamp(54px, 9vw, 150px); font-weight: 900; color: var(--mc); line-height: 1.1; } #watchView .wadv { font-size: clamp(24px, 3.1vw, 52px); font-weight: 800; line-height: 1.5; max-width: 40ch; }
+  #watchView .wrow { display: flex; flex-wrap: wrap; gap: 3vw; font-size: clamp(22px, 2.6vw, 44px); font-weight: 700; } #watchView .wupd { font-size: clamp(22px, 2.6vw, 42px); background: var(--card); border: 3px solid var(--hi); border-radius: 18px; padding: 14px 22px; } #watchView .wupd:empty { display: none; }
+  #watchView .wpul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4vw; } #watchView .wpul .pc { padding: 12px 16px; font-size: clamp(18px, 2vw, 34px); } #watchView .wpul .p { font: 800 1.15em var(--font-mono); direction: ltr; unicode-bidi: isolate; } #watchView .wpul .e { font-size: .7em; }
+  #watchView .wbtns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .optrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0; min-height: 44px; } .optrow input[type=checkbox] { width: 22px; height: 22px; } .optrow label { font-size: 16px; }
+  .bellst { font-weight: 800; } .bellst.on { color: var(--ok); }
 </style>
 
 <dialog id="aboutDlg"><div id="aboutBody"></div><button type="button" class="btn-ghost" id="aboutClose">إغلاق</button></dialog>
+
+<dialog id="evDlg" aria-label="تفاصيل الحدث"><div class="evbody" id="evBody"></div><div class="dbtns"><button type="button" class="btn-main" id="evClose">إغلاق</button></div></dialog>
+<div id="watchView" hidden role="dialog" aria-label="وضع المراقبة" data-key="na">
+  <div class="wtop"><small id="wStamp"></small><div class="wbtns"><button type="button" class="btn-ghost" id="wFull">ملء الشاشة</button><button type="button" class="btn-main" id="wExit">خروج</button></div></div>
+  <div class="wbias" id="wBias">غير متاح</div>
+  <div class="wadv" id="wAdv"></div>
+  <div class="wrow"><span id="wLean"></span><span id="wConf"></span><span id="wInt"></span></div>
+  <div class="wupd" id="wUpd"></div>
+  <div class="wrow"><span id="wNext"></span></div>
+  <div class="wpul" id="wPul"></div>
+</div>
 
 <div class="wrap">
   <div class="top">
@@ -388,68 +494,135 @@
     </div>
   </div>
 
-  <div class="statusrow"><button class="chip lang" id="refreshBtn" type="button">↻ تحديث</button><div class="demo" id="banner">مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.</div></div>
+  <div class="statusrow"><button class="chip lang" id="refreshBtn" type="button">↻ تحديث</button><button class="chip lang deskonly inl" id="bellBtn" type="button" aria-pressed="false">🔕</button><button class="chip lang deskonly inl" id="watchBtn2" type="button">🖥 مراقبة</button><div class="demo" id="banner">مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.</div></div>
 
   <div class="tabs" role="tablist">
-    <button type="button" role="tab" data-tab="today" aria-selected="true"><i>🏠</i><span>اليوم</span></button>
-    <button type="button" role="tab" data-tab="week" aria-selected="false"><i>🗞️</i><span>أخبار ES</span></button>
-    <button type="button" role="tab" data-tab="macro" aria-selected="false"><i>🧭</i><span>المنظومة</span></button>
-    <button type="button" role="tab" data-tab="details" aria-selected="false"><i>📊</i><span>التفاصيل</span></button>
-    <button type="button" role="tab" data-tab="settings" aria-selected="false"><i>⚙️</i><span>الإعدادات</span></button>
+    <button type="button" role="tab" data-tab="today" aria-label="اليوم" aria-selected="true"><i>🏠</i><span>اليوم</span></button>
+    <button type="button" role="tab" data-tab="week" aria-label="أخبار ES" aria-selected="false"><i>🗞️</i><span>أخبار ES</span></button>
+    <button type="button" role="tab" data-tab="macro" aria-label="المنظومة" aria-selected="false"><i>🧭</i><span>المنظومة</span></button>
+    <button type="button" role="tab" data-tab="details" aria-label="التفاصيل" aria-selected="false"><i>📊</i><span>التفاصيل</span></button>
+    <button type="button" role="tab" data-tab="settings" aria-label="الإعدادات" aria-selected="false"><i>⚙️</i><span>الإعدادات</span></button>
   </div>
 
   <button type="button" class="chip lang" id="backHome" hidden>← الرئيسية</button>
   <div id="output" hidden>
 
    <div class="tab" id="tab-today">
+    <section class="card upd" id="updCard" hidden aria-live="polite" aria-labelledby="updH">
+      <div class="uh"><h2 id="updH">تحديث مهم</h2><span class="ucount" id="updCount" hidden></span></div>
+      <div class="ut" id="updTitle"></div>
+      <div class="um" id="updMeta"></div>
+      <dl class="ul" id="updBody"></dl>
+      <div class="unums" id="updNums"></div>
+      <div class="usrc" id="updSrc"></div>
+      <div class="ubtns"><button type="button" class="btn-main" id="updRead">اطّلعت</button><button type="button" class="btn-ghost" id="updOpen">التفاصيل</button></div>
+    </section>
     <section class="card safe" id="safeCard" hidden>
       <h2 id="safeTitle"></h2>
       <ul id="safeList"></ul>
       <button type="button" class="chip lang" id="safeBtn">تفاصيل «صحة مرصاد»</button>
     </section>
-    <section class="card sum" id="sumCard">
-      <button type="button" class="sbias" id="sBias" aria-expanded="false">
-        <span class="k">الانحياز الماكروي لـ ES</span>
-        <span class="bv"><span class="barrow" id="sBiasArrow">◆</span><span class="bw" id="sBiasWord">غير متاح</span></span>
-        <span class="tags"><span class="tag" id="sConf">الثقة: <b id="sConfWord">—</b></span><span class="tag" id="sInt">الحدة: <b id="sIntWord">—</b></span></span>
-        <span class="bs" id="sBiasWhy"></span>
-      </button>
-      <div class="trio3">
-        <button type="button" class="chipb" id="sRisk" aria-expanded="false"><span class="k">المخاطر</span><b class="num" id="sRiskNum">—</b><span class="rbar" id="sRiskBar"><u></u></span><i id="sRiskWord"></i></button>
-        <button type="button" class="chipb" id="sRegime" aria-expanded="false"><span class="k">النظام</span><b id="sRegimeW">غير متاح</b></button>
-        <button type="button" class="chipb" id="sConfirm" aria-expanded="false"><span class="k">الأسواق</span><b id="sConfirmW">غير متاح</b></button>
+
+    <section class="card main" id="mainCard" data-key="na" aria-labelledby="mAdvice">
+      <div class="mchange" id="mChange" hidden></div>
+      <p class="madv" id="mAdvice">…</p>
+      <div class="duo">
+        <div class="cell" id="mLean"><span class="k">الميل (موضع السعر)</span><b class="v"><span class="ar" id="mLeanAr">◆</span><span id="mLeanW">غير متاح</span></b><small id="mLeanBasis"></small></div>
+        <div class="cell" id="mBias"><span class="k">الانحياز الماكروي</span><b class="v"><span class="ar" id="mBiasAr">◆</span><span id="mBiasW">غير متاح</span></b><small id="mBiasSub"></small></div>
       </div>
-      <div class="xp" id="sXp" hidden></div>
-      <p class="src" id="sSrc"></p>
+      <p class="mrel" id="mRel" hidden></p>
+      <div class="gs">
+        <div class="g" id="mConf"><span class="k">الثقة</span><b id="mConfW">—</b><span class="seg3" id="mConfBar"><i></i><i></i><i></i></span></div>
+        <div class="g" id="mInt"><span class="k">الحدة</span><b id="mIntW">—</b><span class="bar" id="mIntBar"><u></u></span></div>
+      </div>
+      <p class="mreason" id="mReason"></p>
+      <ul class="mdrv" id="mDrivers"></ul>
+      <div class="ci">
+        <div class="cy"><h3>يؤكّد السيناريو</h3><ul id="mConfirms"></ul></div>
+        <div class="cn"><h3>يُبطله</h3><ul id="mInvalid"></ul></div>
+      </div>
+      <div class="mnews" id="mNews"></div>
+      <div class="mtags" id="mTags"></div>
+      <p class="mstamp" id="mStamp"></p>
+      <details class="how" id="mHow"><summary>كيف حُسب هذا التقييم؟</summary><div id="mHowBody"></div></details>
     </section>
 
-    <section class="card" id="top3Card">
-      <h2>ماذا تغيّر منذ الفحص السابق؟</h2>
-      <div id="top3List"></div>
-    </section>
-
-
-    <section class="card" id="nextCard">
-      <h2>الحدث الاقتصادي القادم</h2>
+    <section class="card nextc" id="nextCard">
+      <h2>الخبر المهم القادم</h2>
       <div id="nextEv"></div>
-      <button type="button" class="lnk" id="allEvBtn">كل الأحداث ←</button>
+      <details class="more" id="moreNews"><summary id="moreNewsS">باقي الأخبار</summary><div id="moreNewsL"></div></details>
     </section>
 
-    <section class="card" id="secCard"><details id="secDet"><summary>كل التفاصيل ←</summary><div id="secList"></div></details></section>
+    <section class="card" id="pulseSec">
+      <h2>نبض الأسواق</h2>
+      <div class="pcards" id="pcards"></div>
+      <p class="src" id="pcNote"></p>
+    </section>
 
+    <section class="card newsT" id="newsTable">
+      <h2>جدول الأخبار (توقيت بغداد)</h2>
+      <div class="tw"><table class="ntab" id="ntab"><thead><tr><th>الوقت</th><th>الحدث</th><th>Actual</th><th>Forecast</th><th>Previous</th><th>Revision</th><th>Surprise</th><th>المصدر</th></tr></thead><tbody id="ntbody"></tbody></table></div>
+    </section>
+
+    <button type="button" class="bigbtn" id="toDetails">التفاصيل وسجل الأحداث ←</button>
+   </div>
+
+   <div class="tab" id="tab-week" hidden>
+    <section class="card" id="weekNewsCard">
+      <h2 id="weekNewsH">أخبار الأسبوع المهمة لـ ES (توقيت بغداد)</h2>
+      <p class="summary" id="weekNewsNote"></p>
+      <div id="weekNews"></div>
+    </section>
+    <section class="card">
+      <h2>أحداث الأسبوع الاقتصادية عالية التأثير (توقيت بغداد)</h2>
+      <p class="summary" id="weekNote"></p>
+      <div id="weekList"></div>
+    </section>
+    <section class="card" id="weekEarnCard" hidden>
+      <h2>أرباح الأسبوع التي تحرّك ES</h2>
+      <p class="summary">السبعة الكبار وزنهم كبير في المؤشر، فأرباحهم تحرّك ES نفسه. التواريخ من Yahoo وقد تتغير.</p>
+      <div id="weekEarn"></div>
+    </section>
+    <section class="card" id="weekGeoCard" hidden>
+      <h2>أبرز الأخبار الجيوسياسية الآن (أثرها عبر النفط وVIX)</h2>
+      <div id="weekGeo"></div>
+    </section>
+   </div>
+   <div class="tab" id="tab-macro" hidden>
+    <section class="card" id="fedCard">
+      <h2>المنظومة الكلية وتوقع الفدرالي</h2>
+      <div class="fed-head">
+        <div class="fed-lean"><span class="arrow" id="fedArrow"></span><div><div class="fed-word" id="fedWord"></div><div class="fed-sub" id="fedSub"></div></div></div>
+        <div class="bipolar" aria-hidden="true"><i class="mid"></i><b id="fedMark"></b><span class="lo">▼</span><span class="hi">▲</span></div>
+      </div>
+      <div class="pil" id="pillars"></div>
+      <div class="gapbox" id="gapBox"></div>
+      <div class="fed-meet num" id="fedLiq"></div>
+      <div class="liqbox" id="liqBox" hidden><div class="lh"><span id="liqArrow"></span><span id="liqTitle"></span></div><p id="liqText"></p></div>
+      <div class="regime" id="regimeBox" hidden></div>
+      <div class="fed-meet num" id="fedMeet"></div>
+    </section>
+
+    <section class="card">
+      <h2>الضغوط المؤثرة</h2>
+      <div class="press">
+        <div class="pcol bull"><h3><span>▲</span><span> داعمة</span></h3><ul id="pBull"></ul></div>
+        <div class="pcol bear"><h3><span>▼</span><span> ضاغطة</span></h3><ul id="pBear"></ul></div>
+      </div>
+    </section>
+
+   </div>
+
+   <div class="tab" id="tab-details" hidden>
+    <section class="card" id="logCard">
+      <h2>سجل الأحداث</h2>
+      <p class="src" id="logNote"></p>
+      <div id="logList"></div>
+      <details class="more" id="chgDet"><summary>تغيّرات منذ الفحص السابق</summary><div id="chgList"></div></details>
+    </section>
+    <section class="card" id="idxCard"><details id="secDet"><summary>اذهب إلى قسم محدد ←</summary><div id="secList"></div></details></section>
     <div class="folds">
       <h2 class="fh">تفاصيل إضافية</h2>
-      <details class="fd" id="fdPulse"><summary>نبض الأسواق (8 رموز)</summary><section class="card" id="pulse8Card">
-      <h2>نبض الأسواق</h2>
-      <div class="pl8" id="pulse8"></div>
-      <p class="src" id="pulse8Note"></p>
-    </section></details>
-      <details class="fd" id="fdMove"><summary>حركة السوق (تنبيهات لحظية)</summary><section class="card" id="moveCard" hidden>
-      <h2>حركة السوق</h2>
-      <div class="psum" id="moveSum"></div>
-      <div class="dchips" id="moveChips"></div>
-      <button type="button" class="chip lang" id="moveDetails">التفاصيل ←</button>
-    </section></details>
       <details class="fd"><summary>مقياس المخاطر بالتفصيل</summary>
     <section class="card hero" id="hero">
       <svg class="gauge" id="gauge" viewBox="0 0 260 150" role="img" aria-label="مقياس المخاطرة"></svg>
@@ -514,55 +687,6 @@
     </section>
       </details>
     </div>
-   </div>
-
-   <div class="tab" id="tab-week" hidden>
-    <section class="card" id="weekNewsCard">
-      <h2 id="weekNewsH">أخبار الأسبوع المهمة لـ ES (توقيت بغداد)</h2>
-      <p class="summary" id="weekNewsNote"></p>
-      <div id="weekNews"></div>
-    </section>
-    <section class="card">
-      <h2>أحداث الأسبوع الاقتصادية عالية التأثير (توقيت بغداد)</h2>
-      <p class="summary" id="weekNote"></p>
-      <div id="weekList"></div>
-    </section>
-    <section class="card" id="weekEarnCard" hidden>
-      <h2>أرباح الأسبوع التي تحرّك ES</h2>
-      <p class="summary">السبعة الكبار وزنهم كبير في المؤشر، فأرباحهم تحرّك ES نفسه. التواريخ من Yahoo وقد تتغير.</p>
-      <div id="weekEarn"></div>
-    </section>
-    <section class="card" id="weekGeoCard" hidden>
-      <h2>أبرز الأخبار الجيوسياسية الآن (أثرها عبر النفط وVIX)</h2>
-      <div id="weekGeo"></div>
-    </section>
-   </div>
-   <div class="tab" id="tab-macro" hidden>
-    <section class="card" id="fedCard">
-      <h2>المنظومة الكلية وتوقع الفدرالي</h2>
-      <div class="fed-head">
-        <div class="fed-lean"><span class="arrow" id="fedArrow"></span><div><div class="fed-word" id="fedWord"></div><div class="fed-sub" id="fedSub"></div></div></div>
-        <div class="bipolar" aria-hidden="true"><i class="mid"></i><b id="fedMark"></b><span class="lo">▼</span><span class="hi">▲</span></div>
-      </div>
-      <div class="pil" id="pillars"></div>
-      <div class="gapbox" id="gapBox"></div>
-      <div class="fed-meet num" id="fedLiq"></div>
-      <div class="liqbox" id="liqBox" hidden><div class="lh"><span id="liqArrow"></span><span id="liqTitle"></span></div><p id="liqText"></p></div>
-      <div class="regime" id="regimeBox" hidden></div>
-      <div class="fed-meet num" id="fedMeet"></div>
-    </section>
-
-    <section class="card">
-      <h2>الضغوط المؤثرة</h2>
-      <div class="press">
-        <div class="pcol bull"><h3><span>▲</span><span> داعمة</span></h3><ul id="pBull"></ul></div>
-        <div class="pcol bear"><h3><span>▼</span><span> ضاغطة</span></h3><ul id="pBear"></ul></div>
-      </div>
-    </section>
-
-   </div>
-
-   <div class="tab" id="tab-details" hidden>
     <section class="card">
       <h2>أهم ما يحرّك المخاطرة</h2>
       <div class="wnote" id="wnote"></div>
@@ -611,12 +735,22 @@
       <h2>صحة مرصاد</h2>
       <div id="healthSum"></div>
       <details id="healthDet"><summary>التفاصيل</summary><div id="healthBody"></div></details>
+      <details id="qualDet"><summary>جودة الأرقام الفعلية</summary><div id="qualBody"></div></details>
+    </section>
+    <section class="card deskonly" id="deskCard">
+      <h2>العرض على الكمبيوتر</h2>
+      <div class="optrow"><input type="checkbox" id="tintOpt"><label for="tintOpt">تلوين الخلفية حسب الانحياز الحالي</label></div>
+      <p class="src" id="tintLegend">داعم = أخضر داكن هادئ · ضاغط = أحمر داكن هادئ · مختلط = كهرماني · التقييم غير صالح بسبب البيانات = رمادي مع ذكر السبب.</p>
+      <div class="optrow"><span>الجرس:</span><span class="bellst" id="bellState">مكتوم</span><button type="button" class="btn-ghost" id="bellToggle">تشغيل الجرس</button><button type="button" class="btn-ghost" id="bellTest">اختبار الصوت</button></div>
+      <p class="src" id="bellLimits">يُنبّه الجرس عند تغيّر مهم في التقييم أو صدور خبر مؤثر أو تعطل البيانات، مرة واحدة لكل حدث لا مع كل تحديث. لا صوت عند فتح الصفحة لأول مرة، والتحديثات غير المقروءة تبقى ظاهرة. حدود: يعمل فقط والصفحة مفتوحة في المتصفح؛ لا يعمل إذا أُغلق المتصفح أو نام الحاسوب أو جُمّد التبويب (قد يُوقف المتصفح التبويبات الخاملة)، وبعض المتصفحات تمنع الصوت قبل أول نقرة منك. التنبيه الخارجي المضمون يبقى عبر تيليجرام.</p>
+      <div class="optrow"><button type="button" class="btn-main" id="watchBtn">وضع المراقبة من بعيد</button></div>
     </section>
     <section class="card about" id="aboutCard">
       <h2>ما هو مرصاد؟</h2>
       <p class="slogan">افهم ما يحرك السوق</p>
       <p>مِرصاد يجمع تلقائياً الأحداث الاقتصادية والعوائد والدولار والنفط والأخبار الجيوسياسية، ويحلّلها كمنظومة واحدة ليخبرك: ما مستوى <b>الخطر</b> الآن؟ وإلى أين تميل <b>القوى المؤثرة</b>؟ وما قرار الفدرالي الأرجح؟</p>
       <p><b>الخطر</b> يقيس مدى اضطراب السوق، بينما <b>الانحياز</b> يقيس الاتجاه الأرجح للتأثير، وهما منفصلان: قد يكون الخطر عالياً دون اتجاه واضح. <b>الثقة</b> تقول لك هل البيانات كافية ومتسقة.</p>
+      <p>ترتيب العمل: الماكرو ← سياق الأسبوع ← إيقاع اليوم ← تدفق الأوامر؛ فلا قرار شراء أو بيع من الماكرو وحده.</p>
       <p>مِرصاد لا يعطي إشارات شراء أو بيع، ويقول صراحةً «التقييم غير مكتمل» حين لا تكفي البيانات.</p>
     </section>
     <section class="card">
@@ -630,7 +764,7 @@
       <details class="gd" id="glossInd"><summary>شرح المؤشرات المعروضة</summary><ul class="play">
         <li><b>الدولار DXY:</b> قوة الدولار أمام سلة عملات. صعوده يشدّ الأوضاع المالية ويضغط غالباً على الأسهم.</li>
         <li><b>عائد 10 و30 سنة:</b> كلفة الاقتراض طويل الأجل. ارتفاعه يخفض قيمة الأرباح المستقبلية فيضغط على الأسهم، وانخفاضه يدعمها (إلا إن كان سببه هروباً للأمان).</li>
-        <li><b>النفط:</b> ارتفاعه يرفع توقعات التضخم وكلفة الشركات فيضغط على الأسهم عادةً.</li>
+        <li><b>النفط:</b> ارتفاعه يرفع توقعات التضخم وكلفة الشركات فيضغط على الأسهم عادةً. إن صعد مع أخبار إمداد والأسهم لا ترتفع فهو صدمة عرض ضغط على ES؛ وإن صعد مع تحسن الطلب فليس ضغطاً. السبب المعروض ترجيح من ارتباط الأسعار وليس إثباتاً.</li><li><b>عائد سنتين:</b> يأتي من FRED يومياً، فهو سياق للفائدة وليس تأكيداً لحظياً.</li>
         <li><b>VIX:</b> مؤشر الخوف المتوقع في الأسهم. صعوده تحوّط وقلق.</li>
         <li><b>فروق الائتمان:</b> علاوة المخاطرة على سندات الشركات الضعيفة. اتساعها إنذار ضغط مالي.</li>
         <li><b>السيولة الصافية:</b> ميزانية الفدرالي − حساب الخزانة − RRP. <b>ضخّ</b> = زيادة النقد المتاح (داعم للأصول الخطرة)، <b>سحب</b> = انكماشه (ضاغط).</li>
@@ -646,7 +780,7 @@
       <details class="gd"><summary>السيولة الصافية والمالية العامة</summary><ul class="play"><li><b>السيولة الصافية:</b> ميزانية الفدرالي − حساب الخزانة (TGA) − اتفاقيات إعادة الشراء العكسية (RRP). هي تقدير لما يتبقى من سيولة في النظام للأسواق.</li><li><b>التغير خلال 4 أسابيع:</b> هبوط 1.5% أو أكثر = تجفيف (ضاغط). صعود 1.5% أو أكثر = دعم. بينهما = محايد.</li><li><b>العجز المالي من الناتج:</b> عجز الحكومة الكبير يعني إصدار سندات أكثر (ضغط على العوائد) مع إنفاق داعم للاقتصاد. أثره بطيء ولا يغيّر اليوم وحده.</li></ul></details>
       <details class="gd"><summary>سياق المزاد لـ ES</summary><ul class="play"><li><b>الفكرة:</b> نظرية المزاد تعتبر السوق مزاداً يبحث عن «السعر العادل». نرى أين تقبل السوق التداول وأين رفضه.</li><li><b>منطقة القيمة:</b> المدى الذي جرى فيه نحو 70% من تداول الأمس. حدّها الأعلى VAH والأدنى VAL.</li><li><b>POC:</b> السعر الأكثر تداولاً، وهو غالباً مغناطيس للسعر.</li><li><b>موقع الافتتاح:</b> أعلى القيمة (قبول خارجها يدعم الاستمرار)، أسفلها، أو داخلها (التذبذب أرجح). قاعدة الـ80%: إن عاد السعر إلى داخل القيمة وقُبل فيها فغالباً يعبرها حتى الطرف المقابل. قاعدة شائعة تحتاج تأكيدك.</li><li><b>الجلسة الليلية:</b> المدى والمخزون: مخزون شرائي أو بيعي أحادي يزيد قابلية التصحيح عند الافتتاح.</li><li><b>الفجوة:</b> الفرق بين إغلاق الأمس والافتتاح.</li><li><b>المدى المتوقع من VIX:</b> انحراف معياري يومي ≈ السعر × VIX ÷ 16 تقريباً. مدى الجلسة نحو 1.6 ضعفه، وغالباً ما يكون الفعلي أقل.</li><li><b>الميل السياقي:</b> مزج لستة عوامل: فجوة الافتتاح وموقع إغلاق الأمس في مداه وتغير VIX وناسداك مقابل ES والدولار واتجاه 5 أيام. <b>تجريبي لم يُثبت</b>، ويُقاس في الاختبار التاريخي، وليس إشارة دخول.</li></ul></details>
       <details class="gd"><summary>الأخبار الجيوسياسية</summary><ul class="play"><li><b>كيف تُصنَّف:</b> بقواعد كلمات مفتاحية (دون ذكاء اصطناعي): نوع الحدث (تصعيد/عقوبات/نووي...) والمنطقة وحدّة من 1 إلى 4 وتجميع العناوين المتشابهة وتناقص الأهمية مع الوقت.</li><li><b>التحقق بالسوق:</b> يُعطى الخبر وزناً أكبر إن تحركت الأسواق (ذهب/نفط/VIX) بما يؤيده.</li><li><b>حدود:</b> القواعد لا تفهم السياق ولا الاتجاه الحقيقي للخبر؛ قد يُصنَّف خبر عادي خطأً. لذلك العناوين «للاطلاع فقط». التفسير بالذكاء الاصطناعي ضمن الخطة المدفوعة المخطَّطة.</li></ul></details>
-      <details class="gd"><summary>التقارير التي تصلك</summary><ul class="play"><li><b>قبل الافتتاح:</b> كل يوم عمل 3:00 ظهراً بتوقيت بغداد: المخاطرة والسياق والمزاد والمنظومة والأحداث.</li><li><b>بعد صدور بيانات كبرى:</b> فحص كل 15 دقيقة. عند صدور رقم عالي التأثير يصلك الفعلي والمتوقع والسابق ومقارنتها وأثرها على ES في منظور المنظومة.</li><li><b>حركة سوق مفاجئة (دفاعية):</b> هبوط ES مع ارتفاع الذهب والنفط وVIX معاً. رصد للحركة وليس تفسيراً لسببها.</li><li><b>حركة قوية بأي اتجاه (مؤكَّدة بالزخم والحجم):</b> يراقب البرنامج ES وناسداك وVIX والنفط والذهب والدولار والين وعوائد 5 و10 سنوات والائتمان والبنوك الإقليمية على ثلاثة أطر: 15 دقيقة و60 دقيقة و3 ساعات (الحدود مخفَّضة لرصد الحركات السريعة). لا يصلك تنبيه إلا إذا اجتمعت الشروط: (1) <b>الزخم متسق</b>: الاتجاه نفسه في الأطر القصيرة، ولا ارتداد على الإطار الطويل. (2) <b>كفاءة الاتجاه</b> ≥ 0.35: صافي الحركة مقابل مجموع حركات الشموع، فيُستبعد التذبذب. (3) <b>دلالة إحصائية</b>: حركة الساعة تتجاوز 1.8 انحراف معياري من تقلب الأصل المعتاد. (4) <b>ارتفاع الحجم</b> ≥ 1.3 ضعف المعتاد في آخر 30 دقيقة، لأصول لها حجم (ES وناسداك والنفط والذهب وHYG وKRE). إن لم يتوفر الحجم تُشترط دلالة 3σ وكفاءة 0.5 بدلاً منه. VIX والدولار والين والعوائد لا تنبّه وحدها بل تُضاف إلى تنبيه ES أو ناسداك المؤكَّد. النفط والذهب وHYG وKRE تنبّه وحدها بحدّ أعلى 1.5 مرة وبحجمها هي. لكل اتجاه فترة تهدئة ساعتان، ويُسمح بتنبيه جديد إن كبرت الحركة 1.5 ضعف. يعرض التنبيه «تأكيد الزخم والحجم» (الكفاءة والدلالة وتوسع التقلب والحجم) ثم قراءة النمط والعناوين. تأخر بيانات Yahoo يعني أن التنبيه قد يصل بعد بداية الحركة.</li><li><b>ملخص أسبوعي:</b> السبت للمعايرة وسجل الأداء.</li></ul></details>
+      <details class="gd"><summary>التقارير التي تصلك</summary><ul class="play"><li><b>قبل الافتتاح:</b> كل يوم عمل 2:30 ظهراً بتوقيت بغداد: المخاطرة والسياق والمزاد والمنظومة والأحداث.</li><li><b>بعد صدور بيانات كبرى:</b> فحص كل 15 دقيقة، وفحص مخصص عند الدقيقة 31 بعد إصدارات 8:30 بتوقيت نيويورك (3:31 عصراً بغداد صيفاً و4:31 شتاءً) ينتظر وصول الرقم نحو 5 دقائق. المشغّل المجدول في GitHub قد يتأخر دقائق، فلا يُدَّعى تحديث لحظي. عند صدور رقم عالي التأثير يصلك الفعلي والمتوقع والسابق ومقارنتها وأثرها على ES في منظور المنظومة.</li><li><b>حركة سوق مفاجئة (دفاعية):</b> هبوط ES مع ارتفاع الذهب والنفط وVIX معاً. رصد للحركة وليس تفسيراً لسببها.</li><li><b>حركة قوية بأي اتجاه (مؤكَّدة بالزخم والحجم):</b> يراقب البرنامج ES وناسداك وVIX والنفط والذهب والدولار والين وعوائد 5 و10 سنوات والائتمان والبنوك الإقليمية على ثلاثة أطر: 15 دقيقة و60 دقيقة و3 ساعات (الحدود مخفَّضة لرصد الحركات السريعة). لا يصلك تنبيه إلا إذا اجتمعت الشروط: (1) <b>الزخم متسق</b>: الاتجاه نفسه في الأطر القصيرة، ولا ارتداد على الإطار الطويل. (2) <b>كفاءة الاتجاه</b> ≥ 0.35: صافي الحركة مقابل مجموع حركات الشموع، فيُستبعد التذبذب. (3) <b>دلالة إحصائية</b>: حركة الساعة تتجاوز 1.8 انحراف معياري من تقلب الأصل المعتاد. (4) <b>ارتفاع الحجم</b> ≥ 1.3 ضعف المعتاد في آخر 30 دقيقة، لأصول لها حجم (ES وناسداك والنفط والذهب وHYG وKRE). إن لم يتوفر الحجم تُشترط دلالة 3σ وكفاءة 0.5 بدلاً منه. VIX والدولار والين والعوائد لا تنبّه وحدها بل تُضاف إلى تنبيه ES أو ناسداك المؤكَّد. النفط والذهب وHYG وKRE تنبّه وحدها بحدّ أعلى 1.5 مرة وبحجمها هي. لكل اتجاه فترة تهدئة ساعتان، ويُسمح بتنبيه جديد إن كبرت الحركة 1.5 ضعف. يعرض التنبيه «تأكيد الزخم والحجم» (الكفاءة والدلالة وتوسع التقلب والحجم) ثم قراءة النمط والعناوين. تأخر بيانات Yahoo يعني أن التنبيه قد يصل بعد بداية الحركة.</li><li><b>ملخص أسبوعي:</b> السبت للمعايرة وسجل الأداء.</li></ul></details>
       <details class="gd"><summary>حدود البرنامج وتنبيهات</summary><ul class="play"><li><b>ليس توصية:</b> الإشارات إحصائية لأغراض التجربة. القرار مسؤوليتك.</li><li><b>بيانات مجانية متأخرة:</b> Yahoo غير رسمي وقد يتأخر أو ينقطع، وFRED يتحدث يومياً أو شهرياً. ما يتعذر جلبه يُحذف من الحساب ويظهر ⚠.</li><li><b>الأوزان تقديرية:</b> وسنعايرها لاحقاً بسجل الأداء والاختبار التاريخي.</li><li><b>غير متاح مجاناً:</b> تمركز الخيارات (Gamma) واحتمالات الفائدة الدقيقة (FedWatch) وتدفق الأوامر، وهي ضمن الخطة المدفوعة المخطَّطة.</li></ul></details>
       <details class="gd"><summary>قاموس المصطلحات</summary><ul class="play"><li><b>CPI:</b> مؤشر أسعار المستهلك (التضخم). <b>PPI:</b> أسعار المنتجين. <b>PCE:</b> مقياس التضخم المفضّل للفدرالي.</li><li><b>NFP:</b> الوظائف غير الزراعية الشهرية. <b>JOLTS:</b> الوظائف الشاغرة. <b>FOMC:</b> لجنة الفدرالي التي تقرر الفائدة.</li><li><b>VIX:</b> مؤشر الخوف (تقلب متوقع للأسهم). <b>DXY:</b> مؤشر الدولار.</li><li><b>bp:</b> نقطة أساس = 0.01%. <b>NFCI:</b> مؤشر الظروف المالية. <b>COT:</b> تقرير تمركز المضاربين في العقود الآجلة.</li><li><b>TGA:</b> حساب الخزانة لدى الفدرالي. <b>RRP:</b> اتفاقيات إعادة الشراء العكسية.</li><li><b>POC / VAH / VAL:</b> أكثر سعر تداولاً / أعلى / أدنى منطقة القيمة.</li><li><b>ES:</b> عقد E-mini S&P 500 الآجل. <b>σ:</b> انحراف معياري.</li></ul></details>
     </section>
@@ -926,6 +1060,19 @@ function renderExtras(data) {
     $('liqText').textContent = lq.meaning; $('fedLiq').textContent = '';
   }
   const rg = data.regime, rb = $('regimeBox'); rb.hidden = !rg; if (rg) rb.textContent = 'النظام الاقتصادي السائد: ' + rg.text;
+  /* جودة الأرقام الفعلية */
+  const qb = $('qualBody'), qd = $('qualDet'); qb.innerHTML = ''; qd.hidden = !data.quality;
+  if (data.quality) {
+    const q = data.quality, line = (k, v) => { const r = el('div', 'qrow'); r.appendChild(el('b', '', k)); r.appendChild(el('span', 'num', v)); qb.appendChild(r); };
+    line('وصل رقمها ومتحقق', q.arrived + ' من ' + q.total + ' (رسمي ' + q.official + '، ثانوي ' + q.secondary + ')');
+    line('مستخرج من خبر ويحتاج تحققاً', String(q.needs_check)); line('لم يصل بعد', q.missing + ' (تعذّر الجلب: ' + q.failed + ')');
+    line('تغطية المؤشرات المهمة', q.coverage_pct == null ? 'غير محسوبة' : q.coverage_pct + '% (' + q.important_arrived + '/' + q.important_total + ')');
+    if (q.latency_median_min != null) line('من الإصدار إلى الاستلام', 'وسيط ' + q.latency_median_min + ' د، أقصى ' + q.latency_max_min + ' د (بدقة دورة الجدولة)');
+    [['bls', 'BLS'], ['fred', 'FRED'], ['treasury', 'TreasuryDirect']].forEach(x => { const s_ = q.sources[x[0]] || {}; line(x[1], (s_.ok === true ? '🟢 تعمل' : s_.ok === false ? '🔴 فشلت' : '⚪ لم تُجرَّب') + (s_.detail ? ' — ' + s_.detail : '')); });
+    line('آخر نجاح للجدولة', q.scheduler_last_ok_ar ? q.scheduler_last_ok_ar + ' بغداد' : 'لا يوجد'); line('آخر نشر ناجح', q.publish_last_ok_ar ? q.publish_last_ok_ar + ' بغداد' : 'لا يوجد');
+    (q.events || []).filter(x => !x.verified).forEach(x => line(x.title + ' (' + x.release_ar + ')', x.status_ar + ' — ' + x.reason));
+    if ((q.unsupported || []).length) line('مصادر غير مدعومة', q.unsupported.join('؛ '));
+  }
   /* صحة مرصاد */
   const h = data.health, hs = $('healthSum'), hb = $('healthBody'); hs.innerHTML = ''; hb.innerHTML = '';
   if (!h) { hs.appendChild(el('p', 'summary', 'لم يُجرَ الفحص بعد: تظهر الحالة بعد أول دورة تشغيل حقيقية. لا تُعرض حالة سليمة دون فحص فعلي.')); return; }
@@ -988,7 +1135,10 @@ function render(data) {
   $('tInt').classList.toggle('wide', !!data.trend);  /* الثقة والتقلب جنباً إلى جنب؛ يمتد التقلب فقط إن ظهرت بطاقة الاتجاه (عدد فردي) */
 
   renderAuction(data.auction);
-  try { renderSummary_(data, score, lvl); } catch (e) { console.error(e); }
+  /* v0.19: المسارات الجوهرية بلا try/catch: أي خطأ هنا يعني أن الاستجابة معيبة فتبقى آخر لقطة صالحة (انظر loadData) */
+  seedRead_(alertsOf(data));
+  renderMain_(data, score, lvl);
+  renderUpdate_(data); renderLog_(data); renderNext_(data); renderPulse_(data); renderNewsTable_(data);
 
   /* المنظومة الكلية */
   const mc = data.macro, fc = $('fedCard');
@@ -1159,7 +1309,14 @@ function render(data) {
     const g = el('div', 'nums3');
     [['السابق', it.previous, false], ['المتوقع', it.forecast, false], ['الفعلي', it.actual, true]].forEach(x => {
       const b = el('div', 'nbox' + (x[2] ? ' act' : '')); if (x[2] && vd) { const c = VCOL[vd.es] || VCOL.neu; b.style.setProperty('--vc', c[0]); b.style.setProperty('--vbg', c[1]); }
-      b.appendChild(el('small', '', x[0])); b.appendChild(el('b', 'num', x[1] || '—')); g.appendChild(b);
+      b.appendChild(el('small', '', x[0]));
+      if (x[2] && !x[1] && it.status && it.status !== 'upcoming') {      /* الفعلي غائب: نقول السبب في الخانة نفسها، لا شرطة صامتة */
+        b.classList.add('miss');
+        b.appendChild(el('b', 'num', it.unavailable ? 'غير متوفر' : it.status === 'needs_check' ? 'يحتاج تحققاً' : it.status === 'failed' ? 'تعذّر الجلب' : 'بانتظار الرقم'));
+        if (it.unavailable) b.appendChild(el('small', 'why', 'Actual غير متوفر من المصدر الحالي'));
+        else if (it.actual_unverified) b.appendChild(el('small', 'why', 'من خبر: ' + it.actual_unverified + ' (غير موثّق)'));
+      } else b.appendChild(el('b', 'num', x[1] || '—'));
+      g.appendChild(b);
     });
     return g;
   };
@@ -1170,11 +1327,28 @@ function render(data) {
       const arrow = vd.k === 'above' ? '▲ ' : vd.k === 'below' ? '▼ ' : '◆ ';
       r.appendChild(el('span', 'pill', arrow + vd.label + (it.surprise ? ' (' + it.surprise.replace(/^(أعلى|أقل) من المتوقع بـ ?/, '') + ')' : '')));
       r.appendChild(el('span', 'pill v-' + vd.es, vd.effect));
-    } else if (!it.actual && NEEDNUM(kind)) { r.appendChild(el('span', 'pill', (it.status_ar || 'الرقم الفعلي غير متوفر') + (it.last_attempt ? ' · آخر محاولة ' + it.last_attempt + ' بغداد' : ''))); if (it.actual_note) r.appendChild(el('span', 'n', it.actual_note)); }
+    } else if (!it.actual && (NEEDNUM(kind) || it.unavailable)) { r.appendChild(el('span', 'pill', (it.unavailable ? 'Actual غير متوفر من المصدر الحالي' : (it.status_ar || 'الرقم الفعلي غير متوفر')) + (it.last_attempt && !it.unavailable ? ' · آخر محاولة ' + it.last_attempt + ' بغداد' : ''))); }
+    if (it.actual) r.appendChild(el('span', 'pill v-' + (it.trust === 'official' ? 'bull' : 'neu'), it.trust === 'official' ? '✔ رسمي ومتحقق' : '✔ مصدر ثانوي موثوق'));
+    const sd = srcDetails_(it); if (sd) r.appendChild(sd);
     if (it.actual && it.status === 'revised') r.appendChild(el('span', 'pill', '↻ عُدّلت القيمة' + (it.revised_from ? ' (كانت ' + it.revised_from + ')' : '')));
     if (it.actual && it.surprise_num) r.appendChild(el('span', 'pill', 'المفاجأة ' + it.surprise_num));
     if (it.actual && it.prev_revised && it.previous && it.prev_revised !== it.previous) r.appendChild(el('span', 'pill', 'السابق بعد المراجعة ' + it.prev_revised));
     return r;
+  };
+  /* تفاصيل المصدر عند الضغط فقط: الحالة، المصدر، فترة التقرير، سبب التأخر، آخر محاولة */
+  const srcDetails_ = it => {
+    if (!it.status || it.status === 'upcoming') return null;
+    const rows = [];
+    if (it.status_ar) rows.push(['الحالة', it.status_ar]);
+    if (it.source) rows.push(['المصدر', it.source]);
+    if (it.period) rows.push(['فترة التقرير', it.period]);
+    if (it.actual_unverified) rows.push(['رقم من خبر (غير موثّق)', it.actual_unverified]);
+    if (it.actual_note) rows.push([it.actual ? 'ملاحظة' : 'السبب', it.actual_note]);
+    if (it.last_attempt) rows.push(['آخر محاولة (بغداد)', it.last_attempt]);
+    if (!rows.length) return null;
+    const d = document.createElement('details'); d.className = 'srcd'; d.appendChild(el('summary', '', 'تفاصيل المصدر'));
+    rows.forEach(x => { const q = el('div', 'srow'); q.appendChild(el('small', '', x[0])); q.appendChild(el('span', '', x[1])); d.appendChild(q); });
+    return d;
   };
   const arrowOf = v => v > 0 ? '▲' : v < 0 ? '▼' : '◆';
   const reactRow = e => {
@@ -1206,11 +1380,10 @@ function render(data) {
         const r = el('div', 'relrow'); const t = el('div', 't'); t.appendChild(el('span', 'num evtime', it.time)); t.appendChild(document.createTextNode('  ' + (it.name || it.title)));
         r.appendChild(t);
         if (it.actual || it.forecast || it.previous) r.appendChild(nums3(it, it.verdict));
-        r.appendChild(verdictRow(it, it.verdict, e.kind)); if (it.actual && it.actual_note) r.appendChild(el('span', 'n', it.actual_note)); w.appendChild(r);
+        r.appendChild(verdictRow(it, it.verdict, e.kind)); w.appendChild(r);
       });
     } else {
       if (e.actual || e.forecast || e.previous) w.appendChild(nums3(e, e.verdict));
-      if (e.actual && e.actual_note) w.appendChild(el('p', 'evnote', e.actual_note));
       w.appendChild(verdictRow(e, e.verdict, e.kind));
     }
     if (e.kind === 'speech' && e.verdict) {
@@ -1234,57 +1407,6 @@ function render(data) {
     evBox.appendChild(el('h3', 'evh', 'الأحداث الكبرى القادمة هذا الأسبوع'));
     data.events_next.forEach(addEv);
   }
-  const aBox = $('alertList'); aBox.innerHTML = '';
-  const alerts = data.alerts || [];
-  $('alertCard').hidden = !(data.live && data.alerts !== undefined);
-  if (!alerts.length) aBox.appendChild(el('p', 'evnote', 'لا تنبيهات حركة قوية خلال آخر 24 ساعة.'));
-  alerts.forEach((a, i) => {
-    const d = document.createElement('details'); d.className = 'alrt'; if (i === 0) d.open = true;
-    let hh = ''; try { hh = new Date(new Date(a.t).getTime() + 3 * 3600000).toISOString().substr(11, 5); } catch (x) {}
-    const sm = document.createElement('summary'); sm.appendChild(document.createTextNode((a.icon || '📈') + ' '));
-    sm.appendChild(el('span', 'num evtime', hh)); sm.appendChild(document.createTextNode('  ' + a.title)); d.appendChild(sm);
-    if ((a.rows || []).length) {
-      const w = el('div', 'tw'), t = document.createElement('table');
-      const hd = document.createElement('tr'); ['العامل', 'ساعة', '3 ساعات'].forEach(x => hd.appendChild(el('th', '', x))); t.appendChild(hd);
-      a.rows.forEach(r => { const tr = document.createElement('tr'); if (r.lead) tr.className = 'lead';
-        tr.appendChild(el('td', '', r.name + (r.lead ? ' ◀' : ''))); tr.appendChild(el('td', 'num-c', r.c60)); tr.appendChild(el('td', 'num-c', r.c180)); t.appendChild(tr); });
-      w.appendChild(t); d.appendChild(w);
-    }
-    const sec = (h, arr) => { if (!(arr || []).length) return; d.appendChild(el('h4', '', h)); const ul = el('ul', 'play'); arr.forEach(x => ul.appendChild(el('li', '', x))); d.appendChild(ul); };
-    sec('تأكيد الزخم والحجم', a.confirm); sec('القراءة (من ترابط الحركة، وليست تأكيداً للسبب)', a.pattern); sec('عناوين حديثة قد تكون ذات صلة', a.headlines);
-    aBox.appendChild(d);
-  });
-  const pg = $('pulseGrid'); pg.innerHTML = '';
-  const pulse = (data.pulse || []).filter(r => r.ratio !== undefined);
-  $('pulseCard').hidden = !pulse.length;
-  const MAIN = ['es', 'nq', 'oil', 'y10', 'vix', 'dxy'];
-  const isMain = r => MAIN.indexOf(r.key) >= 0 || r.ratio >= 1 || r.confirmed;   // العامل المتجاوز لحدّه يظهر دائماً
-  const extra = pulse.filter(r => !isMain(r)).length;
-  const hot = pulse.filter(r => r.confirmed).length, near = pulse.filter(r => !r.confirmed && r.ratio >= 0.7).length;
-  const sum = $('pulseSum'); sum.className = 'psum ' + (hot ? 'hot' : near ? 'near' : 'calm');
-  sum.textContent = hot ? '🔴 ' + hot + ' حركة مؤكَّدة بالزخم والحجم' : near ? '🟠 ' + near + ' عامل قرب حدّه' : '🟢 السوق هادئ، لا حركة قرب الحدود';
-  pulse.forEach(r => {
-    const col = el('div', 'pcol'); if (!isMain(r)) col.className += ' pextra'; col.hidden = !isMain(r) && !PULSE_ALL;
-    const c = r.confirmed ? 'var(--crit)' : r.ratio >= 1 ? 'var(--hi)' : r.ratio >= 0.5 ? 'var(--warn)' : 'var(--ok)';
-    col.style.setProperty('--pc', c);
-    col.appendChild(el('div', 'parrow' + (r.tone === 'bear' || r.tone === 'bull' ? ' tone-' + r.tone : ''), (r.v > 0 ? '▲' : r.v < 0 ? '▼' : '◆') + (r.confirmed ? ' ✔' : '')));
-    const tr = el('div', 'ptrack'); const f = el('div', 'pfill'); f.style.height = Math.max(6, Math.min(100, r.ratio / 1.5 * 100)) + '%';
-    tr.appendChild(f); tr.appendChild(el('div', 'pth')); col.appendChild(tr);
-    col.appendChild(el('div', 'pn', r.short || r.name));
-    col.title = r.name + ' — ' + r.val + ' خلال ' + r.w + ' دقيقة، الحد ' + r.thr;
-    pg.appendChild(col);
-  });
-  const pm = $('pulseMore'); pm.hidden = !extra; pm.textContent = PULSE_ALL ? 'عرض الأهم فقط' : 'عرض بقية العوامل (' + extra + ')';
-  /* حركة السوق (مختصرة في اليوم): العوامل المؤكَّدة بالزخم والحجم فقط، والتفاصيل في تبويب التفاصيل */
-  const mvCard = $('moveCard'), mcs = $('moveChips'); mcs.innerHTML = '';
-  const chips = [], seen = {};
-  pulse.filter(r => r.confirmed).forEach(r => { seen[r.short || r.name] = 1; chips.push({tone: r.tone, up: r.v > 0, name: r.short || r.name, val: r.val}); });
-  alerts.forEach(a => (a.rows || []).filter(r => r.lead).forEach(r => { if (!seen[r.name] && chips.length < 6) { seen[r.name] = 1; chips.push({tone: '', up: String(r.c60).indexOf('-') < 0, name: r.name, val: r.c60, recent: true}); } }));
-  mvCard.hidden = !(data.live && (pulse.length || alerts.length));
-  const msum = $('moveSum'); msum.className = 'psum ' + (hot ? 'hot' : 'calm');
-  msum.textContent = hot ? '🔴 ' + hot + ' حركة مؤكَّدة بالزخم والحجم الآن' : (chips.length ? '🟠 حركات مؤكَّدة خلال آخر 24 ساعة' : '🟢 لا حركة قوية مؤكَّدة');
-  chips.slice(0, 6).forEach(c => { const b = el('span', 'dchip tone-' + (c.tone || 'flat')); b.appendChild(el('span', 'a', c.up ? '▲' : '▼')); b.appendChild(el('span', '', c.name)); b.appendChild(el('span', 'v', c.val)); mcs.appendChild(b); });
-  $('moveDetails').onclick = () => { showTab('details'); const ac = $('pulseCard'); if (ac && ac.scrollIntoView) ac.scrollIntoView(); };
   const infoArr = [].concat(data.info || []);
   (data.geo || []).forEach(g => infoArr.push((g.deesc ? '▼ تهدئة' : g.severity >= 2 ? '▲ تصعيد' : '◆ متابعة') + ' | ' + ((g.regions || []).join('، ') || '—') + ' | حدّة ' + g.severity + '/4 | ' + g.sources + ' مصدر: ' + g.title));
   Object.keys(data.news || {}).forEach(k => (data.news[k] || []).forEach(h => infoArr.push(k + ': ' + h)));
@@ -1295,6 +1417,7 @@ function render(data) {
   $('detailSummary').textContent = data.detailed_summary || '';
   try { renderExtras(data); } catch (e) { console.error(e); }
   output.hidden = false;
+  applyTint_(); renderWatch_(); bellUi_(); checkBell_(data);
 }
 
 $('copyNotif').addEventListener('click', async () => {
@@ -1314,7 +1437,7 @@ const DEMO_AR = {"auction":{"prior":{"high":5918,"low":5872,"close":5898,"val":5
 "scenarios":[{"name":"هبوط مع الحدث","probability":"45%","description":"خيبة توقعات الفائدة تدفع العائد للأعلى."},{"name":"تذبذب عرضي","probability":"35%","description":"انتظار حتى صدور القرار."},{"name":"ارتداد صاعد","probability":"20%","description":"قرار أهدأ من المتوقع."}]};
 
 const statics = [];
-document.querySelectorAll('.wrap *').forEach(n => { if (!n.children.length && n.textContent.trim() && !n.id.match(/^(lvlIc|lvlName|banner|refreshBtn)$/)) statics.push([n, n.textContent]); });
+document.querySelectorAll('.wrap *').forEach(n => { if (!n.children.length && n.textContent.trim() && !n.id.match(/^(lvlIc|lvlName|banner|refreshBtn|bellBtn|bellState|bellToggle|bellTest|watchBtn2|watchBtn|updCount)$/)) statics.push([n, n.textContent]); });
 let LIVE = null; let SHOWALL = false;
 const DEMO_OK = /[?&]demo=1/.test(location.search);   /* التجريبي لا يظهر إلا بطلب صريح */
 function render0_() {
@@ -1336,96 +1459,371 @@ function setLang(l) {
 }
 
 
-/* ===== v0.14: ملخص «اليوم» — الخلاصة أولاً ===== */
 const REG_AR = { stagflation: 'ركود تضخمي', overheating: 'تسخّن', slowdown: 'تباطؤ', goldilocks: 'معتدل داعم', mixed: 'مختلط', transition: 'انتقالي' };
-let XP_OPEN = null;
-function xp_(id, btn, title, lines, src) {
-  const box = $('sXp');
-  const all = document.querySelectorAll('#sumCard [aria-expanded]');
-  if (XP_OPEN === id) { XP_OPEN = null; box.hidden = true; all.forEach(b => b.setAttribute('aria-expanded', 'false')); return; }
-  XP_OPEN = id; box.innerHTML = ''; box.hidden = false;
-  all.forEach(b => b.setAttribute('aria-expanded', String(b === btn)));
-  box.appendChild(el('b', '', title));
-  const body = lines.filter(Boolean);
-  if (body.length === 1) box.appendChild(el('div', '', body[0]));
-  else if (body.length) { const ul = el('ul'); body.forEach(t => ul.appendChild(el('li', '', t))); box.appendChild(ul); }
-  if (src) box.appendChild(el('small', '', 'المصدر: ' + src));
-}
-function renderSummary_(data, score, lvl) {
-  const upd = data.updated ? 'آخر تحديث: ' + data.updated + ' بتوقيت بغداد' : '';
-  const b = data.bias, ok = !!(b && b.available);
-  /* الانحياز */
-  const sb = $('sBias'); sb.className = 'sbias ' + (ok ? b.key : '');
-  $('sBiasArrow').textContent = ok ? b.arrow : '—'; $('sBiasWord').textContent = ok ? b.label : 'غير متاح';
-  $('sBiasWhy').textContent = ok ? ('السبب: ' + (b.why || '')) : ((b && b.why) || 'لا بيانات كافية لإصدار انحياز.');
-  sb.onclick = () => xp_('bias', sb, 'الانحياز الماكروي لـ ES: ' + (ok ? b.label : 'غير متاح'), ok ? [
-    'اتجاه الظروف الماكروية الأوسع (الفدرالي، العوائد، الدولار، الائتمان، السيولة، النفط، النظام الاقتصادي). ليس توقعاً لاتجاه اليوم وليس إشارة دخول.',
-    'الدرجة ' + b.score.toFixed(2) + ' من -1 (ضاغط) إلى +1 (داعم)، تغطية ' + Math.round(b.coverage * 100) + '%.',
-    ...b.components.slice(0, 5).map(c => c.arrow + ' ' + c.name + ': ' + c.note),
-    b.missing && b.missing.length ? 'غير متاح: ' + b.missing.join('، ') : '',
-    'الثقة (' + (data.confidence ? data.confidence.label : 'غير متاح') + '): مدى موثوقية التحليل الحالي من اكتمال البيانات وتناسق المصادر وفحوص السلامة. ' + ((data.confidence && data.confidence.why) || []).join('، '),
-    'الحدة (' + (data.intensity ? (data.intensity.word || '') + ' ' + clamp(data.intensity.score) + '/10' : 'غير متاح') + '): قوة تحرك العوامل الاتجاهية الآن بصرف النظر عن اتجاهها. تقدير تجريبي غير معاير.',
-    'الأوزان تقديرية غير معايَرة ولم تُختبر على بيانات تاريخية.'
-  ] : [(b && b.why) || 'لا توجد بيانات ماكروية كافية لإصدار انحياز. لا يُعرض رقم مخمَّن.'], 'FRED (الفائدة، الائتمان، السيولة) + Yahoo (العوائد، الدولار، النفط) · ' + upd);
-  const cf = data.confidence, it = data.intensity;
-  $('sConfWord').textContent = cf ? (cf.label || '') : 'غير متاح';
-  $('sIntWord').textContent = it ? (it.word || '') : 'غير متاح';
-  /* المخاطر */
-  $('sRiskNum').textContent = score + '/10'; $('sRiskWord').textContent = tr_(lvl.name);
-  const bar = $('sRiskBar').firstElementChild; bar.style.width = (score * 10) + '%'; bar.style.background = 'var(' + (score <= 3 ? '--ok' : score <= 6 ? '--warn' : score <= 8 ? '--hi' : '--crit') + ')';
-  $('sRisk').onclick = () => xp_('risk', $('sRisk'), 'مقياس المخاطر ' + score + '/10', ['مدى اضطراب السوق والأحداث القادمة، منفصل عن الاتجاه: قد يكون الخطر عالياً دون اتجاه واضح.', data.risk.main_reason ? ((data.risk.reason_label || 'السبب') + ': ' + data.risk.main_reason) : '', data.risk.advice || ''], 'مكوّنات المخاطر (17) · ' + upd);
-  /* النظام */
-  const rg = data.regime;
-  $('sRegimeW').textContent = rg ? (REG_AR[rg.key] || rg.key) : 'غير متاح'; $('sRegimeW').className = rg ? '' : 'unavail';
-  $('sRegime').onclick = () => xp_('reg', $('sRegime'), 'النظام الاقتصادي', [rg ? rg.text : 'ركائز التضخم وسوق العمل غير كافية لتحديد النظام.', 'وصف تقريبي من ركائز المنظومة وليس نموذجاً إحصائياً.'], 'FRED (التضخم، العمل، النمو) · ' + upd);
-  /* تأكيد الأسواق */
-  const cn = b && b.confirm;
-  $('sConfirmW').textContent = cn ? ({ yes: '✔ ', no: '✖ ', mixed: '◆ ', na: '' }[cn.key] || '') + cn.label : 'غير متاح'; $('sConfirmW').className = cn && cn.key !== 'na' ? '' : 'unavail';
-  $('sConfirm').onclick = () => xp_('cnf', $('sConfirm'), 'تأكيد الأسواق', [cn ? cn.why : 'غير متاح', 'يقارن اتجاه حركة الدولار والعوائد والنفط وغيرها الآن مع الانحياز الماكروي.'], 'Yahoo · ' + upd);
-  const as_ = data.actuals_status;
-  $('sSrc').textContent = upd + (as_ && as_.total ? ' · الأرقام الفعلية: ' + as_.verified + '/' + as_.total + ' وصلت' + (as_.awaiting ? '، ' + as_.awaiting + ' بالانتظار' : '') + (as_.failed ? '، ' + as_.failed + ' تعذّر' : '') + (as_.last_attempt ? ' (آخر محاولة ' + as_.last_attempt + ' بغداد)' : '') : '');
-  if (XP_OPEN) { const id = XP_OPEN; XP_OPEN = null; ({ bias: sb, risk: $('sRisk'), reg: $('sRegime'), cnf: $('sConfirm') })[id].click(); }
+/* ===== v0.19: التقرير الرئيسي، التحديث المهم، سجل الأحداث، النبض الموحّد، الجرس ووضع المراقبة ===== */
+const store_ = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : v; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+};
+const HM = iso => { try { const t = new Date(iso).getTime(); return isFinite(t) ? new Date(t + 3 * 3600000).toISOString().substr(11, 5) : ''; } catch (e) { return ''; } };
+const AGO = iso => { try { const t = new Date(iso).getTime(); return isFinite(t) ? ago_(Date.now() - t) : ''; } catch (e) { return ''; } };
+const KIND_AR = { release: 'صدور بيانات', late: 'وصول متأخر للرقم', revision: 'مراجعة بيانات', shock: 'حركة غير معتادة', move: 'حركة كبيرة' };
+const PRI = { release: 3, late: 3, revision: 3, shock: 2, move: 1 };
+const BCLS = { support: 'support', pressure: 'pressure', neutral: 'mixed' };
+const LCLS = { up: 'support', down: 'pressure', mixed: 'mixed' };
+const LAR = { up: '▲', down: '▼', mixed: '◆' };
+const tsOf = a => new Date(a.updated_at || a.t).getTime();
 
-  /* ماذا تغيّر منذ الفحص السابق */
-  const ch = data.changes || { has_prev: false, items: data.top3 || [] }, tl = $('top3List'); tl.innerHTML = '';
-  const chi = ch.items || [];
-  if (ch.has_prev && !chi.length) tl.appendChild(el('div', 'unavail', 'لا يوجد تغير مهم منذ الفحص السابق'));
-  else {
-    if (!ch.has_prev && chi.length) tl.appendChild(el('p', 'src', 'لا توجد لقطة سابقة للمقارنة، فهذه أبرز العوامل المؤثرة الآن.'));
-    if (!chi.length) tl.appendChild(el('div', 'unavail', 'لا تطورات جوهرية متاحة الآن'));
-    chi.forEach(x => {
-      const r = el('div', 't3 ' + (x.tone || 'flat'));
-      const h = el('div', 'h'); h.appendChild(el('span', 'ar', x.arrow || '◆')); h.appendChild(el('span', '', x.title)); r.appendChild(h);
-      r.appendChild(el('div', 'w', (x.why ? 'الأثر على ES: ' + x.why : '') + (x.src ? ' (المصدر: ' + x.src + ')' : '')));
-      tl.appendChild(r);
+/* ---- حالة القراءة: تُحفظ في المتصفح (لكل جهاز)؛ التحديث الذي يرتفع رقم مراجعته (rev) يعود غير مقروء ---- */
+const RS_KEY = 'mirsad-read-v1';
+let READ = (() => { try { const r = JSON.parse(localStorage.getItem(RS_KEY) || 'null'); return r && typeof r === 'object' ? r : null; } catch (e) { return null; } })();
+const saveRead_ = () => store_.set(RS_KEY, JSON.stringify(READ));
+function isRead_(a) { return !!READ && READ[a.id] !== undefined && READ[a.id] >= (a.rev || 0); }
+function markRead_(a) { READ = READ || {}; READ[a.id] = Math.max(READ[a.id] || 0, a.rev || 0); saveRead_(); }
+function seedRead_(alerts) {                       /* أول زيارة على هذا الجهاز: ما مضى عليه أكثر من 6 ساعات لا يُقدَّم كأنه جديد */
+  if (READ !== null) return;
+  READ = {}; const cut = Date.now() - 6 * 3600000;
+  alerts.forEach(a => { if (tsOf(a) < cut) READ[a.id] = a.rev || 0; });
+  saveRead_();
+}
+const alertsOf = d => ((d && d.alerts) || []).filter(a => a && a.id);
+function unread_(d) {
+  return alertsOf(d).filter(a => a.important !== false && !isRead_(a)).sort((x, y) => (PRI[y.kind] || 0) - (PRI[x.kind] || 0) || tsOf(y) - tsOf(x));
+}
+let UPD_CUR = null;
+
+function assessText_(a) {
+  const s = a.assessment;
+  if (!s) return (a.pattern || []).slice(0, 2).join('؛ ') || 'لم يُسجَّل تغيير في التقييم لهذا الحدث.';
+  const o = [];
+  if (s.changed) o.push('التقييم السابق لم يعد صالحًا — تغيّر الانحياز من ' + s.before + ' إلى ' + s.after + '.');
+  else if (s.after) o.push('الانحياز الماكروي بعد الحدث: ' + s.after + (s.before ? ' (قبله: ' + s.before + ')' : '') + '.');
+  else o.push('لا انحياز ماكروي متاح لقياس الأثر.');
+  if (s.text) o.push(s.text);
+  if (s.market) o.push(s.market);
+  return o.join(' ');
+}
+function numBoxes_(a, host) {
+  host.innerHTML = '';
+  const n = a.numbers; if (!n || !(n.actual || n.forecast || n.previous)) return;
+  [['الفعلي', n.actual, true], ['المتوقع', n.forecast], ['السابق', n.previous]].forEach(x => {
+    const b = el('div', 'nb' + (x[2] ? ' act' : '') + (x[2] && !x[1] ? ' miss' : '')); b.appendChild(el('small', '', x[0]));
+    b.appendChild(el('b', '', x[1] || (x[2] ? 'غير متاح' : '—'))); host.appendChild(b);
+  });
+  if (n.revised_from) host.appendChild(el('div', 'nb', 'كان الفعلي ' + n.revised_from));
+  if (n.prev_revised) host.appendChild(el('div', 'nb', 'السابق بعد المراجعة ' + n.prev_revised));
+}
+function srcLine_(a) {
+  return [a.source ? 'المصدر: ' + a.source : '', a.verification ? 'حالة التحقق: ' + a.verification : '', a.period ? 'الفترة: ' + a.period : ''].filter(Boolean).join(' · ');
+}
+
+function renderUpdate_(d) {
+  const un = unread_(d), card = $('updCard');
+  card.hidden = !un.length; UPD_CUR = un[0] || null;
+  if (!un.length) return;
+  const a = un[0], c = $('updCount');
+  c.hidden = un.length < 2; c.textContent = '+' + (un.length - 1) + ' غير مقروء';
+  $('updTitle').textContent = (a.icon ? a.icon + ' ' : '') + (a.what || a.title || 'تحديث');
+  $('updMeta').textContent = (KIND_AR[a.kind] || 'تحديث') + (a.rev > 0 ? ' · تحديث لاحق' : '') + ' · ' + HM(a.updated_at || a.t) + ' بتوقيت بغداد (' + AGO(a.updated_at || a.t) + ')';
+  const dl = $('updBody'); dl.innerHTML = '';
+  const add = (k, v) => { if (!v) return; const r = el('div'); r.appendChild(el('dt', '', k)); r.appendChild(el('dd', '', v)); dl.appendChild(r); };
+  add('ماذا حدث؟', a.what || a.title);
+  if (a.surprise) add('المفاجأة', a.surprise);
+  add('لماذا يهم ES؟', a.why);
+  add('ما الذي تغيّر في التقييم؟', assessText_(a));
+  numBoxes_(a, $('updNums')); $('updSrc').textContent = srcLine_(a);
+}
+
+/* ---- نافذة الحدث (يفتحها الإشعار برابط #e=<معرّف ثابت> ويفتحها السجل) ---- */
+function openEvent_(id) {
+  const d = LIVE, a = alertsOf(d).find(x => x.id === id), box = $('evBody'); box.innerHTML = '';
+  if (!a) {
+    box.appendChild(el('h3', '', 'الحدث غير موجود في السجل'));
+    box.appendChild(el('p', '', 'سجل الأحداث يحتفظ بآخر 72 ساعة فقط؛ هذا الحدث أقدم من ذلك أو لم يُسجَّل.'));
+  } else {
+    markRead_(a);
+    box.appendChild(el('h3', '', (a.icon ? a.icon + ' ' : '') + (a.what || a.title)));
+    box.appendChild(el('div', 'um', (KIND_AR[a.kind] || '') + ' · أُرسل ' + HM(a.t) + ' بتوقيت بغداد (' + AGO(a.t) + ')'));
+    if (Date.now() - new Date(a.t).getTime() > 3600000 || (a.updates || []).length) {
+      const o = el('div', 'evold');
+      o.appendChild(document.createTextNode('هذا تنبيه أُرسل الساعة ' + HM(a.t) + ' (' + AGO(a.t) + ').' + ((a.updates || []).length ? ' ثم حدث بعده ما يلي:' : ' لا تحديث لاحق مسجَّل عليه.')));
+      if ((a.updates || []).length) { const ul = el('ul'); a.updates.forEach(u => ul.appendChild(el('li', '', HM(u.t) + ' — ' + u.text))); o.appendChild(ul); }
+      box.appendChild(o);
+    }
+    const dl = el('dl', 'ev-dl'); const add = (k, v) => { if (!v) return; const r = el('div'); r.appendChild(el('dt', '', k)); r.appendChild(el('dd', '', v)); dl.appendChild(r); };
+    add('ماذا حدث؟', a.what); add('المفاجأة', a.surprise); add('لماذا يهم ES؟', a.why); add('ما الذي تغيّر في التقييم؟', assessText_(a));
+    if (a.reaction !== undefined && a.reaction !== null) add('ردّ فعل ES منذ الصدور', typeof a.reaction === 'object' ? JSON.stringify(a.reaction) : (a.reaction > 0 ? '+' : '') + a.reaction + '%');
+    box.appendChild(dl);
+    const nums = el('div', 'unums'); numBoxes_(a, nums); box.appendChild(nums);
+    const sl = srcLine_(a); if (sl) box.appendChild(el('div', 'usrc', sl));
+    if ((a.rows || []).length) {
+      const w = el('div', 'tw'), t = document.createElement('table'); t.className = 'ntab';
+      const hd = document.createElement('tr'); ['العامل', 'ساعة', '3 ساعات'].forEach(x => hd.appendChild(el('th', '', x))); t.appendChild(hd);
+      a.rows.forEach(r => { const tr = document.createElement('tr'); tr.appendChild(el('td', '', r.name + (r.lead ? ' ◀' : ''))); tr.appendChild(el('td', 'n', r.c60)); tr.appendChild(el('td', 'n', r.c180)); t.appendChild(tr); });
+      w.appendChild(t); box.appendChild(w);
+    }
+    [['تأكيد الزخم والحجم', a.confirm], ['القراءة (من ترابط الحركة، وليست تأكيداً للسبب)', a.pattern], ['عناوين حديثة قد تكون ذات صلة', a.headlines]].forEach(([h, arr]) => {
+      if (!(arr || []).length) return; box.appendChild(el('h4', '', h)); const ul = el('ul', 'play'); arr.forEach(x => ul.appendChild(el('li', '', x))); box.appendChild(ul);
     });
   }
-  /* نبض الأسواق (8 رموز) */
-  const pg = $('pulse8'); pg.innerHTML = '';
-  (data.pulse8 || []).forEach(x => {
-    const c = el('div', 'pc8 ' + (x.available ? (x.tone === 'bull' ? 'bull' : x.tone === 'bear' ? 'bear' : '') : 'na'));
-    c.appendChild(el('b', '', x.sym));
-    if (!x.available) { c.appendChild(el('div', 'v', 'غير متاح')); }
-    else {
-      const sg = x.chg > 0 ? '+' : '';
-      const v = el('div', 'v', x.arrow + ' ' + sg + x.chg + (x.unit === 'bp' ? 'bp' : '%')); c.appendChild(v);
-      c.appendChild(el('small', '', ({ yes: '✔ يؤكد', no: '✖ يعارض', flat: '◆ محايد', na: '— غير متاح' })[x.confirm] || ''));
-      c.appendChild(el('small', '', x.time || ''));
-    }
-    pg.appendChild(c);
-  });
-  $('pulse8Note').textContent = 'الأخضر = داعم لـ ES والأحمر = ضاغط بحسب الأثر المعتاد (ارتفاع الدولار والعوائد وVIX والنفط ضغط). الوقت = وقت آخر بيانات (Yahoo متأخر 15–30 دقيقة، 2Y من FRED يومي). «يؤكد/يعارض» مقارنة باتجاه الانحياز.';
-  /* أقرب حدث */
-  const ne = data.next_event, nb = $('nextEv'); nb.innerHTML = ''; nb.classList.remove('open');
-  if (!ne) { nb.appendChild(el('div', 'unavail', 'لا حدث عالي التأثير قادم هذا الأسبوع (أو لم يصل التقويم)')); }
-  else {
-    nb.appendChild(el('div', 'nm', (ne.high ? '★ ' : '') + ne.name));
-    const m = (ne.day ? ne.day + ' ' : '') + ne.time + (ne.in_min != null && ne.in_min >= 0 ? ' — بعد ' + (ne.in_min < 60 ? ne.in_min + ' دقيقة' : Math.floor(ne.in_min / 60) + ' ساعة') : '');
-    nb.appendChild(el('div', 'mt', m + ' (توقيت بغداد) · المتوقع ' + (ne.forecast || '—') + ' · السابق ' + (ne.previous || '—')));
-    nb.appendChild(el('div', 'ex', [ne.what, ne.expect].filter(Boolean).join(' — ') + ' (المصدر: تقويم Forex Factory)'));
-    nb.onclick = () => nb.classList.toggle('open');
-  }
+  const dlg = $('evDlg'); if (!dlg.open) { try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); } }
+  if (d) { renderUpdate_(d); renderLog_(d); }
 }
+function closeEvent_() {
+  const dlg = $('evDlg'); try { dlg.close(); } catch (e) { dlg.removeAttribute('open'); }
+  if (/#e=/.test(location.hash)) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+}
+function handleHash_() {
+  const m = /#e=([^&]+)/.exec(location.hash); if (!m || !LIVE) return;
+  let id = ''; try { id = decodeURIComponent(m[1]); } catch (e) { id = m[1]; }
+  showTab('today'); openEvent_(id);
+}
+
+function renderLog_(d) {
+  const L = alertsOf(d).sort((x, y) => tsOf(y) - tsOf(x)), box = $('logList'); box.innerHTML = '';
+  $('logNote').textContent = 'كل ما أُرسل إليك على تيليجرام يظهر هنا لمدة 72 ساعة. الإشعار يفتح الحدث نفسه برابطه الثابت.' + (L.length ? '' : ' لا أحداث في السجل الآن.');
+  L.forEach(a => {
+    const b = el('button', 'lrow' + (!isRead_(a) ? ' unread' : '')); b.type = 'button';
+    b.appendChild(el('span', 'dot')); b.appendChild(el('span', 'tm', HM(a.updated_at || a.t)));
+    b.appendChild(el('span', 'tt', (a.icon ? a.icon + ' ' : '') + (a.what || a.title)));
+    b.appendChild(el('span', 'kd', (KIND_AR[a.kind] || '') + (a.rev > 0 ? ' · محدَّث' : '')));
+    b.onclick = () => openEvent_(a.id); box.appendChild(b);
+  });
+  const ch = (d.changes && d.changes.items) || [], cl = $('chgList'); cl.innerHTML = '';
+  $('chgDet').hidden = !ch.length;
+  ch.forEach(x => { const r = el('div', 'mrow'); r.appendChild(el('span', 'tm', x.arrow || '◆')); r.appendChild(el('span', '', x.title + (x.why ? ' — ' + x.why : ''))); cl.appendChild(r); });
+}
+
+/* ---- التقرير الرئيسي ---- */
+const CONF_N = { 'منخفضة': 1, 'متوسطة': 2, 'مرتفعة': 3 };
+function staleNow_() {
+  const pa = LIVE && LIVE.published_at ? new Date(LIVE.published_at).getTime() : NaN, wd = new Date().getUTCDay();
+  return isFinite(pa) && wd >= 1 && wd <= 5 && Date.now() - pa > 90 * 60000 ? pa : 0;
+}
+function invalidReason_(d) {
+  const v = d && d.verdict; if (!v) return 'لا تقييم رئيسي في هذه اللقطة';
+  if (!v.available) return v.reason || 'البيانات غير كافية';
+  const pa = staleNow_(); if (pa) return 'البيانات قديمة: آخر نشر ' + ago_(Date.now() - pa);
+  const sf = d.safety; if (sf && (sf.state === 'incomplete' || sf.state === 'critical')) return 'التقييم غير مكتمل بحسب فحوص السلامة';
+  return '';
+}
+function renderMain_(d, score, lvl) {
+  const v = d.verdict, card = $('mainCard'), b = d.bias || {};
+  if (!v) {
+    card.dataset.key = 'na'; $('mAdvice').textContent = 'النصيحة الآن: غير متاح — لا تقييم رئيسي في هذه اللقطة.';
+    ['mLean', 'mBias'].forEach(i => { $(i).className = 'cell na'; }); return;
+  }
+  const inv = invalidReason_(d), key = inv ? 'na' : (BCLS[v.bias.key] || 'mixed');
+  card.dataset.key = key;
+  $('mAdvice').textContent = v.advice;
+  const ch = $('mChange');
+  if (inv) { ch.hidden = false; ch.className = 'mchange inv'; ch.textContent = 'التقييم غير صالح الآن: ' + inv; }
+  else if (v.change && v.change.text) { ch.hidden = false; ch.className = 'mchange'; ch.textContent = v.change.text + ' · ' + HM(v.change.at); }
+  else ch.hidden = true;
+  const lk = v.lean.key; $('mLean').className = 'cell ' + (LCLS[lk] || 'na'); $('mLeanAr').textContent = LAR[lk] || '◆'; $('mLeanW').textContent = v.lean.label; $('mLeanBasis').textContent = v.lean.basis || '';
+  const bk = v.available ? (BCLS[v.bias.key] || 'mixed') : 'na';
+  $('mBias').className = 'cell ' + bk; $('mBiasAr').textContent = v.available ? (v.bias.arrow || '◆') : '—'; $('mBiasW').textContent = v.bias.label || 'غير متاح';
+  $('mBiasSub').textContent = v.available ? 'الخلفية الماكروية (الفدرالي، العوائد، الدولار، الائتمان، السيولة، الإصدارات)' : '';
+  const rel = $('mRel'), rt = [v.relation, v.news_relation].filter(Boolean).join(' '); rel.hidden = !rt; rel.textContent = rt;
+  $('mConfW').textContent = v.confidence || 'غير متاح';
+  Array.from($('mConfBar').children).forEach((i, n) => i.className = n < (CONF_N[v.confidence] || 0) ? 'f' : '');
+  $('mIntW').textContent = v.intensity ? v.intensity.word : 'غير متاح';
+  $('mIntBar').firstElementChild.style.width = (v.intensity ? Math.max(4, Math.min(100, (Number(v.intensity.score) || 0) * 10)) : 0) + '%';
+  $('mReason').hidden = !v.available; $('mReason').textContent = v.available ? 'السبب الرئيسي: ' + v.reason : '';
+  const dr = $('mDrivers'); dr.innerHTML = '';
+  (v.drivers || []).slice(0, 3).forEach(x => { const li = el('li', x.tone); li.appendChild(el('span', 'a', x.arrow || '◆')); li.appendChild(el('span', '', x.name + ' — ' + x.note)); dr.appendChild(li); });
+  const fill = (id, arr) => { const ul = $(id); ul.innerHTML = ''; (arr || []).forEach(t => ul.appendChild(el('li', '', t))); if (!(arr || []).length) ul.appendChild(el('li', '', '—')); };
+  fill('mConfirms', v.confirms); fill('mInvalid', v.invalidates);
+  const nw = $('mNews'), ns = v.news || { state: 'none', text: '' };
+  nw.className = 'mnews ' + ns.state; nw.textContent = ns.text + (ns.state === 'integrated' && v.market && v.market.label ? ' — ' + v.market.label : (ns.state === 'pending' && v.market && v.market.key === 'na' ? '' : ''));
+  const tg = $('mTags'); tg.innerHTML = '';
+  const tag = (k, t) => { const s = el('span'); s.appendChild(document.createTextNode(k + ': ')); s.appendChild(el('b', '', t)); tg.appendChild(s); };
+  tag('المخاطر', score + '/10 (' + tr_(lvl.name).replace(/^مخاطرة\s*/, '') + ')');
+  tag('النظام', d.regime ? (REG_AR[d.regime.key] || d.regime.key) : 'غير متاح');
+  tag('تأكيد الأسواق', b.confirm ? b.confirm.label : 'غير متاح');
+  $('mStamp').textContent = 'آخر تقييم ناجح: ' + (v.last_ok_at_ar || 'لا يوجد') + ' بتوقيت بغداد' + (v.last_ok_at ? ' (' + AGO(v.last_ok_at) + ')' : '') + ' · آخر نشر للبيانات: ' + (d.updated || '—');
+  const hb = $('mHowBody'); hb.innerHTML = '';
+  const sec = (h, arr) => { arr = (arr || []).filter(Boolean); if (!arr.length) return; hb.appendChild(el('h4', '', h)); const ul = el('ul'); arr.forEach(t => ul.appendChild(el('li', '', t))); hb.appendChild(ul); };
+  sec('مكوّنات الانحياز الماكروي', (b.components || []).map(c => c.arrow + ' ' + c.name + ': ' + c.note + (c.contribution !== undefined ? ' (مساهمة ' + (c.contribution > 0 ? '+' : '') + Number(c.contribution).toFixed(2) + ')' : '')));
+  const rl = d.releases;
+  if (rl) sec('الإصدارات الموثّقة داخل التقييم', (rl.groups || []).map(g => g.lead + ': ' + g.initial + (g.revision ? ' · ' + g.revision : '') + ' [' + g.mode + ']').concat([rl.market ? 'تأكيد السوق: ' + rl.market.label : '', (rl.fed_discount ? 'خُصم من وزن ميل الفدرالي ' + rl.fed_discount + ' لتفادي العدّ المزدوج' : '')]));
+  sec('ما لم يصل بعد', (rl && rl.pending || []).map(p => p.name + ' — ' + (p.unsupported ? 'غير مدعوم آلياً (لا مصدر مجاني)' : p.status_ar)).concat(b.missing && b.missing.length ? ['غير متاح: ' + b.missing.join('، ')] : []));
+  sec('شرح المخاطر والنظام والأسواق', [ 'المخاطر ' + score + '/10: ' + (d.risk.main_reason || ''), d.regime ? 'النظام: ' + d.regime.text : '', b.confirm ? 'تأكيد الأسواق: ' + b.confirm.why : '' ]);
+  sec('حدود التقييم', [v.method, 'تغطية البيانات للانحياز ' + (b.coverage !== undefined ? Math.round(b.coverage * 100) + '%' : 'غير متاح'), 'الأوزان تقديرية غير معايَرة تاريخياً.']);
+}
+
+/* ---- الخبر القادم وباقي الأخبار ---- */
+let NE_AT = null;
+function remain_(ms) {
+  if (ms < 0) return 'صدر الآن';
+  const m = Math.round(ms / 60000); if (m < 1) return 'بعد أقل من دقيقة'; if (m < 60) return 'بعد ' + m + ' دقيقة';
+  const h = Math.floor(m / 60), r = m % 60; if (h < 24) return 'بعد ' + h + ' ساعة' + (r ? ' و' + r + ' دقيقة' : '');
+  return 'بعد ' + Math.floor(h / 24) + ' يوم' + (h % 24 ? ' و' + (h % 24) + ' ساعة' : '');
+}
+function tickNext_() {
+  const n = document.getElementById('neRem'); if (!n || !NE_AT) return;
+  n.textContent = remain_(NE_AT - Date.now());
+}
+function renderNext_(d) {
+  const ne = d.next_event, nb = $('nextEv'); nb.innerHTML = ''; NE_AT = null;
+  if (!ne) nb.appendChild(el('div', 'unavail', 'لا حدث عالي التأثير قادم هذا الأسبوع (أو لم يصل التقويم)'));
+  else {
+    const hi = ne.high || ne.importance === 'High';
+    nb.appendChild(el('div', 'nm', (hi ? '★ ' : '') + ne.name));
+    const at = ne.at ? new Date(ne.at).getTime() : NaN; NE_AT = isFinite(at) ? at : null;
+    const line = el('div', 'mt'); line.appendChild(document.createTextNode((ne.day ? ne.day + ' ' : '') + ne.time + ' بتوقيت بغداد · '));
+    const rm = el('span', 'rm', NE_AT ? remain_(NE_AT - Date.now()) : (ne.in_min != null && ne.in_min >= 0 ? (ne.in_min < 60 ? 'بعد ' + ne.in_min + ' دقيقة' : 'بعد ' + Math.floor(ne.in_min / 60) + ' ساعة') : '')); rm.id = 'neRem'; line.appendChild(rm);
+    line.appendChild(el('span', 'imp' + (hi ? '' : ' mid'), hi ? 'الأهمية: عالية' : 'الأهمية: متوسطة')); nb.appendChild(line);
+    nb.appendChild(el('div', 'mt', 'المتوقع ' + (ne.forecast || '—') + ' · السابق ' + (ne.previous || '—')));
+    if (ne.what) nb.appendChild(el('div', 'mt', ne.what));
+    if ((ne.scenarios || []).length) { const sc = el('div', 'scch'); ne.scenarios.forEach(s => sc.appendChild(el('span', s.es || 'neu', s.label + ' ← ' + ({ bear: 'ضغط', bull: 'دعم', neu: 'أثر محدود' }[s.es] || '')))); nb.appendChild(sc); }
+  }
+  const rest = [].concat(d.events || [], d.events_next || []).filter(e => !(ne && e.name === ne.name && e.time === ne.time));
+  const ml = $('moreNewsL'); ml.innerHTML = ''; $('moreNews').hidden = !rest.length;
+  $('moreNewsS').textContent = 'باقي الأخبار (' + rest.length + ')';
+  rest.forEach(e => { const r = el('div', 'mrow'); r.appendChild(el('span', 'tm', (e.day && e.day !== 'اليوم' ? e.day + ' ' : '') + e.time)); r.appendChild(el('span', '', (e.high ? '★ ' : '') + e.name)); ml.appendChild(r); });
+}
+
+/* ---- نبض الأسواق: بطاقة واحدة لكل مؤشر ---- */
+const fmtN = (v, u) => { const n = Number(v); if (!isFinite(n)) return '—'; return n.toLocaleString('en-US', { maximumFractionDigits: 2 }) + (u === 'bp' ? '%' : ''); };
+function pulseCard_(x, withPanel) {
+  const c = el('div', 'pc ' + (x.available ? (x.color === 'calm' ? '' : x.color) : 'na') + (x.new ? ' isnew' : ''));
+  const b = el('button', 'pcb'); b.type = 'button'; b.setAttribute('aria-expanded', 'false');
+  b.appendChild(el('span', 'n', x.name || x.sym));
+  if (!x.available) { b.appendChild(el('span', 'p', 'غير متاح')); b.appendChild(el('span', 'e', 'لا قراءة موثوقة الآن')); }
+  else {
+    b.appendChild(el('span', 'p', fmtN(x.last, x.unit)));
+    const sg = x.chg > 0 ? '+' : '';
+    const cc = el('span', 'c', x.arrow + ' ' + sg + x.chg + (x.unit === 'bp' ? 'bp' : '%') + ' '); cc.appendChild(el('small', '', x.window || '')); b.appendChild(cc);
+    b.appendChild(el('span', 'e', x.effect));
+    if (x.new) b.appendChild(el('span', 'nw', 'تغيّر جديد'));
+  }
+  c.appendChild(b);
+  if (withPanel) {
+    const p = el('div', 'pcd'); p.hidden = true;
+    const row = (k, v) => { if (!v) return; const r = el('div'); r.appendChild(el('b', '', k + ': ')); r.appendChild(document.createTextNode(v)); p.appendChild(r); };
+    if (x.available) {
+      row('المصدر', x.src); row('وقت القراءة', x.time ? x.time + (x.src === 'Yahoo' ? ' بتوقيت بغداد' : '') : '');
+      row('المقارنة الزمنية', x.windows ? ['15 د: ' + (x.windows.c15 || '—'), '60 د: ' + (x.windows.c60 || '—'), '180 د: ' + (x.windows.c180 || '—')].join(' · ') : 'منذ إغلاق أمس فقط (لا قياس لحظي لهذا المؤشر الآن)');
+      row('تأكيد بالزخم والحجم', x.windows ? (x.windows.confirmed ? 'مؤكَّدة' : 'غير مؤكَّدة' + (x.windows.why ? ' — ' + x.windows.why : '')) : '');
+      row('أثره على ES', x.effect); row('الاتفاق مع الانحياز', ({ yes: 'يؤكد', no: 'يعارض', flat: 'محايد', na: 'غير متاح', daily: 'قراءة يومية: ليست تأكيداً لحظياً' })[x.confirm] || '');
+    } else row('السبب', 'لم تصل قراءة موثوقة من المصدر');
+    c.appendChild(p);
+    b.onclick = () => { const o = p.hidden; p.hidden = !o; b.setAttribute('aria-expanded', String(o)); };
+  }
+  return c;
+}
+function renderPulse_(d) {
+  const box = $('pcards'); box.innerHTML = '';
+  (d.pulse8 || []).forEach(x => box.appendChild(pulseCard_(x, true)));
+  $('pcNote').textContent = 'لون الإطار = أثر المؤشر على ES (أخضر داعم، أحمر ضاغط، كهرماني مختلط أو مشروط، رمادي غير متاح، بلا لون = حركة هادئة). السهم = حركة المؤشر نفسه. ارتفاع الدولار أو العوائد ليس أخضر لأنه صاعد. سبب حركة النفط تفسير مرجَّح لا سبب مثبت.';
+}
+
+/* ---- جدول الأخبار (الكمبيوتر) ---- */
+function renderNewsTable_(d) {
+  const tb = $('ntbody'); tb.innerHTML = '';
+  const flat = e => (e.items && e.items.length) ? e.items.map(i => Object.assign({ day: e.day }, i)) : [e];
+  const up = [].concat(d.events || [], d.events_next || []).flatMap(flat), pa = (d.events_past || []).flatMap(flat);
+  const sect = (t, arr) => {
+    if (!arr.length) return; const g = document.createElement('tr'); g.className = 'grp'; const td = el('td', '', t); td.colSpan = 8; g.appendChild(td); tb.appendChild(g);
+    arr.slice(0, 12).forEach(i => {
+      const r = document.createElement('tr'), hasA = !!i.actual;
+      r.appendChild(el('td', 'n', (i.day && i.day !== 'اليوم' ? i.day + ' ' : '') + (i.time || '')));
+      r.appendChild(el('td', '', (i.high ? '★ ' : '') + (i.name || i.title)));
+      const vd = i.verdict, cls = vd ? (vd.es === 'bull' ? ' bull' : vd.es === 'bear' ? ' bear' : '') : '';
+      const ac = el('td', hasA ? 'n act' + cls : 'miss', hasA ? i.actual : (i.status === 'upcoming' || t === 'قادمة' ? '—' : (i.unavailable ? 'غير متوفر' : i.status === 'needs_check' ? 'يحتاج تحققاً' : i.status === 'failed' ? 'تعذّر الجلب' : 'بانتظار الرقم'))); r.appendChild(ac);
+      r.appendChild(el('td', 'n', i.forecast || '—')); r.appendChild(el('td', 'n', i.previous || '—'));
+      r.appendChild(el('td', 'n', i.revision || (i.revised_from ? 'من ' + i.revised_from : '') || '—'));
+      r.appendChild(el('td', 'n', i.surprise_num || (hasA && i.surprise ? i.surprise : '—')));
+      r.appendChild(el('td', '', hasA ? ([i.source, i.verified === false ? '' : (i.trust === 'official' ? '✔ رسمي' : '✔ ثانوي')].filter(Boolean).join(' · ') || '—') : '—'));
+      tb.appendChild(r);
+    });
+  };
+  sect('قادمة', up); sect('صدرت', pa);
+  if (!up.length && !pa.length) { const r = document.createElement('tr'); const td = el('td', 'miss', 'لا أخبار مهمة'); td.colSpan = 8; r.appendChild(td); tb.appendChild(r); }
+}
+
+/* ---- الجرس (اختياري، على الكمبيوتر) ---- */
+let BELL = store_.get('mirsad-bell', '0') === '1', AC = null, BELL_FIRST = true;
+const BELL_LOG = []; window.__bellLog = BELL_LOG;
+let BELLED = (() => { try { return new Set(JSON.parse(store_.get('mirsad-belled', '[]'))); } catch (e) { return new Set(); } })();
+const saveBelled_ = () => store_.set('mirsad-belled', JSON.stringify(Array.from(BELLED).slice(-300)));
+function beep_(kind) {
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.state === 'suspended') AC.resume();
+    const t = AC.currentTime, seq = kind === 'warn' ? [[660, 0], [440, .2]] : [[880, 0], [1175, .17]];
+    seq.forEach(([f, dl]) => { const o = AC.createOscillator(), g = AC.createGain(); o.type = 'sine'; o.frequency.value = f; g.gain.setValueAtTime(0.0001, t + dl); g.gain.exponentialRampToValueAtTime(0.25, t + dl + .02); g.gain.exponentialRampToValueAtTime(0.0001, t + dl + .4); o.connect(g); g.connect(AC.destination); o.start(t + dl); o.stop(t + dl + .45); });
+    return true;
+  } catch (e) { return false; }
+}
+function ring_(kind, why) { BELL_LOG.push({ kind, why, at: Date.now() }); beep_(kind === 'outage' ? 'warn' : 'ok'); }
+function bellUi_() {
+  $('bellState').textContent = BELL ? 'مفعّل' : 'مكتوم'; $('bellState').className = 'bellst' + (BELL ? ' on' : '');
+  $('bellToggle').textContent = BELL ? 'كتم الجرس' : 'تشغيل الجرس';
+  const bb = $('bellBtn'); if (bb) { bb.textContent = BELL ? '🔔' : '🔕'; bb.setAttribute('aria-pressed', String(BELL)); bb.setAttribute('aria-label', BELL ? 'الجرس مفعّل' : 'الجرس مكتوم'); }
+}
+function checkBell_(d) {
+  const keys = [];
+  alertsOf(d).forEach(a => { if (a.important !== false && !isRead_(a)) keys.push(['alert', 'a|' + a.id + '|' + (a.rev || 0), a.what || a.title]); });
+  const v = d.verdict; if (v && v.change && v.change.at) keys.push(['change', 'c|' + v.change.at, v.change.text]);
+  const sf = d.safety; if (sf && (sf.state === 'critical' || sf.state === 'major')) keys.push(['outage', 'o|safety|' + sf.state, 'تحذير بيانات: ' + (sf.label || sf.state)]);
+  const stale = staleNow_(); if (stale) keys.push(['outage', 'o|stale', 'البيانات قديمة']);
+  const live = new Set(keys.map(k => k[1]));
+  Array.from(BELLED).forEach(k => { if (k.startsWith('o|') && !live.has(k) && !k.startsWith('o|fail')) BELLED.delete(k); });   /* تعافٍ: يُسمح بتنبيه العطل القادم */
+  let fired = null;
+  keys.forEach(([kind, key, why]) => { if (BELLED.has(key)) return; BELLED.add(key); if (!BELL_FIRST && BELL && !fired) fired = [kind, why]; });
+  if (fired) ring_(fired[0], fired[1]);
+  BELL_FIRST = false; saveBelled_();
+}
+function bellOutage_(why) {
+  const key = 'o|fail|' + why; if (BELLED.has(key)) return; BELLED.add(key); saveBelled_();
+  if (BELL && !BELL_FIRST) ring_('outage', 'تعذّر التحديث');
+}
+function bellRecovered_() { let ch = false; Array.from(BELLED).forEach(k => { if (k.startsWith('o|fail')) { BELLED.delete(k); ch = true; } }); if (ch) saveBelled_(); }
+
+/* ---- تلوين الخلفية ووضع المراقبة ---- */
+function applyTint_() {
+  const on = store_.get('mirsad-tint', '0') === '1', d = LIVE; const cl = document.body.classList;
+  ['tint-support', 'tint-pressure', 'tint-mixed', 'tint-invalid'].forEach(c => cl.remove(c));
+  $('tintOpt').checked = on;
+  if (!on || !d) return;
+  const inv = invalidReason_(d), v = d.verdict;
+  cl.add(inv ? 'tint-invalid' : 'tint-' + (v && v.bias ? (BCLS[v.bias.key] || 'mixed') : 'invalid'));
+}
+let WATCH = false;
+function renderWatch_() {
+  if (!WATCH || !LIVE) return;
+  const d = LIVE, v = d.verdict || {}, inv = invalidReason_(d), w = $('watchView');
+  w.dataset.key = inv ? 'na' : (v.bias ? (BCLS[v.bias.key] || 'mixed') : 'na');
+  $('wBias').textContent = (inv ? '— ' : (v.bias.arrow || '') + ' ') + (inv ? 'التقييم غير صالح' : v.bias.label);
+  $('wAdv').textContent = inv ? inv : v.advice;
+  $('wLean').textContent = 'الميل: ' + (v.lean ? v.lean.label : 'غير متاح'); $('wConf').textContent = 'الثقة: ' + (v.confidence || 'غير متاح'); $('wInt').textContent = 'الحدة: ' + (v.intensity ? v.intensity.word : 'غير متاح');
+  const u = unread_(d)[0]; $('wUpd').textContent = u ? 'تحديث مهم: ' + (u.what || u.title) + ' (' + HM(u.updated_at || u.t) + ')' : '';
+  $('wNext').textContent = d.next_event ? 'التالي: ' + d.next_event.name + ' — ' + (NE_AT ? remain_(NE_AT - Date.now()) : d.next_event.time) : 'لا حدث عالي التأثير قادم';
+  const pl = $('wPul'); pl.innerHTML = ''; (d.pulse8 || []).filter(x => x.available).slice(0, 4).forEach(x => pl.appendChild(pulseCard_(x, false)));
+  $('wStamp').textContent = 'آخر تقييم ناجح ' + (v.last_ok_at_ar || '—') + ' بتوقيت بغداد · ' + (FAIL ? '⚠ آخر محاولة تحديث فشلت' : 'متصل');
+}
+function setWatch_(on) {
+  WATCH = on; $('watchView').hidden = !on; document.body.style.overflow = on ? 'hidden' : '';
+  if (on) renderWatch_(); else if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) {} }
+}
+$('watchBtn').onclick = () => setWatch_(true);
+$('wExit').onclick = () => setWatch_(false);
+$('wFull').onclick = () => { try { if (document.fullscreenElement) document.exitFullscreen(); else $('watchView').requestFullscreen(); } catch (e) {} };
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && WATCH && !document.fullscreenElement) setWatch_(false); });
+$('tintOpt').onchange = () => { store_.set('mirsad-tint', $('tintOpt').checked ? '1' : '0'); applyTint_(); };
+$('bellToggle').onclick = () => { BELL = !BELL; store_.set('mirsad-bell', BELL ? '1' : '0'); if (BELL) beep_('ok'); bellUi_(); };
+$('bellBtn').onclick = () => $('bellToggle').click();
+$('bellTest').onclick = () => { const ok = beep_('ok'); $('bellTest').textContent = ok ? '♪ سُمع الصوت؟' : 'الصوت غير مدعوم في هذا المتصفح'; setTimeout(() => { $('bellTest').textContent = 'اختبار الصوت'; }, 2500); };
+$('watchBtn2').onclick = () => setWatch_(true);
+$('evClose').onclick = closeEvent_;
+$('evDlg').addEventListener('cancel', () => { closeEvent_(); });
+$('updRead').onclick = () => { if (!UPD_CUR) return; markRead_(UPD_CUR); renderUpdate_(LIVE); renderLog_(LIVE); renderWatch_(); };
+$('updOpen').onclick = () => { if (UPD_CUR) openEvent_(UPD_CUR.id); };
+$('toDetails').onclick = () => { showTab('details'); window.scrollTo({ top: 0 }); };
+window.addEventListener('hashchange', handleHash_);
+setInterval(() => { tickNext_(); renderWatch_(); }, 30000);
+bellUi_();
 
 function renderWeek_(data) {
   const wl = $('weekList'); wl.innerHTML = '';
@@ -1449,7 +1847,7 @@ function renderWeek_(data) {
       const t = el('div', 't'); t.appendChild(el('span', 'tm', i.time)); t.appendChild(document.createTextNode(i.name)); b.appendChild(t);
       const nums = ['المتوقع ' + (i.forecast || '—'), 'السابق ' + (i.previous || '—')]; if (i.actual) nums.unshift('الفعلي ' + i.actual);
       b.appendChild(el('div', 'n', nums.join(' | ')));
-      b.appendChild(el('div', 'st', i.released ? (i.actual ? ('صدر' + (i.surprise ? ' — ' + i.surprise : '') + (i.effect ? ' — ' + i.effect : '') + (i.status === 'revised' ? ' — ↻ عُدّلت القيمة' : '')) : 'صدر — ' + (i.status_ar || 'الرقم الفعلي غير متوفر') + (i.note ? ': ' + i.note : '') + (i.last_attempt ? ' (آخر محاولة ' + i.last_attempt + ' بغداد)' : '')) : 'لم يصدر بعد'));
+      b.appendChild(el('div', 'st', i.released ? (i.actual ? ('صدر' + (i.surprise ? ' — ' + i.surprise : '') + (i.effect ? ' — ' + i.effect : '') + (i.status === 'revised' ? ' — ↻ عُدّلت القيمة' : '')) : 'صدر — ' + (i.unavailable ? 'Actual غير متوفر من المصدر الحالي' : (i.status_ar || 'الرقم الفعلي غير متوفر')) + (i.last_attempt && !i.unavailable ? ' (آخر محاولة ' + i.last_attempt + ' بغداد)' : '')) : 'لم يصدر بعد'));
       wl.appendChild(b);
     });
   });
@@ -1458,9 +1856,9 @@ function renderWeek_(data) {
   const g = data.geo || [], gc = $('weekGeoCard'), gl = $('weekGeo'); gl.innerHTML = ''; gc.hidden = !g.length;
   g.forEach(x => { const b = el('div', 'wkit'); b.appendChild(el('div', 't', x.title)); b.appendChild(el('div', 'n', (x.regions || []).join('، ') + (x.sources ? ' — ' + x.sources + ' مصادر' : '') + (x.deesc ? ' — مؤشرات تهدئة' : ''))); gl.appendChild(b); });
 }
-const SECS = [['النظام الاقتصادي السائد', 'macro', 'fedCard'], ['الفيدرالي والفائدة', 'macro', 'fedCard'], ['التضخم والنمو والعمل', 'macro', 'pillars'], ['العوائد والسيولة', 'today', 'drvCard'],
-  ['الجيوسياسة والطاقة', 'week', 'weekGeoCard'], ['الأسواق المتقاطعة', 'details', 'infoCard'], ['نبض الأسواق (8 رموز)', 'today', 'pulse8Card'], ['الأخبار الاقتصادية', 'week', 'weekNewsCard'], ['الشركات الثقيلة والأرباح', 'week', 'weekEarnCard'],
-  ['سجل الأحداث والتغيرات', 'today', 'relCard'], ['صحة البيانات والمحرك', 'settings', 'healthCard']];
+const SECS = [['النظام الاقتصادي السائد', 'macro', 'fedCard'], ['الفيدرالي والفائدة', 'macro', 'fedCard'], ['التضخم والنمو والعمل', 'macro', 'pillars'], ['العوائد والسيولة', 'details', 'drvCard'],
+  ['الجيوسياسة والطاقة', 'week', 'weekGeoCard'], ['الأسواق المتقاطعة', 'details', 'infoCard'], ['نبض الأسواق', 'today', 'pulseSec'], ['الأخبار الاقتصادية', 'week', 'weekNewsCard'], ['الشركات الثقيلة والأرباح', 'week', 'weekEarnCard'],
+  ['سجل الأحداث والتغيرات', 'details', 'relCard'], ['صحة البيانات والمحرك', 'settings', 'healthCard']];
 function goSec(tab, id) {
   showTab(tab);
   const t = $(id); if (!t) return;
@@ -1468,7 +1866,6 @@ function goSec(tab, id) {
   setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
 }
 (function () { const sl = $('secList'); SECS.forEach(x => { const b = el('button', 'sec'); b.type = 'button'; b.appendChild(el('span', '', x[0])); b.appendChild(el('span', 'mut', '←')); b.onclick = () => goSec(x[1], x[2]); sl.appendChild(b); }); })();
-$('allEvBtn').addEventListener('click', () => goSec('today', 'evCard'));
 $('backHome').addEventListener('click', () => { showTab('today'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 function showTab(t) {
   $('backHome').hidden = t === 'today';
@@ -1483,29 +1880,65 @@ let tab0 = 'today'; try { tab0 = localStorage.getItem('mirsad-tab') || 'today'; 
 $('moreComps').addEventListener('click', () => { SHOWALL = !SHOWALL; render0_(); });
 $('langBtn').addEventListener('click', () => setLang(LANG === 'en' ? 'ar' : 'en'));
 const boot = () => { setLang(LANG); showTab(['today', 'week', 'macro', 'details', 'settings'].includes(tab0) ? tab0 : 'today'); };
-let booted = false, loadedAt = 0, dataAt = null;
+let booted = false, loadedAt = 0, lastTry = 0, FAIL = null, btnTimer = null;
+/* ثلاثة أزمنة منفصلة: وقت البيانات المعروضة (LIVE.updated)، آخر جلب ناجح (loadedAt)، آخر محاولة (lastTry). فشل المحاولة لا يحدّث الثانية ولا يمحو اللقطة. */
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
+const FAILMSG = { http: 'الخادم رفض الطلب', network: 'لا اتصال بالشبكة', json: 'ملف البيانات تالف', source: 'المصدر أبلغ عن خطأ', render: 'تعذّر عرض البيانات' };
 function stamp_() {
-  const bn = $('banner');
-  if (LIVE) { bn.textContent = (LANG === 'en' ? 'Live data, updated ' : 'بيانات حقيقية — آخر تحديث ') + LIVE.updated + (LANG === 'en' ? ' Baghdad time' : ' بتوقيت بغداد') + ' · ' + (LANG === 'en' ? 'checked ' : 'آخر فحص للصفحة: ') + ago_(Date.now() - loadedAt); bn.className = 'demo live'; }
+  const bn = $('banner'), en = LANG === 'en';
+  if (FAIL) {
+    const why = (en ? '' : FAILMSG[FAIL.kind] || 'خطأ') + (FAIL.msg ? ' (' + FAIL.msg + ')' : '');
+    /* الرسالة تطابق السلوك الفعلي: لا تُعرض بيانات تجريبية تلقائياً أبداً؛ إما آخر لقطة صالحة وإما لا شيء (والتجريبي فقط بـ ?demo=1) */
+    bn.textContent = LIVE
+      ? '⚠ ' + (en ? 'Refresh failed — showing the last valid snapshot' : 'تعذّر التحديث — تُعرض آخر لقطة صالحة') + ': ' + (en ? 'data time ' : 'وقت بياناتها ') + LIVE.updated + (en ? ' Baghdad' : ' بتوقيت بغداد') +
+        ' · ' + (en ? 'last good fetch ' : 'آخر جلب ناجح ') + ago_(Date.now() - loadedAt) + ' · ' + (en ? 'last attempt ' : 'آخر محاولة ') + ago_(Date.now() - lastTry) + ' · ' + why
+      : (DEMO_OK ? '⚠ تعذّر تحميل البيانات الحية، والمعروض مثال توضيحي لأنك فتحت الرابط بـ demo=1 (ليست بيانات حقيقية)'
+                 : '⚠ تعذّر تحميل البيانات الحية. لا تُعرض بيانات تجريبية؛ ستظهر الصفحة عند وصول بيانات صالحة') + ' · ' + why;
+    bn.className = 'demo failed'; return;
+  }
+  if (LIVE) {
+    bn.textContent = (en ? 'Live data, updated ' : 'بيانات حقيقية — آخر تحديث ') + LIVE.updated + (en ? ' Baghdad time' : ' بتوقيت بغداد') + ' · ' + (en ? 'checked ' : 'آخر فحص للصفحة: ') + ago_(Date.now() - loadedAt);
+    bn.className = 'demo live';
+    /* نسخة قديمة: الجدولة تعمل الاثنين–الجمعة كل 15 دقيقة؛ تأخر أكثر من 90 دقيقة في يوم عمل = تحذير صريح */
+    const pa = staleNow_();
+    if (pa) { bn.textContent += ' · ⚠ ' + (en ? 'stale: last publish ' : 'قد تكون البيانات قديمة: آخر نشر ') + ago_(Date.now() - pa); bn.className = 'demo'; }
+  }
+}
+/* نجاح حقيقي = استجابة صالحة البنية وعُرضت دون خطأ. الاستجابة المعيبة لا تستبدل آخر لقطة صالحة ولا تحدّث وقت آخر جلب ناجح. */
+function validate_(j) {
+  if (!j || typeof j !== 'object') throw { kind: 'json', msg: '' };
+  if (j.error || !j.risk) throw { kind: 'source', msg: String(j.error || 'بلا قياس مخاطر').slice(0, 120) };
+  if (!j.verdict || typeof j.verdict !== 'object' || !Array.isArray(j.pulse8) || !Array.isArray(j.alerts)) throw { kind: 'source', msg: 'بنية اللقطة ناقصة (verdict/pulse8/alerts)' };
 }
 function loadData(manual) {
-  const btn = $('refreshBtn'); btn.disabled = true; btn.textContent = '… ' + tr_('جارٍ التحديث');
-  return fetch('data.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : null)
+  const btn = $('refreshBtn'); btn.disabled = true; btn.textContent = '… ' + tr_('جارٍ التحديث'); lastTry = Date.now();
+  return fetch('data.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw { kind: 'http', msg: 'HTTP ' + r.status }; return r.json().catch(() => { throw { kind: 'json', msg: '' }; }); })
     .then(j => {
-      loadedAt = Date.now();
-      const changed = j && j.risk && (!LIVE || j.updated !== LIVE.updated);
-      if (j && j.risk) LIVE = j; else if (j && j.error) { $('banner').textContent = '⚠ ' + j.error; }
-      if (!booted) { booted = true; boot(); } else if (changed || manual) { render0_(); stamp_(); }
-      stamp_();
+      validate_(j);
+      const prev = LIVE, changed = !prev || j.updated !== prev.updated || j.published_at !== prev.published_at;
+      LIVE = j;
+      try {
+        if (!booted) { booted = true; boot(); } else if (changed || manual) { render0_(); }
+      } catch (err) {                                                    /* عرض معيب: نعيد آخر لقطة صالحة فعلاً */
+        LIVE = prev;
+        try { if (prev) render0_(); else { output.hidden = true; } } catch (e2) { console.error(e2); }
+        throw { kind: 'render', msg: String(err && err.message || err).slice(0, 120) };
+      }
+      loadedAt = Date.now(); FAIL = null; bellRecovered_();             /* نجاح حقيقي فقط يحدّث وقت الجلب ويزيل التحذير */
+      stamp_(); handleHash_();
       btn.textContent = manual && !changed ? '✓ ' + tr_('لا جديد') : '↻ ' + tr_('تحديث');
-      if (manual && !changed) setTimeout(() => { btn.textContent = '↻ ' + tr_('تحديث'); }, 2500);
+      clearTimeout(btnTimer); if (manual && !changed) btnTimer = setTimeout(() => { if (!FAIL) btn.textContent = '↻ ' + tr_('تحديث'); }, 2500);
     })
-    .catch(() => { if (!booted) { booted = true; boot(); } btn.textContent = '⚠ ' + tr_('تعذّر التحديث'); setTimeout(() => { btn.textContent = '↻ ' + tr_('تحديث'); }, 3000); })
+    .catch(e => {
+      FAIL = e && e.kind ? { kind: e.kind, msg: e.msg } : (e instanceof TypeError ? { kind: 'network', msg: '' } : { kind: 'render', msg: String(e && e.message || e).slice(0, 120) });
+      if (!booted) { booted = true; boot(); }
+      stamp_(); btn.textContent = '⚠ ' + tr_('تعذّر التحديث'); bellOutage_(FAIL.kind);
+      clearTimeout(btnTimer); btnTimer = setTimeout(() => { if (!btn.disabled) btn.textContent = '↻ ' + tr_('تحديث'); }, 3000);
+    })
     .finally(() => { btn.disabled = false; });
 }
 $('refreshBtn').addEventListener('click', () => loadData(true));
-$('pulseMore').addEventListener('click', () => { PULSE_ALL = !PULSE_ALL; render0_(); });
 setInterval(() => { if (!document.hidden) loadData(false); }, 300000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() - loadedAt > 120000) loadData(false); });
 setInterval(stamp_, 60000);

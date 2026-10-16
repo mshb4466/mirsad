@@ -6,8 +6,10 @@
 كلها فشل ناعم: إن تعذّر المصدر يبقى الحدث بلا رقم فعلي وتقول الواجهة ذلك صراحة.
 """
 import json
+import os
 import re
-from datetime import timedelta, timezone
+import urllib.parse
+from datetime import date, timedelta, timezone
 
 import events_ctx
 import indicators
@@ -114,11 +116,38 @@ def _period(e, note):
 
 
 def _detail(e, det):
-    """يحفظ توثيق الحساب على الحدث: معرّف السلسلة، طريقة الحساب، القيمة قبل التقريب، مرحلة الإصدار."""
+    """يحفظ توثيق الحساب على الحدث: معرّف السلسلة، طريقة الحساب، القيمة قبل التقريب، مرحلة الإصدار وهل هي متحقَّقة بدليل."""
     e["actual_series"], e["actual_method"], e["actual_raw"], e["actual_stage"] = det.get("series", ""), det.get("method", ""), det.get("raw"), det.get("stage", "")
+    e["actual_stage_ok"] = det.get("stage_ok")
 
 
-def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None, fetch_bls_fn=None, window_h=30, diag=None):
+def fetch_gdp_vintage(now, collector, sid, ref, rel_date, key=None):
+    """نسخة ALFRED لربع GDP يوم الإصدار: {dates, vdate, value, first_seen}. يلزمه FRED_API_KEY (بدونه None: لا دليل فلا رقم).
+    لم يُختبر حياً من بيئة التطوير (الشبكة محجوبة): verify.py / actuals-check يختبره على GitHub. يرفع استثناءً عند فشل الاتصال."""
+    key = (key or os.environ.get("FRED_API_KEY", "")).strip()
+    if not key:
+        return None
+    base = "https://api.stlouisfed.org/fred/"
+
+    def q(path, **kw):
+        url = base + path + "?" + urllib.parse.urlencode(dict(kw, api_key=key, file_type="json"))
+        return json.loads(collector._http_get(url, 20).decode("utf-8"))
+    dates = q("series/vintagedates", series_id=sid, realtime_start=(rel_date - timedelta(days=1)).isoformat(),
+              realtime_end=(rel_date + timedelta(days=4)).isoformat()).get("vintage_dates") or []
+    cand = sorted(x for x in dates if 0 <= (date.fromisoformat(x) - rel_date).days <= 3)
+    vdate, value = (cand[0] if cand else None), None
+    if vdate:
+        obs = q("series/observations", series_id=sid, observation_start=ref.isoformat(), observation_end=ref.isoformat(),
+                realtime_start=vdate, realtime_end=vdate).get("observations") or []
+        if obs and obs[0].get("value") not in (".", "", None):
+            value = float(obs[0]["value"])
+    allv = q("series/observations", series_id=sid, observation_start=ref.isoformat(), observation_end=ref.isoformat(),
+             realtime_start="1776-07-04", realtime_end="9999-12-31").get("observations") or []
+    first_seen = min((o["realtime_start"] for o in allv), default=None)
+    return {"dates": dates, "vdate": vdate, "value": value, "first_seen": first_seen}
+
+
+def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None, fetch_bls_fn=None, window_h=30, diag=None, fetch_vintage_fn=None):
     """يملأ الأرقام الفعلية الناقصة للأحداث الصادرة (نفط، مزادات) ويكتب في e['actual_note'] المصدر أو سبب الغياب.
     يعيد عدد ما ملأ. لا يرفع استثناءً."""
     todo = [e for e in events if not e.get("actual") and now - timedelta(hours=window_h) <= e["time"] < now]
@@ -230,11 +259,19 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                         ind_rows, ind_err = {}, f"تعذّر الاتصال بـ FRED ({type(ex).__name__})"
                         if diag is not None:
                             diag["fred"] = {"ok": False, "detail": ind_err}
-                det = indicators.resolve_detail(e.get("title", ""), e["time"], ind_rows, ET, "FRED", None, now)
+                vint = None
+                if spec["rule"] == "quarter" and fetch_vintage_fn:      # GDP: نسخة الإصدار التاريخية فقط (لا قراءة FRED الحالية)
+                    try:
+                        vint = fetch_vintage_fn(spec["sid"], indicators.gdp_ref_quarter(e["time"].astimezone(ET).date()), e["time"].astimezone(ET).date())
+                    except Exception as ex:  # noqa: BLE001
+                        vint = None
+                        if diag is not None:
+                            diag["alfred"] = {"ok": False, "detail": f"ALFRED: تعذّر الاتصال ({type(ex).__name__})"}
+                det = indicators.resolve_detail(e.get("title", ""), e["time"], ind_rows, ET, "FRED", None, now, vint)
                 val, note = det["value"], det["note"]
                 if val:
                     e["actual"], e["actual_note"] = val, note + "؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-                    e["actual_src"], e["actual_source"] = "secondary", "FRED"
+                    e["actual_src"], e["actual_source"] = "secondary", ("FRED/ALFRED" if spec["rule"] == "quarter" else "FRED")
                     _detail(e, det)
                     _period(e, note)
                     n += 1

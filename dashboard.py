@@ -7,6 +7,7 @@
 import json
 import actuals
 import events_ctx
+import verdict
 import impact
 import os
 from datetime import datetime, timedelta
@@ -201,7 +202,10 @@ def _week(events, now, report):
                 "released": e["time"] < now, "forecast": e.get("forecast", ""), "previous": e.get("previous", ""),
                 "actual": e.get("actual", ""), "surprise": d.get("surprise", ""), "note": e.get("actual_note", ""),
                 "tone": (vd or {}).get("es", "") , "effect": (vd or {}).get("effect", ""), "kind": d.get("kind", ""),
-                "status": d.get("status", ""), "status_ar": d.get("status_ar", ""), "last_attempt": d.get("last_attempt", "")}
+                "status": d.get("status", ""), "status_ar": d.get("status_ar", ""), "last_attempt": d.get("last_attempt", ""),
+                "id": actuals.event_id(e), "source": e.get("actual_source", "") if e.get("actual") else "",
+                "revision": (f"السابق عُدّل إلى {e['prev_revised']}" if e.get("prev_revised") else "") + (("؛ " if e.get("prev_revised") else "") + f"الفعلي عُدّل من {e['revised_from']}" if e.get("revised_from") else ""),
+                "impact": e.get("impact", ""), "in_min": int((e["time"] - now).total_seconds() // 60)}
         days.setdefault(bt.date(), []).append(item)
     out = []
     for dt in sorted(days):
@@ -313,14 +317,27 @@ def _hhmm_baghdad(iso):
         return "غير معروف"
 
 
-def _pulse8(report):
-    """نبض الأسواق: 8 رموز بالاتجاه والتغير والتوقيت، وهل يؤكد/يعارض الانحياز الماكروي. لا قيم افتراضية: الناقص «غير متاح»."""
+PULSE_AR = {"ES": "عقود S&P (ES)", "NQ": "ناسداك (NQ)", "2Y": "عائد سنتين", "10Y": "عائد 10 سنوات", "DXY": "الدولار (DXY)",
+            "VIX": "مؤشر التقلب VIX", "WTI": "النفط (WTI)", "Gold": "الذهب"}
+PULSE_STATE_KEY = {"es": "es", "nq": "nq", "y10": "y10", "dxy": "dxy", "vix": "vix", "oil": "oil", "gold": "gold"}
+COLOR_OF = {"bull": "support", "bear": "pressure"}
+EFFECT_AR = {"support": "يدعم ES", "pressure": "يضغط على ES", "mixed": "أثر مختلط/مشروط", "calm": "هادئ — أثر محدود", "na": "غير متاح"}
+
+
+def _pulse8(report, pulse_state=None):
+    """نبض الأسواق الموحّد: بطاقة واحدة لكل مؤشر (ES، NQ، 2Y، 10Y، DXY، VIX، WTI، الذهب).
+    لون البطاقة (color) = الأثر على ES: support أخضر | pressure أحمر | mixed كهرماني (مشروط/متعارض) | na رمادي (غير متاح)؛
+    وcalm = حركة ضمن النطاق المعتاد (لا لون تحذير ولا دعم: الهدوء ليس دعماً). السهم (arrow) يعكس حركة المؤشر نفسه لا أثره.
+    tier (0-2) يحدّد الترتيب بثبات: لا يتبدّل الترتيب بتغيرات صغيرة. لا قيم افتراضية: الناقص «غير متاح»."""
     import impact
     prices = report.get("data") or {}
     bias = report.get("bias") or {}
     bk = bias.get("key") if bias.get("available") else None
+    by_state = {r.get("key"): r for r in (pulse_state or [])}
+    drv = {d.get("key"): d for d in (report.get("drivers") or [])}
     out = []
     for key, sym, unit, pk in PULSE_SYMS:
+        base = {"sym": sym, "name": PULSE_AR.get(sym, sym), "key": key}
         chg = last = when = src = None
         if key == "y2":
             f = (report.get("fred_last") or {}).get("dgs2")
@@ -334,14 +351,20 @@ def _pulse8(report):
                 if unit == "bp":
                     chg = p["diff1"] * 100 if p.get("diff1") is not None else None
         if chg is None or last is None:
-            out.append({"sym": sym, "available": False})
+            out.append(dict(base, available=False, color="na", effect=EFFECT_AR["na"], tier=-1))
             continue
-        if pk == "oil":                      # النفط بالسياق لا بالاتجاه وحده
+        why_oil = ""
+        if pk == "oil":                      # النفط بالسياق لا بالاتجاه وحده، والسبب مرجَّح لا مثبت
             gs, gr = impact.geo_flags(report.get("geo"))
-            tone = impact.oil_cause(chg, (prices.get("es") or {}).get("chg1"), (prices.get("dxy") or {}).get("chg1"),
-                                    (prices.get("vix") or {}).get("chg1"), gs, gr)[0]
+            tone, cause, why_oil = impact.oil_cause(chg, (prices.get("es") or {}).get("chg1"), (prices.get("dxy") or {}).get("chg1"),
+                                                    (prices.get("vix") or {}).get("chg1"), gs, gr)
         else:
             tone = impact.tone(pk, chg) if pk else "flat"
+        band = impact.POLARITY.get(pk or "", (0, 0.5))[1] if pk else 0.3
+        small = abs(chg) <= band
+        color = COLOR_OF.get(tone) or ("calm" if small else "mixed")
+        if pk == "oil" and color in ("support", "pressure"):
+            why_oil = "(تفسير مرجَّح من سياق الحركة لا سبب مثبت) " + why_oil
         if bk is None:
             cf = "na"
         elif src == "FRED":                  # سلسلة يومية (إغلاق أمس): ليست تأكيداً لحظياً بعد خبر
@@ -351,9 +374,36 @@ def _pulse8(report):
         else:
             cf = "yes" if ((bk == "pressure" and tone == "bear") or (bk == "support" and tone == "bull")) else \
                  "flat" if bk == "neutral" else "no"
-        out.append({"sym": sym, "available": True, "last": last, "chg": round(chg, 2), "unit": unit, "arrow": "▲" if chg > 0 else "▼" if chg < 0 else "◆",
-                    "tone": tone, "confirm": cf, "time": _hhmm_baghdad(when) if src == "Yahoo" else str(when)[:10], "src": src})
+        st = by_state.get(PULSE_STATE_KEY.get(pk or "", ""))
+        strength = impact.strength(pk, chg) if pk else 0.0
+        if st and (st.get("ratio") or 0) >= 1.0:
+            strength = max(strength, 3.0)
+        tier = 2 if strength >= 3 else 1 if strength >= 1 else 0
+        d = drv.get(pk) or {}
+        eff = EFFECT_AR[color] if not why_oil else (EFFECT_AR[color] + ": " + why_oil)
+        if pk != "oil" and d.get("text") and color in ("support", "pressure"):
+            eff = EFFECT_AR[color]
+        if sym == "ES":
+            eff = "حركة ES نفسه: " + ("صاعد" if chg > 0 else "هابط" if chg < 0 else "ثابت")
+        out.append(dict(base, available=True, last=last, chg=round(chg, 2), unit=unit, arrow="▲" if chg > 0 else "▼" if chg < 0 else "◆",
+                        tone=tone, color=color, effect=eff, confirm=cf, tier=tier,
+                        window="منذ إغلاق أمس" if src == "Yahoo" else "آخر قراءة يومية",
+                        time=_hhmm_baghdad(when) if src == "Yahoo" else str(when)[:10], src=src,
+                        windows=({"c15": st.get("c15"), "c60": st.get("c60"), "c180": st.get("c180"), "confirmed": bool(st.get("confirmed")), "why": st.get("why") or ""} if st else None)))
     return out
+
+
+def _order_pulse(cards, prev_cards):
+    """ترتيب مستقر: الفئة (tier) تنازلياً، وداخل الفئة الترتيب السابق المنشور ثم الترتيب الثابت. تغيّر طفيف لا يبدّل المواقع.
+    وتُوسَم البطاقة «تغيّر جديد» إن ارتفعت فئتها أو انقلب لونها إلى دعم/ضغط مقارنة باللقطة السابقة (يزول في اللقطة التالية)."""
+    prev = {c.get("sym"): (i, c) for i, c in enumerate(prev_cards or [])}
+    fixed = {s: i for i, (_, s, _, _) in enumerate(PULSE_SYMS)}
+    for c in cards:
+        c["new"] = False
+        pv = prev.get(c["sym"])
+        if pv and c.get("available") and pv[1].get("available"):
+            c["new"] = (c["tier"] > pv[1].get("tier", 0) and c["tier"] >= 1) or (c["color"] != pv[1].get("color") and c["color"] in ("support", "pressure"))
+    return sorted(cards, key=lambda c: (-c.get("tier", -1), prev[c["sym"]][0] if c["sym"] in prev else 99, fixed.get(c["sym"], 99)))
 
 
 def _changes(top3, prev_titles):
@@ -377,7 +427,7 @@ def _actuals_summary(events, now):
             "last_attempt": events_ctx._hhmm_attempt(sm["last_attempt"]) if sm["last_attempt"] else ""}
 
 
-def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None, quality=None):
+def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None, quality=None, verdict_prev=None, prev_view=None):
     """يحوّل تقرير collector إلى بنية الواجهة."""
     if "error" in report:
         return {"live": True, "updated": _baghdad(now), "error": report["error"]}
@@ -404,6 +454,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
             dd = events_ctx.describe(e, (e["time"] + timedelta(hours=3)).strftime("%H:%M"), ml_, ctx_)
             dd["day"] = _day_label(e["time"], now)
             dd["in_min"] = int((e["time"] - now).total_seconds() // 60)
+            dd["at"], dd["importance"] = e["time"].isoformat(), e.get("impact", "")
             upcoming.append(dd)
     _up = []
     for day in ("اليوم", "غداً"):
@@ -419,6 +470,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
             dd = events_ctx.describe(e, f"{day} {bt.strftime('%H:%M')}",
                                      (report.get("macro") or {}).get("label", ""), events_ctx.build_ctx(report))
             dd["in_min"] = int((e["time"] - now).total_seconds() // 60)
+            dd["at"], dd["importance"] = e["time"].isoformat(), e.get("impact", "")
             later.append(dd)
     geo = report.get("geo") or {}
     past_ = _past_events(events, now, report, series or ({"es": es_series} if es_series else {}), fed_heads)
@@ -439,7 +491,9 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "events": upcoming, "events_next": later[:3], "events_past": past_,
         "top3": _top3(report, pulse, past_),
         "changes": _changes(_top3(report, pulse, past_), prev_titles),
-        "pulse8": _pulse8(report),
+        "pulse8": _order_pulse(_pulse8(report, pulse), (prev_view or {}).get("pulse8")),
+        "verdict": verdict.build(report, now, verdict_prev, events),
+        "releases": _releases_view(report.get("releases")),
         "actuals_status": _actuals_summary(events, now),
         "quality": quality,
         "next_event": next((u for u in upcoming if u.get("high")), None) or (upcoming[0] if upcoming else None) or (later[0] if later else None),
@@ -455,26 +509,59 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "health": health,
         "week": _week(events, now, report),
         "week_earnings": _week_earnings(report),
-        "asset": "ES",
         "week_news": _week_news(week_news, now),
         "asset": "ES",
     }
     return view
 
 
-def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None, quality=None):
-    """يكتب docs/data.json. فشل ناعم: لا يوقف التقرير."""
+def _releases_view(rel):
+    """ما يلزم الواجهة من أثر الإصدارات: الإصدارات المدموجة ومساهمة كل مجموعة، والمعلّق، وتأكيد السوق (لا أرقام مكررة)."""
+    if not rel:
+        return None
+    return {"signal": rel.get("signal"), "weight": rel.get("weight"), "fed_discount": rel.get("fed_discount"), "note": rel.get("note", ""),
+            "market": rel.get("market"), "pending": rel.get("pending") or [],
+            "groups": [{"kind": g["kind"], "lead": g["lead"], "value": g["value"], "importance": g["importance"], "mode": g["mode"], "ids": g["ids"],
+                        "initial": g["initial"], "revision": g["revision"], "effect": g["effect"]} for g in rel.get("groups") or []]}
+
+
+REQUIRED_KEYS = ("live", "published_at", "risk", "verdict", "pulse8", "alerts", "next_event")
+
+
+def validate_view(view):
+    """لقطة صالحة للنشر: إما حالة خطأ صريحة (تقييم غير مكتمل) أو لقطة تحمل كل المفاتيح الجوهرية بأنواعها. (ok, سبب)."""
+    if not isinstance(view, dict):
+        return False, "اللقطة ليست كائناً"
+    if view.get("error"):
+        return True, ""
+    miss = [k for k in REQUIRED_KEYS if k not in view]
+    if miss:
+        return False, "مفاتيح ناقصة: " + "، ".join(miss)
+    if not isinstance(view["pulse8"], list) or not isinstance(view["alerts"], list) or not isinstance(view["verdict"], dict):
+        return False, "أنواع حقول غير صحيحة"
+    if not isinstance(view["risk"], dict) or view["risk"].get("score") is None:
+        return False, "مقياس المخاطر مفقود"
+    return True, ""
+
+
+def publish(report, events, now, news_labels=None, docs_dir=None, alerts=None, pulse=None, es_series=None, series=None, fed_heads=None, health=None, week_news=None, prev_titles=None, quality=None, verdict_prev=None):
+    """يكتب docs/data.json. لا يكتب لقطة معيبة: تبقى آخر لقطة صالحة منشورة ويُرفع ValueError (فلا يُعدّ النشر ناجحاً)."""
     d = docs_dir or DOCS_DIR
     os.makedirs(d, exist_ok=True)
-    prev_titles = None
+    prev_titles, prev_view = None, None
     try:
         with open(os.path.join(d, "data.json"), encoding="utf-8") as f:
-            pv = json.load(f)
-        if pv.get("top3") is not None:
-            prev_titles = {t.get("title") for t in pv["top3"]}
+            prev_view = json.load(f)
+        if prev_view.get("top3") is not None:
+            prev_titles = {t.get("title") for t in prev_view["top3"]}
     except Exception:  # noqa: BLE001
-        prev_titles = None
-    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health, week_news, prev_titles, quality)
+        prev_titles, prev_view = None, None
+    view = build_view(report, events, now, news_labels, alerts, pulse, es_series, series, fed_heads, health, week_news, prev_titles, quality,
+                      verdict_prev=verdict_prev, prev_view=prev_view)
+    ok, why = validate_view(view)
+    if not ok:
+        raise ValueError("لقطة الواجهة معيبة ولم تُنشر: " + why)
+    json.dumps(view, ensure_ascii=False, default=str)           # يتأكد أنها قابلة للتسلسل قبل استبدال الملف
     _write_json(os.path.join(d, "data.json"), view)
     return view
 

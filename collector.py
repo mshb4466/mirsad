@@ -29,6 +29,7 @@ import bias
 import geo
 import impact
 import macro
+import release_impact
 import safety
 
 try:
@@ -942,6 +943,12 @@ def build_report(prices, events, now, problems=None, extras=None):
         problems.append("مكوّنات استُبعدت لنقص البيانات: " + "، ".join(missing))
 
     drv = impact.drivers(prices, fred, macro_view, geo_detail)
+    try:
+        rel = release_impact.build(events, now, macro_view, extras.get("series"))     # الإصدارات الموثّقة فقط (رقم الخبر لا يدخل)
+    except Exception as ex:  # noqa: BLE001
+        rel = {"items": [], "groups": [], "pending": [], "signal": None, "weight": 0.0, "fed_discount": 0.0, "market": None,
+               "note": "", "verified_count": 0, "error": type(ex).__name__}
+        problems.append(f"تعذّر دمج الإصدارات في التقييم ({type(ex).__name__})")
     conf = safety.confidence(sissues, cov, (macro_view or {}).get("confidence"))
     incomplete = sstate in ("incomplete", "critical") and cov < 0.6
     return {
@@ -950,7 +957,8 @@ def build_report(prices, events, now, problems=None, extras=None):
                    "coverage": round(cov, 3), "checked_at": now.isoformat()},
         "drivers": drv, "regime": impact.regime(macro_view), "intensity": impact.intensity(drv),
         "fred_last": {k: {"date": v[-1][0], "last": v[-1][1], "diff1": (v[-1][1] - v[-2][1]) if len(v) > 1 else None} for k, v in (fred or {}).items() if k == "dgs2" and v},
-        "bias": bias.compute(macro_view, prices, fred, impact.regime(macro_view), drv),
+        "releases": rel,
+        "bias": bias.compute(macro_view, prices, fred, impact.regime(macro_view), drv, rel),
         "confidence": conf, "liquidity": impact.liquidity_view((macro_view or {}).get("net_liquidity")),
         "risk": {
             "incomplete": bool(incomplete),

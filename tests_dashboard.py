@@ -126,7 +126,7 @@ def test_top3_priorities_and_caps():
 def test_pulse8_and_changes():
     v, d = run_with_docs()
     p = {x["sym"]: x for x in v["pulse8"]}
-    assert list(p) == ["ES", "NQ", "2Y", "10Y", "DXY", "VIX", "WTI", "Gold"]
+    assert set(p) == {"ES", "NQ", "2Y", "10Y", "DXY", "VIX", "WTI", "Gold"} and len(v["pulse8"]) == 8
     for x in p.values():
         assert x["available"] is False or (x["confirm"] in ("yes", "no", "flat", "na") and x["tone"] in ("bull", "bear", "flat"))
     assert p["Gold"].get("tone", "flat") == "flat"

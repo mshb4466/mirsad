@@ -52,14 +52,19 @@ def fred_rows():
             "indpro": growth(103, 0.001), "umcsent": [("2026-09-01", 55.0)]}
 
 
-def mk_deps(bls_fn=None, fred_fn=None):
+def vint_default(sid, ref, rel):
+    """نسخة ALFRED اصطناعية: الربع المطلوب نُشر يوم الإصدار نفسه (Advance)، قيمته 2.1 (تتوافق مع الاختبارات القديمة)."""
+    return {"dates": [rel.isoformat()], "vdate": rel.isoformat(), "value": {"2026-07-01": 2.1, "2026-04-01": 3.0}.get(ref.isoformat(), 2.1), "first_seen": rel.isoformat()}
+
+
+def mk_deps(bls_fn=None, fred_fn=None, vint_fn=vint_default):
     sid_of = {v: k for k, v in indicators.BLS_IDS.items()}
 
     def fb(ids):
         rows = bls_fn() if bls_fn else {}
         return {indicators.BLS_IDS[k]: v for k, v in rows.items() if indicators.BLS_IDS.get(k) in ids}, []
     return {"fetch_oil": lambda: None, "fetch_auctions": lambda: [], "fetch_bls": fb,
-            "fetch_series": (lambda need: (fred_fn() if fred_fn else {}))}
+            "fetch_series": (lambda need: (fred_fn() if fred_fn else {})), "fetch_vintage": vint_fn}
 
 
 ALL = [

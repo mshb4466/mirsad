@@ -88,7 +88,7 @@ def expected_obs(rule, d):
 # إذن الربع المقصود = الربع السابق للربع الذي يقع فيه شهر الإصدار (آب/أغسطس 2026 ← الربع الثاني 2026-04-01 لا 2026-07-01).
 GDP_STAGES = ("advance", "second", "third")
 GDP_STAGE_AR = {"advance": "التقدير المبدئي (Advance)", "second": "التقدير الثاني (Second/Preliminary)", "third": "التقدير الثالث (Third/Final)"}
-GDP_MAX_AGE_DAYS = 20      # بعدها يصدر التقدير التالي ولا يمكن اعتبار قراءة FRED الحالية هي الإصدار الأصلي (لا نسخ تاريخية هنا)
+GDP_PUB_WINDOW_DAYS = 3    # أقصى تأخر لسجل نسخة ALFRED عن يوم الإصدار ليُعدّ دليلاً على أنها نسخة هذا الإصدار
 
 
 def gdp_ref_quarter(d):
@@ -114,13 +114,62 @@ def gdp_stage_from_title(title):
 
 
 def gdp_info(title, d):
-    """{ref, stage, ok, why}: المرحلة من العنوان إن وُجدت ويجب أن توافق جدول الإصدار، وإلا يُرفض الربط (لا تخمين)."""
+    """{ref, stage, ok, why}: للتعريف (معرّف الحدث) والربع المرجعي فقط. المرحلة هنا من العنوان أو جدول BEA: هوية لا دليل.
+    «المرحلة المتحقَّقة» لا تُدّعى إلا بدليل نسخة الإصدار (انظر gdp_resolve)."""
     sched = gdp_stage_by_schedule(d)
     ts = gdp_stage_from_title(title)
     if ts and ts != sched:
         return {"ref": gdp_ref_quarter(d), "stage": ts, "ok": False,
                 "why": f"مرحلة الإصدار في العنوان ({GDP_STAGE_AR[ts]}) لا توافق جدول BEA لشهر هذا الإصدار ({GDP_STAGE_AR[sched]}): تعذّر تحديد الربع بأمان"}
     return {"ref": gdp_ref_quarter(d), "stage": ts or sched, "ok": True, "why": ""}
+
+
+def gdp_resolve(title, ev_time, et, vint, sid):
+    """GDP من نسخة تاريخية (ALFRED) لا من قراءة FRED الحالية: القيمة الحالية قد تخص تقديراً أحدث من الإصدار الذي نسأل عنه.
+    vint = {dates: [تواريخ نسخ السلسلة قرب الإصدار], vdate: تاريخ النسخة المعتمدة، value: قيمة الربع في تلك النسخة،
+            first_seen: أول تاريخ ظهر فيه الربع في ALFRED}. الشروط:
+    1) دليل نشر: نسخة مسجّلة في [تاريخ الإصدار، +3 أيام] وقيمة الربع كما كانت فيها. بدونه لا رقم.
+    2) المرحلة (Advance/Second/Third) لا تُدّعى إلا بدليل: ظهور الربع أول مرة ضمن نافذة الإصدار = Advance؛ أو نص العنوان يصرّح بها
+       ويوافق جدول BEA. غير ذلك: القيمة تُعرض (لها دليل نشر) والمرحلة «غير متحققة».
+    لا يُستعمل حدّ عمر الحدث دليلاً."""
+    out = {"value": None, "raw": None, "series": sid, "source": "FRED/ALFRED", "period": "", "stage": "", "stage_ok": False,
+           "method": "قيمة الربع كما كانت في نسخة ALFRED المسجّلة يوم الإصدار", "why": "", "note": ""}
+    d = ev_time.astimezone(et).date()
+    gi = gdp_info(title, d)
+    ref = gi["ref"]
+    out["period"] = ref.isoformat()
+    if not gi["ok"]:
+        out["why"] = out["note"] = gi["why"]
+        return out
+    if not vint or vint.get("value") is None or not vint.get("vdate"):
+        out["why"] = out["note"] = "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
+        return out
+    try:
+        vd = date.fromisoformat(str(vint["vdate"])[:10])
+    except ValueError:
+        out["why"] = out["note"] = "تاريخ النسخة التاريخية غير صالح"
+        return out
+    if not (0 <= (vd - d).days <= GDP_PUB_WINDOW_DAYS) or str(vd) not in {str(x)[:10] for x in (vint.get("dates") or [])}:
+        out["why"] = out["note"] = (f"لا نسخة مسجّلة للسلسلة قرب تاريخ الإصدار {d.isoformat()} (أقربها {vd.isoformat()}): لا دليل على أن القيمة هي هذا التقدير")
+        return out
+    v = float(vint["value"])
+    out.update(value=f"{v:.1f}%", raw=v, why="")
+    fs = vint.get("first_seen")
+    adv = False
+    try:
+        adv = fs is not None and 0 <= (date.fromisoformat(str(fs)[:10]) - d).days <= GDP_PUB_WINDOW_DAYS
+    except ValueError:
+        adv = False
+    ts = gdp_stage_from_title(title)
+    if adv:
+        out["stage"], out["stage_ok"], basis = "advance", True, "ظهر الربع أول مرة في ALFRED يوم الإصدار"
+    elif ts and ts == gdp_stage_by_schedule(d):
+        out["stage"], out["stage_ok"], basis = ts, True, "المرحلة من عنوان الحدث وتوافق جدول BEA (دون دليل نسخ مستقل)"
+    else:
+        out["stage"], out["stage_ok"], basis = "", False, "المرحلة غير متحققة: لا دليل مستقل ولا نص صريح في العنوان"
+    stg = GDP_STAGE_AR.get(out["stage"], "المرحلة غير متحققة")
+    out["note"] = f"المصدر: FRED/ALFRED ({sid}، فترة {ref.isoformat()}، نسخة {vd.isoformat()}) — {stg}؛ {basis}"
+    return out
 
 
 def shift_months(d, k):
@@ -207,29 +256,21 @@ def compute(tr, rows, i):
     return compute_full(tr, rows, i)[0]
 
 
-def resolve_detail(title, ev_time, rows_by_key, et, src="FRED", sid_map=None, now=None):
+def resolve_detail(title, ev_time, rows_by_key, et, src="FRED", sid_map=None, now=None, vint=None):
     """تفصيل كامل: {value, raw, note, why, series, period, method, stage}. value=None مع why إن لم يتحقق الربط.
-    now: عند تمريره يُرفض GDP الأقدم من GDP_MAX_AGE_DAYS (قراءة FRED الحالية قد تكون نسخة لاحقة لا الإصدار الأصلي)."""
+    GDP: يُحلّ من vint (نسخة ALFRED يوم الإصدار) لا من قراءة FRED الحالية؛ بلا دليل نسخة لا رقم (gdp_resolve)."""
     spec = match(title)
     if not spec:
         return {"value": None, "why": no_source_reason(title), "note": no_source_reason(title)}
     sid = (sid_map or {}).get(spec["key"], spec["sid"])
     out = {"value": None, "raw": None, "series": sid, "source": src, "period": "", "method": METHOD_AR.get(spec["tr"], ""), "stage": ""}
+    if spec["rule"] == "quarter":                 # GDP لا يعتمد على قراءة FRED الحالية أصلاً
+        return gdp_resolve(title, ev_time, et, vint, sid)
     rows = (rows_by_key or {}).get(spec["key"])
     if not rows:
         out["why"] = out["note"] = f"تعذّر جلب {sid} من {src} (لا بيانات)"
         return out
     d = ev_time.astimezone(et).date()
-    if spec["rule"] == "quarter":
-        gi = gdp_info(title, d)
-        out["stage"] = gi["stage"]
-        if not gi["ok"]:
-            out["why"] = out["note"] = gi["why"]
-            return out
-        if now is not None and (now - ev_time).days > GDP_MAX_AGE_DAYS:
-            out["why"] = out["note"] = (f"مرّ أكثر من {GDP_MAX_AGE_DAYS} يوماً على {GDP_STAGE_AR[gi['stage']]}: قراءة {src} الحالية قد تكون "
-                                        "نسخة مراجَعة لاحقة لا الإصدار الأصلي، فلا تُعرض كأنها الأصلية")
-            return out
     exp = expected_obs(spec["rule"], d)
     i = _find(rows, exp)
     if i is None:

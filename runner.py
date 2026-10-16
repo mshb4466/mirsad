@@ -34,7 +34,9 @@ import dashboard
 import events_ctx
 import extras
 import health
+import verdict
 import impact
+import indicators
 import safety
 import collector as c
 import macro
@@ -109,6 +111,11 @@ def load_state(path=STATE_FILE):
     s.setdefault("last_move", {})
     s.setdefault("last_move_mag", {})
     s.setdefault("alerts", [])
+    for a in s["alerts"]:                       # سجلات v0.18 بلا معرّف: نعطيها معرّفاً ثابتاً كي تُفتح وتُحفظ قراءتها
+        if isinstance(a, dict):
+            a.setdefault("id", f"{a.get('kind', 'x')}|{str(a.get('t', ''))[:16].replace('-', '').replace(':', '').replace('T', '')}")
+            a.setdefault("important", True)
+            a.setdefault("rev", 0)
     return s
 
 
@@ -719,12 +726,34 @@ def format_preopen(report, events, now, prefix="", url=""):
     return "\n".join(lines)
 
 
-def format_release(ev, es_reaction, report, late=False, now=None, revised_from=None):
+def _link_lines(link):
+    return ["🔗 افتح الحدث في التطبيق:", link] if link else []
+
+
+def _assess_lines(assess):
+    """ما تغيّر في التقييم الرئيسي بسبب الإصدار (من سجل الحدث الموحّد)."""
+    if not assess:
+        return []
+    out = []
+    if assess.get("changed"):
+        out.append(f"⚠ التقييم السابق لم يعد صالحاً — تغيّر الانحياز من {assess.get('before')} إلى {assess.get('after')}")
+    elif assess.get("after"):
+        out.append(f"الانحياز الماكروي بعد الإصدار: {assess['after']}" + (f" (قبله: {assess['before']})" if assess.get("before") else ""))
+    if assess.get("text"):
+        out.append(assess["text"])
+    if assess.get("market"):
+        out.append(assess["market"])
+    return out
+
+
+def format_release(ev, es_reaction, report, late=False, now=None, revised_from=None, link="", assess=None):
     if revised_from is not None:
-        return (f"↻ مِرصاد — مراجعة بيانات: {ev['title']}\nالقيمة الموثّقة تغيّرت من {revised_from} إلى {ev['actual']} "
-                f"(المتوقع: {ev['forecast'] or '—'} | السابق: {ev['previous'] or '—'}).\nهذه مراجعة لإصدار سبق التنبيه عنه وليست إصداراً جديداً.")
+        return "\n".join([f"↻ مِرصاد — مراجعة بيانات: {ev['title']}", *_link_lines(link),
+                          f"القيمة الموثّقة تغيّرت من {revised_from} إلى {ev['actual']} "
+                          f"(المتوقع: {ev['forecast'] or '—'} | السابق: {ev['previous'] or '—'}).",
+                          "هذه مراجعة لإصدار سبق التنبيه عنه وليست إصداراً جديداً.", *_assess_lines(assess)])
     head = f"📥 مِرصاد — وصلت البيانات متأخرة: {ev['title']}" if late else f"📥 مِرصاد — صدرت بيانات: {ev['title']}"
-    lines = [head]
+    lines = [head, *_link_lines(link)]
     if late:
         lines.append(f"صدر الحدث {(ev['time'] + timedelta(hours=3)).strftime('%d-%m %H:%M')} بغداد، ووُثّقت قيمته بعد انتهاء نافذة تنبيه الصدور"
                      + (f" (المصدر: {ev.get('actual_source') or 'غير محدد'})." if ev.get("actual_source") else "."))
@@ -747,6 +776,9 @@ def format_release(ev, es_reaction, report, late=False, now=None, revised_from=N
         lines.append(f"ملاحظة: {ir['note']}")
     if es_reaction is not None:
         lines.append(f"حركة ES منذ الصدور: {es_reaction:+.2f}%")
+    al_ = _assess_lines(assess)
+    if al_:
+        lines += ["", "ما تغيّر في التقييم:"] + al_
     if report is not None:
         lines += [""] + risk_lines(report)
     lines += ["", "ملاحظة: اتجاه التأثير يعتمد على نوع البيانات، وقد يكون الخبر مسعَّراً مسبقاً."]
@@ -778,8 +810,15 @@ def _fmt_ch(k, v):
     return "—" if v is None else (f"{v:+.0f}bp" if MOVE[k][1] == "bp" else f"{v:+.2f}%")
 
 
-ALERT_KEEP_H = 24
-ALERT_MAX = 8
+ALERT_KEEP_H = 72                     # سجل الأحداث الموحّد: كل ما أُرسل يبقى ظاهراً في التطبيق ثلاثة أيام (لا 24 ساعة)
+ALERT_MAX = 40
+KIND_AR = {"release": "صدور بيانات", "late": "وصول متأخر", "revision": "مراجعة", "shock": "حركة غير معتادة", "move": "حركة كبيرة"}
+
+
+def alert_link(aid, url=None):
+    """رابط يفتح الحدث نفسه في التطبيق بمعرّفه الثابت (#e=). فارغ إن لم يُعرف عنوان الصفحة."""
+    base = dashboard.page_url() if url is None else url
+    return f"{base}index.html#e={urllib.parse.quote(aid, safe='')}" if base else ""
 
 
 def alert_from_move(mv, headlines, now):
@@ -788,28 +827,91 @@ def alert_from_move(mv, headlines, now):
             for k in MOVE if k in ch and (k in mv["keys"] or k in ("es", "oil", "y10", "y30", "dxy", "vix"))]
     only = set(mv["keys"]) == set(mv.get("alone", [])) and bool(mv.get("alone"))
     es = _val(ch, "es")
-    return {"t": now.isoformat(), "kind": "move", "icon": "📈" if (es or 0) > 0 else "📉",
-            "title": ("عامل مؤثر يتحرك بقوة" if only else "حركة كبيرة في السوق") + " (" + "، ".join(MOVE[k][0] for k in mv["keys"]) + ")",
-            "rows": rows, "confirm": [x.lstrip("• ") for x in _conf_lines(mv)],
-            "pattern": move_pattern(ch), "headlines": list(headlines or [])[:4]}
+    title = ("عامل مؤثر يتحرك بقوة" if only else "حركة كبيرة في السوق") + " (" + "، ".join(MOVE[k][0] for k in mv["keys"]) + ")"
+    pat = move_pattern(ch)
+    return {"id": f"move|{now:%Y%m%d%H%M}|{'-'.join(sorted(mv['keys']))}", "t": now.isoformat(), "kind": "move", "important": True,
+            "icon": "📈" if (es or 0) > 0 else "📉", "title": title, "what": title, "why": "؛ ".join(pat[:2]) if pat else "",
+            "rows": rows, "confirm": [x.lstrip("• ") for x in _conf_lines(mv)], "pattern": pat, "headlines": list(headlines or [])[:4]}
 
 
 def alert_from_shock(signals, changes, headlines, now):
     f = lambda k: "—" if changes.get(k) is None else f"{changes[k]:+.2f}%"
     rows = [{"name": n, "c60": f(k), "c180": "—", "lead": False} for k, n in (("es", "ES"), ("vix", "VIX"), ("gold", "الذهب"), ("oil", "النفط")) if k in changes]
-    return {"t": now.isoformat(), "kind": "shock", "icon": "🚨", "title": "حركة سوق غير معتادة (قد تدل على حدث مفاجئ)",
-            "rows": rows, "confirm": list(signals or []), "pattern": [], "headlines": list(headlines or [])[:4]}
+    t = "حركة سوق غير معتادة (قد تدل على حدث مفاجئ)"
+    return {"id": f"shock|{now:%Y%m%d%H%M}", "t": now.isoformat(), "kind": "shock", "important": True, "icon": "🚨", "title": t, "what": t,
+            "why": "؛ ".join(signals or []), "rows": rows, "confirm": list(signals or []), "pattern": [], "headlines": list(headlines or [])[:4]}
+
+
+def alert_from_release(ev, es_reaction, report, state, now, kind="release", revised_from=None):
+    """سجل موحّد لإصدار/وصول متأخر/مراجعة: ماذا حدث، لماذا يهم ES، ما تغيّر في التقييم، الأرقام والمصدر وحالة التحقق.
+    «قبل» من آخر تقييم منشور (state.verdict_sig) و«بعد» من التقرير الحالي الذي يشمل الإصدار."""
+    ml = ((report or {}).get("macro") or {}).get("label", "")
+    ir = events_ctx.interpret_release(ev, ml, events_ctx.build_ctx(report))
+    name = events_ctx.classify(ev.get("title", ""))[1] or ev.get("title", "")
+    prev = (state or {}).get("verdict_sig") or {}
+    b = (report or {}).get("bias") or {}
+    after = b.get("label") if b.get("available") else None
+    before = prev.get("bias_label")
+    vd = None
+    try:
+        vd = verdict.build(report, now, prev) if report else None
+    except Exception:  # noqa: BLE001
+        vd = None
+    mk = ((report or {}).get("releases") or {}).get("market") or {}
+    a_txt = (vd or {}).get("news_relation") or ""
+    if not a_txt and report is not None and not (report.get("releases") or {}).get("items"):
+        a_txt = "لم يُدمج الإصدار في التقييم بعد"
+    if revised_from is not None:
+        what = f"مراجعة {name}: الفعلي من {revised_from} إلى {ev.get('actual', '')}"
+    else:
+        what = f"صدر {name}: الفعلي {ev.get('actual', '—')} مقابل المتوقع {ev.get('forecast') or '—'}"
+    return {"id": actuals.event_id(ev), "t": now.isoformat(), "kind": kind, "important": True,
+            "icon": "↻" if kind == "revision" else "📥", "title": name, "ev_title": ev.get("title", ""), "event_time": ev["time"].isoformat(),
+            "what": what, "surprise": ir.get("surprise") or surprise(ev) or "", "why": ir.get("meaning") or ir.get("system_effect") or "",
+            "numbers": {"actual": ev.get("actual", ""), "forecast": ev.get("forecast", ""), "previous": ev.get("previous", ""),
+                        "revised_from": revised_from or ev.get("revised_from", ""), "prev_revised": ev.get("prev_revised", "")},
+            "source": ev.get("actual_source", ""), "trust": ev.get("actual_src", ""), "period": ev.get("actual_period", ""),
+            "status": ev.get("status", ""), "verification": actuals.STATUS_AR.get(ev.get("status", ""), ""),
+            "reaction": es_reaction,
+            "assessment": {"before": before, "after": after, "changed": bool(before and after and before != after),
+                           "text": a_txt, "market": mk.get("label", ""), "market_key": mk.get("key", "")},
+            "rows": [], "headlines": [],
+            "update_text": (f"مراجعة: الفعلي من {revised_from} إلى {ev.get('actual', '')}" if revised_from is not None else "")}
+
+
+def _ts(a):
+    try:
+        return datetime.fromisoformat(a.get("updated_at") or a["t"])
+    except Exception:  # noqa: BLE001
+        return None
 
 
 def push_alert(state, rec, now):
-    keep = []
-    for a in (state.get("alerts") or []) + [rec]:
-        try:
-            if now - datetime.fromisoformat(a["t"]) <= timedelta(hours=ALERT_KEEP_H):
-                keep.append(a)
-        except Exception:  # noqa: BLE001
-            continue
-    state["alerts"] = keep[-ALERT_MAX:]
+    """السجل الوحيد لما يُرسل للمستخدم (يغذّي الإشعار والواجهة). رقم الحدث الواحد = سجل واحد: التصحيح أو التحديث اللاحق
+    يُضاف إلى updates ويرفع rev (فيظهر غير مقروء من جديد) ولا يكرر البطاقة."""
+    rec = dict(rec)
+    rec.setdefault("id", f"{rec.get('kind', 'x')}|{now:%Y%m%d%H%M%S}")
+    cur = list(state.get("alerts") or [])
+    old = next((a for a in cur if a.get("id") == rec["id"]), None)
+    upd_txt = rec.pop("update_text", "")
+    if old:
+        upd = list(old.get("updates") or [])
+        upd.append({"t": now.isoformat(), "text": upd_txt or "تحديث", "kind": rec.get("kind", "")})
+        keep = {k: v for k, v in rec.items() if k not in ("t", "id", "updates", "kind")}
+        if rec.get("kind") == "revision":
+            keep["revised"] = True
+        merged = dict(old, **keep)
+        merged["updates"], merged["updated_at"], merged["rev"] = upd[-8:], now.isoformat(), int(old.get("rev", 0)) + 1
+        cur = [merged if a.get("id") == rec["id"] else a for a in cur]
+    else:
+        rec.setdefault("rev", 0)
+        cur.append(rec)
+    keep_l = []
+    for a in cur:
+        t = _ts(a)
+        if t is not None and now - t <= timedelta(hours=ALERT_KEEP_H):
+            keep_l.append(a)
+    state["alerts"] = keep_l[-ALERT_MAX:]
 
 
 SHORT_NAME = {"es": "ES", "nq": "NQ", "vix": "VIX", "oil": "نفط", "gold": "ذهب", "dxy": "دولار", "jpy": "ين",
@@ -847,7 +949,7 @@ def market_pulse(fresh, vols):
     return out
 
 
-def format_move(mv, headlines, report):
+def format_move(mv, headlines, report, link=""):
     ch = mv["ch"]
     unit = lambda k: "bp" if MOVE[k][1] == "bp" else "%"
     fmt = lambda k, v: "—" if v is None else (f"{v:+.0f}bp" if MOVE[k][1] == "bp" else f"{v:+.2f}%")
@@ -856,7 +958,7 @@ def format_move(mv, headlines, report):
     icon = "📈" if v0 and v0 > 0 else "📉"
     only = set(mv["keys"]) == set(mv.get("alone", [])) and bool(mv.get("alone"))
     head = "عامل مؤثر يتحرك بقوة" if only else "حركة كبيرة في السوق"
-    lines = [f"{icon} مِرصاد — {head} ({'، '.join(MOVE[k][0] for k in mv['keys'])})", "التغير: ساعة | 3 ساعات"]
+    lines = [f"{icon} مِرصاد — {head} ({'، '.join(MOVE[k][0] for k in mv['keys'])})", *_link_lines(link), "التغير: ساعة | 3 ساعات"]
     shown = [k for k in MOVE if k in ch and (k in mv["keys"] or k in ("es", "oil", "y10", "y30", "dxy", "vix"))]
     for k in shown:
         mark = " ◀" if k in mv["keys"] else ""
@@ -878,9 +980,9 @@ def format_move(mv, headlines, report):
     return "\n".join(lines)
 
 
-def format_shock(signals, changes, headlines, report):
+def format_shock(signals, changes, headlines, report, link=""):
     fmt = lambda k: "—" if changes.get(k) is None else f"{changes[k]:+.2f}%"
-    lines = ["🚨 مِرصاد — حركة سوق غير معتادة (قد تدل على حدث مفاجئ)",
+    lines = ["🚨 مِرصاد — حركة سوق غير معتادة (قد تدل على حدث مفاجئ)", *_link_lines(link),
              f"خلال آخر ساعة: ES {fmt('es')} | VIX {fmt('vix')} | الذهب {fmt('gold')} | النفط {fmt('oil')}",
              "إشارات: " + "، ".join(signals)]
     if headlines:
@@ -981,9 +1083,12 @@ def gather_extras(now, deps):
     return extras, problems
 
 
-def full_report(now, events, deps, want_prices=False):
+def full_report(now, events, deps, want_prices=False, series=None):
+    """series: {es,y10,dxy,oil: [(وقت, سعر)]} لقياس تأكيد السوق للإصدارات (إن غابت: «تأكيد السوق غير متاح بعد»)."""
     prices, problems = deps["prices"](now)
     extras, p2 = gather_extras(now, deps)
+    if series:
+        extras["series"] = series
     report = c.build_report(prices, events, now, problems + p2, extras)
     return (report, prices) if want_prices else report
 
@@ -1082,7 +1187,8 @@ def resolve_actuals(events, now, state, deps):
                                  (lambda: fetch_headlines(now, query="EIA crude oil inventories", hours=36, limit=6)) if live else None,
                                  fetch_series_fn=deps.get("fetch_series"),
                                  fetch_heads_q_fn=deps.get("fetch_heads_q") or ((lambda q: fetch_headlines(now, query=q, hours=48, limit=10)) if live else None),
-                                 fetch_bls_fn=fb, window_h=24 * 7 + 1, diag=diag)
+                                 fetch_bls_fn=fb, window_h=24 * 7 + 1, diag=diag,
+                                 fetch_vintage_fn=deps.get("fetch_vintage") or ((lambda sid, ref, rel: extras.fetch_gdp_vintage(now, c, sid, ref, rel)) if live else None))
             for k, v in diag.items():            # حالة المصدر من آخر محاولة فعلية (للتقرير والصحة)
                 state.setdefault("source_status", {})[k] = dict(v, at=marker)
         actuals.record(events, checks, todo + [x["_clone_of"] for x in checks], state, now)
@@ -1105,6 +1211,128 @@ def enrich_for_ui(events, now, deps, intr=None, state=None):
     return heads, series
 
 
+WATCH_MAX_S = 330        # أقصى انتظار داخل التشغيل الواحد (بالزمن الحقيقي المنقضي، شاملاً زمن الطلبات)
+WATCH_STEP_S = 30
+
+
+def _series(intr):
+    return {k: intr[k] for k in ("es", "y10", "dxy", "oil") if isinstance(intr, dict) and intr.get(k)}
+
+
+def fast_waiting(events, now):
+    """أحداث تستحق الانتظار السريع: عالية التأثير، صدرت للتو (أو خلال دقيقتين)، لها مصدر آلي فعلي (BLS/FRED)، ولم يصل رقمها الموثّق.
+    الأحداث غير المدعومة (ISM/ADP/Conference Board…) والخطب والمزادات لا تُنتظر: لا فائدة من ثوانٍ تُحجب بلا مصدر."""
+    return [e for e in events if e.get("impact") == "High" and actuals.wants_number(e) and not actuals.is_verified(e)
+            and indicators.match(e.get("title", "")) and not indicators.no_source_reason(e.get("title", ""))
+            and -120 <= (now - e["time"]).total_seconds() <= 600]
+
+
+def poll_budget(waiting, state, now, limit):
+    """أقصى عدد جولات جلب في الانتظار: بلا مفتاح BLS تُحسب حصة اليوم (25 استعلاماً) وتُترك للأحداث التالية نصفها على الأقل،
+    فلا يستنزف انتظارٌ واحد الحصة. الأحداث التي مصدرها FRED فقط لا تستهلك حصة BLS."""
+    n = max(0, int(limit // WATCH_STEP_S))
+    if os.environ.get("BLS_API_KEY", "").strip():
+        return n
+    uses_bls = any(indicators.match(e.get("title", ""))["key"] in indicators.BLS_IDS for e in waiting)
+    if not uses_bls:
+        return n
+    used = (state.get("bls_calls") or {}).get(now.date().isoformat(), 0)
+    left = max(0, bls.DAILY_LIMIT_V1 - bls.SAFETY_MARGIN - used)
+    return min(n, left // 2)
+
+
+def watch_releases(events, now, state, deps):
+    """يُستدعى بعد إرسال ونشر ما تحقق فعلاً (لا يحجب التحديث الأول). ينتظر فقط الأحداث المدعومة التي صدرت للتو، يُعيد الجلب كل 30 ثانية
+    حتى WATCH_MAX_S من الزمن الحقيقي المنقضي، وبميزانية جولات تراعي حصة BLS. يعيد (الوقت الحالي، هل وصل رقم جديد).
+    لا يضمن تنبيهاً لحظياً: التأخر الأكبر هو بدء مشغّل GitHub المجدول، ثم زمن نشر المصدر نفسه. معطّل في الاختبارات ما لم يُمرَّر deps['watch_s']."""
+    limit = deps.get("watch_s", WATCH_MAX_S if "fetch_oil" not in deps else 0)
+    waiting = fast_waiting(events, now)
+    info = {"at": now.isoformat(), "limit_s": limit, "polls": 0, "budget": 0, "waited_s": 0.0, "reason": ""}
+    state["last_watch"] = info
+    if limit <= 0 or not waiting:
+        info["reason"] = "لا انتظار" if limit <= 0 else "لا حدث مدعوم ينتظر رقمه"
+        return now, False
+    budget = poll_budget(waiting, state, now, limit)
+    info["budget"] = budget
+    if budget <= 0:
+        info["reason"] = "حصة BLS اليومية لا تسمح بانتظار سريع"
+        return now, False
+    sleep = deps.get("sleep", time.sleep)
+    mono = deps.get("monotonic") or (None if "sleep" in deps else time.monotonic)      # بدون ساعة مُمرَّرة وبنوم مزيّف: زمن اسمي
+    t0 = mono() if mono else 0.0
+    start, got = now, False
+    elapsed = lambda polls: (mono() - t0) if mono else polls * WATCH_STEP_S
+    polls = 0
+    while polls < budget and fast_waiting(events, now) and elapsed(polls) < limit:
+        sleep(min(WATCH_STEP_S, max(0.0, limit - elapsed(polls))))
+        polls += 1
+        now = start + timedelta(seconds=elapsed(polls))
+        resolve_actuals(events, now, state, deps)
+    got = any(actuals.is_verified(e) for e in waiting)           # «وصل» فقط إن تحقق رقم فعلاً، لا لمجرد خروج الحدث من نافذة الانتظار
+    still = bool(fast_waiting(events, now))
+    info.update(polls=polls, waited_s=round(elapsed(polls), 1),
+                reason="وصل الرقم" if got and not still else ("خرج الحدث من نافذة الانتظار دون رقم" if not still else "انتهت الميزانية أو المدة"))
+    return now, got
+
+
+def _send_releases(events, now, state, send, deps, fresh, series):
+    """يرسل ويسجّل كل ما تحقق ولم يُرسل: صدور، وصول متأخر، مراجعة. كلها تدخل السجل الموحّد (state.alerts) بمعرّف الحدث الثابت
+    والرابط المباشر في الرسالة، فلا يُرسل شيء للمستخدم ثم يغيب عن التطبيق."""
+    sent = 0
+    cache = {}
+
+    def rep():
+        if "r" not in cache:
+            try:
+                cache["r"] = full_report(now, events, deps, series=series)
+            except Exception:  # noqa: BLE001
+                cache["r"] = None
+        return cache["r"]
+
+    for ev in due_releases(events, now, state):
+        minutes = max(5, int((now - ev["time"]).total_seconds() // 60))
+        reaction = change_over(fresh.get("es", []), minutes) if "es" in fresh else None
+        report = rep()
+        rec = alert_from_release(ev, reaction, report, state, now, "release")
+        send(format_release(ev, reaction, report, link=alert_link(rec["id"]), assess=rec["assessment"]))
+        push_alert(state, rec, now)
+        state["seen_events"].append(event_id(ev))
+        mark_alerted(state, ev, "release")
+        health.bump(state, "sent", now)
+        sent += 1
+    for ev in late_releases(events, now, state):          # وصل الرقم الموثّق بعد نافذة الصدور: تنبيه مستقل مرة واحدة
+        report = rep()
+        rec = alert_from_release(ev, None, report, state, now, "late")
+        send(format_release(ev, None, report, late=True, now=now, link=alert_link(rec["id"]), assess=rec["assessment"]))
+        push_alert(state, rec, now)
+        state["seen_events"].append(event_id(ev))
+        mark_alerted(state, ev, "late")
+        health.bump(state, "sent", now)
+        sent += 1
+    for ev, old in revisions(events, now, state):         # مراجعة لاحقة لقيمة سبق التنبيه عنها: تُضاف إلى سجل الحدث نفسه
+        report = rep()
+        rec = alert_from_release(ev, None, report, state, now, "revision", revised_from=old)
+        send(format_release(ev, None, None, revised_from=old, link=alert_link(rec["id"]), assess=rec["assessment"]))
+        push_alert(state, rec, now)
+        mark_alerted(state, ev, "revision")
+        health.bump(state, "sent", now)
+        sent += 1
+    return sent
+
+
+def _publish(report, events, now, state, deps, **kw):
+    """نشر data.json ثم تسجيل نجاح النشر وآخر تقييم صالح (verdict_sig). يرفع استثناءً إن كانت اللقطة معيبة: لا يُعدّ نجاحاً
+    وتبقى آخر لقطة صالحة منشورة كما هي (dashboard.publish يتحقق قبل الكتابة)."""
+    view = dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
+                             alerts=list(reversed(state.get("alerts") or [])), verdict_prev=state.get("verdict_sig"), **kw)
+    if not view.get("error"):                  # حالة «تقييم غير مكتمل» كُتبت للعرض لكنها ليست نجاح نشر
+        state["last_publish_ok"] = now.isoformat()
+    vd = view.get("verdict") or {}
+    if vd.get("available") and vd.get("signature"):
+        state["verdict_sig"] = vd["signature"]
+    return view
+
+
 def run_preopen(now, state, send, deps, prefix=""):
     problems = []
     try:
@@ -1113,7 +1341,13 @@ def run_preopen(now, state, send, deps, prefix=""):
         events = []
         problems.append(f"تعذّر جلب التقويم الاقتصادي: {e}")
     resolve_actuals(events, now, state, deps)
-    report, prices = full_report(now, events, deps, want_prices=True)
+    ser = {}
+    if deps.get("intraday"):
+        try:
+            ser = _series(deps["intraday"](now))
+        except Exception:  # noqa: BLE001
+            ser = {}
+    report, prices = full_report(now, events, deps, want_prices=True, series={k: v for k, v in ser.items() if v and now - v[-1][0] <= timedelta(minutes=45)})
     report.setdefault("problems", []).extend(problems)
     add_auction(report, prices, now, deps)
     try:
@@ -1125,10 +1359,8 @@ def run_preopen(now, state, send, deps, prefix=""):
     hv = None
     try:
         hv = health.build(report, events, now, state)
-        dashboard.publish(report, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
-                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse, series=series, fed_heads=heads, health=hv, week_news=get_week_news(now, deps, state),
-                          quality=quality.build(events, state, now))
-        state["last_publish_ok"] = now.isoformat()      # نجاح فعلي: كُتب data.json دون استثناء
+        _publish(report, events, now, state, deps, pulse=pulse, series=series, fed_heads=heads, health=hv,
+                 week_news=get_week_news(now, deps, state), quality=quality.build(events, state, now))
     except Exception as e:  # noqa: BLE001
         report["problems"].append(f"تعذّر تحديث صفحة الواجهة: {e}")
     msg = format_preopen(report, events, now, prefix, dashboard.page_url())
@@ -1137,32 +1369,26 @@ def run_preopen(now, state, send, deps, prefix=""):
     send(msg)
 
 
-WATCH_MAX_S = 330        # أقصى انتظار داخل التشغيل الواحد (بعد بدئه) لوصول رقم صدر للتو
-WATCH_STEP_S = 30
-
-
-def watch_releases(events, now, state, deps):
-    """إن صدر حدث عالي التأثير قبل أقل من 10 دقائق (أو يصدر خلال دقيقتين) ولم يصل رقمه الموثَّق، يُعيد الجلب كل 30 ثانية
-    حتى WATCH_MAX_S. لا يضمن تنبيهاً لحظياً: التأخر الأكبر هو تأخر بدء مشغّل GitHub المجدول (قد يبلغ دقائق)، ثم زمن نشر المصدر نفسه.
-    يعيد الوقت الحالي بعد الانتظار. معطّل في الاختبارات ما لم يُمرَّر deps['watch_s']."""
-    limit = deps.get("watch_s", WATCH_MAX_S if "fetch_oil" not in deps else 0)
-    if limit <= 0:
-        return now
-    sleep = deps.get("sleep", time.sleep)
-
-    def waiting(n):
-        return [e for e in events if e.get("impact") == "High" and actuals.wants_number(e) and not actuals.is_verified(e)
-                and -120 <= (n - e["time"]).total_seconds() <= 600]
-    waited = 0
-    while waited < limit and waiting(now):
-        sleep(WATCH_STEP_S)
-        waited += WATCH_STEP_S
-        now = now + timedelta(seconds=WATCH_STEP_S)
-        resolve_actuals(events, now, state, deps)
-    return now
+def _snapshot(now, events, deps, state, send, fresh, vols, intr):
+    """لقطة الواجهة: تقرير كامل، نبض، صحة، نشر. يرفع استثناءً عند الفشل (لا يُحسب نجاحاً)."""
+    snap = full_report(now, events, deps, series=_series(intr))
+    try:
+        pulse = market_pulse(fresh, vols) if fresh else []
+    except Exception:  # noqa: BLE001
+        pulse = []
+    if pulse:
+        state["pulse"] = pulse
+    heads, series = enrich_for_ui(events, now, deps, intr, state)
+    hv = health.build(snap, events, now, state)
+    _publish(snap, events, now, state, deps, pulse=pulse or state.get("pulse") or [], series=series, fed_heads=heads, health=hv,
+             week_news=get_week_news(now, deps, state), quality=quality.build(events, state, now))
+    if health.should_notify(hv, state, now):
+        send(health.format_message(hv))
 
 
 def run_auto(now, state, send, deps):
+    """الترتيب (v0.19): 1) ملء ما تحقق 2) إرسال الصدور والحركات فوراً 3) نشر اللقطة الأولى 4) بعدها فقط انتظار قصير
+    للأحداث المدعومة التي لم يصل رقمها، فإن وصل شيء أُرسل ونُشر تحديث ثانٍ. لا شيء مُتحقَّق يتأخر بسبب انتظار غيره."""
     sent = 0
     try:
         events = calendar_events(now, state, deps)
@@ -1170,7 +1396,6 @@ def run_auto(now, state, send, deps):
         print("تعذّر جلب التقويم:", e)
         events = []
     resolve_actuals(events, now, state, deps)      # قبل due_releases: التقويم لا يحمل الرقم الفعلي أصلاً
-    now = watch_releases(events, now, state, deps)
 
     try:
         intr = deps["intraday"](now)
@@ -1186,34 +1411,8 @@ def run_auto(now, state, send, deps):
         health.bump(state, "suppressed", now)
         print(f"استُبعد {k} من المراقبة اللحظية: قيمة خارج النطاق المنطقي")
 
-    # 1) صدور بيانات كبرى
-    for ev in due_releases(events, now, state):
-        minutes = max(5, int((now - ev["time"]).total_seconds() // 60))
-        reaction = change_over(fresh.get("es", []), minutes) if "es" in fresh else None
-        try:
-            report = full_report(now, events, deps)
-        except Exception:  # noqa: BLE001
-            report = None
-        send(format_release(ev, reaction, report))
-        state["seen_events"].append(event_id(ev))
-        mark_alerted(state, ev, "release")
-        health.bump(state, "sent", now)
-        sent += 1
-    for ev in late_releases(events, now, state):          # وصل الرقم الموثّق بعد نافذة الصدور: تنبيه مستقل مرة واحدة
-        try:
-            report = full_report(now, events, deps)
-        except Exception:  # noqa: BLE001
-            report = None
-        send(format_release(ev, None, report, late=True, now=now))
-        state["seen_events"].append(event_id(ev))
-        mark_alerted(state, ev, "late")
-        health.bump(state, "sent", now)
-        sent += 1
-    for ev, old in revisions(events, now, state):         # مراجعة لاحقة لقيمة سبق التنبيه عنها
-        send(format_release(ev, None, None, revised_from=old))
-        mark_alerted(state, ev, "revision")
-        health.bump(state, "sent", now)
-        sent += 1
+    # 1) صدور بيانات كبرى (يشمل الوصول المتأخر والمراجعات): فوراً، بما تحقق الآن
+    sent += _send_releases(events, now, state, send, deps, fresh, _series(intr))
 
     # 2) صدمة مفاجئة
     if fresh and shock_in_cooldown(state, now):
@@ -1229,11 +1428,12 @@ def run_auto(now, state, send, deps):
             except Exception:  # noqa: BLE001
                 headlines = []
             try:
-                report = full_report(now, events, deps)
+                report = full_report(now, events, deps, series=_series(intr))
             except Exception:  # noqa: BLE001
                 report = None
-            send(format_shock(signals, changes, headlines, report))
-            push_alert(state, alert_from_shock(signals, changes, headlines, now), now)
+            rec = alert_from_shock(signals, changes, headlines, now)
+            send(format_shock(signals, changes, headlines, report, link=alert_link(rec["id"])))
+            push_alert(state, rec, now)
             state["last_shock"] = now.isoformat()
             health.bump(state, "sent", now)
             sent += 1
@@ -1255,42 +1455,37 @@ def run_auto(now, state, send, deps):
                 except Exception:  # noqa: BLE001
                     headlines = []
                 try:
-                    report = full_report(now, events, deps)
+                    report = full_report(now, events, deps, series=_series(intr))
                 except Exception:  # noqa: BLE001
                     report = None
-                send(format_move(mv, headlines, report))
+                rec = alert_from_move(mv, headlines, now)
+                send(format_move(mv, headlines, report, link=alert_link(rec["id"])))
                 health.bump(state, "sent", now)
-                push_alert(state, alert_from_move(mv, headlines, now), now)
+                push_alert(state, rec, now)
                 lm = state.setdefault("last_move", {})
                 lmm = state.setdefault("last_move_mag", {})
                 for dk in dkeys:
                     lm[dk] = now.isoformat()
                     lmm[dk] = mags[dk]
                 sent += 1
-    # تحديث الواجهة: صفحة الويب تعرض آخر لقطة منشورة، فنجدّدها مع كل فحص (كل ~15 دقيقة)
-    try:
-        snap = full_report(now, events, deps)
+
+    # 4) تحديث الواجهة الأول (كل ~15 دقيقة): ما تحقق ينشر الآن دون انتظار غيره
+    def publish_snapshot(n):
         try:
-            pulse = market_pulse(fresh, vols) if fresh else []
-        except Exception:  # noqa: BLE001
-            pulse = []
-        if pulse:
-            state["pulse"] = pulse
-        heads, series = enrich_for_ui(events, now, deps, intr, state)
-        hv = health.build(snap, events, now, state)
-        dashboard.publish(snap, events, now, NEWS_LABELS, docs_dir=deps.get("docs_dir"),
-                          alerts=list(reversed(state.get("alerts") or [])), pulse=pulse or state.get("pulse") or [],
-                          series=series, fed_heads=heads, health=hv, week_news=get_week_news(now, deps, state),
-                          quality=quality.build(events, state, now))
-        state["last_publish_ok"] = now.isoformat()
-        if health.should_notify(hv, state, now):
-            send(health.format_message(hv))
-    except Exception as e:  # noqa: BLE001
-        print("تعذّر تحديث لقطة الواجهة:", e)
-        try:       # لا نُبقي حالة «سليمة» قديمة: نكتب أن الفحص تعذّر
-            dashboard.patch_health(health.build(None, events, now, state, error=f"تعذّر بناء اللقطة: {e}"), deps.get("docs_dir"))
-        except Exception:  # noqa: BLE001
-            pass
+            _snapshot(n, events, deps, state, send, fresh, vols, intr)
+        except Exception as e:  # noqa: BLE001
+            print("تعذّر تحديث لقطة الواجهة:", e)
+            try:       # لا نُبقي حالة «سليمة» قديمة: نكتب أن الفحص تعذّر
+                dashboard.patch_health(health.build(None, events, n, state, error=f"تعذّر بناء اللقطة: {e}"), deps.get("docs_dir"))
+            except Exception:  # noqa: BLE001
+                pass
+    publish_snapshot(now)
+
+    # 5) متابعة ما لم يصل رقمه (مدعوم فقط، بميزانية زمن حقيقي وحصة): لا يحجب شيئاً مما سبق
+    now2, arrived = watch_releases(events, now, state, deps)
+    if arrived:
+        sent += _send_releases(events, now2, state, send, deps, fresh, _series(intr))
+        publish_snapshot(now2)
     print(f"انتهت المراقبة: أُرسل {sent} تنبيه")
     return sent
 

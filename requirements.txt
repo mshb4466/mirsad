@@ -1,1 +1,2 @@
+# التشغيل (GitHub Actions): yfinance فقط؛ كل ما عداه مكتبة بايثون القياسية
 yfinance>=0.2.40

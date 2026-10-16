@@ -47,7 +47,7 @@ def test_alert_persist_and_pulse():
     runner.push_alert(st, runner.alert_from_move(mv, ["h1"], NOW), NOW)
     runner.push_alert(st, runner.alert_from_move(mv, [], NOW - timedelta(hours=30) + timedelta(hours=31)), NOW)
     assert len(st["alerts"]) == 2 and st["alerts"][0]["rows"][0]["lead"] in (True, False)
-    old = {"t": (NOW - timedelta(hours=30)).isoformat()}
+    old = {"t": (NOW - timedelta(hours=80)).isoformat()}      # أقدم من نافذة السجل الموحّد (72 ساعة)
     st["alerts"].append(old)
     runner.push_alert(st, runner.alert_from_move(mv, [], NOW), NOW)
     assert all(a["t"] != old["t"] for a in st["alerts"])

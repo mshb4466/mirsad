@@ -113,23 +113,38 @@ def confirm(b, drivers):
     return {"key": k, "label": l, "why": w, "market": round(mk, 2)}
 
 
-def compute(macro_view, prices, fred, regime, drivers=None):
-    """قاموس الانحياز. available=False عند ضعف التغطية."""
+def compute(macro_view, prices, fred, regime, drivers=None, releases=None):
+    """قاموس الانحياز. available=False عند ضعف التغطية.
+    releases: ملخص release_impact.build (الإصدارات الموثّقة فقط). يدخل مكوّناً مستقلاً «events» بوزن يتناسب مع أهمية الإصدارات
+    (حدّه الأقصى release_impact.MAX_WEIGHT)، ويُخصم نصفه من وزن «ميل الفدرالي» لأن ركائز الفدرالي تقرأ البيانات نفسها (لا عدّ مزدوج).
+    التغطية تُحسب على المكوّنات الأساسية فقط: وصول إصدار لا يرفع التغطية ولا يحجبها."""
     sig = signals(macro_view, prices, fred, regime, drivers)
     tot = sum(v[0] for v in W.values())
-    wsum = sum(W[k][0] for k in sig)
-    cov = wsum / tot if tot else 0.0
+    wsum_base = sum(W[k][0] for k in sig)
+    cov = wsum_base / tot if tot else 0.0
     base = {"available": False, "coverage": round(cov, 2), "method": "قاعدي شفاف: متوسط مرجَّح لإشارات ماكروية؛ الأوزان تقديرية غير معايَرة ولم تُختبر تاريخياً"}
+    rel = releases or {}
+    base["pending_release"] = [{"id": p.get("id"), "name": p.get("name"), "status_ar": p.get("status_ar", ""), "unsupported": bool(p.get("unsupported"))}
+                               for p in (rel.get("pending") or [])]
     if cov < MIN_COVERAGE:
         base["label"] = "غير متاح"
         base["why"] = f"البيانات الماكروية غير كافية (التغطية {cov:.0%} < {MIN_COVERAGE:.0%})"
         base["components"] = []
         base["confirm"] = confirm(base, drivers)
         return base
-    score = sum(W[k][0] * sig[k][0] for k in sig) / wsum
+    w = {k: W[k][0] for k in W}
+    names = {k: W[k][1] for k in W}
+    if rel.get("signal") is not None and rel.get("weight", 0) > 0:
+        sig["events"] = (rel["signal"], rel.get("note") or "الإصدارات الموثّقة")
+        w["events"] = rel["weight"]
+        names["events"] = "الإصدارات الاقتصادية الموثّقة"
+        if "fed" in w:
+            w["fed"] = max(0.0, w["fed"] - rel.get("fed_discount", 0.0))
+    wsum = sum(w[k] for k in sig)
+    score = sum(w[k] * sig[k][0] for k in sig) / wsum
     strong = [k for k in sig if abs(sig[k][0]) >= 0.2]
     sg = 1 if score >= 0 else -1
-    agree = (sum(W[k][0] for k in strong if sig[k][0] * sg > 0) / sum(W[k][0] for k in strong)) if strong else 1.0
+    agree = (sum(w[k] for k in strong if sig[k][0] * sg > 0) / sum(w[k] for k in strong)) if strong else 1.0
     if score >= LABEL_T:
         label, arrow, key = "داعم", "▲", "support"
     elif score <= -LABEL_T:
@@ -138,10 +153,10 @@ def compute(macro_view, prices, fred, regime, drivers=None):
         label, arrow, key = "مختلط", "◆", "neutral"
     conf = "مرتفعة" if cov >= 0.8 and agree >= 0.75 else "متوسطة" if cov >= 0.6 and agree >= 0.55 else "منخفضة"
     comps = []
-    for k in sorted(sig, key=lambda k: abs(W[k][0] * sig[k][0]), reverse=True):
+    for k in sorted(sig, key=lambda k: abs(w[k] * sig[k][0]), reverse=True):
         s = sig[k][0]
-        comps.append({"key": k, "name": W[k][1], "signal": round(s, 2), "weight": W[k][0],
-                      "contribution": round(W[k][0] * s / wsum, 3),
+        comps.append({"key": k, "name": names[k], "signal": round(s, 2), "weight": round(w[k], 3),
+                      "contribution": round(w[k] * s / wsum, 3),
                       "arrow": "▲" if s >= 0.2 else "▼" if s <= -0.2 else "◆",
                       "tone": "support" if s >= 0.2 else "pressure" if s <= -0.2 else "flat", "note": sig[k][1]})
     missing = [W[k][1] for k in W if k not in sig]
@@ -150,5 +165,8 @@ def compute(macro_view, prices, fred, regime, drivers=None):
     base.update({"available": True, "score": round(score, 2), "label": label, "key": key, "arrow": arrow,
                  "confidence": conf, "agreement": round(agree, 2), "components": comps,
                  "missing": missing, "why": why})
+    if "events" in sig:
+        base["releases"] = {"weight": round(w["events"], 3), "fed_discount": rel.get("fed_discount", 0.0),
+                            "market": rel.get("market"), "note": rel.get("note", "")}
     base["confirm"] = confirm(base, drivers)
     return base

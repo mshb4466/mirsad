@@ -127,7 +127,7 @@ def test_migration_is_idempotent_and_writes_backup_once():
     st = v017_state()
     json.dump(st, open(p, "w", encoding="utf-8"), ensure_ascii=False)
     s1, rep1 = migrate.load_and_migrate(p, NOW)
-    bak = p + ".bak-v1"
+    bak = os.path.join(d, "backups", "state.json.bak-v1")      # مجلد backups/ يحفظه workflow في المستودع (دائم)
     assert os.path.exists(bak) and json.load(open(bak, encoding="utf-8")) == st and rep1["quarantined"] == 1
     json.dump(s1, open(p, "w", encoding="utf-8"), ensure_ascii=False)
     s2, rep2 = migrate.load_and_migrate(p, NOW + timedelta(hours=1))
@@ -173,27 +173,41 @@ def gdp_ev(title, when_utc):
     return c.parse_events([{"title": title, "country": "USD", "impact": "High", "date": when_utc, "forecast": "2.0%", "previous": "3.0%"}])[0]
 
 
-def test_gdp_never_uses_a_different_quarter_or_a_later_revision():
-    rows = [("2026-01-01", 1.5), ("2026-04-01", 3.0), ("2026-07-01", 2.1)]      # الربع الثالث موجود لكنه ليس المقصود في أغسطس
-    t = datetime(2026, 8, 27, 12, 30, tzinfo=timezone.utc)
-    res = indicators.resolve_detail("GDP q/q", t, {"gdp": rows}, ET, "FRED", None, t + timedelta(hours=2))
-    assert res["value"] == "3.0%" and res["period"] == "2026-04-01" and res["stage"] == "second"
-    late = indicators.resolve_detail("GDP q/q", t, {"gdp": rows}, ET, "FRED", None, t + timedelta(days=25))
-    assert late["value"] is None and "مراجَعة" in late["why"]                    # بعد 20 يوماً لا نعرضها كأنها الأصلية
-    miss = indicators.resolve_detail("GDP q/q", t, {"gdp": [("2026-01-01", 1.5), ("2026-07-01", 2.1)]}, ET, "FRED", None, t)
-    assert miss["value"] is None and miss["why"]                              # الربع الصحيح غائب: غير متاح مع السبب
+def vint(rel, value=3.0, first=None, dates=None, vdate=None):
+    iso = rel.isoformat()
+    return {"dates": dates if dates is not None else [iso], "vdate": vdate or iso, "value": value, "first_seen": first}
 
 
-def test_gdp_stage_in_title_must_match_bea_schedule_and_ids_differ_by_stage():
+def test_gdp_uses_release_vintage_never_a_later_revision_and_needs_evidence():
     t = datetime(2026, 8, 27, 12, 30, tzinfo=timezone.utc)
-    bad = indicators.resolve_detail("Advance GDP q/q", t, {"gdp": [("2026-04-01", 3.0)]}, ET, "FRED", None, t)
+    rel = t.astimezone(ET).date()
+    rows = {"gdp": [("2026-04-01", 3.4), ("2026-07-01", 2.1)]}              # قراءة FRED الحالية (3.4) قد تخص تقديراً أحدث من إصدار أغسطس
+    res = indicators.resolve_detail("Prelim GDP q/q", t, rows, ET, "FRED", None, t + timedelta(days=40), vint(rel, 3.0))
+    assert res["value"] == "3.0%" and res["period"] == "2026-04-01"        # قيمة نسخة يوم الإصدار لا القيمة الحالية ولا حدّ 20 يوماً
+    none = indicators.resolve_detail("Prelim GDP q/q", t, rows, ET, "FRED", None, t, None)
+    assert none["value"] is None and "لا دليل على نسخة الإصدار" in none["why"]       # بلا نسخة تاريخية لا رقم أبداً
+    far = indicators.resolve_detail("Prelim GDP q/q", t, rows, ET, "FRED", None, t, vint(rel, 3.0, vdate=(rel + timedelta(days=9)).isoformat(), dates=[(rel + timedelta(days=9)).isoformat()]))
+    assert far["value"] is None and "لا نسخة مسجّلة" in far["why"]
+    nodate = indicators.resolve_detail("Prelim GDP q/q", t, rows, ET, "FRED", None, t, vint(rel, 3.0, dates=[]))
+    assert nodate["value"] is None
+
+
+def test_gdp_stage_is_claimed_only_with_evidence_and_ids_differ_by_stage():
+    t = datetime(2026, 8, 27, 12, 30, tzinfo=timezone.utc)
+    rel = t.astimezone(ET).date()
+    bad = indicators.resolve_detail("Advance GDP q/q", t, {}, ET, "FRED", None, t, vint(rel))
     assert bad["value"] is None and "لا توافق جدول BEA" in bad["why"]
-    ok = indicators.resolve_detail("Prelim GDP q/q", t, {"gdp": [("2026-04-01", 3.0)]}, ET, "FRED", None, t)
-    assert ok["value"] == "3.0%" and ok["stage"] == "second"
+    ok = indicators.resolve_detail("Prelim GDP q/q", t, {}, ET, "FRED", None, t, vint(rel))
+    assert ok["value"] == "3.0%" and ok["stage"] == "second" and ok["stage_ok"] is True         # نص العنوان + جدول BEA
+    unk = indicators.resolve_detail("GDP q/q", t, {}, ET, "FRED", None, t, vint(rel, first="2026-07-30"))
+    assert unk["value"] == "3.0%" and unk["stage"] == "" and unk["stage_ok"] is False and "المرحلة غير متحققة" in unk["note"]
+    assert "Second" not in unk["note"] and "Third" not in unk["note"]
     ids = {actuals.event_id(gdp_ev("GDP q/q", f"2026-{m:02d}-27T12:30:00+00:00")) for m in (7, 8, 9)}
     assert len(ids) == 3 and all("|gdp|level_pct|2026-04|" in i for i in ids)
-    jan = indicators.resolve_detail("Advance GDP q/q", datetime(2027, 1, 28, 13, 30, tzinfo=timezone.utc), {"gdp": [("2026-10-01", 2.8)]}, ET, "FRED", None, None)
-    assert jan["value"] == "2.8%" and jan["period"] == "2026-10-01" and jan["stage"] == "advance"
+    jt = datetime(2027, 1, 28, 13, 30, tzinfo=timezone.utc)
+    jr = jt.astimezone(ET).date()
+    jan = indicators.resolve_detail("Advance GDP q/q", jt, {}, ET, "FRED", None, None, vint(jr, 2.8, first=jr.isoformat()))
+    assert jan["value"] == "2.8%" and jan["period"] == "2026-10-01" and jan["stage"] == "advance" and jan["stage_ok"] is True
 
 
 # ───────── 4) الوحدات والمفاجأة ─────────

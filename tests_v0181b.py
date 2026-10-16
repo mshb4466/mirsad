@@ -72,9 +72,9 @@ def test_watch_waits_for_fresh_release_then_stops_and_gives_up():
     evs, st = mk(), {}
     r.resolve_actuals(evs, cpi_now, st, d)
     assert evs[0]["actual"] == ""
-    later = r.watch_releases(evs, cpi_now, st, d)
+    later, arrived = r.watch_releases(evs, cpi_now, st, d)
     assert evs[0]["actual"] == "4.3%" and evs[0]["status"] == "verified_official"
-    assert 0 < calls["sleeps"] < 10 and later > cpi_now
+    assert 0 < calls["sleeps"] < 10 and later > cpi_now and arrived
     # مصدر لا يصل أبداً: ينتهي عند السقف ولا يدور بلا نهاية
     calls.update(n=-999, sleeps=0)
     evs2 = mk()
