@@ -289,45 +289,45 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-16T23:19:24.595556+00:00",
-        "ok_at": "2026-10-16T23:19:24.595556+00:00"
+        "last_try": "2026-10-16T23:49:17.318379+00:00",
+        "ok_at": "2026-10-16T23:49:17.318379+00:00"
       },
       "fred": {
-        "last_try": "2026-10-16T23:19:24.595556+00:00",
-        "ok_at": "2026-10-16T23:19:24.595556+00:00"
+        "last_try": "2026-10-16T23:49:17.318379+00:00",
+        "ok_at": "2026-10-16T23:49:17.318379+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-16T23:19:24.595556+00:00",
-        "ok_at": "2026-10-16T23:19:24.595556+00:00"
+        "last_try": "2026-10-16T23:49:17.318379+00:00",
+        "ok_at": "2026-10-16T23:49:17.318379+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-16T23:19:24.595556+00:00",
-        "ok_at": "2026-10-16T23:19:24.595556+00:00"
+        "last_try": "2026-10-16T23:49:17.318379+00:00",
+        "ok_at": "2026-10-16T23:49:17.318379+00:00"
       },
       "oil": {
-        "last_try": "2026-10-16T23:19:24.595556+00:00",
-        "ok_at": "2026-10-16T23:19:24.595556+00:00"
+        "last_try": "2026-10-16T23:49:17.318379+00:00",
+        "ok_at": "2026-10-16T23:49:17.318379+00:00"
       },
       "news": {
-        "last_try": "2026-10-16T23:19:24.595556+00:00",
-        "ok_at": "2026-10-16T23:19:24.595556+00:00"
+        "last_try": "2026-10-16T23:49:17.318379+00:00",
+        "ok_at": "2026-10-16T23:49:17.318379+00:00"
       },
       "cot": {
-        "last_try": "2026-10-16T23:19:24.595556+00:00",
-        "ok_at": "2026-10-16T23:19:24.595556+00:00"
+        "last_try": "2026-10-16T23:49:17.318379+00:00",
+        "ok_at": "2026-10-16T23:49:17.318379+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-16T23:19:24.595556+00:00",
-        "ok_at": "2026-10-16T23:19:24.595556+00:00"
+        "last_try": "2026-10-16T23:49:17.318379+00:00",
+        "ok_at": "2026-10-16T23:49:17.318379+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-16T23:19:24.595556+00:00"
+      "at": "2026-10-16T23:49:17.318379+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-16T22:23:04.964376+00:00",
+    "at": "2026-10-16T23:49:17.318379+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -364,29 +364,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-16T21:58:20+00:00",
-            "title": "Wall Street stocks sink as tech sell-off rattles markets",
-            "src": "The Business Journal"
+            "t": "2026-10-16T23:42:54+00:00",
+            "title": "AI Companies Play Cat-and-Mouse With Secret-Stealing Spies",
+            "src": "WSJ"
           },
           {
-            "t": "2026-10-16T20:33:09+00:00",
-            "title": "Wall Street ends down sharply, worries about AI trade and high oil prices weigh",
+            "t": "2026-10-16T22:43:00+00:00",
+            "title": "New Cracks in AI Trade Push Wall Street to Worst Week Since June",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-16T21:45:22+00:00",
+            "title": "Wall Street tumbles as worries about AI trade and high oil prices weigh",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-16T20:08:00+00:00",
-            "title": "Tech stocks tumble as AI debt fears rattle Wall Street",
-            "src": "CBS News"
+            "t": "2026-10-16T20:32:36+00:00",
+            "title": "Wall Street ends down sharply, worries about AI trade and high oil prices weigh",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-16T19:28:10+00:00",
-            "title": "Wall Street's fear gauge is ripping. Traders see it going even higher",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-16T18:18:00+00:00",
-            "title": "Tech Stocks Slump as Nasdaq Faces Weekly Loss",
-            "src": "WSJ"
+            "t": "2026-10-16T20:31:45+00:00",
+            "title": "Wall Street Anxiety Spreads as AI Rout Meets $110 Oil Shock",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -399,14 +399,14 @@
             "src": "Investopedia"
           },
           {
-            "t": "2026-10-16T21:26:17+00:00",
-            "title": "Stock Market Today, Oct. 16: Tesla Slips 2% as Roadster Reveal Fades Before Earnings",
-            "src": "The Motley Fool"
+            "t": "2026-10-16T21:01:03+00:00",
+            "title": "Wall Street Just Put $1,000 on Meta",
+            "src": "TradingView"
           },
           {
-            "t": "2026-10-16T21:15:59+00:00",
-            "title": "Meta: What You Need To Know Before Earnings (NASDAQ:META)",
-            "src": "Seeking Alpha"
+            "t": "2026-10-16T20:41:11+00:00",
+            "title": "Meta's AI Spending Could Hit $205 Billion in 2027: Why Magnificent 7 ETFs Face a Crucial Test",
+            "src": "TradingView"
           },
           {
             "t": "2026-10-16T20:15:00+00:00",
@@ -424,6 +424,16 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-10-16T18:06:41+00:00",
+            "title": "Warsh Vows to Tame Inflation as A.I. Delivers ‘Shock’ to Economy",
+            "src": "The New York Times"
+          },
+          {
+            "t": "2026-10-16T17:47:39+00:00",
+            "title": "Jobs report today: Hiring worse than expected in June amid elevated inflation",
+            "src": "ABC7 Los Angeles"
+          },
+          {
             "t": "2026-10-16T11:32:51+00:00",
             "title": "The 2026 Dodgers and Top 10 Most Expensive MLB Payrolls That Didn't Win the World Series",
             "src": "Bleacher Report"
@@ -437,22 +447,22 @@
             "t": "2026-10-16T08:34:50+00:00",
             "title": "Inflation jumps to 3.7% as oil prices hit consumers",
             "src": "NBC News"
-          },
-          {
-            "t": "2026-10-16T05:02:26+00:00",
-            "title": "Warsh Vows to Tame Inflation as A.I. Delivers ‘Shock’ to Economy",
-            "src": "The New York Times"
-          },
-          {
-            "t": "2026-10-15T23:02:00+00:00",
-            "title": "America’s Latest Inflation Check-In Doesn’t Look Good for Trump",
-            "src": "The Atlantic"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-16T22:29:21+00:00",
+            "title": "Watch Clark Calls for Lower Tariffs, More Legal Immigration",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-10-16T22:29:21+00:00",
+            "title": "Watch AI Selloff, Oil & Treasury Yields Pressure Markets",
+            "src": "Bloomberg.com"
+          },
           {
             "t": "2026-10-16T22:11:54+00:00",
             "title": "Study cites $3,000+ hit to El Paso families, pointing to tariffs and Iran war",
@@ -462,16 +472,6 @@
             "t": "2026-10-16T21:09:31+00:00",
             "title": "Ag commissioner candidates tackle tariffs, farm crisis, data centers during debate",
             "src": "North Dakota Monitor"
-          },
-          {
-            "t": "2026-10-16T19:06:50+00:00",
-            "title": "Mexico limits tariffs break to established local carmakers",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-16T18:53:40+00:00",
-            "title": "US annual budget gap hits nearly $2 trillion, largest in 5 years",
-            "src": "Reuters"
           }
         ]
       },
@@ -479,9 +479,14 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-16T18:46:18+00:00",
-            "title": "Oil surges to $110 per barrel for the first time since May",
-            "src": "NBC News"
+            "t": "2026-10-16T22:48:56+00:00",
+            "title": "Russian attacks kill eight in Ukraine, cut power to over a million",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-16T20:20:00+00:00",
+            "title": "House Democrat introduces bipartisan bill to block Trump’s Russian diesel deal",
+            "src": "Politico"
           },
           {
             "t": "2026-10-16T17:55:44+00:00",
@@ -492,11 +497,6 @@
             "t": "2026-10-16T17:15:44+00:00",
             "title": "Brent oil touches $110 as Iran escalates Hormuz attacks, Ukraine vows to hit Russian refineries",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-10-16T16:07:00+00:00",
-            "title": "Zelensky Says Ukraine Will Resume Russian Refinery Strikes, Defying Trump",
-            "src": "The New York Times"
           }
         ]
       }
@@ -504,7 +504,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-16T23:19:24.595556+00:00",
+    "at": "2026-10-16T23:49:17.318379+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -885,7 +885,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-15T14:45:45.733683+00:00",
-      "last_attempt": "2026-10-16T20:19:27.904927+00:00",
+      "last_attempt": "2026-10-16T23:49:17.318379+00:00",
       "attempts": 10,
       "title": "Core PPI m/m",
       "time": "2026-10-15T12:30:00+00:00",
@@ -896,7 +896,9 @@
       "impact": "High",
       "forecast": "0.3%",
       "previous": "0.2%",
-      "country": "USD"
+      "country": "USD",
+      "stage_ok": "",
+      "prev_revised": ""
     },
     "US|growth:core-retail-sales-m-m|2026-10-15|1230": {
       "actual": "",
@@ -919,7 +921,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-15T14:45:45.733683+00:00",
-      "last_attempt": "2026-10-16T20:19:27.904927+00:00",
+      "last_attempt": "2026-10-16T23:49:17.318379+00:00",
       "attempts": 10,
       "title": "PPI m/m",
       "time": "2026-10-15T12:30:00+00:00",
@@ -930,7 +932,9 @@
       "impact": "High",
       "forecast": "0.6%",
       "previous": "0.4%",
-      "country": "USD"
+      "country": "USD",
+      "stage_ok": "",
+      "prev_revised": ""
     },
     "US|retail|mm|2026-09|-|2026-10-15": {
       "actual": "0.8%",
@@ -999,7 +1003,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-16T13:40:12.987952+00:00",
-      "last_attempt": "2026-10-16T20:19:27.904927+00:00",
+      "last_attempt": "2026-10-16T23:49:17.318379+00:00",
       "attempts": 1,
       "title": "Industrial Production m/m",
       "time": "2026-10-16T13:15:00+00:00",
@@ -1010,7 +1014,9 @@
       "impact": "Low",
       "forecast": "0.4%",
       "previous": "0.0%",
-      "country": "USD"
+      "country": "USD",
+      "stage_ok": "",
+      "prev_revised": ""
     }
   },
   "stats": {
@@ -5483,12 +5489,81 @@
       "bulletin_check": "لم تُقارَن بنشرة الإصدار",
       "match": "مطابقة فترة التقرير",
       "note": "المصدر: FRED (ICSA، فترة 2026-10-10) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|ppife|mm|2026-09|-|2026-10-15",
+      "title": "Core PPI m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-16T23:49:17.318379+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.7%",
+      "period": "2026-09-01",
+      "series": "PPIFES",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.6814299068433005,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.3%",
+      "previous": "0.2%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (PPIFES، فترة 2026-09-01) — PPI الأساسي شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|ppi|mm|2026-09|-|2026-10-15",
+      "title": "PPI m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-16T23:49:17.318379+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "1.3%",
+      "period": "2026-09-01",
+      "series": "PPIFIS",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 1.3433801423297975,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.6%",
+      "previous": "0.4%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (PPIFIS، فترة 2026-09-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|indpro|mm|2026-09|-|2026-10-16",
+      "title": "Industrial Production m/m",
+      "release_time": "2026-10-16T13:15:00+00:00",
+      "fetched_at": "2026-10-16T23:49:17.318379+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.7%",
+      "period": "2026-09-01",
+      "series": "INDPRO",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.662558198988239,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.4%",
+      "previous": "0.0%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (INDPRO، فترة 2026-09-01) — الإنتاج الصناعي شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-16T23:19:24.595556+00:00",
+  "last_publish_ok": "2026-10-16T23:49:17.318379+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-16T23:20:27.561845+00:00"
+    "at": "2026-10-16T23:49:48.999052+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5542,8 +5617,8 @@
     },
     "fred": {
       "ok": true,
-      "detail": "2 سلسلة",
-      "at": "2026-10-16T22:55:21.428210+00:00"
+      "detail": "3 سلسلة",
+      "at": "2026-10-16T23:49:17.318379+00:00"
     }
   },
   "bls_calls": {
@@ -5553,12 +5628,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-16T23:19:24.595556+00:00",
-    "ok_at": "2026-10-16T23:19:24.595556+00:00",
+    "at": "2026-10-16T23:49:17.318379+00:00",
+    "ok_at": "2026-10-16T23:49:17.318379+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-16T23:19:24.595556+00:00",
+    "at": "2026-10-16T23:49:17.318379+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
