@@ -104,81 +104,81 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 15,
-      "v": -0.03,
-      "th": 0.3,
-      "ratio": 0.11,
-      "val": "-0.03%",
-      "thr": "±0.3%",
-      "c15": "-0.03%",
-      "c60": "-0.02%",
-      "c180": "+0.07%",
+      "w": 180,
+      "v": 0.14,
+      "th": 0.8,
+      "ratio": 0.18,
+      "val": "+0.14%",
+      "thr": "±0.8%",
+      "c15": "+0.03%",
+      "c60": "-0.00%",
+      "c180": "+0.14%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.17,
-      "z": 0.1,
-      "volx": 0.7
+      "tone": "bull",
+      "eff": 0.02,
+      "z": 0.0,
+      "volx": 0.5
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 15,
-      "v": -0.09,
-      "th": 0.4,
-      "ratio": 0.22,
-      "val": "-0.09%",
-      "thr": "±0.4%",
-      "c15": "-0.09%",
-      "c60": "-0.01%",
-      "c180": "+0.17%",
+      "w": 180,
+      "v": 0.34,
+      "th": 1.0,
+      "ratio": 0.34,
+      "val": "+0.34%",
+      "thr": "±1%",
+      "c15": "+0.06%",
+      "c60": "-0.03%",
+      "c180": "+0.34%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.02,
-      "z": 0.0,
+      "tone": "bull",
+      "eff": 0.07,
+      "z": 0.1,
       "volx": 0.6
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": 0.11,
-      "th": 2.4,
-      "ratio": 0.05,
-      "val": "+0.11%",
-      "thr": "±2.4%",
-      "c15": "-0.02%",
-      "c60": "+0.05%",
-      "c180": "+0.11%",
+      "w": 15,
+      "v": -0.19,
+      "th": 0.9,
+      "ratio": 0.21,
+      "val": "-0.19%",
+      "thr": "±0.9%",
+      "c15": "-0.19%",
+      "c60": "-0.24%",
+      "c180": "-0.27%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.12,
-      "z": 0.1,
+      "eff": 0.4,
+      "z": 0.5,
       "volx": 1.0
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 60,
-      "v": -0.16,
-      "th": 0.65,
-      "ratio": 0.25,
-      "val": "-0.16%",
-      "thr": "±0.65%",
-      "c15": "-0.02%",
-      "c60": "-0.16%",
-      "c180": "+0.16%",
+      "w": 15,
+      "v": 0.08,
+      "th": 0.45,
+      "ratio": 0.17,
+      "val": "+0.08%",
+      "thr": "±0.45%",
+      "c15": "+0.08%",
+      "c60": "-0.03%",
+      "c180": "+0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.31,
-      "z": 0.7,
-      "volx": 0.4
+      "eff": 0.06,
+      "z": 0.1,
+      "volx": 0.5
     },
     {
       "key": "dxy",
@@ -190,107 +190,107 @@
       "ratio": 0.15,
       "val": "-0.07%",
       "thr": "±0.5%",
-      "c15": "-0.00%",
+      "c15": "-0.02%",
       "c60": "+0.03%",
       "c180": "-0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.25,
-      "z": 0.4,
+      "eff": 0.17,
+      "z": 0.3,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": -0.09,
-      "th": 0.7,
-      "ratio": 0.13,
-      "val": "-0.09%",
-      "thr": "±0.7%",
-      "c15": "-0.01%",
-      "c60": "+0.02%",
-      "c180": "-0.09%",
+      "w": 15,
+      "v": 0.05,
+      "th": 0.25,
+      "ratio": 0.2,
+      "val": "+0.05%",
+      "thr": "±0.25%",
+      "c15": "+0.05%",
+      "c60": "+0.04%",
+      "c180": "-0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.18,
-      "z": 0.2,
+      "eff": 0.22,
+      "z": 0.4,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-16T05:41:43.606124+00:00",
-        "ok_at": "2026-10-16T05:41:43.606124+00:00"
+        "last_try": "2026-10-16T06:10:33.429535+00:00",
+        "ok_at": "2026-10-16T06:10:33.429535+00:00"
       },
       "fred": {
-        "last_try": "2026-10-16T05:41:43.606124+00:00",
-        "ok_at": "2026-10-16T05:41:43.606124+00:00"
+        "last_try": "2026-10-16T06:10:33.429535+00:00",
+        "ok_at": "2026-10-16T06:10:33.429535+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-16T05:41:43.606124+00:00",
-        "ok_at": "2026-10-16T05:41:43.606124+00:00"
+        "last_try": "2026-10-16T06:10:33.429535+00:00",
+        "ok_at": "2026-10-16T06:10:33.429535+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-16T05:41:43.606124+00:00",
-        "ok_at": "2026-10-16T05:41:43.606124+00:00"
+        "last_try": "2026-10-16T06:10:33.429535+00:00",
+        "ok_at": "2026-10-16T06:10:33.429535+00:00"
       },
       "oil": {
-        "last_try": "2026-10-16T05:41:43.606124+00:00",
+        "last_try": "2026-10-16T06:10:33.429535+00:00",
         "ok_at": "2026-10-15T15:28:20.260973+00:00"
       },
       "news": {
-        "last_try": "2026-10-16T05:41:43.606124+00:00",
-        "ok_at": "2026-10-16T05:41:43.606124+00:00"
+        "last_try": "2026-10-16T06:10:33.429535+00:00",
+        "ok_at": "2026-10-16T06:10:33.429535+00:00"
       },
       "cot": {
-        "last_try": "2026-10-16T05:41:43.606124+00:00",
-        "ok_at": "2026-10-16T05:41:43.606124+00:00"
+        "last_try": "2026-10-16T06:10:33.429535+00:00",
+        "ok_at": "2026-10-16T06:10:33.429535+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-16T05:41:43.606124+00:00",
+        "last_try": "2026-10-16T06:10:33.429535+00:00",
         "ok_at": "2026-10-15T12:16:35.300569+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-16T05:41:43.606124+00:00"
+      "at": "2026-10-16T06:10:33.429535+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-16T05:00:35.500176+00:00",
+    "at": "2026-10-16T06:10:33.429535+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-16T04:08:27+00:00",
-            "title": "Fed's Warsh says AI path will be 'very bumpy' but ultimately 'very good' for wealth",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-16T03:59:00+00:00",
+            "t": "2026-10-16T05:23:29+00:00",
             "title": "Warsh Avoids Signal on October Rate Move",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-16T03:57:00+00:00",
+            "t": "2026-10-16T04:08:27+00:00",
+            "title": "Fed's Warsh withholds Fed rate signal, praises recent global tightening with 'no free riders'",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-16T04:00:00+00:00",
             "title": "Fed's Warsh gives no hint on October policy decision",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-16T03:57:00+00:00",
+            "title": "Fed's Warsh sees US economic tailwinds, mum on rate-path view",
             "src": "Reuters"
           },
           {
             "t": "2026-10-16T01:37:00+00:00",
             "title": "Gold Falls as Investors Await Fed Chairman’s Remarks",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-15T23:52:00+00:00",
-            "title": "Oil Prices, Fed on Bank Indonesia’s Radar Ahead of Next Meeting",
             "src": "WSJ"
           }
         ]
@@ -319,9 +319,9 @@
             "src": "WSJ"
           },
           {
-            "t": "2026-10-15T20:48:19+00:00",
-            "title": "Update: Dow Snaps 2-Day Fall as Wall Street Rebounds Despite Inflation Worries",
-            "src": "Yahoo Finance"
+            "t": "2026-10-15T20:14:08+00:00",
+            "title": "S&P 500, Nasdaq pare declines as AI rout teeters; health care, staples gain",
+            "src": "Idaho Business Review"
           }
         ]
       },
@@ -369,6 +369,11 @@
             "src": "CNN"
           },
           {
+            "t": "2026-10-15T18:01:00+00:00",
+            "title": "Wholesale inflation reaches levels last seen in 2022",
+            "src": "AP News"
+          },
+          {
             "t": "2026-10-15T17:28:43+00:00",
             "title": "US producer prices post largest gain in 4-1/2 years; expensive gasoline boosts retail sales",
             "src": "Reuters"
@@ -377,11 +382,6 @@
             "t": "2026-10-15T13:35:04+00:00",
             "title": "Inflation hit businesses even harder than consumers last month",
             "src": "NBC News"
-          },
-          {
-            "t": "2026-10-15T13:22:44+00:00",
-            "title": "Week Ahead for FX, Bonds: U.S. Inflation Data in Focus",
-            "src": "WSJ"
           }
         ]
       },
@@ -389,24 +389,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-10-16T05:58:29+00:00",
+            "title": "Hill, Jones agree on tariffs, disagree elsewhere in spirited debate",
+            "src": "Talk Business & Politics"
+          },
+          {
             "t": "2026-10-16T03:51:54+00:00",
             "title": "Trump's tariffs are changing the global trade ecosystem",
             "src": "Al Majalla"
           },
           {
             "t": "2026-10-16T02:29:00+00:00",
-            "title": "Indian shares muted, IT gains offset broad profit-taking",
+            "title": "Indian shares recover from muted start; IT leads gains",
             "src": "Reuters"
           },
           {
             "t": "2026-10-16T01:44:04+00:00",
             "title": "What will you do as governor to help with tariffs?",
             "src": "ClickOnDetroit | WDIV Local 4"
-          },
-          {
-            "t": "2026-10-16T00:11:00+00:00",
-            "title": "Progress toward a US-Mexico tariff deal has stalled, WSJ reports",
-            "src": "Reuters"
           }
         ]
       },
@@ -424,14 +424,14 @@
             "src": "Alaska Beacon"
           },
           {
-            "t": "2026-10-15T23:38:56+00:00",
-            "title": "Drone strike on ship in Romanian waters raises fear that war in Ukraine is spreading",
-            "src": "PBS"
-          },
-          {
             "t": "2026-10-15T23:30:14+00:00",
             "title": "Oil Prices Drop as US President Trump Rules Out Iran Strike",
             "src": "Mexico Business News"
+          },
+          {
+            "t": "2026-10-15T23:07:00+00:00",
+            "title": "EXCLUSIVE: Order to limit Starshield for Ukraine came from inside White House, sources say",
+            "src": "Reuters"
           }
         ]
       }
@@ -439,7 +439,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-16T05:41:43.606124+00:00",
+    "at": "2026-10-16T06:10:33.429535+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -875,7 +875,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-15T13:16:47.396181+00:00",
-      "last_attempt": "2026-10-16T02:44:22.338726+00:00",
+      "last_attempt": "2026-10-16T06:10:33.429535+00:00",
       "attempts": 9,
       "title": "Retail Sales m/m",
       "time": "2026-10-15T12:30:00+00:00",
@@ -896,7 +896,7 @@
       "source": "FRED",
       "period": "2026-10-10",
       "received_at": "2026-10-15T13:16:47.396181+00:00",
-      "last_attempt": "2026-10-16T02:44:22.338726+00:00",
+      "last_attempt": "2026-10-16T06:10:33.429535+00:00",
       "attempts": 9,
       "title": "Unemployment Claims",
       "time": "2026-10-15T12:30:00+00:00",
@@ -920,7 +920,7 @@
       "previous": "-3.2M",
       "country": "USD",
       "last_attempt": "2026-10-16T05:41:43.606124+00:00",
-      "note": "لم يصل الرقم من FRED بعد"
+      "note": ""
     }
   },
   "stats": {
@@ -4190,12 +4190,54 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "لم يصل الرقم من FRED بعد"
+    },
+    {
+      "id": "US|retail|mm|2026-09|-|2026-10-15",
+      "title": "Retail Sales m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-16T06:10:33.429535+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.8%",
+      "period": "2026-09-01",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.3%",
+      "previous": "1.2%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (RSAFS، فترة 2026-09-01) — مبيعات التجزئة شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|claims|claims_k|w2026-10-11|-|2026-10-15",
+      "title": "Unemployment Claims",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-16T06:10:33.429535+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "199K",
+      "period": "2026-10-10",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "199K",
+      "previous": "197K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-10) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-16T05:41:43.606124+00:00",
+  "last_publish_ok": "2026-10-16T06:10:33.429535+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-16T05:43:06.258820+00:00"
+    "at": "2026-10-16T06:11:15.878343+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -4250,7 +4292,7 @@
     "fred": {
       "ok": true,
       "detail": "2 سلسلة",
-      "at": "2026-10-16T03:46:51.745389+00:00"
+      "at": "2026-10-16T06:10:33.429535+00:00"
     }
   },
   "bls_calls": {
