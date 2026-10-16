@@ -164,39 +164,39 @@
       "name": "ES",
       "short": "ES",
       "w": 180,
-      "v": -0.92,
+      "v": -0.73,
       "th": 0.8,
-      "ratio": 1.15,
-      "val": "-0.92%",
+      "ratio": 0.91,
+      "val": "-0.73%",
       "thr": "±0.8%",
-      "c15": "-0.01%",
-      "c60": "-0.25%",
-      "c180": "-0.92%",
+      "c15": "+0.06%",
+      "c60": "-0.10%",
+      "c180": "-0.73%",
       "confirmed": false,
-      "why": "الحركة متذبذبة",
+      "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.32,
-      "z": 1.6,
-      "volx": 1.0
+      "eff": 0.16,
+      "z": 0.6,
+      "volx": 0.9
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 180,
-      "v": -1.14,
+      "v": -1.1,
       "th": 1.0,
-      "ratio": 1.14,
-      "val": "-1.14%",
+      "ratio": 1.1,
+      "val": "-1.10%",
       "thr": "±1%",
-      "c15": "-0.06%",
-      "c60": "-0.32%",
-      "c180": "-1.14%",
+      "c15": "+0.01%",
+      "c60": "-0.26%",
+      "c180": "-1.10%",
       "confirmed": false,
-      "why": "الحركة متذبذبة",
+      "why": "الزخم غير متسق عبر الأطر",
       "tone": "bear",
-      "eff": 0.35,
-      "z": 1.2,
+      "eff": 0.3,
+      "z": 0.9,
       "volx": 0.8
     },
     {
@@ -204,19 +204,19 @@
       "name": "VIX",
       "short": "VIX",
       "w": 180,
-      "v": 27.84,
+      "v": 24.48,
       "th": 14.0,
-      "ratio": 1.99,
-      "val": "+27.84%",
+      "ratio": 1.75,
+      "val": "+24.48%",
       "thr": "±14%",
-      "c15": "-0.81%",
-      "c60": "+10.62%",
-      "c180": "+27.84%",
+      "c15": "+3.08%",
+      "c60": "+1.23%",
+      "c180": "+24.48%",
       "confirmed": false,
-      "why": "الزخم غير متسق عبر الأطر",
+      "why": "الحركة متذبذبة",
       "tone": "bear",
-      "eff": 0.41,
-      "z": 3.1,
+      "eff": 0.11,
+      "z": 0.3,
       "volx": null
     },
     {
@@ -224,39 +224,39 @@
       "name": "النفط",
       "short": "نفط",
       "w": 180,
-      "v": 3.52,
+      "v": 2.06,
       "th": 2.4,
-      "ratio": 1.47,
-      "val": "+3.52%",
+      "ratio": 0.86,
+      "val": "+2.06%",
       "thr": "±2.4%",
-      "c15": "+0.51%",
-      "c60": "+0.33%",
-      "c180": "+3.52%",
+      "c15": "+0.07%",
+      "c60": "+0.10%",
+      "c180": "+2.06%",
       "confirmed": false,
-      "why": "الحركة متذبذبة",
+      "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.16,
-      "z": 0.6,
-      "volx": 1.5
+      "eff": 0.09,
+      "z": 0.2,
+      "volx": 0.3
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 180,
-      "v": -0.42,
-      "th": 1.2,
-      "ratio": 0.35,
-      "val": "-0.42%",
-      "thr": "±1.2%",
-      "c15": "-0.01%",
-      "c60": "+0.03%",
-      "c180": "-0.42%",
+      "w": 15,
+      "v": 0.09,
+      "th": 0.45,
+      "ratio": 0.21,
+      "val": "+0.09%",
+      "thr": "±0.45%",
+      "c15": "+0.09%",
+      "c60": "-0.00%",
+      "c180": "-0.12%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.04,
-      "z": 0.1,
+      "eff": 0.01,
+      "z": 0.0,
       "volx": 0.3
     },
     {
@@ -264,58 +264,58 @@
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 60,
-      "v": -0.06,
+      "v": -0.05,
       "th": 0.28,
-      "ratio": 0.22,
-      "val": "-0.06%",
+      "ratio": 0.19,
+      "val": "-0.05%",
       "thr": "±0.28%",
       "c15": "-0.02%",
-      "c60": "-0.06%",
-      "c180": "+0.10%",
+      "c60": "-0.05%",
+      "c180": "-0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.53,
-      "z": 0.7,
+      "eff": 0.71,
+      "z": 0.6,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": -0.06,
-      "th": 0.4,
-      "ratio": 0.15,
-      "val": "-0.06%",
-      "thr": "±0.4%",
+      "w": 180,
+      "v": -0.1,
+      "th": 0.7,
+      "ratio": 0.14,
+      "val": "-0.10%",
+      "thr": "±0.7%",
       "c15": "-0.01%",
-      "c60": "-0.06%",
-      "c180": "+0.04%",
+      "c60": "-0.02%",
+      "c180": "-0.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.47,
-      "z": 0.6,
+      "eff": 0.14,
+      "z": 0.2,
       "volx": null
     },
     {
       "key": "y10",
       "name": "عائد 10 سنوات",
       "short": "10Y",
-      "w": 180,
-      "v": 2.9,
-      "th": 7.5,
-      "ratio": 0.39,
-      "val": "+3bp",
-      "thr": "±7.5bp",
-      "c15": "+1bp",
-      "c60": "+1bp",
-      "c180": "+3bp",
+      "w": 15,
+      "v": -1.0,
+      "th": 3.0,
+      "ratio": 0.33,
+      "val": "-1bp",
+      "thr": "±3bp",
+      "c15": "-1bp",
+      "c60": "-0bp",
+      "c180": "+0bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.2,
+      "tone": "flat",
+      "eff": 0.11,
       "z": 0.2,
       "volx": null
     },
@@ -323,20 +323,20 @@
       "key": "y5",
       "name": "عائد 5 سنوات",
       "short": "5Y",
-      "w": 180,
-      "v": 3.0,
-      "th": 7.5,
-      "ratio": 0.4,
-      "val": "+3bp",
-      "thr": "±7.5bp",
-      "c15": "+1bp",
-      "c60": "+0bp",
-      "c180": "+3bp",
+      "w": 15,
+      "v": -1.6,
+      "th": 3.0,
+      "ratio": 0.53,
+      "val": "-2bp",
+      "thr": "±3bp",
+      "c15": "-2bp",
+      "c60": "-1bp",
+      "c180": "-1bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.11,
-      "z": 0.1,
+      "tone": "flat",
+      "eff": 0.3,
+      "z": 0.4,
       "volx": null
     },
     {
@@ -344,19 +344,19 @@
       "name": "عائد 30 سنة",
       "short": "30Y",
       "w": 180,
-      "v": 3.0,
+      "v": 1.0,
       "th": 7.5,
-      "ratio": 0.4,
-      "val": "+3bp",
+      "ratio": 0.13,
+      "val": "+1bp",
       "thr": "±7.5bp",
-      "c15": "+0bp",
-      "c60": "+1bp",
-      "c180": "+3bp",
+      "c15": "-0bp",
+      "c60": "+0bp",
+      "c180": "+1bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.29,
-      "z": 0.4,
+      "tone": "flat",
+      "eff": 0.0,
+      "z": 0.0,
       "volx": null
     },
     {
@@ -364,89 +364,94 @@
       "name": "سندات عالية العائد HYG",
       "short": "HYG",
       "w": 180,
-      "v": -0.23,
+      "v": -0.13,
       "th": 0.45,
-      "ratio": 0.5,
-      "val": "-0.23%",
+      "ratio": 0.29,
+      "val": "-0.13%",
       "thr": "±0.45%",
-      "c15": "+0.01%",
-      "c60": "-0.08%",
-      "c180": "-0.23%",
+      "c15": "+0.03%",
+      "c60": "+0.01%",
+      "c180": "-0.13%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.48,
-      "z": 1.0,
-      "volx": 0.5
+      "eff": 0.08,
+      "z": 0.2,
+      "volx": 1.1
     },
     {
       "key": "kre",
       "name": "البنوك الإقليمية KRE",
       "short": "KRE",
       "w": 180,
-      "v": -0.58,
+      "v": -0.2,
       "th": 1.9,
-      "ratio": 0.3,
-      "val": "-0.58%",
+      "ratio": 0.11,
+      "val": "-0.20%",
       "thr": "±1.9%",
-      "c15": "+0.09%",
-      "c60": "-0.01%",
-      "c180": "-0.58%",
+      "c15": "+0.01%",
+      "c60": "-0.04%",
+      "c180": "-0.20%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.01,
-      "z": 0.0,
-      "volx": 0.3
+      "tone": "flat",
+      "eff": 0.04,
+      "z": 0.1,
+      "volx": 0.2
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-16T18:48:42.023860+00:00",
-        "ok_at": "2026-10-16T18:48:42.023860+00:00"
+        "last_try": "2026-10-16T19:22:57.377688+00:00",
+        "ok_at": "2026-10-16T19:22:57.377688+00:00"
       },
       "fred": {
-        "last_try": "2026-10-16T18:48:42.023860+00:00",
-        "ok_at": "2026-10-16T18:48:42.023860+00:00"
+        "last_try": "2026-10-16T19:22:57.377688+00:00",
+        "ok_at": "2026-10-16T19:22:57.377688+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-16T18:48:42.023860+00:00",
-        "ok_at": "2026-10-16T18:48:42.023860+00:00"
+        "last_try": "2026-10-16T19:22:57.377688+00:00",
+        "ok_at": "2026-10-16T19:22:57.377688+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-16T18:48:42.023860+00:00",
-        "ok_at": "2026-10-16T18:48:42.023860+00:00"
+        "last_try": "2026-10-16T19:22:57.377688+00:00",
+        "ok_at": "2026-10-16T19:22:57.377688+00:00"
       },
       "oil": {
-        "last_try": "2026-10-16T18:48:42.023860+00:00",
+        "last_try": "2026-10-16T19:22:57.377688+00:00",
         "ok_at": "2026-10-15T15:28:20.260973+00:00"
       },
       "news": {
-        "last_try": "2026-10-16T18:48:42.023860+00:00",
-        "ok_at": "2026-10-16T18:48:42.023860+00:00"
+        "last_try": "2026-10-16T19:22:57.377688+00:00",
+        "ok_at": "2026-10-16T19:22:57.377688+00:00"
       },
       "cot": {
-        "last_try": "2026-10-16T18:48:42.023860+00:00",
-        "ok_at": "2026-10-16T18:48:42.023860+00:00"
+        "last_try": "2026-10-16T19:22:57.377688+00:00",
+        "ok_at": "2026-10-16T19:22:57.377688+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-16T18:48:42.023860+00:00",
-        "ok_at": "2026-10-16T18:48:42.023860+00:00"
+        "last_try": "2026-10-16T19:22:57.377688+00:00",
+        "ok_at": "2026-10-16T19:22:57.377688+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-16T18:48:42.023860+00:00"
+      "at": "2026-10-16T19:22:57.377688+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-16T18:07:47.827472+00:00",
+    "at": "2026-10-16T19:22:57.377688+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-16T18:20:09+00:00",
+            "title": "Gold set for a weekly drop as traders assess Fed signals",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-16T17:11:48+00:00",
             "title": "Warsh signals steady Fed outlook despite inflation jump",
@@ -466,11 +471,6 @@
             "t": "2026-10-16T15:30:22+00:00",
             "title": "Fed chair Warsh focused on price stability, issues no hit on rate hike",
             "src": "NBC News"
-          },
-          {
-            "t": "2026-10-16T15:02:00+00:00",
-            "title": "U.S. Stocks Mixed as Investors Pare Rate-Hike Bets",
-            "src": "WSJ"
           }
         ]
       },
@@ -478,14 +478,19 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-16T18:18:00+00:00",
+            "title": "Tech Stocks Slump as Nasdaq Faces Weekly Loss",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-16T17:55:00+00:00",
+            "title": "HPE Stock’s Worst Week Ever Exposes Wall Street’s Newest Fear",
+            "src": "Barron's"
+          },
+          {
             "t": "2026-10-16T17:31:36+00:00",
             "title": "S&P 500, Nasdaq set for steep weekly losses as AI jitters rattle investors",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-16T16:49:00+00:00",
-            "title": "Tech Stocks Slump as Nasdaq Faces Weekly Loss",
-            "src": "WSJ"
           },
           {
             "t": "2026-10-16T16:40:46+00:00",
@@ -496,11 +501,6 @@
             "t": "2026-10-16T16:00:51+00:00",
             "title": "The Next AI Stock Wall Street Is Starting to Pay Attention To",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-16T15:22:33+00:00",
-            "title": "Moderna stock sinks as Wall Street turns cautious following blistering rally",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -508,29 +508,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-10-16T19:00:47+00:00",
+            "title": "Catalyst Watch: Meta earnings, Kroger event, and Black Monday turns 39",
+            "src": "TradingView"
+          },
+          {
+            "t": "2026-10-16T19:00:47+00:00",
+            "title": "Catalyst Watch: Meta earnings, Kroger event, and Black Monday turns 39 (SPY:NYSEARCA)",
+            "src": "Seeking Alpha"
+          },
+          {
+            "t": "2026-10-16T18:47:19+00:00",
+            "title": "'What Meta's Money Is Buying': DOJ Halts Probe of Facebook Owner That Has Given Trump Millions",
+            "src": "Common Dreams"
+          },
+          {
+            "t": "2026-10-16T18:05:45+00:00",
+            "title": "SpaceX and Tesla Both Report Q3 2026 Earnings This Week",
+            "src": "BASENOR - Tesla Accessories"
+          },
+          {
             "t": "2026-10-16T17:32:00+00:00",
             "title": "SpaceX Earnings Due Amid AI Revenue Surge, Tesla Merger Buzz",
             "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-10-16T17:30:00+00:00",
-            "title": "Amazon Is 11% Below Its High Heading Into Earnings on Oct. 29. Here's the 1 Number That Will Decide What Happens Next.",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-16T16:45:00+00:00",
-            "title": "Apple and Alphabet Are Especially Scared of a Blue Wave",
-            "src": "24/7 Wall St."
-          },
-          {
-            "t": "2026-10-16T16:06:29+00:00",
-            "title": "What we want to see when Capital One and Meta report earnings next week",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-16T14:58:38+00:00",
-            "title": "Tesla Roadster Awes, But Shares Lag Into Earnings - Where To Buy (Downgrade) (NASDAQ:TSLA)",
-            "src": "Seeking Alpha"
           }
         ]
       },
@@ -548,9 +548,9 @@
             "src": "NBC News"
           },
           {
-            "t": "2026-10-15T23:49:44+00:00",
-            "title": "Fed's Goolsbee on inflation: discouraging, but still some optimism",
-            "src": "Reuters"
+            "t": "2026-10-16T05:02:26+00:00",
+            "title": "Warsh Vows to Tame Inflation as A.I. Delivers ‘Shock’ to Economy",
+            "src": "The New York Times"
           },
           {
             "t": "2026-10-15T23:02:00+00:00",
@@ -568,24 +568,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-16T16:44:16+00:00",
-            "title": "Heineken USA Lobbies On Tariffs at $140K",
-            "src": "Legis1"
+            "t": "2026-10-16T18:40:47+00:00",
+            "title": "Mexico limits tariffs break to established local carmakers",
+            "src": "Reuters"
           },
           {
-            "t": "2026-10-16T15:44:45+00:00",
-            "title": "Section 232 Pharmaceutical Tariffs Are Now in Effect Its Not Too Late to Consider Duty Mitigation Strategies",
-            "src": "WilmerHale"
+            "t": "2026-10-16T18:32:31+00:00",
+            "title": "Here’s what Marshall had to say about Iran, ICE and tariffs on Friday in Topeka",
+            "src": "Kansas City Star"
           },
           {
-            "t": "2026-10-16T14:36:21+00:00",
-            "title": "As wedding costs climb, tariffs add another expense for metro Detroit couples",
-            "src": "WXYZ 7 News Detroit"
+            "t": "2026-10-16T18:21:00+00:00",
+            "title": "Yields on Treasurys, European Government Bonds Edge Higher",
+            "src": "WSJ"
           },
           {
-            "t": "2026-10-16T13:41:32+00:00",
-            "title": "Davids Urges Federal Action as Kansas Small Businesses Squeezed Out of Tariff Refunds While Large Corporations Cash In",
-            "src": "Representative Sharice Davids | (.gov)"
+            "t": "2026-10-16T18:14:14+00:00",
+            "title": "US fiscal 2026 budget deficit rises to $1.99 trillion, largest in 5 years",
+            "src": "Reuters"
           }
         ]
       },
@@ -593,24 +593,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-16T12:03:27+00:00",
-            "title": "EXCLUSIVE: Iran ships some LPG, jet fuel despite US blockade, data shows",
-            "src": "Reuters"
+            "t": "2026-10-16T17:55:44+00:00",
+            "title": "Russia strikes 9 Ukrainian regions as strain grows between Zelenskyy and Trump",
+            "src": "PBS"
           },
           {
-            "t": "2026-10-16T11:12:41+00:00",
-            "title": "Poland scrambles fighter jets as Russia strikes western Ukraine",
-            "src": "Al Jazeera"
+            "t": "2026-10-16T17:55:43+00:00",
+            "title": "Oil prices jump sharply, to nearly $110 per barrel",
+            "src": "NBC News"
           },
           {
-            "t": "2026-10-16T11:10:13+00:00",
-            "title": "Europe’s Russia Sanctions Reach China, but the Costs Return Home",
-            "src": "China-US Focus"
+            "t": "2026-10-16T17:15:44+00:00",
+            "title": "U.S. crude oil tops $100 as Iran escalates Hormuz attacks, Ukraine vows to hit Russian refineries",
+            "src": "CNBC"
           },
           {
-            "t": "2026-10-16T10:31:00+00:00",
-            "title": "Ships in Strait of Hormuz still face \"indiscriminate attacks,\" maritime monitor warns",
-            "src": "CBS News"
+            "t": "2026-10-16T15:59:30+00:00",
+            "title": "Zelensky says Ukraine has right to defend itself after Trump calls latest strikes a 'disgrace'",
+            "src": "BBC"
           }
         ]
       }
@@ -618,7 +618,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-16T18:48:42.023860+00:00",
+    "at": "2026-10-16T19:22:57.377688+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -1099,7 +1099,7 @@
       "previous": "-3.2M",
       "country": "USD",
       "last_attempt": "2026-10-16T18:48:42.023860+00:00",
-      "note": "لم يصل الرقم من FRED بعد"
+      "note": ""
     },
     "US|indpro|mm|2026-09|-|2026-10-16": {
       "actual": "0.7%",
@@ -5379,10 +5379,10 @@
       "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-16T18:48:42.023860+00:00",
+  "last_publish_ok": "2026-10-16T19:22:57.377688+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-16T18:49:18.187344+00:00"
+    "at": "2026-10-16T19:23:38.981198+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
