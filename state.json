@@ -98,7 +98,10 @@
         "Stocks open mostly higher on Wall Street but are still headed for a weekly loss - MySA",
         "Stocks open mostly higher on Wall Street but are still headed for a weekly loss - Boston Herald",
         "Turkish stocks drop more than 3% after MSCI freezes certain index changes - Reuters"
-      ]
+      ],
+      "id": "move|202610161414",
+      "important": true,
+      "rev": 0
     },
     {
       "t": "2026-10-16T17:03:51.297150+00:00",
@@ -155,7 +158,10 @@
         "Utility Stocks Offer Nice Yields and Are Less Risky Than Other AI Plays -- Barrons.com - Moomoo",
         "Why Oklahoma HC Brent Venables Believes Kentucky Can ‘Play With’ Anyone in SEC - Sports Illustrated",
         "Key takeaways from Fed Chair Kevin Warsh’s International Monetary Fund chat - Baltimore Sun"
-      ]
+      ],
+      "id": "move|202610161703",
+      "important": true,
+      "rev": 0
     }
   ],
   "pulse": [
@@ -283,41 +289,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-16T21:49:43.674379+00:00",
-        "ok_at": "2026-10-16T21:49:43.674379+00:00"
+        "last_try": "2026-10-16T21:55:49.534091+00:00",
+        "ok_at": "2026-10-16T21:55:49.534091+00:00"
       },
       "fred": {
-        "last_try": "2026-10-16T21:49:43.674379+00:00",
-        "ok_at": "2026-10-16T21:49:43.674379+00:00"
+        "last_try": "2026-10-16T21:55:49.534091+00:00",
+        "ok_at": "2026-10-16T21:55:49.534091+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-16T21:49:43.674379+00:00",
-        "ok_at": "2026-10-16T21:49:43.674379+00:00"
+        "last_try": "2026-10-16T21:55:49.534091+00:00",
+        "ok_at": "2026-10-16T21:55:49.534091+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-16T21:49:43.674379+00:00",
-        "ok_at": "2026-10-16T21:49:43.674379+00:00"
+        "last_try": "2026-10-16T21:55:49.534091+00:00",
+        "ok_at": "2026-10-16T21:55:49.534091+00:00"
       },
       "oil": {
-        "last_try": "2026-10-16T21:49:43.674379+00:00",
+        "last_try": "2026-10-16T21:55:49.534091+00:00",
         "ok_at": "2026-10-15T15:28:20.260973+00:00"
       },
       "news": {
-        "last_try": "2026-10-16T21:49:43.674379+00:00",
-        "ok_at": "2026-10-16T21:49:43.674379+00:00"
+        "last_try": "2026-10-16T21:55:49.534091+00:00",
+        "ok_at": "2026-10-16T21:55:49.534091+00:00"
       },
       "cot": {
-        "last_try": "2026-10-16T21:49:43.674379+00:00",
-        "ok_at": "2026-10-16T21:49:43.674379+00:00"
+        "last_try": "2026-10-16T21:55:49.534091+00:00",
+        "ok_at": "2026-10-16T21:55:49.534091+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-16T21:49:43.674379+00:00",
-        "ok_at": "2026-10-16T21:49:43.674379+00:00"
+        "last_try": "2026-10-16T21:55:49.534091+00:00",
+        "ok_at": "2026-10-16T21:55:49.534091+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-16T21:49:43.674379+00:00"
+      "at": "2026-10-16T21:55:49.534091+00:00"
     }
   },
   "week_news": {
@@ -498,7 +504,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-16T21:49:43.674379+00:00",
+    "at": "2026-10-16T21:55:49.534091+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -971,15 +977,15 @@
     "US|oil:crude-oil-inventories|2026-10-15|1600": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 27,
+      "attempts": 28,
       "title": "Crude Oil Inventories",
       "time": "2026-10-15T16:00:00+00:00",
       "impact": "Low",
       "forecast": "0.2M",
       "previous": "-3.2M",
       "country": "USD",
-      "last_attempt": "2026-10-16T20:57:35.697440+00:00",
-      "note": ""
+      "last_attempt": "2026-10-16T21:55:49.534091+00:00",
+      "note": "لم يصل الرقم من FRED بعد"
     },
     "US|indpro|mm|2026-09|-|2026-10-16": {
       "actual": "0.7%",
@@ -5404,12 +5410,35 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "لم يصل الرقم من FRED بعد"
+    },
+    {
+      "id": "US|oil:crude-oil-inventories|2026-10-15|1600",
+      "title": "Crude Oil Inventories",
+      "release_time": "2026-10-15T16:00:00+00:00",
+      "fetched_at": "2026-10-16T21:55:49.534091+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "0.2M",
+      "previous": "-3.2M",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-16T21:49:43.674379+00:00",
+  "last_publish_ok": "2026-10-16T21:55:49.534091+00:00",
   "last_run_ok": {
     "mode": "test",
-    "at": "2026-10-16T21:50:08.753707+00:00"
+    "at": "2026-10-16T21:56:22.488327+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5469,5 +5498,13 @@
   },
   "bls_calls": {
     "2026-10-16": 4
+  },
+  "verdict_sig": {
+    "bias": "neutral",
+    "bias_label": "مختلط",
+    "lean": "down",
+    "at": "2026-10-16T21:55:49.534091+00:00",
+    "ok_at": "2026-10-16T21:55:49.534091+00:00",
+    "change": null
   }
 }
