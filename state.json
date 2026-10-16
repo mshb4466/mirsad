@@ -105,99 +105,99 @@
       "name": "ES",
       "short": "ES",
       "w": 180,
-      "v": 0.05,
+      "v": 0.2,
       "th": 0.8,
-      "ratio": 0.07,
-      "val": "+0.05%",
+      "ratio": 0.25,
+      "val": "+0.20%",
       "thr": "±0.8%",
-      "c15": "-0.02%",
-      "c60": "+0.00%",
-      "c180": "+0.05%",
+      "c15": "+0.05%",
+      "c60": "+0.10%",
+      "c180": "+0.20%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.0,
-      "z": 0.0,
-      "volx": 0.6
+      "tone": "bull",
+      "eff": 0.62,
+      "z": 0.6,
+      "volx": 0.9
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 15,
-      "v": -0.07,
-      "th": 0.4,
-      "ratio": 0.17,
-      "val": "-0.07%",
-      "thr": "±0.4%",
-      "c15": "-0.07%",
-      "c60": "-0.00%",
-      "c180": "+0.03%",
+      "w": 180,
+      "v": 0.39,
+      "th": 1.0,
+      "ratio": 0.39,
+      "val": "+0.39%",
+      "thr": "±1%",
+      "c15": "+0.10%",
+      "c60": "+0.18%",
+      "c180": "+0.39%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.01,
-      "z": 0.0,
-      "volx": 0.6
+      "tone": "bull",
+      "eff": 0.51,
+      "z": 0.6,
+      "volx": 0.8
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 15,
-      "v": -0.34,
-      "th": 0.9,
-      "ratio": 0.38,
-      "val": "-0.34%",
-      "thr": "±0.9%",
-      "c15": "-0.34%",
-      "c60": "+0.00%",
-      "c180": "-0.27%",
+      "w": 60,
+      "v": -0.35,
+      "th": 1.3,
+      "ratio": 0.27,
+      "val": "-0.35%",
+      "thr": "±1.3%",
+      "c15": "-0.07%",
+      "c60": "-0.35%",
+      "c180": "-0.34%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.0,
-      "z": 0.0,
-      "volx": 1.4
+      "eff": 0.42,
+      "z": 0.8,
+      "volx": 1.0
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 180,
-      "v": -0.22,
-      "th": 1.2,
-      "ratio": 0.18,
-      "val": "-0.22%",
-      "thr": "±1.2%",
-      "c15": "+0.05%",
-      "c60": "+0.00%",
-      "c180": "-0.22%",
+      "w": 60,
+      "v": 0.43,
+      "th": 0.65,
+      "ratio": 0.66,
+      "val": "+0.43%",
+      "thr": "±0.65%",
+      "c15": "+0.29%",
+      "c60": "+0.43%",
+      "c180": "+0.11%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.0,
-      "z": 0.0,
-      "volx": 0.9
+      "eff": 0.7,
+      "z": 1.4,
+      "volx": 1.4
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
-      "v": -0.05,
-      "th": 0.18,
-      "ratio": 0.27,
-      "val": "-0.05%",
-      "thr": "±0.18%",
-      "c15": "-0.05%",
-      "c60": "-0.02%",
-      "c180": "+0.02%",
+      "w": 60,
+      "v": -0.07,
+      "th": 0.28,
+      "ratio": 0.23,
+      "val": "-0.07%",
+      "thr": "±0.28%",
+      "c15": "-0.02%",
+      "c60": "-0.07%",
+      "c180": "-0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.19,
-      "z": 0.2,
+      "eff": 0.51,
+      "z": 0.6,
       "volx": null
     },
     {
@@ -205,64 +205,64 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": -0.08,
+      "v": -0.1,
       "th": 0.4,
-      "ratio": 0.21,
-      "val": "-0.08%",
+      "ratio": 0.25,
+      "val": "-0.10%",
       "thr": "±0.4%",
-      "c15": "-0.04%",
-      "c60": "-0.08%",
-      "c180": "-0.06%",
+      "c15": "-0.03%",
+      "c60": "-0.10%",
+      "c180": "-0.08%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.41,
-      "z": 0.8,
+      "eff": 0.55,
+      "z": 1.0,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-16T02:11:04.552594+00:00",
-        "ok_at": "2026-10-16T02:11:04.552594+00:00"
+        "last_try": "2026-10-16T02:44:22.338726+00:00",
+        "ok_at": "2026-10-16T02:44:22.338726+00:00"
       },
       "fred": {
-        "last_try": "2026-10-16T02:11:04.552594+00:00",
-        "ok_at": "2026-10-16T02:11:04.552594+00:00"
+        "last_try": "2026-10-16T02:44:22.338726+00:00",
+        "ok_at": "2026-10-16T02:44:22.338726+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-16T02:11:04.552594+00:00",
-        "ok_at": "2026-10-16T02:11:04.552594+00:00"
+        "last_try": "2026-10-16T02:44:22.338726+00:00",
+        "ok_at": "2026-10-16T02:44:22.338726+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-16T02:11:04.552594+00:00",
-        "ok_at": "2026-10-16T02:11:04.552594+00:00"
+        "last_try": "2026-10-16T02:44:22.338726+00:00",
+        "ok_at": "2026-10-16T02:44:22.338726+00:00"
       },
       "oil": {
-        "last_try": "2026-10-16T02:11:04.552594+00:00",
+        "last_try": "2026-10-16T02:44:22.338726+00:00",
         "ok_at": "2026-10-15T15:28:20.260973+00:00"
       },
       "news": {
-        "last_try": "2026-10-16T02:11:04.552594+00:00",
-        "ok_at": "2026-10-16T02:11:04.552594+00:00"
+        "last_try": "2026-10-16T02:44:22.338726+00:00",
+        "ok_at": "2026-10-16T02:44:22.338726+00:00"
       },
       "cot": {
-        "last_try": "2026-10-16T02:11:04.552594+00:00",
-        "ok_at": "2026-10-16T02:11:04.552594+00:00"
+        "last_try": "2026-10-16T02:44:22.338726+00:00",
+        "ok_at": "2026-10-16T02:44:22.338726+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-16T02:11:04.552594+00:00",
+        "last_try": "2026-10-16T02:44:22.338726+00:00",
         "ok_at": "2026-10-15T12:16:35.300569+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-16T02:11:04.552594+00:00"
+      "at": "2026-10-16T02:44:22.338726+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-16T01:41:14.848384+00:00",
+    "at": "2026-10-16T02:44:22.338726+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -279,7 +279,7 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-15T21:54:15+00:00",
+            "t": "2026-10-15T22:32:52+00:00",
             "title": "Fed's Hammack warns inflation expectations deterioration could require Fed response",
             "src": "Reuters"
           },
@@ -309,19 +309,19 @@
             "src": "Mispriced Assets"
           },
           {
-            "t": "2026-10-15T21:29:00+00:00",
-            "title": "Ukraine Resumes Strikes On Russian Refineries",
-            "src": "WSJ"
-          },
-          {
             "t": "2026-10-15T20:48:19+00:00",
             "title": "Update: Dow Snaps 2-Day Fall as Wall Street Rebounds Despite Inflation Worries",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-15T19:08:00+00:00",
-            "title": "A Popular Tax-Saving Trade is Juicing Wall Street’s Borrowing Binge",
-            "src": "WSJ"
+            "t": "2026-10-15T20:14:08+00:00",
+            "title": "S&P 500, Nasdaq pare declines as AI rout teeters; health care, staples gain",
+            "src": "Idaho Business Review"
+          },
+          {
+            "t": "2026-10-15T20:03:49+00:00",
+            "title": "Wall Street muscles higher despite more swings for AI stocks",
+            "src": "LancasterOnline"
           }
         ]
       },
@@ -329,7 +329,7 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-16T00:22:30+00:00",
+            "t": "2026-10-16T00:28:45+00:00",
             "title": "Tesla stock is down nearly 20% rhis year. Is it a buy ahead of earnings?",
             "src": "Morningstar Australia"
           },
@@ -389,6 +389,11 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-10-16T02:29:00+00:00",
+            "title": "Indian shares on track for higher open on lower Treasury yields, SEBI relief",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-10-16T00:11:00+00:00",
             "title": "Progress toward a US-Mexico tariff deal has stalled, WSJ reports",
             "src": "Reuters"
@@ -402,17 +407,17 @@
             "t": "2026-10-15T21:48:00+00:00",
             "title": "North Carolina farmers struggle as drought, diesel prices, and tariffs threaten 2027 planting season",
             "src": "wfmynews2.com"
-          },
-          {
-            "t": "2026-10-15T21:03:00+00:00",
-            "title": "Stocks Gain as Treasury Yields Give Back Some Recent Gains",
-            "src": "WSJ"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-10-16T01:34:00+00:00",
+            "title": "Zelenskyy Orders New Russia Refinery Attacks in Trump Rebuke",
+            "src": "Bloomberg.com"
+          },
           {
             "t": "2026-10-15T23:38:56+00:00",
             "title": "Drone strike on ship in Romanian waters raises fear that war in Ukraine is spreading",
@@ -427,11 +432,6 @@
             "t": "2026-10-15T23:16:23+00:00",
             "title": "Saudi diplomat says Iran is encouraging Houthi escalation of attacks on the kingdom",
             "src": "PBS"
-          },
-          {
-            "t": "2026-10-15T22:31:19+00:00",
-            "title": "Watch Rep. Amo Says Trump Should Enforce Russia Sanctions",
-            "src": "Bloomberg.com"
           }
         ]
       }
@@ -439,7 +439,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-16T02:11:04.552594+00:00",
+    "at": "2026-10-16T02:44:22.338726+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -875,7 +875,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-15T13:16:47.396181+00:00",
-      "last_attempt": "2026-10-15T23:17:26.223675+00:00",
+      "last_attempt": "2026-10-16T02:44:22.338726+00:00",
       "attempts": 9,
       "title": "Retail Sales m/m",
       "time": "2026-10-15T12:30:00+00:00",
@@ -896,7 +896,7 @@
       "source": "FRED",
       "period": "2026-10-10",
       "received_at": "2026-10-15T13:16:47.396181+00:00",
-      "last_attempt": "2026-10-15T23:17:26.223675+00:00",
+      "last_attempt": "2026-10-16T02:44:22.338726+00:00",
       "attempts": 9,
       "title": "Unemployment Claims",
       "time": "2026-10-15T12:30:00+00:00",
@@ -920,7 +920,7 @@
       "previous": "-3.2M",
       "country": "USD",
       "last_attempt": "2026-10-16T02:11:04.552594+00:00",
-      "note": "لم يصل الرقم من FRED بعد"
+      "note": ""
     }
   },
   "stats": {
@@ -3896,12 +3896,54 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "لم يصل الرقم من FRED بعد"
+    },
+    {
+      "id": "US|retail|mm|2026-09|-|2026-10-15",
+      "title": "Retail Sales m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-16T02:44:22.338726+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.8%",
+      "period": "2026-09-01",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.3%",
+      "previous": "1.2%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (RSAFS، فترة 2026-09-01) — مبيعات التجزئة شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|claims|claims_k|w2026-10-11|-|2026-10-15",
+      "title": "Unemployment Claims",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-16T02:44:22.338726+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "199K",
+      "period": "2026-10-10",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "199K",
+      "previous": "197K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-10) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-16T02:11:04.552594+00:00",
+  "last_publish_ok": "2026-10-16T02:44:22.338726+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-16T02:11:38.983724+00:00"
+    "at": "2026-10-16T02:45:02.520989+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -3956,7 +3998,7 @@
     "fred": {
       "ok": true,
       "detail": "2 سلسلة",
-      "at": "2026-10-16T00:22:53.959126+00:00"
+      "at": "2026-10-16T02:44:22.338726+00:00"
     }
   },
   "bls_calls": {
