@@ -10,6 +10,8 @@ import events_ctx
 import verdict
 import impact
 import os
+
+VERSION = "0.19.1"      # يُعرض في الإعدادات ويُقارَن بإصدار الواجهة: يكشف رفعاً ناقصاً أو ملف بيانات أقدم من الواجهة
 from datetime import datetime, timedelta
 
 DOCS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
@@ -511,6 +513,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "week_earnings": _week_earnings(report),
         "week_news": _week_news(week_news, now),
         "asset": "ES",
+        "version": VERSION,
     }
     return view
 

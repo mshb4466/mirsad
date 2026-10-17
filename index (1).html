@@ -460,20 +460,46 @@
   }
   @media (max-width: 899px) { .newsT { display: none !important; } }
   @media (max-width: 360px) { .pcards, .duo, .gs, .ci { grid-template-columns: minmax(0, 1fr); } .unums { grid-template-columns: minmax(0, 1fr); } .madv { font-size: 17.5px; } }
-  /* وضع المراقبة من بعيد */
-  #watchView { position: fixed; inset: 0; z-index: 60; background: var(--bg); color: var(--fg); overflow: auto; padding: 3vh 4vw; display: flex; flex-direction: column; gap: 2.2vh; --mc: #7d8896; }
+  /* وضع المراقبة من بعيد: رموز كبيرة وألوان حسب الأولوية، نص شبه معدوم، شاشة واحدة بلا تمرير */
+  #watchView { position: fixed; inset: 0; z-index: 60; height: 100vh; height: 100dvh; background: var(--bg); color: var(--fg); overflow: hidden; padding: 1.6vmin 2vmin; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 1.6vmin; --mc: #7d8896; }
   #watchView[hidden] { display: none; }
-  #watchView[data-key="support"] { --mc: var(--ok); background: color-mix(in srgb, var(--ok) 17%, var(--bg)); } #watchView[data-key="pressure"] { --mc: var(--crit); background: color-mix(in srgb, var(--crit) 17%, var(--bg)); } #watchView[data-key="mixed"] { --mc: var(--warn); background: color-mix(in srgb, var(--warn) 19%, var(--bg)); } #watchView[data-key="na"] { background: color-mix(in srgb, #7d8896 26%, var(--bg)); }
-  #watchView .wtop { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; } #watchView .wtop small { font-size: clamp(16px, 1.6vw, 24px); color: var(--muted); }
-  #watchView .wbias { font-size: clamp(54px, 9vw, 150px); font-weight: 900; color: var(--mc); line-height: 1.1; } #watchView .wadv { font-size: clamp(24px, 3.1vw, 52px); font-weight: 800; line-height: 1.5; max-width: 40ch; }
-  #watchView .wrow { display: flex; flex-wrap: wrap; gap: 3vw; font-size: clamp(22px, 2.6vw, 44px); font-weight: 700; } #watchView .wupd { font-size: clamp(22px, 2.6vw, 42px); background: var(--card); border: 3px solid var(--hi); border-radius: 18px; padding: 14px 22px; } #watchView .wupd:empty { display: none; }
-  #watchView .wpul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4vw; } #watchView .wpul .pc { padding: 12px 16px; font-size: clamp(18px, 2vw, 34px); } #watchView .wpul .p { font: 800 1.15em var(--font-mono); direction: ltr; unicode-bidi: isolate; } #watchView .wpul .e { font-size: .7em; }
-  #watchView .wrisk { display: flex; align-items: center; flex-wrap: wrap; gap: 2vw; font-size: clamp(22px, 2.6vw, 44px); font-weight: 700; --rc: var(--ok); }
-  #watchView .wrisk[data-l="l1"] { --rc: var(--warn); } #watchView .wrisk[data-l="l2"] { --rc: var(--hi); } #watchView .wrisk[data-l="l3"] { --rc: var(--crit); } #watchView .wrisk[data-l="na"] { --rc: #7d8896; }
-  #watchView .wrisk b { font-family: var(--font-mono); direction: ltr; unicode-bidi: isolate; color: var(--rc); }
-  #watchView .wrbar { flex: 1 1 200px; min-width: 160px; height: 1em; border-radius: 99px; background: color-mix(in srgb, var(--fg) 14%, transparent); overflow: hidden; }
-  #watchView .wrbar u { display: block; height: 100%; background: var(--rc); width: 0; text-decoration: none; }
-  #watchView .wbtns { display: flex; gap: 10px; flex-wrap: wrap; }
+  #watchView[data-key="support"] { --mc: var(--ok); background: color-mix(in srgb, var(--ok) 13%, var(--bg)); } #watchView[data-key="pressure"] { --mc: var(--crit); background: color-mix(in srgb, var(--crit) 13%, var(--bg)); } #watchView[data-key="mixed"] { --mc: var(--warn); background: color-mix(in srgb, var(--warn) 15%, var(--bg)); } #watchView[data-key="na"] { background: color-mix(in srgb, #7d8896 22%, var(--bg)); }
+  #watchView .wtop { display: flex; justify-content: space-between; align-items: center; gap: 1vmin; font-size: clamp(11px, 1.9vmin, 20px); color: var(--muted); min-height: 0; }
+  #watchView .wbtns { display: flex; gap: 1vmin; } #watchView .wbtns button { font-size: clamp(11px, 1.9vmin, 20px); padding: .6vmin 1.4vmin; min-height: 0; }
+  #watchView .wmain { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.6vmin; min-height: 0; }
+  #watchView .wbias { border-radius: 3vmin; border: .8vmin solid var(--mc); background: color-mix(in srgb, var(--mc) 16%, var(--card)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1vmin; min-height: 0; min-width: 0; overflow: hidden; color: var(--mc); text-align: center; }
+  #watchView .wbias .sym { font-size: clamp(56px, 30vmin, 480px); line-height: .95; font-weight: 900; }
+  #watchView .wbias .wd { font-size: clamp(26px, 10vmin, 170px); font-weight: 900; line-height: 1; }
+  #watchView .wbias .wln { display: flex; gap: 2vmin; font-size: clamp(14px, 4vmin, 64px); font-weight: 800; color: var(--fg); }
+  #watchView .wbias .wtag { font-size: clamp(12px, 3vmin, 48px); font-weight: 700; color: var(--fg); opacity: .85; max-width: 92%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #watchView .wright { display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 1.6vmin; min-height: 0; min-width: 0; }
+  #watchView .wtiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6vmin; }
+  #watchView .wt { --tc: var(--ok); border-radius: 2.2vmin; border: .6vmin solid var(--tc); background: color-mix(in srgb, var(--tc) 12%, var(--card)); padding: 1.2vmin; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5vmin; min-width: 0; overflow: hidden; }
+  #watchView .wt[data-t="warn"] { --tc: var(--warn); } #watchView .wt[data-t="hi"] { --tc: var(--hi); } #watchView .wt[data-t="crit"] { --tc: var(--crit); } #watchView .wt[data-t="na"] { --tc: #7d8896; }
+  #watchView .wt .k { font-size: clamp(10px, 2vmin, 26px); color: var(--muted); font-weight: 700; }
+  #watchView .wt .ic { font-size: clamp(18px, 5vmin, 72px); line-height: 1; color: var(--tc); font-weight: 900; }
+  #watchView .wt .v { font-size: clamp(20px, 6.5vmin, 100px); font-weight: 900; color: var(--tc); line-height: 1; font-family: var(--font-mono); direction: ltr; unicode-bidi: isolate; }
+  #watchView .wt .w { font-size: clamp(11px, 2.4vmin, 34px); font-weight: 800; color: var(--fg); }
+  #watchView .wt .segs { display: flex; gap: .6vmin; width: 80%; height: 1.4vmin; } #watchView .wt .segs i { flex: 1; border-radius: 99px; background: color-mix(in srgb, var(--fg) 16%, transparent); } #watchView .wt .segs i.f { background: var(--tc); }
+  #watchView .wnext { --tc: var(--neutral); border-radius: 2.2vmin; border: .6vmin solid var(--tc); background: color-mix(in srgb, var(--tc) 11%, var(--card)); padding: 1.2vmin 2vmin; display: flex; align-items: center; justify-content: space-between; gap: 2vmin; min-width: 0; overflow: hidden; }
+  #watchView .wnext[data-t="warn"] { --tc: var(--warn); } #watchView .wnext[data-t="hi"] { --tc: var(--hi); } #watchView .wnext[data-t="crit"] { --tc: var(--crit); } #watchView .wnext[data-t="na"] { --tc: #7d8896; }
+  #watchView .wnext .ic { font-size: clamp(20px, 6vmin, 90px); line-height: 1; } #watchView .wnext .nm { flex: 1; min-width: 0; font-size: clamp(13px, 3.2vmin, 50px); font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #watchView .wnext .cd { font-size: clamp(22px, 8vmin, 130px); font-weight: 900; color: var(--tc); font-family: var(--font-mono); direction: ltr; unicode-bidi: isolate; line-height: 1; }
+  #watchView .wupd { --tc: #7d8896; border-radius: 2.2vmin; border: .6vmin solid var(--tc); background: color-mix(in srgb, var(--tc) 10%, var(--card)); padding: 1.2vmin 2vmin; display: flex; align-items: center; gap: 2vmin; min-height: 0; min-width: 0; overflow: hidden; }
+  #watchView .wupd[data-t="on"] { --tc: var(--hi); } #watchView .wupd .ic { font-size: clamp(20px, 6vmin, 90px); line-height: 1; } #watchView .wupd .n { font-size: clamp(22px, 8vmin, 130px); font-weight: 900; color: var(--tc); font-family: var(--font-mono); line-height: 1; }
+  #watchView .wupd .nm { flex: 1; min-width: 0; font-size: clamp(12px, 2.8vmin, 44px); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #watchView .wpul { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 1.2vmin; }
+  #watchView .wp { --tc: #7d8896; border-radius: 1.8vmin; border: .5vmin solid var(--tc); background: color-mix(in srgb, var(--tc) 11%, var(--card)); padding: 1vmin .6vmin; display: flex; flex-direction: column; align-items: center; gap: .3vmin; min-width: 0; overflow: hidden; }
+  #watchView .wp.support { --tc: var(--ok); } #watchView .wp.pressure { --tc: var(--crit); } #watchView .wp.mixed { --tc: var(--warn); } #watchView .wp.calm { --tc: #7d8896; } #watchView .wp.isnew { border-width: .9vmin; }
+  #watchView .wp .s { font-size: clamp(10px, 2vmin, 26px); font-weight: 800; color: var(--muted); } #watchView .wp .a { font-size: clamp(16px, 4.4vmin, 64px); font-weight: 900; color: var(--tc); line-height: 1; } #watchView .wp .c { font-size: clamp(10px, 2.1vmin, 28px); font-weight: 800; font-family: var(--font-mono); direction: ltr; unicode-bidi: isolate; }
+  @media (max-aspect-ratio: 1/1) { #watchView .wmain { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(0, 1.2fr); } #watchView .wbias .sym { font-size: clamp(50px, 20vmin, 300px); } #watchView .wpul { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-height: 380px) { #watchView .wpul { display: none; } #watchView { grid-template-rows: auto minmax(0, 1fr); } }
+  /* تنبيه قوي: طبقة بملء الشاشة حتى الاطلاع (بلا وميض لمن يفضّل تقليل الحركة) */
+  #alarm { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3vmin; padding: 4vmin; text-align: center; background: color-mix(in srgb, var(--crit) 88%, #000); color: #fff; }
+  #alarm[hidden] { display: none; } #alarm[data-k="change"] { background: color-mix(in srgb, var(--hi) 90%, #000); } #alarm[data-k="outage"] { background: color-mix(in srgb, #5a6573 94%, #000); } #alarm[data-k="test"] { background: color-mix(in srgb, var(--neutral) 90%, #000); }
+  #alarm .aic { font-size: clamp(70px, 26vmin, 360px); line-height: 1; } #alarm .att { font-size: clamp(26px, 7vmin, 110px); font-weight: 900; line-height: 1.25; max-width: 90vw; } #alarm .ast { font-size: clamp(14px, 3vmin, 40px); opacity: .9; }
+  #alarm button { font: inherit; font-size: clamp(20px, 5vmin, 70px); font-weight: 900; padding: 1.6vmin 6vmin; border-radius: 3vmin; border: .6vmin solid #fff; background: #fff; color: #111; cursor: pointer; min-height: 56px; }
+  @media (prefers-reduced-motion: no-preference) { #alarm:not([hidden]) { animation: alarmPulse 0.9s ease-in-out infinite alternate; } @keyframes alarmPulse { from { filter: brightness(1); } to { filter: brightness(1.45); } } }
   .optrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0; min-height: 44px; } .optrow input[type=checkbox] { width: 22px; height: 22px; } .optrow label { font-size: 16px; }
   select.sel { font: inherit; font-size: 14px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line, #c9d3df); background: var(--card, #fff); color: var(--fg); min-height: 40px; }
   .csub { display: block; margin-top: 4px; font-size: 12px; line-height: 1.5; color: var(--muted, #5b6b75); }
@@ -485,15 +511,22 @@
 
 <dialog id="evDlg" aria-label="تفاصيل الحدث"><div class="evbody" id="evBody"></div><div class="dbtns"><button type="button" class="btn-main" id="evClose">إغلاق</button></div></dialog>
 <div id="watchView" hidden role="dialog" aria-label="وضع المراقبة" data-key="na">
-  <div class="wtop"><small id="wStamp"></small><div class="wbtns"><button type="button" class="btn-ghost" id="wFull">ملء الشاشة</button><button type="button" class="btn-main" id="wExit">خروج</button></div></div>
-  <div class="wbias" id="wBias">غير متاح</div>
-  <div class="wadv" id="wAdv"></div>
-  <div class="wrow"><span id="wLean"></span><span id="wConf"></span><span id="wInt"></span></div>
-  <div class="wrisk" id="wRisk" data-l="l0" role="img" aria-label="مقياس المخاطر"><span class="wk">المخاطر</span><b id="wRiskN">—</b><span class="wrbar"><u id="wRiskBar"></u></span><span id="wRiskW"></span></div>
-  <div class="wupd" id="wUpd"></div>
-  <div class="wrow"><span id="wNext"></span></div>
+  <div class="wtop"><div class="wbtns"><button type="button" class="btn-main" id="wExit">✕ خروج</button><button type="button" class="btn-ghost" id="wFull">⛶</button></div><small id="wStamp"></small></div>
+  <div class="wmain">
+    <div class="wbias" id="wBiasBox"><div class="sym" id="wSym">◆</div><div class="wd" id="wBias">—</div><div class="wln"><span id="wLean"></span></div><div class="wtag" id="wTag"></div></div>
+    <div class="wright">
+      <div class="wtiles">
+        <div class="wt" id="wRisk" data-t="ok" role="img" aria-label="المخاطر"><span class="k">المخاطر</span><span class="ic" id="wRiskI">✓</span><b class="v" id="wRiskN">—</b><span class="w" id="wRiskW"></span></div>
+        <div class="wt" id="wConfT" data-t="warn"><span class="k">الثقة</span><span class="ic" id="wConfI">◔</span><span class="segs" id="wConfS"><i></i><i></i><i></i></span><span class="w" id="wConf"></span></div>
+        <div class="wt" id="wIntT" data-t="warn"><span class="k">الحدة</span><span class="ic" id="wIntI">⚡</span><span class="segs" id="wIntS"><i></i><i></i><i></i></span><span class="w" id="wInt"></span></div>
+      </div>
+      <div class="wnext" id="wNextBox" data-t="na"><span class="ic">⏰</span><span class="nm" id="wNextN">—</span><b class="cd" id="wNextC">--:--</b></div>
+      <div class="wupd" id="wUpdBox" data-t="off"><span class="ic" id="wUpdI">✓</span><b class="n" id="wUpdN"></b><span class="nm" id="wUpd"></span></div>
+    </div>
+  </div>
   <div class="wpul" id="wPul"></div>
 </div>
+<div id="alarm" hidden role="alertdialog" aria-live="assertive" aria-labelledby="alarmT" data-k="alert"><div class="aic" id="alarmI">🚨</div><div class="att" id="alarmT"></div><div class="ast" id="alarmS"></div><button type="button" id="alarmOk">اطّلعت</button></div>
 
 <div class="wrap">
   <div class="top">
@@ -505,6 +538,7 @@
 
   <div class="statusrow"><button class="chip lang" id="refreshBtn" type="button">↻ تحديث</button><button class="chip lang deskonly inl" id="bellBtn" type="button" aria-pressed="false">🔕</button><button class="chip lang deskonly inl" id="watchBtn2" type="button">🖥 مراقبة</button><div class="demo" id="banner">مثال توضيحي ببيانات تجريبية لشكل التقرير. التقارير الحقيقية تصلك تلقائياً على تيليجرام دون أي إدخال منك.</div></div>
 
+  <p class="mchange inv" id="verWarn" hidden></p>
   <div class="tabs" role="tablist">
     <button type="button" role="tab" data-tab="today" aria-label="اليوم" aria-selected="true"><i>🏠</i><span>اليوم</span></button>
     <button type="button" role="tab" data-tab="week" aria-label="أخبار ES" aria-selected="false"><i>🗞️</i><span>أخبار ES</span></button>
@@ -748,11 +782,13 @@
     </section>
     <section class="card deskonly" id="deskCard">
       <h2>العرض على الكمبيوتر</h2>
+      <p class="src" id="verLine"></p>
       <div class="optrow"><input type="checkbox" id="tintOpt"><label for="tintOpt">تلوين الخلفية حسب الانحياز الحالي</label></div>
       <p class="src" id="tintLegend">داعم = أخضر داكن هادئ · ضاغط = أحمر داكن هادئ · مختلط = كهرماني · التقييم غير صالح بسبب البيانات = رمادي مع ذكر السبب.</p>
       <div class="optrow"><span>الجرس:</span><span class="bellst" id="bellState">مكتوم</span><button type="button" class="btn-ghost" id="bellToggle">تشغيل الجرس</button><button type="button" class="btn-ghost" id="bellTest">اختبار الصوت</button></div>
+      <div class="optrow"><span>قوة التنبيه:</span><select id="bellLvl" class="sel" aria-label="قوة التنبيه"><option value="strong">قوي: صفارة عالية وشاشة تنبيه حتى «اطّلعت»</option><option value="soft">عادي: نغمة قصيرة</option></select></div>
       <div class="optrow"><span>تهدئة تغيّر التقييم:</span><select id="bellCd" class="sel" aria-label="مهلة تهدئة جرس تغيّر التقييم"><option value="0">بلا تهدئة</option><option value="15">15 دقيقة</option><option value="30">30 دقيقة</option><option value="60">ساعة</option><option value="120">ساعتان</option></select><small>تغيّر التقييم يظهر في التطبيق فوراً دائماً؛ التهدئة تخص الصوت فقط. خبر اقتصادي جديد مهم يرنّ ولو داخل المهلة.</small></div>
-      <p class="src" id="bellLimits">يُنبّه الجرس عند تغيّر مهم في التقييم أو صدور خبر مؤثر أو تعطل البيانات، مرة واحدة لكل حدث لا مع كل تحديث. لا صوت عند فتح الصفحة لأول مرة، والتحديثات غير المقروءة تبقى ظاهرة. حدود: يعمل فقط والصفحة مفتوحة في المتصفح؛ لا يعمل إذا أُغلق المتصفح أو نام الحاسوب أو جُمّد التبويب (قد يُوقف المتصفح التبويبات الخاملة)، وبعض المتصفحات تمنع الصوت قبل أول نقرة منك. التنبيه الخارجي المضمون يبقى عبر تيليجرام.</p>
+      <p class="src" id="bellLimits">يُنبّه الجرس عند تغيّر مهم في التقييم أو صدور خبر مؤثر أو تعطل البيانات، مرة واحدة لكل حدث لا مع كل تحديث. التنبيه القوي: صفارة عالية تتكرر حتى 3 مرات، وشاشة حمراء بملء الشاشة تبقى حتى تضغط «اطّلعت»، وعنوان التبويب، وإشعار نظام (إن سمحتَ به) حين تكون في نافذة أخرى. لا صوت عند فتح الصفحة لأول مرة، والتحديثات غير المقروءة تبقى ظاهرة. حدود: يعمل فقط والصفحة مفتوحة في المتصفح؛ لا يعمل إذا أُغلق المتصفح أو نام الحاسوب أو جُمّد التبويب (قد يُوقف المتصفح التبويبات الخاملة)، وبعض المتصفحات تمنع الصوت قبل أول نقرة منك. التنبيه الخارجي المضمون يبقى عبر تيليجرام.</p>
       <div class="optrow"><button type="button" class="btn-main" id="watchBtn">وضع المراقبة من بعيد</button></div>
     </section>
     <section class="card about" id="aboutCard">
@@ -1429,7 +1465,7 @@ function render(data) {
   $('detailSummary').textContent = data.detailed_summary || '';
   try { renderExtras(data); } catch (e) { console.error(e); }
   output.hidden = false;
-  applyTint_(); renderWatch_(); bellUi_(); checkBell_(data);
+  applyTint_(); renderWatch_(); bellUi_(); checkBell_(data); versionCheck_(data);
 }
 
 $('copyNotif').addEventListener('click', async () => {
@@ -1776,9 +1812,54 @@ function beep_(kind) {
     return true;
   } catch (e) { return false; }
 }
-function ring_(kind, why) { BELL_LOG.push({ kind, why, at: Date.now() }); beep_(kind === 'outage' ? 'warn' : 'ok'); }
+/* ---- تنبيه قوي: صفارة عالية + طبقة بملء الشاشة حتى «اطّلعت» + عنوان التبويب + إشعار نظام + اهتزاز ---- */
+const bellLvl_ = () => (store_.get('mirsad-bell-lvl', 'strong') === 'soft' ? 'soft' : 'strong');
+let ALARM_TMR = null, ALARM_N = 0, ALARM_K = '', TITLE0 = document.title;
+function ctx_() { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.state === 'suspended') AC.resume(); return AC; }
+function siren_(kind) {                       /* urgent: خبر اقتصادي مؤثر | change: تغيّر تقييم | outage: تعطل بيانات */
+  try {
+    const c = ctx_(), t0 = c.currentTime, comp = c.createDynamicsCompressor(), mg = c.createGain(); mg.gain.value = 0.9; comp.connect(mg); mg.connect(c.destination);
+    const seq = kind === 'urgent' ? [[1046, 0], [784, .2], [1046, .4], [784, .6], [1046, .8], [784, 1.0], [1318, 1.2]] : kind === 'change' ? [[880, 0], [1175, .25], [880, .5], [1175, .75]] : [[660, 0], [494, .3], [330, .6]];
+    const dur = kind === 'urgent' ? .19 : .24;
+    seq.forEach(([f, dl]) => { const o = c.createOscillator(), g = c.createGain(); o.type = kind === 'outage' ? 'sawtooth' : 'square'; o.frequency.value = f; g.gain.setValueAtTime(0.0001, t0 + dl); g.gain.exponentialRampToValueAtTime(0.55, t0 + dl + .015); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dl + dur); o.connect(g); g.connect(comp); o.start(t0 + dl); o.stop(t0 + dl + dur + .02); });
+    return true;
+  } catch (e) { return false; }
+}
+function sysNotify_(title, body) {
+  try { if ('Notification' in window && Notification.permission === 'granted' && (document.hidden || !document.hasFocus())) { const n = new Notification(title, { body, requireInteraction: true, tag: 'mirsad-alarm', lang: 'ar', dir: 'rtl' }); n.onclick = () => { window.focus(); n.close(); }; } } catch (e) {}
+  try { if (navigator.vibrate) navigator.vibrate([300, 120, 300, 120, 600]); } catch (e) {}
+}
+function ackAlarm_() {
+  clearTimeout(ALARM_TMR); ALARM_TMR = null; ALARM_N = 0; $('alarm').hidden = true; document.title = TITLE0;
+}
+function showAlarm_(kind, why, test) {
+  const ov = $('alarm'), k = test ? 'test' : kind;
+  ov.dataset.k = k; $('alarmI').textContent = k === 'outage' ? '⚠️' : k === 'change' ? '🔔' : k === 'test' ? '🔊' : '🚨';
+  $('alarmT').textContent = shortTxt_(why, 90); $('alarmS').textContent = test ? 'اختبار الصوت والتنبيه — هكذا سيبدو التنبيه الحقيقي' : (k === 'outage' ? 'تعطل بيانات' : k === 'change' ? 'تغيّر في التقييم' : 'خبر مؤثر');
+  ov.hidden = false; ALARM_K = k; document.title = (k === 'outage' ? '⚠️ ' : '🚨 ') + shortTxt_(why, 40);
+  try { $('alarmOk').focus(); } catch (e) {}
+  clearTimeout(ALARM_TMR); ALARM_N = 0;
+  const again = () => {                         /* يعيد الصفارة حتى 3 مرات إلى أن تضغط «اطّلعت» (الاختبار: مرة واحدة ثم يُغلق) */
+    if (ov.hidden) return;
+    if (k === 'test') { ALARM_TMR = setTimeout(ackAlarm_, 2500); return; }
+    if (++ALARM_N <= 2) { siren_(k === 'alert' || k === 'release' ? 'urgent' : k === 'outage' ? 'outage' : 'change'); ALARM_TMR = setTimeout(again, 6000); }
+  };
+  ALARM_TMR = setTimeout(again, k === 'test' ? 10 : 6000);
+}
+function ring_(kind, why, test) {
+  const strong = bellLvl_() === 'strong';
+  if (!test) BELL_LOG.push({ kind, why, at: Date.now(), level: strong ? 'strong' : 'soft' });
+  if (!strong) { beep_(kind === 'outage' ? 'warn' : 'ok'); return; }
+  siren_(kind === 'outage' ? 'outage' : kind === 'change' ? 'change' : 'urgent');
+  showAlarm_(kind, why, test);
+  if (!test) sysNotify_(kind === 'outage' ? 'مرصاد — تعطل بيانات' : 'مرصاد — تنبيه مهم', why);
+}
+document.addEventListener('click', () => { try { ctx_(); } catch (e) {} }, { once: true });    /* أول نقرة تفتح الصوت لاحقاً بلا نقرة أخرى */
+document.addEventListener('keydown', e => { if (!$('alarm').hidden && (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape')) { e.preventDefault(); ackAlarm_(); } });
+$('alarmOk').onclick = ackAlarm_;
 function bellUi_() {
   const cdSel = $('bellCd'); if (cdSel) cdSel.value = String(bellCd_());
+  const lvSel = $('bellLvl'); if (lvSel) lvSel.value = bellLvl_();
   $('bellState').textContent = BELL ? 'مفعّل' : 'مكتوم'; $('bellState').className = 'bellst' + (BELL ? ' on' : '');
   $('bellToggle').textContent = BELL ? 'كتم الجرس' : 'تشغيل الجرس';
   const bb = $('bellBtn'); if (bb) { bb.textContent = BELL ? '🔔' : '🔕'; bb.setAttribute('aria-pressed', String(BELL)); bb.setAttribute('aria-label', BELL ? 'الجرس مفعّل' : 'الجرس مكتوم'); }
@@ -1820,20 +1901,46 @@ function applyTint_() {
   cl.add(inv ? 'tint-invalid' : 'tint-' + (v && v.bias ? (BCLS[v.bias.key] || 'mixed') : 'invalid'));
 }
 let WATCH = false;
+const shortTxt_ = (t, n) => { t = String(t || '').trim(); return t.length > n ? t.slice(0, n - 1) + '…' : t; };
+const cdText_ = ms => { if (ms <= 0) return 'الآن'; const t = Math.floor(ms / 1000), h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), sc = t % 60, p2 = n => String(n).padStart(2, '0'); return h ? h + ':' + p2(m) + ':' + p2(sc) : p2(m) + ':' + p2(sc); };
+function tickWatch_() {
+  if (!WATCH) return;
+  const box = $('wNextBox'); if (!NE_AT) { $('wNextC').textContent = '—'; box.dataset.t = 'na'; return; }
+  const ms = NE_AT - Date.now(), m = ms / 60000;
+  $('wNextC').textContent = cdText_(ms); box.dataset.t = ms <= 0 ? 'crit' : m <= 5 ? 'crit' : m <= 15 ? 'hi' : m <= 60 ? 'warn' : 'neutral';
+}
 function renderWatch_() {
   if (!WATCH || !LIVE) return;
   const d = LIVE, v = d.verdict || {}, inv = invalidReason_(d), w = $('watchView');
   w.dataset.key = inv ? 'na' : (v.bias ? (BCLS[v.bias.key] || 'mixed') : 'na');
-  $('wBias').textContent = (inv ? '— ' : (v.bias.arrow || '') + ' ') + (inv ? 'التقييم غير صالح' : v.bias.label);
-  $('wAdv').textContent = inv ? inv : v.advice;
-  $('wLean').textContent = 'الميل: ' + (v.lean ? v.lean.label : 'غير متاح'); $('wConf').textContent = 'الثقة: ' + (v.confidence || 'غير متاح') + (v.degraded ? ' (محدودة بجودة البيانات)' : '');
+  $('wSym').textContent = inv ? '✕' : (v.bias && v.bias.arrow) || '◆';
+  $('wBias').textContent = inv ? 'غير صالح' : (v.bias && v.bias.label) || '—';
+  $('wLean').textContent = (v.lean && v.lean.key !== 'na' ? 'الميل ' + (LAR[v.lean.key] || '') + ' ' + v.lean.label : 'الميل —');
+  $('wTag').textContent = inv ? shortTxt_(inv, 34) : (v.short || '');
+  /* المخاطر */
   const wr = $('wRisk'), inc = d.risk && d.risk.incomplete;
-  if (RISK_NOW && !inc) { wr.dataset.l = RISK_NOW.lvl.cls; $('wRiskN').textContent = RISK_NOW.score + '/10'; $('wRiskW').textContent = RISK_NOW.lvl.ic + ' ' + tr_(RISK_NOW.lvl.name).replace(/^مخاطرة\s*/, ''); $('wRiskBar').style.width = Math.max(4, Math.min(100, RISK_NOW.score * 10)) + '%'; wr.setAttribute('aria-label', 'المخاطر ' + RISK_NOW.score + ' من 10'); }
-  else { wr.dataset.l = 'na'; $('wRiskN').textContent = '—'; $('wRiskW').textContent = 'غير مكتمل'; $('wRiskBar').style.width = '0%'; } $('wInt').textContent = 'الحدة: ' + (v.intensity ? v.intensity.word : 'غير متاح');
-  const u = unread_(d)[0]; $('wUpd').textContent = u ? 'تحديث مهم: ' + (u.what || u.title) + ' (' + HM(u.updated_at || u.t) + ')' : '';
-  $('wNext').textContent = d.next_event ? 'التالي: ' + d.next_event.name + ' — ' + (NE_AT ? remain_(NE_AT - Date.now()) : d.next_event.time) : 'لا حدث عالي التأثير قادم';
-  const pl = $('wPul'); pl.innerHTML = ''; (d.pulse8 || []).filter(x => x.available).slice(0, 4).forEach(x => pl.appendChild(pulseCard_(x, false)));
-  $('wStamp').textContent = 'آخر تقييم ناجح ' + (v.last_ok_at_ar || '—') + ' بتوقيت بغداد · ' + (FAIL ? '⚠ آخر محاولة تحديث فشلت' : 'متصل');
+  if (RISK_NOW && !inc) { const L = RISK_NOW.lvl; wr.dataset.t = ['ok', 'warn', 'hi', 'crit'][L.i]; $('wRiskI').textContent = L.ic; $('wRiskN').textContent = RISK_NOW.score + '/10'; $('wRiskW').textContent = tr_(L.name).replace(/^مخاطرة\s*/, ''); wr.setAttribute('aria-label', 'المخاطر ' + RISK_NOW.score + ' من 10'); }
+  else { wr.dataset.t = 'na'; $('wRiskI').textContent = '—'; $('wRiskN').textContent = '—'; $('wRiskW').textContent = 'غير مكتمل'; }
+  /* الثقة والحدة: أشرطة ثلاثية بلا جمل */
+  const cn = CONF_N[v.confidence] || 0, ct = $('wConfT');
+  ct.dataset.t = !cn ? 'na' : cn === 3 ? 'ok' : cn === 2 ? 'warn' : 'hi'; $('wConfI').textContent = v.degraded ? '⚠' : '◔'; $('wConf').textContent = v.confidence || '—';
+  Array.from($('wConfS').children).forEach((i, k) => i.className = k < cn ? 'f' : '');
+  const iw = v.intensity ? v.intensity.word : '', inn = { 'خفيفة': 1, 'ضعيفة': 1, 'متوسطة': 2, 'قوية': 3 }[iw] || 0, it = $('wIntT');
+  it.dataset.t = !inn ? 'na' : inn === 1 ? 'ok' : inn === 2 ? 'warn' : 'hi'; $('wInt').textContent = iw || '—';
+  Array.from($('wIntS').children).forEach((i, k) => i.className = k < inn ? 'f' : '');
+  /* الخبر القادم والتحديث غير المقروء */
+  $('wNextN').textContent = d.next_event ? shortTxt_(d.next_event.name, 26) : 'لا حدث قادم'; tickWatch_();
+  const un = unread_(d), ub = $('wUpdBox'); ub.dataset.t = un.length ? 'on' : 'off';
+  $('wUpdI').textContent = un.length ? '📥' : '✓'; $('wUpdN').textContent = un.length ? String(un.length) : ''; $('wUpd').textContent = un.length ? shortTxt_(un[0].title || un[0].what, 30) : 'لا جديد';
+  /* النبض: رمز وسهم ولون فقط */
+  const pl = $('wPul'); pl.innerHTML = '';
+  (d.pulse8 || []).slice(0, 8).forEach(x => {
+    const c = el('div', 'wp ' + (x.available ? (x.color || 'calm') : 'na') + (x.new ? ' isnew' : ''));
+    c.appendChild(el('span', 's', x.sym || x.name)); c.appendChild(el('span', 'a', x.available ? (x.arrow || '◆') : '—'));
+    c.appendChild(el('span', 'c', x.available ? (x.chg > 0 ? '+' : '') + x.chg + (x.unit === 'bp' ? 'bp' : '%') : ''));
+    pl.appendChild(c);
+  });
+  $('wStamp').textContent = (FAIL ? '⚠ ' : '● ') + (v.last_ok_at_ar || '—');
 }
 function setWatch_(on) {
   WATCH = on; $('watchView').hidden = !on; document.body.style.overflow = on ? 'hidden' : '';
@@ -1846,9 +1953,10 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && WATCH && !
 $('tintOpt').onchange = () => { store_.set('mirsad-tint', $('tintOpt').checked ? '1' : '0'); applyTint_(); };
 $('bellCd').value = String(bellCd_());
 $('bellCd').onchange = () => store_.set('mirsad-bell-cd', $('bellCd').value);
-$('bellToggle').onclick = () => { BELL = !BELL; store_.set('mirsad-bell', BELL ? '1' : '0'); if (BELL) beep_('ok'); bellUi_(); };
+$('bellToggle').onclick = () => { BELL = !BELL; store_.set('mirsad-bell', BELL ? '1' : '0'); if (BELL) { beep_('ok'); try { if ('Notification' in window && Notification.permission === 'default') Notification.requestPermission(); } catch (e) {} } bellUi_(); };
+$('bellLvl').value = bellLvl_(); $('bellLvl').onchange = () => store_.set('mirsad-bell-lvl', $('bellLvl').value);
 $('bellBtn').onclick = () => $('bellToggle').click();
-$('bellTest').onclick = () => { const ok = beep_('ok'); $('bellTest').textContent = ok ? '♪ سُمع الصوت؟' : 'الصوت غير مدعوم في هذا المتصفح'; setTimeout(() => { $('bellTest').textContent = 'اختبار الصوت'; }, 2500); };
+$('bellTest').onclick = () => { const ok = bellLvl_() === 'strong' ? (ring_('alert', '🚨 هكذا يبدو التنبيه القوي', true), siren_('urgent')) : beep_('ok'); $('bellTest').textContent = ok ? '♪ سُمع الصوت؟' : 'الصوت غير مدعوم في هذا المتصفح'; setTimeout(() => { $('bellTest').textContent = 'اختبار الصوت'; }, 2500); };
 $('watchBtn2').onclick = () => setWatch_(true);
 $('evClose').onclick = closeEvent_;
 $('evDlg').addEventListener('cancel', () => { closeEvent_(); });
@@ -1857,6 +1965,7 @@ $('updOpen').onclick = () => { if (UPD_CUR) openEvent_(UPD_CUR.id); };
 $('toDetails').onclick = () => { showTab('details'); window.scrollTo({ top: 0 }); };
 window.addEventListener('hashchange', handleHash_);
 setInterval(() => { tickNext_(); renderWatch_(); }, 30000);
+setInterval(tickWatch_, 1000);
 bellUi_();
 
 function renderWeek_(data) {
@@ -1918,6 +2027,13 @@ let booted = false, loadedAt = 0, lastTry = 0, FAIL = null, btnTimer = null;
 /* ثلاثة أزمنة منفصلة: وقت البيانات المعروضة (LIVE.updated)، آخر جلب ناجح (loadedAt)، آخر محاولة (lastTry). فشل المحاولة لا يحدّث الثانية ولا يمحو اللقطة. */
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
 const FAILMSG = { http: 'الخادم رفض الطلب', network: 'لا اتصال بالشبكة', json: 'ملف البيانات تالف', source: 'المصدر أبلغ عن خطأ', render: 'تعذّر عرض البيانات' };
+const UI_VERSION = '0.19.1';
+function versionCheck_(d) {
+  const dv = d && d.version, vl = $('verLine'), vw = $('verWarn');
+  if (vl) vl.textContent = 'إصدار الواجهة: v' + UI_VERSION + ' · إصدار ملف البيانات: ' + (dv ? 'v' + dv : 'غير مذكور (أقدم من 0.19.1)');
+  const bad = d && dv !== UI_VERSION;
+  if (vw) { vw.hidden = !bad; vw.textContent = bad ? 'تنبيه: الواجهة v' + UI_VERSION + ' وملف البيانات ' + (dv ? 'v' + dv : 'من إصدار أقدم') + ' — غالباً لم تكتمل الترقية أو لم يُشغَّل mirsad بعد الرفع. شغّل Actions ← mirsad ← Run workflow بوضع test.' : ''; }
+}
 function stamp_() {
   const bn = $('banner'), en = LANG === 'en';
   if (FAIL) {
@@ -1942,7 +2058,7 @@ function stamp_() {
 function validate_(j) {
   if (!j || typeof j !== 'object') throw { kind: 'json', msg: '' };
   if (j.error || !j.risk) throw { kind: 'source', msg: String(j.error || 'بلا قياس مخاطر').slice(0, 120) };
-  if (!j.verdict || typeof j.verdict !== 'object' || !Array.isArray(j.pulse8) || !Array.isArray(j.alerts)) throw { kind: 'source', msg: 'بنية اللقطة ناقصة (verdict/pulse8/alerts)' };
+  if (!j.verdict || typeof j.verdict !== 'object' || !Array.isArray(j.pulse8) || !Array.isArray(j.alerts)) throw { kind: 'source', msg: 'بنية اللقطة ناقصة (verdict/pulse8/alerts): ملف البيانات أقدم من الواجهة، شغّل mirsad بوضع test' };
 }
 function loadData(manual) {
   const btn = $('refreshBtn'); btn.disabled = true; btn.textContent = '… ' + tr_('جارٍ التحديث'); lastTry = Date.now();

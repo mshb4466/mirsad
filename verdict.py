@@ -166,6 +166,20 @@ def _advice(b, lean, conf, intensity, pending, available, ups=None, rel=None):
     return "النصيحة الآن: " + head + body + guard
 
 
+def _short(avail, b, pend, ups, rel):
+    """وسم قصير جداً (≤ 3 كلمات) لشاشة المراقبة؛ الأولوية: غير صالح ← بانتظار رقم ← خبر وشيك ← خبر قريب ← حال الخلفية."""
+    if not avail:
+        return "غير صالح"
+    if pend:
+        return "بانتظار الرقم"
+    if ups and ups[0]["imminent"]:
+        return "انتظر الإصدار"
+    if ups:
+        return "خبر قريب"
+    base = {"pressure": "ضغط ماكروي", "support": "دعم ماكروي"}.get(b.get("key"), "بلا ميزة ماكروية")
+    return base + (" · ثقة محدودة" if rel and rel["rank"] < 3 else "")
+
+
 def _news_relation(releases, b):
     """علاقة أهم إصدار موثّق حديث بالتقييم العام (نص واحد)."""
     groups = (releases or {}).get("groups") or []
@@ -289,6 +303,7 @@ def _build(report, now, prev, events, window_min=UPCOMING_WINDOW_MIN):
     reason = (b.get("why") if avail and not why_parts else "؛ ".join(why_parts)) if avail else ("؛ ".join(rel["reasons"]) or b.get("why") or "البيانات غير كافية لتقييم موثوق")
     return {
         "available": avail,
+        "short": _short(avail, b, pend, ups, rel),
         "advice": _advice(b, lean, conf, intensity, pend, avail, ups, {**rel, "rank": rel["rank"]}),
         "lean": {"key": lean, "label": LEAN_AR[lean], "basis": lean_basis},
         "bias": {"key": b.get("key"), "label": b.get("label", "غير متاح"), "arrow": b.get("arrow") or BIAS_ARROW.get(b.get("key"), ""), "available": avail},
