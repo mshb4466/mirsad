@@ -468,8 +468,16 @@
   #watchView .wbias { font-size: clamp(54px, 9vw, 150px); font-weight: 900; color: var(--mc); line-height: 1.1; } #watchView .wadv { font-size: clamp(24px, 3.1vw, 52px); font-weight: 800; line-height: 1.5; max-width: 40ch; }
   #watchView .wrow { display: flex; flex-wrap: wrap; gap: 3vw; font-size: clamp(22px, 2.6vw, 44px); font-weight: 700; } #watchView .wupd { font-size: clamp(22px, 2.6vw, 42px); background: var(--card); border: 3px solid var(--hi); border-radius: 18px; padding: 14px 22px; } #watchView .wupd:empty { display: none; }
   #watchView .wpul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4vw; } #watchView .wpul .pc { padding: 12px 16px; font-size: clamp(18px, 2vw, 34px); } #watchView .wpul .p { font: 800 1.15em var(--font-mono); direction: ltr; unicode-bidi: isolate; } #watchView .wpul .e { font-size: .7em; }
+  #watchView .wrisk { display: flex; align-items: center; flex-wrap: wrap; gap: 2vw; font-size: clamp(22px, 2.6vw, 44px); font-weight: 700; --rc: var(--ok); }
+  #watchView .wrisk[data-l="l1"] { --rc: var(--warn); } #watchView .wrisk[data-l="l2"] { --rc: var(--hi); } #watchView .wrisk[data-l="l3"] { --rc: var(--crit); } #watchView .wrisk[data-l="na"] { --rc: #7d8896; }
+  #watchView .wrisk b { font-family: var(--font-mono); direction: ltr; unicode-bidi: isolate; color: var(--rc); }
+  #watchView .wrbar { flex: 1 1 200px; min-width: 160px; height: 1em; border-radius: 99px; background: color-mix(in srgb, var(--fg) 14%, transparent); overflow: hidden; }
+  #watchView .wrbar u { display: block; height: 100%; background: var(--rc); width: 0; text-decoration: none; }
   #watchView .wbtns { display: flex; gap: 10px; flex-wrap: wrap; }
   .optrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0; min-height: 44px; } .optrow input[type=checkbox] { width: 22px; height: 22px; } .optrow label { font-size: 16px; }
+  select.sel { font: inherit; font-size: 14px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line, #c9d3df); background: var(--card, #fff); color: var(--fg); min-height: 40px; }
+  .csub { display: block; margin-top: 4px; font-size: 12px; line-height: 1.5; color: var(--muted, #5b6b75); }
+  .g.degraded .csub { color: var(--warn, #a15c00); font-weight: 700; }
   .bellst { font-weight: 800; } .bellst.on { color: var(--ok); }
 </style>
 
@@ -481,6 +489,7 @@
   <div class="wbias" id="wBias">غير متاح</div>
   <div class="wadv" id="wAdv"></div>
   <div class="wrow"><span id="wLean"></span><span id="wConf"></span><span id="wInt"></span></div>
+  <div class="wrisk" id="wRisk" data-l="l0" role="img" aria-label="مقياس المخاطر"><span class="wk">المخاطر</span><b id="wRiskN">—</b><span class="wrbar"><u id="wRiskBar"></u></span><span id="wRiskW"></span></div>
   <div class="wupd" id="wUpd"></div>
   <div class="wrow"><span id="wNext"></span></div>
   <div class="wpul" id="wPul"></div>
@@ -532,7 +541,7 @@
       </div>
       <p class="mrel" id="mRel" hidden></p>
       <div class="gs">
-        <div class="g" id="mConf"><span class="k">الثقة</span><b id="mConfW">—</b><span class="seg3" id="mConfBar"><i></i><i></i><i></i></span></div>
+        <div class="g" id="mConf"><span class="k">الثقة</span><b id="mConfW">—</b><span class="seg3" id="mConfBar"><i></i><i></i><i></i></span><small class="csub" id="mConfSub"></small></div>
         <div class="g" id="mInt"><span class="k">الحدة</span><b id="mIntW">—</b><span class="bar" id="mIntBar"><u></u></span></div>
       </div>
       <p class="mreason" id="mReason"></p>
@@ -742,6 +751,7 @@
       <div class="optrow"><input type="checkbox" id="tintOpt"><label for="tintOpt">تلوين الخلفية حسب الانحياز الحالي</label></div>
       <p class="src" id="tintLegend">داعم = أخضر داكن هادئ · ضاغط = أحمر داكن هادئ · مختلط = كهرماني · التقييم غير صالح بسبب البيانات = رمادي مع ذكر السبب.</p>
       <div class="optrow"><span>الجرس:</span><span class="bellst" id="bellState">مكتوم</span><button type="button" class="btn-ghost" id="bellToggle">تشغيل الجرس</button><button type="button" class="btn-ghost" id="bellTest">اختبار الصوت</button></div>
+      <div class="optrow"><span>تهدئة تغيّر التقييم:</span><select id="bellCd" class="sel" aria-label="مهلة تهدئة جرس تغيّر التقييم"><option value="0">بلا تهدئة</option><option value="15">15 دقيقة</option><option value="30">30 دقيقة</option><option value="60">ساعة</option><option value="120">ساعتان</option></select><small>تغيّر التقييم يظهر في التطبيق فوراً دائماً؛ التهدئة تخص الصوت فقط. خبر اقتصادي جديد مهم يرنّ ولو داخل المهلة.</small></div>
       <p class="src" id="bellLimits">يُنبّه الجرس عند تغيّر مهم في التقييم أو صدور خبر مؤثر أو تعطل البيانات، مرة واحدة لكل حدث لا مع كل تحديث. لا صوت عند فتح الصفحة لأول مرة، والتحديثات غير المقروءة تبقى ظاهرة. حدود: يعمل فقط والصفحة مفتوحة في المتصفح؛ لا يعمل إذا أُغلق المتصفح أو نام الحاسوب أو جُمّد التبويب (قد يُوقف المتصفح التبويبات الخاملة)، وبعض المتصفحات تمنع الصوت قبل أول نقرة منك. التنبيه الخارجي المضمون يبقى عبر تيليجرام.</p>
       <div class="optrow"><button type="button" class="btn-main" id="watchBtn">وضع المراقبة من بعيد</button></div>
     </section>
@@ -886,6 +896,7 @@ const DEMO_EN = {"auction":{"prior":{"high":5918,"low":5872,"close":5898,"val":5
 "detailed_summary":"Illustrative example: the nearby major event and high volatility lift risk, while geopolitical tension adds pressure. Figures here are sample data only.",
 "scenarios":[{"name":"Sell-off into the event","probability":"45%","description":"A rates surprise pushes yields higher."},{"name":"Choppy range","probability":"35%","description":"Waiting for the decision."},{"name":"Rebound","probability":"20%","description":"A calmer decision than feared."}]};
 const levelOf = s => LEVELS[s <= 3 ? 0 : s <= 6 ? 1 : s <= 8 ? 2 : 3];
+let RISK_NOW = null;                       /* الرقم نفسه المعروض في «اليوم» يُعاد عرضه في المراقبة (مصدر واحد) */
 
 /* مقياس نصف دائري */
 function drawGauge(score) {
@@ -1137,6 +1148,7 @@ function render(data) {
   renderAuction(data.auction);
   /* v0.19: المسارات الجوهرية بلا try/catch: أي خطأ هنا يعني أن الاستجابة معيبة فتبقى آخر لقطة صالحة (انظر loadData) */
   seedRead_(alertsOf(data));
+  RISK_NOW = { score, lvl };
   renderMain_(data, score, lvl);
   renderUpdate_(data); renderLog_(data); renderNext_(data); renderPulse_(data); renderNewsTable_(data);
 
@@ -1627,6 +1639,9 @@ function renderMain_(d, score, lvl) {
   const rel = $('mRel'), rt = [v.relation, v.news_relation].filter(Boolean).join(' '); rel.hidden = !rt; rel.textContent = rt;
   $('mConfW').textContent = v.confidence || 'غير متاح';
   Array.from($('mConfBar').children).forEach((i, n) => i.className = n < (CONF_N[v.confidence] || 0) ? 'f' : '');
+  const rl0 = v.reliability || {};
+  $('mConfSub').textContent = v.agreement && v.agreement !== 'غير متاح' ? 'اتفاق العوامل: ' + v.agreement + ' · موثوقية البيانات: ' + (rl0.label || '—') + (v.degraded && rl0.reasons && rl0.reasons.length ? ' (' + rl0.reasons[0] + ')' : '') : (rl0.reasons && rl0.reasons.length ? 'موثوقية البيانات: ' + rl0.reasons[0] : '');
+  $('mConf').classList.toggle('degraded', !!v.degraded);
   $('mIntW').textContent = v.intensity ? v.intensity.word : 'غير متاح';
   $('mIntBar').firstElementChild.style.width = (v.intensity ? Math.max(4, Math.min(100, (Number(v.intensity.score) || 0) * 10)) : 0) + '%';
   $('mReason').hidden = !v.available; $('mReason').textContent = v.available ? 'السبب الرئيسي: ' + v.reason : '';
@@ -1646,7 +1661,10 @@ function renderMain_(d, score, lvl) {
   const sec = (h, arr) => { arr = (arr || []).filter(Boolean); if (!arr.length) return; hb.appendChild(el('h4', '', h)); const ul = el('ul'); arr.forEach(t => ul.appendChild(el('li', '', t))); hb.appendChild(ul); };
   sec('مكوّنات الانحياز الماكروي', (b.components || []).map(c => c.arrow + ' ' + c.name + ': ' + c.note + (c.contribution !== undefined ? ' (مساهمة ' + (c.contribution > 0 ? '+' : '') + Number(c.contribution).toFixed(2) + ')' : '')));
   const rl = d.releases;
-  if (rl) sec('الإصدارات الموثّقة داخل التقييم', (rl.groups || []).map(g => g.lead + ': ' + g.initial + (g.revision ? ' · ' + g.revision : '') + ' [' + g.mode + ']').concat([rl.market ? 'تأكيد السوق: ' + rl.market.label : '', (rl.fed_discount ? 'خُصم من وزن ميل الفدرالي ' + rl.fed_discount + ' لتفادي العدّ المزدوج' : '')]));
+  if (rl) {
+    sec('الإصدارات الموثّقة داخل التقييم', (rl.groups || []).map(g => g.lead + ': ' + g.initial + (g.revision ? ' · ' + g.revision : '') + ' [' + g.mode + ']').concat([rl.market ? 'تأكيد السوق: ' + rl.market.label : '', (rl.fed_discount ? 'خُصم من وزن ميل الفدرالي ' + rl.fed_discount + ' لتفادي العدّ المزدوج' : '')]));
+    (rl.groups || []).forEach(g => { const x = g.explain || {}; sec('كيف قُرئ «' + g.lead + '»', [g.conflict, x.surprise && ('المفاجأة: ' + x.surprise), x.trend && ('التغير عن السابق: ' + x.trend), x.revision, x.why_signal, x.unavailable]); });
+  }
   sec('ما لم يصل بعد', (rl && rl.pending || []).map(p => p.name + ' — ' + (p.unsupported ? 'غير مدعوم آلياً (لا مصدر مجاني)' : p.status_ar)).concat(b.missing && b.missing.length ? ['غير متاح: ' + b.missing.join('، ')] : []));
   sec('شرح المخاطر والنظام والأسواق', [ 'المخاطر ' + score + '/10: ' + (d.risk.main_reason || ''), d.regime ? 'النظام: ' + d.regime.text : '', b.confirm ? 'تأكيد الأسواق: ' + b.confirm.why : '' ]);
   sec('حدود التقييم', [v.method, 'تغطية البيانات للانحياز ' + (b.coverage !== undefined ? Math.round(b.coverage * 100) + '%' : 'غير متاح'), 'الأوزان تقديرية غير معايَرة تاريخياً.']);
@@ -1746,6 +1764,8 @@ function renderNewsTable_(d) {
 /* ---- الجرس (اختياري، على الكمبيوتر) ---- */
 let BELL = store_.get('mirsad-bell', '0') === '1', AC = null, BELL_FIRST = true;
 const BELL_LOG = []; window.__bellLog = BELL_LOG;
+let LAST_CHG = Number(store_.get('mirsad-bell-lastchg', '0')) || 0;
+const bellCd_ = () => { const n = Number(store_.get('mirsad-bell-cd', '30')); return isFinite(n) && n >= 0 ? n : 30; };
 let BELLED = (() => { try { return new Set(JSON.parse(store_.get('mirsad-belled', '[]'))); } catch (e) { return new Set(); } })();
 const saveBelled_ = () => store_.set('mirsad-belled', JSON.stringify(Array.from(BELLED).slice(-300)));
 function beep_(kind) {
@@ -1758,6 +1778,7 @@ function beep_(kind) {
 }
 function ring_(kind, why) { BELL_LOG.push({ kind, why, at: Date.now() }); beep_(kind === 'outage' ? 'warn' : 'ok'); }
 function bellUi_() {
+  const cdSel = $('bellCd'); if (cdSel) cdSel.value = String(bellCd_());
   $('bellState').textContent = BELL ? 'مفعّل' : 'مكتوم'; $('bellState').className = 'bellst' + (BELL ? ' on' : '');
   $('bellToggle').textContent = BELL ? 'كتم الجرس' : 'تشغيل الجرس';
   const bb = $('bellBtn'); if (bb) { bb.textContent = BELL ? '🔔' : '🔕'; bb.setAttribute('aria-pressed', String(BELL)); bb.setAttribute('aria-label', BELL ? 'الجرس مفعّل' : 'الجرس مكتوم'); }
@@ -1771,8 +1792,16 @@ function checkBell_(d) {
   const live = new Set(keys.map(k => k[1]));
   Array.from(BELLED).forEach(k => { if (k.startsWith('o|') && !live.has(k) && !k.startsWith('o|fail')) BELLED.delete(k); });   /* تعافٍ: يُسمح بتنبيه العطل القادم */
   let fired = null;
-  keys.forEach(([kind, key, why]) => { if (BELLED.has(key)) return; BELLED.add(key); if (!BELL_FIRST && BELL && !fired) fired = [kind, why]; });
-  if (fired) ring_(fired[0], fired[1]);
+  keys.forEach(([kind, key, why]) => {
+    if (BELLED.has(key)) return; BELLED.add(key);
+    if (BELL_FIRST || !BELL) return;
+    if (kind === 'change') {                 /* تهدئة الصوت فقط لتغيّر التقييم المتذبذب؛ الظهور البصري لا يتأثر. الخبر الاقتصادي الجديد (alert) يتجاوزها */
+      const cd = bellCd_() * 60000;
+      if (cd && Date.now() - LAST_CHG < cd) { BELL_LOG.push({ kind: 'change-muted', why, at: Date.now() }); return; }
+    }
+    if (!fired) fired = [kind, why];
+  });
+  if (fired) { if (fired[0] === 'change') { LAST_CHG = Date.now(); store_.set('mirsad-bell-lastchg', String(LAST_CHG)); } ring_(fired[0], fired[1]); }
   BELL_FIRST = false; saveBelled_();
 }
 function bellOutage_(why) {
@@ -1797,7 +1826,10 @@ function renderWatch_() {
   w.dataset.key = inv ? 'na' : (v.bias ? (BCLS[v.bias.key] || 'mixed') : 'na');
   $('wBias').textContent = (inv ? '— ' : (v.bias.arrow || '') + ' ') + (inv ? 'التقييم غير صالح' : v.bias.label);
   $('wAdv').textContent = inv ? inv : v.advice;
-  $('wLean').textContent = 'الميل: ' + (v.lean ? v.lean.label : 'غير متاح'); $('wConf').textContent = 'الثقة: ' + (v.confidence || 'غير متاح'); $('wInt').textContent = 'الحدة: ' + (v.intensity ? v.intensity.word : 'غير متاح');
+  $('wLean').textContent = 'الميل: ' + (v.lean ? v.lean.label : 'غير متاح'); $('wConf').textContent = 'الثقة: ' + (v.confidence || 'غير متاح') + (v.degraded ? ' (محدودة بجودة البيانات)' : '');
+  const wr = $('wRisk'), inc = d.risk && d.risk.incomplete;
+  if (RISK_NOW && !inc) { wr.dataset.l = RISK_NOW.lvl.cls; $('wRiskN').textContent = RISK_NOW.score + '/10'; $('wRiskW').textContent = RISK_NOW.lvl.ic + ' ' + tr_(RISK_NOW.lvl.name).replace(/^مخاطرة\s*/, ''); $('wRiskBar').style.width = Math.max(4, Math.min(100, RISK_NOW.score * 10)) + '%'; wr.setAttribute('aria-label', 'المخاطر ' + RISK_NOW.score + ' من 10'); }
+  else { wr.dataset.l = 'na'; $('wRiskN').textContent = '—'; $('wRiskW').textContent = 'غير مكتمل'; $('wRiskBar').style.width = '0%'; } $('wInt').textContent = 'الحدة: ' + (v.intensity ? v.intensity.word : 'غير متاح');
   const u = unread_(d)[0]; $('wUpd').textContent = u ? 'تحديث مهم: ' + (u.what || u.title) + ' (' + HM(u.updated_at || u.t) + ')' : '';
   $('wNext').textContent = d.next_event ? 'التالي: ' + d.next_event.name + ' — ' + (NE_AT ? remain_(NE_AT - Date.now()) : d.next_event.time) : 'لا حدث عالي التأثير قادم';
   const pl = $('wPul'); pl.innerHTML = ''; (d.pulse8 || []).filter(x => x.available).slice(0, 4).forEach(x => pl.appendChild(pulseCard_(x, false)));
@@ -1812,6 +1844,8 @@ $('wExit').onclick = () => setWatch_(false);
 $('wFull').onclick = () => { try { if (document.fullscreenElement) document.exitFullscreen(); else $('watchView').requestFullscreen(); } catch (e) {} };
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && WATCH && !document.fullscreenElement) setWatch_(false); });
 $('tintOpt').onchange = () => { store_.set('mirsad-tint', $('tintOpt').checked ? '1' : '0'); applyTint_(); };
+$('bellCd').value = String(bellCd_());
+$('bellCd').onchange = () => store_.set('mirsad-bell-cd', $('bellCd').value);
 $('bellToggle').onclick = () => { BELL = !BELL; store_.set('mirsad-bell', BELL ? '1' : '0'); if (BELL) beep_('ok'); bellUi_(); };
 $('bellBtn').onclick = () => $('bellToggle').click();
 $('bellTest').onclick = () => { const ok = beep_('ok'); $('bellTest').textContent = ok ? '♪ سُمع الصوت؟' : 'الصوت غير مدعوم في هذا المتصفح'; setTimeout(() => { $('bellTest').textContent = 'اختبار الصوت'; }, 2500); };

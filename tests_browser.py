@@ -358,11 +358,40 @@ def main(shots):
         mode["m"] = "good"
         dp.click("#bellBtn"); dp.wait_for_timeout(100)
         check("مكتوم" in dp.locator("#bellState").inner_text() and dp.evaluate("localStorage.getItem('mirsad-bell')") == "0", "كتم الجرس")
+        # تهدئة الجرس لتغيّر التقييم (مراجعة v0.19): تذبذب الانحياز لا يكرر الصوت، والخبر الاقتصادي الجديد يتجاوز التهدئة
+        dp.click("#bellBtn"); dp.wait_for_timeout(100)      # تشغيل الجرس ثانية
+        dp.evaluate("localStorage.setItem('mirsad-bell-cd','30'); localStorage.removeItem('mirsad-bell-lastchg'); LAST_CHG = 0; __bellLog.length = 0")
+        def flip(at, key, label):
+            d2 = copy.deepcopy(fx); d2["published_at"] = datetime.now(timezone.utc).isoformat()
+            d2["verdict"]["change"] = {"changed": True, "text": f"التقييم السابق لم يعد صالحًا — تغيّر الانحياز إلى {label}", "from": "x", "to": label, "at": at}
+            mode["data"] = d2; dp.wait_for_timeout(3000); dp.click("#refreshBtn"); dp.wait_for_timeout(900)
+            return d2
+        flip("2026-10-17T10:00:00+00:00", "c1", "ضاغط")
+        flip("2026-10-17T10:05:00+00:00", "c2", "داعم")
+        flip("2026-10-17T10:09:00+00:00", "c3", "ضاغط")
+        kinds = dp.evaluate("__bellLog.map(x => x.kind)")
+        check(kinds.count("change") == 1 and kinds.count("change-muted") == 2, f"تذبذب التقييم خلال المهلة: رنين واحد فقط والباقي مكتوم ({kinds})")
+        check(dp.locator("#mChange").is_visible() and "ضاغط" in dp.locator("#mChange").inner_text(), "التهدئة صوتية فقط: تغيّر التقييم ظاهر بصرياً فوراً")
+        n_before = dp.evaluate("__bellLog.filter(x => x.kind === 'alert').length")
+        nw2 = copy.deepcopy(fx); fresh_alert(nw2, aid="release|indep1", text="صدر CPI: الفعلي 0.5%"); nw2["published_at"] = datetime.now(timezone.utc).isoformat()
+        nw2["verdict"]["change"] = {"changed": True, "text": "x", "from": "a", "to": "b", "at": "2026-10-17T10:09:00+00:00"}
+        mode["data"] = nw2; dp.wait_for_timeout(3000); dp.click("#refreshBtn"); dp.wait_for_timeout(900)
+        check(dp.evaluate("__bellLog.filter(x => x.kind === 'alert').length") == n_before + 1 and dp.locator("#updCard").is_visible(), "خبر اقتصادي جديد مستقل: يرنّ ويبقى ظاهراً داخل مهلة التهدئة")
+        dp.evaluate("localStorage.setItem('mirsad-bell-cd','0'); LAST_CHG = 0; __bellLog.length = 0")
+        flip("2026-10-17T11:00:00+00:00", "c4", "داعم"); flip("2026-10-17T11:01:00+00:00", "c5", "ضاغط")
+        check(dp.evaluate("__bellLog.filter(x => x.kind === 'change').length") == 2, "بلا تهدئة (0): كل تغيّر يرنّ")
+        dp.evaluate("showTab('settings')")
+        check(dp.locator("#bellCd").is_visible() and dp.evaluate("document.getElementById('bellCd').value") == "0", "إعداد مهلة التهدئة ظاهر ومحفوظ")
+        mode["data"] = fx; dp.wait_for_timeout(3000); dp.click("#refreshBtn"); dp.wait_for_timeout(900); dp.evaluate("showTab('today')")
+        dp.click("#bellBtn"); dp.wait_for_timeout(100)      # كتم
         # وضع المراقبة
         dp.click("#watchBtn2"); dp.wait_for_timeout(300)
         fs = dp.evaluate("parseFloat(getComputedStyle(document.getElementById('wBias')).fontSize)")
         check(dp.locator("#watchView").is_visible() and fs >= 80 and "مختلط" in dp.locator("#wBias").inner_text() and dp.locator("#wFull").is_visible(), f"وضع المراقبة: خط كبير ({fs:.0f}px) وزر ملء الشاشة")
         check("الثقة" in dp.locator("#watchView").inner_text() and "الحدة" in dp.locator("#watchView").inner_text() and dp.locator("#wPul .pc").count() == 4, "وضع المراقبة: الثقة والحدة منفصلتان + نبض")
+        main_score = dp.evaluate("RISK_NOW && RISK_NOW.score")
+        check(dp.locator("#wRisk").is_visible() and f"{main_score}/10" in dp.locator("#wRiskN").inner_text() and dp.locator("#wRiskW").inner_text().strip() != "", f"وضع المراقبة: مقياس المخاطر ظاهر وبالرقم نفسه ({main_score}/10)")
+        check(dp.evaluate("parseFloat(getComputedStyle(document.getElementById('wRiskN')).fontSize)") >= 22 and dp.evaluate("document.getElementById('wRiskBar').getBoundingClientRect().width") > 20, "وضع المراقبة: المخاطر بخط كبير وشريط مرئي")
         dp.screenshot(path=os.path.join(shots, "watch_mode_1366.png"))
         dp.click("#wExit"); dp.wait_for_timeout(100)
         check(not dp.locator("#watchView").is_visible(), "الخروج من وضع المراقبة")

@@ -2,8 +2,8 @@
  "name": "مِرصاد — سياق السوق",
  "short_name": "مِرصاد",
  "description": "سياق السوق ومخاطره وأحداثه بنظرة واحدة",
- "start_url": "../index.html",
- "scope": "../",
+ "start_url": "./index.html",
+ "scope": "./",
  "display": "standalone",
  "dir": "rtl",
  "lang": "ar",
@@ -11,23 +11,23 @@
  "theme_color": "#12343A",
  "icons": [
   {
-   "src": "icon-192.png",
+   "src": "icons/icon-192.png",
    "sizes": "192x192",
    "type": "image/png",
    "purpose": "any"
   },
   {
-   "src": "icon-512.png",
+   "src": "icons/icon-512.png",
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "any"
   },
   {
-   "src": "icon-maskable-512.png",
+   "src": "icons/icon-maskable-512.png",
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "maskable"
   }
  ],
- "id": "../index.html"
+ "id": "./index.html"
 }

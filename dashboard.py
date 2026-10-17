@@ -522,7 +522,8 @@ def _releases_view(rel):
     return {"signal": rel.get("signal"), "weight": rel.get("weight"), "fed_discount": rel.get("fed_discount"), "note": rel.get("note", ""),
             "market": rel.get("market"), "pending": rel.get("pending") or [],
             "groups": [{"kind": g["kind"], "lead": g["lead"], "value": g["value"], "importance": g["importance"], "mode": g["mode"], "ids": g["ids"],
-                        "initial": g["initial"], "revision": g["revision"], "effect": g["effect"]} for g in rel.get("groups") or []]}
+                        "initial": g["initial"], "revision": g["revision"], "effect": g["effect"], "conflict": g.get("conflict", ""),
+                        "trend": g.get("trend", ""), "explain": g.get("explain") or {}} for g in rel.get("groups") or []]}
 
 
 REQUIRED_KEYS = ("live", "published_at", "risk", "verdict", "pulse8", "alerts", "next_event")
