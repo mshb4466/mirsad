@@ -289,59 +289,64 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-17T06:34:39.339429+00:00",
-        "ok_at": "2026-10-17T06:34:39.339429+00:00"
+        "last_try": "2026-10-17T11:40:57.041522+00:00",
+        "ok_at": "2026-10-17T11:40:57.041522+00:00"
       },
       "fred": {
-        "last_try": "2026-10-17T06:34:39.339429+00:00",
-        "ok_at": "2026-10-17T06:34:39.339429+00:00"
+        "last_try": "2026-10-17T11:40:57.041522+00:00",
+        "ok_at": "2026-10-17T11:40:57.041522+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-17T06:34:39.339429+00:00",
-        "ok_at": "2026-10-17T06:34:39.339429+00:00"
+        "last_try": "2026-10-17T11:40:57.041522+00:00",
+        "ok_at": "2026-10-17T11:40:57.041522+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-17T06:34:39.339429+00:00",
-        "ok_at": "2026-10-17T06:34:39.339429+00:00"
+        "last_try": "2026-10-17T11:40:57.041522+00:00",
+        "ok_at": "2026-10-17T11:40:57.041522+00:00"
       },
       "oil": {
-        "last_try": "2026-10-17T06:34:39.339429+00:00",
-        "ok_at": "2026-10-17T06:34:39.339429+00:00"
+        "last_try": "2026-10-17T11:40:57.041522+00:00",
+        "ok_at": "2026-10-17T11:40:57.041522+00:00"
       },
       "news": {
-        "last_try": "2026-10-17T06:34:39.339429+00:00",
-        "ok_at": "2026-10-17T06:34:39.339429+00:00"
+        "last_try": "2026-10-17T11:40:57.041522+00:00",
+        "ok_at": "2026-10-17T11:40:57.041522+00:00"
       },
       "cot": {
-        "last_try": "2026-10-17T06:34:39.339429+00:00",
-        "ok_at": "2026-10-17T06:34:39.339429+00:00"
+        "last_try": "2026-10-17T11:40:57.041522+00:00",
+        "ok_at": "2026-10-17T11:40:57.041522+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-17T06:34:39.339429+00:00",
-        "ok_at": "2026-10-17T06:34:39.339429+00:00"
+        "last_try": "2026-10-17T11:40:57.041522+00:00",
+        "ok_at": "2026-10-17T11:40:57.041522+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-17T06:34:39.339429+00:00"
+      "at": "2026-10-17T11:40:57.041522+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-17T06:34:39.339429+00:00",
+    "at": "2026-10-17T11:40:57.041522+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-17T10:30:00+00:00",
+            "title": "The Fed Will Have to Raise Interest Rates More, Even If It Pauses in October",
+            "src": "Barron's"
+          },
+          {
             "t": "2026-10-16T23:35:39+00:00",
             "title": "Fed holds interest rates steady as inflation hits 3-year high",
             "src": "ABC News - Breaking News, Latest News and Videos"
           },
           {
-            "t": "2026-10-16T20:27:00+00:00",
-            "title": "The Fed's 35-year open data bet is a model for the AI era",
-            "src": "Nextgov/FCW"
+            "t": "2026-10-16T22:46:43+00:00",
+            "title": "Fed chair Jerome Powell says he will stay on central bank's board after term expires next month",
+            "src": "ABC News - Breaking News, Latest News and Videos"
           },
           {
             "t": "2026-10-16T19:44:09+00:00",
@@ -351,11 +356,6 @@
           {
             "t": "2026-10-16T19:08:13+00:00",
             "title": "!+[𝐒𝐓ream]HERE'S*! Letcher County Central vs Powell County 𝐋𝐈𝐕𝐄 𝐒𝐭𝐫𝐞𝐚𝐦 Ｔｖ Ｃｈａｎｎｅｌ 16 October 2026",
-            "src": "Universidad de Córdoba (UCO)"
-          },
-          {
-            "t": "2026-10-16T18:57:09+00:00",
-            "title": "[NFHS Network]TV!] Powell vs Jefferson County Ｌｉｖｅ Ｔｖ Ｃｈａｎｎｅｌ 16 October 2026",
             "src": "Universidad de Córdoba (UCO)"
           }
         ]
@@ -394,19 +394,14 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-17T02:26:39+00:00",
-            "title": "The Week Ahead: UK CPI, Meta and Tesla earnings",
-            "src": "CMC Markets"
+            "t": "2026-10-17T09:29:00+00:00",
+            "title": "History Says Tesla Stock Swings Hard on Earnings. It Has Moved 8% or More After 10 of Its Last 15 Reports.",
+            "src": "The Motley Fool"
           },
           {
             "t": "2026-10-16T21:26:29+00:00",
             "title": "Here’s How Much Meta Stock Is Expected to Move After Earnings",
             "src": "Investopedia"
-          },
-          {
-            "t": "2026-10-16T21:15:59+00:00",
-            "title": "Meta: What You Need To Know Before Earnings (NASDAQ:META)",
-            "src": "Seeking Alpha"
           },
           {
             "t": "2026-10-16T21:03:57+00:00",
@@ -417,6 +412,11 @@
             "t": "2026-10-16T21:01:03+00:00",
             "title": "Wall Street Just Put $1,000 on Meta",
             "src": "TradingView"
+          },
+          {
+            "t": "2026-10-16T20:15:00+00:00",
+            "title": "Dime Commercial Bancshares to Release Earnings on October 20, 2026",
+            "src": "Yahoo Finance Australia"
           }
         ]
       },
@@ -454,24 +454,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-10-17T07:36:57+00:00",
+            "title": "Trump set to impose sweeping tariffs on 60 trade partners",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
             "t": "2026-10-17T03:16:34+00:00",
             "title": "Sugarbeet Growers Seek Higher Import Tariffs Amid $500-Per-Acre Losses",
             "src": "Iowa PBS"
           },
           {
-            "t": "2026-10-17T03:11:14+00:00",
-            "title": "Trump signs executive order waiving new Russia sanctions, tariffs",
-            "src": "Arab News"
+            "t": "2026-10-17T02:39:43+00:00",
+            "title": "Heinrich Meets with Farmers to Hear How ...",
+            "src": "Senator Martin Heinrich (.gov)"
           },
           {
             "t": "2026-10-17T02:38:00+00:00",
             "title": "Trump waives tariffs on largest buyers of Russian oil, days before Lindsey Graham-backed law was set to take effect",
             "src": "CBS News"
-          },
-          {
-            "t": "2026-10-17T02:17:00+00:00",
-            "title": "Trump waives many Russian sanctions, tariffs under new law backed by Lindsey Graham",
-            "src": "Fox Business"
           }
         ]
       },
@@ -479,24 +479,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-17T05:08:07+00:00",
-            "title": "Trump waives Russia sanctions as rift with Zelenskyy widens",
-            "src": "Al Jazeera"
+            "t": "2026-10-17T09:59:46+00:00",
+            "title": "Trump waives new Russia sanctions in the \"national interests\"",
+            "src": "Axios"
           },
           {
-            "t": "2026-10-17T04:57:49+00:00",
-            "title": "Trump signs order waiving Graham Act sanctions on Russia",
-            "src": "ABC News - Breaking News, Latest News and Videos"
+            "t": "2026-10-17T09:11:15+00:00",
+            "title": "Ukraine War, Day 1,696: Trump Refuses To Implement New Russia Sanctions",
+            "src": "EA WorldView"
           },
           {
-            "t": "2026-10-17T04:45:04+00:00",
-            "title": "Trump puts Russia sanctions package on hold, says pause is in national interest",
-            "src": "New York Post"
+            "t": "2026-10-17T08:59:23+00:00",
+            "title": "Russia hails Trump waiving sanctions as 'historic'",
+            "src": "France 24"
           },
           {
-            "t": "2026-10-17T04:40:00+00:00",
-            "title": "Trump waives new Russia sanctions as Ukraine ties slump",
-            "src": "The Japan Times"
+            "t": "2026-10-17T08:50:00+00:00",
+            "title": "Trump puts new Russia sanctions that he recently signed into law on hold, citing national interest",
+            "src": "Upper Michigan's Source"
           }
         ]
       }
@@ -504,7 +504,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-17T06:34:39.339429+00:00",
+    "at": "2026-10-17T11:40:57.041522+00:00",
     "events": [
       {
         "title": "Bank Holiday",
@@ -885,7 +885,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-15T14:45:45.733683+00:00",
-      "last_attempt": "2026-10-17T06:34:39.339429+00:00",
+      "last_attempt": "2026-10-17T11:40:57.041522+00:00",
       "attempts": 10,
       "title": "Core PPI m/m",
       "time": "2026-10-15T12:30:00+00:00",
@@ -921,7 +921,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-15T14:45:45.733683+00:00",
-      "last_attempt": "2026-10-17T06:34:39.339429+00:00",
+      "last_attempt": "2026-10-17T11:40:57.041522+00:00",
       "attempts": 10,
       "title": "PPI m/m",
       "time": "2026-10-15T12:30:00+00:00",
@@ -944,7 +944,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-15T13:16:47.396181+00:00",
-      "last_attempt": "2026-10-17T06:34:39.339429+00:00",
+      "last_attempt": "2026-10-17T11:40:57.041522+00:00",
       "attempts": 9,
       "title": "Retail Sales m/m",
       "time": "2026-10-15T12:30:00+00:00",
@@ -967,7 +967,7 @@
       "source": "FRED",
       "period": "2026-10-10",
       "received_at": "2026-10-15T13:16:47.396181+00:00",
-      "last_attempt": "2026-10-17T06:34:39.339429+00:00",
+      "last_attempt": "2026-10-17T11:40:57.041522+00:00",
       "attempts": 9,
       "title": "Unemployment Claims",
       "time": "2026-10-15T12:30:00+00:00",
@@ -1003,7 +1003,7 @@
       "source": "FRED",
       "period": "2026-09-01",
       "received_at": "2026-10-16T13:40:12.987952+00:00",
-      "last_attempt": "2026-10-17T06:34:39.339429+00:00",
+      "last_attempt": "2026-10-17T11:40:57.041522+00:00",
       "attempts": 1,
       "title": "Industrial Production m/m",
       "time": "2026-10-16T13:15:00+00:00",
@@ -5673,12 +5673,127 @@
       "bulletin_check": "لم تُقارَن بنشرة الإصدار",
       "match": "مطابقة فترة التقرير",
       "note": "المصدر: FRED (INDPRO، فترة 2026-09-01) — الإنتاج الصناعي شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|ppife|mm|2026-09|-|2026-10-15",
+      "title": "Core PPI m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-17T11:40:57.041522+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.7%",
+      "period": "2026-09-01",
+      "series": "PPIFES",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.6814299068433005,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.3%",
+      "previous": "0.2%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (PPIFES، فترة 2026-09-01) — PPI الأساسي شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|ppi|mm|2026-09|-|2026-10-15",
+      "title": "PPI m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-17T11:40:57.041522+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "1.3%",
+      "period": "2026-09-01",
+      "series": "PPIFIS",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 1.3433801423297975,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.6%",
+      "previous": "0.4%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (PPIFIS، فترة 2026-09-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|retail|mm|2026-09|-|2026-10-15",
+      "title": "Retail Sales m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-17T11:40:57.041522+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.8%",
+      "period": "2026-09-01",
+      "series": "RSAFS",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.7708413925190838,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.3%",
+      "previous": "1.2%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (RSAFS، فترة 2026-09-01) — مبيعات التجزئة شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|claims|claims_k|w2026-10-11|-|2026-10-15",
+      "title": "Unemployment Claims",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-17T11:40:57.041522+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "199K",
+      "period": "2026-10-10",
+      "series": "ICSA",
+      "method": "القيمة المنشورة مقسومة على 1000",
+      "raw": 199.0,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "199K",
+      "previous": "197K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-10) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|indpro|mm|2026-09|-|2026-10-16",
+      "title": "Industrial Production m/m",
+      "release_time": "2026-10-16T13:15:00+00:00",
+      "fetched_at": "2026-10-17T11:40:57.041522+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.7%",
+      "period": "2026-09-01",
+      "series": "INDPRO",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.662558198988239,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.4%",
+      "previous": "0.0%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (INDPRO، فترة 2026-09-01) — الإنتاج الصناعي شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-17T06:34:39.339429+00:00",
+  "last_publish_ok": "2026-10-17T11:40:57.041522+00:00",
   "last_run_ok": {
     "mode": "test",
-    "at": "2026-10-17T06:35:10.403631+00:00"
+    "at": "2026-10-17T11:41:30.308413+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5733,7 +5848,7 @@
     "fred": {
       "ok": true,
       "detail": "5 سلسلة",
-      "at": "2026-10-17T06:34:39.339429+00:00"
+      "at": "2026-10-17T11:40:57.041522+00:00"
     }
   },
   "bls_calls": {
@@ -5743,8 +5858,8 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "down",
-    "at": "2026-10-17T06:34:39.339429+00:00",
-    "ok_at": "2026-10-17T06:34:39.339429+00:00",
+    "at": "2026-10-17T11:40:57.041522+00:00",
+    "ok_at": "2026-10-17T11:40:57.041522+00:00",
     "change": null
   },
   "last_watch": {
