@@ -309,52 +309,57 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-19T11:53:15.145522+00:00",
-        "ok_at": "2026-10-19T11:53:15.145522+00:00"
+        "last_try": "2026-10-19T12:19:35.499253+00:00",
+        "ok_at": "2026-10-19T12:19:35.499253+00:00"
       },
       "fred": {
-        "last_try": "2026-10-19T11:53:15.145522+00:00",
-        "ok_at": "2026-10-19T11:53:15.145522+00:00"
+        "last_try": "2026-10-19T12:19:35.499253+00:00",
+        "ok_at": "2026-10-19T12:19:35.499253+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-19T11:53:15.145522+00:00",
-        "ok_at": "2026-10-19T11:53:15.145522+00:00"
+        "last_try": "2026-10-19T12:19:35.499253+00:00",
+        "ok_at": "2026-10-19T12:19:35.499253+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-19T11:53:15.145522+00:00",
-        "ok_at": "2026-10-19T11:53:15.145522+00:00"
+        "last_try": "2026-10-19T12:19:35.499253+00:00",
+        "ok_at": "2026-10-19T12:19:35.499253+00:00"
       },
       "oil": {
-        "last_try": "2026-10-19T11:53:15.145522+00:00",
-        "ok_at": "2026-10-19T11:53:15.145522+00:00"
+        "last_try": "2026-10-19T12:19:35.499253+00:00",
+        "ok_at": "2026-10-19T12:19:35.499253+00:00"
       },
       "news": {
-        "last_try": "2026-10-19T11:53:15.145522+00:00",
-        "ok_at": "2026-10-19T11:53:15.145522+00:00"
+        "last_try": "2026-10-19T12:19:35.499253+00:00",
+        "ok_at": "2026-10-19T12:19:35.499253+00:00"
       },
       "cot": {
-        "last_try": "2026-10-19T11:53:15.145522+00:00",
-        "ok_at": "2026-10-19T11:53:15.145522+00:00"
+        "last_try": "2026-10-19T12:19:35.499253+00:00",
+        "ok_at": "2026-10-19T12:19:35.499253+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-19T11:53:15.145522+00:00",
-        "ok_at": "2026-10-19T11:53:15.145522+00:00"
+        "last_try": "2026-10-19T12:19:35.499253+00:00",
+        "ok_at": "2026-10-19T12:19:35.499253+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-19T11:53:15.145522+00:00"
+      "at": "2026-10-19T12:19:35.499253+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-19T11:14:45.542646+00:00",
+    "at": "2026-10-19T12:19:35.499253+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-19T10:24:37+00:00",
+            "t": "2026-10-19T12:05:33+00:00",
+            "title": "The case for an Elastic Reserves system: Recommendations for the Federal Reserve’s balance sheet review",
+            "src": "Brookings"
+          },
+          {
+            "t": "2026-10-19T11:35:47+00:00",
             "title": "Fed sees AI boom adding to inflation headache, but others may pay for the medicine",
             "src": "Reuters"
           },
@@ -362,11 +367,6 @@
             "t": "2026-10-19T10:00:56+00:00",
             "title": "Market Minute: Financial conditions and the Fed’s work",
             "src": "The Real Economy Blog"
-          },
-          {
-            "t": "2026-10-19T04:23:04+00:00",
-            "title": "Gold edges higher on softer oil; Fed rate outlook in focus",
-            "src": "CNBC"
           },
           {
             "t": "2026-10-19T03:11:00+00:00",
@@ -384,28 +384,28 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-19T10:21:00+00:00",
+            "t": "2026-10-19T12:09:00+00:00",
             "title": "Exclusive | Putin Floats a Summit With Trump and Xi to Discuss Ukraine Deal",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-19T11:10:03+00:00",
+            "title": "Tech Rebound Lifts Wall Street Pre-Bell; Asia Mixed, Europe Off",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-19T10:58:00+00:00",
+            "title": "Musk Vows to Give Each U.S. Child a SpaceX Share",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-19T10:33:00+00:00",
+            "title": "Netflix Stock Might be a Sleeper Hit",
             "src": "WSJ"
           },
           {
             "t": "2026-10-19T09:09:12+00:00",
             "title": "US Stock Futures Rise Ahead of Technology Earnings as Oil Prices Decline: Dow Jones, S&P, Nasdaq, Wall Street",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-19T08:34:00+00:00",
-            "title": "Stock Futures Rise as Investors Make Cautious Return to Risk",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-19T07:42:00+00:00",
-            "title": "Oil Prices Fall as Traders Weigh Russia Sanctions Waiver, Middle East Risks",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-19T06:36:00+00:00",
-            "title": "Stock Market: Will S&P 500 Open Up or Down Today?",
             "src": "Yahoo Finance"
           }
         ]
@@ -414,29 +414,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-19T11:07:44+00:00",
-            "title": "SpaceX, Tesla earnings to test Musk's AI spending ambitions as merger talk grows",
-            "src": "Reuters"
+            "t": "2026-10-19T12:04:00+00:00",
+            "title": "Tesla-SpaceX Merger Mania Strikes Wall Street Ahead of Earnings",
+            "src": "Barron's"
           },
           {
-            "t": "2026-10-19T10:38:46+00:00",
-            "title": "Morning Bid: Wavering waiver?",
+            "t": "2026-10-19T12:01:00+00:00",
+            "title": "AI Stocks Face Earnings Gut Check As Spending Jitters Mount",
+            "src": "Investor's Business Daily"
+          },
+          {
+            "t": "2026-10-19T12:00:00+00:00",
+            "title": "Meta and Musk earnings and September pending home sales: What to Watch",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-19T10:17:06+00:00",
-            "title": "US Equity Investors to Monitor Meta Platform, Tesla's Earnings While Watching Treasury Yields Alongside Crude Oil This Week",
-            "src": "marketscreener.com"
-          },
-          {
-            "t": "2026-10-19T10:08:39+00:00",
-            "title": "Meta Stock Is Up 9% This Year. Is It Still a Buy Ahead of Earnings?",
-            "src": "Morningstar"
-          },
-          {
-            "t": "2026-10-19T10:00:00+00:00",
-            "title": "A big 'yikes' still hangs over the AI trade as Meta and Tesla report: What to watch this week",
+            "t": "2026-10-19T11:38:05+00:00",
+            "title": "S&P 500, Nasdaq futures rise as AI stocks rebound ahead of key earnings",
             "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-19T11:24:27+00:00",
+            "title": "SpaceX, Tesla Earnings Test Musk AI Spending [2026]",
+            "src": "https://tech-insider.org/"
           }
         ]
       },
@@ -446,6 +446,11 @@
           {
             "t": "2026-10-19T04:04:00+00:00",
             "title": "Global food inflation is expected to intensify as supply shocks pile up",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-19T02:40:00+00:00",
+            "title": "VIEW China's economic growth accelerates to 4.5% in third quarter",
             "src": "Reuters"
           },
           {
@@ -462,11 +467,6 @@
             "t": "2026-10-18T21:20:52+00:00",
             "title": "MLB payrolls 2026: AL finalist Cleveland Guardians have lowest in baseball",
             "src": "Yahoo Sports"
-          },
-          {
-            "t": "2026-10-17T14:03:43+00:00",
-            "title": "Bank of Canada sees sharply higher inflation outlook as oil surges, Macklem says",
-            "src": "Reuters"
           }
         ]
       },
@@ -474,24 +474,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-19T10:28:48+00:00",
+            "t": "2026-10-19T11:33:16+00:00",
             "title": "Opinion | The U.S. badly needs new tariff laws",
             "src": "The Washington Post"
           },
           {
-            "t": "2026-10-19T09:21:00+00:00",
-            "title": "French Government-Bond Yields Rise on Protests, Budget Concerns; Treasury Yields Fall",
-            "src": "WSJ"
+            "t": "2026-10-19T11:07:00+00:00",
+            "title": "Cleveland-Cliffs Expects 2027 Will Be a Very Good Year With Help From Tariffs. Stock Jumps 14%.",
+            "src": "Barron's"
           },
           {
-            "t": "2026-10-19T08:45:49+00:00",
-            "title": "Treasury yields move lower as investors assess U.S. inflation backdrop",
-            "src": "CNBC"
+            "t": "2026-10-19T10:14:27+00:00",
+            "title": "US Equity Investors to Monitor Meta Platform, Tesla's Earnings While Watching Treasury Yields Alongside Crude Oil This Week",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-19T06:27:00+00:00",
-            "title": "Traders Grow Wary of Copper Bull Market With No Sign of Tariffs",
-            "src": "Bloomberg.com"
+            "t": "2026-10-19T09:31:11+00:00",
+            "title": "Treasury Yields Hand Nasdaq Tech Stocks a Double Hit on Value and Debt",
+            "src": "StoneX"
           }
         ]
       },
@@ -499,24 +499,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-19T10:06:49+00:00",
-            "title": "Trump Eases Russia Sanctions, Midterm Campaign Money, Violent Protests In France",
+            "t": "2026-10-19T11:53:00+00:00",
+            "title": "President Trump waives new sanctions on Russia",
+            "src": "KOCO"
+          },
+          {
+            "t": "2026-10-19T11:36:11+00:00",
+            "title": "Trump's Russia sanctions waiver eases India's energy woes, lifts trade deal chances",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-19T10:37:56+00:00",
+            "title": "Rep. Don Beyer, D-Va., on Trump waiving sanctions on Russia",
             "src": "NPR"
           },
           {
-            "t": "2026-10-19T08:04:51+00:00",
-            "title": "Iran, oil, and the world economy: are we seeing history repeat itself?",
-            "src": "World Finance"
-          },
-          {
-            "t": "2026-10-19T07:18:01+00:00",
-            "title": "Trump weighs strike on Iran's oil lifeline",
-            "src": "www.israelhayom.com"
-          },
-          {
-            "t": "2026-10-19T05:50:00+00:00",
-            "title": "Trump Faces Widening GOP Anger Over Russia Sanctions Waiver (1)",
-            "src": "Bloomberg Government News"
+            "t": "2026-10-19T10:06:49+00:00",
+            "title": "Trump Eases Russia Sanctions, Midterm Campaign Money, Violent Protests In France",
+            "src": "NPR"
           }
         ]
       }
@@ -524,7 +524,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-19T11:53:15.145522+00:00",
+    "at": "2026-10-19T12:19:35.499253+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -5688,10 +5688,10 @@
       "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-19T11:53:15.145522+00:00",
+  "last_publish_ok": "2026-10-19T12:19:35.499253+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-10-19T11:53:45.614267+00:00"
+    "mode": "preopen",
+    "at": "2026-10-19T12:20:26.685606+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5755,9 +5755,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-10-19T11:53:15.145522+00:00",
-    "ok_at": "2026-10-19T11:53:15.145522+00:00",
+    "lean": "up",
+    "at": "2026-10-19T12:19:35.499253+00:00",
+    "ok_at": "2026-10-19T12:19:35.499253+00:00",
     "change": null
   },
   "last_watch": {
