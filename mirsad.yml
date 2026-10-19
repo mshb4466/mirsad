@@ -66,7 +66,7 @@ jobs:
           git config user.email "mirsad-bot@users.noreply.github.com"
           for f in state.json history.csv backtest.json; do [ -f "$f" ] && git add "$f"; done
           [ -d backups ] && git add backups     # نسخة ترحيل الحالة تبقى في المستودع (دائمة، تُستعاد بعد انتهاء التشغيل)
-          git diff --cached --quiet || (git commit -m "تحديث حالة مِرصاد" && git push)
+          git diff --cached --quiet || (git commit -m "تحديث حالة مِرصاد" && for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done)
 
       - name: تجهيز الواجهة
         id: site
@@ -76,6 +76,7 @@ jobs:
           if [ -f index.html ]; then cp -f index.html docs/index.html; fi
           if [ -d icons ]; then mkdir -p docs/icons && cp -f icons/* docs/icons/; fi
           if [ -f manifest.webmanifest ]; then cp -f manifest.webmanifest docs/manifest.webmanifest; fi
+          if [ -f gamma/latest.json ]; then cp -f gamma/latest.json docs/gamma.json; fi
           if [ -f docs/data.json ] && [ -f docs/index.html ]; then echo "ready=true" >> "$GITHUB_OUTPUT"; fi
 
       - uses: actions/configure-pages@v5

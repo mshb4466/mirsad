@@ -79,6 +79,7 @@ def rich(fx):
         "signature": {"bias": "neutral", "bias_label": "مختلط", "lean": "up", "at": now.isoformat(), "ok_at": now.isoformat(), "change": None},
         "method": "قواعد شفافة غير معايَرة؛ ليست توصية.", "workflow": "ماكرو ← سياق أسبوعي ← إيقاع يومي ← تدفق الأوامر"}
     v["safety"] = {"state": "ok", "label": "يعمل بصورة طبيعية", "issues": []}
+    v["health"] = dict(v.get("health") or {}, state="ok", label="يعمل بشكل سليم")
     v["alerts"] = [
         {"id": "US|cpi|2026-09|2026-10-14", "t": iso(12), "kind": "release", "icon": "📥", "important": True, "rev": 0, "title": "التضخم (CPI)",
          "what": "صدر CPI m/m: الفعلي 0.5% مقابل المتوقع 0.3%", "surprise": "أعلى من المتوقع بـ 0.2 نقطة مئوية",
@@ -134,7 +135,7 @@ def main(shots):
     srv = ThreadingHTTPServer(("127.0.0.1", 0), partial(Quiet, directory=root))
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     url = f"http://127.0.0.1:{srv.server_address[1]}/index.html"
-    mode = {"m": "good", "data": fx}
+    mode = {"m": "good", "data": fx, "gamma": None}
     fails, log = [], []
 
     def check(cond, msg):
@@ -157,6 +158,12 @@ def main(shots):
         elif m == "abort":
             route.abort()
 
+    def ghandler(route):
+        if mode["gamma"] is None:
+            route.fulfill(status=404, body="nf")
+        else:
+            route.fulfill(status=200, content_type="application/json", body=json.dumps(mode["gamma"], ensure_ascii=False))
+
     WEEKDAY = "Date.prototype.getUTCDay = function(){ return 3; };"        # الاختبار لا يتوقف على يوم تشغيله
     with sync_playwright() as p:
         b = p.chromium.launch(args=["--autoplay-policy=no-user-gesture-required"])
@@ -167,6 +174,7 @@ def main(shots):
             q = c.new_page(); q.add_init_script(WEEKDAY)
             q.on("pageerror", lambda e: errs.append(str(e)))
             q.route("**/data.json*", handler)
+            q.route("**/gamma.json*", ghandler)
             return c, q
 
         # ===== 1) بدء بلا بيانات: لا عرض تجريبي تلقائي والرسالة تطابق السلوك =====
@@ -176,18 +184,18 @@ def main(shots):
         t = pg.locator("#banner").inner_text()
         check("لا تُعرض بيانات تجريبية" in t and "المعروض مثال توضيحي" not in t and "بيانات حقيقية —" not in t, "بدء بلا بيانات: الرسالة تطابق السلوك (لا مثال تلقائي)")
         check(pg.evaluate("document.getElementById('output').hidden") is True, "بدء بلا بيانات: المحتوى مخفي (render0_)")
-        pg2 = c.new_page(); pg2.route("**/data.json*", handler); pg2.add_init_script(WEEKDAY)
+        pg2 = c.new_page(); pg2.route("**/data.json*", handler); pg2.route("**/gamma.json*", ghandler); pg2.add_init_script(WEEKDAY)
         pg2.goto(url + "?demo=1"); pg2.wait_for_timeout(1200)
         check("demo=1" in pg2.locator("#banner").inner_text() and pg2.evaluate("document.getElementById('output').hidden") is False, "?demo=1 وحده يعرض المثال ويقول ذلك")
         pg2.close()
 
         # ===== 2) نجاح + ترتيب الموبايل =====
         mode["m"] = "good"
-        pg.click("#refreshBtn"); pg.wait_for_timeout(1500)
+        pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(1500)
         t = pg.locator("#banner").inner_text()
         check("بيانات حقيقية —" in t and "⚠" not in t, "التعافي بعد البدء الفاشل: يزول التحذير")
         order = pg.evaluate("[...document.querySelectorAll('#tab-today > *')].filter(e=>!e.hidden && e.offsetParent).map(e=>e.id)")
-        check(order == ["updCard", "mainCard", "nextCard", "pulseSec", "toDetails"], f"ترتيب الموبايل: تحديث، تقرير، خبر قادم، نبض، تفاصيل — {order}")
+        check(order == ["updCard", "mainCard", "nextCard", "riskCard", "pulseSec", "recentCard", "evCard"], f"ترتيب الموبايل: تحديث، تقرير، خبر قادم، مخاطر، نبض، أحداث مستمرة، أحداث قادمة — {order}")
         gone = pg.evaluate("['top3Card','moveCard','pulseCard','alertCard','pulse8Card','secCard'].filter(i=>document.querySelector('#tab-today #'+i))")
         check(not gone, f"لا أقسام مكررة في اليوم (ماذا تغيّر/الحركات/النبض القديم) {gone}")
         check(pg.locator("#pcards .pc").count() == 8, "نبض الأسواق: بطاقة واحدة لكل مؤشر (8)")
@@ -218,12 +226,12 @@ def main(shots):
         pg.evaluate("showTab('today')")
         pg.reload(); pg.wait_for_timeout(1200)
         check(not pg.locator("#updCard").is_visible(), "بعد إعادة الفتح لا يُقدَّم الحدث القديم كأنه جديد")
-        pg.click("#refreshBtn"); pg.wait_for_timeout(900)
+        pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(900)
         check(not pg.locator("#updCard").is_visible(), "التحديث الدوري لا يعيد الحدث المقروء")
         # تحديث لاحق على حدث مقروء (rev أعلى) يعود غير مقروء
         d2 = copy.deepcopy(fx); d2["published_at"] = fx["published_at"]; d2["updated"] = "15:30"
         d2["alerts"][0]["rev"] = 1; d2["alerts"][0]["updates"] = [{"t": d2["alerts"][0]["t"], "text": "مراجعة: الفعلي من 0.5% إلى 0.4%", "kind": "revision"}]; d2["alerts"][0]["updated_at"] = d2["alerts"][0]["t"]
-        mode["data"] = d2; pg.click("#refreshBtn"); pg.wait_for_timeout(1000)
+        mode["data"] = d2; pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(1000)
         check(pg.locator("#updCard").is_visible() and "تحديث لاحق" in pg.locator("#updMeta").inner_text(), "مراجعة لاحقة تعيد الحدث غير مقروء مع وسم «تحديث لاحق»")
         pg.click("#updOpen"); pg.wait_for_timeout(300)
         dtxt = pg.locator("#evBody").inner_text()
@@ -272,30 +280,30 @@ def main(shots):
         good_time = pg.evaluate("loadedAt"); adv0 = pg.locator("#mAdvice").inner_text()
         for m, kind in (("500", "الخادم رفض"), ("abort", "لا اتصال"), ("badjson", "تالف"), ("error", "المصدر أبلغ")):
             mode["m"] = m
-            pg.click("#refreshBtn"); pg.wait_for_timeout(1300)
+            pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(1300)
             t = pg.locator("#banner").inner_text()
             check("تعذّر التحديث — تُعرض آخر لقطة صالحة" in t and kind in t and "بيانات حقيقية —" not in t, f"فشل {m}: تحذير + السبب + اللقطة السابقة")
             check(pg.evaluate("loadedAt") == good_time and pg.locator("#mAdvice").inner_text() == adv0, f"فشل {m}: وقت الجلب الناجح واللقطة لم يتغيرا")
             pg.wait_for_timeout(3100)
         mode["m"] = "good"
         bad = copy.deepcopy(fx); bad["pulse8"][0] = None; bad["updated"] = "99:99"; mode["data"] = bad            # استجابة صالحة JSON لكنها تكسر العرض
-        pg.click("#refreshBtn"); pg.wait_for_timeout(1300)
+        pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(1300)
         t = pg.locator("#banner").inner_text()
         check("تعذّر عرض البيانات" in t and "آخر لقطة صالحة" in t, "استجابة معيبة العرض: رسالة «تعذّر عرض البيانات» مع الإبقاء على آخر لقطة")
         check(pg.evaluate("loadedAt") == good_time and "99:99" not in pg.locator("#banner").inner_text() and pg.locator("#pcards .pc").count() == 8 and pg.locator("#mAdvice").inner_text() == adv0, "الاستجابة المعيبة لا تُعدّ نجاحاً ولا تستبدل اللقطة الصالحة")
         nov = copy.deepcopy(fx); del nov["verdict"]; mode["data"] = nov
-        pg.wait_for_timeout(3100); pg.click("#refreshBtn"); pg.wait_for_timeout(1000)
+        pg.wait_for_timeout(3100); pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(1000)
         check("بنية اللقطة ناقصة" in pg.locator("#banner").inner_text(), "لقطة بلا verdict تُرفض")
-        mode["data"] = fx; pg.wait_for_timeout(3100); pg.click("#refreshBtn"); pg.wait_for_timeout(1000)
+        mode["data"] = fx; pg.wait_for_timeout(3100); pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(1000)
         check("⚠" not in pg.locator("#banner").inner_text() and pg.evaluate("loadedAt") > good_time, "التعافي: يزول التحذير ويتقدم وقت الجلب")
 
         # ===== 8) التقادم =====
         old = copy.deepcopy(fx); from datetime import datetime, timedelta, timezone
         old["published_at"] = (datetime.now(timezone.utc) - timedelta(minutes=140)).isoformat(); mode["data"] = old
-        pg.click("#refreshBtn"); pg.wait_for_timeout(1000)
+        pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(1000)
         check("قد تكون البيانات قديمة" in pg.locator("#banner").inner_text() and "التقييم غير صالح الآن: البيانات قديمة" in pg.locator("#mChange").inner_text(), "التقادم: تحذير + التقييم يُعلَن غير صالح بسببه")
         check(pg.locator("#mainCard").get_attribute("data-key") == "na", "التقادم: بطاقة التقرير رمادية")
-        mode["data"] = fx; pg.wait_for_timeout(3100); pg.click("#refreshBtn"); pg.wait_for_timeout(1000)
+        mode["data"] = fx; pg.wait_for_timeout(3100); pg.evaluate("document.getElementById('refreshBtn').click()"); pg.wait_for_timeout(1000)
         check(pg.locator("#mainCard").get_attribute("data-key") == "mixed" and not pg.locator("#mChange").is_visible(), "التعافي من التقادم")
 
         # ===== 9) سطح المكتب: جدول، تلوين، جرس، مراقبة =====
@@ -317,27 +325,27 @@ def main(shots):
         dp.check("#tintOpt"); dp.wait_for_timeout(100)
         check(dp.evaluate("document.body.classList.contains('tint-mixed')") and dp.evaluate("getComputedStyle(document.body).backgroundColor") != bg0, "تلوين الخلفية: مختلط = كهرماني")
         pr = copy.deepcopy(fx); pr["verdict"]["bias"] = {"key": "pressure", "label": "ضاغط", "arrow": "▼", "available": True}; mode["data"] = pr
-        dp.click("#refreshBtn"); dp.wait_for_timeout(1000)
+        dp.evaluate("document.getElementById('refreshBtn').click()"); dp.wait_for_timeout(1000)
         check(dp.evaluate("document.body.classList.contains('tint-pressure')"), "ضاغط = أحمر داكن هادئ")
         sp = copy.deepcopy(fx); sp["verdict"]["bias"] = {"key": "support", "label": "داعم", "arrow": "▲", "available": True}; mode["data"] = sp
-        dp.wait_for_timeout(3000); dp.click("#refreshBtn"); dp.wait_for_timeout(1000)
+        dp.wait_for_timeout(3000); dp.evaluate("document.getElementById('refreshBtn').click()"); dp.wait_for_timeout(1000)
         check(dp.evaluate("document.body.classList.contains('tint-support')"), "داعم = أخضر هادئ")
         inv = copy.deepcopy(fx); inv["verdict"]["available"] = False; inv["verdict"]["reason"] = "التغطية 40% < 50%"; inv["verdict"]["bias"]["available"] = False; mode["data"] = inv
-        dp.wait_for_timeout(3000); dp.click("#refreshBtn"); dp.wait_for_timeout(1000)
+        dp.wait_for_timeout(3000); dp.evaluate("document.getElementById('refreshBtn').click()"); dp.wait_for_timeout(1000)
         dp.evaluate("showTab('today')")
         check(dp.evaluate("document.body.classList.contains('tint-invalid')") and "التغطية 40%" in dp.locator("#mChange").inner_text(), "غير صالح بسبب البيانات = رمادي مع السبب")
         dp.screenshot(path=os.path.join(shots, "desktop_invalid_gray.png"))
-        contrast = dp.evaluate("""() => { const lum = c => { const m = c.match(/[\\d.]+/g).map(Number); const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(m[0]) + .7152 * f(m[1]) + .0722 * f(m[2]); };
+        contrast = dp.evaluate("""() => { const lum = c => { const m = c.match(/[\\d.]+/g).map(Number).slice(0, 3).map(x => c.startsWith('color(') ? x * 255 : x); const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(m[0]) + .7152 * f(m[1]) + .0722 * f(m[2]); };
           const bgOf = e => { while (e) { const c = getComputedStyle(e).backgroundColor; if (c && !/rgba\\(0, 0, 0, 0\\)|transparent/.test(c)) return c; e = e.parentElement; } return 'rgb(255,255,255)'; };
           return ['#mAdvice', '#mReason', '#mStamp', '.pcb .n', '.pcb .e'].map(s => { const e = document.querySelector(s); if (!e) return 99; const a = lum(getComputedStyle(e).color), b = lum(bgOf(e)); return (Math.max(a, b) + .05) / (Math.min(a, b) + .05); }); }""")
         check(min(contrast) >= 4.5, f"وضوح النص فوق الخلفية الملونة: أقل تباين {min(contrast):.1f}")
-        mode["data"] = fx; dp.wait_for_timeout(3000); dp.click("#refreshBtn"); dp.wait_for_timeout(1000)
+        mode["data"] = fx; dp.wait_for_timeout(3000); dp.evaluate("document.getElementById('refreshBtn').click()"); dp.wait_for_timeout(1000)
         def ack():
             dp.evaluate("typeof ackAlarm_ === 'function' && ackAlarm_()")
         def aclick(sel):
             ack(); dp.click(sel)
         def refresh():
-            aclick("#refreshBtn")
+            ack(); dp.evaluate("document.getElementById('refreshBtn').click()")
         # الجرس
         n0 = dp.evaluate("__bellLog.length")
         dp.evaluate("showTab('settings')"); aclick("#bellToggle"); dp.wait_for_timeout(100)
@@ -404,8 +412,8 @@ def main(shots):
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900); dp.evaluate("showTab('today')")
         aclick("#bellBtn"); dp.wait_for_timeout(100)      # كتم
         # فحص تطابق إصدار الواجهة والبيانات (يكشف رفعاً ناقصاً)
-        okv = copy.deepcopy(fx); okv["version"] = "0.19.1"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
-        check(not dp.locator("#verWarn").is_visible() and "v0.19.1" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
+        okv = copy.deepcopy(fx); okv["version"] = "0.20.0"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
+        check(not dp.locator("#verWarn").is_visible() and "v0.20.0" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
         badv = copy.deepcopy(fx); badv["version"] = "0.18.1"; mode["data"] = badv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
         check(dp.locator("#verWarn").is_visible() and "Run workflow" in dp.locator("#verWarn").inner_text(), "الإصدار: عدم التطابق يُظهر تحذيراً بخطوة الإصلاح")
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
@@ -415,7 +423,8 @@ def main(shots):
         check(dp.locator("#watchView").is_visible() and fs >= 60 and dp.locator("#wBias").inner_text().strip() != "" and dp.locator("#wFull").is_visible(), f"وضع المراقبة: كلمة الميل بخط كبير ({fs:.0f}px) وزر ملء الشاشة")
         check(dp.locator("#wSym").is_visible() and dp.locator("#wRisk").is_visible() and dp.locator("#wNextBox").is_visible() and dp.locator("#wPul").is_visible(), "وضع المراقبة: الرمز والمخاطر والحدث القادم والنبض ظاهرة")
         main_score = dp.evaluate("RISK_NOW && RISK_NOW.score")
-        check(str(main_score) in dp.locator("#wRiskN").inner_text(), f"وضع المراقبة: رقم المخاطر نفسه في الشاشة الرئيسية ({main_score})")
+        check(f"{main_score} من 10" in dp.locator("#wRisk").get_attribute("aria-label") and dp.evaluate("document.getElementById('wRiskN').getBoundingClientRect().width") <= 1.5, f"وضع المراقبة: المخاطر بالعقرب فقط (بلا رقم مرئي) والرقم نفسه ({main_score}) لقارئ الشاشة")
+        check(dp.locator("#wFed").is_visible() and dp.locator("#wFedW").inner_text().strip() != "", "وضع المراقبة: مقياس الفدرالي ظاهر بكلمة ميله")
         nchars = dp.evaluate("document.getElementById('watchView').innerText.replace(/\\s+/g,' ').length")
         check(nchars < 330, f"وضع المراقبة: كلام قليل جداً ({nchars} حرفاً)")
         for (vw, vh) in ((1366, 768), (1920, 1080), (1280, 720), (1024, 768), (820, 1180), (390, 844), (844, 390)):
@@ -430,16 +439,111 @@ def main(shots):
         check(not dp.locator("#watchView").is_visible(), "الخروج من وضع المراقبة")
         cd.close()
 
+
+        # ===== 9ب) v0.20: بنية التبويبات، اليوم، الصحة، التعريفات، جاما =====
+        def gfix(age_min=10, es=True, status="fresh", gap=1, flip=7425.0):
+            now = datetime.now(timezone.utc); snap = now - timedelta(minutes=age_min)
+            ks = [{"k": 7500 + 5 * i, "call": (i % 7 + 1) * 4e8, "put": -((i * 3) % 9 + 1) * 3e8, "net": ((i % 7 + 1) * 4e8 - ((i * 3) % 9 + 1) * 3e8)} for i in range(0, 60)]
+            return {"ok": True, "asset": "SPX", "snapshot_utc": snap.isoformat(), "snapshot_et": (snap - timedelta(hours=4)).strftime("%Y-%m-%d %H:%M"), "fetched_utc": (snap + timedelta(minutes=2)).isoformat(),
+                    "source": "CBOE (متأخر ~15 د)", "spot": 7677.28, "regime": "negative", "net_gex": -3.86e9, "gamma_flip": flip, "call_wall": 7680.0, "put_wall": 7650.0, "strikes": ks,
+                    "es": {"basis": 45.0, "es_ref": 7722.25, "spx_ref": 7677.25, "ref_gap_min": gap} if es else None, "status": status, "reason": None, "spy": {"ok": False}}
+        mode["m"] = "good"; mode["data"] = fx; mode["gamma"] = None
+        c4, q4 = newpage(390, 900)
+        q4.goto(url); q4.wait_for_timeout(1300)
+        tabs_txt = q4.evaluate("[...document.querySelectorAll('.tabs button')].map(b=>b.getAttribute('aria-label'))")
+        check(tabs_txt == ["اليوم", "جاما", "المنظومة", "التفاصيل", "الإعدادات"] and q4.evaluate("!document.getElementById('tab-week')"), f"الشريط: جاما مكان أخبار ES ولا تبويب أسبوع {tabs_txt}")
+        check(q4.evaluate("(()=>{const f=document.querySelector('#tab-details .folds'); const l=f.lastElementChild; return l.id==='weekFold' && !!l.querySelector('#weekNews') && !!l.querySelector('#weekList')})()"), "أخبار ES صارت قسماً قابلاً للطي في نهاية التفاصيل")
+        check(q4.evaluate("!document.getElementById('toDetails') && !!document.querySelector('#tab-today #evCard') && !!document.querySelector('#tab-today #recentCard') && !!document.querySelector('#tab-today #riskCard')"), "اليوم: لا زر التفاصيل، والأحداث القادمة والمستمرة والمخاطر فيه")
+        check(not q4.evaluate("!!document.getElementById('drvCard')") and not q4.evaluate("!!document.querySelector('#tab-details #evCard')"), "التفاصيل: حُذف «اتجاه العوامل» ونُقلت «الأحداث القادمة»")
+        sl = q4.evaluate("[...document.querySelectorAll('#secList .sec')].map(b=>b.textContent)")
+        check(not any(k in " ".join(sl) for k in ("النظام الاقتصادي السائد", "الفيدرالي والفائدة", "التضخم والنمو والعمل", "العوائد والسيولة")), f"«اذهب إلى قسم محدد»: حُذفت مداخل المنظومة والعوامل {sl}")
+        rs = q4.evaluate("document.getElementById('tRiskG').getAttribute('aria-label')")
+        check(f"{q4.evaluate('RISK_NOW.score')} من 10" in rs and "من 10" not in q4.locator("#riskCard").inner_text(), f"مقياس المخاطر في اليوم: عقرب بلا رقم مرئي ({rs})")
+        check(q4.locator("#riskCard").is_visible() and q4.locator("#tRiskG .zn path").count() == 6, "مقياس المخاطر ظاهر بستة أقسام")
+        check(q4.locator("#recentList .rcrow").count() == 3 and "بقي نحو 100%" in q4.locator("#recentList .rcrow").first.inner_text() and "النفط -0.9% آخر ساعة" in q4.locator("#recentList").inner_text(), "آخر الأحداث المهمة: ثلاثة مع نسبة بقاء الأثر وحركة العوامل")
+        check("السياق الأسبوعي" not in q4.locator("#mAdvice").inner_text() and q4.locator("#mAdvice").inner_text().startswith("النصيحة الآن:"), "النصيحة بلا جملة السياق الأسبوعي")
+        h1, h2 = q4.evaluate("[document.getElementById('mConf').getBoundingClientRect().height, document.getElementById('mInt').getBoundingClientRect().height]")
+        check(abs(h1 - h2) < 1, f"الثقة والحدة بارتفاع متساوٍ ({h1:.0f}/{h2:.0f})")
+        q4.click("#defBtn"); q4.wait_for_timeout(100)
+        dt = q4.locator("#defDlg").inner_text()
+        check(q4.evaluate("document.getElementById('defDlg').open") and all(k in dt for k in ("الميل", "الانحياز الماكروي", "الثقة", "الحدة", "المخاطر", "النظام", "تأكيد الأسواق")), "التعريفات: نافذة تشرح كل المصطلحات")
+        q4.click("#defClose"); q4.wait_for_timeout(50)
+        bgs = q4.evaluate("(()=>{const g=n=>getComputedStyle(document.querySelector(n)).backgroundColor; return [g('#pcards .pc.i2'), g('#pcards .pc.na'), g('#pcards .pc.i1')]})()")
+        check(bgs[0] != bgs[1] and bgs[0] != bgs[2], f"نبض الأسواق: خلفية خفيفة تتدرج بالحدة {bgs}")
+        check(q4.locator("#banner").is_visible() is False and q4.locator("#refreshBtn").is_visible() is False and q4.locator(".statusrow").is_visible() is False, "الموبايل: لا شريط تحديث ولا أيقونة تحديث في المقدمة")
+        check(q4.locator("#healthBtn").is_visible() and q4.get_attribute("#healthBtn", "data-s") == "ok" and q4.locator("#healthBtn").inner_text() == "✓", "أيقونة الصحة خضراء ✓ " + str(q4.evaluate("healthWhy_()")))
+        q4.click("#healthBtn"); q4.wait_for_timeout(150)
+        hd = q4.locator("#healthDlg").inner_text()
+        check(q4.evaluate("document.getElementById('healthDlg').open") and all(k in hd for k in ("حالة البيانات", "آخر تحديث للبيانات", "المصادر", "تحديث")) and q4.locator("#refreshBtn").is_visible(), "نافذة الصحة: الحالة وآخر تحديث والمصادر وزر التحديث")
+        q4.screenshot(path=os.path.join(shots, "health_popup_390.png"))
+        q4.click("#hdClose"); q4.wait_for_timeout(50)
+        mode["m"] = "500"; q4.evaluate("document.getElementById('refreshBtn').click()"); q4.wait_for_timeout(1200)
+        check(q4.get_attribute("#healthBtn", "data-s") == "warn" and q4.locator("#healthBtn").inner_text() == "!", "عند الفشل: أيقونة الصحة تتحول إلى تحذير !")
+        q4.click("#healthBtn"); q4.wait_for_timeout(150)
+        check("سبب التحذير" in q4.locator("#hdWhy").inner_text() and q4.locator("#hdWhy").is_visible(), "نافذة الصحة تذكر سبب التحذير")
+        q4.click("#hdClose"); mode["m"] = "good"
+        q4.evaluate("openEvent_('move|202610140900|es-oil')"); q4.wait_for_timeout(150)
+        et = q4.locator("#evBody").inner_text()
+        check("النفط تحرك -0.9% آخر ساعة و-1.3% آخر 3 ساعات" in et and q4.locator("#evBody table").count() == 0, "نافذة الحدث: سطر موجز بدل جدول العوامل")
+        q4.click("#evClose")
+        # أيقونات حالة السوق 2D
+        ic = q4.evaluate("""() => { const o = {}; [['support',1],['support',2],['support',3],['pressure',1],['pressure',2],['pressure',3],['mixed',1],['mixed',2],['mixed',3]].forEach(([k,n]) => o[k+n] = fightSvg_(k,'up',n)); return o; }""")
+        check(all("radialGradient" not in v and 'class="ex"' not in v and "filter" not in v for v in ic.values()), "الأيقونات مسطحة 2D: بلا تدرجات ولا تجسيم")
+        check("#8fdcb0" in ic["support1"] and "#2fbf71" in ic["support2"] and "#0f8a4b" in ic["support3"] and "#f0a3a6" in ic["pressure1"] and "#b3202a" in ic["pressure3"], "الحدة بدرجة اللون للدعم والضغط")
+        check("stroke-dasharray" in ic["support3"] and "stroke-dasharray" in ic["pressure3"] and "stroke-dasharray" not in ic["support2"] and "stroke-dasharray" not in ic["pressure1"], "الدائرة المنقطة للقوي فقط")
+        check(ic["mixed1"].count("<circle") == 2 and "spin" not in ic["mixed1"] and "spin" in ic["mixed2"] and "spin" in ic["mixed3"] and "stroke-dasharray" in ic["mixed3"], "المختلط: ضعيف حلقتان بفاصل أبيض، متوسط وحاد حلقة مقسومة تدور، والحاد منقط")
+        q4.evaluate("""(ic) => { const d = document.createElement('div'); d.id = 'icdemo'; d.style.cssText = 'position:fixed;inset:0;z-index:999;background:#0e1420;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px;align-content:center'; Object.keys(ic).forEach(k => { const c = document.createElement('div'); c.style.cssText = 'text-align:center;color:#fff;font:14px sans-serif'; c.innerHTML = '<div style="width:96px;height:96px;margin:auto">' + ic[k] + '</div>' + k; d.appendChild(c); }); document.body.appendChild(d); }""", ic)
+        q4.wait_for_timeout(100); q4.screenshot(path=os.path.join(shots, "watch_icons_2d.png")); q4.evaluate("document.getElementById('icdemo').remove()")
+        # جاما: لا بيانات
+        q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(1200)
+        gt = q4.locator("#tab-gamma").inner_text()
+        check(q4.get_attribute("#gFresh", "data-s") == "none" and "لا توجد بيانات جاما اليوم" in gt and not q4.locator("#gLevels").is_visible() and not q4.locator("#gChart").is_visible(), "جاما بلا ملف: «لا توجد بيانات» ولا أرقام")
+        check("SPY Gamma Data Unavailable" in gt and "SPY · غير متاح" in gt, "SPY: «SPY Gamma Data Unavailable»")
+        q4.screenshot(path=os.path.join(shots, "gamma_none_390.png"), full_page=True)
+        def gload(g):
+            mode["gamma"] = g; q4.evaluate("loadGamma_()"); q4.wait_for_timeout(500)
+        gload(gfix(10))
+        gt = q4.locator("#tab-gamma").inner_text()
+        check(q4.get_attribute("#gFresh", "data-s") == "fresh" and "بيانات طازجة" in gt and "وقت اللقطة (نيويورك)" in gt and "بتوقيت بغداد" in gt and "عمر البيانات" in gt, "جاما طازجة: تاريخ التحديث ووقتا نيويورك وبغداد والعمر")
+        check(all(k in q4.locator("#gLevels").inner_text() for k in ("Gamma Flip", "Call Wall", "Put Wall", "غاما سلبية", "7425", "7680", "7650")), "المستويات: Flip وCall Wall وPut Wall والنظام")
+        rows = q4.locator("#gChart .gr").count(); curs = q4.locator("#gChart .gr.cur").count()
+        check(0 < rows <= 60 and curs == 1 and "ES≈" in q4.locator("#gChart").inner_text() and "تقريبي" in q4.locator("#gLevels").inner_text(), f"المخطط: Strike حول السعر مع صف مظلل وES تقريبي ({rows} صفاً)")
+        spans = q4.evaluate("[...document.querySelectorAll('#gChart .gr')].map(r=>+r.querySelector('.k').childNodes[0].textContent)")
+        check(max(abs(k - 7677.28) for k in spans) <= 125, "المخطط ضمن ±120 نقطة من السعر")
+        check("ES≈7722.00" in q4.locator("#gLevels").inner_text().replace(" ", "") or "ES≈7725.00" in q4.locator("#gLevels").inner_text(), "تحويل Call Wall إلى ES بخطوة 0.25")
+        alltxt = q4.evaluate("document.getElementById('tab-gamma').innerText")
+        check("Open Interest" not in alltxt and not __import__("re").search(r"\bOI\b", alltxt), "لا ذكر لـ Open Interest في تبويب جاما")
+        q4.screenshot(path=os.path.join(shots, "gamma_fresh_390.png"), full_page=True)
+        gload(gfix(90)); check(q4.get_attribute("#gFresh", "data-s") == "late" and "متأخرة" in q4.locator("#gFresh").inner_text(), "جاما بعمر 90 دقيقة: برتقالي «متأخرة»")
+        gload(gfix(53 * 1440)); gt = q4.locator("#gFresh").inner_text()
+        check(q4.get_attribute("#gFresh", "data-s") == "stale" and "قديمة" in gt and "لا تعتمدها للتداول" in gt and "53 يوماً" in gt, "جاما بعمر 53 يوماً: أحمر «لا تعتمدها للتداول» مع العمر")
+        q4.screenshot(path=os.path.join(shots, "gamma_stale_390.png"), full_page=True)
+        gload(gfix(10, status="stale")); check(q4.get_attribute("#gFresh", "data-s") == "stale", "حالة الملف stale تغلب العمر")
+        gload(gfix(10, es=False)); gt = q4.locator("#gChart").inner_text() + q4.locator("#gLevels").inner_text()
+        check("ES≈" not in gt and "التحويل معطّل" in q4.locator("#gEsNote").inner_text(), "بلا أسعار مرجعية: لا تحويل ES")
+        gload(gfix(10, gap=9)); check("ES≈" not in q4.locator("#gChart").inner_text() and "التحويل معطّل" in q4.locator("#gEsNote").inner_text(), "فرق توقيت المرجعين > 5 دقائق: التحويل معطّل")
+        gload(gfix(10, flip=None)); check("غير محدد" in q4.locator("#gLevels").inner_text(), "Gamma Flip غير محدد يُقال صراحة")
+        gload(gfix(10))
+        for gw in (320, 375, 768, 1366):
+            q4.set_viewport_size({"width": gw, "height": 900}); q4.wait_for_timeout(150)
+            sw = q4.evaluate("[document.documentElement.scrollWidth, document.documentElement.clientWidth]")
+            check(sw[0] <= sw[1] + 1, f"جاما بلا تمرير أفقي عند {gw}px ({sw[0]}/{sw[1]})")
+        q4.set_viewport_size({"width": 390, "height": 900})
+        q4.evaluate("showTab('today')"); q4.wait_for_timeout(100)
+        q4.screenshot(path=os.path.join(shots, "today_390_v20.png"), full_page=True)
+        mode["gamma"] = None
+        c4.close()
+
         # ===== 10) الأحجام والتكبير =====
         sums = {}
         for w, h in ((320, 700), (375, 800), (430, 900), (768, 1000), (1366, 800), (1920, 1000)):
             for zoom in (1, 2):
                 c2, q = newpage(w // zoom, h // zoom, zoom); mode["m"] = "good"; mode["data"] = fx
                 q.goto(url); q.wait_for_timeout(1000)
-                for tab in ("today", "week", "macro", "details", "settings"):
+                for tab in ("today", "gamma", "macro", "details", "settings"):
                     q.evaluate(f"showTab('{tab}')"); q.evaluate("document.querySelectorAll('details').forEach(d=>d.open=true)"); q.wait_for_timeout(120)
                     sw = q.evaluate("[document.documentElement.scrollWidth, document.documentElement.clientWidth]")
-                    check(sw[0] <= sw[1] + 1, f"بلا تمرير أفقي {w}px×{zoom * 100}% تبويب {tab} ({sw[0]}/{sw[1]})")
+                    check(sw[0] <= sw[1] + 1, f"بلا تمرير أفقي {w}px×{zoom * 100}% تبويب {tab} ({sw[0]}/{sw[1]}) " + (str(q.evaluate("[...document.querySelectorAll('#tab-' + '%s' + ' *')].filter(e => e.getBoundingClientRect().right > document.documentElement.clientWidth + 1).slice(0, 4).map(e => e.tagName + '.' + e.className + ':' + Math.round(e.getBoundingClientRect().right))" % tab)) if sw[0] > sw[1] + 1 else ""))
                 q.evaluate("showTab('today')")
                 small = q.evaluate("""() => { const bad = []; document.querySelectorAll('#tab-today *').forEach(e => { if (!e.offsetParent || !e.childNodes.length) return;
                     const t = [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim().length > 3); if (!t) return;

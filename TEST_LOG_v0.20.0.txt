@@ -1,0 +1,41 @@
+== tests.py
+نجحت كل الاختبارات (24)
+== tests_actuals.py
+نجحت كل الاختبارات (21)
+== tests_auction.py
+نجحت كل الاختبارات (8)
+== tests_backtest.py
+نجحت كل الاختبارات (7)
+== tests_bias.py
+7 اختبارات نجحت
+== tests_dashboard.py
+نجحت كل الاختبارات (11)
+== tests_events.py
+نجحت كل الاختبارات (5)
+== tests_gamma.py
+tests_gamma: 23 فحصاً نجحت
+== tests_geo.py
+نجحت كل الاختبارات (9)
+== tests_indicators.py
+نجحت كل الاختبارات (7)
+== tests_macro.py
+نجحت كل الاختبارات (12)
+== tests_runner.py
+نجحت كل الاختبارات (23)
+== tests_safety.py
+نجحت كل الاختبارات (21)
+== tests_v0181.py
+نجحت كل الاختبارات (27)
+== tests_v0181b.py
+نجحت كل الاختبارات (11)
+== tests_v0191.py
+نجحت كل الاختبارات (19)
+== tests_v019_fixes.py
+نجحت كل الاختبارات (8)
+== tests_v019_release.py
+نجحت كل الاختبارات (11)
+== tests_validation.py
+نجحت كل الاختبارات (6)
+== tests_verify.py
+نجحت كل الاختبارات (13)
+== tests_browser.py: 238/238
