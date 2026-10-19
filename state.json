@@ -309,45 +309,45 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-19T07:52:00.742948+00:00",
-        "ok_at": "2026-10-19T07:52:00.742948+00:00"
+        "last_try": "2026-10-19T08:26:44.081340+00:00",
+        "ok_at": "2026-10-19T08:26:44.081340+00:00"
       },
       "fred": {
-        "last_try": "2026-10-19T07:52:00.742948+00:00",
-        "ok_at": "2026-10-19T07:52:00.742948+00:00"
+        "last_try": "2026-10-19T08:26:44.081340+00:00",
+        "ok_at": "2026-10-19T08:26:44.081340+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-19T07:52:00.742948+00:00",
-        "ok_at": "2026-10-19T07:52:00.742948+00:00"
+        "last_try": "2026-10-19T08:26:44.081340+00:00",
+        "ok_at": "2026-10-19T08:26:44.081340+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-19T07:52:00.742948+00:00",
-        "ok_at": "2026-10-19T07:52:00.742948+00:00"
+        "last_try": "2026-10-19T08:26:44.081340+00:00",
+        "ok_at": "2026-10-19T08:26:44.081340+00:00"
       },
       "oil": {
-        "last_try": "2026-10-19T07:52:00.742948+00:00",
-        "ok_at": "2026-10-19T07:52:00.742948+00:00"
+        "last_try": "2026-10-19T08:26:44.081340+00:00",
+        "ok_at": "2026-10-19T08:26:44.081340+00:00"
       },
       "news": {
-        "last_try": "2026-10-19T07:52:00.742948+00:00",
-        "ok_at": "2026-10-19T07:52:00.742948+00:00"
+        "last_try": "2026-10-19T08:26:44.081340+00:00",
+        "ok_at": "2026-10-19T08:26:44.081340+00:00"
       },
       "cot": {
-        "last_try": "2026-10-19T07:52:00.742948+00:00",
-        "ok_at": "2026-10-19T07:52:00.742948+00:00"
+        "last_try": "2026-10-19T08:26:44.081340+00:00",
+        "ok_at": "2026-10-19T08:26:44.081340+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-19T07:52:00.742948+00:00",
-        "ok_at": "2026-10-19T07:52:00.742948+00:00"
+        "last_try": "2026-10-19T08:26:44.081340+00:00",
+        "ok_at": "2026-10-19T08:26:44.081340+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-19T07:52:00.742948+00:00"
+      "at": "2026-10-19T08:26:44.081340+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-19T06:58:28.111185+00:00",
+    "at": "2026-10-19T08:26:44.081340+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -369,20 +369,25 @@
             "src": "WSJ"
           },
           {
+            "t": "2026-10-19T01:34:00+00:00",
+            "title": "Gold rises as Warsh remarks curb Fed hike bets",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-10-19T01:33:00+00:00",
             "title": "Oil, foreign flows in focus for rupee; bond traders eye rate-hike bets",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-18T21:52:35+00:00",
-            "title": "Federal Reserve raises interest rates for the 1st time since 2023",
-            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-10-19T06:36:00+00:00",
+            "title": "Stock Market: Will S&P 500 Open Up or Down Today?",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-10-19T04:07:00+00:00",
             "title": "No ‘Black Monday’? Nasdaq, S&P 500, Dow Futures Spike As Big Tech Earnings Loom This Week — Retail Stays Cautious",
@@ -397,11 +402,6 @@
             "t": "2026-10-19T00:38:00+00:00",
             "title": "Asian stocks slip, Wall St and bonds benefit from oil dip",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-19T00:00:00+00:00",
-            "title": "The Race Is On for Trump Staffers to Hire Lawyers in Case Democrats Win Midterms",
-            "src": "WSJ"
           },
           {
             "t": "2026-10-18T23:23:00+00:00",
@@ -444,6 +444,11 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-10-19T04:04:00+00:00",
+            "title": "Global food inflation is expected to intensify as supply shocks pile up",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-10-19T02:10:00+00:00",
             "title": "China economy grows thanks to AI export boom but domestic slump remains a drag",
             "src": "CNN"
@@ -462,17 +467,17 @@
             "t": "2026-10-17T09:15:00+00:00",
             "title": "AI rapidly improving, could vastly boost US GDP, Anthropic's Clark tells policymakers",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-16T11:32:51+00:00",
-            "title": "The 2026 Dodgers and Top 10 Most Expensive MLB Payrolls That Didn't Win the World Series",
-            "src": "Bleacher Report"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-19T06:27:00+00:00",
+            "title": "Traders Grow Wary of Copper Bull Market With No Sign of Tariffs",
+            "src": "Bloomberg.com"
+          },
           {
             "t": "2026-10-19T06:19:00+00:00",
             "title": "U.S. Treasury Yields Fall in Asian Trade",
@@ -484,14 +489,9 @@
             "src": "Econbrowser"
           },
           {
-            "t": "2026-10-19T01:33:00+00:00",
-            "title": "Democratic senate candidate Scott Colom talks tariffs, affordability and healthcare",
-            "src": "WLOX"
-          },
-          {
-            "t": "2026-10-19T01:25:14+00:00",
-            "title": "Trump waives major Russia sanctions, tariffs",
-            "src": "China Daily"
+            "t": "2026-10-19T02:17:46+00:00",
+            "title": "'Bully': Feud erupts between Trump and Ontario's Doug Ford over US-Canada trade war",
+            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
@@ -499,9 +499,14 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-19T04:04:25+00:00",
-            "title": "Trump defends Russia sanctions waivers, accuses Zelenskyy of 'prolonging war'",
-            "src": "DW.com"
+            "t": "2026-10-19T08:02:46+00:00",
+            "title": "Iran, oil, and the world economy: are we seeing history repeat itself?",
+            "src": "World Finance"
+          },
+          {
+            "t": "2026-10-19T07:42:00+00:00",
+            "title": "Oil Prices Fall as Traders Weigh Russia Sanctions Waiver, Middle East Risks",
+            "src": "WSJ"
           },
           {
             "t": "2026-10-19T03:15:45+00:00",
@@ -512,11 +517,6 @@
             "t": "2026-10-19T03:01:52+00:00",
             "title": "Ukraine launches over 1,000 drones at Russia, setting oil facilities ablaze",
             "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-10-19T02:04:10+00:00",
-            "title": "Zelenskyy: Russia continues to attack Ukraine’s oil, gas and energy sectors",
-            "src": "NewsNation"
           }
         ]
       }
@@ -524,7 +524,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-19T07:52:00.742948+00:00",
+    "at": "2026-10-19T08:26:44.081340+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -5688,10 +5688,10 @@
       "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-19T07:52:00.742948+00:00",
+  "last_publish_ok": "2026-10-19T08:26:44.081340+00:00",
   "last_run_ok": {
     "mode": "test",
-    "at": "2026-10-19T07:52:31.574597+00:00"
+    "at": "2026-10-19T08:27:10.362614+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5756,8 +5756,8 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "up",
-    "at": "2026-10-19T07:52:00.742948+00:00",
-    "ok_at": "2026-10-19T07:52:00.742948+00:00",
+    "at": "2026-10-19T08:26:44.081340+00:00",
+    "ok_at": "2026-10-19T08:26:44.081340+00:00",
     "change": null
   },
   "last_watch": {
