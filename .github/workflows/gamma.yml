@@ -1,0 +1,73 @@
+name: gamma
+
+# جمع خريطة جاما (SPX) من ملف CBOE العام المتأخر ~15 دقيقة.
+# مواعيد مبكرة قبل افتتاح 09:30 نيويورك (13:30 UTC صيفاً / 14:30 UTC شتاءً) + مواعيد احتياط، لأن جدولة GitHub قد تتأخر.
+# القاعدة: أول لقطة صالحة قبل 09:30 نيويورك تُحفظ في gamma/preopen ولا تُستبدل.
+on:
+  schedule:
+    - cron: "40 12 * * 1-5"
+    - cron: "10 13 * * 1-5"
+    - cron: "25 13 * * 1-5"
+    - cron: "40 13 * * 1-5"
+    - cron: "10 14 * * 1-5"
+    - cron: "25 14 * * 1-5"
+    - cron: "40 14 * * 1-5"
+    - cron: "*/20 15-21 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "probe (فحص مفصل + صورة) | collect (لقطة واحدة)"
+        default: "probe"
+      telegram:
+        description: "أرسل صورة الفحص إلى تيليجرام (true/false)"
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gamma
+  cancel-in-progress: false
+
+jobs:
+  gamma:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: تثبيت المتطلبات
+        run: pip install -r requirements.txt matplotlib
+      - name: جمع جاما
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MODE: ${{ github.event.inputs.mode }}
+          TG: ${{ github.event.inputs.telegram }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${MODE:-probe}" = "probe" ]; then
+            if [ "$TG" = "true" ]; then python gamma.py --probe --telegram; else python gamma.py --probe; fi
+          else
+            python gamma.py --collect
+          fi
+      - name: رفع صورة الفحص
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gamma-probe
+          path: |
+            gamma/probe.json
+            gamma/probe.png
+          if-no-files-found: ignore
+      - name: حفظ اللقطات
+        if: always()
+        run: |
+          git config user.name "mirsad-bot"
+          git config user.email "mirsad-bot@users.noreply.github.com"
+          git add gamma
+          git diff --cached --quiet && exit 0
+          git commit -m "جاما: لقطة جديدة"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
