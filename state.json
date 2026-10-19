@@ -169,184 +169,184 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 180,
-      "v": 0.06,
-      "th": 0.8,
-      "ratio": 0.08,
-      "val": "+0.06%",
-      "thr": "±0.8%",
-      "c15": "-0.00%",
-      "c60": "-0.01%",
-      "c180": "+0.06%",
+      "w": 60,
+      "v": -0.11,
+      "th": 0.45,
+      "ratio": 0.24,
+      "val": "-0.11%",
+      "thr": "±0.45%",
+      "c15": "-0.05%",
+      "c60": "-0.11%",
+      "c180": "-0.13%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.04,
-      "z": 0.1,
-      "volx": 0.4
+      "tone": "bear",
+      "eff": 0.49,
+      "z": 1.6,
+      "volx": 0.9
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 180,
-      "v": 0.12,
-      "th": 1.0,
-      "ratio": 0.12,
-      "val": "+0.12%",
-      "thr": "±1%",
-      "c15": "-0.02%",
-      "c60": "-0.01%",
-      "c180": "+0.12%",
+      "w": 15,
+      "v": -0.09,
+      "th": 0.4,
+      "ratio": 0.22,
+      "val": "-0.09%",
+      "thr": "±0.4%",
+      "c15": "-0.09%",
+      "c60": "-0.04%",
+      "c180": "-0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.04,
-      "z": 0.1,
-      "volx": 0.5
+      "tone": "flat",
+      "eff": 0.12,
+      "z": 0.3,
+      "volx": 0.9
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": -0.25,
-      "th": 2.4,
-      "ratio": 0.1,
-      "val": "-0.25%",
-      "thr": "±2.4%",
-      "c15": "+0.02%",
-      "c60": "-0.10%",
-      "c180": "-0.25%",
+      "w": 60,
+      "v": -0.34,
+      "th": 1.3,
+      "ratio": 0.26,
+      "val": "-0.34%",
+      "thr": "±1.3%",
+      "c15": "-0.10%",
+      "c60": "-0.34%",
+      "c180": "-0.49%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.13,
-      "z": 0.5,
-      "volx": 0.9
+      "eff": 0.36,
+      "z": 1.4,
+      "volx": 1.8
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 180,
-      "v": 0.27,
-      "th": 1.2,
-      "ratio": 0.23,
-      "val": "+0.27%",
-      "thr": "±1.2%",
-      "c15": "+0.05%",
-      "c60": "+0.05%",
-      "c180": "+0.27%",
+      "w": 60,
+      "v": -0.19,
+      "th": 0.65,
+      "ratio": 0.29,
+      "val": "-0.19%",
+      "thr": "±0.65%",
+      "c15": "+0.04%",
+      "c60": "-0.19%",
+      "c180": "-0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.08,
-      "z": 0.2,
+      "eff": 0.36,
+      "z": 0.9,
       "volx": 1.2
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 180,
-      "v": -0.03,
-      "th": 0.5,
-      "ratio": 0.07,
-      "val": "-0.03%",
-      "thr": "±0.5%",
-      "c15": "+0.00%",
-      "c60": "-0.00%",
-      "c180": "-0.03%",
+      "w": 15,
+      "v": -0.02,
+      "th": 0.18,
+      "ratio": 0.11,
+      "val": "-0.02%",
+      "thr": "±0.18%",
+      "c15": "-0.02%",
+      "c60": "+0.03%",
+      "c180": "+0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.02,
-      "z": 0.0,
+      "eff": 0.18,
+      "z": 0.5,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 15,
-      "v": 0.03,
-      "th": 0.25,
-      "ratio": 0.1,
-      "val": "+0.03%",
-      "thr": "±0.25%",
-      "c15": "+0.03%",
-      "c60": "-0.01%",
-      "c180": "+0.04%",
+      "w": 60,
+      "v": -0.13,
+      "th": 0.4,
+      "ratio": 0.31,
+      "val": "-0.13%",
+      "thr": "±0.4%",
+      "c15": "-0.07%",
+      "c60": "-0.13%",
+      "c180": "-0.12%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.06,
-      "z": 0.1,
+      "eff": 0.67,
+      "z": 1.8,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-19T06:00:44.835305+00:00",
-        "ok_at": "2026-10-19T06:00:44.835305+00:00"
+        "last_try": "2026-10-19T06:58:28.111185+00:00",
+        "ok_at": "2026-10-19T06:58:28.111185+00:00"
       },
       "fred": {
-        "last_try": "2026-10-19T06:00:44.835305+00:00",
-        "ok_at": "2026-10-19T06:00:44.835305+00:00"
+        "last_try": "2026-10-19T06:58:28.111185+00:00",
+        "ok_at": "2026-10-19T06:58:28.111185+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-19T06:00:44.835305+00:00",
-        "ok_at": "2026-10-19T06:00:44.835305+00:00"
+        "last_try": "2026-10-19T06:58:28.111185+00:00",
+        "ok_at": "2026-10-19T06:58:28.111185+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-19T06:00:44.835305+00:00",
-        "ok_at": "2026-10-19T06:00:44.835305+00:00"
+        "last_try": "2026-10-19T06:58:28.111185+00:00",
+        "ok_at": "2026-10-19T06:58:28.111185+00:00"
       },
       "oil": {
-        "last_try": "2026-10-19T06:00:44.835305+00:00",
-        "ok_at": "2026-10-19T06:00:44.835305+00:00"
+        "last_try": "2026-10-19T06:58:28.111185+00:00",
+        "ok_at": "2026-10-19T06:58:28.111185+00:00"
       },
       "news": {
-        "last_try": "2026-10-19T06:00:44.835305+00:00",
-        "ok_at": "2026-10-19T06:00:44.835305+00:00"
+        "last_try": "2026-10-19T06:58:28.111185+00:00",
+        "ok_at": "2026-10-19T06:58:28.111185+00:00"
       },
       "cot": {
-        "last_try": "2026-10-19T06:00:44.835305+00:00",
-        "ok_at": "2026-10-19T06:00:44.835305+00:00"
+        "last_try": "2026-10-19T06:58:28.111185+00:00",
+        "ok_at": "2026-10-19T06:58:28.111185+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-19T06:00:44.835305+00:00",
-        "ok_at": "2026-10-19T06:00:44.835305+00:00"
+        "last_try": "2026-10-19T06:58:28.111185+00:00",
+        "ok_at": "2026-10-19T06:58:28.111185+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-19T06:00:44.835305+00:00"
+      "at": "2026-10-19T06:58:28.111185+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-19T05:26:07.016389+00:00",
+    "at": "2026-10-19T06:58:28.111185+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-19T06:23:00+00:00",
+            "title": "Gold Edges Higher as Traders Ease Rate-Hike Bets on Warsh Speech",
+            "src": "Bloomberg.com"
+          },
+          {
             "t": "2026-10-19T03:11:00+00:00",
-            "title": "Gold edges higher on softer oil; Fed rate outlook in focus",
+            "title": "Gold edges higher as softer oil eases inflation woes",
             "src": "Reuters"
           },
           {
             "t": "2026-10-19T02:50:00+00:00",
             "title": "Gold Edges Higher as Traders Weigh Fed Rate Hike Expectations",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-19T02:50:00+00:00",
-            "title": "Gold Edges Higher as Traders Ease Rate-Hike Bets on Warsh Speech",
-            "src": "Bloomberg.com"
           },
           {
             "t": "2026-10-19T01:33:00+00:00",
@@ -379,13 +379,13 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-18T23:01:00+00:00",
-            "title": "Exclusive | Some Wall Street Leaders Are Weighing Bailing on ‘Davos in the Desert’ After Attacks on Riyadh",
+            "t": "2026-10-19T00:00:00+00:00",
+            "title": "The Race Is On for Trump Staffers to Hire Lawyers in Case Democrats Win Midterms",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-18T23:00:00+00:00",
-            "title": "Exclusive | Putin Floats a Summit With Trump and Xi to Discuss Ukraine Deal",
+            "t": "2026-10-18T23:23:00+00:00",
+            "title": "Anthropic to Commit 5% of Its Shares to New ‘Public Benefit’ Fund",
             "src": "WSJ"
           }
         ]
@@ -394,7 +394,17 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-19T04:41:01+00:00",
+            "t": "2026-10-19T06:31:19+00:00",
+            "title": "Stocktwits Tech Watch: Netflix And Meta Report Earnings As Nvidia, Oracle Product Events Loom",
+            "src": "Stocktwits"
+          },
+          {
+            "t": "2026-10-19T05:13:00+00:00",
+            "title": "TSLA: Tesla Reports Earnings with Shares Down 21% on Year (and a Failed Roadster Pump)",
+            "src": "TradingView"
+          },
+          {
+            "t": "2026-10-19T04:41:43+00:00",
             "title": "SpaceX's biggest earnings test yet lands Tuesday, and Tesla shareholders should be watching",
             "src": "Teslarati"
           },
@@ -407,16 +417,6 @@
             "t": "2026-10-19T03:21:07+00:00",
             "title": "Weekly Options Outlook: Volatility in Focus Ahead of SpaceX and Meta Earnings",
             "src": "Moomoo"
-          },
-          {
-            "t": "2026-10-19T03:08:00+00:00",
-            "title": "Dow Jones Futures Rebound After AI Sell-Off; Meta, SpaceX, Tesla Earnings Key",
-            "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-10-18T23:00:00+00:00",
-            "title": "Top 4 Earnings Reports This Week: What Tesla, Meta, SpaceX, Netflix Must Show",
-            "src": "BeInCrypto"
           }
         ]
       },
@@ -454,6 +454,11 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-10-19T06:19:00+00:00",
+            "title": "U.S. Treasury Yields Fall in Asian Trade",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-10-19T03:21:37+00:00",
             "title": "Wall Street Expectations for Treasury Yields: Higher",
             "src": "Econbrowser"
@@ -467,11 +472,6 @@
             "t": "2026-10-19T01:25:14+00:00",
             "title": "Trump waives major Russia sanctions, tariffs",
             "src": "China Daily"
-          },
-          {
-            "t": "2026-10-19T00:45:00+00:00",
-            "title": "Halloween candy prices up 8%; it’s not tariffs, economist says",
-            "src": "WLTX"
           }
         ]
       },
@@ -504,7 +504,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-19T06:00:44.835305+00:00",
+    "at": "2026-10-19T06:58:28.111185+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -5668,10 +5668,10 @@
       "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-19T06:00:44.835305+00:00",
+  "last_publish_ok": "2026-10-19T06:58:28.111185+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-19T06:03:11.815939+00:00"
+    "at": "2026-10-19T06:58:58.988166+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5736,12 +5736,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-19T06:00:44.835305+00:00",
-    "ok_at": "2026-10-19T06:00:44.835305+00:00",
+    "at": "2026-10-19T06:58:28.111185+00:00",
+    "ok_at": "2026-10-19T06:58:28.111185+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-19T06:00:44.835305+00:00",
+    "at": "2026-10-19T06:58:28.111185+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
