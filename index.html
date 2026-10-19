@@ -502,7 +502,6 @@
   #watchView .wbias .wd { background: linear-gradient(180deg, color-mix(in srgb, var(--mc) 70%, #fff), var(--mc) 55%, color-mix(in srgb, var(--mc) 80%, #000)); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; padding-bottom: .6vmin; }
   #watchView .wbias .sym { font-size: inherit; line-height: 0; width: 100%; animation: none !important; } #watchView .wbias .sym svg { width: 88%; height: 30vmin; display: block; margin: 0 auto; overflow: visible; }
   #watchView .fight { overflow: visible; }
-  @media (prefers-reduced-motion: no-preference) { #watchView .fight .spin { transform-box: fill-box; transform-origin: center; animation: fSpin 8s linear infinite; } #watchView .fight.l2 .spin { animation-duration: 4s; } #watchView .fight.l3 .spin { animation-duration: 1.8s; } @keyframes fSpin { to { transform: rotate(360deg); } } }
   @media (max-aspect-ratio: 1/1) { #watchView .wbias .sym svg { height: 19vmin; } #watchView .wtiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-aspect-ratio: 1/1) { #watchView .wmain { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(0, 1.2fr); } #watchView .wbias .sym { font-size: clamp(50px, 20vmin, 300px); } #watchView .wpul { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   @media (max-height: 380px) { #watchView .wpul { display: none; } #watchView { grid-template-rows: auto minmax(0, 1fr); } }
@@ -1919,9 +1918,18 @@ function renderGamma_() {
   en.appendChild(el('p', 'src', esOk ? 'ES ≈ Strike + (ES مرجعي − SPX مرجعي) = Strike + ' + bs.toFixed(2) + ' (ES ' + es.es_ref + ' / SPX ' + es.spx_ref + '، فرق التوقيت ' + es.ref_gap_min + ' د)، بخطوة 0.25. فرق الأساس يتغير خلال اليوم، فالتحويل للاسترشاد فقط.'
     : 'التحويل معطّل: لا أسعار مرجعية متزامنة لـ ES وSPX في هذه اللقطة (أو فرق توقيتها أكبر من 5 دقائق). لا يُحوَّل دون ذلك.'));
 }
+/* ملف جاما: من الصفحة نفسها (gamma.json) ومن المستودع مباشرة (الأحدث)، ويُعتمد الأحدث وقتاً. يعمل حتى لو لم يُعاد نشر الصفحة بعد. */
+function ghRawUrl_(loc) {
+  try { const h = String(loc.hostname || ''); if (!/\.github\.io$/.test(h)) return null; const o = h.split('.')[0], r = String(loc.pathname || '').split('/')[1]; return o && r ? 'https://raw.githubusercontent.com/' + o + '/' + r + '/main/gamma/latest.json' : null; } catch (e) { return null; }
+}
 function loadGamma_() {
-  return fetch('gamma.json?t=' + Date.now(), { cache: 'no-store' }).then(r => { if (!r.ok) throw 0; return r.json(); }).then(j => { GAMMA = j && typeof j === 'object' ? j : null; }).catch(() => { GAMMA = null; })
-    .then(() => { try { renderGamma_(); } catch (e) { console.error(e); } });
+  const get = u => fetch(u + (u.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now(), { cache: 'no-store' }).then(r => { if (!r.ok) throw 0; return r.json(); }).then(j => (j && typeof j === 'object' ? j : null)).catch(() => null);
+  const raw = ghRawUrl_(location);
+  return Promise.all([get('gamma.json'), raw ? get(raw) : Promise.resolve(null)]).then(a => {
+    const t = g => (g && g.ok && g.snapshot_utc ? new Date(g.snapshot_utc).getTime() : -1);
+    const ok = a.filter(g => g && g.ok), best = ok.length ? ok.reduce((x, y) => (t(y) > t(x) ? y : x)) : (a.find(g => g) || null);
+    GAMMA = best;
+  }).then(() => { try { renderGamma_(); } catch (e) { console.error(e); } });
 }
 /* ---- صحة مرصاد: الأيقونة والنافذة ---- */
 function healthWhy_() {
@@ -2097,7 +2105,7 @@ function fightSvg_(key, lean, inn) {
   let inner;
   if (key === 'support' || key === 'pressure') inner = '<circle r="39" fill="' + (key === 'support' ? G : R)[lv - 1] + '"/><path transform="scale(1.15)" d="' + (key === 'support' ? UP : DN) + '" fill="#fff"/>' + (lv === 3 ? ring : '');
   else if (lv === 1) inner = '<circle r="42" fill="#fff" fill-opacity=".9" stroke="#fff" stroke-width="3"/><circle r="22" fill="var(--bg)" stroke="#fff" stroke-width="3"/>';
-  else inner = '<g class="spin"><path d="M0-40A40 40 0 0 0 0 40Z" fill="#2fbf71"/><path d="M0-40A40 40 0 0 1 0 40Z" fill="#e5484d"/><circle r="18" fill="var(--bg)"/></g>' + (lv === 3 ? ring : '');
+  else inner = '<g class="split"><path d="M0-40A40 40 0 0 1 0 40Z" fill="#2fbf71"/><path d="M0-40A40 40 0 0 0 0 40Z" fill="#e5484d"/><circle r="18" fill="var(--bg)"/></g>' + (lv === 3 ? ring : '');
   return '<svg viewBox="-50 -50 100 100" class="fight l' + lv + '" aria-hidden="true">' + inner + '</svg>';
 }
 function gaugeZones_(id, cols) { const g = $(id).querySelector('.zn'); if (g.dataset.k === cols.join()) return; g.dataset.k = cols.join(); g.innerHTML = ''; const n = cols.length, gap = 0.035, R = 80, pt = f => { const a = Math.PI * (1 - f); return (100 + R * Math.cos(a)).toFixed(2) + ' ' + (100 - R * Math.sin(a)).toFixed(2); };
