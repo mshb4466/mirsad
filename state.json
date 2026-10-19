@@ -169,120 +169,120 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 15,
-      "v": 0.14,
-      "th": 0.3,
-      "ratio": 0.46,
-      "val": "+0.14%",
-      "thr": "±0.3%",
-      "c15": "+0.14%",
-      "c60": "+0.17%",
-      "c180": "+0.29%",
+      "w": 60,
+      "v": -0.25,
+      "th": 0.45,
+      "ratio": 0.56,
+      "val": "-0.25%",
+      "thr": "±0.45%",
+      "c15": "-0.03%",
+      "c60": "-0.25%",
+      "c180": "+0.11%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.35,
-      "z": 1.7,
-      "volx": 1.6
+      "tone": "bear",
+      "eff": 0.72,
+      "z": 2.3,
+      "volx": 1.0
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 180,
-      "v": 0.59,
-      "th": 1.0,
-      "ratio": 0.59,
-      "val": "+0.59%",
-      "thr": "±1%",
-      "c15": "+0.23%",
-      "c60": "+0.33%",
-      "c180": "+0.59%",
+      "w": 60,
+      "v": -0.37,
+      "th": 0.6,
+      "ratio": 0.62,
+      "val": "-0.37%",
+      "thr": "±0.6%",
+      "c15": "-0.04%",
+      "c60": "-0.37%",
+      "c180": "+0.36%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.43,
-      "z": 1.9,
-      "volx": 1.5
+      "tone": "bear",
+      "eff": 0.72,
+      "z": 2.1,
+      "volx": 0.9
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
-      "w": 180,
-      "v": -5.74,
-      "th": 14.0,
-      "ratio": 0.41,
-      "val": "-5.74%",
-      "thr": "±14%",
-      "c15": "-0.90%",
-      "c60": "-0.62%",
-      "c180": "-5.74%",
+      "w": 60,
+      "v": 3.19,
+      "th": 8.0,
+      "ratio": 0.4,
+      "val": "+3.19%",
+      "thr": "±8%",
+      "c15": "+1.40%",
+      "c60": "+3.19%",
+      "c180": "+0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.13,
-      "z": 0.1,
+      "tone": "bear",
+      "eff": 0.53,
+      "z": 0.7,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 15,
-      "v": 0.33,
-      "th": 0.9,
-      "ratio": 0.36,
-      "val": "+0.33%",
-      "thr": "±0.9%",
-      "c15": "+0.33%",
-      "c60": "+0.16%",
-      "c180": "+0.15%",
+      "w": 60,
+      "v": 0.89,
+      "th": 1.3,
+      "ratio": 0.68,
+      "val": "+0.89%",
+      "thr": "±1.3%",
+      "c15": "-0.02%",
+      "c60": "+0.89%",
+      "c180": "+1.19%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.12,
-      "z": 0.4,
-      "volx": 1.0
+      "eff": 0.65,
+      "z": 2.1,
+      "volx": 1.2
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 180,
-      "v": -0.46,
+      "v": -0.33,
       "th": 1.2,
-      "ratio": 0.38,
-      "val": "-0.46%",
+      "ratio": 0.27,
+      "val": "-0.33%",
       "thr": "±1.2%",
       "c15": "-0.01%",
-      "c60": "-0.01%",
-      "c180": "-0.46%",
+      "c60": "-0.06%",
+      "c180": "-0.33%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.04,
-      "z": 0.1,
-      "volx": 0.6
+      "eff": 0.24,
+      "z": 0.3,
+      "volx": 0.5
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
-      "v": -0.03,
-      "th": 0.18,
-      "ratio": 0.18,
-      "val": "-0.03%",
-      "thr": "±0.18%",
-      "c15": "-0.03%",
-      "c60": "-0.04%",
-      "c180": "+0.05%",
+      "w": 180,
+      "v": 0.09,
+      "th": 0.5,
+      "ratio": 0.17,
+      "val": "+0.09%",
+      "thr": "±0.5%",
+      "c15": "-0.02%",
+      "c60": "+0.03%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.3,
-      "z": 0.6,
+      "eff": 0.19,
+      "z": 0.4,
       "volx": null
     },
     {
@@ -290,19 +290,19 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": 0.06,
+      "v": 0.11,
       "th": 0.7,
-      "ratio": 0.09,
-      "val": "+0.06%",
+      "ratio": 0.15,
+      "val": "+0.11%",
       "thr": "±0.7%",
       "c15": "+0.02%",
-      "c60": "+0.01%",
-      "c180": "+0.06%",
+      "c60": "+0.03%",
+      "c180": "+0.11%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.07,
-      "z": 0.2,
+      "eff": 0.39,
+      "z": 0.5,
       "volx": null
     },
     {
@@ -310,19 +310,19 @@
       "name": "عائد 10 سنوات",
       "short": "10Y",
       "w": 180,
-      "v": 3.9,
+      "v": 4.6,
       "th": 7.5,
-      "ratio": 0.52,
-      "val": "+4bp",
+      "ratio": 0.61,
+      "val": "+5bp",
       "thr": "±7.5bp",
       "c15": "+0bp",
       "c60": "+2bp",
-      "c180": "+4bp",
+      "c180": "+5bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.72,
-      "z": 1.1,
+      "eff": 0.68,
+      "z": 0.9,
       "volx": null
     },
     {
@@ -330,9 +330,9 @@
       "name": "عائد 5 سنوات",
       "short": "5Y",
       "w": 180,
-      "v": 3.8,
+      "v": 4.3,
       "th": 7.5,
-      "ratio": 0.51,
+      "ratio": 0.57,
       "val": "+4bp",
       "thr": "±7.5bp",
       "c15": "+0bp",
@@ -341,8 +341,8 @@
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.85,
-      "z": 1.1,
+      "eff": 0.73,
+      "z": 0.8,
       "volx": null
     },
     {
@@ -350,19 +350,19 @@
       "name": "عائد 30 سنة",
       "short": "30Y",
       "w": 180,
-      "v": 3.6,
+      "v": 3.7,
       "th": 7.5,
-      "ratio": 0.48,
+      "ratio": 0.49,
       "val": "+4bp",
       "thr": "±7.5bp",
       "c15": "+0bp",
-      "c60": "+2bp",
+      "c60": "+1bp",
       "c180": "+4bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.59,
-      "z": 1.0,
+      "eff": 0.5,
+      "z": 0.7,
       "volx": null
     },
     {
@@ -370,89 +370,99 @@
       "name": "سندات عالية العائد HYG",
       "short": "HYG",
       "w": 60,
-      "v": 0.05,
+      "v": -0.07,
       "th": 0.25,
-      "ratio": 0.18,
-      "val": "+0.05%",
+      "ratio": 0.29,
+      "val": "-0.07%",
       "thr": "±0.25%",
-      "c15": "+0.02%",
-      "c60": "+0.05%",
-      "c180": "+0.07%",
+      "c15": "-0.01%",
+      "c60": "-0.07%",
+      "c180": "-0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.47,
-      "z": 0.6,
-      "volx": 1.0
+      "eff": 0.48,
+      "z": 0.9,
+      "volx": 0.5
     },
     {
       "key": "kre",
       "name": "البنوك الإقليمية KRE",
       "short": "KRE",
-      "w": 15,
-      "v": -0.14,
-      "th": 0.7,
-      "ratio": 0.2,
-      "val": "-0.14%",
-      "thr": "±0.7%",
-      "c15": "-0.14%",
-      "c60": "+0.17%",
-      "c180": "-0.23%",
+      "w": 60,
+      "v": -0.39,
+      "th": 1.1,
+      "ratio": 0.35,
+      "val": "-0.39%",
+      "thr": "±1.1%",
+      "c15": "+0.01%",
+      "c60": "-0.39%",
+      "c180": "-0.39%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.18,
-      "z": 0.4,
-      "volx": 0.3
+      "tone": "bear",
+      "eff": 0.5,
+      "z": 1.0,
+      "volx": 0.2
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-19T15:36:14.043142+00:00",
-        "ok_at": "2026-10-19T15:36:14.043142+00:00"
+        "last_try": "2026-10-19T16:46:57.503907+00:00",
+        "ok_at": "2026-10-19T16:46:57.503907+00:00"
       },
       "fred": {
-        "last_try": "2026-10-19T15:36:14.043142+00:00",
-        "ok_at": "2026-10-19T15:36:14.043142+00:00"
+        "last_try": "2026-10-19T16:46:57.503907+00:00",
+        "ok_at": "2026-10-19T16:46:57.503907+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-19T15:36:14.043142+00:00",
-        "ok_at": "2026-10-19T15:36:14.043142+00:00"
+        "last_try": "2026-10-19T16:46:57.503907+00:00",
+        "ok_at": "2026-10-19T16:46:57.503907+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-19T15:36:14.043142+00:00",
-        "ok_at": "2026-10-19T15:36:14.043142+00:00"
+        "last_try": "2026-10-19T16:46:57.503907+00:00",
+        "ok_at": "2026-10-19T16:46:57.503907+00:00"
       },
       "oil": {
-        "last_try": "2026-10-19T15:36:14.043142+00:00",
-        "ok_at": "2026-10-19T15:36:14.043142+00:00"
+        "last_try": "2026-10-19T16:46:57.503907+00:00",
+        "ok_at": "2026-10-19T16:46:57.503907+00:00"
       },
       "news": {
-        "last_try": "2026-10-19T15:36:14.043142+00:00",
-        "ok_at": "2026-10-19T15:36:14.043142+00:00"
+        "last_try": "2026-10-19T16:46:57.503907+00:00",
+        "ok_at": "2026-10-19T16:46:57.503907+00:00"
       },
       "cot": {
-        "last_try": "2026-10-19T15:36:14.043142+00:00",
-        "ok_at": "2026-10-19T15:36:14.043142+00:00"
+        "last_try": "2026-10-19T16:46:57.503907+00:00",
+        "ok_at": "2026-10-19T16:46:57.503907+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-19T15:36:14.043142+00:00",
-        "ok_at": "2026-10-19T15:36:14.043142+00:00"
+        "last_try": "2026-10-19T16:46:57.503907+00:00",
+        "ok_at": "2026-10-19T16:46:57.503907+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-19T15:36:14.043142+00:00"
+      "at": "2026-10-19T16:46:57.503907+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-19T14:49:11.360511+00:00",
+    "at": "2026-10-19T16:46:57.503907+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-19T14:40:55+00:00",
+            "title": "Mavericks Finally Make Correct Decision on Veteran Dwight Powell",
+            "src": "Sports Illustrated"
+          },
+          {
+            "t": "2026-10-19T14:27:59+00:00",
+            "title": "Dallas Mavericks waive veteran big man Dwight Powell",
+            "src": "Yahoo Sports"
+          },
           {
             "t": "2026-10-19T12:05:33+00:00",
             "title": "The case for an Elastic Reserves system: Recommendations for the Federal Reserve’s balance sheet review",
@@ -467,16 +477,6 @@
             "t": "2026-10-19T10:00:56+00:00",
             "title": "Market Minute: Financial conditions and the Fed’s work",
             "src": "The Real Economy Blog"
-          },
-          {
-            "t": "2026-10-19T04:23:04+00:00",
-            "title": "Gold edges up as oil retreat lends support; Fed decision in focus",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-19T03:11:00+00:00",
-            "title": "Gold steady ahead of Fed meeting, lower oil prices limit downside",
-            "src": "Reuters"
           }
         ]
       },
@@ -484,29 +484,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-19T14:31:16+00:00",
-            "title": "S&P 500, Nasdaq climb as AI-linked stocks recover ahead of earnings",
+            "t": "2026-10-19T16:07:00+00:00",
+            "title": "Saudi Arabia Postpones ‘Davos in the Desert’ Event Slated for Next Week",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-19T15:43:05+00:00",
+            "title": "Oppenheimer Lifts S&P 500 Full-Year Earnings Growth Outlook",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-19T13:45:00+00:00",
-            "title": "AI stocks lead a rebound on Wall Street as European markets drop following protests",
-            "src": "Spectrum News 13"
+            "t": "2026-10-19T14:56:12+00:00",
+            "title": "2 charts show why Wall Street is right to worry about tech stocks",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-19T13:35:35+00:00",
+            "t": "2026-10-19T13:47:55+00:00",
+            "title": "Goldman Sachs is still betting on a nice year-end rally for the S&P 500",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-19T13:35:16+00:00",
             "title": "S&P 500, Nasdaq open higher as AI stocks rebound ahead of major earnings",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-19T13:13:00+00:00",
-            "title": "Musk Vows to Give Each U.S. Child a SpaceX Share",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-19T12:31:00+00:00",
-            "title": "Stock Futures Rise as Investors Make Cautious Return to Risk",
-            "src": "WSJ"
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -514,29 +514,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-19T13:41:52+00:00",
-            "title": "Earnings live updates: All eyes on Musk and Meta as Q3 earnings rev up",
+            "t": "2026-10-19T16:00:00+00:00",
+            "title": "Meta Stock Extends Slide As Big Earnings Test Approaches",
+            "src": "Investor's Business Daily"
+          },
+          {
+            "t": "2026-10-19T15:29:33+00:00",
+            "title": "S&P 500, Nasdaq climb as AI-linked stocks recover ahead of earnings",
+            "src": "Mahoning Matters"
+          },
+          {
+            "t": "2026-10-19T15:28:31+00:00",
+            "title": "Tech Earnings Ahead: SpaceX, Meta to Test AI Monetization",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-10-19T15:07:40+00:00",
+            "title": "Options Action: Option traders play Meta earnings",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-19T15:00:00+00:00",
+            "title": "Why Meta's Q3 earnings could be a little hard to interpret",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-19T13:28:39+00:00",
-            "title": "Musk’s AI Spending Faces Investor Test As SpaceX And Tesla Earnings Loom",
-            "src": "Arise News"
-          },
-          {
-            "t": "2026-10-19T13:07:19+00:00",
-            "title": "Meta's AI vision doesn't come cheap, and its earnings could prove it",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-19T12:43:00+00:00",
-            "title": "Microsoft Gets A Price Target Hike From Bernstein Ahead Of Earnings — What Investors Should Know",
-            "src": "Stocktwits"
-          },
-          {
-            "t": "2026-10-19T12:27:14+00:00",
-            "title": "SpaceX, Tesla earnings to test Musk's AI spending ambitions as merger talk grows",
-            "src": "Reuters"
           }
         ]
       },
@@ -549,24 +549,24 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-19T04:04:00+00:00",
-            "title": "Global food inflation is expected to intensify as supply shocks pile up",
-            "src": "Reuters"
+            "t": "2026-10-19T11:14:00+00:00",
+            "title": "Jamie Dimon’s View on the U.S. Economy: Booming, but War and Inflation Pose Risks",
+            "src": "WSJ"
           },
           {
-            "t": "2026-10-19T02:40:00+00:00",
-            "title": "VIEW China's economic growth accelerates to 4.5% in third quarter",
+            "t": "2026-10-19T08:45:49+00:00",
+            "title": "Treasury yields move higher as investors assess U.S. inflation backdrop",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-19T04:04:00+00:00",
+            "title": "Global food inflation is expected to intensify as supply shocks pile up",
             "src": "Reuters"
           },
           {
             "t": "2026-10-18T23:03:43+00:00",
             "title": "China's Q3 GDP growth set to pick up as exports power ahead",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-18T21:20:52+00:00",
-            "title": "MLB payrolls 2026: AL finalist Cleveland Guardians have lowest in baseball",
-            "src": "Yahoo Sports"
           }
         ]
       },
@@ -574,7 +574,12 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-19T14:33:16+00:00",
+            "t": "2026-10-19T16:20:51+00:00",
+            "title": "Why the era of easy-to-ignore bonds might be over",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-19T16:03:16+00:00",
             "title": "Opinion | The U.S. badly needs new tariff laws",
             "src": "The Washington Post"
           },
@@ -584,14 +589,9 @@
             "src": "Fortune"
           },
           {
-            "t": "2026-10-19T13:50:59+00:00",
-            "title": "AI Bonds Could Push Treasury Yields Higher",
-            "src": "ETF Database"
-          },
-          {
-            "t": "2026-10-19T12:30:00+00:00",
-            "title": "Cleveland-Cliffs Expects 2027 Will Be a Very Good Year With Help From Tariffs",
-            "src": "Barron's"
+            "t": "2026-10-19T13:56:32+00:00",
+            "title": "Inflation is heating up; why did Treasury yields fall?",
+            "src": "Yahoo Finance UK"
           }
         ]
       },
@@ -599,24 +599,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-19T12:25:53+00:00",
-            "title": "Zelenskyy says Ukraine got no early warning from partners as Russia hits the power grid again",
-            "src": "PBS"
+            "t": "2026-10-19T16:14:32+00:00",
+            "title": "Trump signs executive order waiving Russia sanctions",
+            "src": "WBUR"
           },
           {
-            "t": "2026-10-19T11:59:00+00:00",
-            "title": "Trump defends easing sanctions on Russia amid rising anger in Congress",
-            "src": "USA Today"
+            "t": "2026-10-19T14:57:00+00:00",
+            "title": "Trump defends waiving Russia sanctions, says it keeps Moscow at negotiating table",
+            "src": "The Hill"
           },
           {
-            "t": "2026-10-19T11:53:00+00:00",
-            "title": "President Trump waives new sanctions on Russia",
-            "src": "KOCO"
+            "t": "2026-10-19T14:09:00+00:00",
+            "title": "European stocks fall after violent protests in France, while oil drops as Trump puts Russia sanctions on hold",
+            "src": "Fortune"
           },
           {
-            "t": "2026-10-19T11:36:11+00:00",
-            "title": "Trump's Russia sanctions waiver eases India's energy woes, lifts trade deal chances",
-            "src": "Reuters"
+            "t": "2026-10-19T13:42:39+00:00",
+            "title": "Trump pauses Russia sanctions as Zelenskyy urges allies to fight for them",
+            "src": "Scripps News"
           }
         ]
       }
@@ -624,7 +624,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-19T15:36:14.043142+00:00",
+    "at": "2026-10-19T16:46:57.503907+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -662,7 +662,7 @@
         "title": "Pending Home Sales m/m",
         "impact": "Low",
         "time": "2026-10-20T14:00:00+00:00",
-        "forecast": "-0.4%",
+        "forecast": "-0.7%",
         "previous": "0.3%",
         "type": "OTHER"
       },
@@ -5788,10 +5788,10 @@
       "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-19T15:36:14.043142+00:00",
+  "last_publish_ok": "2026-10-19T16:46:57.503907+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-19T15:37:00.516489+00:00"
+    "at": "2026-10-19T16:47:36.868481+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5856,12 +5856,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-19T15:36:14.043142+00:00",
-    "ok_at": "2026-10-19T15:36:14.043142+00:00",
+    "at": "2026-10-19T16:46:57.503907+00:00",
+    "ok_at": "2026-10-19T16:46:57.503907+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-19T15:36:14.043142+00:00",
+    "at": "2026-10-19T16:46:57.503907+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
