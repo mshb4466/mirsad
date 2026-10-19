@@ -33,6 +33,7 @@ SOURCE = "CBOE (متأخر ~15 د)"
 MODEL = "GEX = gamma × OI × 100 × spot² × 0.01؛ Call موجب وPut سالب (تقدير مراكز صناع السوق)؛ كل الاستحقاقات"
 OPT_RE = re.compile(r"^(SPXW?|SPX)(\d{6})([CP])(\d{8})$")
 OUT_DIR = "gamma"
+WALL_BAND = 0.04           # الجدران: Call Wall فوق السعر وPut Wall تحته ضمن ±4%
 STRIKE_BAND = 0.06          # يُحفظ ±6% حول السعر في latest (الأرشيف يحفظ نفس النطاق)
 FRESH_MIN, LATE_MIN = 30, 180
 
@@ -62,11 +63,9 @@ def fetch(url=None, timeout=90, tries=3):
 
 
 def parse_ts(s):
-    """ختم CBOE: نص بتوقيت نيويورك. نعيده UTC. يرفع ValueError إن لم يُفهم."""
+    """ختم CBOE = وقت توليد الملف بتوقيت UTC (ثبت بفحص 19 أكتوبر: 06:15:16 مقابل 06:18 UTC وقت الجلب)."""
     s = str(s).strip().replace("T", " ")[:19]
-    dt = datetime.strptime(s, "%Y-%m-%d %H:%M:%S")
-    dt = dt.replace(tzinfo=NY) if NY else dt.replace(tzinfo=timezone(timedelta(hours=-4)))
-    return dt.astimezone(timezone.utc)
+    return datetime.strptime(s, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
 
 
 def parse_chain(raw):
@@ -92,14 +91,15 @@ def parse_chain(raw):
         g, oi = o.get("gamma"), o.get("open_interest")
         if not isinstance(g, (int, float)) or not isinstance(oi, (int, float)):
             continue
+        iv = o.get("iv")
         out.append({"exp": m.group(2), "kind": m.group(3), "k": int(m.group(4)) / 1000.0,
-                    "gamma": float(g), "oi": float(oi)})
+                    "gamma": float(g), "oi": float(oi), "iv": float(iv) if isinstance(iv, (int, float)) else 0.0})
     if not out:
         raise ValueError("لا عقود SPX صالحة بعد التحليل")
     return spot, ts, out
 
 
-def compute(spot, contracts):
+def compute(spot, contracts, ref_utc=None):
     """GEX لكل Strike. يعيد dict بالمستويات."""
     by = {}
     for c in contracts:
@@ -112,24 +112,55 @@ def compute(spot, contracts):
     ks = sorted(by)
     rows = [{"k": k, "call": by[k]["call"], "put": by[k]["put"], "net": by[k]["call"] + by[k]["put"]} for k in ks]
     net = sum(r["net"] for r in rows)
-    band = [r for r in rows if abs(r["k"] - spot) <= spot * 0.10]
-    call_wall = max(band, key=lambda r: r["call"])["k"] if band else None
-    put_wall = min(band, key=lambda r: r["put"])["k"] if band else None
-    flip, cum, prev = None, 0.0, None
-    cands = []
-    for r in rows:
-        cum += r["net"]
-        if prev is not None and (prev[1] < 0) != (cum < 0) and prev[1] != 0:
-            a, b = prev[0], r["k"]
-            cands.append(a + (b - a) * (abs(prev[1]) / (abs(prev[1]) + abs(cum))))
-        prev = (r["k"], cum)
-    if cands:
-        flip = round(min(cands, key=lambda x: abs(x - spot)), 2)
+    up = [r for r in rows if spot <= r["k"] <= spot * (1 + WALL_BAND)]
+    dn = [r for r in rows if spot * (1 - WALL_BAND) <= r["k"] <= spot]
+    call_wall = max(up, key=lambda r: r["call"])["k"] if up else None
+    put_wall = min(dn, key=lambda r: r["put"])["k"] if dn else None
+    flip = gamma_flip(spot, contracts, ref_utc)
     exps = sorted({c["exp"] for c in contracts})
     keep = [r for r in rows if abs(r["k"] - spot) <= spot * STRIKE_BAND]
     return {"net_gex": net, "regime": "positive" if net >= 0 else "negative", "gamma_flip": flip,
             "call_wall": call_wall, "put_wall": put_wall, "strikes": keep,
             "expiries": ["20" + e[:2] + "-" + e[2:4] + "-" + e[4:] for e in exps], "n_contracts": len(contracts)}
+
+
+def _expiry_t(exp, ref_utc):
+    """الزمن حتى إغلاق 16:15 نيويورك يوم الاستحقاق، بالسنوات (حد أدنى 30 دقيقة)."""
+    d = datetime.strptime("20" + exp, "%Y%m%d").replace(hour=16, minute=15)
+    d = d.replace(tzinfo=NY) if NY else d.replace(tzinfo=timezone(timedelta(hours=-4)))
+    mins = (d.astimezone(timezone.utc) - ref_utc).total_seconds() / 60.0
+    return max(mins, 30.0) / (365.0 * 24 * 60)
+
+
+def gamma_flip(spot, contracts, ref_utc=None, lo=0.92, hi=1.08, steps=49):
+    """Gamma Flip: السعر الذي يتقاطع عنده صافي GEX مع الصفر عند إعادة حساب gamma (بلاك-شولز بالـIV لكل عقد)
+    على أسعار افتراضية حول السعر الحالي. يعيد أقرب تقاطع للسعر أو None."""
+    import math
+    ref_utc = ref_utc or now_utc()
+    cs = [c for c in contracts if c["oi"] > 0 and c["iv"] > 0.01 and abs(c["k"] - spot) <= spot * 0.25]
+    if len(cs) < 50:
+        return None
+    tcache = {}
+    pre = []
+    for c in cs:
+        T = tcache.setdefault(c["exp"], _expiry_t(c["exp"], ref_utc))
+        pre.append((c["k"], c["iv"] * math.sqrt(T), c["oi"] * (1.0 if c["kind"] == "C" else -1.0)))
+    pts = []
+    for i in range(steps):
+        S = spot * (lo + (hi - lo) * i / (steps - 1))
+        tot = 0.0
+        for k, sv, sg in pre:
+            d1 = (math.log(S / k) + 0.5 * sv * sv) / sv
+            g = math.exp(-0.5 * d1 * d1) / (2.5066282746310002 * S * sv)
+            tot += g * sg
+        pts.append((S, tot * 100.0 * S * S * 0.01))
+    cands = []
+    for (a, ga), (b, gb) in zip(pts, pts[1:]):
+        if ga == 0:
+            cands.append(a)
+        elif (ga < 0) != (gb < 0):
+            cands.append(a + (b - a) * abs(ga) / (abs(ga) + abs(gb)))
+    return round(min(cands, key=lambda x: abs(x - spot)), 2) if cands else None
 
 
 def validate(res, spot, contracts, prev=None):
@@ -169,6 +200,13 @@ def es_basis(now=None):
         return None
 
 
+def in_session(et):
+    if et.weekday() >= 5:
+        return False
+    m = et.hour * 60 + et.minute
+    return 9 * 60 + 30 <= m <= 16 * 60 + 15
+
+
 def status_of(ts_utc, fetched=None):
     m = ((fetched or now_utc()) - ts_utc).total_seconds() / 60.0
     return "fresh" if m < FRESH_MIN else "late" if m < LATE_MIN else "stale"
@@ -178,9 +216,11 @@ def build(raw, fetched=None, with_es=True):
     spot, ts, contracts = parse_chain(raw)
     if spot is None:
         raise ValueError("لا يوجد سعر SPX في الملف")
-    res = compute(spot, contracts)
-    why = validate(res, spot, contracts)
     fetched = fetched or now_utc()
+    res = compute(spot, contracts, fetched)
+    why = validate(res, spot, contracts)
+    if ts > fetched + timedelta(minutes=5):
+        why = why or "ختم الملف في المستقبل؛ لا يُعتمد"
     et = to_ny(ts)
     snap = {"ok": why is None, "asset": "SPX", "snapshot_utc": ts.isoformat(), "snapshot_et": et.strftime("%Y-%m-%d %H:%M"),
             "fetched_utc": fetched.isoformat(), "source": SOURCE, "model": MODEL, "spot": round(spot, 2),
@@ -188,6 +228,10 @@ def build(raw, fetched=None, with_es=True):
             "call_wall": res["call_wall"], "put_wall": res["put_wall"], "strikes": res["strikes"],
             "expiries": res["expiries"], "n_contracts": res["n_contracts"],
             "status": status_of(ts, fetched), "reason": why, "spy": {"ok": False}}
+    if why is None and not in_session(et):
+        if snap["status"] == "fresh":
+            snap["status"] = "late"
+        snap["reason"] = "خارج ساعات الجلسة (09:30–16:15 نيويورك): الأسعار والمستويات مبنية على آخر إغلاق وليست حية."
     snap["es"] = es_basis() if (with_es and why is None) else None
     return snap
 
@@ -282,6 +326,10 @@ def probe(root=OUT_DIR):
         info["top_keys"] = list(raw.keys())
         info["data_keys"] = list(d.keys())[:20] if isinstance(d, dict) else None
         info["timestamp_raw"] = raw.get("timestamp")
+        info["data_scalars"] = {k: v for k, v in d.items() if k != "options" and not isinstance(v, (list, dict))}
+        near = sorted(d["options"], key=lambda o: abs(int(str(o.get("option", "x00000000"))[-8:] or 0) / 1000.0 - float(d.get("current_price") or 0)) if str(o.get("option", ""))[-8:].isdigit() else 1e9)
+        info["sample_option_near_atm"] = near[0] if near else None
+        info["n_iv_positive"] = sum(1 for o in d["options"] if isinstance(o.get("iv"), (int, float)) and o["iv"] > 0)
         spot, ts, contracts = parse_chain(raw)
         info["spot"] = spot
         info["snapshot_utc"] = ts.isoformat()

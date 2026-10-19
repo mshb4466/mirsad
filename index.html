@@ -527,9 +527,9 @@
   .gleg { font-size: 13.5px; color: var(--muted); margin: 8px 0 0; } .gleg .lg { color: var(--ok); } .gleg .lw { color: var(--warn); } .gleg .lc { color: var(--crit); }
   .greg { display: inline-block; border-radius: 99px; padding: 3px 14px; font: 900 18px var(--font-body); color: #fff; } .greg.pos { background: var(--ok); } .greg.neg { background: var(--crit); }
   .glv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 10px 0 0; } .glv > div { background: var(--card-2); border-radius: 12px; padding: 8px; text-align: center; min-width: 0; } .glv small { display: block; color: var(--muted); font-size: 13px; font-weight: 700; } .glv b { font: 900 22px var(--font-mono); direction: ltr; unicode-bidi: isolate; } .glv .es { font-size: 13px; color: var(--muted); direction: ltr; unicode-bidi: isolate; } .glv .tg { display: inline-block; background: var(--warn-bg); color: var(--fg); border: 1px solid var(--warn); border-radius: 6px; padding: 0 6px; font-size: 12px; font-weight: 700; margin-inline-start: 4px; }
-  .gr { display: flex; align-items: center; gap: 6px; padding: 2px 4px; font-size: 14px; border-radius: 6px; } .gr.cur { background: color-mix(in srgb, var(--brand) 20%, transparent); } .gr .k { width: 92px; flex: none; font: 800 15px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; } .gr .k small { display: block; color: var(--muted); font: 500 12px var(--font-body); } .gr .tg { font: 800 11.5px var(--font-body); color: var(--brand); display: block; }
+  .gr { display: flex; align-items: center; gap: 6px; padding: 2px 4px; font-size: 14px; border-radius: 8px; border: 2px solid transparent; cursor: pointer; } .gr:focus-visible { outline: 2px solid var(--brand); } .gr.sel { background: color-mix(in srgb, var(--brand) 28%, transparent); border-color: var(--brand); padding: 7px 4px; font-size: 16px; } .gr.sel .k { font-size: 18px; color: var(--fg); } .gr.sel .gbar { height: 18px; } .gr.sel .gbar i { height: 14px; } .glv > div.lvb { cursor: pointer; border: 2px solid transparent; } .glv > div.lvb:focus-visible, .glv > div.lvb.on { border-color: var(--brand); } .glv .lv-cw b { color: var(--ok); } .glv .lv-pw b { color: var(--crit); } .glv .lv-fl b { color: #6c93ff; } .gr .tg.t-cw { background: var(--ok); color: #fff; } .gr .tg.t-pw { background: var(--crit); color: #fff; } .gr .tg.t-fl { background: #6c93ff; color: #fff; } .gr.cur { background: color-mix(in srgb, var(--brand) 20%, transparent); } .gr .k { width: 92px; flex: none; font: 800 15px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; } .gr .k small { display: block; color: var(--muted); font: 500 12px var(--font-body); } .gr .tg { font: 800 11.5px var(--font-body); color: var(--brand); display: block; }
   .gbar { flex: 1; height: 14px; position: relative; direction: ltr; background: var(--card-2); border-radius: 4px; min-width: 0; } .gbar::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--muted); } .gbar i { position: absolute; top: 2px; height: 10px; } .gbar .c { left: 50%; background: var(--ok); border-radius: 0 3px 3px 0; } .gbar .p { right: 50%; background: var(--crit); border-radius: 3px 0 0 3px; }
-  .gr .n { width: 62px; flex: none; text-align: start; font: 700 13px var(--font-mono); direction: ltr; unicode-bidi: isolate; } .gr .n.g { color: var(--ok); } .gr .n.r { color: var(--crit); }
+  .gr .n { width: 62px; flex: none; text-align: start; font: 700 13px var(--font-mono); direction: ltr; unicode-bidi: isolate; } .gr .n.g { color: var(--ok); } .gr .n.r { color: var(--crit); } .gr .n.s3 { font-weight: 900; font-size: 15px; opacity: 1; } .gr .n.s2 { font-weight: 700; opacity: .75; } .gr .n.s1 { font-weight: 400; opacity: .4; }
   .gspy { font: 900 20px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: center; margin: 6px 0; color: var(--muted); }
   @media (max-width: 280px) { .gr { flex-wrap: wrap; } .gr .gbar { flex: 1 1 100%; order: 3; } .glv, .gfresh dl { grid-template-columns: minmax(0, 1fr); } }
   .optrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0; min-height: 44px; } .optrow input[type=checkbox] { width: 22px; height: 22px; } .optrow label { font-size: 16px; }
@@ -1852,17 +1852,24 @@ function renderRecent_(d) {
   });
 }
 /* ---- جاما ---- */
-let GAMMA = null;
+let GAMMA = null, GSEL = null;
 const gAge_ = ms => { const m = Math.max(0, Math.round(ms / 60000)); if (m < 1) return 'أقل من دقيقة'; if (m < 60) return m + ' دقيقة'; const h = Math.floor(m / 60); if (h < 48) return h + ' ساعة' + (h < 6 && m % 60 ? ' و' + (m % 60) + ' دقيقة' : ''); return Math.floor(h / 24) + ' يوماً'; };
 const bgdDT_ = iso => { try { const t = new Date(iso).getTime(); return isFinite(t) ? new Date(t + 3 * 3600000).toISOString().substr(0, 16).replace('T', ' ') : '—'; } catch (e) { return '—'; } };
 function gammaStatus_(g) {
   if (!g || !g.ok) return 'none';
   const t = new Date(g.snapshot_utc).getTime(); if (!isFinite(t)) return 'stale';
-  const m = (Date.now() - t) / 60000; let st = m < 30 ? 'fresh' : m < 180 ? 'late' : 'stale';
+  const m = (Date.now() - t) / 60000; if (m < -5) return 'stale'; let st = m < 30 ? 'fresh' : m < 180 ? 'late' : 'stale';
   if (g.status === 'stale') st = 'stale'; else if (g.status === 'late' && st === 'fresh') st = 'late';
   return st;
 }
 const gB_ = v => { const n = Number(v) / 1e9; return isFinite(n) ? (n > 0 ? '+' : n < 0 ? '−' : '') + Math.abs(n).toFixed(2) + 'B' : '—'; };
+/* تظليل صف Strike المختار في المخطط (والبطاقة المقابلة) */
+function gMark_(scroll, card) {
+  const rowsEl = document.querySelectorAll('#gChart .gr'); let hit = null;
+  rowsEl.forEach(d => { const on = GSEL != null && Number(d.dataset.k) === GSEL; d.classList.toggle('sel', on); d.setAttribute('aria-pressed', on ? 'true' : 'false'); if (on) hit = d; });
+  document.querySelectorAll('#gLevels .lvb').forEach(b => b.classList.toggle('on', !!card && b === card && !!hit));
+  if (scroll && hit) { try { hit.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) { hit.scrollIntoView(); } }
+}
 function renderGamma_() {
   const g = GAMMA, st = gammaStatus_(g), fr = $('gFresh'); fr.dataset.s = st; fr.innerHTML = '';
   const show = (id, on) => { $(id).hidden = !on; };
@@ -1878,6 +1885,7 @@ function renderGamma_() {
   add('عمر البيانات', isFinite(t) ? gAge_(Date.now() - t) : '—'); add('وقت الجمع (بغداد)', g.fetched_utc ? bgdDT_(g.fetched_utc) : '—');
   add('المصدر', g.source || '—'); add('الأصل', g.asset || 'SPX'); fr.appendChild(dl);
   if (g.reason) fr.appendChild(el('p', 'src', g.reason));
+  if (isFinite(t) && (Date.now() - t) / 60000 < -5) fr.appendChild(el('p', 'src', '⛔ ختم اللقطة في المستقبل: خلل في توقيت الملف. لا تعتمد هذه الأرقام.'));
   const lg = el('p', 'gleg'); [['lg', '● طازجة (أقل من 30 دقيقة)'], ['lw', ' ● متأخرة (حتى 3 ساعات)'], ['lc', ' ● قديمة']].forEach(x => lg.appendChild(el('span', x[0], x[1]))); fr.appendChild(lg);
   const stamp = ' · لقطة ' + (g.snapshot_et || '') + ' نيويورك';
   const spot = Number(g.spot), es = g.es, esOk = !!es && isFinite(Number(es.basis)) && isFinite(Number(es.ref_gap_min)) && Number(es.ref_gap_min) <= 5, bs = esOk ? Number(es.basis) : 0;
@@ -1888,8 +1896,8 @@ function renderGamma_() {
   const reg = el('span', 'greg ' + (g.regime === 'negative' ? 'neg' : 'pos'), g.regime === 'negative' ? 'غاما سلبية' : 'غاما إيجابية'); lv.appendChild(reg);
   lv.appendChild(el('p', 'src', 'الصافي الإجمالي: ' + gB_(g.net_gex) + ' $ (بنموذج تقدير مراكز صناع السوق).'));
   const gr = el('div', 'glv');
-  [['Gamma Flip', g.gamma_flip], ['السعر (SPX)', spot], ['Call Wall', g.call_wall], ['Put Wall', g.put_wall]].forEach(x => {
-    const b = el('div'); b.appendChild(el('small', '', x[0]));
+  [['Gamma Flip', g.gamma_flip, 'lv-fl'], ['السعر (SPX)', spot, 'lv-sp'], ['Call Wall', g.call_wall, 'lv-cw'], ['Put Wall', g.put_wall, 'lv-pw']].forEach(x => {
+    const b = el('div', 'lvb ' + x[2]); b.setAttribute('role', 'button'); b.tabIndex = 0; b.dataset.v = x[1] == null ? '' : String(x[1]); b.appendChild(el('small', '', x[0]));
     const v = Number(x[1]); b.appendChild(el('b', '', x[1] == null || !isFinite(v) ? '—' : String(v)));
     const e2 = el('div', 'es'); if (x[1] != null && isFinite(v)) { e2.appendChild(document.createTextNode(esOk ? 'ES≈' + conv(v) : 'ES: —')); if (esOk) e2.appendChild(el('span', 'tg', 'تقريبي')); } b.appendChild(e2); gr.appendChild(b);
   });
@@ -1902,17 +1910,25 @@ function renderGamma_() {
   let rows = (g.strikes || []).filter(r => r && isFinite(Number(r.k))).slice().sort((a, b) => b.k - a.k);
   const near = isFinite(spot) ? rows.filter(r => Math.abs(r.k - spot) <= 120) : rows; if (near.length) rows = near;
   const mx = Math.max(1, ...rows.map(r => Math.max(Math.abs(Number(r.call) || 0), Math.abs(Number(r.put) || 0))));
+  const mxNet = Math.max(1, ...rows.map(r => Math.abs(Number(r.net) || 0)));
   let cur = null; if (isFinite(spot)) rows.forEach(r => { if (!cur || Math.abs(r.k - spot) < Math.abs(cur.k - spot)) cur = r; });
   const nearest = v => { let b = null; rows.forEach(r => { if (v != null && (!b || Math.abs(r.k - v) < Math.abs(b.k - v))) b = r; }); return b; };
   const tags = new Map(); [['Flip', g.gamma_flip], ['Call Wall', g.call_wall], ['Put Wall', g.put_wall]].forEach(x => { const r = nearest(x[1]); if (r && x[1] != null && Math.abs(r.k - x[1]) <= 5) tags.set(r, (tags.get(r) ? tags.get(r) + ' · ' : '') + x[0]); });
   if (!rows.length) ch.appendChild(el('p', 'src', 'لا Strikes في هذه اللقطة.'));
   rows.forEach(r => {
     const d = el('div', 'gr' + (r === cur ? ' cur' : '')), k = el('span', 'k', String(r.k));
-    if (esOk) k.appendChild(el('small', '', 'ES≈' + conv(r.k))); if (tags.get(r)) k.appendChild(el('span', 'tg', tags.get(r))); d.appendChild(k);
+    if (esOk) k.appendChild(el('small', '', 'ES≈' + conv(r.k))); if (tags.get(r)) { const tt = tags.get(r); k.appendChild(el('span', 'tg ' + (/Call Wall/.test(tt) ? 't-cw' : /Put Wall/.test(tt) ? 't-pw' : 't-fl'), tt)); } d.appendChild(k); d.dataset.k = String(r.k); d.tabIndex = 0; d.setAttribute('role', 'button');
     const bar = el('div', 'gbar'), p = el('i', 'p'), c = el('i', 'c');
     p.style.width = (Math.abs(Number(r.put) || 0) / mx * 50).toFixed(1) + '%'; c.style.width = (Math.abs(Number(r.call) || 0) / mx * 50).toFixed(1) + '%'; bar.appendChild(p); bar.appendChild(c); d.appendChild(bar);
-    d.appendChild(el('span', 'n ' + (Number(r.net) > 0 ? 'g' : Number(r.net) < 0 ? 'r' : ''), gB_(r.net))); ch.appendChild(d);
+    const nr = Math.abs(Number(r.net) || 0) / mxNet, nn = el('span', 'n ' + (Number(r.net) > 0 ? 'g' : Number(r.net) < 0 ? 'r' : '') + (nr >= 0.6 ? ' s3' : nr >= 0.25 ? ' s2' : ' s1'), gB_(r.net)); d.appendChild(nn); ch.appendChild(d);
+    const tog = () => { GSEL = GSEL === r.k ? null : r.k; gMark_(false); };
+    d.onclick = tog; d.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tog(); } };
   });
+  lv.querySelectorAll('.lvb').forEach(b => {
+    const go = () => { const v = Number(b.dataset.v); if (b.dataset.v === '' || !isFinite(v)) return; const r = nearest(v); if (!r || Math.abs(r.k - v) > 5) return; GSEL = GSEL === r.k && b.classList.contains('on') ? null : r.k; gMark_(true, b); };
+    b.onclick = go; b.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+  });
+  gMark_(false);
   /* تحويل ES */
   const en = $('gEsNote'); en.innerHTML = ''; show('gEsNote', true); en.appendChild(el('h2', '', 'تحويل Strike إلى مستوى ES (تقريبي)'));
   en.appendChild(el('p', 'src', esOk ? 'ES ≈ Strike + (ES مرجعي − SPX مرجعي) = Strike + ' + bs.toFixed(2) + ' (ES ' + es.es_ref + ' / SPX ' + es.spx_ref + '، فرق التوقيت ' + es.ref_gap_min + ' د)، بخطوة 0.25. فرق الأساس يتغير خلال اليوم، فالتحويل للاسترشاد فقط.'
@@ -2105,7 +2121,7 @@ function fightSvg_(key, lean, inn) {
   let inner;
   if (key === 'support' || key === 'pressure') inner = '<circle r="39" fill="' + (key === 'support' ? G : R)[lv - 1] + '"/><path transform="scale(1.15)" d="' + (key === 'support' ? UP : DN) + '" fill="#fff"/>' + (lv === 3 ? ring : '');
   else if (lv === 1) inner = '<circle r="42" fill="#fff" fill-opacity=".9" stroke="#fff" stroke-width="3"/><circle r="22" fill="var(--bg)" stroke="#fff" stroke-width="3"/>';
-  else inner = '<g class="split"><path d="M0-40A40 40 0 0 1 0 40Z" fill="#2fbf71"/><path d="M0-40A40 40 0 0 0 0 40Z" fill="#e5484d"/><circle r="18" fill="var(--bg)"/></g>' + (lv === 3 ? ring : '');
+  else inner = '<g class="split"><path d="M0-40A40 40 0 0 1 0 40Z" style="fill:color-mix(in srgb,var(--ok) 52%,var(--bg))"/><path d="M0-40A40 40 0 0 0 0 40Z" style="fill:color-mix(in srgb,var(--crit) 52%,var(--bg))"/><circle r="18" fill="var(--bg)"/></g>' + (lv === 3 ? ring : '');
   return '<svg viewBox="-50 -50 100 100" class="fight l' + lv + '" aria-hidden="true">' + inner + '</svg>';
 }
 function gaugeZones_(id, cols) { const g = $(id).querySelector('.zn'); if (g.dataset.k === cols.join()) return; g.dataset.k = cols.join(); g.innerHTML = ''; const n = cols.length, gap = 0.035, R = 80, pt = f => { const a = Math.PI * (1 - f); return (100 + R * Math.cos(a)).toFixed(2) + ' ' + (100 - R * Math.sin(a)).toFixed(2); };
