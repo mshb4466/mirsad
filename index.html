@@ -527,6 +527,7 @@
   .gleg { font-size: 13.5px; color: var(--muted); margin: 8px 0 0; } .gleg .lg { color: var(--ok); } .gleg .lw { color: var(--warn); } .gleg .lc { color: var(--crit); }
   .greg { display: inline-block; border-radius: 99px; padding: 3px 14px; font: 900 18px var(--font-body); color: #fff; } .greg.pos { background: var(--ok); } .greg.neg { background: var(--crit); }
   .glv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 10px 0 0; } .glv > div { background: var(--card-2); border-radius: 12px; padding: 8px; text-align: center; min-width: 0; } .glv small { display: block; color: var(--muted); font-size: 13px; font-weight: 700; } .glv b { font: 900 22px var(--font-mono); direction: ltr; unicode-bidi: isolate; } .glv .es { font-size: 13px; color: var(--muted); direction: ltr; unicode-bidi: isolate; } .glv .tg { display: inline-block; background: var(--warn-bg); color: var(--fg); border: 1px solid var(--warn); border-radius: 6px; padding: 0 6px; font-size: 12px; font-weight: 700; margin-inline-start: 4px; }
+  #gLine svg { width: 100%; height: auto; display: block; direction: ltr; touch-action: pan-y; } #gLine .pk-l { font: 800 12px var(--font-mono); fill: var(--fg); } #gLine .hv-l { font: 800 13px var(--font-mono); fill: #6c93ff; } #gLine text { unicode-bidi: isolate; }
   .gr { display: flex; align-items: center; gap: 6px; padding: 2px 4px; font-size: 14px; border-radius: 8px; border: 2px solid transparent; cursor: pointer; } .gr:focus-visible { outline: 2px solid var(--brand); } .gr.sel { background: color-mix(in srgb, var(--brand) 28%, transparent); border-color: var(--brand); padding: 7px 4px; font-size: 16px; } .gr.sel .k { font-size: 18px; color: var(--fg); } .gr.sel .gbar { height: 18px; } .gr.sel .gbar i { height: 14px; } .glv > div.lvb { cursor: pointer; border: 2px solid transparent; } .glv > div.lvb:focus-visible, .glv > div.lvb.on { border-color: var(--brand); } .glv .lv-cw b { color: var(--ok); } .glv .lv-pw b { color: var(--crit); } .glv .lv-fl b { color: #6c93ff; } .gr .tg.t-cw { background: var(--ok); color: #fff; } .gr .tg.t-pw { background: var(--crit); color: #fff; } .gr .tg.t-fl { background: #6c93ff; color: #fff; } .gr.cur { background: color-mix(in srgb, var(--brand) 20%, transparent); } .gr .k { width: 92px; flex: none; font: 800 15px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; } .gr .k small { display: block; color: var(--muted); font: 500 12px var(--font-body); } .gr .tg { font: 800 11.5px var(--font-body); color: var(--brand); display: block; }
   .gbar { flex: 1; height: 14px; position: relative; direction: ltr; background: var(--card-2); border-radius: 4px; min-width: 0; } .gbar::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--muted); } .gbar i { position: absolute; top: 2px; height: 10px; } .gbar .c { left: 50%; background: var(--ok); border-radius: 0 3px 3px 0; } .gbar .p { right: 50%; background: var(--crit); border-radius: 3px 0 0 3px; }
   .gr .n { width: 62px; flex: none; text-align: start; font: 700 13px var(--font-mono); direction: ltr; unicode-bidi: isolate; } .gr .n.g { color: var(--ok); } .gr .n.r { color: var(--crit); } .gr .n.s3 { font-weight: 900; font-size: 15px; opacity: 1; } .gr .n.s2 { font-weight: 700; opacity: .75; } .gr .n.s1 { font-weight: 400; opacity: .4; }
@@ -678,6 +679,7 @@
     </section>
     <section class="card gfresh" id="gFresh" data-s="none" aria-live="polite"></section>
     <section class="card" id="gLevels" hidden></section>
+    <section class="card" id="gLine" hidden></section>
     <section class="card" id="gChart" hidden></section>
     <section class="card" id="gEsNote" hidden></section>
     <section class="card" id="gSpy"><h2>SPY</h2><p class="gspy">SPY Gamma Data Unavailable</p><p class="src">لا يوجد مصدر موثوق لغاما SPY لكل Strike حالياً، ولا تُعرض أرقام بديلة.</p></section>
@@ -1877,7 +1879,7 @@ function renderGamma_() {
   fr.appendChild(el('h2', '', TT[st]));
   if (st === 'none') {
     fr.appendChild(el('p', 'src', (g && g.reason) || 'لم يصل ملف الغاما بعد أو لم تُجمع لقطة صالحة. لا تُعرض أرقام قديمة على أنها حالية.'));
-    ['gLevels', 'gChart', 'gEsNote'].forEach(i => show(i, false)); return;
+    ['gLevels', 'gLine', 'gChart', 'gEsNote'].forEach(i => show(i, false)); return;
   }
   const t = new Date(g.snapshot_utc).getTime(), dl = el('dl');
   const add = (k, v) => { const r = el('div'); r.appendChild(el('dt', '', k)); r.appendChild(el('dd', '', v)); dl.appendChild(r); };
@@ -1903,6 +1905,41 @@ function renderGamma_() {
   });
   lv.appendChild(gr);
   if (g.gamma_flip == null) lv.appendChild(el('p', 'src', 'Gamma Flip غير محدد في هذه اللقطة.'));
+  /* مخطط الخط: صافي GEX لكل Strike، الصفر أفقي، قمم بخطوط نازلة وأرقام Strike مائلة تحت المحور */
+  (function () {
+    const box = $('gLine'); box.innerHTML = '';
+    let pr = (g.strikes || []).filter(r => r && isFinite(Number(r.k)) && isFinite(Number(r.net))).slice().sort((a, b) => a.k - b.k);
+    if (isFinite(spot)) { const nr2 = pr.filter(r => Math.abs(r.k - spot) <= 120); if (nr2.length >= 5) pr = nr2; }
+    if (pr.length < 5) { show('gLine', false); return; }
+    show('gLine', true);
+    box.appendChild(el('h2', '', 'صافي Gamma حسب Strike (خط)' + stamp));
+    box.appendChild(el('p', 'src', 'الأفقي: Strike (SPX). العمودي: صافي GEX، والخط الأبيض الأفقي = الصفر، فوقه إيجابي (أخضر) وتحته سلبي (أحمر). من كل قمة خط نازل إلى المحور وعليه رقم Strike. حرّك المؤشر أو المس أي نقطة لرؤية Strike الخاص بها.'));
+    const W = 400, H = 300, Lm = 46, Rm = 10, Tm = 26, Bm = 58, base = H - Bm, v = pr.map(r => Number(r.net) / 1e9);
+    let mn = Math.min(0, ...v), mx = Math.max(0, ...v); const pad = (mx - mn) * .1 || 1; mn -= pad; mx += pad;
+    const k0 = pr[0].k, k1 = pr[pr.length - 1].k, X = k => Lm + (k - k0) / (k1 - k0 || 1) * (W - Lm - Rm), Y = y => Tm + (mx - y) / (mx - mn) * (base - Tm);
+    const P = pr.map((r, i) => [X(r.k), Y(v[i])]), z = Y(0), f1 = n => n.toFixed(1);
+    const NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'مخطط صافي Gamma لكل Strike');
+    const add = (tag, at, txt, parent) => { const n = document.createElementNS(NS, tag); Object.keys(at).forEach(k => n.setAttribute(k, at[k])); if (txt != null) n.textContent = txt; (parent || svg).appendChild(n); return n; };
+    const step = Math.max(1, Math.ceil((mx - mn) / 4)); for (let t = Math.ceil(mn / step) * step; t <= mx; t += step) { add('line', { x1: Lm, x2: W - Rm, y1: f1(Y(t)), y2: f1(Y(t)), stroke: 'currentColor', 'stroke-opacity': .15, 'stroke-width': .6 }); add('text', { x: Lm - 4, y: f1(Y(t) + 3), 'text-anchor': 'end', 'font-size': 9, fill: 'currentColor', 'fill-opacity': .6 }, (t > 0 ? '+' : '') + t + 'B'); }
+    const area = (cmp, col) => add('path', { d: 'M' + f1(P[0][0]) + ',' + f1(z) + ' ' + P.map(p => 'L' + f1(p[0]) + ',' + f1(cmp(p[1], z))).join(' ') + ' L' + f1(P[P.length - 1][0]) + ',' + f1(z) + 'Z', fill: col, 'fill-opacity': .3 });
+    area(Math.min, 'var(--ok)'); area(Math.max, 'var(--crit)');
+    add('line', { x1: Lm, x2: W - Rm, y1: f1(z), y2: f1(z), stroke: 'var(--fg)', 'stroke-width': 1.6, class: 'zero' });
+    add('line', { x1: Lm, x2: W - Rm, y1: base, y2: base, stroke: 'currentColor', 'stroke-opacity': .4 });
+    add('polyline', { points: P.map(p => f1(p[0]) + ',' + f1(p[1])).join(' '), fill: 'none', stroke: 'var(--fg)', 'stroke-width': 1.5 });
+    [['Put Wall', g.put_wall, 'var(--crit)'], ['Call Wall', g.call_wall, 'var(--ok)'], ['السعر', spot, '#6c93ff'], ['Flip', g.gamma_flip, '#6c93ff']].forEach((x, i) => { const n = Number(x[1]); if (x[1] == null || !isFinite(n) || n < k0 || n > k1) return; add('line', { x1: f1(X(n)), x2: f1(X(n)), y1: Tm, y2: base, stroke: x[2], 'stroke-width': 1.2, 'stroke-dasharray': '1 3' }); add('text', { x: f1(X(n)), y: Tm - 8 - (i === 1 ? 10 : 0), 'text-anchor': 'middle', 'font-size': 9, fill: x[2] }, x[0]); });
+    const pick = (ord, n) => { const c = []; for (const i of ord) { if (c.every(j => Math.abs(i - j) >= 3)) c.push(i); if (c.length === n) break; } return c; };
+    const idx = v.map((_, i) => i), pos = pick(idx.filter(i => v[i] > 0).sort((a, b) => v[b] - v[a]), 3), neg = pick(idx.filter(i => v[i] < 0).sort((a, b) => v[a] - v[b]), 3);
+    const drop = (i, col, cls, lbl) => { add('line', { x1: f1(P[i][0]), x2: f1(P[i][0]), y1: f1(P[i][1]), y2: base, stroke: col, 'stroke-width': 1, 'stroke-dasharray': '3 3', class: cls }); add('circle', { cx: f1(P[i][0]), cy: f1(P[i][1]), r: 3, fill: col, class: cls }); add('text', { transform: 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)', 'text-anchor': 'start', class: lbl }, String(pr[i].k)); };
+    pos.forEach(i => drop(i, 'var(--ok)', 'pk', 'pk-l')); neg.forEach(i => drop(i, 'var(--crit)', 'pk', 'pk-l'));
+    const hv = add('g', { class: 'hv', visibility: 'hidden' });
+    const hl = add('line', { y1: Tm, y2: base, stroke: '#6c93ff', 'stroke-width': 1.2 }, null, hv), hc = add('circle', { r: 4.5, fill: '#6c93ff' }, null, hv), ht = add('text', { 'text-anchor': 'start', class: 'hv-l' }, '', hv);
+    const at = ev => { const rc = svg.getBoundingClientRect(), x = (ev.clientX - rc.left) / rc.width * W; let b = 0; P.forEach((p, i) => { if (Math.abs(p[0] - x) < Math.abs(P[b][0] - x)) b = i; }); return b; };
+    const show1 = i => { hv.setAttribute('visibility', 'visible'); hl.setAttribute('x1', f1(P[i][0])); hl.setAttribute('x2', f1(P[i][0])); hc.setAttribute('cx', f1(P[i][0])); hc.setAttribute('cy', f1(P[i][1])); ht.setAttribute('transform', 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)'); ht.textContent = String(pr[i].k); };
+    svg.addEventListener('pointermove', ev => show1(at(ev))); svg.addEventListener('pointerdown', ev => show1(at(ev)));
+    svg.addEventListener('pointerleave', () => hv.setAttribute('visibility', 'hidden'));
+    svg.addEventListener('click', ev => { const i = at(ev); GSEL = pr[i].k; gMark_(false); });
+    box.appendChild(svg);
+  })();
   /* المخطط */
   const ch = $('gChart'); ch.innerHTML = ''; show('gChart', true);
   ch.appendChild(el('h2', '', 'Gamma لكل Strike' + stamp));
