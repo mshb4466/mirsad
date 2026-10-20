@@ -1883,7 +1883,7 @@ function gMark_(scroll, card) {
   document.querySelectorAll('#gLevels .lvb').forEach(b => b.classList.toggle('on', !!card && b === card && !!hit));
   if (scroll && hit) { try { hit.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) { hit.scrollIntoView(); } }
 }
-const GBN_ = { all: 'الكل', '0': 'اليوم 0DTE', '1-7': '1–7 أيام', '8-30': '8–30 يوماً', '30+': 'أكثر من 30' }, GBKS_ = ['all', '0', '1-7', '8-30', '30+'];
+const GBN_ = { all: 'الكل', '0': 'اليوم 0DTE', wk: 'بقية الأسبوع', mo: 'بقية الشهر', later: 'ما بعد الشهر' }, GBKS_ = ['all', '0', 'wk', 'mo', 'later'];
 /* بيانات أصل وسلة: SPX من الجذر/السلال، SPY من g.spy (Strike السباي محوَّل إلى مكافئ SPX في k) */
 function gData_(g, asset, b) {
   if (!g || !g.ok) return null;
@@ -2064,7 +2064,7 @@ function renderGamma_() {
   const sy = $('gSpy'); sy.innerHTML = ''; show('gSpy', !spyOk);
   if (!spyOk) { sy.appendChild(el('h2', '', 'SPY')); sy.appendChild(el('p', 'gspy', 'SPY Gamma Data Unavailable')); sy.appendChild(el('p', 'src', (g.spy && g.spy.reason ? g.spy.reason + '. ' : '') + 'لا تُعرض أرقام SPY إلا بسعر متزامن وملف صالح.')); }
 }
-/* أزرار الأصل (SPX | SPY | مقارنة) والاستحقاق (الكل | اليوم | 1–7 | 8–30 | +30) */
+/* أزرار الأصل (SPX | SPY | مقارنة) والاستحقاق (الكل | اليوم | بقية الأسبوع | بقية الشهر | ما بعد) */
 function gCtl_(g, on) {
   const c = $('gCtl'); c.innerHTML = ''; c.hidden = !on; if (!on) return;
   const spyOk = !!(g && g.spy && g.spy.ok), seg = el('div', 'gseg'); seg.setAttribute('role', 'group'); seg.setAttribute('aria-label', 'الأصل');
@@ -2080,7 +2080,9 @@ function gCtl_(g, on) {
       const n = gBktN_(g, asset, b), x = el('button', 'gchip' + (GBKT === b ? ' on' : ''), GBN_[b]); x.type = 'button'; x.dataset.b = b; x.disabled = n <= 0; x.setAttribute('aria-pressed', GBKT === b ? 'true' : 'false');
       x.onclick = () => { GBKT = b; GSEL = null; renderGamma_(); }; ch.appendChild(x);
     });
-    c.appendChild(ch); c.appendChild(el('p', 'src', '«الكل» = مجموع السلال الأربع بالضبط، وكل عقد يُحسب مرة واحدة حسب تاريخ استحقاقه. تنتقل العقود بين السلال مع مرور الأيام وتسقط المنتهية.'));
+    c.appendChild(ch);
+    const bi = GBKT !== 'all' && g.buckets[GBKT], rg = bi && bi.from ? 'نطاق الاستحقاق: من ' + bi.from + (bi.to ? ' إلى ' + bi.to : ' فصاعداً') + ' (الأسبوع ينتهي الجمعة، والشهر بآخر يوم فيه). ' : '';
+    c.appendChild(el('p', 'src', rg + '«الكل» = مجموع السلال الأربع بالضبط، وكل عقد يُحسب مرة واحدة حسب تاريخ استحقاقه؛ تنتقل العقود بين السلال مع مرور الأيام وتسقط المنتهية.'));
   }
 }
 /* ملف جاما: من الصفحة نفسها (gamma.json) ومن المستودع مباشرة (الأحدث)، ويُعتمد الأحدث وقتاً. يعمل حتى لو لم يُعاد نشر الصفحة بعد. */

@@ -35,7 +35,7 @@ SOURCE = "CBOE (متأخر ~15 د)"
 MODEL = "GEX = gamma × OI × 100 × spot² × 0.01؛ Call موجب وPut سالب (تقدير مراكز صناع السوق)؛ كل الاستحقاقات (مجموع 4 سلال منفصلة)"
 OPT_RE = re.compile(r"^(SPXW?|SPX)(\d{6})([CP])(\d{8})$")
 SPY_RE = re.compile(r"^(SPY)(\d{6})([CP])(\d{8})$")
-BUCKETS = ("0", "1-7", "8-30", "30+")       # سلال استحقاق منفصلة لا تتداخل: يوم الاستحقاق = اليوم / 1–7 / 8–30 / أكثر من 30 يوماً
+BUCKETS = ("0", "wk", "mo", "later")        # سلال تقويمية منفصلة لا تتداخل: اليوم / بقية الأسبوع (حتى الجمعة) / بقية الشهر / ما بعد الشهر
 SPY_MAX_GAP_MIN = 30                          # أقصى فرق بين ختم ملفي SPX وSPY لاعتماد SPY
 OUT_DIR = "gamma"
 WALL_BAND = 0.04           # الجدران: Call Wall فوق السعر وPut Wall تحته ضمن ±4%
@@ -109,11 +109,29 @@ def _exp_date(exp):
     return datetime.strptime("20" + exp, "%Y%m%d").date()
 
 
-def bucket_of(days):
-    """سلة الاستحقاق: كل عقد ينتمي لسلة واحدة فقط (لا تداخل)."""
-    if days <= 0:
+def bucket_bounds(ref_day):
+    """حدود السلال التقويمية من يوم اللقطة: {سلة: (من, إلى)}، إلى=None تعني بلا نهاية. لا تتداخل ولا تترك فجوة.
+    الأسبوع ينتهي أول جمعة ≥ اليوم (في عطلة الأسبوع = الجمعة القادمة)؛ والشهر ينتهي آخر يوم من شهر اليوم؛
+    وإن عبر الأسبوعُ نهايةَ الشهر تكون سلة «بقية الشهر» فارغة وتبدأ «ما بعد» بعد نهاية الأسبوع."""
+    from datetime import date as _d
+    wk_end = ref_day + timedelta(days=(4 - ref_day.weekday()) % 7)
+    nxt = _d(ref_day.year + (ref_day.month == 12), ref_day.month % 12 + 1, 1)
+    mo_end = nxt - timedelta(days=1)
+    last = max(wk_end, mo_end)
+    return {"0": (ref_day, ref_day), "wk": (ref_day + timedelta(days=1), wk_end),
+            "mo": (wk_end + timedelta(days=1), mo_end), "later": (last + timedelta(days=1), None)}
+
+
+def bucket_of(exp_day, ref_day):
+    """سلة الاستحقاق لتاريخ انتهاء: كل عقد ينتمي لسلة واحدة فقط (لا تداخل). المنتهي قبل اليوم يُعد «اليوم» هنا؛
+    يُستبعد قبل ذلك في compute عند تمرير today."""
+    b = bucket_bounds(ref_day)
+    if exp_day <= b["0"][1]:
         return "0"
-    return "1-7" if days <= 7 else "8-30" if days <= 30 else "30+"
+    for k in ("wk", "mo"):
+        if b[k][0] <= exp_day <= b[k][1]:
+            return k
+    return "later"
 
 
 def _rows(spot, contracts):
@@ -143,7 +161,7 @@ def compute(spot, contracts, ref_utc=None, today=None):
         contracts = [c for c in contracts if _exp_date(c["exp"]) >= today]
     groups = {b: [] for b in BUCKETS}
     for c in contracts:
-        groups[bucket_of((_exp_date(c["exp"]) - ref_day).days)].append(c)
+        groups[bucket_of(_exp_date(c["exp"]), ref_day)].append(c)
     rows = _rows(spot, contracts)
     net = sum(r["net"] for r in rows)
     call_wall, put_wall = _walls(rows, spot)
@@ -152,10 +170,12 @@ def compute(spot, contracts, ref_utc=None, today=None):
     inband = lambda rs: [r for r in rs if abs(r["k"] - spot) <= spot * STRIKE_BAND]
     keep = inband(rows)
     buckets = {}
+    bnd = bucket_bounds(ref_day)
     for b in BUCKETS:
         br = _rows(spot, groups[b]) if groups[b] else []
         cw, pw = _walls(br, spot) if br else (None, None)
-        buckets[b] = {"n": len(groups[b]), "net_gex": sum(r["net"] for r in br), "call_wall": cw, "put_wall": pw, "strikes": inband(br)}
+        lo, hi = bnd[b]
+        buckets[b] = {"from": lo.isoformat(), "to": hi.isoformat() if hi else None, "n": len(groups[b]), "net_gex": sum(r["net"] for r in br), "call_wall": cw, "put_wall": pw, "strikes": inband(br)}
     return {"net_gex": net, "regime": "positive" if net >= 0 else "negative", "gamma_flip": flip,
             "call_wall": call_wall, "put_wall": put_wall, "strikes": keep, "buckets": buckets,
             "expiries": ["20" + e[:2] + "-" + e[2:4] + "-" + e[4:] for e in exps], "n_contracts": len(contracts)}
