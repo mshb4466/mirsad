@@ -119,19 +119,19 @@
       "name": "ES",
       "short": "ES",
       "w": 180,
-      "v": 0.43,
+      "v": 0.44,
       "th": 0.8,
       "ratio": 0.54,
-      "val": "+0.43%",
+      "val": "+0.44%",
       "thr": "±0.8%",
-      "c15": "+0.06%",
-      "c60": "+0.06%",
-      "c180": "+0.43%",
+      "c15": "-0.02%",
+      "c60": "-0.04%",
+      "c180": "+0.44%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": null,
-      "z": 1.5,
+      "eff": 0.19,
+      "z": 0.3,
       "volx": 0.1
     },
     {
@@ -139,38 +139,38 @@
       "name": "ناسداك",
       "short": "NQ",
       "w": 180,
-      "v": 0.79,
+      "v": 0.89,
       "th": 1.0,
-      "ratio": 0.79,
-      "val": "+0.79%",
+      "ratio": 0.89,
+      "val": "+0.89%",
       "thr": "±1%",
-      "c15": "+0.20%",
-      "c60": "+0.20%",
-      "c180": "+0.79%",
+      "c15": "-0.09%",
+      "c60": "+0.13%",
+      "c180": "+0.89%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": null,
-      "z": 2.7,
+      "eff": 0.29,
+      "z": 0.6,
       "volx": 0.2
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": 0.19,
-      "th": 2.4,
-      "ratio": 0.08,
-      "val": "+0.19%",
-      "thr": "±2.4%",
-      "c15": "+0.01%",
-      "c60": "+0.01%",
-      "c180": "+0.19%",
+      "w": 15,
+      "v": 0.13,
+      "th": 0.9,
+      "ratio": 0.15,
+      "val": "+0.13%",
+      "thr": "±0.9%",
+      "c15": "+0.13%",
+      "c60": "-0.03%",
+      "c180": "-0.12%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": null,
+      "eff": 0.09,
       "z": 0.1,
       "volx": 0.1
     },
@@ -179,104 +179,84 @@
       "name": "الذهب",
       "short": "ذهب",
       "w": 15,
-      "v": 0.06,
+      "v": -0.13,
       "th": 0.45,
-      "ratio": 0.12,
-      "val": "+0.06%",
+      "ratio": 0.3,
+      "val": "-0.13%",
       "thr": "±0.45%",
-      "c15": "+0.06%",
-      "c60": "+0.06%",
-      "c180": "+0.04%",
+      "c15": "-0.13%",
+      "c60": "+0.03%",
+      "c180": "+0.14%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": null,
-      "z": 0.9,
-      "volx": 0.1
-    },
-    {
-      "key": "dxy",
-      "name": "الدولار DXY",
-      "short": "دولار",
-      "w": 15,
-      "v": 0.02,
-      "th": 0.18,
-      "ratio": 0.1,
-      "val": "+0.02%",
-      "thr": "±0.18%",
-      "c15": "+0.02%",
-      "c60": "+0.02%",
-      "c180": "+0.02%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.56,
-      "z": 0.3,
-      "volx": null
+      "eff": 0.08,
+      "z": 0.1,
+      "volx": 0.6
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 15,
-      "v": 0.11,
-      "th": 0.25,
-      "ratio": 0.45,
-      "val": "+0.11%",
-      "thr": "±0.25%",
-      "c15": "+0.11%",
-      "c60": "+0.10%",
+      "w": 60,
+      "v": 0.09,
+      "th": 0.4,
+      "ratio": 0.22,
+      "val": "+0.09%",
+      "thr": "±0.4%",
+      "c15": "-0.01%",
+      "c60": "+0.09%",
       "c180": "+0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.6,
-      "z": 1.7,
+      "eff": 0.48,
+      "z": 1.5,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-20T22:13:03.084098+00:00",
-        "ok_at": "2026-10-20T22:13:03.084098+00:00"
+        "last_try": "2026-10-20T22:45:31.682011+00:00",
+        "ok_at": "2026-10-20T22:45:31.682011+00:00"
       },
       "fred": {
-        "last_try": "2026-10-20T22:13:03.084098+00:00",
-        "ok_at": "2026-10-20T22:13:03.084098+00:00"
+        "last_try": "2026-10-20T22:45:31.682011+00:00",
+        "ok_at": "2026-10-20T22:45:31.682011+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-20T22:13:03.084098+00:00",
-        "ok_at": "2026-10-20T22:13:03.084098+00:00"
+        "last_try": "2026-10-20T22:45:31.682011+00:00",
+        "ok_at": "2026-10-20T22:45:31.682011+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-20T22:13:03.084098+00:00",
-        "ok_at": "2026-10-20T22:13:03.084098+00:00"
+        "last_try": "2026-10-20T22:45:31.682011+00:00",
+        "ok_at": "2026-10-20T22:45:31.682011+00:00"
       },
       "oil": {
-        "last_try": "2026-10-20T22:13:03.084098+00:00",
-        "ok_at": "2026-10-20T22:13:03.084098+00:00"
+        "last_try": "2026-10-20T22:45:31.682011+00:00",
+        "ok_at": "2026-10-20T22:45:31.682011+00:00"
       },
       "news": {
-        "last_try": "2026-10-20T22:13:03.084098+00:00",
-        "ok_at": "2026-10-20T22:13:03.084098+00:00"
+        "last_try": "2026-10-20T22:45:31.682011+00:00",
+        "ok_at": "2026-10-20T22:45:31.682011+00:00"
       },
       "cot": {
-        "last_try": "2026-10-20T22:13:03.084098+00:00",
-        "ok_at": "2026-10-20T22:13:03.084098+00:00"
+        "last_try": "2026-10-20T22:45:31.682011+00:00",
+        "ok_at": "2026-10-20T22:45:31.682011+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-20T22:13:03.084098+00:00",
-        "ok_at": "2026-10-20T22:13:03.084098+00:00"
+        "last_try": "2026-10-20T22:45:31.682011+00:00",
+        "ok_at": "2026-10-20T22:45:31.682011+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-20T22:13:03.084098+00:00"
+      "at": "2026-10-20T22:45:31.682011+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-20T21:43:17.566826+00:00",
+    "at": "2026-10-20T22:45:31.682011+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -313,35 +293,45 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-20T20:25:00+00:00",
+            "t": "2026-10-20T21:17:00+00:00",
+            "title": "Oil Futures Settle Lower in Volatile Session",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-20T21:14:47+00:00",
+            "title": "Dow outperforms as Wall Street rises, healthcare stocks lead gains",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-20T20:38:00+00:00",
             "title": "Exclusive | Musk Ordered Starlink Slowdown That Blindsided Ukraine",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-20T20:01:09+00:00",
+            "t": "2026-10-20T20:00:50+00:00",
             "title": "Dow leads Wall Street higher, investors focus on healthcare stocks",
-            "src": "Reuters"
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-10-20T19:30:00+00:00",
             "title": "Exclusive | Anthropic S-1 Shows Red-Hot Growth, Risks and Massive Computing Costs",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-20T18:13:13+00:00",
-            "title": "Wall Street brings blockchain into the fold",
-            "src": "Axios"
-          },
-          {
-            "t": "2026-10-20T17:00:23+00:00",
-            "title": "Astera Labs (ALAB): Is the AI-Connectivity Competitor Ready for the S&P 500?",
-            "src": "Yahoo Finance"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-10-20T21:37:00+00:00",
+            "title": "SpaceX Pops After First-Ever Profit Easily Beats; Tesla Merger Mulled",
+            "src": "Investor's Business Daily"
+          },
+          {
+            "t": "2026-10-20T21:30:42+00:00",
+            "title": "META Earnings & 2 Other AI-Related Reports to Watch This Week",
+            "src": "The Globe and Mail"
+          },
           {
             "t": "2026-10-20T21:13:00+00:00",
             "title": "Futures Rise On SpaceX Earnings; Tesla, Meta Due",
@@ -353,19 +343,9 @@
             "src": "The Capitol Forum"
           },
           {
-            "t": "2026-10-20T20:24:57+00:00",
-            "title": "META vs Tesla earnings setup ahead of Q3 2026 results",
-            "src": "Investing.com"
-          },
-          {
-            "t": "2026-10-20T20:13:00+00:00",
-            "title": "Tesla (TSLA) Q3 2026 earnings preview: flat revenue, falling profits",
-            "src": "Electrek"
-          },
-          {
-            "t": "2026-10-20T20:12:00+00:00",
-            "title": "Here’s How Much Meta Stock Is Expected to Move After Earnings",
-            "src": "Investopedia"
+            "t": "2026-10-20T20:49:33+00:00",
+            "title": "S&P 500 Rises to 7,712.57 Ahead of Meta and Tesla Earnings",
+            "src": "www.tokenpost.com"
           }
         ]
       },
@@ -403,24 +383,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-20T21:28:20+00:00",
+            "t": "2026-10-20T21:54:06+00:00",
+            "title": "Rogers, El-Sayed outline differing approaches to tariffs and AI during Detroit Economic Club forum",
+            "src": "Michigan Advance"
+          },
+          {
+            "t": "2026-10-20T21:44:09+00:00",
+            "title": "Tariffs on Metals, Autos Mire Down U.S.-Mexico Trade Talks",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-20T21:37:19+00:00",
             "title": "Trump’s 50% Canada tariffs challenged in court",
             "src": "Supply Chain Dive"
           },
           {
-            "t": "2026-10-20T21:22:30+00:00",
+            "t": "2026-10-20T21:23:50+00:00",
             "title": "US food importer sues Trump over 50 percent tariffs on Canadian goods",
             "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-10-20T21:03:00+00:00",
-            "title": "Fact✓Check | Barr, Booker spar over tariffs and bourbon ahead of Kentucky Senate race",
-            "src": "WKYT"
-          },
-          {
-            "t": "2026-10-20T20:57:38+00:00",
-            "title": "New Jersey food importer files lawsuit challenging Trump's 50% tariffs on Canadian goods",
-            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
@@ -453,7 +433,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-20T22:13:03.084098+00:00",
+    "at": "2026-10-20T22:45:31.682011+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -684,14 +664,14 @@
     "US|growth:core-retail-sales-m-m|2026-10-15|1230": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 35,
+      "attempts": 36,
       "title": "Core Retail Sales m/m",
       "time": "2026-10-15T12:30:00+00:00",
       "impact": "High",
       "forecast": "0.6%",
       "previous": "1.4%",
       "country": "USD",
-      "last_attempt": "2026-10-19T23:42:00.938119+00:00",
+      "last_attempt": "2026-10-20T22:45:31.682011+00:00",
       "note": ""
     },
     "US|ppi|mm|2026-09|-|2026-10-15": {
@@ -766,15 +746,15 @@
     "US|oil:crude-oil-inventories|2026-10-15|1600": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 30,
+      "attempts": 31,
       "title": "Crude Oil Inventories",
       "time": "2026-10-15T16:00:00+00:00",
       "impact": "Low",
       "forecast": "0.2M",
       "previous": "-3.2M",
       "country": "USD",
-      "last_attempt": "2026-10-19T23:42:00.938119+00:00",
-      "note": ""
+      "last_attempt": "2026-10-20T22:45:31.682011+00:00",
+      "note": "لم يصل الرقم من FRED بعد"
     },
     "US|indpro|mm|2026-09|-|2026-10-16": {
       "actual": "0.7%",
@@ -5661,12 +5641,58 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "لم يصل الرقم من FRED بعد"
+    },
+    {
+      "id": "US|growth:core-retail-sales-m-m|2026-10-15|1230",
+      "title": "Core Retail Sales m/m",
+      "release_time": "2026-10-15T12:30:00+00:00",
+      "fetched_at": "2026-10-20T22:45:31.682011+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "0.6%",
+      "previous": "1.4%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": ""
+    },
+    {
+      "id": "US|oil:crude-oil-inventories|2026-10-15|1600",
+      "title": "Crude Oil Inventories",
+      "release_time": "2026-10-15T16:00:00+00:00",
+      "fetched_at": "2026-10-20T22:45:31.682011+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "0.2M",
+      "previous": "-3.2M",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-20T22:13:03.084098+00:00",
+  "last_publish_ok": "2026-10-20T22:45:31.682011+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-20T22:13:31.666906+00:00"
+    "at": "2026-10-20T22:46:05.820090+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5731,12 +5757,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-20T22:13:03.084098+00:00",
-    "ok_at": "2026-10-20T22:13:03.084098+00:00",
+    "at": "2026-10-20T22:45:31.682011+00:00",
+    "ok_at": "2026-10-20T22:45:31.682011+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-20T22:13:03.084098+00:00",
+    "at": "2026-10-20T22:45:31.682011+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
