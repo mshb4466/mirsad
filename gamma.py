@@ -53,7 +53,7 @@ def to_ny(dt):
 
 def fetch(url=None, timeout=90, tries=3):
     last = None
-    for u in ([url] if url else URLS):
+    for u in (list(url) if isinstance(url, (list, tuple)) else [url] if url else URLS):
         for i in range(tries):
             try:
                 t0 = time.time()
@@ -222,8 +222,9 @@ def validate(res, spot, contracts, prev=None):
 def _pair(a, b):
     """آخر دقيقة مشتركة بين رمزين (yfinance 1m). يعيد (t, قيمة_a, قيمة_b) أو None."""
     import yfinance as yf
-    sa = yf.Ticker(a).history(period="1d", interval="1m", auto_adjust=False)["Close"].dropna()
-    sb = yf.Ticker(b).history(period="1d", interval="1m", auto_adjust=False)["Close"].dropna()
+    # 5 أيام لا يوماً واحداً: ES=F يتداول ليلاً فيكون «اليوم» عنده جلسة جديدة بينما ^GSPC ما زال على جلسة الأمس ولا تقاطع بينهما
+    sa = yf.Ticker(a).history(period="5d", interval="1m", auto_adjust=False)["Close"].dropna()
+    sb = yf.Ticker(b).history(period="5d", interval="1m", auto_adjust=False)["Close"].dropna()
     idx = sa.index.intersection(sb.index)
     if len(idx) == 0:
         return None
