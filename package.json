@@ -1,0 +1,8 @@
+{
+  "name": "mirsad-ui-checks",
+  "version": "0.22.1",
+  "private": true,
+  "description": "Local browser acceptance checks; no production JavaScript dependencies",
+  "scripts": {"test:ui": "node tests_ui_v022.cjs", "test:selection": "node tests_expiry_selection.cjs"},
+  "devDependencies": {"playwright": "1.62.1"}
+}

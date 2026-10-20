@@ -24,7 +24,7 @@ try:
     spot, ts, cs = gamma.parse_chain(chain())
     ok(spot == 7000.0 and len(cs) == 80, "تحليل 80 عقداً وتجاهل الرموز الغريبة")
     ok(ts.tzinfo is not None and ts.hour == 13 and ts.minute == 30, "09:30 EDT = 13:30 UTC")
-    r = gamma.compute(spot, cs)
+    r = gamma.compute(spot, cs, ts)
     ok(r["regime"] in ("positive", "negative") and len(r["strikes"]) >= 20, "نتائج الحساب")
     ok(all("oi" not in s and "open_interest" not in s for s in r["strikes"]), "لا OI في المخرجات")
     c0 = next(x for x in r["strikes"] if x["k"] == 7000.0)
@@ -32,7 +32,7 @@ try:
     ok(r["expiries"] == ["2026-10-20"], "الاستحقاقات")
     ok(gamma.validate(r, spot, cs) is None, "لقطة سليمة")
     zs, _, zc = gamma.parse_chain(chain(zero=True))
-    ok("gamma" in (gamma.validate(gamma.compute(zs, zc), zs, zc) or "") or gamma.validate(gamma.compute(zs, zc), zs, zc), "gamma الصفرية تُرفض")
+    ok("gamma" in (gamma.validate(gamma.compute(zs, zc, ts), zs, zc) or "") or gamma.validate(gamma.compute(zs, zc, ts), zs, zc), "gamma الصفرية تُرفض")
     ok(gamma.validate(r, None, cs), "بدون سعر تُرفض")
     for bad in ({}, {"data": {}}, {"data": {"options": []}, "timestamp": "2026-10-19 13:30:00"}):
         try:
@@ -86,7 +86,7 @@ try:
                                  "iv": 0.18, "open_interest": 800.0 + (i * 37) % 500 + (300 if kind == "C" else 0), "volume": 1.0})
         return {"timestamp": ts, "data": {"current_price": spot, "options": opts}}
     from datetime import date
-    ok([gamma.bucket_of(d) for d in (0, 1, 7, 8, 30, 31, 400)] == ["0", "1-7", "1-7", "8-30", "8-30", "30+", "30+"], "حدود السلال")
+    ok([gamma.bucket_of(date(2026,10,d), date(2026,10,19)) for d in (19,20,23,24,31)] == ["0","wk","wk","mo","mo"], "حدود السلال التقويمية")
     sp2, ts2, cs2 = gamma.parse_chain(multi())
     r2 = gamma.compute(sp2, cs2, datetime(2026, 10, 19, 13, 30, tzinfo=timezone.utc), date(2026, 10, 19))
     ok(r2["n_contracts"] == 5 * 80, "العقود المنتهية (261016) استُبعدت من «الكل»")
@@ -98,7 +98,7 @@ try:
         ok(abs(tot - row["net"]) <= 1e-6 * max(1.0, abs(row["net"])), "مجموع السلال لكل Strike = «الكل» عند %s" % row["k"])
     # تتحرك السلال مع اليوم: غداً يصير 261019 منتهياً و261022 سلة 1-7 (يوم +2) ثم 261030 في 8-30
     r3 = gamma.compute(sp2, cs2, datetime(2026, 10, 20, 13, 30, tzinfo=timezone.utc), date(2026, 10, 20))
-    ok(r3["n_contracts"] == 4 * 80 and r3["buckets"]["0"]["n"] == 0 and r3["buckets"]["1-7"]["n"] == 80, "انتقال السلال وسقوط المنتهي مع تغيّر اليوم")
+    ok(r3["n_contracts"] == 4 * 80 and r3["buckets"]["0"]["n"] == 0 and r3["buckets"]["wk"]["n"] == 80, "انتقال السلال وسقوط المنتهي مع تغيّر اليوم")
     # لقطة كاملة: Strikes مقرّبة والصافي = Call + Put، والأرشيف مختصر والـlatest كامل
     sb = gamma.build(multi(), fetched=datetime(2026, 10, 19, 13, 40, tzinfo=timezone.utc), with_es=False)
     ok(sb["ok"] and set(sb["buckets"]) == set(gamma.BUCKETS) and all(isinstance(x["call"], int) and x["net"] == x["call"] + x["put"] for x in sb["strikes"]), "اللقطة: سلال + أعداد صحيحة متسقة")

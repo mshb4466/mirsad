@@ -1,2 +1,4 @@
 # التشغيل (GitHub Actions): yfinance فقط؛ كل ما عداه مكتبة بايثون القياسية
 yfinance>=0.2.40
+
+tzdata>=2025.1  # IANA New York DST on Windows

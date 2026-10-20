@@ -74,9 +74,13 @@ jobs:
         run: |
           mkdir -p docs
           if [ -f index.html ]; then cp -f index.html docs/index.html; fi
+          for f in expiry-selection.js es-conversion.js gamma-map.js gamma-heatmap.js layout-v022.css layout-v022.js; do [ ! -f "$f" ] || cp -f "$f" docs/; done
           if [ -d icons ]; then mkdir -p docs/icons && cp -f icons/* docs/icons/; fi
           if [ -f manifest.webmanifest ]; then cp -f manifest.webmanifest docs/manifest.webmanifest; fi
           if [ -f gamma/latest.json ]; then cp -f gamma/latest.json docs/gamma.json; fi
+          if [ -f gamma/map.json ]; then cp -f gamma/map.json docs/map.json; fi
+          if [ -f gamma/price.json ]; then cp -f gamma/price.json docs/price.json; fi
+          if [ -f gamma/heatmap.json ]; then cp -f gamma/heatmap.json docs/heatmap.json; fi
           if [ -f docs/data.json ] && [ -f docs/index.html ]; then echo "ready=true" >> "$GITHUB_OUTPUT"; fi
 
       - uses: actions/configure-pages@v5
