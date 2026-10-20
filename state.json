@@ -115,103 +115,23 @@
   ],
   "pulse": [
     {
-      "key": "es",
-      "name": "ES",
-      "short": "ES",
-      "w": 60,
-      "v": 0.32,
-      "th": 0.45,
-      "ratio": 0.71,
-      "val": "+0.32%",
-      "thr": "±0.45%",
-      "c15": "+0.09%",
-      "c60": "+0.32%",
-      "c180": "+0.15%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.85,
-      "z": 2.2,
-      "volx": 0.2
-    },
-    {
-      "key": "nq",
-      "name": "ناسداك",
-      "short": "NQ",
-      "w": 60,
-      "v": 0.55,
-      "th": 0.6,
-      "ratio": 0.92,
-      "val": "+0.55%",
-      "thr": "±0.6%",
-      "c15": "+0.28%",
-      "c60": "+0.55%",
-      "c180": "+0.24%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.75,
-      "z": 2.2,
-      "volx": 0.3
-    },
-    {
-      "key": "oil",
-      "name": "النفط",
-      "short": "نفط",
-      "w": 180,
-      "v": 0.39,
-      "th": 2.4,
-      "ratio": 0.16,
-      "val": "+0.39%",
-      "thr": "±2.4%",
-      "c15": "+0.04%",
-      "c60": "+0.02%",
-      "c180": "+0.39%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.03,
-      "z": 0.0,
-      "volx": 0.1
-    },
-    {
-      "key": "gold",
-      "name": "الذهب",
-      "short": "ذهب",
-      "w": 15,
-      "v": 0.04,
-      "th": 0.45,
-      "ratio": 0.09,
-      "val": "+0.04%",
-      "thr": "±0.45%",
-      "c15": "+0.04%",
-      "c60": "+0.04%",
-      "c180": "+0.00%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.13,
-      "z": 0.2,
-      "volx": 0.3
-    },
-    {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 15,
-      "v": 0.01,
+      "v": 0.0,
       "th": 0.18,
-      "ratio": 0.05,
-      "val": "+0.01%",
+      "ratio": 0.01,
+      "val": "+0.00%",
       "thr": "±0.18%",
-      "c15": "+0.01%",
-      "c60": "+0.01%",
+      "c15": "+0.00%",
+      "c60": "+0.00%",
       "c180": "-0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.09,
-      "z": 0.1,
+      "eff": 0.08,
+      "z": 0.0,
       "volx": null
     },
     {
@@ -219,64 +139,64 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": -0.06,
+      "v": -0.02,
       "th": 0.4,
-      "ratio": 0.14,
-      "val": "-0.06%",
+      "ratio": 0.06,
+      "val": "-0.02%",
       "thr": "±0.4%",
-      "c15": "-0.03%",
-      "c60": "-0.06%",
-      "c180": "-0.03%",
+      "c15": "-0.00%",
+      "c60": "-0.02%",
+      "c180": "-0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.79,
-      "z": 1.0,
+      "eff": 0.4,
+      "z": 0.4,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-20T21:02:12.365986+00:00",
-        "ok_at": "2026-10-20T21:02:12.365986+00:00"
+        "last_try": "2026-10-20T21:43:17.566826+00:00",
+        "ok_at": "2026-10-20T21:43:17.566826+00:00"
       },
       "fred": {
-        "last_try": "2026-10-20T21:02:12.365986+00:00",
-        "ok_at": "2026-10-20T21:02:12.365986+00:00"
+        "last_try": "2026-10-20T21:43:17.566826+00:00",
+        "ok_at": "2026-10-20T21:43:17.566826+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-20T21:02:12.365986+00:00",
-        "ok_at": "2026-10-20T21:02:12.365986+00:00"
+        "last_try": "2026-10-20T21:43:17.566826+00:00",
+        "ok_at": "2026-10-20T21:43:17.566826+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-20T21:02:12.365986+00:00",
-        "ok_at": "2026-10-20T21:02:12.365986+00:00"
+        "last_try": "2026-10-20T21:43:17.566826+00:00",
+        "ok_at": "2026-10-20T21:43:17.566826+00:00"
       },
       "oil": {
-        "last_try": "2026-10-20T21:02:12.365986+00:00",
-        "ok_at": "2026-10-20T21:02:12.365986+00:00"
+        "last_try": "2026-10-20T21:43:17.566826+00:00",
+        "ok_at": "2026-10-20T21:43:17.566826+00:00"
       },
       "news": {
-        "last_try": "2026-10-20T21:02:12.365986+00:00",
-        "ok_at": "2026-10-20T21:02:12.365986+00:00"
+        "last_try": "2026-10-20T21:43:17.566826+00:00",
+        "ok_at": "2026-10-20T21:43:17.566826+00:00"
       },
       "cot": {
-        "last_try": "2026-10-20T21:02:12.365986+00:00",
-        "ok_at": "2026-10-20T21:02:12.365986+00:00"
+        "last_try": "2026-10-20T21:43:17.566826+00:00",
+        "ok_at": "2026-10-20T21:43:17.566826+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-20T21:02:12.365986+00:00",
-        "ok_at": "2026-10-20T21:02:12.365986+00:00"
+        "last_try": "2026-10-20T21:43:17.566826+00:00",
+        "ok_at": "2026-10-20T21:43:17.566826+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-20T21:02:12.365986+00:00"
+      "at": "2026-10-20T21:43:17.566826+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-20T20:28:45.534376+00:00",
+    "at": "2026-10-20T21:43:17.566826+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -313,19 +233,19 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-20T20:00:50+00:00",
-            "title": "Dow leads Wall Street higher, investors focus on healthcare stocks",
-            "src": "Yahoo Finance"
+            "t": "2026-10-20T20:25:00+00:00",
+            "title": "Exclusive | Musk Ordered Starlink Slowdown That Blindsided Ukraine",
+            "src": "WSJ"
           },
           {
-            "t": "2026-10-20T18:53:28+00:00",
-            "title": "Wall Street rises with investors rotating into healthcare and value stocks",
+            "t": "2026-10-20T20:01:09+00:00",
+            "title": "Dow leads Wall Street higher, investors focus on healthcare stocks",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-20T18:41:05+00:00",
-            "title": "Meta Q3 earnings to test Wall Street's stomach for AI spending",
-            "src": "Yahoo Finance"
+            "t": "2026-10-20T19:30:00+00:00",
+            "title": "Exclusive | Anthropic S-1 Shows Red-Hot Growth, Risks and Massive Computing Costs",
+            "src": "WSJ"
           },
           {
             "t": "2026-10-20T18:13:13+00:00",
@@ -343,35 +263,45 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-20T20:06:54+00:00",
-            "title": "Tesla Q3 earnings preview: 3 key things to watch",
-            "src": "Yahoo Finance"
+            "t": "2026-10-20T21:13:00+00:00",
+            "title": "Futures Rise On SpaceX Earnings; Tesla, Meta Due",
+            "src": "Investor's Business Daily"
           },
           {
-            "t": "2026-10-20T18:15:00+00:00",
-            "title": "Here’s what matters most to Tesla investors heading into earnings",
-            "src": "MarketWatch"
+            "t": "2026-10-20T21:07:53+00:00",
+            "title": "European Antitrust Agenda: EU Commission Advances Nvidia Probe; Ministers Take on China Trade Strategy",
+            "src": "The Capitol Forum"
           },
           {
-            "t": "2026-10-20T17:35:15+00:00",
-            "title": "Alphabet Earnings Ahead: Cloud Growth, Gemini, TPU Sales Could Drive Upside",
-            "src": "Benzinga"
+            "t": "2026-10-20T20:24:57+00:00",
+            "title": "META vs Tesla earnings setup ahead of Q3 2026 results",
+            "src": "Investing.com"
           },
           {
-            "t": "2026-10-20T17:17:15+00:00",
-            "title": "Tesla's Earnings Will Put Its AI Spending to the Test",
-            "src": "Yahoo Finance"
+            "t": "2026-10-20T20:13:00+00:00",
+            "title": "Tesla (TSLA) Q3 2026 earnings preview: flat revenue, falling profits",
+            "src": "Electrek"
           },
           {
-            "t": "2026-10-20T17:15:06+00:00",
-            "title": "Ahead of Tesla Earnings, Here's What Barchart Data Says Comes Next for TSLA Stock",
-            "src": "Barchart.com"
+            "t": "2026-10-20T20:12:00+00:00",
+            "title": "Here’s How Much Meta Stock Is Expected to Move After Earnings",
+            "src": "Investopedia"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-20T20:08:58+00:00",
+            "title": "Bank of England's Greene says inflation risks are bigger than thought",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-20T08:26:02+00:00",
+            "title": "President Donald Trump Claims, \"We Don't Have Inflation, and Tariffs Don't Cause Inflation,\" but a New Report Strongly Disagrees",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-10-20T06:18:00+00:00",
             "title": "South African rand holds steady ahead of budget, inflation data",
@@ -386,16 +316,6 @@
             "t": "2026-10-20T01:33:00+00:00",
             "title": "Gold edges lower as investors weigh Fed rate signals",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-19T21:19:28+00:00",
-            "title": "Jobs report shows US unexpectedly lost jobs in July",
-            "src": "ABC7 Bay Area"
-          },
-          {
-            "t": "2026-10-19T19:31:00+00:00",
-            "title": "France is rioting over surging inflation, skyrocketing national debt and crumbling schools. America is its sleeping twin",
-            "src": "Fortune"
           }
         ]
       },
@@ -403,24 +323,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-20T20:03:25+00:00",
+            "t": "2026-10-20T21:28:20+00:00",
+            "title": "Trump’s 50% Canada tariffs challenged in court",
+            "src": "Supply Chain Dive"
+          },
+          {
+            "t": "2026-10-20T21:22:30+00:00",
+            "title": "US food importer sues Trump over 50 percent tariffs on Canadian goods",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-10-20T21:03:00+00:00",
+            "title": "Fact✓Check | Barr, Booker spar over tariffs and bourbon ahead of Kentucky Senate race",
+            "src": "WKYT"
+          },
+          {
+            "t": "2026-10-20T20:57:38+00:00",
             "title": "New Jersey food importer files lawsuit challenging Trump's 50% tariffs on Canadian goods",
-            "src": "Bozeman Daily Chronicle"
-          },
-          {
-            "t": "2026-10-20T19:53:47+00:00",
-            "title": "Food importer files new lawsuit to block Trump's Canada tariffs",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-20T19:18:45+00:00",
-            "title": "What Donald Trump’s tariffs mean for Michigan’s economy",
-            "src": "1A | Speak Freely"
-          },
-          {
-            "t": "2026-10-20T19:12:00+00:00",
-            "title": "Liberty Justice Center Files First Lawsuit Challenging Trump's Section 338 Tariffs Against Canadian Imports",
-            "src": "Reason Magazine"
+            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
@@ -453,7 +373,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-20T21:02:12.365986+00:00",
+    "at": "2026-10-20T21:43:17.566826+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -5663,10 +5583,10 @@
       "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-20T21:02:12.365986+00:00",
+  "last_publish_ok": "2026-10-20T21:43:17.566826+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-20T21:03:21.676266+00:00"
+    "at": "2026-10-20T21:43:43.804623+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5731,12 +5651,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-20T21:02:12.365986+00:00",
-    "ok_at": "2026-10-20T21:02:12.365986+00:00",
+    "at": "2026-10-20T21:43:17.566826+00:00",
+    "ok_at": "2026-10-20T21:43:17.566826+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-20T21:02:12.365986+00:00",
+    "at": "2026-10-20T21:43:17.566826+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
