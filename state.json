@@ -309,63 +309,63 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-20T07:53:47.700141+00:00",
-        "ok_at": "2026-10-20T07:53:47.700141+00:00"
+        "last_try": "2026-10-20T08:00:41.400832+00:00",
+        "ok_at": "2026-10-20T08:00:41.400832+00:00"
       },
       "fred": {
-        "last_try": "2026-10-20T07:53:47.700141+00:00",
-        "ok_at": "2026-10-20T07:53:47.700141+00:00"
+        "last_try": "2026-10-20T08:00:41.400832+00:00",
+        "ok_at": "2026-10-20T08:00:41.400832+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-20T07:53:47.700141+00:00",
-        "ok_at": "2026-10-20T07:53:47.700141+00:00"
+        "last_try": "2026-10-20T08:00:41.400832+00:00",
+        "ok_at": "2026-10-20T08:00:41.400832+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-20T07:53:47.700141+00:00",
-        "ok_at": "2026-10-20T07:53:47.700141+00:00"
+        "last_try": "2026-10-20T08:00:41.400832+00:00",
+        "ok_at": "2026-10-20T08:00:41.400832+00:00"
       },
       "oil": {
-        "last_try": "2026-10-20T07:53:47.700141+00:00",
-        "ok_at": "2026-10-20T07:53:47.700141+00:00"
+        "last_try": "2026-10-20T08:00:41.400832+00:00",
+        "ok_at": "2026-10-20T08:00:41.400832+00:00"
       },
       "news": {
-        "last_try": "2026-10-20T07:53:47.700141+00:00",
-        "ok_at": "2026-10-20T07:53:47.700141+00:00"
+        "last_try": "2026-10-20T08:00:41.400832+00:00",
+        "ok_at": "2026-10-20T08:00:41.400832+00:00"
       },
       "cot": {
-        "last_try": "2026-10-20T07:53:47.700141+00:00",
-        "ok_at": "2026-10-20T07:53:47.700141+00:00"
+        "last_try": "2026-10-20T08:00:41.400832+00:00",
+        "ok_at": "2026-10-20T08:00:41.400832+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-20T07:53:47.700141+00:00",
-        "ok_at": "2026-10-20T07:53:47.700141+00:00"
+        "last_try": "2026-10-20T08:00:41.400832+00:00",
+        "ok_at": "2026-10-20T08:00:41.400832+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-20T07:53:47.700141+00:00"
+      "at": "2026-10-20T08:00:41.400832+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-20T06:58:59.040933+00:00",
+    "at": "2026-10-20T08:00:41.400832+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-20T06:09:00+00:00",
+            "title": "UK jobs market shows some recovery signs as BoE mulls rate hike",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-10-20T06:00:00+00:00",
             "title": "COMMENTARY: Markets' squeal is music to Fed ears — but still too faint",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-20T05:42:34+00:00",
-            "title": "Mavericks part ways with veteran big man Dwight Powell",
-            "src": "Field Level Media"
-          },
-          {
             "t": "2026-10-20T01:33:00+00:00",
-            "title": "Gold inches up on softer dollar as investors assess Fed rate outlook",
+            "title": "Gold eases as elevated oil prices keep inflation risks in focus",
             "src": "Reuters"
           },
           {
@@ -384,29 +384,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-20T03:31:00+00:00",
-            "title": "Dow, S&P 500, Nasdaq Edge Higher Amid Tech Rebound As Q3 Earnings Season Forges Ahead: DJT, AMZN, CBRS, CRWV Stocks In Focus",
+            "t": "2026-10-20T06:36:15+00:00",
+            "title": "Stock Market: Will S&P 500 Open Up or Down Today?",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-20T01:21:00+00:00",
-            "title": "U.S. stock futures steady after Wall Street rebounds on tech recovery",
+            "t": "2026-10-20T05:26:00+00:00",
+            "title": "Elice Slides in Korea Debut Amid Caution Toward AI Stocks",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-20T04:01:01+00:00",
+            "title": "General Motors is set to report earnings before the bell. Here's what Wall Street expects",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-20T03:31:00+00:00",
+            "title": "Dow, S&P 500, Nasdaq Edge Higher Amid Tech Rebound As Q3 Earnings Season Forges Ahead: DJT, AMZN, CBRS, CRWV Stocks In Focus",
             "src": "Yahoo Finance"
           },
           {
             "t": "2026-10-19T21:27:00+00:00",
             "title": "Trump Says He’s Open to Talks With the Leaders of Russia and China",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-19T21:21:00+00:00",
-            "title": "Musk Vows to Give Each U.S. Child a SpaceX Share",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-19T20:42:43+00:00",
-            "title": "Update: Tech-Heavy Nasdaq Leads Wall Street's Relief Rally Ahead of Key Earnings",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -414,9 +414,14 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-20T03:43:14+00:00",
+            "t": "2026-10-20T07:17:50+00:00",
             "title": "Meta Earnings: What To Look For From META",
-            "src": "StockStory"
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-20T06:58:35+00:00",
+            "title": "Meta Earnings Preview: Can Muse and Strong Ads Justify Soaring AI Spending?",
+            "src": "Moomoo"
           },
           {
             "t": "2026-10-20T03:43:14+00:00",
@@ -432,17 +437,17 @@
             "t": "2026-10-20T01:48:00+00:00",
             "title": "Dow Jones Futures: AMD, Nvidia Lead AI Trade Higher; Meta, Netflix, SpaceX, Tesla Earnings On Deck",
             "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-10-20T00:05:16+00:00",
-            "title": "Earnings Calendar for:",
-            "src": "Yahoo Finance"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-19T21:19:28+00:00",
+            "title": "Jobs report shows US unexpectedly lost jobs in July",
+            "src": "ABC7 Bay Area"
+          },
           {
             "t": "2026-10-19T18:39:36+00:00",
             "title": "Fed sees AI boom adding to inflation headache, but others may pay for the medicine",
@@ -462,17 +467,17 @@
             "t": "2026-10-19T11:14:44+00:00",
             "title": "Jamie Dimon’s View on the U.S. Economy: Booming, but War and Inflation Pose Risks",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-19T04:04:00+00:00",
-            "title": "Global food inflation is expected to intensify as supply shocks pile up",
-            "src": "Reuters"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-20T07:43:14+00:00",
+            "title": "U.S. Treasury yields move lower as investors await housing, employment data",
+            "src": "CNBC"
+          },
           {
             "t": "2026-10-20T05:00:45+00:00",
             "title": "How is the US economy really doing under President Trump?",
@@ -487,17 +492,17 @@
             "t": "2026-10-20T01:01:07+00:00",
             "title": "Gold futures trade lower as rising Treasury yields lift the dollar.",
             "src": "CME Group"
-          },
-          {
-            "t": "2026-10-20T00:28:00+00:00",
-            "title": "Andy Barr and Charles Booker on tariffs",
-            "src": "WBKO"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-10-20T05:30:33+00:00",
+            "title": "Connecticut lawmakers challenge Trump’s decision to waive Russia sanctions",
+            "src": "Norwalk Hour"
+          },
           {
             "t": "2026-10-20T02:06:00+00:00",
             "title": "Micron union in Taiwan to launch strike as bonus dispute escalates",
@@ -512,11 +517,6 @@
             "t": "2026-10-19T21:00:00+00:00",
             "title": "Trump faces bipartisan backlash over waiving Russia sanctions",
             "src": "CBS News"
-          },
-          {
-            "t": "2026-10-19T20:56:23+00:00",
-            "title": "Trump signs executive order waiving Russia sanctions",
-            "src": "WBUR"
           }
         ]
       }
@@ -524,7 +524,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-20T07:53:47.700141+00:00",
+    "at": "2026-10-20T08:00:41.400832+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -5734,10 +5734,10 @@
       "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-20T07:53:47.700141+00:00",
+  "last_publish_ok": "2026-10-20T08:00:41.400832+00:00",
   "last_run_ok": {
     "mode": "test",
-    "at": "2026-10-20T07:54:17.374792+00:00"
+    "at": "2026-10-20T08:02:17.600881+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5802,8 +5802,8 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "mixed",
-    "at": "2026-10-20T07:53:47.700141+00:00",
-    "ok_at": "2026-10-20T07:53:47.700141+00:00",
+    "at": "2026-10-20T08:00:41.400832+00:00",
+    "ok_at": "2026-10-20T08:00:41.400832+00:00",
     "change": null
   },
   "last_watch": {
