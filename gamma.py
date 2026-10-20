@@ -289,8 +289,11 @@ def build_spy(spx_ts, fetched, today, ref=None, raw=None):
         _, ts, cs = parse_chain(raw, SPY_RE)
         spot = ref["spy_ref"]
         gap = abs((ts - spx_ts).total_seconds()) / 60.0
-        if gap > SPY_MAX_GAP_MIN:
+        live = in_session(to_ny(spx_ts)) or in_session(to_ny(ts))
+        if live and gap > SPY_MAX_GAP_MIN:
             return {"ok": False, "reason": "ختم ملف SPY بعيد عن ختم SPX (%d دقيقة)" % gap}
+        if not live and _session_day(to_ny(ts)) != _session_day(to_ny(spx_ts)):
+            return {"ok": False, "reason": "ملف SPY من جلسة تداول مختلفة عن ملف SPX (%s مقابل %s)" % (_session_day(to_ny(ts)), _session_day(to_ny(spx_ts)))}
         res = compute(spot, cs, fetched, today)
         why = validate(res, spot, cs)
         if ts > fetched + timedelta(minutes=5):
@@ -320,6 +323,16 @@ def _rnd(rows):
         c, p = int(round(r["call"])), int(round(r["put"]))
         out.append({"k": r["k"], "call": c, "put": p, "net": c + p})
     return out
+
+
+def _session_day(et):
+    """يوم الجلسة التي تعكسها البيانات: قبل 09:30 نيويورك أو في عطلة الأسبوع = آخر جلسة سابقة (إغلاقها)."""
+    d = et.date()
+    if et.hour * 60 + et.minute < 9 * 60 + 30:
+        d -= timedelta(days=1)
+    while d.weekday() >= 5:
+        d -= timedelta(days=1)
+    return d
 
 
 def in_session(et):
