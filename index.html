@@ -528,11 +528,20 @@
   .greg { display: inline-block; border-radius: 99px; padding: 3px 14px; font: 900 18px var(--font-body); color: #fff; } .greg.pos { background: var(--ok); } .greg.neg { background: var(--crit); }
   .glv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 10px 0 0; } .glv > div { background: var(--card-2); border-radius: 12px; padding: 8px; text-align: center; min-width: 0; } .glv small { display: block; color: var(--muted); font-size: 13px; font-weight: 700; } .glv b { font: 900 22px var(--font-mono); direction: ltr; unicode-bidi: isolate; } .glv .es { font-size: 13px; color: var(--muted); direction: ltr; unicode-bidi: isolate; } .glv .tg { display: inline-block; background: var(--warn-bg); color: var(--fg); border: 1px solid var(--warn); border-radius: 6px; padding: 0 6px; font-size: 12px; font-weight: 700; margin-inline-start: 4px; }
   #gLine svg { width: 100%; height: auto; display: block; direction: ltr; touch-action: pan-y; } #gLine .pk-l { font: 800 12px var(--font-mono); fill: var(--fg); } #gLine .hv-l { font: 800 13px var(--font-mono); fill: #6c93ff; } #gLine text { unicode-bidi: isolate; }
-  .gr { display: flex; align-items: center; gap: 6px; padding: 2px 4px; font-size: 14px; border-radius: 8px; border: 2px solid transparent; cursor: pointer; } .gr:focus-visible { outline: 2px solid var(--brand); } .gr.sel { background: color-mix(in srgb, var(--brand) 28%, transparent); border-color: var(--brand); padding: 7px 4px; font-size: 16px; } .gr.sel .k { font-size: 18px; color: var(--fg); } .gr.sel .gbar { height: 18px; } .gr.sel .gbar i { height: 14px; } .glv > div.lvb { cursor: pointer; border: 2px solid transparent; } .glv > div.lvb:focus-visible, .glv > div.lvb.on { border-color: var(--brand); } .glv .lv-cw b { color: var(--ok); } .glv .lv-pw b { color: var(--crit); } .glv .lv-fl b { color: #6c93ff; } .gr .tg.t-cw { background: var(--ok); color: #fff; } .gr .tg.t-pw { background: var(--crit); color: #fff; } .gr .tg.t-fl { background: #6c93ff; color: #fff; } .gr.cur { background: color-mix(in srgb, var(--brand) 20%, transparent); } .gr .k { width: 92px; flex: none; font: 800 15px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; } .gr .k small { display: block; color: var(--muted); font: 500 12px var(--font-body); } .gr .tg { font: 800 11.5px var(--font-body); color: var(--brand); display: block; }
-  .gbar { flex: 1; height: 14px; position: relative; direction: ltr; background: var(--card-2); border-radius: 4px; min-width: 0; } .gbar::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--muted); } .gbar i { position: absolute; top: 2px; height: 10px; } .gbar .c { left: 50%; background: var(--ok); border-radius: 0 3px 3px 0; } .gbar .p { right: 50%; background: var(--crit); border-radius: 3px 0 0 3px; }
+  .gr { display: flex; align-items: center; gap: 6px; padding: 2px 4px; font-size: 14px; border-radius: 8px; border: 2px solid transparent; cursor: pointer; } .gr:focus-visible { outline: 2px solid var(--brand); } .gr.sel { background: color-mix(in srgb, var(--brand) 28%, transparent); border-color: var(--brand); padding: 7px 4px; font-size: 16px; } .gr.sel .k { font-size: 18px; color: var(--fg); } .gr.sel .gbar { height: 26px; } .gr.sel .gbar i { height: 22px; } .glv > div.lvb { cursor: pointer; border: 2px solid transparent; } .glv > div.lvb:focus-visible, .glv > div.lvb.on { border-color: var(--brand); } .glv .lv-cw b { color: var(--ok); } .glv .lv-pw b { color: var(--crit); } .glv .lv-fl b { color: #6c93ff; } .gr .tg.t-cw { background: var(--ok); color: #fff; } .gr .tg.t-pw { background: var(--crit); color: #fff; } .gr .tg.t-fl { background: #6c93ff; color: #fff; } .gr.cur { background: color-mix(in srgb, var(--brand) 20%, transparent); } .gr .k { width: 58px; flex: none; font: 800 15px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; } .gr .k small { display: block; color: var(--muted); font: 500 12px var(--font-body); } .gr .tg { font: 800 11.5px var(--font-body); color: var(--brand); display: block; }
+  .gbar { flex: 1; height: 22px; position: relative; direction: ltr; background: var(--card-2); border-radius: 4px; min-width: 0; } .gbar::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--muted); } .gbar i { position: absolute; top: 2px; height: 18px; } .gbar .c { left: 50%; background: var(--ok); border-radius: 0 3px 3px 0; } .gbar .p { right: 50%; background: var(--crit); border-radius: 3px 0 0 3px; }
   .gr .n { width: 62px; flex: none; text-align: start; font: 700 13px var(--font-mono); direction: ltr; unicode-bidi: isolate; } .gr .n.g { color: var(--ok); } .gr .n.r { color: var(--crit); } .gr .n.s3 { font-weight: 900; font-size: 15px; opacity: 1; } .gr .n.s2 { font-weight: 700; opacity: .75; } .gr .n.s1 { font-weight: 400; opacity: .4; }
+  #gLine2 svg { width: 100%; height: auto; display: block; direction: ltr; touch-action: pan-y; } #gLine2 .pk-l { font: 800 12px var(--font-mono); fill: var(--fg); } #gLine2 .hv-l { font: 800 13px var(--font-mono); fill: #6c93ff; } #gLine2 text { unicode-bidi: isolate; }
+  #gLine .hv-bg, #gLine2 .hv-bg { fill: var(--card); stroke: var(--line); } #gLine .hv-t, #gLine2 .hv-t { font: 800 10px var(--font-mono); fill: var(--fg); } #gLine .hv-t2, #gLine2 .hv-t2 { font: 700 10px var(--font-body); fill: var(--muted); }
+  #gCtl h3 { margin: 0 0 6px; font-size: 15px; } #gCtl h3 ~ h3 { margin-top: 12px; } .gseg { display: flex; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; } .gseg .gb { flex: 1; min-height: 44px; border: 0; background: transparent; color: var(--fg); font: 600 15px var(--font-body); cursor: pointer; } .gseg .gb.on { background: color-mix(in srgb, var(--brand) 25%, transparent); font-weight: 800; } .gseg .gb:disabled { color: var(--muted); cursor: not-allowed; } .gseg .gb + .gb { border-inline-start: 1px solid var(--line); }
+  .gchips { display: flex; flex-wrap: wrap; gap: 6px; } .gchip { min-height: 40px; padding: 4px 13px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 600 14px var(--font-body); cursor: pointer; } .gchip.on { background: color-mix(in srgb, var(--brand) 22%, transparent); border-color: var(--brand); font-weight: 800; } .gchip:disabled { color: var(--muted); opacity: .5; cursor: not-allowed; } .gb:focus-visible, .gchip:focus-visible, .gcp:focus-visible, .gall:focus-visible { outline: 2px solid var(--brand); }
+  .ghd { display: flex; gap: 6px; padding: 2px 4px; font-size: 12px; color: var(--muted); } .ghd .hk { width: 58px; flex: none; } .ghd .he { width: 74px; flex: none; } .ghd .hb { flex: 1; text-align: center; } .ghd .hn { width: 62px; flex: none; } .ghd .hc { width: 52px; flex: none; text-align: center; }
+  .gr .es { width: 74px; flex: none; font: 800 14px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; color: #6c93ff; } .gcp { flex: none; width: 52px; min-height: 28px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: #6c93ff; font: 700 12px var(--font-body); cursor: pointer; } .gall { display: block; width: 100%; min-height: 44px; margin-top: 10px; border: 1px solid #6c93ff; border-radius: 12px; background: transparent; color: #6c93ff; font: 800 15px var(--font-body); cursor: pointer; }
+  .gcmpt { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 15px; } .gcmpt th { color: var(--muted); font-size: 13px; font-weight: 700; padding: 4px 2px; border-bottom: 1px solid var(--line); text-align: center; } .gcmpt td { text-align: center; padding: 9px 2px; border-bottom: 1px solid var(--line); direction: ltr; unicode-bidi: isolate; font-family: var(--font-mono); font-weight: 700; } .gcmpt td.nm { direction: rtl; text-align: start; font-family: var(--font-body); font-weight: 800; } .gcmpt .lv-cw { color: var(--ok); } .gcmpt .lv-pw { color: var(--crit); } .gcmpt .lv-fl { color: #6c93ff; }
+  .gtag { display: inline-block; border-radius: 999px; padding: 2px 12px; font: 800 13px var(--font-body); direction: rtl; } .gtag.agree { background: color-mix(in srgb, var(--ok) 22%, transparent); color: var(--ok); } .gtag.diff { background: color-mix(in srgb, var(--crit) 20%, transparent); color: var(--crit); } .gtag.old { background: color-mix(in srgb, var(--warn) 25%, transparent); color: var(--fg); }
   .gspy { font: 900 20px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: center; margin: 6px 0; color: var(--muted); }
-  @media (max-width: 280px) { .gr { flex-wrap: wrap; } .gr .gbar { flex: 1 1 100%; order: 3; } .glv, .gfresh dl { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 360px) { .gr, .ghd { gap: 4px; } .gr .k, .ghd .hk { width: 50px; } .gr .es, .ghd .he { width: 64px; font-size: 13px; } .gr .n, .ghd .hn { width: 50px; font-size: 12px; } .gcp, .ghd .hc { width: 42px; } .gr .gbar { min-width: 30px; } }
+  @media (max-width: 280px) { .gr, .ghd { flex-wrap: wrap; } .gr .gbar { flex: 1 1 100%; order: 3; } .glv, .gfresh dl { grid-template-columns: minmax(0, 1fr); } }
   .optrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0; min-height: 44px; } .optrow input[type=checkbox] { width: 22px; height: 22px; } .optrow label { font-size: 16px; }
   select.sel { font: inherit; font-size: 14px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line, #c9d3df); background: var(--card, #fff); color: var(--fg); min-height: 40px; }
   .csub { display: block; margin-top: 4px; font-size: 12px; line-height: 1.5; color: var(--muted, #5b6b75); }
@@ -674,12 +683,14 @@
    <div class="tab" id="tab-gamma" hidden>
     <section class="card" id="gammaHead">
       <h2>خريطة الغاما (Gamma Exposure)</h2>
-      <div class="gassets"><button type="button" class="gasset on" aria-pressed="true">SPX</button><button type="button" class="gasset" disabled aria-disabled="true">SPY · غير متاح</button></div>
       <p class="src">Gamma Exposure لكل Strike مقدَّرة بنموذج GEX من بيانات CBOE المتأخرة نحو 15 دقيقة. سياق للجلسة وليست إشارة دخول، وهي منفصلة عن الانحياز الماكروي.</p>
     </section>
+    <section class="card" id="gCtl" hidden></section>
     <section class="card gfresh" id="gFresh" data-s="none" aria-live="polite"></section>
     <section class="card" id="gLevels" hidden></section>
     <section class="card" id="gLine" hidden></section>
+    <section class="card" id="gLine2" hidden></section>
+    <section class="card" id="gCmp" hidden></section>
     <section class="card" id="gChart" hidden></section>
     <section class="card" id="gEsNote" hidden></section>
     <section class="card" id="gSpy"><h2>SPY</h2><p class="gspy">SPY Gamma Data Unavailable</p><p class="src">لا يوجد مصدر موثوق لغاما SPY لكل Strike حالياً، ولا تُعرض أرقام بديلة.</p></section>
@@ -1854,7 +1865,7 @@ function renderRecent_(d) {
   });
 }
 /* ---- جاما ---- */
-let GAMMA = null, GSEL = null;
+let GAMMA = null, GSEL = null, GASSET = 'SPX', GBKT = 'all';
 const gAge_ = ms => { const m = Math.max(0, Math.round(ms / 60000)); if (m < 1) return 'أقل من دقيقة'; if (m < 60) return m + ' دقيقة'; const h = Math.floor(m / 60); if (h < 48) return h + ' ساعة' + (h < 6 && m % 60 ? ' و' + (m % 60) + ' دقيقة' : ''); return Math.floor(h / 24) + ' يوماً'; };
 const bgdDT_ = iso => { try { const t = new Date(iso).getTime(); return isFinite(t) ? new Date(t + 3 * 3600000).toISOString().substr(0, 16).replace('T', ' ') : '—'; } catch (e) { return '—'; } };
 function gammaStatus_(g) {
@@ -1872,104 +1883,205 @@ function gMark_(scroll, card) {
   document.querySelectorAll('#gLevels .lvb').forEach(b => b.classList.toggle('on', !!card && b === card && !!hit));
   if (scroll && hit) { try { hit.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) { hit.scrollIntoView(); } }
 }
+const GBN_ = { all: 'الكل', '0': 'اليوم 0DTE', '1-7': '1–7 أيام', '8-30': '8–30 يوماً', '30+': 'أكثر من 30' }, GBKS_ = ['all', '0', '1-7', '8-30', '30+'];
+/* بيانات أصل وسلة: SPX من الجذر/السلال، SPY من g.spy (Strike السباي محوَّل إلى مكافئ SPX في k) */
+function gData_(g, asset, b) {
+  if (!g || !g.ok) return null;
+  if (asset === 'SPY') {
+    const s = g.spy; if (!s || !s.ok) return null; const src = b === 'all' ? s : (s.buckets && s.buckets[b]); if (!src) return null;
+    return { asset, b, rows: (src.strikes || []).filter(r => r && isFinite(Number(r.kx))).map(r => Object.assign({}, r, { spyK: r.k, k: Number(r.kx) })), net: Number(src.net_gex), cw: src.call_wall_x, pw: src.put_wall_x, flip: b === 'all' ? s.gamma_flip_x : null, n: b === 'all' ? s.n_contracts : src.n, spyCw: src.call_wall, spyPw: src.put_wall };
+  }
+  const src = b === 'all' ? g : (g.buckets && g.buckets[b]); if (!src) return null;
+  return { asset, b, rows: (src.strikes || []).filter(r => r && isFinite(Number(r.k))), net: Number(src.net_gex), cw: src.call_wall, pw: src.put_wall, flip: b === 'all' ? g.gamma_flip : null, n: b === 'all' ? g.n_contracts : src.n };
+}
+const gBktN_ = (g, asset, b) => { const d = gData_(g, asset, b); return d ? (Number(d.n) || 0) : 0; };
+function gCopy_(txt, btn) {
+  const done = () => { const o = btn.dataset.l || btn.textContent; btn.dataset.l = o; btn.textContent = 'تم ✓'; setTimeout(() => { btn.textContent = o; }, 1200); };
+  const fb = () => { const ta = document.createElement('textarea'); ta.value = txt; ta.style.cssText = 'position:fixed;opacity:0;top:0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) { /* لا شيء */ } ta.remove(); done(); };
+  try { if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(txt).then(done, fb); return; } } catch (e) { /* لا شيء */ }
+  fb();
+}
+/* مخطط خطي لصافي GEX لكل Strike: الصفر أفقي، قمم بخطوط وأرقام Strike مائلة تحت المحور، مؤشر قابل للمزامنة مع مخطط آخر */
+function gLine_(box, o) {
+  box.innerHTML = '';
+  let pr = (o.rows || []).filter(r => r && isFinite(Number(r.k)) && isFinite(Number(r.net))).slice().sort((a, b) => a.k - b.k);
+  if (isFinite(o.spot)) { const nr2 = pr.filter(r => Math.abs(r.k - o.spot) <= 120); if (nr2.length >= 5) pr = nr2; }
+  if (pr.length < 5) { box.hidden = true; return null; }
+  box.hidden = false;
+  box.appendChild(el('h2', '', o.title)); if (o.desc) box.appendChild(el('p', 'src', o.desc));
+  const W = 400, H = 300, Lm = 46, Rm = 10, Tm = 26, Bm = 58, base = H - Bm, v = pr.map(r => Number(r.net) / 1e9);
+  let mn = Math.min(0, ...v), mx = Math.max(0, ...v); const pad = (mx - mn) * .1 || 1; mn -= pad; mx += pad;
+  const k0 = o.kr ? o.kr[0] : pr[0].k, k1 = o.kr ? o.kr[1] : pr[pr.length - 1].k, X = k => Lm + (k - k0) / (k1 - k0 || 1) * (W - Lm - Rm), Y = y => Tm + (mx - y) / (mx - mn) * (base - Tm);
+  const P = pr.map((r, i) => [X(r.k), Y(v[i])]), z = Y(0), f1 = n => n.toFixed(1), kl = k => String(Math.round(k * 10) / 10);
+  const NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'مخطط صافي Gamma لكل Strike ' + (o.label || ''));
+  const add = (tag, at, txt, parent) => { const n = document.createElementNS(NS, tag); Object.keys(at).forEach(k => n.setAttribute(k, at[k])); if (txt != null) n.textContent = txt; (parent || svg).appendChild(n); return n; };
+  const step = Math.max(1, Math.ceil((mx - mn) / 4)); for (let t = Math.ceil(mn / step) * step; t <= mx; t += step) { add('line', { x1: Lm, x2: W - Rm, y1: f1(Y(t)), y2: f1(Y(t)), stroke: 'currentColor', 'stroke-opacity': .15, 'stroke-width': .6 }); add('text', { x: Lm - 4, y: f1(Y(t) + 3), 'text-anchor': 'end', 'font-size': 9, fill: 'currentColor', 'fill-opacity': .6 }, (t > 0 ? '+' : '') + t + 'B'); }
+  const area = (cmp, col) => add('path', { d: 'M' + f1(P[0][0]) + ',' + f1(z) + ' ' + P.map(p => 'L' + f1(p[0]) + ',' + f1(cmp(p[1], z))).join(' ') + ' L' + f1(P[P.length - 1][0]) + ',' + f1(z) + 'Z', fill: col, 'fill-opacity': .3 });
+  area(Math.min, 'var(--ok)'); area(Math.max, 'var(--crit)');
+  add('line', { x1: Lm, x2: W - Rm, y1: f1(z), y2: f1(z), stroke: 'var(--fg)', 'stroke-width': 1.6, class: 'zero' });
+  add('line', { x1: Lm, x2: W - Rm, y1: base, y2: base, stroke: 'currentColor', 'stroke-opacity': .4 });
+  add('polyline', { points: P.map(p => f1(p[0]) + ',' + f1(p[1])).join(' '), fill: 'none', stroke: 'var(--fg)', 'stroke-width': 1.5 });
+  (o.marks || []).forEach((x, i) => { const n = Number(x[1]); if (x[1] == null || !isFinite(n) || n < k0 || n > k1) return; add('line', { x1: f1(X(n)), x2: f1(X(n)), y1: Tm, y2: base, stroke: x[2], 'stroke-width': 1.2, 'stroke-dasharray': '1 3' }); add('text', { x: f1(X(n)), y: Tm - 8 - (i === 1 ? 10 : 0), 'text-anchor': 'middle', 'font-size': 9, fill: x[2] }, x[0]); });
+  /* القمم: كل قمة محلية حقيقية (أعلى/أدنى من جارَيها) قيمتها ≥ 30% من أكبر قمة، مرتبة بالحجم، بتباعد ≥ 2 Strike وحد أقصى 5 لكل جهة */
+  const pick = (ord, n) => { const c = []; for (const i of ord) { if (c.every(j => Math.abs(i - j) >= 2)) c.push(i); if (c.length === n) break; } return c; };
+  const amax = Math.max(...v.map(Math.abs), 1e-9), idx = v.map((_, i) => i);
+  const isPk = i => { const a = i > 0 ? v[i - 1] : -Infinity, b = i < v.length - 1 ? v[i + 1] : -Infinity; return v[i] > 0 && v[i] >= a && v[i] >= b && v[i] >= amax * .3; };
+  const isTr = i => { const c = i > 0 ? v[i - 1] : Infinity, d = i < v.length - 1 ? v[i + 1] : Infinity; return v[i] < 0 && v[i] <= c && v[i] <= d && -v[i] >= amax * .3; };
+  const pos = pick(idx.filter(isPk).sort((a, b) => v[b] - v[a]), 5), neg = pick(idx.filter(isTr).sort((a, b) => v[a] - v[b]), 5);
+  const drop = (i, col) => { add('line', { x1: f1(P[i][0]), x2: f1(P[i][0]), y1: f1(P[i][1]), y2: base, stroke: col, 'stroke-width': 1, 'stroke-dasharray': '3 3', class: 'pk' }); add('circle', { cx: f1(P[i][0]), cy: f1(P[i][1]), r: 3, fill: col, class: 'pk' }); add('text', { transform: 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)', 'text-anchor': 'start', class: 'pk-l' }, String(Math.round(pr[i].k))); };
+  pos.forEach(i => drop(i, 'var(--ok)')); neg.forEach(i => drop(i, 'var(--crit)'));
+  const hv = add('g', { class: 'hv', visibility: 'hidden' });
+  const hl = add('line', { y1: Tm, y2: base, stroke: '#6c93ff', 'stroke-width': 1.2 }, null, hv), hc = add('circle', { r: 4.5, fill: '#6c93ff' }, null, hv), ht = add('text', { 'text-anchor': 'start', class: 'hv-l' }, '', hv);
+  const tb = add('rect', { y: Tm + 2, width: 112, height: 31, rx: 6, class: 'hv-bg' }, null, hv), t1 = add('text', { y: Tm + 15, class: 'hv-t' }, '', hv), t2 = add('text', { y: Tm + 28, class: 'hv-t2' }, '', hv);
+  const showI = i => {
+    const x = P[i][0], r = pr[i]; hv.setAttribute('visibility', 'visible'); hl.setAttribute('x1', f1(x)); hl.setAttribute('x2', f1(x)); hc.setAttribute('cx', f1(x)); hc.setAttribute('cy', f1(P[i][1]));
+    ht.setAttribute('transform', 'translate(' + f1(x - 6) + ',' + (base + 9) + ') rotate(45)'); ht.textContent = String(Math.round(r.k));
+    const tx = x > W * .55 ? x - 118 : x + 6; tb.setAttribute('x', f1(tx)); t1.setAttribute('x', f1(tx + 6)); t2.setAttribute('x', f1(tx + 6));
+    t1.textContent = (o.label ? o.label + ' · ' : '') + kl(r.k) + (r.spyK != null ? ' (SPY ' + r.spyK + ')' : ''); t2.textContent = 'الصافي ' + gB_(r.net);
+  };
+  const at = ev => { const rc = svg.getBoundingClientRect(), x = (ev.clientX - rc.left) / rc.width * W; let b = 0; P.forEach((p, i) => { if (Math.abs(p[0] - x) < Math.abs(P[b][0] - x)) b = i; }); return b; };
+  svg.addEventListener('pointermove', ev => { const i = at(ev); showI(i); if (o.onHover) o.onHover(pr[i].k); }); svg.addEventListener('pointerdown', ev => { const i = at(ev); showI(i); if (o.onHover) o.onHover(pr[i].k); });
+  svg.addEventListener('pointerleave', () => { hv.setAttribute('visibility', 'hidden'); if (o.onLeave) o.onLeave(); });
+  svg.addEventListener('click', ev => { const i = at(ev); if (o.onPick) o.onPick(pr[i].k); });
+  box.appendChild(svg);
+  return { pr, k0, k1, showK: k => { let b = 0; pr.forEach((r, i) => { if (Math.abs(r.k - k) < Math.abs(pr[b].k - k)) b = i; }); showI(b); }, hide: () => hv.setAttribute('visibility', 'hidden') };
+}
 function renderGamma_() {
   const g = GAMMA, st = gammaStatus_(g), fr = $('gFresh'); fr.dataset.s = st; fr.innerHTML = '';
   const show = (id, on) => { $(id).hidden = !on; };
+  const ALL = ['gLevels', 'gLine', 'gLine2', 'gCmp', 'gChart', 'gEsNote', 'gSpy', 'gCtl'];
   const TT = { fresh: '✓ بيانات طازجة', late: '⚠ بيانات متأخرة: تحقق من وقتها قبل الاعتماد', stale: '⛔ بيانات قديمة — لا تعتمدها للتداول', none: '⛔ لا توجد بيانات جاما اليوم' };
   fr.appendChild(el('h2', '', TT[st]));
+  const spyOk = !!(g && g.ok && g.spy && g.spy.ok);
   if (st === 'none') {
     fr.appendChild(el('p', 'src', (g && g.reason) || 'لم يصل ملف الغاما بعد أو لم تُجمع لقطة صالحة. لا تُعرض أرقام قديمة على أنها حالية.'));
-    ['gLevels', 'gLine', 'gChart', 'gEsNote'].forEach(i => show(i, false)); return;
+    ALL.forEach(i => show(i, false)); show('gSpy', true); $('gSpy').innerHTML = ''; $('gSpy').appendChild(el('h2', '', 'SPY')); $('gSpy').appendChild(el('p', 'gspy', 'SPY Gamma Data Unavailable')); $('gSpy').appendChild(el('p', 'src', 'لا بيانات جاما صالحة الآن، فلا تُعرض أرقام لـ SPY.'));
+    gCtl_(g, false); return;
   }
+  if (!spyOk && GASSET !== 'SPX') GASSET = 'SPX';
+  if (gBktN_(g, GASSET === 'SPY' ? 'SPY' : 'SPX', GBKT) <= 0 && GBKT !== 'all') GBKT = 'all';
+  const asset = GASSET, cmp = asset === 'CMP', main = asset === 'SPY' ? 'SPY' : 'SPX';
   const t = new Date(g.snapshot_utc).getTime(), dl = el('dl');
   const add = (k, v) => { const r = el('div'); r.appendChild(el('dt', '', k)); r.appendChild(el('dd', '', v)); dl.appendChild(r); };
   add('وقت اللقطة (نيويورك)', g.snapshot_et || '—'); add('بتوقيت بغداد', bgdDT_(g.snapshot_utc));
   add('عمر البيانات', isFinite(t) ? gAge_(Date.now() - t) : '—'); add('وقت الجمع (بغداد)', g.fetched_utc ? bgdDT_(g.fetched_utc) : '—');
-  add('المصدر', g.source || '—'); add('الأصل', g.asset || 'SPX'); fr.appendChild(dl);
+  add('المصدر', g.source || '—'); add('الأصل', cmp ? 'SPX + SPY' : main); if (spyOk && asset !== 'SPX') add('نسبة SPX/SPY (متزامنة)', String(g.spy.ratio)); fr.appendChild(dl);
   if (g.reason) fr.appendChild(el('p', 'src', g.reason));
   if (isFinite(t) && (Date.now() - t) / 60000 < -5) fr.appendChild(el('p', 'src', '⛔ ختم اللقطة في المستقبل: خلل في توقيت الملف. لا تعتمد هذه الأرقام.'));
   const lg = el('p', 'gleg'); [['lg', '● طازجة (أقل من 30 دقيقة)'], ['lw', ' ● متأخرة (حتى 3 ساعات)'], ['lc', ' ● قديمة']].forEach(x => lg.appendChild(el('span', x[0], x[1]))); fr.appendChild(lg);
-  const stamp = ' · لقطة ' + (g.snapshot_et || '') + ' نيويورك';
-  const spot = Number(g.spot), es = g.es, esOk = !!es && isFinite(Number(es.basis)) && isFinite(Number(es.ref_gap_min)) && Number(es.ref_gap_min) <= 5, bs = esOk ? Number(es.basis) : 0;
-  const conv = k => (Math.round((Number(k) + bs) * 4) / 4).toFixed(2);
-  /* المستويات */
-  const lv = $('gLevels'); lv.innerHTML = ''; show('gLevels', true);
-  lv.appendChild(el('h2', '', 'المستويات الرئيسية' + stamp));
-  const reg = el('span', 'greg ' + (g.regime === 'negative' ? 'neg' : 'pos'), g.regime === 'negative' ? 'غاما سلبية' : 'غاما إيجابية'); lv.appendChild(reg);
-  lv.appendChild(el('p', 'src', 'الصافي الإجمالي: ' + gB_(g.net_gex) + ' $ (بنموذج تقدير مراكز صناع السوق).'));
-  const gr = el('div', 'glv');
-  [['Gamma Flip', g.gamma_flip, 'lv-fl'], ['السعر (SPX)', spot, 'lv-sp'], ['Call Wall', g.call_wall, 'lv-cw'], ['Put Wall', g.put_wall, 'lv-pw']].forEach(x => {
-    const b = el('div', 'lvb ' + x[2]); b.setAttribute('role', 'button'); b.tabIndex = 0; b.dataset.v = x[1] == null ? '' : String(x[1]); b.appendChild(el('small', '', x[0]));
-    const v = Number(x[1]); b.appendChild(el('b', '', x[1] == null || !isFinite(v) ? '—' : String(v)));
-    const e2 = el('div', 'es'); if (x[1] != null && isFinite(v)) { e2.appendChild(document.createTextNode(esOk ? 'ES≈' + conv(v) : 'ES: —')); if (esOk) e2.appendChild(el('span', 'tg', 'تقريبي')); } b.appendChild(e2); gr.appendChild(b);
-  });
-  lv.appendChild(gr);
-  if (g.gamma_flip == null) lv.appendChild(el('p', 'src', 'Gamma Flip غير محدد في هذه اللقطة.'));
-  /* مخطط الخط: صافي GEX لكل Strike، الصفر أفقي، قمم بخطوط نازلة وأرقام Strike مائلة تحت المحور */
-  (function () {
-    const box = $('gLine'); box.innerHTML = '';
-    let pr = (g.strikes || []).filter(r => r && isFinite(Number(r.k)) && isFinite(Number(r.net))).slice().sort((a, b) => a.k - b.k);
-    if (isFinite(spot)) { const nr2 = pr.filter(r => Math.abs(r.k - spot) <= 120); if (nr2.length >= 5) pr = nr2; }
-    if (pr.length < 5) { show('gLine', false); return; }
-    show('gLine', true);
-    box.appendChild(el('h2', '', 'صافي Gamma حسب Strike (خط)' + stamp));
-    box.appendChild(el('p', 'src', 'الأفقي: Strike (SPX). العمودي: صافي GEX، والخط الأبيض الأفقي = الصفر، فوقه إيجابي (أخضر) وتحته سلبي (أحمر). من كل قمة خط نازل إلى المحور وعليه رقم Strike. حرّك المؤشر أو المس أي نقطة لرؤية Strike الخاص بها.'));
-    const W = 400, H = 300, Lm = 46, Rm = 10, Tm = 26, Bm = 58, base = H - Bm, v = pr.map(r => Number(r.net) / 1e9);
-    let mn = Math.min(0, ...v), mx = Math.max(0, ...v); const pad = (mx - mn) * .1 || 1; mn -= pad; mx += pad;
-    const k0 = pr[0].k, k1 = pr[pr.length - 1].k, X = k => Lm + (k - k0) / (k1 - k0 || 1) * (W - Lm - Rm), Y = y => Tm + (mx - y) / (mx - mn) * (base - Tm);
-    const P = pr.map((r, i) => [X(r.k), Y(v[i])]), z = Y(0), f1 = n => n.toFixed(1);
-    const NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'مخطط صافي Gamma لكل Strike');
-    const add = (tag, at, txt, parent) => { const n = document.createElementNS(NS, tag); Object.keys(at).forEach(k => n.setAttribute(k, at[k])); if (txt != null) n.textContent = txt; (parent || svg).appendChild(n); return n; };
-    const step = Math.max(1, Math.ceil((mx - mn) / 4)); for (let t = Math.ceil(mn / step) * step; t <= mx; t += step) { add('line', { x1: Lm, x2: W - Rm, y1: f1(Y(t)), y2: f1(Y(t)), stroke: 'currentColor', 'stroke-opacity': .15, 'stroke-width': .6 }); add('text', { x: Lm - 4, y: f1(Y(t) + 3), 'text-anchor': 'end', 'font-size': 9, fill: 'currentColor', 'fill-opacity': .6 }, (t > 0 ? '+' : '') + t + 'B'); }
-    const area = (cmp, col) => add('path', { d: 'M' + f1(P[0][0]) + ',' + f1(z) + ' ' + P.map(p => 'L' + f1(p[0]) + ',' + f1(cmp(p[1], z))).join(' ') + ' L' + f1(P[P.length - 1][0]) + ',' + f1(z) + 'Z', fill: col, 'fill-opacity': .3 });
-    area(Math.min, 'var(--ok)'); area(Math.max, 'var(--crit)');
-    add('line', { x1: Lm, x2: W - Rm, y1: f1(z), y2: f1(z), stroke: 'var(--fg)', 'stroke-width': 1.6, class: 'zero' });
-    add('line', { x1: Lm, x2: W - Rm, y1: base, y2: base, stroke: 'currentColor', 'stroke-opacity': .4 });
-    add('polyline', { points: P.map(p => f1(p[0]) + ',' + f1(p[1])).join(' '), fill: 'none', stroke: 'var(--fg)', 'stroke-width': 1.5 });
-    [['Put Wall', g.put_wall, 'var(--crit)'], ['Call Wall', g.call_wall, 'var(--ok)'], ['السعر', spot, '#6c93ff'], ['Flip', g.gamma_flip, '#6c93ff']].forEach((x, i) => { const n = Number(x[1]); if (x[1] == null || !isFinite(n) || n < k0 || n > k1) return; add('line', { x1: f1(X(n)), x2: f1(X(n)), y1: Tm, y2: base, stroke: x[2], 'stroke-width': 1.2, 'stroke-dasharray': '1 3' }); add('text', { x: f1(X(n)), y: Tm - 8 - (i === 1 ? 10 : 0), 'text-anchor': 'middle', 'font-size': 9, fill: x[2] }, x[0]); });
-    const pick = (ord, n) => { const c = []; for (const i of ord) { if (c.every(j => Math.abs(i - j) >= 3)) c.push(i); if (c.length === n) break; } return c; };
-    const idx = v.map((_, i) => i), pos = pick(idx.filter(i => v[i] > 0).sort((a, b) => v[b] - v[a]), 3), neg = pick(idx.filter(i => v[i] < 0).sort((a, b) => v[a] - v[b]), 3);
-    const drop = (i, col, cls, lbl) => { add('line', { x1: f1(P[i][0]), x2: f1(P[i][0]), y1: f1(P[i][1]), y2: base, stroke: col, 'stroke-width': 1, 'stroke-dasharray': '3 3', class: cls }); add('circle', { cx: f1(P[i][0]), cy: f1(P[i][1]), r: 3, fill: col, class: cls }); add('text', { transform: 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)', 'text-anchor': 'start', class: lbl }, String(pr[i].k)); };
-    pos.forEach(i => drop(i, 'var(--ok)', 'pk', 'pk-l')); neg.forEach(i => drop(i, 'var(--crit)', 'pk', 'pk-l'));
-    const hv = add('g', { class: 'hv', visibility: 'hidden' });
-    const hl = add('line', { y1: Tm, y2: base, stroke: '#6c93ff', 'stroke-width': 1.2 }, null, hv), hc = add('circle', { r: 4.5, fill: '#6c93ff' }, null, hv), ht = add('text', { 'text-anchor': 'start', class: 'hv-l' }, '', hv);
-    const at = ev => { const rc = svg.getBoundingClientRect(), x = (ev.clientX - rc.left) / rc.width * W; let b = 0; P.forEach((p, i) => { if (Math.abs(p[0] - x) < Math.abs(P[b][0] - x)) b = i; }); return b; };
-    const show1 = i => { hv.setAttribute('visibility', 'visible'); hl.setAttribute('x1', f1(P[i][0])); hl.setAttribute('x2', f1(P[i][0])); hc.setAttribute('cx', f1(P[i][0])); hc.setAttribute('cy', f1(P[i][1])); ht.setAttribute('transform', 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)'); ht.textContent = String(pr[i].k); };
-    svg.addEventListener('pointermove', ev => show1(at(ev))); svg.addEventListener('pointerdown', ev => show1(at(ev)));
-    svg.addEventListener('pointerleave', () => hv.setAttribute('visibility', 'hidden'));
-    svg.addEventListener('click', ev => { const i = at(ev); GSEL = pr[i].k; gMark_(false); });
-    box.appendChild(svg);
-  })();
-  /* المخطط */
-  const ch = $('gChart'); ch.innerHTML = ''; show('gChart', true);
-  ch.appendChild(el('h2', '', 'Gamma لكل Strike' + stamp));
-  ch.appendChild(el('p', 'src', 'الأخضر = Call، الأحمر = Put (تعرض كلٍّ منهما)، والرقم = الصافي بمليار دولار لكل 1% حركة. الشريط المظلل = أقرب Strike للسعر.'));
-  let rows = (g.strikes || []).filter(r => r && isFinite(Number(r.k))).slice().sort((a, b) => b.k - a.k);
-  const near = isFinite(spot) ? rows.filter(r => Math.abs(r.k - spot) <= 120) : rows; if (near.length) rows = near;
-  const mx = Math.max(1, ...rows.map(r => Math.max(Math.abs(Number(r.call) || 0), Math.abs(Number(r.put) || 0))));
-  const mxNet = Math.max(1, ...rows.map(r => Math.abs(Number(r.net) || 0)));
-  let cur = null; if (isFinite(spot)) rows.forEach(r => { if (!cur || Math.abs(r.k - spot) < Math.abs(cur.k - spot)) cur = r; });
-  const nearest = v => { let b = null; rows.forEach(r => { if (v != null && (!b || Math.abs(r.k - v) < Math.abs(b.k - v))) b = r; }); return b; };
-  const tags = new Map(); [['Flip', g.gamma_flip], ['Call Wall', g.call_wall], ['Put Wall', g.put_wall]].forEach(x => { const r = nearest(x[1]); if (r && x[1] != null && Math.abs(r.k - x[1]) <= 5) tags.set(r, (tags.get(r) ? tags.get(r) + ' · ' : '') + x[0]); });
-  if (!rows.length) ch.appendChild(el('p', 'src', 'لا Strikes في هذه اللقطة.'));
-  rows.forEach(r => {
-    const d = el('div', 'gr' + (r === cur ? ' cur' : '')), k = el('span', 'k', String(r.k));
-    if (esOk) k.appendChild(el('small', '', 'ES≈' + conv(r.k))); if (tags.get(r)) { const tt = tags.get(r); k.appendChild(el('span', 'tg ' + (/Call Wall/.test(tt) ? 't-cw' : /Put Wall/.test(tt) ? 't-pw' : 't-fl'), tt)); } d.appendChild(k); d.dataset.k = String(r.k); d.tabIndex = 0; d.setAttribute('role', 'button');
-    const bar = el('div', 'gbar'), p = el('i', 'p'), c = el('i', 'c');
-    p.style.width = (Math.abs(Number(r.put) || 0) / mx * 50).toFixed(1) + '%'; c.style.width = (Math.abs(Number(r.call) || 0) / mx * 50).toFixed(1) + '%'; bar.appendChild(p); bar.appendChild(c); d.appendChild(bar);
-    const nr = Math.abs(Number(r.net) || 0) / mxNet, nn = el('span', 'n ' + (Number(r.net) > 0 ? 'g' : Number(r.net) < 0 ? 'r' : '') + (nr >= 0.6 ? ' s3' : nr >= 0.25 ? ' s2' : ' s1'), gB_(r.net)); d.appendChild(nn); ch.appendChild(d);
-    const tog = () => { GSEL = GSEL === r.k ? null : r.k; gMark_(false); };
-    d.onclick = tog; d.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tog(); } };
-  });
-  lv.querySelectorAll('.lvb').forEach(b => {
-    const go = () => { const v = Number(b.dataset.v); if (b.dataset.v === '' || !isFinite(v)) return; const r = nearest(v); if (!r || Math.abs(r.k - v) > 5) return; GSEL = GSEL === r.k && b.classList.contains('on') ? null : r.k; gMark_(true, b); };
-    b.onclick = go; b.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
-  });
+  gCtl_(g, true);
+  const bk = GBKT, bnote = bk === 'all' ? '' : ' · ' + GBN_[bk];
+  const stamp = ' · لقطة ' + (g.snapshot_et || '') + ' نيويورك' + bnote;
+  const spot = Number(g.spot), es = g.es, esMode = es && es.mode === 'close' ? 'close' : 'live';
+  const esOk = !!es && isFinite(Number(es.basis)) && (esMode === 'close' || (isFinite(Number(es.ref_gap_min)) && Number(es.ref_gap_min) <= 5)), bs = esOk ? Number(es.basis) : 0;
+  const conv = k => (Math.round((Number(k) + bs) * 4) / 4).toFixed(2), fk = k => String(Math.round(Number(k) * 10) / 10);
+  const dX = gData_(g, 'SPX', bk), dY = spyOk ? gData_(g, 'SPY', bk) : null, d = cmp ? dX : gData_(g, main, bk);
+  /* مفتاح الأحداث بين المخططين: المؤشر على أحدهما يظهر في الآخر */
+  let c1 = null, c2 = null; const sync = { h1: k => { if (c2) c2.showK(k); }, h2: k => { if (c1) c1.showK(k); }, l1: () => { if (c2) c2.hide(); }, l2: () => { if (c1) c1.hide(); } };
+  const spotMarks = [['السعر', spot, '#6c93ff']];
+  const lv = $('gLevels'), ch = $('gChart'), cm = $('gCmp'), ln2 = $('gLine2');
+  /* المستويات الرئيسية (SPX أو SPY محوَّلاً) */
+  lv.innerHTML = ''; show('gLevels', !cmp && !!d);
+  if (!cmp && d) {
+    lv.appendChild(el('h2', '', 'المستويات الرئيسية' + (main === 'SPY' ? ' — SPY (مكافئ SPX)' : '') + stamp));
+    lv.appendChild(el('span', 'greg ' + (d.net < 0 ? 'neg' : 'pos'), d.net < 0 ? 'غاما سلبية' : 'غاما إيجابية'));
+    lv.appendChild(el('p', 'src', 'الصافي الإجمالي: ' + gB_(d.net) + ' $ (بنموذج تقدير مراكز صناع السوق).'));
+    const gr = el('div', 'glv');
+    [['Gamma Flip', d.flip, 'lv-fl'], ['السعر (SPX)', spot, 'lv-sp'], ['Call Wall', d.cw, 'lv-cw'], ['Put Wall', d.pw, 'lv-pw']].forEach(x => {
+      const b = el('div', 'lvb ' + x[2]); b.setAttribute('role', 'button'); b.tabIndex = 0; b.dataset.v = x[1] == null ? '' : String(x[1]); b.appendChild(el('small', '', x[0]));
+      const v = Number(x[1]); b.appendChild(el('b', '', x[1] == null || !isFinite(v) ? '—' : fk(v)));
+      const e2 = el('div', 'es'); if (x[1] != null && isFinite(v)) { e2.appendChild(document.createTextNode(esOk ? 'ES≈' + conv(v) : 'ES: —')); if (esOk) e2.appendChild(el('span', 'tg', 'تقريبي')); } b.appendChild(e2); gr.appendChild(b);
+    });
+    lv.appendChild(gr);
+    if (d.flip == null) lv.appendChild(el('p', 'src', bk === 'all' ? 'Gamma Flip غير محدد في هذه اللقطة.' : 'Gamma Flip غير محدد: يُحسب لمجموع كل الاستحقاقات فقط وليس لسلة واحدة.'));
+  }
+  /* المخطط الخطي: الأول SPX أو SPY، وفي المقارنة SPX فوق وSPY تحته بنفس المحور */
+  const rng = () => { const a = (dX ? dX.rows : []).map(r => r.k).concat(dY ? dY.rows.map(r => r.k) : []).filter(k => !isFinite(spot) || Math.abs(k - spot) <= 120); return a.length ? [Math.min(...a), Math.max(...a)] : null; };
+  const kr = cmp ? rng() : null, DESC = 'الأفقي: Strike (SPX). العمودي: صافي GEX، والخط الأبيض الأفقي = الصفر، فوقه إيجابي (أخضر) وتحته سلبي (أحمر). من كل قمة خط إلى المحور وعليه رقم Strike. حرّك المؤشر أو المس أي نقطة لرؤية Strike الخاص بها.';
+  const marks1 = d ? [['Put Wall', d.pw, 'var(--crit)'], ['Call Wall', d.cw, 'var(--ok)']].concat(spotMarks, d.flip != null ? [['Flip', d.flip, '#6c93ff']] : []) : spotMarks;
+  c1 = d ? gLine_($('gLine'), { title: cmp ? 'SPX — صافي Gamma لكل Strike' + stamp : 'صافي Gamma حسب Strike (خط)' + (main === 'SPY' ? ' — SPY (مكافئ SPX)' : '') + stamp, desc: DESC, rows: d.rows, spot, marks: marks1, kr, label: main === 'SPY' ? 'SPY→SPX' : 'SPX', onHover: cmp ? sync.h1 : null, onLeave: cmp ? sync.l1 : null, onPick: k => { GSEL = k; gMark_(false); } }) : ($('gLine').hidden = true, null);
+  ln2.innerHTML = ''; ln2.hidden = true; c2 = null;
+  if (cmp && dY) {
+    c2 = gLine_(ln2, { title: 'SPY — صافي Gamma لكل Strike (محوَّل إلى مكافئ SPX)' + stamp, desc: 'نفس رسم SPX وبنفس المحور الأفقي (Strike بمكافئ SPX) فتُقارَن القمم عمودياً بين المخططين. لكل مخطط محوره العمودي الخاص (صافي GEX بدولار كل أصل). المؤشر على أحدهما يظهر في الآخر.', rows: dY.rows, spot, marks: [['Put Wall', dY.pw, 'var(--crit)'], ['Call Wall', dY.cw, 'var(--ok)']].concat(spotMarks, dY.flip != null ? [['Flip', dY.flip, '#6c93ff']] : []), kr, label: 'SPY→SPX', onHover: sync.h2, onLeave: sync.l2, onPick: k => { GSEL = k; gMark_(false); } });
+  }
+  /* جدول المقارنة */
+  cm.innerHTML = ''; show('gCmp', cmp && !!dX && !!dY);
+  if (cmp && dX && dY) {
+    cm.appendChild(el('h2', '', 'SPX مقابل SPY' + stamp)); cm.appendChild(el('p', 'src', 'SPY محوَّل إلى مكافئ SPX: Strike × (SPX/SPY) = × ' + g.spy.ratio + ' (سعران متزامنان). التوافق = فرق 5 نقاط أو أقل، وهو حدّ دقة Strike السباي (خطوة 1 دولار ≈ 10 نقاط SPX).'));
+    const tb = el('table', 'gcmpt'), hr = el('tr'); ['المستوى', 'SPX', 'SPY→SPX', 'الفرق', ''].forEach(x => hr.appendChild(el('th', '', x))); tb.appendChild(hr);
+    [['Call Wall', dX.cw, dY.cw, 'lv-cw'], ['Put Wall', dX.pw, dY.pw, 'lv-pw'], ['Gamma Flip', dX.flip, dY.flip, 'lv-fl']].forEach(x => {
+      const a = Number(x[1]), b = Number(x[2]), has = x[1] != null && x[2] != null && isFinite(a) && isFinite(b), df = has ? b - a : null, r = el('tr');
+      const c0 = el('td', 'nm ' + x[3], x[0]); r.appendChild(c0); r.appendChild(el('td', '', x[1] != null && isFinite(a) ? fk(a) : '—')); r.appendChild(el('td', '', x[2] != null && isFinite(b) ? fk(b) : '—'));
+      r.appendChild(el('td', '', has ? (df > 0 ? '+' : df < 0 ? '−' : '') + Math.abs(df).toFixed(1) : '—')); const c4 = el('td'); if (has) c4.appendChild(el('span', 'gtag ' + (Math.abs(df) <= 5 ? 'agree' : 'diff'), Math.abs(df) <= 5 ? 'توافق' : 'اختلاف')); r.appendChild(c4); tb.appendChild(r);
+    });
+    cm.appendChild(tb);
+    if (bk !== 'all') cm.appendChild(el('p', 'src', 'Gamma Flip لا يُحسب لسلة واحدة؛ يظهر عند اختيار «الكل».'));
+    cm.appendChild(el('p', 'src', 'الاختلاف ليس خطأً: يعني أن المستويين لا يتفقان على المنطقة نفسها. عقود SPX نقدية أوروبية وعقود SPY أمريكية بتسليم فعلي.'));
+  }
+  /* الجدول: Strike | ES | شريط Put/Call | الصافي | نسخ */
+  ch.innerHTML = ''; show('gChart', !cmp && !!d);
+  if (!cmp && d) {
+    ch.appendChild(el('h2', '', 'Gamma لكل Strike' + (main === 'SPY' ? ' — SPY (مكافئ SPX)' : '') + stamp));
+    ch.appendChild(el('p', 'src', 'الأخضر = Call، الأحمر = Put (تعرض كلٍّ منهما)، وطول كل شريط نسبي لأكبر قيمة في الجدول، والرقم = الصافي بمليار دولار لكل 1% حركة. الشريط المظلل = أقرب Strike للسعر.'));
+    let rows = d.rows.slice().sort((a, b) => b.k - a.k);
+    const near = isFinite(spot) ? rows.filter(r => Math.abs(r.k - spot) <= 120) : rows; if (near.length) rows = near;
+    const mxr = Math.max(1, ...rows.map(r => Math.max(Math.abs(Number(r.call) || 0), Math.abs(Number(r.put) || 0)))), mxNet = Math.max(1, ...rows.map(r => Math.abs(Number(r.net) || 0)));
+    let cur = null; if (isFinite(spot)) rows.forEach(r => { if (!cur || Math.abs(r.k - spot) < Math.abs(cur.k - spot)) cur = r; });
+    const nearest = v => { let b = null; rows.forEach(r => { if (v != null && (!b || Math.abs(r.k - v) < Math.abs(b.k - v))) b = r; }); return b; };
+    const tags = new Map(); [['Flip', d.flip], ['Call Wall', d.cw], ['Put Wall', d.pw]].forEach(x => { const r = nearest(x[1]); if (r && x[1] != null && Math.abs(r.k - x[1]) <= 5) tags.set(r, (tags.get(r) ? tags.get(r) + ' · ' : '') + x[0]); });
+    if (!rows.length) ch.appendChild(el('p', 'src', 'لا Strikes في هذه اللقطة.'));
+    const lineOf = r => 'SPX ' + fk(r.k) + (r.spyK != null ? ' (SPY ' + r.spyK + ')' : '') + ' = ES ' + conv(r.k);
+    if (rows.length) { const h = el('div', 'ghd'); [['hk', 'SPX Strike'], ['he', esOk ? 'ES' : ''], ['hb', 'Put ◀ ▶ Call'], ['hn', 'الصافي'], ['hc', esOk ? 'نسخ' : '']].forEach(x => h.appendChild(el('span', x[0], x[1]))); ch.appendChild(h); }
+    rows.forEach(r => {
+      const dd = el('div', 'gr' + (r === cur ? ' cur' : '')), k = el('span', 'k', fk(r.k));
+      if (r.spyK != null) k.appendChild(el('small', '', 'SPY ' + r.spyK)); if (tags.get(r)) { const tt = tags.get(r); k.appendChild(el('span', 'tg ' + (/Call Wall/.test(tt) ? 't-cw' : /Put Wall/.test(tt) ? 't-pw' : 't-fl'), tt)); } dd.appendChild(k); dd.dataset.k = String(r.k); dd.tabIndex = 0; dd.setAttribute('role', 'button');
+      if (esOk) dd.appendChild(el('span', 'es', conv(r.k)));
+      const bar = el('div', 'gbar'), p = el('i', 'p'), c = el('i', 'c');
+      p.style.width = (Math.abs(Number(r.put) || 0) / mxr * 50).toFixed(1) + '%'; c.style.width = (Math.abs(Number(r.call) || 0) / mxr * 50).toFixed(1) + '%'; bar.appendChild(p); bar.appendChild(c); dd.appendChild(bar);
+      const nr = Math.abs(Number(r.net) || 0) / mxNet; dd.appendChild(el('span', 'n ' + (Number(r.net) > 0 ? 'g' : Number(r.net) < 0 ? 'r' : '') + (nr >= 0.6 ? ' s3' : nr >= 0.25 ? ' s2' : ' s1'), gB_(r.net)));
+      if (esOk) { const cb = el('button', 'gcp', 'نسخ'); cb.type = 'button'; cb.setAttribute('aria-label', 'نسخ ' + lineOf(r)); cb.onclick = ev => { ev.stopPropagation(); gCopy_(lineOf(r), cb); }; dd.appendChild(cb); }
+      ch.appendChild(dd);
+      const tog = () => { GSEL = GSEL === r.k ? null : r.k; gMark_(false); };
+      dd.onclick = tog; dd.onkeydown = e => { if (e.target !== dd) return; if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tog(); } };
+    });
+    if (rows.length && esOk) { const all = el('button', 'gall', 'نسخ كل الجدول (SPX = ES لكل سطر)'); all.type = 'button'; all.onclick = () => gCopy_(rows.map(lineOf).join('\n'), all); ch.appendChild(all); }
+    lv.querySelectorAll('.lvb').forEach(b => {
+      const go = () => { const v = Number(b.dataset.v); if (b.dataset.v === '' || !isFinite(v)) return; const r = nearest(v); if (!r || Math.abs(r.k - v) > 5) return; GSEL = GSEL === r.k && b.classList.contains('on') ? null : r.k; gMark_(true, b); };
+      b.onclick = go; b.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+    });
+  }
   gMark_(false);
-  /* تحويل ES */
+  /* تحويل ES: مرجع حي بعد افتتاح SPX، ومرجع إغلاق أمس والسوق مغلق */
   const en = $('gEsNote'); en.innerHTML = ''; show('gEsNote', true); en.appendChild(el('h2', '', 'تحويل Strike إلى مستوى ES (تقريبي)'));
-  en.appendChild(el('p', 'src', esOk ? 'ES ≈ Strike + (ES مرجعي − SPX مرجعي) = Strike + ' + bs.toFixed(2) + ' (ES ' + es.es_ref + ' / SPX ' + es.spx_ref + '، فرق التوقيت ' + es.ref_gap_min + ' د)، بخطوة 0.25. فرق الأساس يتغير خلال اليوم، فالتحويل للاسترشاد فقط.'
-    : 'التحويل معطّل: لا أسعار مرجعية متزامنة لـ ES وSPX في هذه اللقطة (أو فرق توقيتها أكبر من 5 دقائق). لا يُحوَّل دون ذلك.'));
+  if (esOk) {
+    en.appendChild(el('span', 'gtag ' + (esMode === 'live' ? 'agree' : 'old'), esMode === 'live' ? 'المرجع: SPX الحالي (مفتوح)' : 'المرجع: إغلاق أمس (SPX مغلق)'));
+    en.appendChild(el('p', 'src', 'ES ≈ Strike + (ES − SPX) = Strike + ' + bs.toFixed(2) + ' (ES ' + es.es_ref + ' / SPX ' + es.spx_ref + (esMode === 'live' ? '، سعران حاليان في الدقيقة نفسها، فرق التوقيت ' + es.ref_gap_min + ' د' : '، سعران في لحظة الإغلاق نفسها') + '). بخطوة 0.25 وللاسترشاد فقط.'));
+    if (esMode === 'close') en.appendChild(el('p', 'src', 'SPX مغلق، فلا يُستخدم ES الحالي مع إغلاق أمس لأن حركة ES الليلية ستدخل في الفرق وتزحزح المستويات. بعد افتتاح SPX يُحسب الفرق من السعرين الحاليين تلقائياً.'));
+  } else {
+    en.appendChild(el('p', 'src', 'التحويل معطّل: لا أسعار مرجعية متزامنة لـ ES وSPX في هذه اللقطة (أو فرق توقيتها أكبر من 5 دقائق). لا يُحوَّل دون ذلك.'));
+  }
+  /* SPY غير متاح: سبب صريح */
+  const sy = $('gSpy'); sy.innerHTML = ''; show('gSpy', !spyOk);
+  if (!spyOk) { sy.appendChild(el('h2', '', 'SPY')); sy.appendChild(el('p', 'gspy', 'SPY Gamma Data Unavailable')); sy.appendChild(el('p', 'src', (g.spy && g.spy.reason ? g.spy.reason + '. ' : '') + 'لا تُعرض أرقام SPY إلا بسعر متزامن وملف صالح.')); }
+}
+/* أزرار الأصل (SPX | SPY | مقارنة) والاستحقاق (الكل | اليوم | 1–7 | 8–30 | +30) */
+function gCtl_(g, on) {
+  const c = $('gCtl'); c.innerHTML = ''; c.hidden = !on; if (!on) return;
+  const spyOk = !!(g && g.spy && g.spy.ok), seg = el('div', 'gseg'); seg.setAttribute('role', 'group'); seg.setAttribute('aria-label', 'الأصل');
+  [['SPX', 'SPX', true], ['SPY', 'SPY', spyOk], ['CMP', 'مقارنة', spyOk]].forEach(x => {
+    const b = el('button', 'gb' + (GASSET === x[0] ? ' on' : ''), x[2] ? x[1] : x[1] + ' · غير متاح'); b.type = 'button'; b.dataset.a = x[0]; b.disabled = !x[2]; b.setAttribute('aria-pressed', GASSET === x[0] ? 'true' : 'false');
+    b.onclick = () => { GASSET = x[0]; GSEL = null; if (gBktN_(g, GASSET === 'SPY' ? 'SPY' : 'SPX', GBKT) <= 0) GBKT = 'all'; renderGamma_(); }; seg.appendChild(b);
+  });
+  c.appendChild(el('h3', '', 'الأصل')); c.appendChild(seg);
+  if (g.buckets) {
+    const asset = GASSET === 'SPY' ? 'SPY' : 'SPX'; c.appendChild(el('h3', '', 'الاستحقاق (سلال منفصلة لا تتداخل)'));
+    const ch = el('div', 'gchips'); ch.setAttribute('role', 'group'); ch.setAttribute('aria-label', 'الاستحقاق');
+    GBKS_.forEach(b => {
+      const n = gBktN_(g, asset, b), x = el('button', 'gchip' + (GBKT === b ? ' on' : ''), GBN_[b]); x.type = 'button'; x.dataset.b = b; x.disabled = n <= 0; x.setAttribute('aria-pressed', GBKT === b ? 'true' : 'false');
+      x.onclick = () => { GBKT = b; GSEL = null; renderGamma_(); }; ch.appendChild(x);
+    });
+    c.appendChild(ch); c.appendChild(el('p', 'src', '«الكل» = مجموع السلال الأربع بالضبط، وكل عقد يُحسب مرة واحدة حسب تاريخ استحقاقه. تنتقل العقود بين السلال مع مرور الأيام وتسقط المنتهية.'));
+  }
 }
 /* ملف جاما: من الصفحة نفسها (gamma.json) ومن المستودع مباشرة (الأحدث)، ويُعتمد الأحدث وقتاً. يعمل حتى لو لم يُعاد نشر الصفحة بعد. */
 function ghRawUrl_(loc) {
@@ -2288,7 +2400,7 @@ let booted = false, loadedAt = 0, lastTry = 0, FAIL = null, btnTimer = null;
 /* ثلاثة أزمنة منفصلة: وقت البيانات المعروضة (LIVE.updated)، آخر جلب ناجح (loadedAt)، آخر محاولة (lastTry). فشل المحاولة لا يحدّث الثانية ولا يمحو اللقطة. */
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
 const FAILMSG = { http: 'الخادم رفض الطلب', network: 'لا اتصال بالشبكة', json: 'ملف البيانات تالف', source: 'المصدر أبلغ عن خطأ', render: 'تعذّر عرض البيانات' };
-const UI_VERSION = '0.20.0';
+const UI_VERSION = '0.21.0';
 function versionCheck_(d) {
   const dv = d && d.version, vl = $('verLine'), vw = $('verWarn');
   if (vl) vl.textContent = 'إصدار الواجهة: v' + UI_VERSION + ' · إصدار ملف البيانات: ' + (dv ? 'v' + dv : 'غير مذكور (أقدم من 0.20.0)');

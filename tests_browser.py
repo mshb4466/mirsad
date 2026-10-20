@@ -412,8 +412,8 @@ def main(shots):
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900); dp.evaluate("showTab('today')")
         aclick("#bellBtn"); dp.wait_for_timeout(100)      # كتم
         # فحص تطابق إصدار الواجهة والبيانات (يكشف رفعاً ناقصاً)
-        okv = copy.deepcopy(fx); okv["version"] = "0.20.0"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
-        check(not dp.locator("#verWarn").is_visible() and "v0.20.0" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
+        okv = copy.deepcopy(fx); okv["version"] = "0.21.0"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
+        check(not dp.locator("#verWarn").is_visible() and "v0.21.0" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
         badv = copy.deepcopy(fx); badv["version"] = "0.18.1"; mode["data"] = badv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
         check(dp.locator("#verWarn").is_visible() and "Run workflow" in dp.locator("#verWarn").inner_text(), "الإصدار: عدم التطابق يُظهر تحذيراً بخطوة الإصلاح")
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
@@ -441,12 +441,26 @@ def main(shots):
 
 
         # ===== 9ب) v0.20: بنية التبويبات، اليوم، الصحة، التعريفات، جاما =====
-        def gfix(age_min=10, es=True, status="fresh", gap=1, flip=7425.0):
+        def gfix(age_min=10, es=True, status="fresh", gap=1, flip=7425.0, spy=True, esmode="live", bk0=True):
             now = datetime.now(timezone.utc); snap = now - timedelta(minutes=age_min)
             ks = [{"k": 7500 + 5 * i, "call": (i % 7 + 1) * 4e8, "put": -((i * 3) % 9 + 1) * 3e8, "net": ((i % 7 + 1) * 4e8 - ((i * 3) % 9 + 1) * 3e8)} for i in range(0, 60)]
+            sh = {"0": 0.4, "1-7": 0.3, "8-30": 0.2, "30+": 0.1}
+            def part(rows, f, kx=None):
+                out = []
+                for r in rows:
+                    c, p = int(round(r["call"] * f)), int(round(r["put"] * f)); o = {"k": r["k"], "call": c, "put": p, "net": c + p}
+                    if kx: o["kx"] = round(r["k"] * kx, 1)
+                    out.append(o)
+                return out
+            bks = {b: {"n": (0 if (b == "0" and not bk0) else 100), "net_gex": -1e9 * f, "call_wall": 7680.0, "put_wall": 7650.0, "strikes": part(ks, f)} for b, f in sh.items()}
+            ratio = 10.03; sk = [{"k": 720 + i, "call": (i % 5 + 1) * 3e7, "put": -((i * 2) % 7 + 1) * 2e7, "net": (i % 5 + 1) * 3e7 - ((i * 2) % 7 + 1) * 2e7} for i in range(100)]
+            sbk = {b: {"n": 50, "net_gex": -5e7 * f, "call_wall": 769.0, "put_wall": 763.0, "call_wall_x": 7713.1, "put_wall_x": 7652.9, "strikes": part(sk, f, ratio)} for b, f in sh.items()}
+            spyb = {"ok": True, "asset": "SPY", "snapshot_utc": snap.isoformat(), "spot": 765.5, "ratio": ratio, "net_gex": -2e8, "regime": "negative", "gamma_flip": 742.0, "gamma_flip_x": 7442.3,
+                    "call_wall": 769.0, "put_wall": 763.0, "call_wall_x": 7713.1, "put_wall_x": 7652.9, "n_contracts": 500, "strikes": part(sk, 1.0, ratio), "buckets": sbk, "reason": None} if spy else {"ok": False, "reason": "لا سعر SPY/SPX متزامن (yfinance)"}
+            esb = {"basis": 45.0, "es_ref": 7722.25, "spx_ref": 7677.25, "ref_gap_min": gap, "mode": esmode} if esmode == "live" else {"basis": 38.25, "es_ref": 7888.25, "spx_ref": 7850.0, "ref_gap_min": 900, "mode": "close"}
             return {"ok": True, "asset": "SPX", "snapshot_utc": snap.isoformat(), "snapshot_et": (snap - timedelta(hours=4)).strftime("%Y-%m-%d %H:%M"), "fetched_utc": (snap + timedelta(minutes=2)).isoformat(),
-                    "source": "CBOE (متأخر ~15 د)", "spot": 7677.28, "regime": "negative", "net_gex": -3.86e9, "gamma_flip": flip, "call_wall": 7680.0, "put_wall": 7650.0, "strikes": ks,
-                    "es": {"basis": 45.0, "es_ref": 7722.25, "spx_ref": 7677.25, "ref_gap_min": gap} if es else None, "status": status, "reason": None, "spy": {"ok": False}}
+                    "source": "CBOE (متأخر ~15 د)", "spot": 7677.28, "regime": "negative", "net_gex": -3.86e9, "gamma_flip": flip, "call_wall": 7680.0, "put_wall": 7650.0, "strikes": ks, "n_contracts": 400, "buckets": bks,
+                    "es": esb if es else None, "status": status, "reason": None, "spy": spyb}
         mode["m"] = "good"; mode["data"] = fx; mode["gamma"] = None
         c4, q4 = newpage(390, 900)
         q4.goto(url); q4.wait_for_timeout(1300)
@@ -491,14 +505,16 @@ def main(shots):
         check(all("radialGradient" not in v and 'class="ex"' not in v and "filter" not in v for v in ic.values()), "الأيقونات مسطحة 2D: بلا تدرجات ولا تجسيم")
         check("#8fdcb0" in ic["support1"] and "#2fbf71" in ic["support2"] and "#0f8a4b" in ic["support3"] and "#f0a3a6" in ic["pressure1"] and "#b3202a" in ic["pressure3"], "الحدة بدرجة اللون للدعم والضغط")
         check("stroke-dasharray" in ic["support3"] and "stroke-dasharray" in ic["pressure3"] and "stroke-dasharray" not in ic["support2"] and "stroke-dasharray" not in ic["pressure1"], "الدائرة المنقطة للقوي فقط")
-        check(ic["mixed1"].count("<circle") == 2 and "spin" not in ic["mixed1"] and "spin" in ic["mixed2"] and "spin" in ic["mixed3"] and "stroke-dasharray" in ic["mixed3"], "المختلط: ضعيف حلقتان بفاصل أبيض، متوسط وحاد حلقة مقسومة تدور، والحاد منقط")
+        check(ic["mixed1"].count("<circle") == 2 and "split" not in ic["mixed1"] and "split" in ic["mixed2"] and "split" in ic["mixed3"] and "spin" not in ic["mixed2"] and "stroke-dasharray" in ic["mixed3"], "المختلط: ضعيف حلقتان بفاصل أبيض، متوسط وحاد حلقة مقسومة ثابتة (أخضر يميناً وأحمر يساراً) بلا دوران، والحاد منقط")
         q4.evaluate("""(ic) => { const d = document.createElement('div'); d.id = 'icdemo'; d.style.cssText = 'position:fixed;inset:0;z-index:999;background:#0e1420;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px;align-content:center'; Object.keys(ic).forEach(k => { const c = document.createElement('div'); c.style.cssText = 'text-align:center;color:#fff;font:14px sans-serif'; c.innerHTML = '<div style="width:96px;height:96px;margin:auto">' + ic[k] + '</div>' + k; d.appendChild(c); }); document.body.appendChild(d); }""", ic)
         q4.wait_for_timeout(100); q4.screenshot(path=os.path.join(shots, "watch_icons_2d.png")); q4.evaluate("document.getElementById('icdemo').remove()")
         # جاما: لا بيانات
         q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(1200)
         gt = q4.locator("#tab-gamma").inner_text()
         check(q4.get_attribute("#gFresh", "data-s") == "none" and "لا توجد بيانات جاما اليوم" in gt and not q4.locator("#gLevels").is_visible() and not q4.locator("#gChart").is_visible(), "جاما بلا ملف: «لا توجد بيانات» ولا أرقام")
-        check("SPY Gamma Data Unavailable" in gt and "SPY · غير متاح" in gt, "SPY: «SPY Gamma Data Unavailable»")
+        check("SPY Gamma Data Unavailable" in gt and not q4.locator("#gCtl").is_visible(), "SPY: «SPY Gamma Data Unavailable» وبلا أزرار أصل عند غياب البيانات")
+        _u = q4.evaluate("[ghRawUrl_({hostname:'mshb4466.github.io',pathname:'/mirsad/index.html'}), ghRawUrl_({hostname:'localhost',pathname:'/'}), ghRawUrl_({hostname:'x.github.io',pathname:'/'})]")
+        check(_u[0] == "https://raw.githubusercontent.com/mshb4466/mirsad/main/gamma/latest.json" and _u[1] is None and _u[2] is None, "رابط جاما المباشر من المستودع يُشتق من عنوان الصفحة (ولا يُستعمل محلياً)")
         q4.screenshot(path=os.path.join(shots, "gamma_none_390.png"), full_page=True)
         def gload(g):
             mode["gamma"] = g; q4.evaluate("loadGamma_()"); q4.wait_for_timeout(500)
@@ -507,7 +523,7 @@ def main(shots):
         check(q4.get_attribute("#gFresh", "data-s") == "fresh" and "بيانات طازجة" in gt and "وقت اللقطة (نيويورك)" in gt and "بتوقيت بغداد" in gt and "عمر البيانات" in gt, "جاما طازجة: تاريخ التحديث ووقتا نيويورك وبغداد والعمر")
         check(all(k in q4.locator("#gLevels").inner_text() for k in ("Gamma Flip", "Call Wall", "Put Wall", "غاما سلبية", "7425", "7680", "7650")), "المستويات: Flip وCall Wall وPut Wall والنظام")
         rows = q4.locator("#gChart .gr").count(); curs = q4.locator("#gChart .gr.cur").count()
-        check(0 < rows <= 60 and curs == 1 and "ES≈" in q4.locator("#gChart").inner_text() and "تقريبي" in q4.locator("#gLevels").inner_text(), f"المخطط: Strike حول السعر مع صف مظلل وES تقريبي ({rows} صفاً)")
+        check(0 < rows <= 60 and curs == 1 and q4.locator("#gChart .gr .es").count() == rows and "تقريبي" in q4.locator("#gLevels").inner_text(), f"المخطط: Strike حول السعر مع صف مظلل وعمود ES ({rows} صفاً)")
         spans = q4.evaluate("[...document.querySelectorAll('#gChart .gr')].map(r=>+r.querySelector('.k').childNodes[0].textContent)")
         check(max(abs(k - 7677.28) for k in spans) <= 125, "المخطط ضمن ±120 نقطة من السعر")
         check("ES≈7722.00" in q4.locator("#gLevels").inner_text().replace(" ", "") or "ES≈7725.00" in q4.locator("#gLevels").inner_text(), "تحويل Call Wall إلى ES بخطوة 0.25")
@@ -518,11 +534,104 @@ def main(shots):
         gload(gfix(53 * 1440)); gt = q4.locator("#gFresh").inner_text()
         check(q4.get_attribute("#gFresh", "data-s") == "stale" and "قديمة" in gt and "لا تعتمدها للتداول" in gt and "53 يوماً" in gt, "جاما بعمر 53 يوماً: أحمر «لا تعتمدها للتداول» مع العمر")
         q4.screenshot(path=os.path.join(shots, "gamma_stale_390.png"), full_page=True)
+        gload(gfix(-180)); check(q4.get_attribute("#gFresh", "data-s") == "stale" and "في المستقبل" in q4.locator("#gFresh").inner_text(), "ختم لقطة جاما في المستقبل (3 ساعات): أحمر ولا يُعرض «طازجة»")
+        gload(gfix(10)); q4.click("#gChart .gr >> nth=3"); n_sel = q4.locator("#gChart .gr.sel").count()
+        check(n_sel == 1 and q4.get_attribute("#gChart .gr.sel", "aria-pressed") == "true", "النقر على صف في مخطط جاما يظلله (صف واحد فقط)")
+        q4.click("#gChart .gr >> nth=3"); check(q4.locator("#gChart .gr.sel").count() == 0, "نقرة ثانية على الصف تلغي التظليل")
+        q4.click("#gChart .gr >> nth=5"); q4.click("#gChart .gr >> nth=6"); check(q4.locator("#gChart .gr.sel").count() == 1, "التظليل ينتقل ولا يتراكم")
+        q4.click("#gLevels .lv-cw"); _k = q4.get_attribute("#gChart .gr.sel", "data-k")
+        check(_k == "7680" and q4.locator("#gLevels .lv-cw.on").count() == 1, "النقر على بطاقة Call Wall يظلل صفها (7680)")
+        _cc = q4.evaluate("[getComputedStyle(document.querySelector('#gLevels .lv-cw b')).color, getComputedStyle(document.querySelector('#gLevels .lv-pw b')).color]")
+        check(_cc[0] != _cc[1], "لونا Call Wall وPut Wall مختلفان (أخضر/أحمر)")
+        gload(gfix(10)); _o = q4.evaluate("(() => { const a = Array.from(document.querySelectorAll('#gChart .gr .n')).map(e => [e.className, parseFloat(getComputedStyle(e).opacity)]); const s3 = a.filter(x => x[0].includes('s3')), s1 = a.filter(x => x[0].includes('s1')); return [s3.length, s1.length, s3.length ? s3[0][1] : null, s1.length ? s1[0][1] : null]; })()")
+        check(_o[0] >= 1 and _o[1] >= 1 and _o[2] > _o[3], "قيم الصافي الكبيرة بلون قوي والصغيرة خافتة")
+        gload(gfix(10)); _l = q4.evaluate("(() => { const b = document.getElementById('gLine'); if (!b || b.hidden) return null; const s = b.querySelector('svg'); const pk = Array.from(s.querySelectorAll('text.pk-l')); return { n: pk.length, rot: pk.every(t => (t.getAttribute('transform') || '').includes('rotate(45)')), noB: pk.every(t => !/B/.test(t.textContent)), poly: !!s.querySelector('polyline'), zero: !!s.querySelector('line.zero'), drops: s.querySelectorAll('line.pk').length, base: Number(pk[0].getAttribute('transform').match(/,(\\d+)/)[1]) }; })()")
+        check(_l and 4 <= _l["n"] <= 10 and _l["rot"] and _l["noB"] and _l["poly"] and _l["zero"] and _l["drops"] == _l["n"], f"مخطط الخط: خط صفر وقمم محلية ({_l and _l['n']}) بخطوط نازلة وأرقام Strike مائلة بلا أرقام مليار")
+        _pk = q4.evaluate("""(() => { const d = document.createElement('div'); document.body.appendChild(d); const nets = [1,3,1,-1,-4,-1,1,5,1,2,6,2,-1,-3,-1,1,4,1,0.5,0.2]; const rows = nets.map((n, i) => ({ k: 7000 + 5 * i, net: n * 1e9, call: 0, put: 0 })); gLine_(d, { title: 't', rows, spot: 7050 }); const t = Array.from(d.querySelectorAll('text.pk-l')).map(x => +x.textContent); d.remove(); return t; })()""")
+        check(all(k in _pk for k in (7035, 7050, 7080, 7020, 7065)) and len(_pk) == len(set(_pk)), f"كل القمم المحلية المهمة مؤشَّر عليها (بلا حذف قمم ثانوية حقيقية): {sorted(_pk)}")
+        q4.locator("#gLine svg").scroll_into_view_if_needed(); q4.evaluate("window.scrollBy(0, -120)"); _bx = q4.locator("#gLine svg").bounding_box(); q4.mouse.move(_bx["x"] + _bx["width"] * 0.5, _bx["y"] + _bx["height"] * 0.4)
+        check(q4.evaluate("document.querySelector('#gLine .hv').getAttribute('visibility')") == "visible" and q4.evaluate("document.querySelector('#gLine .hv-l').textContent").isdigit(), "مؤشر الفأرة على المخطط يعرض رقم Strike بلا مربع")
+        check(q4.locator("#gChart").is_visible() and q4.locator("#gChart .gr").count() > 10, "مخطط الأعمدة والجدول باقيان")
+        q4.mouse.click(_bx["x"] + _bx["width"] * 0.5, _bx["y"] + _bx["height"] * 0.4); check(q4.locator("#gChart .gr.sel").count() == 1, "النقر على المخطط الخطي يظلل صف Strike في الجدول")
+        q4.locator("#gLine").screenshot(path=os.path.join(shots, "gamma_line_390.png"))
         gload(gfix(10, status="stale")); check(q4.get_attribute("#gFresh", "data-s") == "stale", "حالة الملف stale تغلب العمر")
         gload(gfix(10, es=False)); gt = q4.locator("#gChart").inner_text() + q4.locator("#gLevels").inner_text()
-        check("ES≈" not in gt and "التحويل معطّل" in q4.locator("#gEsNote").inner_text(), "بلا أسعار مرجعية: لا تحويل ES")
-        gload(gfix(10, gap=9)); check("ES≈" not in q4.locator("#gChart").inner_text() and "التحويل معطّل" in q4.locator("#gEsNote").inner_text(), "فرق توقيت المرجعين > 5 دقائق: التحويل معطّل")
+        check("ES≈" not in gt and q4.locator("#gChart .gr .es").count() == 0 and q4.locator("#gChart .gcp").count() == 0 and "التحويل معطّل" in q4.locator("#gEsNote").inner_text(), "بلا أسعار مرجعية: لا تحويل ES ولا أزرار نسخ")
+        gload(gfix(10, gap=9)); check(q4.locator("#gChart .gr .es").count() == 0 and "التحويل معطّل" in q4.locator("#gEsNote").inner_text(), "فرق توقيت المرجعين > 5 دقائق: التحويل معطّل")
         gload(gfix(10, flip=None)); check("غير محدد" in q4.locator("#gLevels").inner_text(), "Gamma Flip غير محدد يُقال صراحة")
+        # ===== v0.21: الأصل والاستحقاق وES والنسخ والمقارنة والمؤشر المتزامن =====
+        gload(gfix(10)); q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(200)
+        check(q4.locator("#gCtl .gb").count() == 3 and q4.locator("#gCtl .gchip").count() == 5 and q4.locator("#gCtl .gb.on").inner_text() == "SPX" and q4.locator("#gCtl .gchip.on").inner_text() == "الكل", "أزرار الأصل (SPX/SPY/مقارنة) والاستحقاق الخمسة والافتراضي SPX/الكل")
+        _tot = lambda: q4.evaluate("[...document.querySelectorAll('#gChart .gr .n')].length")
+        _all_n = q4.evaluate("[...document.querySelectorAll('#gChart .gr')].map(r => r.dataset.k).join(',')")
+        q4.click("#gCtl .gchip[data-b='0']"); q4.wait_for_timeout(150)
+        check(q4.locator("#gCtl .gchip.on").inner_text() == "اليوم 0DTE" and "اليوم 0DTE" in q4.locator("#gChart").inner_text() and q4.evaluate("[...document.querySelectorAll('#gChart .gr')].map(r => r.dataset.k).join(',')") == _all_n, "سلة «اليوم»: عنوان السلة ونفس Strikes")
+        _bn = {}
+        for b_ in ("0", "1-7", "8-30", "30+"):
+            q4.click(f"#gCtl .gchip[data-b='{b_}']"); q4.wait_for_timeout(100)
+            _bn[b_] = q4.evaluate("Object.fromEntries([...document.querySelectorAll('#gChart .gr')].map(r => [r.dataset.k, parseFloat(r.querySelector('.n').textContent.replace('−','-').replace('B',''))]))")
+        q4.click("#gCtl .gchip[data-b='all']"); q4.wait_for_timeout(100)
+        _al = q4.evaluate("Object.fromEntries([...document.querySelectorAll('#gChart .gr')].map(r => [r.dataset.k, parseFloat(r.querySelector('.n').textContent.replace('−','-').replace('B',''))]))")
+        check(all(abs(sum(_bn[b_][k] for b_ in _bn) - v) < 0.04 for k, v in _al.items()), "مجموع السلال الأربع = «الكل» لكل Strike (لا عدّ مزدوج)")
+        q4.click("#gCtl .gchip[data-b='1-7']"); q4.wait_for_timeout(100)
+        check("غير محدد" in q4.locator("#gLevels").inner_text() and "ليس لسلة واحدة" in q4.locator("#gLevels").inner_text(), "Gamma Flip لا يُحسب لسلة واحدة ويُقال ذلك")
+        q4.click("#gCtl .gchip[data-b='all']"); q4.wait_for_timeout(100)
+        gload(gfix(10, bk0=False)); q4.evaluate("showTab('gamma')"); check(q4.locator("#gCtl .gchip[data-b='0']").is_disabled(), "سلة بلا عقود معطّلة")
+        gload(gfix(10)); q4.evaluate("showTab('gamma')")
+        # ES: عمود ونسخ
+        _r0 = q4.evaluate("(() => { const r = document.querySelector('#gChart .gr'); return [r.querySelector('.k').childNodes[0].textContent, r.querySelector('.es').textContent, r.querySelector('.gcp').getAttribute('aria-label')]; })()")
+        check(abs(float(_r0[1]) - (float(_r0[0]) + 45.0)) < 0.13 and _r0[1].endswith((".00", ".25", ".50", ".75")) and f"SPX {_r0[0]} = ES {_r0[1]}" in _r0[2], f"عمود ES بجانب Strike بتدوير 0.25 ({_r0[0]} ← {_r0[1]})")
+        c4.grant_permissions(["clipboard-read", "clipboard-write"], origin=url.split("/index.html")[0]) if False else None
+        q4.evaluate("window.__cp = []; navigator.clipboard.writeText = t => { window.__cp.push(t); return Promise.resolve(); }; 0")
+        q4.click("#gChart .gcp >> nth=0"); q4.wait_for_timeout(80)
+        check(q4.evaluate("window.__cp[0]") == _r0[2].replace("نسخ ", "") and q4.locator("#gChart .gcp >> nth=0").inner_text() == "تم ✓", "زر نسخ الصف ينسخ «SPX = ES» ويؤكد")
+        q4.click("#gChart .gall"); q4.wait_for_timeout(80)
+        _ln = q4.evaluate("window.__cp[1]").split("\n")
+        check(len(_ln) == q4.locator("#gChart .gr").count() and all(l.startswith("SPX ") and " = ES " in l for l in _ln), "«نسخ كل الجدول»: سطر لكل مستوى بصيغة SPX = ES")
+        # ES: مرجع إغلاق أمس بعد/قبل الافتتاح
+        check("المرجع: SPX الحالي" in q4.locator("#gEsNote").inner_text(), "ES: المرجع «SPX الحالي» في الوضع الحي")
+        gload(gfix(10, esmode="close")); q4.evaluate("showTab('gamma')")
+        check("إغلاق أمس" in q4.locator("#gEsNote").inner_text() and q4.locator("#gChart .gr .es").count() > 0 and "حركة ES الليلية" in q4.locator("#gEsNote").inner_text(), "ES: مرجع «إغلاق أمس» عند إغلاق SPX (حتى مع فرق توقيت كبير) مع شرح السبب")
+        _e2 = q4.evaluate("(() => { const r = document.querySelector('#gChart .gr'); return [r.querySelector('.k').childNodes[0].textContent, r.querySelector('.es').textContent]; })()")
+        check(abs(float(_e2[1]) - (float(_e2[0]) + 38.25)) < 0.13, "التحويل يستعمل فرق الإغلاق (38.25)")
+        gload(gfix(10)); q4.evaluate("showTab('gamma')")
+        # أشرطة أوضح
+        _bh = q4.evaluate("[...document.querySelectorAll('#gChart .gbar')].map(b => b.getBoundingClientRect().height)")
+        check(min(_bh) >= 20, f"أشرطة الصافي أسمك (≥20px، الأدنى {min(_bh):.0f})")
+        _wd = q4.evaluate("[...document.querySelectorAll('#gChart .gbar i')].map(i => parseFloat(i.style.width))")
+        check(max(_wd) >= 45 and min(_wd) < 15, "أطوال الأشرطة نسبية: الكبيرة تقارب نصف الشريط والصغيرة قصيرة")
+        # SPY
+        q4.click("#gCtl .gb[data-a='SPY']"); q4.wait_for_timeout(150)
+        _sr = q4.evaluate("[...document.querySelectorAll('#gChart .gr')].map(r => [r.dataset.k, r.querySelector('.k small') ? r.querySelector('.k small').textContent : ''])")
+        check(len(_sr) >= 5 and all(x[1].startswith("SPY ") for x in _sr) and "SPY (مكافئ SPX)" in q4.locator("#gChart").inner_text() and "10.03" in q4.locator("#gFresh").inner_text(), "وضع SPY: Strikes بمكافئ SPX مع Strike السباي والنسبة")
+        check(q4.evaluate("document.getElementById('gSpy').hidden") is True, "SPY صالح: بطاقة «غير متاح» مخفية")
+        # المقارنة والمؤشر المتزامن
+        q4.click("#gCtl .gb[data-a='CMP']"); q4.wait_for_timeout(200)
+        check(q4.locator("#gLine svg").count() == 1 and q4.locator("#gLine2 svg").count() == 1 and not q4.locator("#gChart").is_visible() and q4.locator("#gCmp").is_visible(), "المقارنة: مخطط SPX ومخطط SPY وجدول المقارنة")
+        _cm = q4.locator("#gCmp").inner_text()
+        check("Call Wall" in _cm and "Put Wall" in _cm and "Gamma Flip" in _cm and ("توافق" in _cm or "اختلاف" in _cm) and "× 10.03" in _cm, "جدول SPX مقابل SPY: المستويات والفرق والتوافق والنسبة")
+        _ag = q4.evaluate("[...document.querySelectorAll('#gCmp tr')].slice(1).map(r => [r.children[1].textContent, r.children[2].textContent, r.children[3].textContent, r.children[4].textContent])")
+        _cw = [x for x in _ag if x][0]
+        check(_cw[3] == "اختلاف" and _cw[2].startswith("+"), f"Call Wall: 7680 مقابل 7713.1 = اختلاف ({_cw})")
+        q4.locator("#gLine svg").scroll_into_view_if_needed(); _b1 = q4.locator("#gLine svg").bounding_box(); q4.mouse.move(_b1["x"] + _b1["width"] * 0.5, _b1["y"] + _b1["height"] * 0.5)
+        _hv = q4.evaluate("[document.querySelector('#gLine .hv').getAttribute('visibility'), document.querySelector('#gLine2 .hv').getAttribute('visibility'), document.querySelector('#gLine .hv-l').textContent, document.querySelector('#gLine2 .hv-l').textContent]")
+        check(_hv[0] == "visible" and _hv[1] == "visible" and abs(int(_hv[2]) - int(_hv[3])) <= 6, f"المؤشر على مخطط SPX يظهر في SPY عند نفس Strike ({_hv[2]} / {_hv[3]})")
+        q4.locator("#gLine2 svg").scroll_into_view_if_needed(); _b2 = q4.locator("#gLine2 svg").bounding_box(); q4.mouse.move(_b2["x"] + _b2["width"] * 0.3, _b2["y"] + _b2["height"] * 0.5)
+        _hv = q4.evaluate("[document.querySelector('#gLine .hv').getAttribute('visibility'), document.querySelector('#gLine2 .hv').getAttribute('visibility'), document.querySelector('#gLine .hv-l').textContent, document.querySelector('#gLine2 .hv-l').textContent]")
+        check(_hv[0] == "visible" and _hv[1] == "visible" and abs(int(_hv[2]) - int(_hv[3])) <= 6, f"المؤشر على مخطط SPY يظهر في SPX (بالاتجاهين) ({_hv[3]} / {_hv[2]})")
+        check("الصافي" in q4.evaluate("document.querySelector('#gLine .hv-t2').textContent") and "SPY→SPX" in q4.evaluate("document.querySelector('#gLine2 .hv-t').textContent"), "المؤشر يعرض Strike والصافي في مربع صغير")
+        q4.mouse.move(5, 5); q4.wait_for_timeout(100)
+        check(q4.evaluate("document.querySelector('#gLine .hv').getAttribute('visibility')") == "hidden" and q4.evaluate("document.querySelector('#gLine2 .hv').getAttribute('visibility')") == "hidden", "خروج المؤشر يخفي المؤشرين")
+        q4.locator("#gLine2").screenshot(path=os.path.join(shots, "gamma_spy_line_390.png")); q4.locator("#gCmp").screenshot(path=os.path.join(shots, "gamma_cmp_390.png"))
+        q4.click("#gCtl .gchip[data-b='0']"); q4.wait_for_timeout(150)
+        check(q4.locator("#gLine2 svg").count() == 1 and "اليوم 0DTE" in q4.locator("#gCmp").inner_text() and "لا يُحسب لسلة واحدة" in q4.locator("#gCmp").inner_text(), "المقارنة تعمل مع سلة استحقاق واحدة")
+        q4.click("#gCtl .gchip[data-b='all']"); q4.click("#gCtl .gb[data-a='SPX']"); q4.wait_for_timeout(150)
+        check(q4.locator("#gLine2").is_hidden() and q4.locator("#gChart").is_visible(), "العودة إلى SPX تخفي مخطط SPY وتعيد الجدول")
+        # SPY معطّل
+        gload(gfix(10, spy=False)); q4.evaluate("showTab('gamma')")
+        check(q4.locator("#gCtl .gb[data-a='SPY']").is_disabled() and q4.locator("#gCtl .gb[data-a='CMP']").is_disabled() and "SPY Gamma Data Unavailable" in q4.locator("#gSpy").inner_text() and "متزامن" in q4.locator("#gSpy").inner_text(), "SPY بلا سعر متزامن: الأزرار معطّلة وسبب واضح")
+        q4.screenshot(path=os.path.join(shots, "gamma_nospy_390.png"), full_page=True)
+        gload(gfix(10)); q4.evaluate("showTab('gamma')"); q4.screenshot(path=os.path.join(shots, "gamma_v21_390.png"), full_page=True)
         gload(gfix(10))
         for gw in (320, 375, 768, 1366):
             q4.set_viewport_size({"width": gw, "height": 900}); q4.wait_for_timeout(150)

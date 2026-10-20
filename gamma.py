@@ -28,10 +28,15 @@ except Exception:  # pragma: no cover
 
 URLS = ["https://cdn.cboe.com/api/global/delayed_quotes/options/_SPX.json",
         "https://cdn-api.cboe.com/api/global/delayed_quotes/options/_SPX.json"]
+SPY_URLS = ["https://cdn.cboe.com/api/global/delayed_quotes/options/SPY.json",
+            "https://cdn-api.cboe.com/api/global/delayed_quotes/options/SPY.json"]
 UA = "Mozilla/5.0 (compatible; mirsad-gamma/1.0)"
 SOURCE = "CBOE (متأخر ~15 د)"
-MODEL = "GEX = gamma × OI × 100 × spot² × 0.01؛ Call موجب وPut سالب (تقدير مراكز صناع السوق)؛ كل الاستحقاقات"
+MODEL = "GEX = gamma × OI × 100 × spot² × 0.01؛ Call موجب وPut سالب (تقدير مراكز صناع السوق)؛ كل الاستحقاقات (مجموع 4 سلال منفصلة)"
 OPT_RE = re.compile(r"^(SPXW?|SPX)(\d{6})([CP])(\d{8})$")
+SPY_RE = re.compile(r"^(SPY)(\d{6})([CP])(\d{8})$")
+BUCKETS = ("0", "1-7", "8-30", "30+")       # سلال استحقاق منفصلة لا تتداخل: يوم الاستحقاق = اليوم / 1–7 / 8–30 / أكثر من 30 يوماً
+SPY_MAX_GAP_MIN = 30                          # أقصى فرق بين ختم ملفي SPX وSPY لاعتماد SPY
 OUT_DIR = "gamma"
 WALL_BAND = 0.04           # الجدران: Call Wall فوق السعر وPut Wall تحته ضمن ±4%
 STRIKE_BAND = 0.06          # يُحفظ ±6% حول السعر في latest (الأرشيف يحفظ نفس النطاق)
@@ -68,8 +73,9 @@ def parse_ts(s):
     return datetime.strptime(s, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
 
 
-def parse_chain(raw):
+def parse_chain(raw, opt_re=None):
     """يعيد (spot, ts_utc, contracts[{exp,kind,k,gamma,oi}]) أو يرفع ValueError."""
+    opt_re = opt_re or OPT_RE
     if not isinstance(raw, dict) or "data" not in raw:
         raise ValueError("بنية الملف غير متوقعة")
     d = raw["data"]
@@ -85,7 +91,7 @@ def parse_chain(raw):
         raise ValueError("لا عقود في الملف")
     out = []
     for o in opts:
-        m = OPT_RE.match(str(o.get("option", "")))
+        m = opt_re.match(str(o.get("option", "")))
         if not m:
             continue
         g, oi = o.get("gamma"), o.get("open_interest")
@@ -99,8 +105,18 @@ def parse_chain(raw):
     return spot, ts, out
 
 
-def compute(spot, contracts, ref_utc=None):
-    """GEX لكل Strike. يعيد dict بالمستويات."""
+def _exp_date(exp):
+    return datetime.strptime("20" + exp, "%Y%m%d").date()
+
+
+def bucket_of(days):
+    """سلة الاستحقاق: كل عقد ينتمي لسلة واحدة فقط (لا تداخل)."""
+    if days <= 0:
+        return "0"
+    return "1-7" if days <= 7 else "8-30" if days <= 30 else "30+"
+
+
+def _rows(spot, contracts):
     by = {}
     for c in contracts:
         gex = c["gamma"] * c["oi"] * 100.0 * spot * spot * 0.01
@@ -109,18 +125,39 @@ def compute(spot, contracts, ref_utc=None):
             row["call"] += gex
         else:
             row["put"] -= gex
-    ks = sorted(by)
-    rows = [{"k": k, "call": by[k]["call"], "put": by[k]["put"], "net": by[k]["call"] + by[k]["put"]} for k in ks]
-    net = sum(r["net"] for r in rows)
+    return [{"k": k, "call": by[k]["call"], "put": by[k]["put"], "net": by[k]["call"] + by[k]["put"]} for k in sorted(by)]
+
+
+def _walls(rows, spot):
     up = [r for r in rows if spot <= r["k"] <= spot * (1 + WALL_BAND)]
     dn = [r for r in rows if spot * (1 - WALL_BAND) <= r["k"] <= spot]
-    call_wall = max(up, key=lambda r: r["call"])["k"] if up else None
-    put_wall = min(dn, key=lambda r: r["put"])["k"] if dn else None
+    return (max(up, key=lambda r: r["call"])["k"] if up else None,
+            min(dn, key=lambda r: r["put"])["k"] if dn else None)
+
+
+def compute(spot, contracts, ref_utc=None, today=None):
+    """GEX لكل Strike (مجموع كل الاستحقاقات = مجموع السلال الأربع بالضبط) + سلال منفصلة.
+    today: تاريخ نيويورك للقطة؛ إن مُرّر تُستبعد العقود المنتهية (قبله). وإلا لا تُستبعد (تُحسب سلة «اليوم»)."""
+    ref_day = today or to_ny(ref_utc or now_utc()).date()
+    if today is not None:
+        contracts = [c for c in contracts if _exp_date(c["exp"]) >= today]
+    groups = {b: [] for b in BUCKETS}
+    for c in contracts:
+        groups[bucket_of((_exp_date(c["exp"]) - ref_day).days)].append(c)
+    rows = _rows(spot, contracts)
+    net = sum(r["net"] for r in rows)
+    call_wall, put_wall = _walls(rows, spot)
     flip = gamma_flip(spot, contracts, ref_utc)
     exps = sorted({c["exp"] for c in contracts})
-    keep = [r for r in rows if abs(r["k"] - spot) <= spot * STRIKE_BAND]
+    inband = lambda rs: [r for r in rs if abs(r["k"] - spot) <= spot * STRIKE_BAND]
+    keep = inband(rows)
+    buckets = {}
+    for b in BUCKETS:
+        br = _rows(spot, groups[b]) if groups[b] else []
+        cw, pw = _walls(br, spot) if br else (None, None)
+        buckets[b] = {"n": len(groups[b]), "net_gex": sum(r["net"] for r in br), "call_wall": cw, "put_wall": pw, "strikes": inband(br)}
     return {"net_gex": net, "regime": "positive" if net >= 0 else "negative", "gamma_flip": flip,
-            "call_wall": call_wall, "put_wall": put_wall, "strikes": keep,
+            "call_wall": call_wall, "put_wall": put_wall, "strikes": keep, "buckets": buckets,
             "expiries": ["20" + e[:2] + "-" + e[2:4] + "-" + e[4:] for e in exps], "n_contracts": len(contracts)}
 
 
@@ -182,22 +219,106 @@ def validate(res, spot, contracts, prev=None):
     return None
 
 
+def _pair(a, b):
+    """آخر دقيقة مشتركة بين رمزين (yfinance 1m). يعيد (t, قيمة_a, قيمة_b) أو None."""
+    import yfinance as yf
+    sa = yf.Ticker(a).history(period="1d", interval="1m", auto_adjust=False)["Close"].dropna()
+    sb = yf.Ticker(b).history(period="1d", interval="1m", auto_adjust=False)["Close"].dropna()
+    idx = sa.index.intersection(sb.index)
+    if len(idx) == 0:
+        return None
+    t = idx[-1]
+    return t, float(sa[t]), float(sb[t])
+
+
+def ref_mode(ref_utc, now=None):
+    """live: السعران من الجلسة الجارية وحديثان؛ close: مرجع آخر إغلاق (SPX مغلق) فيُحسب الفرق من سعري الإغلاق المتزامنين."""
+    now = now or now_utc()
+    gap = (now - ref_utc).total_seconds() / 60.0
+    return "live" if (in_session(to_ny(now)) and gap <= 30) else "close"
+
+
 def es_basis(now=None):
-    """فرق ES-SPX من أسعار دقيقة متزامنة (yfinance). يعيد dict أو None."""
+    """فرق ES-SPX من أسعار دقيقة متزامنة (yfinance). يعيد dict أو None.
+    SPX مغلق: آخر دقيقة مشتركة = إغلاق أمس (نفس اللحظة لـ ES وSPX، فلا تدخل حركة ES الليلية في الفرق).
+    بعد افتتاح SPX: آخر دقيقة مشتركة حالية (mode = live)."""
     try:
-        import yfinance as yf
-        es = yf.Ticker("ES=F").history(period="1d", interval="1m", auto_adjust=False)["Close"].dropna()
-        sp = yf.Ticker("^GSPC").history(period="1d", interval="1m", auto_adjust=False)["Close"].dropna()
-        idx = es.index.intersection(sp.index)
-        if len(idx) == 0:
+        p = _pair("ES=F", "^GSPC")
+        if not p:
             return None
-        t = idx[-1]
-        gap = (now_utc() - t.to_pydatetime().astimezone(timezone.utc)).total_seconds() / 60.0
-        e, s = float(es[t]), float(sp[t])
+        t, e, s = p
+        tu = t.to_pydatetime().astimezone(timezone.utc)
+        gap = (now_utc() - tu).total_seconds() / 60.0
         return {"basis": round(e - s, 2), "es_ref": round(e, 2), "spx_ref": round(s, 2), "ref_gap_min": round(gap, 1),
-                "ref_time_utc": t.to_pydatetime().astimezone(timezone.utc).isoformat()}
+                "ref_time_utc": tu.isoformat(), "mode": ref_mode(tu, now)}
     except Exception:  # noqa: BLE001
         return None
+
+
+def spy_ref():
+    """نسبة SPX/SPY من سعرين متزامنين (نفس الدقيقة). يعيد dict أو None."""
+    try:
+        p = _pair("^GSPC", "SPY")
+        if not p:
+            return None
+        t, x, y = p
+        if y <= 0:
+            return None
+        tu = t.to_pydatetime().astimezone(timezone.utc)
+        return {"ratio": x / y, "spx_ref": round(x, 2), "spy_ref": round(y, 2), "ref_time_utc": tu.isoformat(),
+                "ref_gap_min": round((now_utc() - tu).total_seconds() / 60.0, 1), "mode": ref_mode(tu)}
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _x(rows, ratio):
+    """يضيف kx = مكافئ SPX لـ Strike السباي (Strike × SPX/SPY)."""
+    return [dict(r, kx=round(r["k"] * ratio, 1)) for r in rows]
+
+
+def build_spy(spx_ts, fetched, today, ref=None, raw=None):
+    """لقطة SPY من SPY.json: السعر المرجعي والنسبة من yfinance المتزامن، والمستويات بمكافئ SPX.
+    تُعطَّل (ok=False مع سبب) إن غاب السعر المتزامن أو كان ختم ملف SPY بعيداً عن ختم SPX أو فشل التحقق."""
+    try:
+        ref = ref or spy_ref()
+        if not ref:
+            return {"ok": False, "reason": "لا سعر SPY/SPX متزامن (yfinance)"}
+        if raw is None:
+            raw, _ = fetch(SPY_URLS)
+        _, ts, cs = parse_chain(raw, SPY_RE)
+        spot = ref["spy_ref"]
+        gap = abs((ts - spx_ts).total_seconds()) / 60.0
+        if gap > SPY_MAX_GAP_MIN:
+            return {"ok": False, "reason": "ختم ملف SPY بعيد عن ختم SPX (%d دقيقة)" % gap}
+        res = compute(spot, cs, fetched, today)
+        why = validate(res, spot, cs)
+        if ts > fetched + timedelta(minutes=5):
+            why = why or "ختم ملف SPY في المستقبل"
+        if why:
+            return {"ok": False, "reason": "SPY: " + why}
+        r = ref["ratio"]
+        fx = lambda v: round(v * r, 1) if v is not None else None
+        bks = {b: {"n": v["n"], "net_gex": v["net_gex"], "call_wall": v["call_wall"], "put_wall": v["put_wall"],
+                   "call_wall_x": fx(v["call_wall"]), "put_wall_x": fx(v["put_wall"]), "strikes": _x(_rnd(v["strikes"]), r)}
+               for b, v in res["buckets"].items()}
+        return {"ok": True, "asset": "SPY", "snapshot_utc": ts.isoformat(), "snapshot_et": to_ny(ts).strftime("%Y-%m-%d %H:%M"),
+                "spot": spot, "ratio": round(r, 5), "ref_time_utc": ref["ref_time_utc"], "ref_mode": ref["mode"],
+                "ref_gap_min": ref["ref_gap_min"], "spx_ref": ref["spx_ref"], "net_gex": res["net_gex"], "regime": res["regime"],
+                "gamma_flip": res["gamma_flip"], "gamma_flip_x": fx(res["gamma_flip"]),
+                "call_wall": res["call_wall"], "put_wall": res["put_wall"],
+                "call_wall_x": fx(res["call_wall"]), "put_wall_x": fx(res["put_wall"]),
+                "strikes": _x(_rnd(res["strikes"]), r), "buckets": bks, "n_contracts": res["n_contracts"], "reason": None}
+    except Exception as e:  # noqa: BLE001
+        return {"ok": False, "reason": "SPY: %s" % e}
+
+
+def _rnd(rows):
+    """تقريب الدولار لأقرب عدد صحيح لتصغير الملف (الصافي = Call + Put بعد التقريب)."""
+    out = []
+    for r in rows:
+        c, p = int(round(r["call"])), int(round(r["put"]))
+        out.append({"k": r["k"], "call": c, "put": p, "net": c + p})
+    return out
 
 
 def in_session(et):
@@ -212,20 +333,21 @@ def status_of(ts_utc, fetched=None):
     return "fresh" if m < FRESH_MIN else "late" if m < LATE_MIN else "stale"
 
 
-def build(raw, fetched=None, with_es=True):
+def build(raw, fetched=None, with_es=True, with_spy=None, spy_raw=None):
     spot, ts, contracts = parse_chain(raw)
     if spot is None:
         raise ValueError("لا يوجد سعر SPX في الملف")
     fetched = fetched or now_utc()
-    res = compute(spot, contracts, fetched)
+    et = to_ny(ts)
+    res = compute(spot, contracts, fetched, et.date())
     why = validate(res, spot, contracts)
     if ts > fetched + timedelta(minutes=5):
         why = why or "ختم الملف في المستقبل؛ لا يُعتمد"
-    et = to_ny(ts)
     snap = {"ok": why is None, "asset": "SPX", "snapshot_utc": ts.isoformat(), "snapshot_et": et.strftime("%Y-%m-%d %H:%M"),
             "fetched_utc": fetched.isoformat(), "source": SOURCE, "model": MODEL, "spot": round(spot, 2),
             "regime": res["regime"], "net_gex": res["net_gex"], "gamma_flip": res["gamma_flip"],
-            "call_wall": res["call_wall"], "put_wall": res["put_wall"], "strikes": res["strikes"],
+            "call_wall": res["call_wall"], "put_wall": res["put_wall"], "strikes": _rnd(res["strikes"]),
+            "buckets": {b: dict(v, strikes=_rnd(v["strikes"])) for b, v in res["buckets"].items()},
             "expiries": res["expiries"], "n_contracts": res["n_contracts"],
             "status": status_of(ts, fetched), "reason": why, "spy": {"ok": False}}
     if why is None and not in_session(et):
@@ -233,6 +355,9 @@ def build(raw, fetched=None, with_es=True):
             snap["status"] = "late"
         snap["reason"] = "خارج ساعات الجلسة (09:30–16:15 نيويورك): الأسعار والمستويات مبنية على آخر إغلاق وليست حية."
     snap["es"] = es_basis() if (with_es and why is None) else None
+    with_spy = with_es if with_spy is None else with_spy
+    if with_spy and why is None:
+        snap["spy"] = build_spy(ts, fetched, et.date(), raw=spy_raw)
     return snap
 
 
@@ -240,7 +365,7 @@ def _wjson(path, obj):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     tmp = path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(obj, f, ensure_ascii=False)
+        json.dump(obj, f, ensure_ascii=False, separators=(",", ":"))
     os.replace(tmp, path)
 
 
@@ -250,6 +375,16 @@ def _rjson(path):
             return json.load(f)
     except Exception:  # noqa: BLE001
         return None
+
+
+def slim(snap):
+    """نسخة الأرشيف: Strikes الكلية فقط + ملخص السلال وSPY بلا Strikes (لتقليل حجم المستودع)."""
+    o = dict(snap)
+    o["buckets"] = {b: {k: v for k, v in d.items() if k != "strikes"} for b, d in (snap.get("buckets") or {}).items()}
+    sp = snap.get("spy")
+    if isinstance(sp, dict) and sp.get("ok"):
+        o["spy"] = {k: v for k, v in sp.items() if k not in ("strikes", "buckets")}
+    return o
 
 
 def archive(snap, root=OUT_DIR):
@@ -262,7 +397,7 @@ def archive(snap, root=OUT_DIR):
     day = et.strftime("%Y-%m-%d")
     p = os.path.join(root, "archive", day, et.strftime("%H%M") + ".json")
     if not os.path.exists(p):
-        _wjson(p, snap)
+        _wjson(p, slim(snap))
         done.append(p)
     cur = _rjson(os.path.join(root, "latest.json"))
     if not cur or not cur.get("ok") or cur.get("snapshot_utc", "") <= snap["snapshot_utc"]:
