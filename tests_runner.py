@@ -366,6 +366,28 @@ def test_calibrate_summary():
     assert "العينة صغيرة" in calibrate.summarize(low[:3])
 
 
+def test_fred_last_good_cache():
+    """FRED متعطّل (صيانة): تُكمَّل السلاسل من آخر نسخة ناجحة (حتى 5 أيام) مع تنبيه صريح، وبعدها لا."""
+    rows = [("2026-10-01", 4.1), ("2026-10-02", 4.25)]
+    st = {}
+    ok_deps = {"fred": lambda now: ({"y2": rows}, []), "macro": lambda now: ({"UNRATE": [("2026-09-01", 4.3)]}, [])}
+    ex, pr = r.gather_extras(NOW, ok_deps, st)
+    assert ex["fred"]["y2"] == rows and not st.get("fred_stale") and "fred_cache" in st
+    def boom(now):
+        raise RuntimeError("Site Maintenance")
+    bad = {"fred": boom, "macro": lambda now: ({}, ["تعذّر جلب X من FRED (API): RuntimeError"])}
+    ex, pr = r.gather_extras(NOW + timedelta(hours=3), bad, st)
+    assert ex["fred"]["y2"] == rows and ex["macro"]["UNRATE"] == [("2026-09-01", 4.3)]
+    assert any("نسخة محفوظة" in x for x in pr) and st["fred_stale"]["n"] == 2
+    ex, pr = r.gather_extras(NOW + timedelta(days=6), bad, st)
+    assert not ex.get("fred") and not ex.get("macro") and not any("نسخة محفوظة" in x for x in pr)
+    st2 = {}
+    ex, pr = r.gather_extras(NOW, bad, st2)
+    assert not ex.get("fred")                      # لا نسخة سابقة: السلوك القديم (استبعاد) دون اختراع أرقام
+    ex, pr = r.gather_extras(NOW, ok_deps)         # بلا state: السلوك القديم بالضبط
+    assert ex["fred"]["y2"] == rows
+
+
 if __name__ == "__main__":
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:
