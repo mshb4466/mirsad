@@ -118,60 +118,60 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": 0.02,
-      "th": 0.45,
-      "ratio": 0.05,
-      "val": "+0.02%",
-      "thr": "±0.45%",
-      "c15": "+0.01%",
-      "c60": "+0.02%",
-      "c180": "-0.02%",
+      "w": 180,
+      "v": -0.13,
+      "th": 0.8,
+      "ratio": 0.16,
+      "val": "-0.13%",
+      "thr": "±0.8%",
+      "c15": "-0.01%",
+      "c60": "-0.05%",
+      "c180": "-0.13%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.16,
-      "z": 0.1,
-      "volx": 0.7
+      "tone": "bear",
+      "eff": 0.27,
+      "z": 0.3,
+      "volx": 0.8
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 180,
-      "v": -0.33,
+      "v": -0.44,
       "th": 1.0,
-      "ratio": 0.33,
-      "val": "-0.33%",
+      "ratio": 0.44,
+      "val": "-0.44%",
       "thr": "±1%",
-      "c15": "+0.02%",
-      "c60": "-0.01%",
-      "c180": "-0.33%",
+      "c15": "-0.00%",
+      "c60": "-0.12%",
+      "c180": "-0.44%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.03,
-      "z": 0.0,
+      "eff": 0.25,
+      "z": 0.4,
       "volx": 0.6
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 15,
-      "v": 0.09,
-      "th": 0.9,
-      "ratio": 0.1,
-      "val": "+0.09%",
-      "thr": "±0.9%",
-      "c15": "+0.09%",
-      "c60": "-0.11%",
-      "c180": "-0.12%",
+      "w": 60,
+      "v": 0.38,
+      "th": 1.3,
+      "ratio": 0.3,
+      "val": "+0.38%",
+      "thr": "±1.3%",
+      "c15": "-0.09%",
+      "c60": "+0.38%",
+      "c180": "-0.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.14,
-      "z": 0.2,
+      "eff": 0.46,
+      "z": 0.7,
       "volx": 0.8
     },
     {
@@ -179,39 +179,39 @@
       "name": "الذهب",
       "short": "ذهب",
       "w": 15,
-      "v": 0.15,
+      "v": -0.07,
       "th": 0.45,
-      "ratio": 0.33,
-      "val": "+0.15%",
+      "ratio": 0.16,
+      "val": "-0.07%",
       "thr": "±0.45%",
-      "c15": "+0.15%",
-      "c60": "+0.20%",
-      "c180": "+0.21%",
+      "c15": "-0.07%",
+      "c60": "+0.01%",
+      "c180": "-0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.42,
-      "z": 0.9,
-      "volx": 1.5
+      "eff": 0.01,
+      "z": 0.0,
+      "volx": 0.9
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 180,
-      "v": 0.01,
-      "th": 0.5,
-      "ratio": 0.02,
-      "val": "+0.01%",
-      "thr": "±0.5%",
-      "c15": "-0.00%",
-      "c60": "+0.00%",
-      "c180": "+0.01%",
+      "w": 60,
+      "v": 0.04,
+      "th": 0.28,
+      "ratio": 0.14,
+      "val": "+0.04%",
+      "thr": "±0.28%",
+      "c15": "+0.02%",
+      "c60": "+0.04%",
+      "c180": "+0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.07,
-      "z": 0.1,
+      "eff": 0.39,
+      "z": 0.7,
       "volx": null
     },
     {
@@ -219,64 +219,64 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": 0.05,
+      "v": 0.06,
       "th": 0.4,
-      "ratio": 0.12,
-      "val": "+0.05%",
+      "ratio": 0.14,
+      "val": "+0.06%",
       "thr": "±0.4%",
-      "c15": "+0.00%",
-      "c60": "+0.05%",
-      "c180": "-0.03%",
+      "c15": "+0.01%",
+      "c60": "+0.06%",
+      "c180": "-0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.46,
-      "z": 0.8,
+      "eff": 0.54,
+      "z": 1.0,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-21T05:42:26.516411+00:00",
-        "ok_at": "2026-10-21T05:42:26.516411+00:00"
+        "last_try": "2026-10-21T06:13:24.938897+00:00",
+        "ok_at": "2026-10-21T06:13:24.938897+00:00"
       },
       "fred": {
-        "last_try": "2026-10-21T05:42:26.516411+00:00",
-        "ok_at": "2026-10-21T05:42:26.516411+00:00"
+        "last_try": "2026-10-21T06:13:24.938897+00:00",
+        "ok_at": "2026-10-21T06:13:24.938897+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-21T05:42:26.516411+00:00",
-        "ok_at": "2026-10-21T05:42:26.516411+00:00"
+        "last_try": "2026-10-21T06:13:24.938897+00:00",
+        "ok_at": "2026-10-21T06:13:24.938897+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-21T05:42:26.516411+00:00",
-        "ok_at": "2026-10-21T05:42:26.516411+00:00"
+        "last_try": "2026-10-21T06:13:24.938897+00:00",
+        "ok_at": "2026-10-21T06:13:24.938897+00:00"
       },
       "oil": {
-        "last_try": "2026-10-21T05:42:26.516411+00:00",
-        "ok_at": "2026-10-21T05:42:26.516411+00:00"
+        "last_try": "2026-10-21T06:13:24.938897+00:00",
+        "ok_at": "2026-10-21T06:13:24.938897+00:00"
       },
       "news": {
-        "last_try": "2026-10-21T05:42:26.516411+00:00",
-        "ok_at": "2026-10-21T05:42:26.516411+00:00"
+        "last_try": "2026-10-21T06:13:24.938897+00:00",
+        "ok_at": "2026-10-21T06:13:24.938897+00:00"
       },
       "cot": {
-        "last_try": "2026-10-21T05:42:26.516411+00:00",
-        "ok_at": "2026-10-21T05:42:26.516411+00:00"
+        "last_try": "2026-10-21T06:13:24.938897+00:00",
+        "ok_at": "2026-10-21T06:13:24.938897+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-21T05:42:26.516411+00:00",
-        "ok_at": "2026-10-21T05:42:26.516411+00:00"
+        "last_try": "2026-10-21T06:13:24.938897+00:00",
+        "ok_at": "2026-10-21T06:13:24.938897+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-21T05:42:26.516411+00:00"
+      "at": "2026-10-21T06:13:24.938897+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-21T05:01:13.746424+00:00",
+    "at": "2026-10-21T06:13:24.938897+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -313,6 +313,11 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-21T04:34:42+00:00",
+            "title": "Wall Street Trading Desks Get Undermined",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-10-21T03:38:00+00:00",
             "title": "Nasdaq, S&P 500 Futures Climb After SpaceX’s Blowout Quarter: SMCI, NFLX, GE Stocks In Focus",
             "src": "Yahoo Finance"
@@ -328,11 +333,6 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-21T02:00:00+00:00",
-            "title": "NYSE Is Getting Trounced in the Battle for Wall Street’s Biggest IPOs",
-            "src": "WSJ"
-          },
-          {
             "t": "2026-10-21T01:02:45+00:00",
             "title": "Documenting North Carolina's Black Wall Street",
             "src": "National Trust for Historic Preservation"
@@ -342,6 +342,11 @@
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-10-21T05:29:14+00:00",
+            "title": "Watch SpaceX 3Q Earnings Beat, SpaceX and Tesla Discuss Potential Merger",
+            "src": "Bloomberg.com"
+          },
           {
             "t": "2026-10-21T03:07:00+00:00",
             "title": "Dow Jones Futures: AI Stocks Jump On SpaceX, Supermicro; Tesla, Meta On Deck",
@@ -361,17 +366,17 @@
             "t": "2026-10-21T01:14:59+00:00",
             "title": "SpaceX and Tesla form committees to explore a merger, Musk says",
             "src": "San Antonio Express-News"
-          },
-          {
-            "t": "2026-10-21T00:40:29+00:00",
-            "title": "Apple Earnings and the AI Trade at a Crossroads",
-            "src": "CME Group"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-21T00:54:00+00:00",
+            "title": "Japan shifting to wage-driven inflation phase, finance minister says",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-20T20:08:58+00:00",
             "title": "Bank of England's Greene says inflation risks are bigger than thought",
@@ -381,11 +386,6 @@
             "t": "2026-10-20T08:26:02+00:00",
             "title": "President Donald Trump Claims, \"We Don't Have Inflation, and Tariffs Don't Cause Inflation,\" but a New Report Strongly Disagrees",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-20T06:18:00+00:00",
-            "title": "South African rand holds steady ahead of budget, inflation data",
-            "src": "Reuters"
           },
           {
             "t": "2026-10-20T05:52:00+00:00",
@@ -403,24 +403,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-10-21T05:57:00+00:00",
+            "title": "Miller-Meeks and Bohannan clash on Farm Bill, tariffs, healthcare in Iowa 1st District debate",
+            "src": "KWQC"
+          },
+          {
+            "t": "2026-10-21T04:59:00+00:00",
+            "title": "China signals intent to push back against cleantech tariffs at COP31",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-21T04:01:00+00:00",
+            "title": "Ken Griffin calls Trump’s tariffs on US allies 'a disaster' and predicts it will hurt Republicans in the midterms",
+            "src": "Business Insider"
+          },
+          {
             "t": "2026-10-21T03:59:23+00:00",
             "title": "Stratton, Tracy Face Off in Lone Forum Over Immigration, Tariffs and Minimum Wage",
             "src": "WTTW News"
-          },
-          {
-            "t": "2026-10-21T01:54:31+00:00",
-            "title": "A New Jersey food importer files a lawsuit challenging Trump's 50% tariffs on Canadian goods",
-            "src": "The Washington Post"
-          },
-          {
-            "t": "2026-10-21T00:49:06+00:00",
-            "title": "Trump administration sued over 50% tariffs on Canadian products",
-            "src": "New York Post"
-          },
-          {
-            "t": "2026-10-20T23:27:00+00:00",
-            "title": "Tariffs, AI, health care: El-Sayed and Rogers field questions in Detroit",
-            "src": "Detroit Free Press"
           }
         ]
       },
@@ -453,7 +453,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-21T05:42:26.516411+00:00",
+    "at": "2026-10-21T06:13:24.938897+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -5709,10 +5709,10 @@
       "note": "لم يصل الرقم من FRED بعد"
     }
   ],
-  "last_publish_ok": "2026-10-21T05:42:26.516411+00:00",
+  "last_publish_ok": "2026-10-21T06:13:24.938897+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-21T05:42:49.891421+00:00"
+    "at": "2026-10-21T06:14:00.888236+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5777,12 +5777,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-21T05:42:26.516411+00:00",
-    "ok_at": "2026-10-21T05:42:26.516411+00:00",
+    "at": "2026-10-21T06:13:24.938897+00:00",
+    "ok_at": "2026-10-21T06:13:24.938897+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-21T05:42:26.516411+00:00",
+    "at": "2026-10-21T06:13:24.938897+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
