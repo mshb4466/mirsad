@@ -71,35 +71,3 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "جاما: لقطة جديدة"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
-
-  gamma_map_optional:
-    name: Optional Price Map (after original collection is committed)
-    needs: gamma
-    if: always()
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    timeout-minutes: 3
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-      - run: pip install -r requirements.txt
-      - name: Optional enrichment only
-        continue-on-error: true
-        run: python gamma_map.py
-      - name: Save only optional files
-        run: |
-          git config user.name "mirsad-bot"
-          git config user.email "mirsad-bot@users.noreply.github.com"
-          for f in gamma/map.json gamma/price.json gamma/heatmap.json; do [ ! -f "$f" ] || git add "$f"; done
-          git diff --cached --quiet && exit 0
-          git commit -m "Optional Gamma Price Map enrichment"
-          for i in 1 2 3; do
-            if git pull --rebase && git push; then exit 0; fi
-            sleep 5
-          done
-          exit 1

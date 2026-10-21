@@ -220,10 +220,17 @@ def _http_get(url, timeout, tries=2):
 
 
 def _fred_api(sid, cosd, key):
-    """الواجهة الرسمية (تحتاج مفتاحاً مجانياً FRED_API_KEY): أكثر ثباتاً من ملف CSV على خوادم GitHub."""
+    """الواجهة الرسمية (تحتاج مفتاحاً مجانياً FRED_API_KEY). أي استجابة ليست JSON سليماً تُبلَّغ بنصها المختصر لا باسم الاستثناء فقط."""
     url = (f"https://api.stlouisfed.org/fred/series/observations?series_id={sid}"
            f"&api_key={key}&file_type=json&observation_start={cosd}")
-    data = json.loads(_http_get(url, 25).decode("utf-8"))
+    raw = _http_get(url, 25)
+    try:
+        data = json.loads(raw.decode("utf-8"))
+    except ValueError:
+        snip = " ".join(raw.decode("utf-8", errors="replace").split())[:70]
+        raise RuntimeError("استجابة FRED ليست JSON (غالباً مفتاح غير صالح أو حجب مؤقت): " + (snip or "فارغة")) from None
+    if isinstance(data, dict) and data.get("error_message"):
+        raise RuntimeError("FRED: " + str(data.get("error_message"))[:90])
     return [(o["date"], float(o["value"])) for o in data.get("observations", [])
             if o.get("value") not in (".", "", None)]
 
@@ -254,11 +261,11 @@ def fetch_fred(now, days=45, series=None):
     items = dict(series or FRED_SERIES)
     key = os.environ.get("FRED_API_KEY", "").strip()
     if key:
-        fails = 0
+        fails, tripped = 0, False
         for k, sid in items.items():
             if fails >= 3:
-                problems.append(f"تعذّر جلب {sid} من FRED: أُوقف الجلب بعد إخفاقات متتالية")
-                continue
+                tripped = True
+                break
             try:
                 rows = _fred_api(sid, cosd, key)
                 if not rows:
@@ -267,8 +274,12 @@ def fetch_fred(now, days=45, series=None):
                 fails = 0
             except Exception as e:  # noqa: BLE001
                 fails += 1
-                problems.append(f"تعذّر جلب {sid} من FRED (API): {type(e).__name__}")
-        return out, problems
+                problems.append(f"تعذّر جلب {sid} من FRED (API): {type(e).__name__}: {str(e)[:110]}")
+        if not tripped:
+            return out, problems
+        # قاطع الدائرة فُتح: لا نترك الباقي بلا بيانات، نجرّب ملف CSV المجمَّع بلا مفتاح للسلاسل الناقصة فقط
+        items = {k: s for k, s in items.items() if k not in out}
+        problems.append(f"واجهة FRED الرسمية تعطّلت: جُرّب ملف CSV المجمَّع لـ {len(items)} سلسلة ناقصة")
     try:
         got = _fred_csv_batch(list(items.values()), cosd)
         for k, sid in items.items():
