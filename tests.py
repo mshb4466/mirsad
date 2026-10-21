@@ -276,6 +276,33 @@ def test_fred_batch_and_breaker():
     print("ok fred batch")
 
 
+def test_fred_api_fallback():
+    """واجهة FRED الرسمية ترد بغير JSON: تُذكر السبب، وبعد 3 إخفاقات يُجرَّب CSV المجمَّع بدل ترك الباقي بلا بيانات."""
+    import os
+    from datetime import datetime, timezone
+    import collector as c
+    orig, ok = c._http_get, os.environ.get("FRED_API_KEY")
+    os.environ["FRED_API_KEY"] = "KEY"
+    csvtxt = b"observation_date,A1,B1,C1,D1,E1\n2026-10-01,1,2,3,4,5\n2026-10-02,1.5,2.5,3.5,4.5,5.5\n"
+    def fake(url, timeout, tries=2):
+        if "api.stlouisfed.org" in url:
+            return b"<html>Service Unavailable</html>"
+        return csvtxt
+    try:
+        c._http_get = fake
+        out, pr = c.fetch_fred(datetime(2026, 10, 4, tzinfo=timezone.utc), 30, {"a": "A1", "b": "B1", "c": "C1", "d": "D1", "e": "E1"})
+        assert set(out) == {"a", "b", "c", "d", "e"}, out.keys()
+        assert any("ليست JSON" in x and "Service Unavailable" in x for x in pr) and any("CSV" in x for x in pr)
+        c._http_get = lambda url, timeout, tries=2: b'{"error_code":400,"error_message":"Bad Request. The value for variable api_key is not registered."}'
+        out, pr = c.fetch_fred(datetime(2026, 10, 4, tzinfo=timezone.utc), 30, {"a": "A1"})
+        assert out == {} and any("api_key" in x for x in pr)
+    finally:
+        c._http_get = orig
+        if ok is None: os.environ.pop("FRED_API_KEY", None)
+        else: os.environ["FRED_API_KEY"] = ok
+    print("ok fred api fallback")
+
+
 if __name__ == "__main__":
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:
