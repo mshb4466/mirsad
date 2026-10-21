@@ -1883,7 +1883,7 @@ function gMark_(scroll, card) {
   document.querySelectorAll('#gLevels .lvb').forEach(b => b.classList.toggle('on', !!card && b === card && !!hit));
   if (scroll && hit) { try { hit.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) { hit.scrollIntoView(); } }
 }
-const GBN_ = { all: 'الكل', '0': 'اليوم 0DTE', '1-7': '1–7 أيام', '8-30': '8–30 يوماً', '30+': 'أكثر من 30' }, GBKS_ = ['all', '0', '1-7', '8-30', '30+'];
+const GBN_ = { all: 'الكل', '0': 'اليوم 0DTE', wk: 'بقية الأسبوع', mo: 'بقية الشهر', later: 'ما بعد الشهر' }, GBKS_ = ['all', '0', 'wk', 'mo', 'later'];
 /* بيانات أصل وسلة: SPX من الجذر/السلال، SPY من g.spy (Strike السباي محوَّل إلى مكافئ SPX في k) */
 function gData_(g, asset, b) {
   if (!g || !g.ok) return null;
@@ -1973,7 +1973,7 @@ function renderGamma_() {
   const bk = GBKT, bnote = bk === 'all' ? '' : ' · ' + GBN_[bk];
   const stamp = ' · لقطة ' + (g.snapshot_et || '') + ' نيويورك' + bnote;
   const spot = Number(g.spot), es = g.es, esMode = es && es.mode === 'close' ? 'close' : 'live';
-  const esOk = !!es && isFinite(Number(es.basis)) && (esMode === 'close' || (isFinite(Number(es.ref_gap_min)) && Number(es.ref_gap_min) <= 5)), bs = esOk ? Number(es.basis) : 0;
+  const esOk = !!es && isFinite(Number(es.basis)), esGap = es && isFinite(Number(es.ref_gap_min)) ? Number(es.ref_gap_min) : null, esOld = esOk && esMode === 'live' && esGap != null && esGap > 20, bs = esOk ? Number(es.basis) : 0;  /* السعران من الدقيقة نفسها دائماً؛ فرق التوقيت عن «الآن» لا يُخفي الأرقام بل يُحذَّر منه */
   const conv = k => (Math.round((Number(k) + bs) * 4) / 4).toFixed(2), fk = k => String(Math.round(Number(k) * 10) / 10);
   const dX = gData_(g, 'SPX', bk), dY = spyOk ? gData_(g, 'SPY', bk) : null, d = cmp ? dX : gData_(g, main, bk);
   /* مفتاح الأحداث بين المخططين: المؤشر على أحدهما يظهر في الآخر */
@@ -2055,16 +2055,17 @@ function renderGamma_() {
   const en = $('gEsNote'); en.innerHTML = ''; show('gEsNote', true); en.appendChild(el('h2', '', 'تحويل Strike إلى مستوى ES (تقريبي)'));
   if (esOk) {
     en.appendChild(el('span', 'gtag ' + (esMode === 'live' ? 'agree' : 'old'), esMode === 'live' ? 'المرجع: SPX الحالي (مفتوح)' : 'المرجع: إغلاق أمس (SPX مغلق)'));
+    if (esOld) en.appendChild(el('p', 'src', '⚠ الفرق محسوب قبل ' + Math.round(esGap) + ' دقيقة (تأخر مصدر الأسعار)؛ الأرقام تقريبية أكثر من المعتاد، تحقق قبل النقل.'));
     en.appendChild(el('p', 'src', 'ES ≈ Strike + (ES − SPX) = Strike + ' + bs.toFixed(2) + ' (ES ' + es.es_ref + ' / SPX ' + es.spx_ref + (esMode === 'live' ? '، سعران حاليان في الدقيقة نفسها، فرق التوقيت ' + es.ref_gap_min + ' د' : '، سعران في لحظة الإغلاق نفسها') + '). بخطوة 0.25 وللاسترشاد فقط.'));
     if (esMode === 'close') en.appendChild(el('p', 'src', 'SPX مغلق، فلا يُستخدم ES الحالي مع إغلاق أمس لأن حركة ES الليلية ستدخل في الفرق وتزحزح المستويات. بعد افتتاح SPX يُحسب الفرق من السعرين الحاليين تلقائياً.'));
   } else {
-    en.appendChild(el('p', 'src', 'التحويل معطّل: لا أسعار مرجعية متزامنة لـ ES وSPX في هذه اللقطة (أو فرق توقيتها أكبر من 5 دقائق). لا يُحوَّل دون ذلك.'));
+    en.appendChild(el('p', 'src', 'التحويل معطّل: لا أسعار مرجعية متزامنة لـ ES وSPX في هذه اللقطة. لا يُحوَّل دون ذلك.'));
   }
   /* SPY غير متاح: سبب صريح */
   const sy = $('gSpy'); sy.innerHTML = ''; show('gSpy', !spyOk);
   if (!spyOk) { sy.appendChild(el('h2', '', 'SPY')); sy.appendChild(el('p', 'gspy', 'SPY Gamma Data Unavailable')); sy.appendChild(el('p', 'src', (g.spy && g.spy.reason ? g.spy.reason + '. ' : '') + 'لا تُعرض أرقام SPY إلا بسعر متزامن وملف صالح.')); }
 }
-/* أزرار الأصل (SPX | SPY | مقارنة) والاستحقاق (الكل | اليوم | 1–7 | 8–30 | +30) */
+/* أزرار الأصل (SPX | SPY | مقارنة) والاستحقاق (الكل | اليوم | بقية الأسبوع | بقية الشهر | ما بعد) */
 function gCtl_(g, on) {
   const c = $('gCtl'); c.innerHTML = ''; c.hidden = !on; if (!on) return;
   const spyOk = !!(g && g.spy && g.spy.ok), seg = el('div', 'gseg'); seg.setAttribute('role', 'group'); seg.setAttribute('aria-label', 'الأصل');
@@ -2080,7 +2081,9 @@ function gCtl_(g, on) {
       const n = gBktN_(g, asset, b), x = el('button', 'gchip' + (GBKT === b ? ' on' : ''), GBN_[b]); x.type = 'button'; x.dataset.b = b; x.disabled = n <= 0; x.setAttribute('aria-pressed', GBKT === b ? 'true' : 'false');
       x.onclick = () => { GBKT = b; GSEL = null; renderGamma_(); }; ch.appendChild(x);
     });
-    c.appendChild(ch); c.appendChild(el('p', 'src', '«الكل» = مجموع السلال الأربع بالضبط، وكل عقد يُحسب مرة واحدة حسب تاريخ استحقاقه. تنتقل العقود بين السلال مع مرور الأيام وتسقط المنتهية.'));
+    c.appendChild(ch);
+    const bi = GBKT !== 'all' && g.buckets[GBKT], rg = bi && bi.from ? 'نطاق الاستحقاق: من ' + bi.from + (bi.to ? ' إلى ' + bi.to : ' فصاعداً') + ' (الأسبوع ينتهي الجمعة، والشهر بآخر يوم فيه). ' : '';
+    c.appendChild(el('p', 'src', rg + '«الكل» = مجموع السلال الأربع بالضبط، وكل عقد يُحسب مرة واحدة حسب تاريخ استحقاقه؛ تنتقل العقود بين السلال مع مرور الأيام وتسقط المنتهية.'));
   }
 }
 /* ملف جاما: من الصفحة نفسها (gamma.json) ومن المستودع مباشرة (الأحدث)، ويُعتمد الأحدث وقتاً. يعمل حتى لو لم يُعاد نشر الصفحة بعد. */

@@ -24,7 +24,7 @@ try:
     spot, ts, cs = gamma.parse_chain(chain())
     ok(spot == 7000.0 and len(cs) == 80, "تحليل 80 عقداً وتجاهل الرموز الغريبة")
     ok(ts.tzinfo is not None and ts.hour == 13 and ts.minute == 30, "09:30 EDT = 13:30 UTC")
-    r = gamma.compute(spot, cs, ts)
+    r = gamma.compute(spot, cs)
     ok(r["regime"] in ("positive", "negative") and len(r["strikes"]) >= 20, "نتائج الحساب")
     ok(all("oi" not in s and "open_interest" not in s for s in r["strikes"]), "لا OI في المخرجات")
     c0 = next(x for x in r["strikes"] if x["k"] == 7000.0)
@@ -32,7 +32,7 @@ try:
     ok(r["expiries"] == ["2026-10-20"], "الاستحقاقات")
     ok(gamma.validate(r, spot, cs) is None, "لقطة سليمة")
     zs, _, zc = gamma.parse_chain(chain(zero=True))
-    ok("gamma" in (gamma.validate(gamma.compute(zs, zc, ts), zs, zc) or "") or gamma.validate(gamma.compute(zs, zc, ts), zs, zc), "gamma الصفرية تُرفض")
+    ok("gamma" in (gamma.validate(gamma.compute(zs, zc), zs, zc) or "") or gamma.validate(gamma.compute(zs, zc), zs, zc), "gamma الصفرية تُرفض")
     ok(gamma.validate(r, None, cs), "بدون سعر تُرفض")
     for bad in ({}, {"data": {}}, {"data": {"options": []}, "timestamp": "2026-10-19 13:30:00"}):
         try:
@@ -86,17 +86,30 @@ try:
                                  "iv": 0.18, "open_interest": 800.0 + (i * 37) % 500 + (300 if kind == "C" else 0), "volume": 1.0})
         return {"timestamp": ts, "data": {"current_price": spot, "options": opts}}
     from datetime import date
-    ok([gamma.bucket_of(date(2026,10,d), date(2026,10,19)) for d in (19,20,23,24,31)] == ["0","wk","wk","mo","mo"], "حدود السلال التقويمية")
+    D = date
+    bo = lambda e, r: gamma.bucket_of(e, r)
+    ok([bo(D(2026, 10, 19), D(2026, 10, 19)), bo(D(2026, 10, 20), D(2026, 10, 19)), bo(D(2026, 10, 23), D(2026, 10, 19)), bo(D(2026, 10, 26), D(2026, 10, 19)),
+        bo(D(2026, 10, 30), D(2026, 10, 19)), bo(D(2026, 10, 31), D(2026, 10, 19)), bo(D(2026, 11, 2), D(2026, 10, 19))] == ["0", "wk", "wk", "mo", "mo", "mo", "later"], "سلال تقويمية: اليوم/بقية الأسبوع حتى الجمعة/بقية الشهر/ما بعد (الإثنين 19 أكتوبر)")
+    ok([bo(D(2026, 10, 23), D(2026, 10, 23)), bo(D(2026, 10, 26), D(2026, 10, 23))] == ["0", "mo"], "الجمعة: لا «بقية الأسبوع»، والإثنين التالي من بقية الشهر")
+    bb = gamma.bucket_bounds(D(2026, 10, 24))
+    ok(bb["wk"] == (D(2026, 10, 25), D(2026, 10, 30)), "السبت: الأسبوع ينتهي الجمعة القادمة")
+    bb = gamma.bucket_bounds(D(2026, 11, 30))
+    ok(bb["wk"][1] == D(2026, 12, 4) and bb["mo"][0] > bb["mo"][1] and bb["later"][0] == D(2026, 12, 5), "أسبوع يعبر نهاية الشهر: «بقية الشهر» فارغة و«ما بعد» تبدأ بعد نهاية الأسبوع")
+    bb = gamma.bucket_bounds(D(2026, 12, 15))
+    ok(bb["mo"][1] == D(2026, 12, 31) and bb["later"][0] == D(2027, 1, 1), "ديسمبر: الشهر ينتهي 31 والتالي يناير بلا خطأ")
+    for ref_ in (D(2026, 10, 19), D(2026, 10, 23), D(2026, 10, 24), D(2026, 11, 30), D(2026, 12, 31)):
+        ok(all(sum(1 for _ in [0] if bo(ref_ + timedelta(days=i), ref_) == b) == 1 for i in range(0, 400) for b in [bo(ref_ + timedelta(days=i), ref_)]) and
+           [bo(ref_ + timedelta(days=i), ref_) for i in range(0, 400)] == sorted([bo(ref_ + timedelta(days=i), ref_) for i in range(0, 400)], key=["0", "wk", "mo", "later"].index), "السلال متتابعة بلا تداخل ولا فجوة (%s)" % ref_)
     sp2, ts2, cs2 = gamma.parse_chain(multi())
     r2 = gamma.compute(sp2, cs2, datetime(2026, 10, 19, 13, 30, tzinfo=timezone.utc), date(2026, 10, 19))
     ok(r2["n_contracts"] == 5 * 80, "العقود المنتهية (261016) استُبعدت من «الكل»")
-    ok([r2["buckets"][b]["n"] for b in gamma.BUCKETS] == [80, 80, 80, 160], "كل عقد في سلة واحدة فقط: 0/1-7/8-30/30+")
+    ok([r2["buckets"][b]["n"] for b in gamma.BUCKETS] == [80, 80, 80, 160], "كل عقد في سلة واحدة فقط: اليوم/الأسبوع/الشهر/ما بعد")
     ok(sum(b["n"] for b in r2["buckets"].values()) == r2["n_contracts"], "مجموع عدد العقود في السلال = الكل")
     ok(abs(sum(b["net_gex"] for b in r2["buckets"].values()) - r2["net_gex"]) < 1e-3 * abs(r2["net_gex"]), "مجموع صافي السلال = صافي الكل")
     for row in r2["strikes"]:
         tot = sum(next((x["net"] for x in b["strikes"] if x["k"] == row["k"]), 0.0) for b in r2["buckets"].values())
         ok(abs(tot - row["net"]) <= 1e-6 * max(1.0, abs(row["net"])), "مجموع السلال لكل Strike = «الكل» عند %s" % row["k"])
-    # تتحرك السلال مع اليوم: غداً يصير 261019 منتهياً و261022 سلة 1-7 (يوم +2) ثم 261030 في 8-30
+    # تتحرك السلال مع اليوم: غداً يصير 261019 منتهياً و261022 «بقية الأسبوع» ثم 261030 «بقية الشهر»
     r3 = gamma.compute(sp2, cs2, datetime(2026, 10, 20, 13, 30, tzinfo=timezone.utc), date(2026, 10, 20))
     ok(r3["n_contracts"] == 4 * 80 and r3["buckets"]["0"]["n"] == 0 and r3["buckets"]["wk"]["n"] == 80, "انتقال السلال وسقوط المنتهي مع تغيّر اليوم")
     # لقطة كاملة: Strikes مقرّبة والصافي = Call + Put، والأرشيف مختصر والـlatest كامل
@@ -129,6 +142,63 @@ try:
     ok(gamma.ref_mode(datetime(2026, 10, 16, 20, 0, tzinfo=timezone.utc), datetime(2026, 10, 19, 12, 0, tzinfo=timezone.utc)) == "close", "قبل الافتتاح: مرجع إغلاق")
     ok(gamma.ref_mode(datetime(2026, 10, 19, 14, 20, tzinfo=timezone.utc), datetime(2026, 10, 19, 14, 25, tzinfo=timezone.utc)) == "live", "بعد الافتتاح: مرجع حي")
     ok(gamma.ref_mode(datetime(2026, 10, 19, 12, 0, tzinfo=timezone.utc), datetime(2026, 10, 19, 14, 25, tzinfo=timezone.utc)) == "close", "داخل الجلسة لكن المرجع قديم ⇒ إغلاق")
+    # --- انحدارات (20 أكتوبر): قائمة روابط SPY لا تُمرَّر كنص، وتقاطع ES/SPX ليلاً ---
+    import sys, types, urllib.request, pandas as pd
+    seen = []
+    class _R:
+        def __init__(s): pass
+        def __enter__(s): return s
+        def __exit__(s, *a): return False
+        def read(s): return b"{}"
+    _old = urllib.request.urlopen
+    urllib.request.urlopen = lambda req, timeout=0: (seen.append(req.full_url), _R())[1]
+    try:
+        gamma.fetch(gamma.SPY_URLS)
+    finally:
+        urllib.request.urlopen = _old
+    ok(seen == [gamma.SPY_URLS[0]], "fetch يقبل قائمة روابط SPY (ويجرب الأول)")
+    idx_spx = pd.date_range("2026-10-19 19:55", periods=6, freq="1min", tz="UTC")                 # SPX توقف 20:00 UTC (إغلاق)
+    idx_es = pd.date_range("2026-10-19 19:55", periods=6, freq="1min", tz="UTC").append(pd.date_range("2026-10-20 07:50", periods=3, freq="1min", tz="UTC"))
+    class _T:
+        def __init__(s, sym): s.sym = sym
+        def history(s, period, interval, auto_adjust):
+            if s.sym == "ES=F": return pd.DataFrame({"Close": [7050.0 + i for i in range(len(idx_es))]}, index=idx_es)
+            if s.sym == "^GSPC": return pd.DataFrame({"Close": [7000.0 + i for i in range(len(idx_spx))]}, index=idx_spx)
+            return pd.DataFrame({"Close": [700.0 + i / 10 for i in range(len(idx_spx))]}, index=idx_spx)
+    fake = types.ModuleType("yfinance"); fake.Ticker = _T; _oy = sys.modules.get("yfinance"); sys.modules["yfinance"] = fake
+    try:
+        p = gamma._pair("ES=F", "^GSPC")
+    finally:
+        if _oy is not None: sys.modules["yfinance"] = _oy
+        else: del sys.modules["yfinance"]
+    ok(p is not None and p[0] == idx_spx[-1] and p[1] == 7055.0 and p[2] == 7005.0, "ES/SPX ليلاً: آخر دقيقة مشتركة = إغلاق أمس (لا None)")
+    # --- خارج الجلسة: ملفا SPX وSPY من نفس إغلاق الجلسة يُقبلان ولو تباعد ختماهما ساعات (حالة 254 دقيقة) ---
+    gamma.spy_ref = lambda: ref
+    _ft = datetime(2026, 10, 20, 8, 0, tzinfo=timezone.utc)
+    _spx_ts = datetime(2026, 10, 20, 7, 52, tzinfo=timezone.utc)      # 03:52 نيويورك
+    _spy_ts = _spx_ts - timedelta(minutes=254)                          # 23:38 نيويورك أمس
+    _r = gamma.build_spy(_spx_ts, _ft, date(2026, 10, 19), ref=ref, raw=spychain(ts=_spy_ts.strftime("%Y-%m-%d %H:%M:%S")))
+    ok(_r["ok"], "خارج الجلسة وفرق 254 دقيقة لكن نفس جلسة الإغلاق ⇒ SPY يُقبل: %s" % _r.get("reason"))
+    _r2 = gamma.build_spy(_spx_ts, _ft, date(2026, 10, 19), ref=ref, raw=spychain(ts=(_spx_ts - timedelta(hours=20)).strftime("%Y-%m-%d %H:%M:%S")))
+    ok(not _r2["ok"] and "جلسة" in _r2["reason"], "خارج الجلسة وملف SPY من جلسة سابقة أقدم ⇒ يُعطَّل")
+    # --- حماية المصدر: تعطّل ES أو SPY (استثناء مفاجئ) لا يمنع بناء SPX ولا كتابته ---
+    _oes, _osp = gamma.es_basis, gamma.build_spy
+    def _boom(*a, **k): raise RuntimeError("انهيار تجريبي")
+    gamma.es_basis = _boom; gamma.build_spy = _boom
+    try:
+        _s = gamma.build(chain(ts="2026-10-19 14:30:00"), fetched=datetime(2026, 10, 19, 18, 40, tzinfo=timezone.utc), with_es=True, with_spy=True)
+    finally:
+        gamma.es_basis, gamma.build_spy = _oes, _osp
+    ok(_s["ok"] and _s["strikes"] and _s["es"] is None and _s["spy"]["ok"] is False and "SPY" in _s["spy"]["reason"], "انهيار ES وSPY معاً: SPX يبقى صالحاً ويُكتب مع تعطيل الطبقتين بسبب")
+    # --- منحنى الجاما المحفوظ: مجموع منحنيات السلال = منحنى الكل (يُبنى عليه Flip والخلفية والاستحقاق المتعدد) ---
+    _sp = gamma.build(chain(ts="2026-10-19 14:30:00"), fetched=datetime(2026, 10, 19, 18, 40, tzinfo=timezone.utc), with_es=False, with_spy=False)
+    _pa = _sp.get("prof"); _bs = [b["prof"] for b in _sp["buckets"].values() if b.get("prof")]
+    ok(_pa and _pa["n"] == len(_pa["v"]) == gamma.PROF_N and _bs, "الملف يحمل منحنى جاما للكل ولكل سلة غير فارغة")
+    if _pa and _bs:
+        ok(all(abs(sum(b["v"][i] for b in _bs) - _pa["v"][i]) < 0.002 for i in range(_pa["n"])), "مجموع منحنيات السلال = منحنى الكل (خطية)")
+        ok(all(b["lo"] == _pa["lo"] and b["hi"] == _pa["hi"] for b in _bs), "كل المنحنيات على شبكة أسعار واحدة")
+    _x2 = gamma._px(_pa, 10.0)
+    ok(_x2["lo"] == round(_pa["lo"] * 10, 2) and _x2["v"] == _pa["v"], "منحنى SPY: الشبكة × النسبة والقيم كما هي")
 finally:
     shutil.rmtree(t, ignore_errors=True)
 print("tests_gamma: %d فحصاً نجحت" % N)

@@ -166,6 +166,7 @@ def compute(spot, contracts, ref_utc=None, today=None):
     net = sum(r["net"] for r in rows)
     call_wall, put_wall = _walls(rows, spot)
     flip = gamma_flip(spot, contracts, ref_utc)
+    prof = gamma_profile(spot, contracts, ref_utc)
     exps = sorted({c["exp"] for c in contracts})
     inband = lambda rs: [r for r in rs if abs(r["k"] - spot) <= spot * STRIKE_BAND]
     keep = inband(rows)
@@ -175,9 +176,10 @@ def compute(spot, contracts, ref_utc=None, today=None):
         br = _rows(spot, groups[b]) if groups[b] else []
         cw, pw = _walls(br, spot) if br else (None, None)
         lo, hi = bnd[b]
-        buckets[b] = {"from": lo.isoformat(), "to": hi.isoformat() if hi else None, "n": len(groups[b]), "net_gex": sum(r["net"] for r in br), "call_wall": cw, "put_wall": pw, "strikes": inband(br)}
+        buckets[b] = {"from": lo.isoformat(), "to": hi.isoformat() if hi else None, "n": len(groups[b]), "net_gex": sum(r["net"] for r in br), "call_wall": cw, "put_wall": pw, "strikes": inband(br),
+                      "prof": gamma_profile(spot, groups[b], ref_utc) if groups[b] else None}
     return {"net_gex": net, "regime": "positive" if net >= 0 else "negative", "gamma_flip": flip,
-            "call_wall": call_wall, "put_wall": put_wall, "strikes": keep, "buckets": buckets,
+            "call_wall": call_wall, "put_wall": put_wall, "strikes": keep, "buckets": buckets, "prof": prof,
             "expiries": ["20" + e[:2] + "-" + e[2:4] + "-" + e[4:] for e in exps], "n_contracts": len(contracts)}
 
 
@@ -189,13 +191,12 @@ def _expiry_t(exp, ref_utc):
     return max(mins, 30.0) / (365.0 * 24 * 60)
 
 
-def gamma_flip(spot, contracts, ref_utc=None, lo=0.92, hi=1.08, steps=49):
-    """Gamma Flip: السعر الذي يتقاطع عنده صافي GEX مع الصفر عند إعادة حساب gamma (بلاك-شولز بالـIV لكل عقد)
-    على أسعار افتراضية حول السعر الحالي. يعيد أقرب تقاطع للسعر أو None."""
+def _gex_curve(spot, contracts, ref_utc=None, lo=0.92, hi=1.08, steps=49, minc=50):
+    """منحنى صافي GEX (دولار لكل 1%) عند أسعار افتراضية: gamma تُعاد بنموذج بلاك-شولز بالـIV لكل عقد. قائمة (سعر، قيمة) أو None."""
     import math
     ref_utc = ref_utc or now_utc()
     cs = [c for c in contracts if c["oi"] > 0 and c["iv"] > 0.01 and abs(c["k"] - spot) <= spot * 0.25]
-    if len(cs) < 50:
+    if len(cs) < minc:
         return None
     tcache = {}
     pre = []
@@ -211,6 +212,14 @@ def gamma_flip(spot, contracts, ref_utc=None, lo=0.92, hi=1.08, steps=49):
             g = math.exp(-0.5 * d1 * d1) / (2.5066282746310002 * S * sv)
             tot += g * sg
         pts.append((S, tot * 100.0 * S * S * 0.01))
+    return pts
+
+
+def gamma_flip(spot, contracts, ref_utc=None, lo=0.92, hi=1.08, steps=49):
+    """Gamma Flip: السعر الذي يتقاطع عنده صافي GEX مع الصفر (أقرب تقاطع للسعر الحالي) أو None."""
+    pts = _gex_curve(spot, contracts, ref_utc, lo, hi, steps)
+    if pts is None:
+        return None
     cands = []
     for (a, ga), (b, gb) in zip(pts, pts[1:]):
         if ga == 0:
@@ -218,6 +227,25 @@ def gamma_flip(spot, contracts, ref_utc=None, lo=0.92, hi=1.08, steps=49):
         elif (ga < 0) != (gb < 0):
             cands.append(a + (b - a) * abs(ga) / (abs(ga) + abs(gb)))
     return round(min(cands, key=lambda x: abs(x - spot)), 2) if cands else None
+
+
+PROF_LO, PROF_HI, PROF_N = 0.94, 1.06, 73
+
+
+def gamma_profile(spot, contracts, ref_utc=None):
+    """منحنى الجاما المحفوظ لمجموعة عقود: {lo, hi, n, v} بمليار دولار لكل 1% (شبكة موحّدة لكل السلال فيُجمع بعضها إلى بعض)
+    فيُحسب Flip وحالة السوق عند كل سعر لأي مجموعة استحقاقات يختارها المستخدم. None إن قلّت العقود الصالحة."""
+    pts = _gex_curve(spot, contracts, ref_utc, PROF_LO, PROF_HI, PROF_N, minc=5)
+    if pts is None:
+        return None
+    return {"lo": round(pts[0][0], 2), "hi": round(pts[-1][0], 2), "n": PROF_N, "v": [round(v / 1e9, 4) for _, v in pts]}
+
+
+def _px(prof, r):
+    """منحنى SPY بمحور SPX-مكافئ: الشبكة × النسبة (القيم بالدولار كما هي)."""
+    if not prof:
+        return None
+    return dict(prof, lo=round(prof["lo"] * r, 2), hi=round(prof["hi"] * r, 2))
 
 
 def validate(res, spot, contracts, prev=None):
@@ -323,7 +351,7 @@ def build_spy(spx_ts, fetched, today, ref=None, raw=None):
         r = ref["ratio"]
         fx = lambda v: round(v * r, 1) if v is not None else None
         bks = {b: {"n": v["n"], "net_gex": v["net_gex"], "call_wall": v["call_wall"], "put_wall": v["put_wall"],
-                   "call_wall_x": fx(v["call_wall"]), "put_wall_x": fx(v["put_wall"]), "strikes": _x(_rnd(v["strikes"]), r)}
+                   "call_wall_x": fx(v["call_wall"]), "put_wall_x": fx(v["put_wall"]), "strikes": _x(_rnd(v["strikes"]), r), "prof": _px(v.get("prof"), r)}
                for b, v in res["buckets"].items()}
         return {"ok": True, "asset": "SPY", "snapshot_utc": ts.isoformat(), "snapshot_et": to_ny(ts).strftime("%Y-%m-%d %H:%M"),
                 "spot": spot, "ratio": round(r, 5), "ref_time_utc": ref["ref_time_utc"], "ref_mode": ref["mode"],
@@ -331,7 +359,7 @@ def build_spy(spx_ts, fetched, today, ref=None, raw=None):
                 "gamma_flip": res["gamma_flip"], "gamma_flip_x": fx(res["gamma_flip"]),
                 "call_wall": res["call_wall"], "put_wall": res["put_wall"],
                 "call_wall_x": fx(res["call_wall"]), "put_wall_x": fx(res["put_wall"]),
-                "strikes": _x(_rnd(res["strikes"]), r), "buckets": bks, "n_contracts": res["n_contracts"], "reason": None}
+                "strikes": _x(_rnd(res["strikes"]), r), "prof": _px(res.get("prof"), r), "buckets": bks, "n_contracts": res["n_contracts"], "reason": None}
     except Exception as e:  # noqa: BLE001
         return {"ok": False, "reason": "SPY: %s" % e}
 
@@ -380,7 +408,7 @@ def build(raw, fetched=None, with_es=True, with_spy=None, spy_raw=None):
     snap = {"ok": why is None, "asset": "SPX", "snapshot_utc": ts.isoformat(), "snapshot_et": et.strftime("%Y-%m-%d %H:%M"),
             "fetched_utc": fetched.isoformat(), "source": SOURCE, "model": MODEL, "spot": round(spot, 2),
             "regime": res["regime"], "net_gex": res["net_gex"], "gamma_flip": res["gamma_flip"],
-            "call_wall": res["call_wall"], "put_wall": res["put_wall"], "strikes": _rnd(res["strikes"]),
+            "call_wall": res["call_wall"], "put_wall": res["put_wall"], "strikes": _rnd(res["strikes"]), "prof": res["prof"],
             "buckets": {b: dict(v, strikes=_rnd(v["strikes"])) for b, v in res["buckets"].items()},
             "expiries": res["expiries"], "n_contracts": res["n_contracts"],
             "status": status_of(ts, fetched), "reason": why, "spy": {"ok": False}}
@@ -388,10 +416,19 @@ def build(raw, fetched=None, with_es=True, with_spy=None, spy_raw=None):
         if snap["status"] == "fresh":
             snap["status"] = "late"
         snap["reason"] = "خارج ساعات الجلسة (09:30–16:15 نيويورك): الأسعار والمستويات مبنية على آخر إغلاق وليست حية."
-    snap["es"] = es_basis() if (with_es and why is None) else None
+    # الطبقات الاختيارية (ES وSPY) لا تُسقط SPX أبداً: أي استثناء فيها يعني تعطيل الطبقة فقط مع سبب صريح
+    try:
+        snap["es"] = es_basis() if (with_es and why is None) else None
+    except Exception as e:  # noqa: BLE001
+        snap["es"] = None
+        print("تعطّل ES (SPX سليم):", e)
     with_spy = with_es if with_spy is None else with_spy
     if with_spy and why is None:
-        snap["spy"] = build_spy(ts, fetched, et.date(), raw=spy_raw)
+        try:
+            snap["spy"] = build_spy(ts, fetched, et.date(), raw=spy_raw)
+        except Exception as e:  # noqa: BLE001
+            snap["spy"] = {"ok": False, "reason": "تعطّل طبقة SPY: %s" % e}
+            print("تعطّل SPY (SPX سليم):", e)
     return snap
 
 
