@@ -1042,21 +1042,86 @@ def send_telegram(text):
 
 # ───────────────────────── الأوضاع ─────────────────────────
 
-def gather_extras(now, deps):
+
+FRED_CACHE_MAX_DAYS = 5          # أقدم عمر لنسخة FRED محفوظة تُستعمل عند تعذّر الجلب
+FRED_CACHE_WRITE_HOURS = 12      # لا نعيد كتابة النسخة في state.json أكثر من ذلك (تقليل ضجيج git)
+
+
+def _fred_enc(rows):
+    return "|".join(f"{d}={v:g}" for d, v in rows)
+
+
+def _fred_dec(s):
+    out = []
+    for part in (s or "").split("|"):
+        d, _, v = part.partition("=")
+        try:
+            out.append((d, float(v)))
+        except ValueError:
+            continue
+    return out
+
+
+def _fred_cached(name, got, state, now, problems):
+    """يحفظ آخر بيانات FRED الناجحة لكل سلسلة، ويكمل بها السلاسل التي تعذّر جلبها (حتى 5 أيام) مع تنبيه صريح.
+    لا يغيّر أي حساب: الأرقام المكمَّلة حقيقية سابقة وتاريخ آخر رصد فيها يبيّن عمرها لمحرك الماكرو."""
+    if state is None or got is None:
+        return got
+    cache = state.setdefault("fred_cache", {}).setdefault(name, {})
+    for k, rows in got.items():
+        e = cache.get(k)
+        try:
+            fresh_enough = e and now - datetime.fromisoformat(e["at"]) < timedelta(hours=FRED_CACHE_WRITE_HOURS)
+        except Exception:  # noqa: BLE001
+            fresh_enough = False
+        if rows and not fresh_enough:
+            cache[k] = {"at": now.isoformat(), "d": _fred_enc(rows)}
+    old_at, used = None, []
+    for k, e in list(cache.items()):
+        if k in got:
+            continue
+        try:
+            at = datetime.fromisoformat(e["at"])
+            if now - at <= timedelta(days=FRED_CACHE_MAX_DAYS):
+                rows = _fred_dec(e["d"])
+                if rows:
+                    got[k] = rows
+                    used.append(k)
+                    old_at = at if old_at is None or at < old_at else old_at
+            else:
+                del cache[k]
+        except Exception:  # noqa: BLE001
+            del cache[k]
+    if used:
+        hrs = int((now - old_at).total_seconds() // 3600)
+        problems.append(f"FRED غير متاح الآن: استُعملت نسخة محفوظة لـ {len(used)} سلسلة (الأقدم قبل {hrs} ساعة). الأرقام حقيقية سابقة وليست محدّثة.")
+        prev = state.get("fred_stale") or {}
+        oldest = min(old_at, datetime.fromisoformat(prev["oldest"])) if prev.get("oldest") else old_at
+        state["fred_stale"] = {"at": now.isoformat(), "n": len(used) + int(prev.get("n", 0)), "oldest": oldest.isoformat()}
+    return got
+
+
+def gather_extras(now, deps, state=None):
     """مصادر إضافية بفشل ناعم: FRED وCOT والأرباح والعناوين."""
     extras, problems = {}, []
+    if state is not None:
+        state["fred_stale"] = None            # يُعاد ملؤه أدناه فقط إن استُعملت نسخة محفوظة في هذا التشغيل
     if deps.get("fred"):
         try:
             extras["fred"], p = deps["fred"](now)
             problems += p
         except Exception as e:  # noqa: BLE001
             problems.append(f"تعذّر FRED: {e}")
+            extras["fred"] = {}
+        extras["fred"] = _fred_cached("fred", extras.get("fred") or {}, state, now, problems) or None
     if deps.get("macro"):
         try:
             extras["macro"], p = deps["macro"](now)
             problems += [x.replace("FRED", "FRED (المنظومة الكلية)") for x in p]
         except Exception as e:  # noqa: BLE001
             problems.append(f"تعذّر جلب بيانات المنظومة الكلية: {e}")
+            extras["macro"] = {}
+        extras["macro"] = _fred_cached("macro", extras.get("macro") or {}, state, now, problems) or None
     for name in ("cot", "earnings", "geo"):
         if deps.get(name):
             try:
@@ -1083,10 +1148,10 @@ def gather_extras(now, deps):
     return extras, problems
 
 
-def full_report(now, events, deps, want_prices=False, series=None):
+def full_report(now, events, deps, want_prices=False, series=None, state=None):
     """series: {es,y10,dxy,oil: [(وقت, سعر)]} لقياس تأكيد السوق للإصدارات (إن غابت: «تأكيد السوق غير متاح بعد»)."""
     prices, problems = deps["prices"](now)
-    extras, p2 = gather_extras(now, deps)
+    extras, p2 = gather_extras(now, deps, state)
     if series:
         extras["series"] = series
     report = c.build_report(prices, events, now, problems + p2, extras)
@@ -1284,7 +1349,7 @@ def _send_releases(events, now, state, send, deps, fresh, series):
     def rep():
         if "r" not in cache:
             try:
-                cache["r"] = full_report(now, events, deps, series=series)
+                cache["r"] = full_report(now, events, deps, series=series, state=state)
             except Exception:  # noqa: BLE001
                 cache["r"] = None
         return cache["r"]
@@ -1347,7 +1412,7 @@ def run_preopen(now, state, send, deps, prefix=""):
             ser = _series(deps["intraday"](now))
         except Exception:  # noqa: BLE001
             ser = {}
-    report, prices = full_report(now, events, deps, want_prices=True, series={k: v for k, v in ser.items() if v and now - v[-1][0] <= timedelta(minutes=45)})
+    report, prices = full_report(now, events, deps, want_prices=True, state=state, series={k: v for k, v in ser.items() if v and now - v[-1][0] <= timedelta(minutes=45)})
     report.setdefault("problems", []).extend(problems)
     add_auction(report, prices, now, deps)
     try:
@@ -1371,7 +1436,7 @@ def run_preopen(now, state, send, deps, prefix=""):
 
 def _snapshot(now, events, deps, state, send, fresh, vols, intr):
     """لقطة الواجهة: تقرير كامل، نبض، صحة، نشر. يرفع استثناءً عند الفشل (لا يُحسب نجاحاً)."""
-    snap = full_report(now, events, deps, series=_series(intr))
+    snap = full_report(now, events, deps, series=_series(intr), state=state)
     try:
         pulse = market_pulse(fresh, vols) if fresh else []
     except Exception:  # noqa: BLE001
@@ -1428,7 +1493,7 @@ def run_auto(now, state, send, deps):
             except Exception:  # noqa: BLE001
                 headlines = []
             try:
-                report = full_report(now, events, deps, series=_series(intr))
+                report = full_report(now, events, deps, series=_series(intr), state=state)
             except Exception:  # noqa: BLE001
                 report = None
             rec = alert_from_shock(signals, changes, headlines, now)
@@ -1455,7 +1520,7 @@ def run_auto(now, state, send, deps):
                 except Exception:  # noqa: BLE001
                     headlines = []
                 try:
-                    report = full_report(now, events, deps, series=_series(intr))
+                    report = full_report(now, events, deps, series=_series(intr), state=state)
                 except Exception:  # noqa: BLE001
                     report = None
                 rec = alert_from_move(mv, headlines, now)
