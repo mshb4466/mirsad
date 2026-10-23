@@ -191,189 +191,199 @@
       "name": "ES",
       "short": "ES",
       "w": 180,
-      "v": -0.15,
+      "v": -0.2,
       "th": 0.8,
-      "ratio": 0.19,
-      "val": "-0.15%",
+      "ratio": 0.25,
+      "val": "-0.20%",
       "thr": "±0.8%",
-      "c15": "-0.02%",
-      "c60": "-0.02%",
-      "c180": "-0.15%",
+      "c15": "-0.00%",
+      "c60": "+0.03%",
+      "c180": "-0.20%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.05,
-      "z": 0.1,
-      "volx": 0.9
+      "eff": 0.07,
+      "z": 0.2,
+      "volx": 1.1
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 180,
-      "v": -0.13,
+      "v": -0.25,
       "th": 1.0,
-      "ratio": 0.13,
-      "val": "-0.13%",
+      "ratio": 0.25,
+      "val": "-0.25%",
       "thr": "±1%",
-      "c15": "-0.00%",
-      "c60": "+0.06%",
-      "c180": "-0.13%",
+      "c15": "-0.04%",
+      "c60": "+0.05%",
+      "c180": "-0.25%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.13,
+      "eff": 0.09,
       "z": 0.2,
-      "volx": 0.8
+      "volx": 0.9
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 180,
-      "v": 1.56,
+      "v": 2.74,
       "th": 14.0,
-      "ratio": 0.11,
-      "val": "+1.56%",
+      "ratio": 0.2,
+      "val": "+2.74%",
       "thr": "±14%",
-      "c15": "+0.15%",
-      "c60": "+0.67%",
-      "c180": "+1.56%",
+      "c15": "+0.86%",
+      "c60": "+1.43%",
+      "c180": "+2.74%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.22,
-      "z": 0.3,
+      "eff": 0.33,
+      "z": 0.6,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": 0.52,
-      "th": 2.4,
-      "ratio": 0.22,
-      "val": "+0.52%",
-      "thr": "±2.4%",
-      "c15": "-0.01%",
-      "c60": "-0.13%",
-      "c180": "+0.52%",
+      "w": 15,
+      "v": 0.26,
+      "th": 0.9,
+      "ratio": 0.29,
+      "val": "+0.26%",
+      "thr": "±0.9%",
+      "c15": "+0.26%",
+      "c60": "+0.03%",
+      "c180": "+0.53%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.17,
-      "z": 0.3,
-      "volx": 0.9
+      "eff": 0.04,
+      "z": 0.1,
+      "volx": 1.4
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 15,
-      "v": -0.05,
-      "th": 0.45,
-      "ratio": 0.1,
-      "val": "-0.05%",
-      "thr": "±0.45%",
-      "c15": "-0.05%",
-      "c60": "-0.06%",
-      "c180": "+0.09%",
+      "w": 180,
+      "v": 0.37,
+      "th": 1.2,
+      "ratio": 0.31,
+      "val": "+0.37%",
+      "thr": "±1.2%",
+      "c15": "+0.00%",
+      "c60": "+0.08%",
+      "c180": "+0.37%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.12,
-      "z": 0.2,
-      "volx": 0.5
+      "eff": 0.16,
+      "z": 0.3,
+      "volx": 0.6
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
-      "v": 0.02,
-      "th": 0.18,
-      "ratio": 0.13,
-      "val": "+0.02%",
-      "thr": "±0.18%",
+      "w": 60,
+      "v": 0.06,
+      "th": 0.28,
+      "ratio": 0.21,
+      "val": "+0.06%",
+      "thr": "±0.28%",
       "c15": "+0.02%",
-      "c60": "+0.02%",
-      "c180": "-0.05%",
+      "c60": "+0.06%",
+      "c180": "-0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.13,
-      "z": 0.2,
+      "eff": 0.43,
+      "z": 0.9,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 15,
-      "v": 0.09,
-      "th": 0.25,
+      "w": 60,
+      "v": 0.14,
+      "th": 0.4,
       "ratio": 0.35,
-      "val": "+0.09%",
-      "thr": "±0.25%",
-      "c15": "+0.09%",
-      "c60": "+0.11%",
-      "c180": "-0.20%",
+      "val": "+0.14%",
+      "thr": "±0.4%",
+      "c15": "+0.07%",
+      "c60": "+0.14%",
+      "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.41,
-      "z": 0.9,
+      "eff": 0.54,
+      "z": 1.2,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-23T10:42:16.859668+00:00",
-        "ok_at": "2026-10-23T10:42:16.859668+00:00"
+        "last_try": "2026-10-23T11:13:41.036119+00:00",
+        "ok_at": "2026-10-23T11:13:41.036119+00:00"
       },
       "fred": {
-        "last_try": "2026-10-23T10:42:16.859668+00:00",
-        "ok_at": "2026-10-23T10:42:16.859668+00:00"
+        "last_try": "2026-10-23T11:13:41.036119+00:00",
+        "ok_at": "2026-10-23T11:13:41.036119+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-23T10:42:16.859668+00:00",
-        "ok_at": "2026-10-23T10:42:16.859668+00:00"
+        "last_try": "2026-10-23T11:13:41.036119+00:00",
+        "ok_at": "2026-10-23T11:13:41.036119+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-23T10:42:16.859668+00:00",
-        "ok_at": "2026-10-23T10:42:16.859668+00:00"
+        "last_try": "2026-10-23T11:13:41.036119+00:00",
+        "ok_at": "2026-10-23T11:13:41.036119+00:00"
       },
       "oil": {
-        "last_try": "2026-10-23T10:42:16.859668+00:00",
-        "ok_at": "2026-10-23T10:42:16.859668+00:00"
+        "last_try": "2026-10-23T11:13:41.036119+00:00",
+        "ok_at": "2026-10-23T11:13:41.036119+00:00"
       },
       "news": {
-        "last_try": "2026-10-23T10:42:16.859668+00:00",
-        "ok_at": "2026-10-23T10:42:16.859668+00:00"
+        "last_try": "2026-10-23T11:13:41.036119+00:00",
+        "ok_at": "2026-10-23T11:13:41.036119+00:00"
       },
       "cot": {
-        "last_try": "2026-10-23T10:42:16.859668+00:00",
-        "ok_at": "2026-10-23T10:42:16.859668+00:00"
+        "last_try": "2026-10-23T11:13:41.036119+00:00",
+        "ok_at": "2026-10-23T11:13:41.036119+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-23T10:42:16.859668+00:00",
-        "ok_at": "2026-10-23T10:42:16.859668+00:00"
+        "last_try": "2026-10-23T11:13:41.036119+00:00",
+        "ok_at": "2026-10-23T11:13:41.036119+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-23T10:42:16.859668+00:00"
+      "at": "2026-10-23T11:13:41.036119+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-23T10:04:14.375999+00:00",
+    "at": "2026-10-23T11:13:41.036119+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-23T11:05:01+00:00",
+            "title": "AI trade meets the Fed",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-23T10:07:44+00:00",
+            "title": "Wall St Week Ahead Earnings flood, Fed meeting pose pivotal tests for rickety AI market rally",
+            "src": "Reuters"
+          },
           {
             "t": "2026-10-23T09:17:11+00:00",
             "title": "US Federal Reserve to Raise Rates Twice More in 2026, Says Bank of America",
@@ -385,18 +395,8 @@
             "src": "CNBC"
           },
           {
-            "t": "2026-10-23T09:01:10+00:00",
-            "title": "Take Five: AI trade meets the Fed",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-23T07:00:11+00:00",
-            "title": "The Fed Faces Its Most Confusing Economy Yet",
-            "src": "Bloomberg.com"
-          },
-          {
             "t": "2026-10-23T05:03:16+00:00",
-            "title": "Fed to Hike Twice More in 2026 With US and ECB Policy Set to Diverge, says Bank of America",
+            "title": "US Fed to Raise Rates Twice More in 2026, Says Bank of America",
             "src": "Morningstar"
           }
         ]
@@ -405,28 +405,28 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-23T08:43:04+00:00",
-            "title": "New Mexico Sues Jeffrey Epstein’s Lawyer and Accountant",
+            "t": "2026-10-23T10:46:11+00:00",
+            "title": "Wall Street futures dip after AI rout, telecoms slide",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-23T10:26:31+00:00",
+            "title": "Mark Zuckerberg Threatened to Leave California. Meta’s Board Cut Him a Deal.",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-10-23T10:03:38+00:00",
+            "title": "Mapping the Market: Path to S&P 500 rally strewn with obstacles",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-23T09:36:48+00:00",
+            "title": "Wall Street prepares for AI's \"day after\"",
+            "src": "Axios"
           },
           {
             "t": "2026-10-23T07:31:00+00:00",
             "title": "Oil Prices Rise as Middle East Risks Persist",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-23T06:36:08+00:00",
-            "title": "Stock Market: Will S&P 500 Open Up or Down Today?",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-23T02:59:00+00:00",
-            "title": "Nasdaq Futures Rise After Chip Selloff While S&P 500, Dow Track Mixed Open: SLV, GLD, SOXL, BE In Focus",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-23T01:00:00+00:00",
-            "title": "I Took America’s Cheapest EV Into the Charging Desert of the Deep South",
             "src": "WSJ"
           }
         ]
@@ -434,6 +434,16 @@
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-10-23T10:12:01+00:00",
+            "title": "Amazon Stock Is Up 8% This Year. Is It Still a Buy Ahead of Earnings?",
+            "src": "Morningstar"
+          },
+          {
+            "t": "2026-10-23T06:36:50+00:00",
+            "title": "S&P 500 Forecast: SPX falls, led by tech after Meta, Tesla earnings",
+            "src": "FOREX.com"
+          },
           {
             "t": "2026-10-22T22:17:00+00:00",
             "title": "Buy, Hold, or Sell Tesla Stock After Q3 Earnings & SpaceX Merger Talks?",
@@ -448,16 +458,6 @@
             "t": "2026-10-22T19:32:17+00:00",
             "title": "Meta stock drops more than 7% despite strong Q3 results as AI spending fears return",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-22T18:29:00+00:00",
-            "title": "Meta, AI Stocks Tumble As AI Spending Fears Reignite",
-            "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-10-22T18:17:00+00:00",
-            "title": "Nvidia Earnings Are Coming Next Month and the Stock Looks Poised to Dip Regardless of the Outcome",
-            "src": "The Motley Fool"
           }
         ]
       },
@@ -470,24 +470,24 @@
             "src": "WSJ"
           },
           {
+            "t": "2026-10-23T08:00:00+00:00",
+            "title": "ECB Says Consumers’ Inflation Expectations Edge Up in September",
+            "src": "Bloomberg.com"
+          },
+          {
             "t": "2026-10-23T06:55:00+00:00",
             "title": "Asia Flash PMIs Diverge as Rates, Inflation Shape Private-Sector Activity",
             "src": "WSJ"
           },
           {
+            "t": "2026-10-23T05:06:00+00:00",
+            "title": "Singapore's core inflation rate rises to 2% in September, below forecast",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-10-23T02:22:00+00:00",
             "title": "Japan Consumer Inflation Uptick Offers Tailwind for BOJ Rate Hike",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-23T00:57:00+00:00",
-            "title": "Japan Inflation Rises Above BOJ Target, Backing Rate Hikes",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-10-23T00:06:00+00:00",
-            "title": "Japan government, BOJ gap on inflation laid bare ahead of key policy meeting",
-            "src": "Reuters"
           }
         ]
       },
@@ -495,24 +495,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-10-23T11:01:00+00:00",
+            "title": "Treasury yields log biggest drop since the 2023 banking crisis. Here’s what’s going on.",
+            "src": "MarketWatch"
+          },
+          {
+            "t": "2026-10-23T10:37:36+00:00",
+            "title": "PBO trims economic forecast for 2026 and 2027 amid new U.S. tariffs",
+            "src": "constructconnect.com"
+          },
+          {
+            "t": "2026-10-23T10:05:33+00:00",
+            "title": "District 5 Congressional candidates Molder, Hatcher clash over tariffs in forum",
+            "src": "Tennessee Lookout"
+          },
+          {
             "t": "2026-10-23T09:30:00+00:00",
             "title": "How Tariffs Became the Most Hated Word in Politics",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-23T09:03:24+00:00",
-            "title": "Canadian Cheese Was About to Become the Next Big Thing. Then Came the Tariffs.",
-            "src": "The New York Times"
-          },
-          {
-            "t": "2026-10-23T08:55:30+00:00",
-            "title": "Kansas manufacturing business responds to candidates’ conflicting accounts of tariff effects",
-            "src": "Kansas Reflector"
-          },
-          {
-            "t": "2026-10-23T08:45:00+00:00",
-            "title": "The Democrats’ looming trade battle",
-            "src": "Politico"
           }
         ]
       },
@@ -520,24 +520,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-10-23T10:36:48+00:00",
+            "title": "U.S. and Israel are planning for a possible attack on Iran after the midterms",
+            "src": "NPR"
+          },
+          {
             "t": "2026-10-23T09:40:32+00:00",
             "title": "Israel orders closure of West Bank after soldiers kill 2 men behind an alleged attack",
             "src": "NPR"
           },
           {
-            "t": "2026-10-23T08:47:00+00:00",
+            "t": "2026-10-23T09:18:46+00:00",
             "title": "Israel orders ‘full lockdown’ of West Bank after military kills 2 accused of attack",
             "src": "NBC News"
           },
           {
-            "t": "2026-10-23T08:34:38+00:00",
-            "title": "Israel closes West Bank city after at least five Israelis wounded in shooting attack",
-            "src": "CNN"
-          },
-          {
-            "t": "2026-10-22T23:22:20+00:00",
-            "title": "Trump has threatened to escalate his Iran war after the US midterm election. Is Tehran prepared for that?",
-            "src": "DW.com"
+            "t": "2026-10-23T09:02:44+00:00",
+            "title": "U.S. oil holds above $100, Brent at five-month high as Iran says it’s prepared for warfare",
+            "src": "CNBC"
           }
         ]
       }
@@ -545,7 +545,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-23T10:42:16.859668+00:00",
+    "at": "2026-10-23T11:13:41.036119+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -6573,10 +6573,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-10-17) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-23T10:42:16.859668+00:00",
+  "last_publish_ok": "2026-10-23T11:13:41.036119+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-23T10:42:42.842625+00:00"
+    "at": "2026-10-23T11:14:08.103268+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -6641,12 +6641,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-23T10:42:16.859668+00:00",
-    "ok_at": "2026-10-23T10:42:16.859668+00:00",
+    "at": "2026-10-23T11:13:41.036119+00:00",
+    "ok_at": "2026-10-23T11:13:41.036119+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-23T10:42:16.859668+00:00",
+    "at": "2026-10-23T11:13:41.036119+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
