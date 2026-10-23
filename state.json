@@ -187,73 +187,183 @@
   ],
   "pulse": [
     {
+      "key": "es",
+      "name": "ES",
+      "short": "ES",
+      "w": 60,
+      "v": 0.09,
+      "th": 0.45,
+      "ratio": 0.2,
+      "val": "+0.09%",
+      "thr": "±0.45%",
+      "c15": "+0.02%",
+      "c60": "+0.09%",
+      "c180": "+0.02%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.44,
+      "z": 0.7,
+      "volx": 0.3
+    },
+    {
+      "key": "nq",
+      "name": "ناسداك",
+      "short": "NQ",
+      "w": 60,
+      "v": 0.18,
+      "th": 0.6,
+      "ratio": 0.29,
+      "val": "+0.18%",
+      "thr": "±0.6%",
+      "c15": "+0.02%",
+      "c60": "+0.18%",
+      "c180": "+0.05%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "bull",
+      "eff": 0.47,
+      "z": 0.9,
+      "volx": 0.4
+    },
+    {
+      "key": "oil",
+      "name": "النفط",
+      "short": "نفط",
+      "w": 60,
+      "v": 0.37,
+      "th": 1.3,
+      "ratio": 0.29,
+      "val": "+0.37%",
+      "thr": "±1.3%",
+      "c15": "+0.20%",
+      "c60": "+0.37%",
+      "c180": "+0.51%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.47,
+      "z": 1.1,
+      "volx": 0.5
+    },
+    {
+      "key": "gold",
+      "name": "الذهب",
+      "short": "ذهب",
+      "w": 60,
+      "v": -0.2,
+      "th": 0.65,
+      "ratio": 0.3,
+      "val": "-0.20%",
+      "thr": "±0.65%",
+      "c15": "-0.06%",
+      "c60": "-0.20%",
+      "c180": "-0.25%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.87,
+      "z": 0.9,
+      "volx": 0.5
+    },
+    {
+      "key": "dxy",
+      "name": "الدولار DXY",
+      "short": "دولار",
+      "w": 60,
+      "v": 0.09,
+      "th": 0.28,
+      "ratio": 0.33,
+      "val": "+0.09%",
+      "thr": "±0.28%",
+      "c15": "+0.00%",
+      "c60": "+0.09%",
+      "c180": "+0.09%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.89,
+      "z": 1.7,
+      "volx": null
+    },
+    {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": 0.42,
+      "v": 0.14,
       "th": 0.7,
-      "ratio": 0.6,
-      "val": "+0.42%",
+      "ratio": 0.21,
+      "val": "+0.14%",
       "thr": "±0.7%",
       "c15": "+0.04%",
-      "c60": "+0.01%",
-      "c180": "+0.42%",
+      "c60": "+0.03%",
+      "c180": "+0.14%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.03,
-      "z": 0.0,
+      "tone": "flat",
+      "eff": 0.2,
+      "z": 0.3,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-23T04:03:02.504649+00:00",
-        "ok_at": "2026-10-23T04:03:02.504649+00:00"
+        "last_try": "2026-10-23T04:43:01.627207+00:00",
+        "ok_at": "2026-10-23T04:43:01.627207+00:00"
       },
       "fred": {
-        "last_try": "2026-10-23T04:03:02.504649+00:00",
-        "ok_at": "2026-10-23T04:03:02.504649+00:00"
+        "last_try": "2026-10-23T04:43:01.627207+00:00",
+        "ok_at": "2026-10-23T04:43:01.627207+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-23T04:03:02.504649+00:00",
-        "ok_at": "2026-10-23T04:03:02.504649+00:00"
+        "last_try": "2026-10-23T04:43:01.627207+00:00",
+        "ok_at": "2026-10-23T04:43:01.627207+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-23T04:03:02.504649+00:00",
-        "ok_at": "2026-10-23T04:03:02.504649+00:00"
+        "last_try": "2026-10-23T04:43:01.627207+00:00",
+        "ok_at": "2026-10-23T04:43:01.627207+00:00"
       },
       "oil": {
-        "last_try": "2026-10-23T04:03:02.504649+00:00",
-        "ok_at": "2026-10-23T04:03:02.504649+00:00"
+        "last_try": "2026-10-23T04:43:01.627207+00:00",
+        "ok_at": "2026-10-23T04:43:01.627207+00:00"
       },
       "news": {
-        "last_try": "2026-10-23T04:03:02.504649+00:00",
-        "ok_at": "2026-10-23T04:03:02.504649+00:00"
+        "last_try": "2026-10-23T04:43:01.627207+00:00",
+        "ok_at": "2026-10-23T04:43:01.627207+00:00"
       },
       "cot": {
-        "last_try": "2026-10-23T04:03:02.504649+00:00",
-        "ok_at": "2026-10-23T04:03:02.504649+00:00"
+        "last_try": "2026-10-23T04:43:01.627207+00:00",
+        "ok_at": "2026-10-23T04:43:01.627207+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-23T04:03:02.504649+00:00",
-        "ok_at": "2026-10-23T04:03:02.504649+00:00"
+        "last_try": "2026-10-23T04:43:01.627207+00:00",
+        "ok_at": "2026-10-23T04:43:01.627207+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-23T04:03:02.504649+00:00"
+      "at": "2026-10-23T04:43:01.627207+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-23T03:24:57.808324+00:00",
+    "at": "2026-10-23T04:43:01.627207+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-23T04:14:00+00:00",
+            "title": "Gold heads for steep weekly loss as oil prices fuel Fed rate concerns",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-23T03:23:00+00:00",
+            "title": "Pushback after MLGW rate hike announcement",
+            "src": "Action News 5"
+          },
           {
             "t": "2026-10-23T02:22:00+00:00",
             "title": "Japan Consumer Inflation Uptick Offers Tailwind for BOJ Rate Hike",
@@ -268,22 +378,17 @@
             "t": "2026-10-22T23:48:00+00:00",
             "title": "Japan's core inflation exceeds BOJ target, cements near-term rate hike chance",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-22T22:56:00+00:00",
-            "title": "New Zealand Likely Facing Pre-Election Rate Hike, Economists Say",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-10-22T22:17:13+00:00",
-            "title": "The Federal Reserve at a Time of Uncertainty",
-            "src": "American Enterprise Institute - AEI"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-10-23T02:55:02+00:00",
+            "title": "Exclusive | Wall Street Elite Can’t Decide How to RSVP to the Prince’s Big Saudi Conference",
+            "src": "WSJ"
+          },
           {
             "t": "2026-10-23T01:00:00+00:00",
             "title": "I Took America’s Cheapest EV Into the Charging Desert of the Deep South",
@@ -303,11 +408,6 @@
             "t": "2026-10-22T22:54:00+00:00",
             "title": "Opinion: CoreWeave set off a wave of anxiety — but Wall Street’s dire prognosis is premature",
             "src": "MarketWatch"
-          },
-          {
-            "t": "2026-10-22T22:31:57+00:00",
-            "title": "Exclusive | Airfield Attack Marked Opening Shot in Putin’s Stepped-Up Sabotage Campaign",
-            "src": "WSJ"
           }
         ]
       },
@@ -365,15 +465,20 @@
             "src": "The Overshoot"
           },
           {
-            "t": "2026-10-22T15:30:31+00:00",
-            "title": "Gold and silver are not the best inflation hedges; investors should diversify into the commodity supercycle – Auspice Capital",
-            "src": "Kitco"
+            "t": "2026-10-22T18:34:00+00:00",
+            "title": "Silver Futures Fall to Lowest This Year as Oil Prices Fuel Inflation Risks",
+            "src": "WSJ"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-23T03:25:29+00:00",
+            "title": "El-Sayed and Rogers clash over tariffs, education and public safety at second Senate debate",
+            "src": "The Michigan Daily"
+          },
           {
             "t": "2026-10-23T02:05:00+00:00",
             "title": "Trump rallies in Iowa, where farmers have been hit hard by tariffs and rising fuel prices",
@@ -388,11 +493,6 @@
             "t": "2026-10-22T22:17:08+00:00",
             "title": "Trump's tariffs loom over Maine Senate race",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-10-22T22:07:00+00:00",
-            "title": "Treasury yields log biggest drop since the 2023 banking crisis. Here’s what’s going on.",
-            "src": "MarketWatch"
           }
         ]
       },
@@ -425,7 +525,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-23T04:03:02.504649+00:00",
+    "at": "2026-10-23T04:43:01.627207+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -6407,10 +6507,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-10-17) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-23T04:03:02.504649+00:00",
+  "last_publish_ok": "2026-10-23T04:43:01.627207+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-23T04:03:28.018244+00:00"
+    "at": "2026-10-23T04:43:29.725306+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -6475,12 +6575,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-23T04:03:02.504649+00:00",
-    "ok_at": "2026-10-23T04:03:02.504649+00:00",
+    "at": "2026-10-23T04:43:01.627207+00:00",
+    "ok_at": "2026-10-23T04:43:01.627207+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-23T04:03:02.504649+00:00",
+    "at": "2026-10-23T04:43:01.627207+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
