@@ -330,45 +330,45 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-23T11:50:14.210385+00:00",
-        "ok_at": "2026-10-23T11:50:14.210385+00:00"
+        "last_try": "2026-10-23T12:13:53.460053+00:00",
+        "ok_at": "2026-10-23T12:13:53.460053+00:00"
       },
       "fred": {
-        "last_try": "2026-10-23T11:50:14.210385+00:00",
-        "ok_at": "2026-10-23T11:50:14.210385+00:00"
+        "last_try": "2026-10-23T12:13:53.460053+00:00",
+        "ok_at": "2026-10-23T12:13:53.460053+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-23T11:50:14.210385+00:00",
-        "ok_at": "2026-10-23T11:50:14.210385+00:00"
+        "last_try": "2026-10-23T12:13:53.460053+00:00",
+        "ok_at": "2026-10-23T12:13:53.460053+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-23T11:50:14.210385+00:00",
-        "ok_at": "2026-10-23T11:50:14.210385+00:00"
+        "last_try": "2026-10-23T12:13:53.460053+00:00",
+        "ok_at": "2026-10-23T12:13:53.460053+00:00"
       },
       "oil": {
-        "last_try": "2026-10-23T11:50:14.210385+00:00",
-        "ok_at": "2026-10-23T11:50:14.210385+00:00"
+        "last_try": "2026-10-23T12:13:53.460053+00:00",
+        "ok_at": "2026-10-23T12:13:53.460053+00:00"
       },
       "news": {
-        "last_try": "2026-10-23T11:50:14.210385+00:00",
-        "ok_at": "2026-10-23T11:50:14.210385+00:00"
+        "last_try": "2026-10-23T12:13:53.460053+00:00",
+        "ok_at": "2026-10-23T12:13:53.460053+00:00"
       },
       "cot": {
-        "last_try": "2026-10-23T11:50:14.210385+00:00",
-        "ok_at": "2026-10-23T11:50:14.210385+00:00"
+        "last_try": "2026-10-23T12:13:53.460053+00:00",
+        "ok_at": "2026-10-23T12:13:53.460053+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-23T11:50:14.210385+00:00",
-        "ok_at": "2026-10-23T11:50:14.210385+00:00"
+        "last_try": "2026-10-23T12:13:53.460053+00:00",
+        "ok_at": "2026-10-23T12:13:53.460053+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-23T11:50:14.210385+00:00"
+      "at": "2026-10-23T12:13:53.460053+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-23T11:13:41.036119+00:00",
+    "at": "2026-10-23T12:13:53.460053+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -385,6 +385,11 @@
             "src": "Reuters"
           },
           {
+            "t": "2026-10-23T10:05:57+00:00",
+            "title": "Earnings flood, Fed meeting pose pivotal tests for rickety AI market rally",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-10-23T09:17:11+00:00",
             "title": "US Federal Reserve to Raise Rates Twice More in 2026, Says Bank of America",
             "src": "Morningstar"
@@ -393,11 +398,6 @@
             "t": "2026-10-23T09:11:42+00:00",
             "title": "Treasury yields rise as traders await more economic data ahead of Fed decision",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-10-23T05:03:16+00:00",
-            "title": "US Fed to Raise Rates Twice More in 2026, Says Bank of America",
-            "src": "Morningstar"
           }
         ]
       },
@@ -408,11 +408,6 @@
             "t": "2026-10-23T10:46:11+00:00",
             "title": "Wall Street futures dip after AI rout, telecoms slide",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-23T10:26:31+00:00",
-            "title": "Mark Zuckerberg Threatened to Leave California. Meta’s Board Cut Him a Deal.",
-            "src": "WSJ"
           },
           {
             "t": "2026-10-23T10:03:38+00:00",
@@ -427,6 +422,11 @@
           {
             "t": "2026-10-23T07:31:00+00:00",
             "title": "Oil Prices Rise as Middle East Risks Persist",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-23T07:18:00+00:00",
+            "title": "Eni Shareholders Set for Cash Boost After Earnings Double",
             "src": "WSJ"
           }
         ]
@@ -495,9 +495,14 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-23T11:01:00+00:00",
-            "title": "Treasury yields log biggest drop since the 2023 banking crisis. Here’s what’s going on.",
-            "src": "MarketWatch"
+            "t": "2026-10-23T11:03:54+00:00",
+            "title": "U.S. Treasury Yields Turn Higher With Oil; French Bond Yields Rise on Protests",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-23T11:00:00+00:00",
+            "title": "Where they stand: Michele Tafoya and Peggy Flanagan on Trump’s tariffs",
+            "src": "Star Tribune"
           },
           {
             "t": "2026-10-23T10:37:36+00:00",
@@ -508,11 +513,6 @@
             "t": "2026-10-23T10:05:33+00:00",
             "title": "District 5 Congressional candidates Molder, Hatcher clash over tariffs in forum",
             "src": "Tennessee Lookout"
-          },
-          {
-            "t": "2026-10-23T09:30:00+00:00",
-            "title": "How Tariffs Became the Most Hated Word in Politics",
-            "src": "WSJ"
           }
         ]
       },
@@ -520,19 +520,19 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-23T10:36:48+00:00",
-            "title": "U.S. and Israel are planning for a possible attack on Iran after the midterms",
+            "t": "2026-10-23T10:36:15+00:00",
+            "title": "Retired general discusses the U.S. and Israeli plan for possible attack on Iran",
             "src": "NPR"
+          },
+          {
+            "t": "2026-10-23T10:21:34+00:00",
+            "title": "Israel orders ‘full lockdown’ of occupied West Bank after military kills 2 accused of attack",
+            "src": "NBC News"
           },
           {
             "t": "2026-10-23T09:40:32+00:00",
             "title": "Israel orders closure of West Bank after soldiers kill 2 men behind an alleged attack",
             "src": "NPR"
-          },
-          {
-            "t": "2026-10-23T09:18:46+00:00",
-            "title": "Israel orders ‘full lockdown’ of West Bank after military kills 2 accused of attack",
-            "src": "NBC News"
           },
           {
             "t": "2026-10-23T09:02:44+00:00",
@@ -545,7 +545,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-23T11:50:14.210385+00:00",
+    "at": "2026-10-23T12:13:53.460053+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -6596,10 +6596,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-10-17) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-10-23T11:50:14.210385+00:00",
+  "last_publish_ok": "2026-10-23T12:13:53.460053+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-10-23T11:50:40.503663+00:00"
+    "mode": "preopen",
+    "at": "2026-10-23T12:14:21.445802+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -6663,9 +6663,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-10-23T11:50:14.210385+00:00",
-    "ok_at": "2026-10-23T11:50:14.210385+00:00",
+    "lean": "down",
+    "at": "2026-10-23T12:13:53.460053+00:00",
+    "ok_at": "2026-10-23T12:13:53.460053+00:00",
     "change": null
   },
   "last_watch": {
