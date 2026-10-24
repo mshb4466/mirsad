@@ -275,50 +275,60 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-24T00:04:21.217111+00:00",
-        "ok_at": "2026-10-24T00:04:21.217111+00:00"
+        "last_try": "2026-10-24T01:38:13.095518+00:00",
+        "ok_at": "2026-10-24T01:38:13.095518+00:00"
       },
       "fred": {
-        "last_try": "2026-10-24T00:04:21.217111+00:00",
-        "ok_at": "2026-10-24T00:04:21.217111+00:00"
+        "last_try": "2026-10-24T01:38:13.095518+00:00",
+        "ok_at": "2026-10-24T01:38:13.095518+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-24T00:04:21.217111+00:00",
-        "ok_at": "2026-10-24T00:04:21.217111+00:00"
+        "last_try": "2026-10-24T01:38:13.095518+00:00",
+        "ok_at": "2026-10-24T01:38:13.095518+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-24T00:04:21.217111+00:00",
-        "ok_at": "2026-10-24T00:04:21.217111+00:00"
+        "last_try": "2026-10-24T01:38:13.095518+00:00",
+        "ok_at": "2026-10-24T01:38:13.095518+00:00"
       },
       "oil": {
-        "last_try": "2026-10-24T00:04:21.217111+00:00",
-        "ok_at": "2026-10-24T00:04:21.217111+00:00"
+        "last_try": "2026-10-24T01:38:13.095518+00:00",
+        "ok_at": "2026-10-24T01:38:13.095518+00:00"
       },
       "news": {
-        "last_try": "2026-10-24T00:04:21.217111+00:00",
-        "ok_at": "2026-10-24T00:04:21.217111+00:00"
+        "last_try": "2026-10-24T01:38:13.095518+00:00",
+        "ok_at": "2026-10-24T01:38:13.095518+00:00"
       },
       "cot": {
-        "last_try": "2026-10-24T00:04:21.217111+00:00",
-        "ok_at": "2026-10-24T00:04:21.217111+00:00"
+        "last_try": "2026-10-24T01:38:13.095518+00:00",
+        "ok_at": "2026-10-24T01:38:13.095518+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-24T00:04:21.217111+00:00",
+        "last_try": "2026-10-24T01:38:13.095518+00:00",
         "ok_at": "2026-10-23T13:52:22.994736+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-24T00:04:21.217111+00:00"
+      "at": "2026-10-24T01:38:13.095518+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-23T23:40:16.852477+00:00",
+    "at": "2026-10-24T01:38:13.095518+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-10-23T21:42:12+00:00",
+            "title": "Scenic Tourism in Rural America Presents Miles of Economic Opportunity",
+            "src": "Kansas City Fed"
+          },
+          {
+            "t": "2026-10-23T21:31:30+00:00",
+            "title": "If Fed holds rates, expect 10-year to creep higher: Janus Henderson's Contopoulos",
+            "src": "CNBC"
+          },
           {
             "t": "2026-10-23T21:30:00+00:00",
             "title": "Water rate hike request, Medicaid changes: CT politics news",
@@ -330,19 +340,9 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-23T21:01:30+00:00",
-            "title": "If Fed holds rates, expect 10-year to creep higher: Janus Henderson's Contopoulos",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-23T19:18:41+00:00",
-            "title": "What To Expect From Wednesday’s Federal Reserve Meeting",
-            "src": "Investopedia"
-          },
-          {
-            "t": "2026-10-23T19:17:47+00:00",
-            "title": "Canadian dollar hits five-week high as data supports rate hike bets",
-            "src": "Reuters"
+            "t": "2026-10-23T19:59:57+00:00",
+            "title": "Federal Reserve Expands 18-Month Examination Cycle Eligibility for Banks Under $6 Billion",
+            "src": "JD Supra"
           }
         ]
       },
@@ -350,28 +350,28 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-23T23:46:35+00:00",
+            "title": "Wall Street closes lower to end rocky week",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-23T22:34:00+00:00",
+            "title": "Trump to Remove Some Tariffs on Canada in Bid to Help Susan Collins",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-23T21:06:40+00:00",
+            "title": "S&P 500 closes lower to end rocky week",
+            "src": "Virginia Business"
+          },
+          {
             "t": "2026-10-23T21:00:39+00:00",
             "title": "Update: Wall Street Caps Choppy Week Lower as Oil Prices Soar",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-23T20:33:00+00:00",
-            "title": "Trump to Remove Some Tariffs on Canada in Bid to Help Susan Collins",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-23T20:31:14+00:00",
-            "title": "Wall Street closes lower to end rocky week",
-            "src": "Reuters"
-          },
-          {
             "t": "2026-10-23T20:08:39+00:00",
             "title": "1 S&P 500 stock with exciting potential and 2 facing challenges",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-23T20:00:45+00:00",
-            "title": "S&P 500 closes lower to end rocky week",
             "src": "Yahoo Finance"
           }
         ]
@@ -385,6 +385,11 @@
             "src": "Yahoo Finance"
           },
           {
+            "t": "2026-10-23T20:09:00+00:00",
+            "title": "Microsoft Earnings Report To Focus On AI Momentum, Capex",
+            "src": "Investor's Business Daily"
+          },
+          {
             "t": "2026-10-23T18:45:00+00:00",
             "title": "Microsoft Poised for Largely In-Line Quarterly Earnings Amid Azure Strength, BofA Says",
             "src": "Yahoo Finance"
@@ -395,14 +400,9 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-23T15:11:00+00:00",
-            "title": "Hyperscalers Microsoft, Amazon Line Up With Earnings, Along With ServiceNow, Intel",
-            "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-10-23T14:07:00+00:00",
-            "title": "Microsoft Earnings Report To Focus On AI Momentum, Capex",
-            "src": "Investor's Business Daily"
+            "t": "2026-10-23T12:15:07+00:00",
+            "title": "Seeking Clues to Microsoft (MSFT) Q1 Earnings? A Peek Into Wall Street Projections for Key Metrics",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -412,7 +412,7 @@
           {
             "t": "2026-10-23T22:40:00+00:00",
             "title": "Treasury yields, tech stocks, and consumer sentiment all took a slide this week",
-            "src": "www.marketplace.org"
+            "src": "Marketplace.org"
           },
           {
             "t": "2026-10-23T20:29:53+00:00",
@@ -440,24 +440,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-23T22:59:00+00:00",
-            "title": "More agricultural industries exempt from Canadian tariffs",
-            "src": "WABI"
+            "t": "2026-10-24T00:53:29+00:00",
+            "title": "Trump brands imported wind turbines 'national security threat' and gives tariffs update",
+            "src": "Recharge News"
           },
           {
-            "t": "2026-10-23T22:55:51+00:00",
+            "t": "2026-10-24T00:08:40+00:00",
             "title": "Trump rolls back some Canada tariffs as midterm election approaches",
             "src": "The Washington Post"
           },
           {
-            "t": "2026-10-23T22:12:39+00:00",
-            "title": "Trump tweaks Canada tariffs, removing certain goods while adding others",
-            "src": "Supply Chain Dive"
+            "t": "2026-10-23T22:48:08+00:00",
+            "title": "Seeking to help Collins in Maine, Trump exempts some Canadian imports from his 50% tariffs",
+            "src": "PBS"
           },
           {
-            "t": "2026-10-23T22:09:00+00:00",
-            "title": "Trump administration to exempt Canadian products used by Maine farmers from tariffs",
-            "src": "Maine Public"
+            "t": "2026-10-23T22:32:09+00:00",
+            "title": "Watch Gutierrez: US Has Gone Too Far With Tariffs",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -465,9 +465,14 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-23T22:29:00+00:00",
+            "t": "2026-10-24T01:17:00+00:00",
             "title": "Melania Trump brokers a ceasefire deal in Russian-occupied Ukrainian city to get relief aid in",
             "src": "AP News"
+          },
+          {
+            "t": "2026-10-23T22:51:54+00:00",
+            "title": "Israel orders sweeping West Bank operation after military says 2 soldiers were killed in attack that left 2 gunmen dead",
+            "src": "NBC News"
           },
           {
             "t": "2026-10-23T20:17:13+00:00",
@@ -478,11 +483,6 @@
             "t": "2026-10-23T20:04:09+00:00",
             "title": "Iran has detailed plans to hit Gulf undersea cables if war resumes, officials say",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-23T18:49:11+00:00",
-            "title": "Will the United States Attack Iran After the Midterms?",
-            "src": "Council on Foreign Relations"
           }
         ]
       }
@@ -490,7 +490,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-24T00:04:21.217111+00:00",
+    "at": "2026-10-24T01:38:13.095518+00:00",
     "events": [
       {
         "title": "NAHB Housing Market Index",
@@ -857,7 +857,7 @@
       "source": "FRED",
       "period": "2026-10-17",
       "received_at": "2026-10-22T12:41:07.551335+00:00",
-      "last_attempt": "2026-10-23T22:12:39.225630+00:00",
+      "last_attempt": "2026-10-24T01:38:13.095518+00:00",
       "attempts": 1,
       "title": "Unemployment Claims",
       "time": "2026-10-22T12:30:00+00:00",
@@ -875,28 +875,28 @@
     "US|umcsent|level|2026-10|-|2026-10-23": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 9,
+      "attempts": 10,
       "title": "Revised UoM Consumer Sentiment",
       "time": "2026-10-23T14:00:00+00:00",
       "impact": "Medium",
       "forecast": "46.3",
       "previous": "46.3",
       "country": "USD",
-      "last_attempt": "2026-10-23T23:10:33.891926+00:00",
-      "note": ""
+      "last_attempt": "2026-10-24T01:38:13.095518+00:00",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     },
     "US|mich|level_pct|2026-10|-|2026-10-23": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 9,
+      "attempts": 10,
       "title": "Revised UoM Inflation Expectations",
       "time": "2026-10-23T14:00:00+00:00",
       "impact": "Medium",
       "forecast": "",
       "previous": "4.7%",
       "country": "USD",
-      "last_attempt": "2026-10-23T23:10:33.891926+00:00",
-      "note": ""
+      "last_attempt": "2026-10-24T01:38:13.095518+00:00",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   },
   "stats": {
@@ -7071,12 +7071,81 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|claims|claims_k|w2026-10-18|-|2026-10-22",
+      "title": "Unemployment Claims",
+      "release_time": "2026-10-22T12:30:00+00:00",
+      "fetched_at": "2026-10-24T01:38:13.095518+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "194K",
+      "period": "2026-10-17",
+      "series": "ICSA",
+      "method": "القيمة المنشورة مقسومة على 1000",
+      "raw": 194.0,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "200K",
+      "previous": "199K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-17) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|umcsent|level|2026-10|-|2026-10-23",
+      "title": "Revised UoM Consumer Sentiment",
+      "release_time": "2026-10-23T14:00:00+00:00",
+      "fetched_at": "2026-10-24T01:38:13.095518+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "46.3",
+      "previous": "46.3",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|mich|level_pct|2026-10|-|2026-10-23",
+      "title": "Revised UoM Inflation Expectations",
+      "release_time": "2026-10-23T14:00:00+00:00",
+      "fetched_at": "2026-10-24T01:38:13.095518+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "4.7%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-10-24T00:04:21.217111+00:00",
+  "last_publish_ok": "2026-10-24T01:38:13.095518+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-10-24T00:04:46.142182+00:00"
+    "mode": "test",
+    "at": "2026-10-24T01:38:43.776782+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7130,8 +7199,8 @@
     },
     "fred": {
       "ok": true,
-      "detail": "2 سلسلة",
-      "at": "2026-10-23T23:10:33.891926+00:00"
+      "detail": "3 سلسلة",
+      "at": "2026-10-24T01:38:13.095518+00:00"
     }
   },
   "bls_calls": {
@@ -7140,9 +7209,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-10-24T00:04:21.217111+00:00",
-    "ok_at": "2026-10-24T00:04:21.217111+00:00",
+    "lean": "mixed",
+    "at": "2026-10-24T01:38:13.095518+00:00",
+    "ok_at": "2026-10-24T01:38:13.095518+00:00",
     "change": null
   },
   "last_watch": {
