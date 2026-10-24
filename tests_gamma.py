@@ -201,10 +201,10 @@ try:
     ok(_x2["lo"] == round(_pa["lo"] * 10, 2) and _x2["v"] == _pa["v"], "منحنى SPY: الشبكة × النسبة والقيم كما هي")
     # --- تنبيه تغيّر المستويات: حدّ 5 نقاط، مقارنة بلقطة ما قبل الافتتاح، إشعار واحد لكل تغيّر جديد ---
     _b = {"ok": True, "snapshot_utc": "2026-10-23T12:00:00+00:00", "snapshot_et": "2026-10-23 08:00", "call_wall": 7740.0, "put_wall": 7640.0, "gamma_flip": 7770.0, "es": {"basis": 40.0},
-          "spy": {"ok": True, "call_wall_x": 7741.0, "put_wall_x": 7641.0, "gamma_flip_x": 7771.0}}
+          "spy": {"ok": True, "ratio": 10.0, "call_wall": 774.1, "put_wall": 764.1, "gamma_flip": 777.1, "call_wall_x": 7741.0, "put_wall_x": 7641.0, "gamma_flip_x": 7771.0}}
     _n = {"ok": True, "snapshot_utc": "2026-10-23T13:00:00+00:00", "snapshot_et": "2026-10-23 09:00", "status": "fresh", "call_wall": 7745.0, "put_wall": 7637.0, "gamma_flip": 7770.0, "es": {"basis": 41.0},
-          "spy": {"ok": True, "call_wall_x": 7741.0, "put_wall_x": 7641.0, "gamma_flip_x": 7771.0}}
-    _ch = gamma.level_changes(gamma.level_map(_b), gamma.level_map(_n))
+          "spy": {"ok": True, "ratio": 10.0, "call_wall": 774.1, "put_wall": 764.1, "gamma_flip": 777.1, "call_wall_x": 7741.0, "put_wall_x": 7641.0, "gamma_flip_x": 7771.0}}
+    _ch = gamma.level_changes(gamma.level_map(_b), gamma.level_map(_n), sc_old=gamma.snap_scale(_b), sc_new=gamma.snap_scale(_n))
     ok([(c["key"], c["delta"]) for c in _ch] == [("SPX|CALL WALL", 5.0)], "حدّ التنبيه 5 نقاط: +5 يُحسب و−3 لا يُحسب")
     _root = tempfile.mkdtemp()
     try:
@@ -260,6 +260,26 @@ try:
         ok(_s2 and "قمة قوية" in _s2[0], "رسالة تيليجرام تذكر القمة")
     finally:
         shutil.rmtree(_r2, ignore_errors=True)
+    # --- فصل التغيّر الحقيقي عن أثر فرق السعر ونسبة SPY ---
+    _sp0 = {"ok": True, "ratio": 10.00, "call_wall": 774.0, "put_wall": 764.0, "gamma_flip": 777.0}
+    _s_old = dict(_b, spy=_sp0); _s_new = dict(_b, spy=dict(_sp0, ratio=10.06))
+    ok(gamma.level_changes(gamma.level_map(_s_old), gamma.level_map(_s_new), sc_old=gamma.snap_scale(_s_old), sc_new=gamma.snap_scale(_s_new)) == [], "تغيّر نسبة SPX/SPY وحده لا يُنتج تغيّر مستوى لـ SPY")
+    _s_mv = dict(_b, spy=dict(_sp0, ratio=10.06, call_wall=775.0))
+    _cm = gamma.level_changes(gamma.level_map(_s_old), gamma.level_map(_s_mv), sc_old=gamma.snap_scale(_s_old), sc_new=gamma.snap_scale(_s_mv))
+    ok(len(_cm) == 1 and _cm[0]["key"] == "SPY|CALL WALL" and abs(_cm[0]["delta"] - 10.06) < 0.01, "تغيّر Strike فعلي في SPY (1 نقطة = ~10 نقاط SPX) يُرصد")
+    _r3 = tempfile.mkdtemp()
+    try:
+        _bb2 = dict(_b, es={"basis": 38.0, "mode": "close"}); _nn2 = dict(_n, call_wall=7740.0, put_wall=7640.0, es={"basis": 42.5, "mode": "live"})
+        gamma._wjson(os.path.join(_r3, "preopen", "2026-10-23.json"), _bb2)
+        gamma.attach_changes(_nn2, _r3)
+        _c3 = _nn2["changes"]
+        ok(_c3["n"] == 0 and _c3["basis_note"] and _c3["basis_drift"] == 4.5, "فرق ES−SPX تغيّر 4.5 بلا تغيّر في الجاما: ملاحظة فقط لا تغيّر مستوى")
+        _nn3 = dict(_nn2, call_wall=7746.0); gamma.attach_changes(_nn3, _r3)
+        _m = []
+        gamma.notify_changes(_nn3, _r3, send=lambda x: _m.append(x) or True)
+        ok(_m and "منه حقيقي +6.00" in _m[0] and "فرق ES−SPX تغيّر من 38.00 إلى 42.50" in _m[0], "رسالة تيليجرام تفصل الحقيقي عن أثر فرق السعر")
+    finally:
+        shutil.rmtree(_r3, ignore_errors=True)
 finally:
     shutil.rmtree(t, ignore_errors=True)
 print("tests_gamma: %d فحصاً نجحت" % N)
