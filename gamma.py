@@ -504,32 +504,44 @@ def last_before_open(day, root=OUT_DIR):
 CHANGE_MIN_PTS = 5.0      # أصغر تغيّر في مستوى جاما (بنقاط SPX/ES) يستحق التنبيه
 
 
+def snap_scale(snap):
+    """معامل تحويل كل أصل إلى مكافئ SPX في هذه اللقطة: SPX=1، SPY=نسبة SPX/SPY المتزامنة."""
+    sp = snap.get("spy") if isinstance(snap.get("spy"), dict) and snap["spy"].get("ok") else None
+    return {"SPX": 1.0, "SPY": float(sp["ratio"]) if sp and sp.get("ratio") else None}
+
+
 def level_map(snap):
-    """المستويات الرئيسية بمكافئ SPX: {"SPX|CALL WALL": k, ...} لـ SPX وSPY (القيمة None إن غابت)."""
+    """المستويات الرئيسية بوحدة الأصل نفسه (SPX بنقاط SPX، وSPY بـ Strike الـ SPY): {"SPX|CALL WALL": k, ...}.
+    المقارنة بوحدة الأصل تمنع أن تُحسب حركة نسبة SPX/SPY تغيّراً في المستوى."""
     sp = snap.get("spy") if isinstance(snap.get("spy"), dict) and snap["spy"].get("ok") else {}
     src = {"SPX": (snap.get("call_wall"), snap.get("put_wall"), snap.get("gamma_flip")),
-           "SPY": (sp.get("call_wall_x"), sp.get("put_wall_x"), sp.get("gamma_flip_x"))}
+           "SPY": (sp.get("call_wall"), sp.get("put_wall"), sp.get("gamma_flip"))}
     out = {}
     for a, (c, p_, f) in src.items():
         for kind, v in (("CALL WALL", c), ("PUT WALL", p_), ("GAMMA FLIP", f)):
             if v is not None:
-                out["%s|%s" % (a, kind)] = round(float(v), 2)
+                out["%s|%s" % (a, kind)] = round(float(v), 3)
     return out
 
 
-def level_changes(old, new, thr=CHANGE_MIN_PTS):
-    """مستويات تغيّرت بمقدار thr نقطة أو أكثر بين خريطتين: [{key, src, kind, old, new, delta}] (القيم بمكافئ SPX)."""
+def level_changes(old, new, thr=CHANGE_MIN_PTS, sc_old=None, sc_new=None):
+    """مستويات تغيّرت بمقدار thr نقطة SPX أو أكثر. المقارنة بوحدة الأصل (حدّ SPY = thr ÷ النسبة الحالية).
+    الناتج: old/new بمكافئ SPX في لقطة كل منهما، وdelta = التغيّر الحقيقي بمكافئ SPX (بنسبة اللقطة الحالية)."""
+    sc_old = sc_old or {"SPX": 1.0, "SPY": None}; sc_new = sc_new or {"SPX": 1.0, "SPY": None}
     out = []
     for k, v in new.items():
         o = old.get(k)
         if o is None:
             continue
-        if abs(v - o) >= thr - 1e-9:
-            a, kind = k.split("|")
-            out.append({"key": k, "src": a, "kind": kind, "change": "moved", "old": o, "new": v, "delta": round(v - o, 2)})
+        a, kind = k.split("|")
+        rn = sc_new.get(a) or 1.0; ro = sc_old.get(a) or rn
+        if abs(v - o) * rn >= thr - 1e-9:
+            out.append({"key": k, "src": a, "kind": kind, "change": "moved", "old": round(o * ro, 2), "new": round(v * rn, 2),
+                        "delta": round((v - o) * rn, 2)})
     return sorted(out, key=lambda x: (x["src"], x["kind"]))
 
 
+BASIS_NOTE_MIN = 1.0      # تغيّر فرق ES−SPX (نقاط ES) الذي يُنبَّه إليه لأنه يزحزح كل أسعار ES بلا تغيّر في الجاما
 PEAK_MIN_REL = 0.25       # قمة/قاع محلي مهم: ≥ 25% من أكبر |net| (كما في خريطة المستويات)
 PEAK_STRONG_REL = 0.6     # «قوي» ≥ 60%
 PEAK_BAND = 150.0         # نطاق المستويات حول السعر (نقاط SPX)
@@ -537,52 +549,57 @@ PEAK_PAIR_MAX = 25.0      # أبعد مسافة لاعتبار قمة قديمة
 
 
 def _peaks_of(rows, spot, walls):
-    """قمم/قيعان net المحلية المهمة لأصل واحد. rows: [(k_بمكافئ_SPX, net)]. تُستثنى القمم المطابقة (≤3) لجدار الأصل نفسه فهي تُتابَع كجدار."""
-    rs = sorted((float(k), float(n)) for k, n in rows if abs(float(k) - spot) <= PEAK_BAND)
+    """قمم/قيعان net المحلية المهمة لأصل واحد. rows: [(k_بمكافئ_SPX, net, k_بوحدة_الأصل)]. تُستثنى القمم المطابقة (≤3) لجدار الأصل نفسه فهي تُتابَع كجدار.
+    k = مكافئ SPX في تلك اللقطة، n = Strike بوحدة الأصل نفسه (للمقارنة بلا أثر لتغيّر نسبة SPX/SPY)."""
+    rs = sorted((float(k), float(v), float(n)) for k, v, n in rows if abs(float(k) - spot) <= PEAK_BAND)
     if not rs:
         return []
-    mx = max(1.0, max(abs(n) for _, n in rs))
+    mx = max(1.0, max(abs(v) for _, v, _ in rs))
     out = []
-    for i, (k, v) in enumerate(rs):
+    for i, (k, v, n) in enumerate(rs):
         a = rs[i - 1][1] if i > 0 else 0.0
         b = rs[i + 1][1] if i < len(rs) - 1 else 0.0
         if ((v > 0 and v >= a and v >= b) or (v < 0 and v <= a and v <= b)) and abs(v) >= PEAK_MIN_REL * mx:
             if any(w is not None and abs(k - float(w)) <= 3 for w in walls):
                 continue
-            out.append({"k": round(k, 1), "s": 1 if v > 0 else -1, "strong": abs(v) / mx >= PEAK_STRONG_REL})
+            out.append({"k": round(k, 1), "n": round(n, 3), "s": 1 if v > 0 else -1, "strong": abs(v) / mx >= PEAK_STRONG_REL})
     return out
 
 
 def peak_map(snap):
-    """{"SPX": [قمم], "SPY": [قمم بمكافئ SPX]} من اللقطة الكاملة (كل السلال)."""
+    """{"SPX": [قمم], "SPY": [قمم]} من اللقطة الكاملة (كل السلال)؛ k بمكافئ SPX وn بوحدة الأصل."""
     spot = float(snap["spot"])
-    out = {"SPX": _peaks_of([(r["k"], r["net"]) for r in snap.get("strikes") or []], spot, (snap.get("call_wall"), snap.get("put_wall")))}
+    out = {"SPX": _peaks_of([(r["k"], r["net"], r["k"]) for r in snap.get("strikes") or []], spot, (snap.get("call_wall"), snap.get("put_wall")))}
     sp = snap.get("spy") if isinstance(snap.get("spy"), dict) and snap["spy"].get("ok") else None
     if sp:
-        out["SPY"] = _peaks_of([(r["kx"], r["net"]) for r in sp.get("strikes") or [] if r.get("kx") is not None], spot, (sp.get("call_wall_x"), sp.get("put_wall_x")))
+        out["SPY"] = _peaks_of([(r["kx"], r["net"], r["k"]) for r in sp.get("strikes") or [] if r.get("kx") is not None], spot, (sp.get("call_wall_x"), sp.get("put_wall_x")))
     return out
 
 
-def peak_changes(old, new, thr=CHANGE_MIN_PTS):
-    """تغيّر القمم: قمة بالإشارة نفسها خلال أقل من thr نقطة = لم تتغير؛ وإلا تُقرن الأقرب (≤25 نقطة) كـ«تحرّكت»، والباقي «جديدة»/«اختفت»."""
+def peak_changes(old, new, thr=CHANGE_MIN_PTS, sc_new=None):
+    """تغيّر القمم بوحدة الأصل: قمة بالإشارة نفسها خلال أقل من thr نقطة SPX = لم تتغير؛ وإلا تُقرن الأقرب (≤25 نقطة) كـ«تحرّكت»، والباقي «جديدة»/«اختفت»."""
+    sc_new = sc_new or {}
     out = []
     for a in sorted(set(old) & set(new)):
+        rn = sc_new.get(a) or 1.0
         o_l, n_l = list(old[a]), list(new[a])
+        d = lambda x, y: abs(float(x.get("n", x["k"])) - float(y.get("n", y["k"]))) * rn
         for s in (1, -1):
             os_ = [x for x in o_l if x["s"] == s]; ns = [x for x in n_l if x["s"] == s]
             for x in list(os_):
-                m = [y for y in ns if abs(y["k"] - x["k"]) < thr - 1e-9]
+                m = [y for y in ns if d(x, y) < thr - 1e-9]
                 if m:
-                    os_.remove(x); ns.remove(min(m, key=lambda y: abs(y["k"] - x["k"])))
-            pairs = sorted(((abs(x["k"] - y["k"]), x, y) for x in os_ for y in ns if abs(x["k"] - y["k"]) <= PEAK_PAIR_MAX), key=lambda z: z[0])
+                    os_.remove(x); ns.remove(min(m, key=lambda y: d(x, y)))
+            pairs = sorted(((d(x, y), x, y) for x in os_ for y in ns if d(x, y) <= PEAK_PAIR_MAX), key=lambda z: z[0])
             for _, x, y in pairs:
                 if x in os_ and y in ns:
                     os_.remove(x); ns.remove(y)
-                    out.append({"key": "%s|PEAK" % a, "src": a, "kind": "PEAK", "sign": s, "change": "moved", "old": x["k"], "new": y["k"], "delta": round(y["k"] - x["k"], 2), "strong": y["strong"]})
+                    out.append({"key": "%s|PEAK" % a, "src": a, "kind": "PEAK", "sign": s, "change": "moved", "old": x["k"], "new": y["k"],
+                                "delta": round((float(y.get("n", y["k"])) - float(x.get("n", x["k"]))) * rn, 2), "strong": y["strong"], "ostrong": x["strong"]})
             for y in ns:
                 out.append({"key": "%s|PEAK" % a, "src": a, "kind": "PEAK", "sign": s, "change": "new", "old": None, "new": y["k"], "delta": None, "strong": y["strong"]})
             for x in os_:
-                out.append({"key": "%s|PEAK" % a, "src": a, "kind": "PEAK", "sign": s, "change": "gone", "old": x["k"], "new": None, "delta": None, "strong": x["strong"]})
+                out.append({"key": "%s|PEAK" % a, "src": a, "kind": "PEAK", "sign": s, "change": "gone", "old": x["k"], "new": None, "delta": None, "strong": x["strong"], "ostrong": x["strong"]})
     return sorted(out, key=lambda x: (x["src"], x["new"] if x["new"] is not None else x["old"]))
 
 
@@ -600,8 +617,8 @@ def preopen_baseline(snap, root=OUT_DIR):
         b = _rjson(os.path.join(root, "preopen", et.strftime("%Y-%m-%d") + ".json"))
         if not b or not b.get("ok") or b.get("snapshot_utc", "") >= snap["snapshot_utc"]:
             return None
-        return {"snapshot_utc": b["snapshot_utc"], "snapshot_et": b["snapshot_et"], "levels": level_map(b), "peaks": _safe_peaks(b),
-                "basis": (b.get("es") or {}).get("basis")}
+        return {"snapshot_utc": b["snapshot_utc"], "snapshot_et": b["snapshot_et"], "levels": level_map(b), "scale": snap_scale(b), "peaks": _safe_peaks(b),
+                "basis": (b.get("es") or {}).get("basis"), "basis_mode": (b.get("es") or {}).get("mode")}
     except Exception:  # noqa: BLE001
         return None
 
@@ -611,13 +628,17 @@ def attach_changes(snap, root=OUT_DIR):
     try:
         b = preopen_baseline(snap, root)
         snap["baseline"] = b
-        items = level_changes(b["levels"], level_map(snap)) if b else []
+        sc_n = snap_scale(snap)
+        items = level_changes(b["levels"], level_map(snap), sc_old=b.get("scale"), sc_new=sc_n) if b else []
         if b and b.get("peaks"):
             try:
-                items += peak_changes(b["peaks"], peak_map(snap))
+                items += peak_changes(b["peaks"], peak_map(snap), sc_new=sc_n)
             except Exception as e:  # noqa: BLE001
                 print("تعذّر حساب تغيّر القمم (الجدران سليمة):", e)
-        snap["changes"] = {"n": len(items), "thr": CHANGE_MIN_PTS, "items": items}
+        bn = (snap.get("es") or {}).get("basis")
+        drift = round(float(bn) - float(b["basis"]), 2) if b and bn is not None and b.get("basis") is not None else None
+        snap["changes"] = {"n": len(items), "thr": CHANGE_MIN_PTS, "items": items, "basis_old": b.get("basis") if b else None, "basis_new": bn,
+                           "basis_drift": drift, "basis_note": bool(drift is not None and abs(drift) >= BASIS_NOTE_MIN)}
     except Exception as e:  # noqa: BLE001
         snap["baseline"], snap["changes"] = None, None
         print("تعذّر حساب تغيّر المستويات (SPX سليم):", e)
@@ -663,7 +684,12 @@ def notify_changes(snap, root=OUT_DIR, send=None):
             elif n_es is None:
                 lines.append("%s: اختفى (كان %.2f)" % (nm, o_es))
             else:
-                lines.append("%s: %.2f ← %.2f (%+.2f)" % (nm, o_es, n_es, n_es - o_es))
+                tot = n_es - o_es
+                real = i.get("delta")
+                extra = " — منه حقيقي %+.2f" % real if real is not None and abs(tot - real) >= 0.5 else ""
+                lines.append("%s: %.2f ← %.2f (%+.2f)%s" % (nm, o_es, n_es, tot, extra))
+        if ch.get("basis_note"):
+            lines.append("ملاحظة: فرق ES−SPX تغيّر من %.2f إلى %.2f (%+.2f)؛ كل أسعار ES تحرّكت بهذا المقدار بلا تغيّر في الجاما." % (ch["basis_old"], ch["basis_new"], ch["basis_drift"]))
         lines.append("أسعار ES بالفرق الحالي. للاطلاع فقط وليست توصية.")
         ok = (send or telegram_text)("\n".join(lines))
         if ok:
