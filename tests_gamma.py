@@ -199,6 +199,30 @@ try:
         ok(all(b["lo"] == _pa["lo"] and b["hi"] == _pa["hi"] for b in _bs), "كل المنحنيات على شبكة أسعار واحدة")
     _x2 = gamma._px(_pa, 10.0)
     ok(_x2["lo"] == round(_pa["lo"] * 10, 2) and _x2["v"] == _pa["v"], "منحنى SPY: الشبكة × النسبة والقيم كما هي")
+    # --- تنبيه تغيّر المستويات: حدّ 5 نقاط، مقارنة بلقطة ما قبل الافتتاح، إشعار واحد لكل تغيّر جديد ---
+    _b = {"ok": True, "snapshot_utc": "2026-10-23T12:00:00+00:00", "snapshot_et": "2026-10-23 08:00", "call_wall": 7740.0, "put_wall": 7640.0, "gamma_flip": 7770.0, "es": {"basis": 40.0},
+          "spy": {"ok": True, "call_wall_x": 7741.0, "put_wall_x": 7641.0, "gamma_flip_x": 7771.0}}
+    _n = {"ok": True, "snapshot_utc": "2026-10-23T13:00:00+00:00", "snapshot_et": "2026-10-23 09:00", "status": "fresh", "call_wall": 7745.0, "put_wall": 7637.0, "gamma_flip": 7770.0, "es": {"basis": 41.0},
+          "spy": {"ok": True, "call_wall_x": 7741.0, "put_wall_x": 7641.0, "gamma_flip_x": 7771.0}}
+    _ch = gamma.level_changes(gamma.level_map(_b), gamma.level_map(_n))
+    ok([(c["key"], c["delta"]) for c in _ch] == [("SPX|CALL WALL", 5.0)], "حدّ التنبيه 5 نقاط: +5 يُحسب و−3 لا يُحسب")
+    _root = tempfile.mkdtemp()
+    try:
+        gamma._wjson(os.path.join(_root, "preopen", "2026-10-23.json"), _b)
+        gamma.attach_changes(_n, _root)
+        ok(_n["baseline"]["snapshot_et"] == "2026-10-23 08:00" and _n["changes"]["n"] == 1, "اللقطة تحمل baseline وchanges")
+        _sent = []
+        ok(gamma.notify_changes(_n, _root, send=lambda m: _sent.append(m) or True) and len(_sent) == 1 and "SPX CALL WALL" in _sent[0] and "7780.00 ← 7786.00" in _sent[0], "إشعار تيليجرام بأسعار ES (7740+40 ← 7745+41)")
+        ok(not gamma.notify_changes(_n, _root, send=lambda m: _sent.append(m) or True) and len(_sent) == 1, "لا تكرار لنفس التغيّر")
+        _n2 = dict(_n, call_wall=7750.0); gamma.attach_changes(_n2, _root)
+        ok(gamma.notify_changes(_n2, _root, send=lambda m: _sent.append(m) or True) and len(_sent) == 2, "تغيّر جديد = إشعار جديد")
+        ok(not gamma.notify_changes(dict(_n2, status="stale"), _root, send=lambda m: _sent.append(m) or True), "لا إشعار على لقطة قديمة")
+        _n3 = dict(_b, snapshot_utc="2026-10-23T11:00:00+00:00"); gamma.attach_changes(_n3, _root)
+        ok(_n3["baseline"] is None and _n3["changes"]["n"] == 0, "لقطة أقدم من الأساس: لا مقارنة")
+        _bad = dict(_n); _bad["spy"] = "x"; gamma.attach_changes(_bad, _root)
+        ok(_bad["call_wall"] == 7745.0, "عطل في حساب التغيّر لا يمس بيانات SPX")
+    finally:
+        shutil.rmtree(_root, ignore_errors=True)
 finally:
     shutil.rmtree(t, ignore_errors=True)
 print("tests_gamma: %d فحصاً نجحت" % N)

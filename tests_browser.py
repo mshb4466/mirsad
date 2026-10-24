@@ -412,8 +412,8 @@ def main(shots):
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900); dp.evaluate("showTab('today')")
         aclick("#bellBtn"); dp.wait_for_timeout(100)      # كتم
         # فحص تطابق إصدار الواجهة والبيانات (يكشف رفعاً ناقصاً)
-        okv = copy.deepcopy(fx); okv["version"] = "0.22.0"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
-        check(not dp.locator("#verWarn").is_visible() and "v0.22.0" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
+        okv = copy.deepcopy(fx); okv["version"] = "0.23.0"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
+        check(not dp.locator("#verWarn").is_visible() and "v0.23.0" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
         badv = copy.deepcopy(fx); badv["version"] = "0.18.1"; mode["data"] = badv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
         check(dp.locator("#verWarn").is_visible() and "Run workflow" in dp.locator("#verWarn").inner_text(), "الإصدار: عدم التطابق يُظهر تحذيراً بخطوة الإصلاح")
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
@@ -681,6 +681,30 @@ def main(shots):
         check(q4.evaluate("document.querySelector('#gMap .mpb[data-a=BOTH]').disabled") and q4.evaluate("Array.from(document.querySelectorAll('#gMap .mp-tag')).every(g => g.dataset.src === 'SPX')") and q4.evaluate("document.querySelectorAll('#gMap .mp-tag').length") > 0, "خريطة المستويات: بلا SPY تعمل بـ SPX وحده")
         gload(gfix(10, esmode="close")); q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(200)
         check(q4.evaluate("document.querySelectorAll('#gMap .mp-tag').length") > 0, "خريطة المستويات: تعمل مع مرجع الإغلاق")
+        gload(gfix(10))
+        # --- تنبيه تغيّر المستويات (حد 5 نقاط): شريط + جدول كان←صار + نسخ + تثبيت + خط باهت على الخريطة ---
+        def with_base(g, dcw=0.0, dpw=0.0):
+            g["baseline"] = {"snapshot_utc": g["snapshot_utc"], "snapshot_et": "2026-10-23 08:00", "basis": g["es"]["basis"] if g.get("es") else None,
+                             "levels": {"SPX|CALL WALL": g["call_wall"] - dcw, "SPX|PUT WALL": g["put_wall"] - dpw, "SPX|GAMMA FLIP": g["gamma_flip"]}}
+            return g
+        q4.evaluate("localStorage.removeItem('mirsad_gpin')")
+        gload(with_base(gfix(10), dcw=6.0, dpw=3.0)); q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(250)
+        _c = q4.evaluate("(() => { const b = document.getElementById('gChg'); return { vis: !b.hidden, h: b.querySelector('h2').textContent, rows: b.querySelectorAll('tr').length - 1, tx: b.innerText, ghost: document.querySelectorAll('#gMap .mp-ghost').length, wh: document.querySelectorAll('#gMap .mp-tag.chg').length }; })()")
+        check(_c["vis"] and _c["rows"] == 1 and "CALL WALL" in _c["tx"] and "تغيّرت 1" in _c["h"], f"تنبيه التغيّر: +6 يظهر و−3 لا يظهر {_c['rows']}")
+        check("+6.00" in _c["tx"] and "7686.00" in _c["tx"] and "7680.00" not in _c["tx"].split("كان")[0] or "7725.00" in _c["tx"], "الجدول بسعر ES: كان ← صار + الفرق")
+        check(_c["ghost"] >= 1 and _c["wh"] >= 1, "الخريطة: خط باهت للمستوى القديم ووسم بإطار أبيض")
+        q4.locator("#gChg .cpy").first.click(); q4.wait_for_timeout(100)
+        q4.locator("#gChg").screenshot(path=os.path.join(shots, "gamma_change_390.png"))
+        q4.locator("#gPin").click(); q4.wait_for_timeout(250)
+        check(q4.evaluate("document.querySelectorAll('#gChg tr').length") == 0 and q4.evaluate("!!document.getElementById('gUnpin')") and "تثبيتك" in q4.locator("#gChg").inner_text(), "بعد «نقلتها» يزول التنبيه ويصير الأساس تثبيتك")
+        check(q4.evaluate("document.querySelectorAll('#gMap .mp-ghost').length") == 0, "بعد التثبيت لا خطوط باهتة")
+        q4.locator("#gUnpin").click(); q4.wait_for_timeout(250)
+        check(q4.evaluate("document.querySelectorAll('#gChg tr').length") > 0, "إلغاء التثبيت يعيد المقارنة بلقطة الخادم")
+        q4.evaluate("localStorage.removeItem('mirsad_gpin')")
+        gload(with_base(gfix(10), dcw=4.0, dpw=-4.0)); q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(250)
+        check(q4.evaluate("document.querySelectorAll('#gChg tr').length") == 0 and "لا تغيّر" in q4.locator("#gChg h2").inner_text(), "أقل من 5 نقاط: لا تنبيه")
+        gload(gfix(10)); q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(250)
+        check(q4.evaluate("!document.getElementById('gChg').hidden && !!document.getElementById('gPin')") and "لا توجد لقطة مرجعية" in q4.locator("#gChg").inner_text(), "بلا لقطة مرجعية: شرح وزر التثبيت فقط")
         gload(gfix(10))
         for gw in (320, 375, 768, 1366):
             q4.set_viewport_size({"width": gw, "height": 900}); q4.wait_for_timeout(150)

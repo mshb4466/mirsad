@@ -357,6 +357,35 @@ def test_unknown_provenance_is_treated_as_unverified():
     assert not actuals.is_verified({"status": "verified", "actual": "0.2%"})                                        # كلمة verified القديمة بلا trust
 
 
+def test_oil_eia_first_then_fred():
+    """EIA المباشر أولاً (رقم رسمي)، وإن تعذّر يُستعمل FRED؛ وبلا مفتاح EIA السلوك القديم."""
+    import os, json
+    import extras
+    class Col:
+        def __init__(s, eia_ok=True): s.eia_ok = eia_ok
+        def _http_get(s, url, timeout, tries=2):
+            assert "api.eia.gov" in url and "api_key=K" in url and "WCESTUS1" in url
+            if not s.eia_ok: raise RuntimeError("down")
+            return json.dumps({"response": {"data": [{"period": "2026-10-16", "series": "WCESTUS1", "value": "423500"}, {"period": "2026-10-09", "series": "WCESTUS1", "value": "421000"}]}}).encode()
+        def fetch_fred(s, now, days, series): return ({"crude": [("2026-10-02", 420000.0), ("2026-10-09", 421000.0)]}, [])
+    from datetime import datetime, timezone
+    now = datetime(2026, 10, 21, 15, tzinfo=timezone.utc)
+    old = os.environ.get("EIA_API_KEY")
+    try:
+        os.environ["EIA_API_KEY"] = "K"
+        r = extras.fetch_oil(now, Col())
+        assert r[0] == "2026-10-16" and abs(r[1] - 2.5) < 1e-9 and r.src == "EIA"
+        r = extras.fetch_oil(now, Col(eia_ok=False))
+        assert r[0] == "2026-10-09" and r.src == "FRED"
+        os.environ.pop("EIA_API_KEY")
+        r = extras.fetch_oil(now, Col())
+        assert r[0] == "2026-10-09" and r.src == "FRED"
+    finally:
+        if old is None: os.environ.pop("EIA_API_KEY", None)
+        else: os.environ["EIA_API_KEY"] = old
+    print("ok oil eia")
+
+
 if __name__ == "__main__":
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:
