@@ -31,9 +31,42 @@ def oil_change(rows):
     return d1, (v1 - v0) / 1000.0
 
 
+class OilRes(tuple):
+    """(تاريخ آخر قراءة، التغير بملايين البراميل) + اسم المصدر الذي جاء منه."""
+    src = "FRED"
+
+
+def fetch_oil_eia(now, collector, key):
+    """أرقام مخزون النفط الخام الأسبوعي (WCESTUS1) مباشرة من واجهة EIA الرسمية v2 (تحتاج EIA_API_KEY مجانياً).
+    تنشر لحظة الصدور فلا تنتظر FRED. يعيد [(فترة، ألف برميل)] تصاعدياً أو None. الصيغة: data[].period وdata[].value."""
+    url = ("https://api.eia.gov/v2/petroleum/stoc/wstk/data/?" + urllib.parse.urlencode({
+        "api_key": key, "frequency": "weekly", "data[0]": "value", "facets[series][]": "WCESTUS1",
+        "sort[0][column]": "period", "sort[0][direction]": "desc", "length": "4"}))
+    obj = json.loads(collector._http_get(url, 25).decode("utf-8"))
+    rows = []
+    for r in (obj.get("response") or {}).get("data") or []:
+        try:
+            rows.append((str(r["period"])[:10], float(r["value"])))
+        except (KeyError, TypeError, ValueError):
+            continue
+    return sorted(rows) or None
+
+
 def fetch_oil(now, collector):
+    """EIA المباشر أولاً (إن وُجد EIA_API_KEY)، وإن تعذّر أو تأخر فـFRED (أبطأ ويتأثر بصيانة موقعه). فشل ناعم."""
+    key = os.environ.get("EIA_API_KEY", "").strip()
+    if key:
+        try:
+            res = oil_change(fetch_oil_eia(now, collector, key))
+            if res:
+                o = OilRes(res)
+                o.src = "EIA"
+                return o
+        except Exception:  # noqa: BLE001
+            pass
     data, _ = collector.fetch_fred(now, 40, {"crude": "WCESTUS1"})
-    return oil_change((data or {}).get("crude"))
+    res = oil_change((data or {}).get("crude"))
+    return OilRes(res) if res else res
 
 
 def _term_years(term):
@@ -171,7 +204,8 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                 if oil_res:
                     age = (e["time"].astimezone(ET).date() - __import__("datetime").date.fromisoformat(oil_res[0])).days
                     if 2 <= age <= 9:
-                        got, src, tier, sname = f"{oil_res[1]:+.1f}M", "المصدر: FRED (EIA)", "secondary", "FRED (EIA)"
+                        _s = getattr(oil_res, "src", "FRED")
+                        got, src, tier, sname = (f"{oil_res[1]:+.1f}M", "المصدر: EIA (واجهة رسمية)", "official", "EIA (API)") if _s == "EIA" else (f"{oil_res[1]:+.1f}M", "المصدر: FRED (EIA)", "secondary", "FRED (EIA)")
                         e["actual_period"] = oil_res[0]
                     else:
                         e["actual_note"] = f"FRED لم يُحدَّث بعد (آخر قراءة {oil_res[0]})"

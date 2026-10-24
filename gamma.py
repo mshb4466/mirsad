@@ -501,6 +501,104 @@ def last_before_open(day, root=OUT_DIR):
     return best
 
 
+CHANGE_MIN_PTS = 5.0      # أصغر تغيّر في مستوى جاما (بنقاط SPX/ES) يستحق التنبيه
+
+
+def level_map(snap):
+    """المستويات الرئيسية بمكافئ SPX: {"SPX|CALL WALL": k, ...} لـ SPX وSPY (القيمة None إن غابت)."""
+    sp = snap.get("spy") if isinstance(snap.get("spy"), dict) and snap["spy"].get("ok") else {}
+    src = {"SPX": (snap.get("call_wall"), snap.get("put_wall"), snap.get("gamma_flip")),
+           "SPY": (sp.get("call_wall_x"), sp.get("put_wall_x"), sp.get("gamma_flip_x"))}
+    out = {}
+    for a, (c, p_, f) in src.items():
+        for kind, v in (("CALL WALL", c), ("PUT WALL", p_), ("GAMMA FLIP", f)):
+            if v is not None:
+                out["%s|%s" % (a, kind)] = round(float(v), 2)
+    return out
+
+
+def level_changes(old, new, thr=CHANGE_MIN_PTS):
+    """مستويات تغيّرت بمقدار thr نقطة أو أكثر بين خريطتين: [{key, src, kind, old, new, delta}] (القيم بمكافئ SPX)."""
+    out = []
+    for k, v in new.items():
+        o = old.get(k)
+        if o is None:
+            continue
+        if abs(v - o) >= thr - 1e-9:
+            a, kind = k.split("|")
+            out.append({"key": k, "src": a, "kind": kind, "old": o, "new": v, "delta": round(v - o, 2)})
+    return sorted(out, key=lambda x: (x["src"], x["kind"]))
+
+
+def preopen_baseline(snap, root=OUT_DIR):
+    """نقطة المقارنة: أول لقطة صالحة قبل الافتتاح في يوم الجلسة نفسه، ما دامت أقدم من اللقطة الحالية."""
+    try:
+        et = to_ny(datetime.fromisoformat(snap["snapshot_utc"]))
+        b = _rjson(os.path.join(root, "preopen", et.strftime("%Y-%m-%d") + ".json"))
+        if not b or not b.get("ok") or b.get("snapshot_utc", "") >= snap["snapshot_utc"]:
+            return None
+        return {"snapshot_utc": b["snapshot_utc"], "snapshot_et": b["snapshot_et"], "levels": level_map(b),
+                "basis": (b.get("es") or {}).get("basis")}
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def attach_changes(snap, root=OUT_DIR):
+    """يضيف إلى اللقطة baseline (مستويات ما قبل الافتتاح) وchanges (ما تغيّر 5 نقاط فأكثر). فشل ناعم: لا يمس بيانات SPX."""
+    try:
+        b = preopen_baseline(snap, root)
+        snap["baseline"] = b
+        items = level_changes(b["levels"], level_map(snap)) if b else []
+        snap["changes"] = {"n": len(items), "thr": CHANGE_MIN_PTS, "items": items}
+    except Exception as e:  # noqa: BLE001
+        snap["baseline"], snap["changes"] = None, None
+        print("تعذّر حساب تغيّر المستويات (SPX سليم):", e)
+    return snap
+
+
+def telegram_text(text):
+    tok, chat = os.environ.get("TELEGRAM_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
+    if not tok or not chat:
+        return False
+    try:
+        data = json.dumps({"chat_id": chat, "text": text, "disable_web_page_preview": True}).encode("utf-8")
+        req = urllib.request.Request("https://api.telegram.org/bot%s/sendMessage" % tok, data=data, headers={"Content-Type": "application/json"})
+        urllib.request.urlopen(req, timeout=30).read()
+        return True
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def notify_changes(snap, root=OUT_DIR, send=None):
+    """رسالة تيليجرام واحدة لكل تغيّر جديد (توقيع المستويات) في اليوم نفسه؛ لا تكرار. فشل ناعم."""
+    try:
+        ch = snap.get("changes") or {}
+        if not ch.get("n") or snap.get("status") == "stale":
+            return False
+        et = to_ny(datetime.fromisoformat(snap["snapshot_utc"]))
+        sig = "|".join("%s=%.0f" % (i["key"], i["new"]) for i in ch["items"])
+        sp = os.path.join(root, "alert_state.json")
+        st = _rjson(sp) or {}
+        day = et.strftime("%Y-%m-%d")
+        if st.get("day") == day and st.get("sig") == sig:
+            return False
+        bs_new = float((snap.get("es") or {}).get("basis") or 0)
+        bs_old = float(((snap.get("baseline") or {}).get("basis")) or bs_new)
+        lines = ["⚠ تغيّرت %d مستويات في الجاما (%d نقطة فأكثر)" % (ch["n"], int(ch["thr"])),
+                 "مقارنة بلقطة ما قبل الافتتاح %s نيويورك، والحالية %s." % ((snap.get("baseline") or {}).get("snapshot_et", "—"), snap.get("snapshot_et", "—"))]
+        for i in ch["items"]:
+            o_es, n_es = round((i["old"] + bs_old) * 4) / 4, round((i["new"] + bs_new) * 4) / 4
+            lines.append("%s %s: %.2f ← %.2f (%+.2f)" % (i["src"], i["kind"], o_es, n_es, n_es - o_es))
+        lines.append("أسعار ES بالفرق الحالي. للاطلاع فقط وليست توصية.")
+        ok = (send or telegram_text)("\n".join(lines))
+        if ok:
+            _wjson(sp, {"day": day, "sig": sig, "at": now_utc().isoformat()})
+        return bool(ok)
+    except Exception as e:  # noqa: BLE001
+        print("تعذّر إشعار تغيّر المستويات (SPX سليم):", e)
+        return False
+
+
 def collect(root=OUT_DIR):
     try:
         raw, meta = fetch()
@@ -513,7 +611,11 @@ def collect(root=OUT_DIR):
             _wjson(os.path.join(root, "latest.json"), fail)
         print("فشل:", e)
         return None
+    if snap.get("ok"):
+        attach_changes(snap, root)
     wrote = archive(snap, root)
+    if snap.get("ok"):
+        notify_changes(snap, root)
     print("لقطة %s نيويورك | سعر %s | صالحة=%s | %s | كتب: %s" % (snap["snapshot_et"], snap["spot"], snap["ok"], snap["reason"] or "-", wrote))
     if not snap["ok"]:
         cur = _rjson(os.path.join(root, "latest.json"))
