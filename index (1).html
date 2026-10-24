@@ -535,7 +535,7 @@
   #gLine .hv-bg, #gLine2 .hv-bg { fill: var(--card); stroke: var(--line); } #gLine .hv-t, #gLine2 .hv-t { font: 800 10px var(--font-mono); fill: var(--fg); } #gLine .hv-t2, #gLine2 .hv-t2 { font: 700 10px var(--font-body); fill: var(--muted); }
   #gCtl h3 { margin: 0 0 6px; font-size: 15px; } #gCtl h3 ~ h3 { margin-top: 12px; } .gseg { display: flex; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; } .gseg .gb { flex: 1; min-height: 44px; border: 0; background: transparent; color: var(--fg); font: 600 15px var(--font-body); cursor: pointer; } .gseg .gb.on { background: color-mix(in srgb, var(--brand) 25%, transparent); font-weight: 800; } .gseg .gb:disabled { color: var(--muted); cursor: not-allowed; } .gseg .gb + .gb { border-inline-start: 1px solid var(--line); }
   #gChg { border-inline-start: 4px solid #ffb02e; } #gChg h2 { margin: 0 0 6px; font-size: 16px; } #gChg .gcb { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; } #gChg .gcb button { min-height: 44px; padding: 4px 14px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 700 14px var(--font-body); cursor: pointer; } #gChg .gcb button.pri { background: color-mix(in srgb, var(--brand) 25%, transparent); border-color: var(--brand); }
-  #gChg table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; } #gChg th, #gChg td { padding: 6px 4px; text-align: center; border-bottom: 1px solid var(--line); } #gChg td.lv { text-align: start; font-weight: 700; } #gChg .up { color: #2fe0a0; font-weight: 800; } #gChg .dn { color: #ff5c7a; font-weight: 800; } #gChg .cpy { min-height: 36px; padding: 2px 10px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; font: 600 13px var(--font-body); }
+  #gChg table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; } #gChg th, #gChg td { padding: 6px 4px; text-align: center; border-bottom: 1px solid var(--line); } #gChg td.lv { text-align: start; font-weight: 700; } #gChg td.up, #gChg td.dn { direction: ltr; unicode-bidi: isolate; } #gChg .up { color: #2fe0a0; font-weight: 800; } #gChg .dn { color: #ff5c7a; font-weight: 800; } #gChg .cpy { min-height: 36px; padding: 2px 10px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; font: 600 13px var(--font-body); }
   .gchips { display: flex; flex-wrap: wrap; gap: 6px; } .gchip { min-height: 40px; padding: 4px 13px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 600 14px var(--font-body); cursor: pointer; } .gchip.on { background: color-mix(in srgb, var(--brand) 22%, transparent); border-color: var(--brand); font-weight: 800; } .gchip:disabled { color: var(--muted); opacity: .5; cursor: not-allowed; } .gb:focus-visible, .gchip:focus-visible, .gcp:focus-visible, .gall:focus-visible { outline: 2px solid var(--brand); }
   .ghd { display: flex; gap: 6px; padding: 2px 4px; font-size: 12px; color: var(--muted); } .ghd .hk { width: 58px; flex: none; } .ghd .he { width: 74px; flex: none; } .ghd .hb { flex: 1; text-align: center; } .ghd .hn { width: 62px; flex: none; } .ghd .hc { width: 52px; flex: none; text-align: center; }
   .gr .es { width: 74px; flex: none; font: 800 14px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; color: #6c93ff; } .gcp { flex: none; width: 52px; min-height: 28px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: #6c93ff; font: 700 12px var(--font-body); cursor: pointer; } .gall { display: block; width: 100%; min-height: 44px; margin-top: 10px; border: 1px solid #6c93ff; border-radius: 12px; background: transparent; color: #6c93ff; font: 800 15px var(--font-body); cursor: pointer; }
@@ -2116,12 +2116,40 @@ const GPIN_KEY = 'mirsad_gpin', GCHG_MIN = 5;
 const gLevels_ = g => { const o = {}, sp = g && g.spy && g.spy.ok ? g.spy : {}; [['SPX', g.call_wall, g.put_wall, g.gamma_flip], ['SPY', sp.call_wall_x, sp.put_wall_x, sp.gamma_flip_x]].forEach(x => [['CALL WALL', x[1]], ['PUT WALL', x[2]], ['GAMMA FLIP', x[3]]].forEach(y => { if (y[1] != null && isFinite(Number(y[1]))) o[x[0] + '|' + y[0]] = Math.round(Number(y[1]) * 100) / 100; })); return o; };
 const gDay_ = g => { try { return new Date(new Date(g.snapshot_utc).getTime() - 4 * 3600000).toISOString().substr(0, 10); } catch (e) { return ''; } };
 const gPin_ = g => { try { const p = JSON.parse(store_.get(GPIN_KEY, 'null')); return p && p.levels && p.day === gDay_(g) ? p : null; } catch (e) { return null; } };
+/* قمم/قيعان net المحلية المهمة (≥25% من الأكبر ضمن ±150 من السعر)، تُستثنى المطابقة لجدار الأصل (≤3). نفس قاعدة gamma.py */
+function gPeaks_(g) {
+  const out = {}, spot = Number(g.spot);
+  ['SPX', 'SPY'].forEach(a => {
+    const d = gData_(g, a); if (!d) return; const w = [d.cw, d.pw].filter(x => x != null && isFinite(Number(x))).map(Number);
+    const rs = d.rows.map(r => [Number(r.k), Number(r.net) || 0]).filter(r => Math.abs(r[0] - spot) <= 150).sort((x, y) => x[0] - y[0]), mx = Math.max(1, ...rs.map(r => Math.abs(r[1]))), pk = [];
+    rs.forEach((r, i) => { const v = r[1], p = i > 0 ? rs[i - 1][1] : 0, n = i < rs.length - 1 ? rs[i + 1][1] : 0; if (((v > 0 && v >= p && v >= n) || (v < 0 && v <= p && v <= n)) && Math.abs(v) >= 0.25 * mx && !w.some(x => Math.abs(r[0] - x) <= 3)) pk.push({ k: Math.round(r[0] * 10) / 10, s: v > 0 ? 1 : -1, strong: Math.abs(v) / mx >= 0.6 }); });
+    out[a] = pk;
+  });
+  return out;
+}
+function gPeakChg_(old, cur) {
+  const out = [];
+  Object.keys(cur).forEach(a => { if (!old[a]) return;
+    [1, -1].forEach(s => {
+      let os = old[a].filter(x => x.s === s), ns = cur[a].filter(x => x.s === s);
+      os.slice().forEach(x => { const m = ns.filter(y => Math.abs(y.k - x.k) < GCHG_MIN - 1e-9).sort((p, q) => Math.abs(p.k - x.k) - Math.abs(q.k - x.k)); if (m.length) { os = os.filter(z => z !== x); ns = ns.filter(z => z !== m[0]); } });
+      const pr = []; os.forEach(x => ns.forEach(y => { if (Math.abs(x.k - y.k) <= 25) pr.push([Math.abs(x.k - y.k), x, y]); })); pr.sort((p, q) => p[0] - q[0]);
+      pr.forEach(z => { if (os.indexOf(z[1]) >= 0 && ns.indexOf(z[2]) >= 0) { os = os.filter(q => q !== z[1]); ns = ns.filter(q => q !== z[2]); out.push({ key: a + '|PEAK', src: a, kind: 'PEAK', sign: s, change: 'moved', old: z[1].k, nw: z[2].k, strong: z[2].strong }); } });
+      ns.forEach(y => out.push({ key: a + '|PEAK', src: a, kind: 'PEAK', sign: s, change: 'new', old: null, nw: y.k, strong: y.strong }));
+      os.forEach(x => out.push({ key: a + '|PEAK', src: a, kind: 'PEAK', sign: s, change: 'gone', old: x.k, nw: null, strong: x.strong }));
+    });
+  });
+  return out;
+}
 function gChanges_(g) {
   const pin = gPin_(g), b = pin || (g.baseline && g.baseline.levels ? g.baseline : null); if (!b) return { base: null, items: [] };
   const cur = gLevels_(g), bsN = g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null, bsO = isFinite(Number(b.basis)) ? Number(b.basis) : bsN, sn = v => Math.round(v * 4) / 4, items = [];
-  Object.keys(cur).forEach(k => { const o = b.levels[k]; if (o == null || Math.abs(cur[k] - o) < GCHG_MIN - 1e-9) return; const a = k.split('|'); items.push({ key: k, src: a[0], kind: a[1], old: o, nw: cur[k], oldEs: bsO != null ? sn(o + bsO) : null, newEs: bsN != null ? sn(cur[k] + bsN) : null }); });
+  Object.keys(cur).forEach(k => { const o = b.levels[k]; if (o == null || Math.abs(cur[k] - o) < GCHG_MIN - 1e-9) return; const a = k.split('|'); items.push({ key: k, src: a[0], kind: a[1], change: 'moved', old: o, nw: cur[k] }); });
+  if (b.peaks) { try { gPeakChg_(b.peaks, gPeaks_(g)).forEach(x => items.push(x)); } catch (e) { console.error(e); } }
+  items.forEach(c => { c.oldEs = c.old != null && bsO != null ? sn(c.old + bsO) : null; c.newEs = c.nw != null && bsN != null ? sn(c.nw + bsN) : null; });
   return { base: { pinned: !!pin, at: pin ? pin.at : b.snapshot_et, basis: bsO }, items };
 }
+const gName_ = c => c.kind === 'PEAK' ? c.src + ' ' + (c.sign > 0 ? 'قمة' : 'قاع') + ' ' + (c.strong ? 'قوية' : 'متوسطة') : c.src + ' ' + c.kind;
 function gChg_(g, ch) {
   const box = $('gChg'); box.innerHTML = ''; box.hidden = false; const n = ch.items.length, pinned = ch.base && ch.base.pinned;
   const esOk = g.es && isFinite(Number(g.es.basis));
@@ -2130,13 +2158,14 @@ function gChg_(g, ch) {
   else if (!n) box.appendChild(el('p', 'src', 'المقارنة مع ' + (pinned ? 'تثبيتك ' + ch.base.at : 'لقطة ما قبل الافتتاح ' + ch.base.at + ' نيويورك') + '. الحد الأدنى للتنبيه ' + GCHG_MIN + ' نقاط.'));
   if (n) {
     const tb = el('table'), hr = el('tr'); ['المستوى', 'كان', 'صار', 'الفرق', ''].forEach(x => hr.appendChild(el('th', '', x))); tb.appendChild(hr);
-    ch.items.forEach(c => { const r = el('tr'), unit = esOk && c.oldEs != null, o = unit ? c.oldEs : c.old, w = unit ? c.newEs : c.nw, d = Math.round((w - o) * 100) / 100;
-      r.appendChild(el('td', 'lv', c.src + ' ' + c.kind)); r.appendChild(el('td', '', o.toFixed(2))); r.appendChild(el('td', '', w.toFixed(2))); r.appendChild(el('td', d > 0 ? 'up' : 'dn', (d > 0 ? '+' : '') + d.toFixed(2)));
-      const tdc = el('td'), cb = el('button', 'cpy', 'نسخ'); cb.type = 'button'; cb.onclick = () => gCopy_(w.toFixed(2), cb); tdc.appendChild(cb); r.appendChild(tdc); tb.appendChild(r); });
+    ch.items.forEach(c => { const r = el('tr'), unit = esOk && (c.oldEs != null || c.newEs != null), ov = c.old == null ? null : (unit ? c.oldEs : c.old), nv = c.nw == null ? null : (unit ? c.newEs : c.nw), d = ov != null && nv != null ? Math.round((nv - ov) * 100) / 100 : null;
+      r.appendChild(el('td', 'lv', gName_(c))); r.appendChild(el('td', '', ov == null ? '—' : ov.toFixed(2))); r.appendChild(el('td', '', nv == null ? '—' : nv.toFixed(2)));
+      r.appendChild(el('td', d == null ? '' : d > 0 ? 'up' : 'dn', d == null ? (nv == null ? 'اختفى' : 'جديد') : (d > 0 ? '+' : '') + d.toFixed(2)));
+      const tdc = el('td'), cb = el('button', 'cpy', 'نسخ'); cb.type = 'button'; cb.onclick = () => gCopy_(nv != null ? nv.toFixed(2) : ov.toFixed(2), cb); tdc.appendChild(cb); r.appendChild(tdc); tb.appendChild(r); });
     box.appendChild(tb); box.appendChild(el('p', 'src', unit0_(esOk) + ' «كان» و«صار» بسعر ES (كل لقطة بفرقها).'));
   }
   const bar = el('div', 'gcb'), pb = el('button', 'pri', 'نقلتها: ثبّت المستويات الحالية'); pb.type = 'button'; pb.id = 'gPin';
-  pb.onclick = () => { store_.set(GPIN_KEY, JSON.stringify({ day: gDay_(g), at: g.snapshot_et, levels: gLevels_(g), basis: g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null })); renderGamma_(); };
+  pb.onclick = () => { store_.set(GPIN_KEY, JSON.stringify({ day: gDay_(g), at: g.snapshot_et, levels: gLevels_(g), peaks: (() => { try { return gPeaks_(g); } catch (e) { return null; } })(), basis: g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null })); renderGamma_(); };
   bar.appendChild(pb);
   if (pinned) { const ub = el('button', '', 'إلغاء التثبيت'); ub.type = 'button'; ub.id = 'gUnpin'; ub.onclick = () => { store_.set(GPIN_KEY, 'null'); renderGamma_(); }; bar.appendChild(ub); }
   box.appendChild(bar);
@@ -2167,13 +2196,13 @@ function gMap_(o) {
   };
   if (ga !== 'SPY') addLv(dX, 'SPX'); if (ga !== 'SPX') addLv(dY, 'SPY');
   lv.forEach(l => { l.es = snap(l.k + bs); l.strong = l.rel >= 0.6 || !!l.kind; l.c = l.kind === 'GAMMA FLIP' ? '#ffd24a' : (l.v > 0 ? '#2fe0a0' : '#ff5c7a'); l.sc = l.src === 'SPX' ? '#4f9bff' : '#ffb02e'; });
-  const chm = {}; (o.changes || []).forEach(c => { if (c.oldEs != null && c.newEs != null) chm[c.src + '|' + c.kind] = c; });
-  lv.forEach(l => { const c = l.kind && chm[l.src + '|' + l.kind]; if (c && Math.abs(c.newEs - l.es) <= 0.5) l.chg = c; });
+  const chs = (o.changes || []).filter(c => (c.oldEs != null || c.newEs != null) && (ga === 'BOTH' || c.src === ga));
+  lv.forEach(l => { const c = chs.find(c => c.newEs != null && c.src === l.src && (l.kind ? c.kind === l.kind : c.kind === 'PEAK' && (c.sign > 0) === (l.v > 0)) && Math.abs(c.newEs - l.es) <= 0.5); if (c) l.chg = c; });
   const bgd = (ga === 'SPY' ? dY : dX), bgr = bgd.rows.filter(r => isFinite(Number(r.k)) && (!isFinite(spot) || Math.abs(r.k - spot) <= 150)).sort((a, b) => a.k - b.k), bmx = Math.max(1, ...bgr.map(r => Math.abs(Number(r.net) || 0)));
   const rg = bgd.prof && Array.isArray(bgd.prof.v) && bgd.prof.v.length > 1 ? bgd.prof : null, rgMax = rg ? Math.max(1e-9, ...rg.v.map(x => Math.abs(x))) : 1;
   const rgAt = x => { if (x < rg.lo || x > rg.hi) return null; const f = (x - rg.lo) / (rg.hi - rg.lo) * (rg.v.length - 1), i = Math.min(rg.v.length - 2, Math.floor(f)); return rg.v[i] + (rg.v[i + 1] - rg.v[i]) * (f - i); };
   const dif = []; for (let i = 1; i < bgr.length; i++) dif.push(bgr[i].k - bgr[i - 1].k); dif.sort((a, b) => a - b); const stp = dif.length ? Math.max(1, dif[Math.floor(dif.length / 2)]) : 5;
-  const esSpot = spot + bs, ex = lv.map(l => l.es).concat(lv.filter(l => l.chg).map(l => l.chg.oldEs)).concat(isFinite(esSpot) ? [esSpot] : []); if (!ex.length) { box.appendChild(el('p', 'src', 'لا مستويات لعرضها في هذه السلة.')); return; }
+  const esSpot = spot + bs, ex = lv.map(l => l.es).concat(chs.filter(c => c.oldEs != null).map(c => c.oldEs)).concat(isFinite(esSpot) ? [esSpot] : []); if (!ex.length) { box.appendChild(el('p', 'src', 'لا مستويات لعرضها في هذه السلة.')); return; }
   const FL = Math.min(...ex) - 12, FH = Math.max(...ex) + 12, full = FH - FL;
   const cur = () => (GMZ ? { lo: GMZ[0], hi: GMZ[1] } : { lo: FL, hi: FH });
   const setZ = (lo, hi) => { let sp = hi - lo; if (sp >= full - 0.5) { GMZ = null; } else { sp = Math.max(8, sp); if (lo < FL) { lo = FL; } if (lo + sp > FH) { lo = FH - sp; } GMZ = [lo, lo + sp]; } paint(); };
@@ -2188,7 +2217,7 @@ function gMap_(o) {
     const gs = (hi - lo) > 150 ? 25 : (hi - lo) > 60 ? 10 : 5; for (let p = Math.ceil(lo / gs) * gs; p <= hi; p += gs) s += '<line x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + Y(p).toFixed(1) + '" y2="' + Y(p).toFixed(1) + '" stroke="#22304a" stroke-dasharray="2 5"/>';
     const vis = lv.filter(l => l.es >= lo && l.es <= hi);
     if (isFinite(esSpot) && esSpot >= lo && esSpot <= hi) { const y = Y(esSpot); s += '<line class="mp-spot" x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#e9eef7" stroke-width="1.2"/><rect x="150" y="' + (y - 9).toFixed(1) + '" width="74" height="18" rx="4" fill="#e9eef7"/><text x="187" y="' + (y + 4).toFixed(1) + '" text-anchor="middle" font-size="11" font-weight="800" fill="#0b1220">' + 'الآن ' + esSpot.toFixed(2) + '</text>'; }
-    lv.filter(l => l.chg && l.chg.oldEs >= lo && l.chg.oldEs <= hi).forEach(l => { const y = Y(l.chg.oldEs); s += '<g class="mp-ghost" data-src="' + l.src + '" data-kind="' + l.kind + '"><line x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#8f9db5" stroke-width="1.6" stroke-dasharray="6 5"/><text x="' + (W - Rm - 4) + '" y="' + (y - 4).toFixed(1) + '" text-anchor="end" font-size="10" font-weight="700" fill="#b8c3d6">كان ' + l.chg.oldEs.toFixed(2) + '</text></g>'; });
+    chs.filter(c => c.oldEs != null && c.oldEs >= lo && c.oldEs <= hi).forEach(c => { const y = Y(c.oldEs); s += '<g class="mp-ghost" data-src="' + c.src + '" data-kind="' + c.kind + '"><line x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#8f9db5" stroke-width="1.6" stroke-dasharray="6 5"/><text x="' + (W - Rm - 4) + '" y="' + (y - 4).toFixed(1) + '" text-anchor="end" font-size="10" font-weight="700" fill="#b8c3d6">' + (c.newEs == null ? 'اختفى · ' : '') + 'كان ' + c.oldEs.toFixed(2) + '</text></g>'; });
     const tg = vis.slice().sort((a, b) => b.es - a.es); let last = -99; tg.forEach(l => { let y = Y(l.es); if (y - last < 15) y = last + 15; l.ty = y; last = y; });
     vis.forEach(l => { const y = Y(l.es), x = W - Rm - 2; s += '<line class="mp-ln' + (l.strong ? ' st' : '') + '" data-src="' + l.src + '" data-es="' + l.es.toFixed(2) + '" x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="' + l.c + '" stroke-width="' + (l.kind ? 2.8 : l.strong ? 2.2 : 1.3) + '"' + (l.strong ? '' : ' stroke-dasharray="3 4"') + ' stroke-opacity="' + (l.strong ? 1 : 0.85) + '"/>'
       + '<path d="M' + (W - Rm) + ' ' + y.toFixed(1) + ' L' + (x + 4) + ' ' + l.ty.toFixed(1) + '" stroke="' + l.sc + '" stroke-width="1" fill="none"/><g class="mp-tag' + (l.chg ? ' chg' : '') + '" data-src="' + l.src + '" data-es="' + l.es.toFixed(2) + '"><rect x="' + (x + 4) + '" y="' + (l.ty - 8).toFixed(1) + '" width="' + (Rm - 16) + '" height="16" rx="4" fill="#0b1220" stroke="' + (l.chg ? '#ffffff' : l.sc) + '" stroke-width="' + (l.chg ? 2.2 : 1.2) + '"/><rect x="' + (x + 4) + '" y="' + (l.ty - 8).toFixed(1) + '" width="28" height="16" rx="4" fill="' + l.sc + '"/><text x="' + (x + 18) + '" y="' + (l.ty + 3.5).toFixed(1) + '" text-anchor="middle" font-size="9.5" font-weight="800" fill="#0b1220">' + l.src + '</text><text class="mp-es" x="' + (x + 36) + '" y="' + (l.ty + 3.5).toFixed(1) + '" font-size="11" font-weight="800" fill="#e9eef7">' + l.es.toFixed(2) + '</text></g>'; });
