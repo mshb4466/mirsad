@@ -526,8 +526,71 @@ def level_changes(old, new, thr=CHANGE_MIN_PTS):
             continue
         if abs(v - o) >= thr - 1e-9:
             a, kind = k.split("|")
-            out.append({"key": k, "src": a, "kind": kind, "old": o, "new": v, "delta": round(v - o, 2)})
+            out.append({"key": k, "src": a, "kind": kind, "change": "moved", "old": o, "new": v, "delta": round(v - o, 2)})
     return sorted(out, key=lambda x: (x["src"], x["kind"]))
+
+
+PEAK_MIN_REL = 0.25       # قمة/قاع محلي مهم: ≥ 25% من أكبر |net| (كما في خريطة المستويات)
+PEAK_STRONG_REL = 0.6     # «قوي» ≥ 60%
+PEAK_BAND = 150.0         # نطاق المستويات حول السعر (نقاط SPX)
+PEAK_PAIR_MAX = 25.0      # أبعد مسافة لاعتبار قمة قديمة وجديدة نفس القمة وقد تحرّكت
+
+
+def _peaks_of(rows, spot, walls):
+    """قمم/قيعان net المحلية المهمة لأصل واحد. rows: [(k_بمكافئ_SPX, net)]. تُستثنى القمم المطابقة (≤3) لجدار الأصل نفسه فهي تُتابَع كجدار."""
+    rs = sorted((float(k), float(n)) for k, n in rows if abs(float(k) - spot) <= PEAK_BAND)
+    if not rs:
+        return []
+    mx = max(1.0, max(abs(n) for _, n in rs))
+    out = []
+    for i, (k, v) in enumerate(rs):
+        a = rs[i - 1][1] if i > 0 else 0.0
+        b = rs[i + 1][1] if i < len(rs) - 1 else 0.0
+        if ((v > 0 and v >= a and v >= b) or (v < 0 and v <= a and v <= b)) and abs(v) >= PEAK_MIN_REL * mx:
+            if any(w is not None and abs(k - float(w)) <= 3 for w in walls):
+                continue
+            out.append({"k": round(k, 1), "s": 1 if v > 0 else -1, "strong": abs(v) / mx >= PEAK_STRONG_REL})
+    return out
+
+
+def peak_map(snap):
+    """{"SPX": [قمم], "SPY": [قمم بمكافئ SPX]} من اللقطة الكاملة (كل السلال)."""
+    spot = float(snap["spot"])
+    out = {"SPX": _peaks_of([(r["k"], r["net"]) for r in snap.get("strikes") or []], spot, (snap.get("call_wall"), snap.get("put_wall")))}
+    sp = snap.get("spy") if isinstance(snap.get("spy"), dict) and snap["spy"].get("ok") else None
+    if sp:
+        out["SPY"] = _peaks_of([(r["kx"], r["net"]) for r in sp.get("strikes") or [] if r.get("kx") is not None], spot, (sp.get("call_wall_x"), sp.get("put_wall_x")))
+    return out
+
+
+def peak_changes(old, new, thr=CHANGE_MIN_PTS):
+    """تغيّر القمم: قمة بالإشارة نفسها خلال أقل من thr نقطة = لم تتغير؛ وإلا تُقرن الأقرب (≤25 نقطة) كـ«تحرّكت»، والباقي «جديدة»/«اختفت»."""
+    out = []
+    for a in sorted(set(old) & set(new)):
+        o_l, n_l = list(old[a]), list(new[a])
+        for s in (1, -1):
+            os_ = [x for x in o_l if x["s"] == s]; ns = [x for x in n_l if x["s"] == s]
+            for x in list(os_):
+                m = [y for y in ns if abs(y["k"] - x["k"]) < thr - 1e-9]
+                if m:
+                    os_.remove(x); ns.remove(min(m, key=lambda y: abs(y["k"] - x["k"])))
+            pairs = sorted(((abs(x["k"] - y["k"]), x, y) for x in os_ for y in ns if abs(x["k"] - y["k"]) <= PEAK_PAIR_MAX), key=lambda z: z[0])
+            for _, x, y in pairs:
+                if x in os_ and y in ns:
+                    os_.remove(x); ns.remove(y)
+                    out.append({"key": "%s|PEAK" % a, "src": a, "kind": "PEAK", "sign": s, "change": "moved", "old": x["k"], "new": y["k"], "delta": round(y["k"] - x["k"], 2), "strong": y["strong"]})
+            for y in ns:
+                out.append({"key": "%s|PEAK" % a, "src": a, "kind": "PEAK", "sign": s, "change": "new", "old": None, "new": y["k"], "delta": None, "strong": y["strong"]})
+            for x in os_:
+                out.append({"key": "%s|PEAK" % a, "src": a, "kind": "PEAK", "sign": s, "change": "gone", "old": x["k"], "new": None, "delta": None, "strong": x["strong"]})
+    return sorted(out, key=lambda x: (x["src"], x["new"] if x["new"] is not None else x["old"]))
+
+
+def _safe_peaks(snap):
+    try:
+        return peak_map(snap)
+    except Exception:  # noqa: BLE001
+        return None
 
 
 def preopen_baseline(snap, root=OUT_DIR):
@@ -537,7 +600,7 @@ def preopen_baseline(snap, root=OUT_DIR):
         b = _rjson(os.path.join(root, "preopen", et.strftime("%Y-%m-%d") + ".json"))
         if not b or not b.get("ok") or b.get("snapshot_utc", "") >= snap["snapshot_utc"]:
             return None
-        return {"snapshot_utc": b["snapshot_utc"], "snapshot_et": b["snapshot_et"], "levels": level_map(b),
+        return {"snapshot_utc": b["snapshot_utc"], "snapshot_et": b["snapshot_et"], "levels": level_map(b), "peaks": _safe_peaks(b),
                 "basis": (b.get("es") or {}).get("basis")}
     except Exception:  # noqa: BLE001
         return None
@@ -549,6 +612,11 @@ def attach_changes(snap, root=OUT_DIR):
         b = preopen_baseline(snap, root)
         snap["baseline"] = b
         items = level_changes(b["levels"], level_map(snap)) if b else []
+        if b and b.get("peaks"):
+            try:
+                items += peak_changes(b["peaks"], peak_map(snap))
+            except Exception as e:  # noqa: BLE001
+                print("تعذّر حساب تغيّر القمم (الجدران سليمة):", e)
         snap["changes"] = {"n": len(items), "thr": CHANGE_MIN_PTS, "items": items}
     except Exception as e:  # noqa: BLE001
         snap["baseline"], snap["changes"] = None, None
@@ -576,7 +644,7 @@ def notify_changes(snap, root=OUT_DIR, send=None):
         if not ch.get("n") or snap.get("status") == "stale":
             return False
         et = to_ny(datetime.fromisoformat(snap["snapshot_utc"]))
-        sig = "|".join("%s=%.0f" % (i["key"], i["new"]) for i in ch["items"])
+        sig = "|".join("%s%s=%s" % (i["key"], i.get("change", ""), "-" if i["new"] is None else "%.0f" % i["new"]) + ("@%.0f" % i["old"] if i.get("old") is not None and i.get("change") != "moved" else "") for i in ch["items"])
         sp = os.path.join(root, "alert_state.json")
         st = _rjson(sp) or {}
         day = et.strftime("%Y-%m-%d")
@@ -587,8 +655,15 @@ def notify_changes(snap, root=OUT_DIR, send=None):
         lines = ["⚠ تغيّرت %d مستويات في الجاما (%d نقطة فأكثر)" % (ch["n"], int(ch["thr"])),
                  "مقارنة بلقطة ما قبل الافتتاح %s نيويورك، والحالية %s." % ((snap.get("baseline") or {}).get("snapshot_et", "—"), snap.get("snapshot_et", "—"))]
         for i in ch["items"]:
-            o_es, n_es = round((i["old"] + bs_old) * 4) / 4, round((i["new"] + bs_new) * 4) / 4
-            lines.append("%s %s: %.2f ← %.2f (%+.2f)" % (i["src"], i["kind"], o_es, n_es, n_es - o_es))
+            o_es = None if i["old"] is None else round((i["old"] + bs_old) * 4) / 4
+            n_es = None if i["new"] is None else round((i["new"] + bs_new) * 4) / 4
+            nm = "%s %s" % (i["src"], i["kind"]) if i["kind"] != "PEAK" else "%s %s %s" % (i["src"], "قمة" if i.get("sign", 1) > 0 else "قاع", "قوية" if i.get("strong") else "متوسطة")
+            if o_es is None:
+                lines.append("%s: جديد عند %.2f" % (nm, n_es))
+            elif n_es is None:
+                lines.append("%s: اختفى (كان %.2f)" % (nm, o_es))
+            else:
+                lines.append("%s: %.2f ← %.2f (%+.2f)" % (nm, o_es, n_es, n_es - o_es))
         lines.append("أسعار ES بالفرق الحالي. للاطلاع فقط وليست توصية.")
         ok = (send or telegram_text)("\n".join(lines))
         if ok:
