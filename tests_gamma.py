@@ -223,6 +223,43 @@ try:
         ok(_bad["call_wall"] == 7745.0, "عطل في حساب التغيّر لا يمس بيانات SPX")
     finally:
         shutil.rmtree(_root, ignore_errors=True)
+    # --- القمم والقيعان المهمة: تحرّك/جديدة/اختفت ---
+    def _pk(peaks, spot=7700.0, base=1e8):
+        rows = [{"k": 7550.0 + 5 * i, "net": base * 0.01} for i in range(60)]
+        for k, v in peaks:
+            for r in rows:
+                if r["k"] == k: r["net"] = v
+        return {"spot": spot, "strikes": rows, "call_wall": None, "put_wall": None}
+    _o = gamma.peak_map(_pk([(7600.0, 1e9), (7650.0, -8e8), (7720.0, 5e8)]))
+    ok([(x["k"], x["s"]) for x in _o["SPX"]] == [(7600.0, 1), (7650.0, -1), (7720.0, 1)], "القمم المحلية المهمة تُستخرج بالإشارة")
+    _n1 = gamma.peak_map(_pk([(7600.0, 1e9), (7650.0, -8e8), (7720.0, 5e8)]))
+    ok(gamma.peak_changes(_o, _n1) == [], "لا تغيّر عند تطابق القمم")
+    _n2 = gamma.peak_map(_pk([(7610.0, 1e9), (7650.0, -8e8), (7720.0, 5e8)]))
+    _c2 = gamma.peak_changes(_o, _n2)
+    ok(len(_c2) == 1 and _c2[0]["change"] == "moved" and _c2[0]["old"] == 7600.0 and _c2[0]["new"] == 7610.0 and _c2[0]["delta"] == 10.0, "قمة تحرّكت 10 نقاط")
+    _n3 = gamma.peak_map(_pk([(7600.0, 1e9), (7650.0, -8e8)]))
+    _c3 = gamma.peak_changes(_o, _n3)
+    ok(len(_c3) == 1 and _c3[0]["change"] == "gone" and _c3[0]["old"] == 7720.0, "قمة اختفت")
+    _n4 = gamma.peak_map(_pk([(7600.0, 1e9), (7650.0, -8e8), (7720.0, 5e8), (7680.0, 6e8)]))
+    _c4 = gamma.peak_changes(_o, _n4)
+    ok(len(_c4) == 1 and _c4[0]["change"] == "new" and _c4[0]["new"] == 7680.0, "قمة جديدة")
+    _n5 = gamma.peak_map(_pk([(7600.0, 1e9), (7650.0, -8e8), (7720.0, 5e8)], spot=7700.0)); _n5["SPX"][0]["k"] = 7603.0
+    ok(gamma.peak_changes(_o, _n5) == [], "تحرّك أقل من 5 نقاط لا يُنبَّه")
+    _w = gamma.peak_map(dict(_pk([(7720.0, 5e8)]), call_wall=7720.0))
+    ok(all(abs(x["k"] - 7720.0) > 3 for x in _w["SPX"]), "القمة المطابقة لجدار تُتابَع كجدار لا كقمة")
+    _bb = dict(_b, spot=7700.0, strikes=_pk([(7600.0, 1e9), (7650.0, -8e8)])["strikes"])
+    _nn = dict(_n, spot=7700.0, strikes=_pk([(7610.0, 1e9), (7650.0, -8e8)])["strikes"])
+    _r2 = tempfile.mkdtemp()
+    try:
+        gamma._wjson(os.path.join(_r2, "preopen", "2026-10-23.json"), _bb)
+        gamma.attach_changes(_nn, _r2)
+        _ks = [(i["kind"], i["change"]) for i in _nn["changes"]["items"]]
+        ok(("PEAK", "moved") in _ks and ("CALL WALL", "moved") in _ks, "التغيّرات تشمل الجدران والقمم معاً")
+        _s2 = []
+        gamma.notify_changes(_nn, _r2, send=lambda m: _s2.append(m) or True)
+        ok(_s2 and "قمة قوية" in _s2[0], "رسالة تيليجرام تذكر القمة")
+    finally:
+        shutil.rmtree(_r2, ignore_errors=True)
 finally:
     shutil.rmtree(t, ignore_errors=True)
 print("tests_gamma: %d فحصاً نجحت" % N)

@@ -705,6 +705,18 @@ def main(shots):
         check(q4.evaluate("document.querySelectorAll('#gChg tr').length") == 0 and "لا تغيّر" in q4.locator("#gChg h2").inner_text(), "أقل من 5 نقاط: لا تنبيه")
         gload(gfix(10)); q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(250)
         check(q4.evaluate("!document.getElementById('gChg').hidden && !!document.getElementById('gPin')") and "لا توجد لقطة مرجعية" in q4.locator("#gChg").inner_text(), "بلا لقطة مرجعية: شرح وزر التثبيت فقط")
+        # القمم والقيعان المهمة (وليس الجدران وحدها): تحرّك/جديدة/اختفت
+        gload(gfix(10)); q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(200)
+        _pk = q4.evaluate("gPeaks_(GAMMA)")
+        check(len(_pk.get("SPX", [])) >= 3, f"القمم المهمة تُستخرج من البيانات ({len(_pk.get('SPX', []))})")
+        _bp = json.loads(json.dumps(_pk)); _bp["SPX"][0]["k"] += 10; _bp["SPX"].pop(1); _bp["SPX"].append({"k": 7599.0, "s": 1, "strong": True})
+        _g = gfix(10); with_base(_g); _g["baseline"]["peaks"] = _bp
+        gload(_g); q4.evaluate("showTab('gamma')"); q4.wait_for_timeout(250)
+        _t = q4.locator("#gChg").inner_text()
+        check("قمة" in _t or "قاع" in _t, "الجدول يذكر قمة/قاع مهمة")
+        check("جديد" in _t and "اختفى" in _t, "الجدول يميز «جديد» و«اختفى»")
+        check(q4.evaluate("document.querySelectorAll('#gMap .mp-ghost').length") >= 2, "الخريطة: خطوط باهتة لمواضع القمم القديمة")
+        q4.locator("#gChg").screenshot(path=os.path.join(shots, "gamma_change_peaks_390.png"))
         gload(gfix(10))
         for gw in (320, 375, 768, 1366):
             q4.set_viewport_size({"width": gw, "height": 900}); q4.wait_for_timeout(150)
