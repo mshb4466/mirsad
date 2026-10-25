@@ -96,3 +96,17 @@ if __name__ == "__main__":
         t()
         print("✔", t.__name__)
     print(f"نجحت كل الاختبارات ({len(tests)})")
+
+# --- ترجمة العناوين (v0.24.0) ---
+import translate as _tr
+_items = [{"title": "Iran threatens Hormuz"}, {"title": "Ukraine talks"}, {"title": "x"}]
+_calls = []
+def _fake(t):
+    _calls.append(t); return "مترجم: " + t if t.startswith("Iran") else None
+_tr.add_ar(_items, translate=_fake)
+assert _items[0]["title_ar"] == "مترجم: Iran threatens Hormuz" and _items[1]["title_ar"] is None and _items[2]["title_ar"] is None and len(_calls) == 2, "الترجمة: توقف بعد أول فشل"
+assert _tr.translate_ar("إيران تصعّد") == "إيران تصعّد", "النص العربي يبقى"
+import os as _os
+_os.environ["MIRSAD_NO_NET"] = "1"
+assert _tr.translate_ar("Hello world") is None, "بلا شبكة: None"
+print("tests_geo: الترجمة تمت")
