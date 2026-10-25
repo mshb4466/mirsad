@@ -11,7 +11,7 @@ import verdict
 import impact
 import os
 
-VERSION = "0.23.2"      # يُعرض في الإعدادات ويُقارَن بإصدار الواجهة: يكشف رفعاً ناقصاً أو ملف بيانات أقدم من الواجهة
+VERSION = "0.23.3"      # يُعرض في الإعدادات ويُقارَن بإصدار الواجهة: يكشف رفعاً ناقصاً أو ملف بيانات أقدم من الواجهة
 from datetime import datetime, timedelta
 
 DOCS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
@@ -69,6 +69,14 @@ def _auction(report):
             "on": rd(on), "loc": loc, "chips": chips, "exp": exp, "play": a.get("playbook", []), "tilt": tilt}
 
 
+def _exp_word(gap):
+    """كلمة/كلمتان لتوقعات السوق من الفدرالي (للشاشة المختصرة)."""
+    if not gap:
+        return ""
+    d = gap.get("direction", "")
+    return "توقع تيسير" if "تيسيراً" in d else "توقع تشدد" if "تشدداً" in d else "تسعير متسق"
+
+
 def _macro(report):
     m = report.get("macro")
     if not m:
@@ -81,6 +89,7 @@ def _macro(report):
         "pillars": [{"name": x["name"], "arrow": x["arrow"], "note": x["note"]} for x in m["pillars"]],
         "liq": (f"السيولة الصافية ≈{nl['net_bn']:,.0f} مليار$ ({nl['chg_pct']:+.1f}% خلال 4 أسابيع)" if nl else ""),
         "liqView": impact.liquidity_view(nl),
+        "exp": _exp_word(gap),
         "gapTitle": ("فجوة تسعير " + gap["size"]) if gap else "تسعير السوق",
         "gap": gap["direction"] if gap else "تعذّر تقدير ما يسعّره السوق",
         "meet": (f"الاجتماع القادم: {meet['date']} (بعد {meet['days']} يوماً)" if meet else ""),

@@ -568,6 +568,8 @@
   .goldt { margin: 0 0 6px; max-width: 100%; white-space: normal; display: block; font: 700 13px var(--font-body); min-height: 36px; padding: 4px 14px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; transition: background .15s, color .15s; } .goldt:hover { background: var(--card-2); color: var(--fg); }
   .georow { padding: 10px 12px; border: 1px solid var(--line); border-inline-start: 4px solid var(--muted); border-radius: 10px; margin-top: 8px; background: var(--card); }
   .georow.es { border-inline-start-color: var(--bad, #ff5c7a); } .georow.de { border-inline-start-color: var(--good, #2fe0a0); } .georow .t { font-weight: 700; font-size: 14px; } .georow .m { color: var(--muted); font-size: 12.5px; margin-top: 3px; }
+  #gTime svg { width: 100%; height: auto; display: block; direction: ltr; } #gTime .tl-ax { font: 700 11px var(--font-mono); fill: var(--muted); } #gTime .tl-tr { stroke-width: 1.2; stroke-dasharray: 3 3; } #gTime .tl-tt { font: 800 11px var(--font-mono); }
+  #gTime .tl-lg { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 6px 0; font-size: 12.5px; color: var(--muted); } #gTime .tl-lg i { display: inline-block; width: 18px; height: 0; border-top: 3px solid; margin-inline-end: 5px; vertical-align: middle; }
   /* الشريط الجانبي (الحاسب) */
   @media (min-width: 900px) {
     body { padding-bottom: 28px; padding-inline-start: 268px; }
@@ -646,7 +648,7 @@
         <div class="wt" id="wRisk" data-t="warn" role="img" aria-label="المخاطر"><span class="k">المخاطر</span><svg class="gg" id="wRiskG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wRiskW"></span><b class="v" id="wRiskN">—</b></div>
         <div class="wt" id="wConfT" data-t="warn"><span class="k">الثقة</span><svg class="gg" id="wConfG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wConf"></span></div>
         <div class="wt" id="wIntT" data-t="warn"><span class="k">الحدة</span><svg class="gg" id="wIntG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wInt"></span></div>
-        <div class="wt" id="wFed" data-t="na" role="img" aria-label="الفدرالي"><span class="k">الفدرالي</span><svg class="gg" id="wFedG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wFedW"></span><span class="chip" id="wLiq" data-t="na"></span></div>
+        <div class="wt" id="wFed" data-t="na" role="img" aria-label="الفدرالي"><span class="k">الفدرالي</span><svg class="gg" id="wFedG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wFedW"></span><span class="chip" id="wLiq" data-t="na"></span><span class="chip" id="wExp" data-t="na"></span></div>
       </div>
       <div class="wnext" id="wNextBox" data-t="na"><span class="ic">⏰</span><span class="nmw"><small class="nl" id="wNextL">الخبر المهم القادم</small><span class="nm" id="wNextN">—</span></span><span class="cdw"><b class="cd" id="wNextC">--:--:--</b><small class="cu">ساعة : دقيقة : ثانية</small></span><i class="wbar" aria-hidden="true"><u id="wNextB"></u></i></div>
       <div class="wupd" id="wUpdBox" data-t="off"><span class="ic" id="wUpdI">✓</span><b class="n" id="wUpdN"></b><span class="nm" id="wUpd"></span></div>
@@ -708,6 +710,7 @@
       </div>
       <p class="mreason" id="mReason"></p>
       <ul class="mdrv" id="mDrivers"></ul>
+      <button type="button" class="chip lang deskonly inl" id="drvMore">كل المكوّنات والأوزان ← التفاصيل</button>
       <div class="ci">
         <div class="cy"><h3>يؤكّد السيناريو</h3><ul id="mConfirms"></ul></div>
         <div class="cn"><h3>يُبطله</h3><ul id="mInvalid"></ul></div>
@@ -772,6 +775,7 @@
     <section class="card" id="gLevels" hidden></section>
     <section class="card" id="gLine" hidden></section>
     <section class="card" id="gLine2" hidden></section>
+    <section class="card" id="gTime" hidden></section>
     <section class="card" id="gCmp" hidden></section>
     <section class="card" id="gChart" hidden></section>
     <section class="card" id="gEsNote" hidden></section>
@@ -1318,6 +1322,7 @@ function render(data) {
   $('biasArrow').textContent = st.ic; $('biasText').textContent = st.word;
   $('biasConf').textContent = ((data.quick_call || {}).recommendation || '') + ((data.quick_call || {}).confidence ? tr_(' · الثقة: ') + data.quick_call.confidence : '');
   const show = (id, on) => { $(id).hidden = !on; };
+  try { renderGTime_(); } catch (e) { console.error(e); }
   show('tTrend', !!data.trend); show('tConf', !!data.confidence); show('tInt', !!data.intensity);
   /* الثقة والتقلب المتوقع جنباً إلى جنب؛ إن بقي بلا زوج (عدد فردي) يأخذ العرض كاملاً */
   if (data.trend) { const tr = clamp(data.trend.score); $('trendNum').textContent = tr + '/10'; $('trendLabel').textContent = data.trend.label || ''; meter('trendMeter', tr, posCls(tr)); }
@@ -2074,7 +2079,7 @@ function renderGamma_() {
   const show = (id, on) => { $(id).hidden = !on; };
   /* خلفية التبويب: أحمر/أخضر بحالة الجاما عند لقطة صالحة (خفيفة إن كانت متأخرة)، ورمادية عند قِدَم اللقطة أو غيابها أو إغلاق السوق */
   if (!$('tab-gamma').hidden) { const okg = (st === 'fresh' || st === 'late') && g && isFinite(Number(g.net_gex)); document.body.dataset.gtint = okg ? (Number(g.net_gex) < 0 ? 'neg' : 'pos') : 'off'; if (okg && st === 'late') document.body.dataset.gsoft = '1'; else document.body.removeAttribute('data-gsoft'); } else { document.body.removeAttribute('data-gtint'); document.body.removeAttribute('data-gsoft'); }
-  const ALL = ['gLevels', 'gLine', 'gLine2', 'gCmp', 'gChart', 'gEsNote', 'gSpy', 'gCtl', 'gChg', 'gMap'];
+  const ALL = ['gLevels', 'gLine', 'gLine2', 'gCmp', 'gChart', 'gEsNote', 'gSpy', 'gCtl', 'gChg', 'gMap', 'gTime'];
   const TT = { fresh: '✓ بيانات طازجة', late: '⚠ بيانات متأخرة: تحقق من وقتها قبل الاعتماد', stale: '⛔ بيانات قديمة — لا تعتمدها للتداول', none: '⛔ لا توجد بيانات جاما اليوم' };
   fr.appendChild(el('h2', '', TT[st]));
   const spyOk = !!(g && g.ok && g.spy && g.spy.ok);
@@ -2364,6 +2369,58 @@ function gCtl_(g, on) {
     c.appendChild(el('p', 'src', (rg ? 'النطاقات المختارة: ' + rg + '. ' : '') + 'اضغط لتفعيل أو إلغاء أي استحقاق (لا بد من واحد على الأقل). السلال منفصلة لا تتداخل، وكل عقد يُحسب مرة واحدة؛ ومع اختيار الكل تُعرض كل الاستحقاقات. الجدران وGamma Flip والخريطة تُعاد من الاستحقاقات المختارة فقط.'));
   }
 }
+/* ---- الخط الزمني لمستويات جاما خلال اليوم (من gamma/day.json) ---- */
+let GDAY = null;
+const TL_COL = { 'CALL WALL': '#2fe0a0', 'PUT WALL': '#ff5c7a', 'GAMMA FLIP': '#ffb020' }, TL_NM = { 'CALL WALL': 'Call Wall', 'PUT WALL': 'Put Wall', 'GAMMA FLIP': 'Gamma Flip' };
+const tlEs_ = (k, b) => Math.round((Number(k) + Number(b || 0)) * 4) / 4;
+function tlTransitions_(pts) {
+  const out = [];
+  for (let i = 1; i < pts.length; i++) {
+    const a = pts[i - 1], c = pts[i], moved = [];
+    Object.keys(c.lv || {}).forEach(k => { if (a.lv && a.lv[k] != null && Math.abs(c.lv[k] - a.lv[k]) >= 5) moved.push(k); });
+    if (moved.length) out.push({ i, t: c.t, keys: moved });
+  }
+  return out;
+}
+function renderGTime_() {
+  const c = $('gTime'), d = GDAY, g = GAMMA;
+  const pts = d && Array.isArray(d.pts) && g && g.ok && String(d.pts[0] && d.pts[0].t).slice(0, 10) >= '2000' ? d.pts.filter(p => p && p.lv && p.sp != null) : [];
+  c.hidden = pts.length < 2; c.innerHTML = ''; if (c.hidden) return;
+  const useSpy = pts.some(p => Object.keys(p.lv).some(k => k.indexOf('SPY|') === 0)), tr = tlTransitions_(pts);
+  const W = 720, H = 300, L = 50, R = 12, T = 20, B = 28;
+  const keys = ['SPX|CALL WALL', 'SPX|PUT WALL', 'SPX|GAMMA FLIP'].concat(useSpy ? ['SPY|CALL WALL', 'SPY|PUT WALL', 'SPY|GAMMA FLIP'] : []);
+  let lo = Infinity, hi = -Infinity;
+  pts.forEach(p => { keys.forEach(k => { if (p.lv[k] != null) { const y = tlEs_(p.lv[k], p.b); lo = Math.min(lo, y); hi = Math.max(hi, y); } }); const sy = tlEs_(p.sp, p.b); lo = Math.min(lo, sy); hi = Math.max(hi, sy); });
+  if (!isFinite(lo) || hi - lo < 1) { c.hidden = true; return; }
+  const pad = (hi - lo) * .08 + 2; lo -= pad; hi += pad;
+  const t0 = new Date(pts[0].t).getTime(), t1 = new Date(pts[pts.length - 1].t).getTime(), span = Math.max(1, t1 - t0);
+  const X = t => L + (new Date(t).getTime() - t0) / span * (W - L - R), Y = v => T + (hi - v) / (hi - lo) * (H - T - B);
+  const NS = 'http://www.w3.org/2000/svg', mk = (n, a) => { const e = document.createElementNS(NS, n); Object.keys(a || {}).forEach(k => e.setAttribute(k, a[k])); return e; };
+  const svg = mk('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'الخط الزمني لمستويات جاما بسعر ES' });
+  for (let i = 0; i <= 4; i++) { const v = lo + (hi - lo) * i / 4, y = Y(v); svg.appendChild(mk('line', { x1: L, x2: W - R, y1: y, y2: y, stroke: 'var(--line)', 'stroke-width': .6 })); const tx = mk('text', { x: L - 5, y: y + 3, 'text-anchor': 'end', class: 'tl-ax' }); tx.textContent = (Math.round(v * 4) / 4).toFixed(0); svg.appendChild(tx); }
+  const hm = t => bgdDT_(t).substr(11, 5);
+  [0, .5, 1].forEach(f => { const t = new Date(t0 + span * f).toISOString(), tx = mk('text', { x: L + f * (W - L - R), y: H - 8, 'text-anchor': f === 0 ? 'start' : f === 1 ? 'end' : 'middle', class: 'tl-ax' }); tx.textContent = hm(t); svg.appendChild(tx); });
+  tr.forEach((x, n) => {
+    const xx = X(x.t), col = ['#6aa9ff', '#c58bff', '#ffb020', '#2fe0a0'][n % 4];
+    svg.appendChild(mk('line', { x1: xx, x2: xx, y1: T, y2: H - B, stroke: col, class: 'tl-tr' }));
+    const tx = mk('text', { x: xx, y: T - 6, 'text-anchor': 'middle', class: 'tl-tt', fill: col }); tx.textContent = hm(x.t); svg.appendChild(tx);
+  });
+  keys.forEach(k => {
+    const kind = k.split('|')[1], col = TL_COL[kind], spy = k.indexOf('SPY|') === 0;
+    let dstr = '', prev = null;
+    pts.forEach(p => { if (p.lv[k] == null) return; const x = X(p.t), y = Y(tlEs_(p.lv[k], p.b)); dstr += prev == null ? 'M' + x + ' ' + y : 'L' + x + ' ' + prev + 'L' + x + ' ' + y; prev = y; });
+    if (dstr) svg.appendChild(mk('path', { d: dstr, fill: 'none', stroke: col, 'stroke-width': spy ? 1.3 : 2, 'stroke-dasharray': spy ? '5 4' : '', 'stroke-linejoin': 'round' }));
+  });
+  let sd = ''; pts.forEach((p, i) => { sd += (i ? 'L' : 'M') + X(p.t) + ' ' + Y(tlEs_(p.sp, p.b)); });
+  svg.appendChild(mk('path', { d: sd, fill: 'none', stroke: 'var(--fg)', 'stroke-width': 1.2, opacity: .55 }));
+  c.appendChild(el('h2', '', 'تغيّر مستويات جاما خلال اليوم'));
+  c.appendChild(el('p', 'src', 'كل مستوى بسعر ES (Strike + الأساس عند كل لقطة)، والخط الرمادي هو سعر السوق. الخطوط العمودية الملوّنة تمثل لحظات تحرّك فيها مستوى 5 نقاط فأكثر (توقيت بغداد).'));
+  const lg = el('div', 'tl-lg'); ['CALL WALL', 'PUT WALL', 'GAMMA FLIP'].forEach(k => { const sp = el('span'); const i = document.createElement('i'); i.style.borderColor = TL_COL[k]; sp.appendChild(i); sp.appendChild(document.createTextNode(TL_NM[k])); lg.appendChild(sp); }); if (useSpy) lg.appendChild(el('span', '', 'المتقطع = SPY'));
+  c.appendChild(lg); c.appendChild(svg);
+  const ul = el('ul', 'play'); if (!tr.length) ul.appendChild(el('li', '', 'لم يتحرك أي مستوى 5 نقاط فأكثر حتى الآن.'));
+  tr.forEach(x => { const a = pts[x.i - 1], b = pts[x.i]; ul.appendChild(el('li', 'num', hm(x.t) + ' بغداد: ' + x.keys.map(k => k.replace('|', ' ') + ' ' + tlEs_(a.lv[k], a.b).toFixed(2) + ' ← ' + tlEs_(b.lv[k], b.b).toFixed(2)).join(' · '))); });
+  c.appendChild(ul);
+}
 /* ملف جاما: من الصفحة نفسها (gamma.json) ومن المستودع مباشرة (الأحدث)، ويُعتمد الأحدث وقتاً. يعمل حتى لو لم يُعاد نشر الصفحة بعد. */
 function ghRawUrl_(loc) {
   try { const h = String(loc.hostname || ''); if (!/\.github\.io$/.test(h)) return null; const o = h.split('.')[0], r = String(loc.pathname || '').split('/')[1]; return o && r ? 'https://raw.githubusercontent.com/' + o + '/' + r + '/main/gamma/latest.json' : null; } catch (e) { return null; }
@@ -2371,6 +2428,7 @@ function ghRawUrl_(loc) {
 function loadGamma_() {
   const get = u => fetch(u + (u.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now(), { cache: 'no-store' }).then(r => { if (!r.ok) throw 0; return r.json(); }).then(j => (j && typeof j === 'object' ? j : null)).catch(() => null);
   const raw = ghRawUrl_(location);
+  try { Promise.all([get('gamma_day.json'), raw ? get(raw.replace('latest.json', 'day.json')) : Promise.resolve(null)]).then(a => { const ok = a.filter(x => x && Array.isArray(x.pts)); GDAY = ok.length ? ok.reduce((x, y) => (y.pts.length > x.pts.length ? y : x)) : null; try { renderGTime_(); } catch (e) { console.error(e); } }); } catch (e) { /* اختياري */ }
   return Promise.all([get('gamma.json'), raw ? get(raw) : Promise.resolve(null)]).then(a => {
     const t = g => (g && g.ok && g.snapshot_utc ? new Date(g.snapshot_utc).getTime() : -1);
     const ok = a.filter(g => g && g.ok), best = ok.length ? ok.reduce((x, y) => (t(y) > t(x) ? y : x)) : (a.find(g => g) || null);
@@ -2574,6 +2632,7 @@ function renderWatch_() {
   if (mc && typeof mc.lean === 'number') { const L = mc.lean; fe.dataset.t = L >= .6 ? 'crit' : L > .25 ? 'hi' : L <= -.25 ? 'ok' : 'warn'; gaugeSet_('wFedG', (Math.max(-1, Math.min(1, L)) + 1) / 2); $('wFedW').textContent = mc.label || ''; fe.setAttribute('aria-label', 'الفدرالي ' + (mc.label || '')); }
   else { fe.dataset.t = 'na'; gaugeSet_('wFedG', null); $('wFedW').textContent = '—'; }
   const lv = mc && mc.liqView; if (lv) { lq.dataset.t = lv.tone === 'bull' ? 'ok' : lv.tone === 'bear' ? 'crit' : 'na'; lq.textContent = (lv.tone === 'bull' ? '💧 ' : lv.tone === 'bear' ? '🔻 ' : '') + 'سيولة ' + lv.word; } else { lq.dataset.t = 'na'; lq.textContent = ''; }
+  { const ex = $('wExp'); if (mc && mc.exp) { ex.dataset.t = 'na'; ex.textContent = mc.exp; } else { ex.textContent = ''; } }
   /* حالة الجاما (إيجابية/سلبية) كشارة مستقلة: لا تدخل في تحيّز الماكرو */
   try {
     const gb = $('wGam'), gs_ = gammaStatus_(GAMMA);
@@ -2671,6 +2730,7 @@ function goSec(tab, id) {
   setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
 }
 (function () { const sl = $('secList'); SECS.forEach(x => { const b = el('button', 'sec'); b.type = 'button'; b.appendChild(el('span', '', x[0])); b.appendChild(el('span', 'mut', '←')); b.onclick = () => goSec(x[1], x[2]); sl.appendChild(b); }); })();
+$('drvMore').addEventListener('click', () => showTab('details'));
 $('backHome').addEventListener('click', () => { showTab('today'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 function showTab(t) {
   $('backHome').hidden = t === 'today';
@@ -2691,7 +2751,7 @@ let booted = false, loadedAt = 0, lastTry = 0, FAIL = null, btnTimer = null;
 /* ثلاثة أزمنة منفصلة: وقت البيانات المعروضة (LIVE.updated)، آخر جلب ناجح (loadedAt)، آخر محاولة (lastTry). فشل المحاولة لا يحدّث الثانية ولا يمحو اللقطة. */
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
 const FAILMSG = { http: 'الخادم رفض الطلب', network: 'لا اتصال بالشبكة', json: 'ملف البيانات تالف', source: 'المصدر أبلغ عن خطأ', render: 'تعذّر عرض البيانات' };
-const UI_VERSION = '0.23.2';
+const UI_VERSION = '0.23.3';
 function versionCheck_(d) {
   const dv = d && d.version, vl = $('verLine'), vw = $('verWarn');
   if (vl) vl.textContent = 'إصدار الواجهة: v' + UI_VERSION + ' · إصدار ملف البيانات: ' + (dv ? 'v' + dv : 'غير مذكور (أقدم من 0.20.0)');

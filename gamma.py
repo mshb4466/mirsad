@@ -484,6 +484,44 @@ def archive(snap, root=OUT_DIR):
     return done
 
 
+DAY_MAX_PTS = 120
+
+
+def day_point(snap):
+    """نقطة الخط الزمني: المستويات بمكافئ SPX (SPX وSPY) والقمم والأساس وسعر ES. صغيرة لتبقى الملفات خفيفة."""
+    sc = snap_scale(snap)
+    lv = {}
+    for k, v in level_map(snap).items():
+        a = k.split("|")[0]
+        r = 1.0 if a == "SPX" else sc.get("SPY")
+        if r:
+            lv[k] = round(float(v) * r, 2)
+    pk = _safe_peaks(snap) or {}
+    es = snap.get("es") or {}
+    return {"t": snap["snapshot_utc"], "sp": snap.get("spot"), "b": es.get("basis"), "lv": lv,
+            "pk": {a: [[x["k"], x["s"], 1 if x["strong"] else 0] for x in v] for a, v in pk.items()}}
+
+
+def append_day(snap, root=OUT_DIR):
+    """يضيف نقطة لجلسة اليوم (gamma/day.json) ويبدأ ملفاً جديداً عند تغيّر اليوم. فشل ناعم."""
+    try:
+        et = to_ny(datetime.fromisoformat(snap["snapshot_utc"]))
+        day = et.strftime("%Y-%m-%d")
+        path = os.path.join(root, "day.json")
+        cur = _rjson(path)
+        if not cur or cur.get("day") != day:
+            cur = {"day": day, "pts": []}
+        if any(p_["t"] == snap["snapshot_utc"] for p_ in cur["pts"]):
+            return False
+        cur["pts"].append(day_point(snap))
+        cur["pts"] = sorted(cur["pts"], key=lambda p_: p_["t"])[-DAY_MAX_PTS:]
+        _wjson(path, cur)
+        return True
+    except Exception as e:  # noqa: BLE001
+        print("تعذّر حفظ الخط الزمني لليوم (الخريطة سليمة):", e)
+        return False
+
+
 def last_before_open(day, root=OUT_DIR):
     """آخر خريطة صالحة ليوم day (YYYY-MM-DD) وقت بياناتها ووقت جمعها <= 09:30 نيويورك. None إن لم توجد."""
     d = os.path.join(root, "archive", day)
@@ -728,6 +766,8 @@ def collect(root=OUT_DIR):
     if snap.get("ok"):
         attach_changes(snap, root)
     wrote = archive(snap, root)
+    if snap.get("ok") and append_day(snap, root):
+        wrote.append("day.json")
     if snap.get("ok"):
         notify_changes(snap, root)
     print("لقطة %s نيويورك | سعر %s | صالحة=%s | %s | كتب: %s" % (snap["snapshot_et"], snap["spot"], snap["ok"], snap["reason"] or "-", wrote))
