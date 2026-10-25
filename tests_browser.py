@@ -412,8 +412,8 @@ def main(shots):
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900); dp.evaluate("showTab('today')")
         aclick("#bellBtn"); dp.wait_for_timeout(100)      # كتم
         # فحص تطابق إصدار الواجهة والبيانات (يكشف رفعاً ناقصاً)
-        okv = copy.deepcopy(fx); okv["version"] = "0.23.2"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
-        check(not dp.locator("#verWarn").is_visible() and "v0.23.2" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
+        okv = copy.deepcopy(fx); okv["version"] = "0.23.3"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
+        check(not dp.locator("#verWarn").is_visible() and "v0.23.3" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
         badv = copy.deepcopy(fx); badv["version"] = "0.18.1"; mode["data"] = badv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
         check(dp.locator("#verWarn").is_visible() and "Run workflow" in dp.locator("#verWarn").inner_text(), "الإصدار: عدم التطابق يُظهر تحذيراً بخطوة الإصلاح")
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
@@ -527,6 +527,10 @@ def main(shots):
         def gload(g):
             mode["gamma"] = g; q4.evaluate("loadGamma_()"); q4.wait_for_timeout(500)
         gload(gfix(10))
+        q4.evaluate("GDAY = {day:'2026-10-23', pts:[{t:'2026-10-23T13:00:00+00:00',sp:7400,b:40,lv:{'SPX|CALL WALL':7440,'SPX|PUT WALL':7340,'SPX|GAMMA FLIP':7390},pk:{}},{t:'2026-10-23T13:30:00+00:00',sp:7405,b:40,lv:{'SPX|CALL WALL':7440,'SPX|PUT WALL':7340,'SPX|GAMMA FLIP':7390},pk:{}},{t:'2026-10-23T14:00:00+00:00',sp:7410,b:41,lv:{'SPX|CALL WALL':7450,'SPX|PUT WALL':7340,'SPX|GAMMA FLIP':7390},pk:{}}]}; renderGTime_()")
+        tt = q4.locator("#gTime").inner_text()
+        check(q4.locator("#gTime").is_visible() and q4.locator("#gTime svg path").count() >= 4 and q4.locator("#gTime .tl-tr").count() == 1 and "17:00 بغداد: SPX CALL WALL 7480.00 ← 7491.00" in tt, "الخط الزمني: مستويات ES وخط انتقال واحد بتوقيت بغداد")
+        q4.evaluate("GDAY = null; renderGTime_()"); check(q4.locator("#gTime").is_hidden(), "الخط الزمني: يختفي بلا بيانات اليوم")
         gt = q4.locator("#tab-gamma").inner_text()
         check(q4.get_attribute("#gFresh", "data-s") == "fresh" and "بيانات طازجة" in gt and "وقت اللقطة (نيويورك)" in gt and "بتوقيت بغداد" in gt and "عمر البيانات" in gt, "جاما طازجة: تاريخ التحديث ووقتا نيويورك وبغداد والعمر")
         check(all(k in q4.locator("#gLevels").inner_text() for k in ("Gamma Flip", "Call Wall", "Put Wall", "غاما سلبية", "7425", "7680", "7650")), "المستويات: Flip وCall Wall وPut Wall والنظام")

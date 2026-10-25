@@ -283,6 +283,20 @@ try:
         ok(_m and "منه حقيقي +6.00" in _m[0] and "فرق ES−SPX تغيّر من 38.00 إلى 42.50" in _m[0], "رسالة تيليجرام تفصل الحقيقي عن أثر فرق السعر")
     finally:
         shutil.rmtree(_r3, ignore_errors=True)
+    # --- الخط الزمني لليوم ---
+    _r4 = tempfile.mkdtemp()
+    try:
+        _d1 = dict(_n, snapshot_utc="2026-10-23T14:00:00+00:00", call_wall=7740.0)
+        _d2 = dict(_n, snapshot_utc="2026-10-23T14:15:00+00:00", call_wall=7750.0)
+        ok(gamma.append_day(_d1, _r4) and gamma.append_day(_d2, _r4), "الخط الزمني: إضافة نقطتين")
+        ok(not gamma.append_day(_d2, _r4), "الخط الزمني: لا تكرار لنفس اللقطة")
+        _dj = gamma._rjson(os.path.join(_r4, "day.json"))
+        ok(len(_dj["pts"]) == 2 and _dj["pts"][1]["lv"]["SPX|CALL WALL"] == 7750.0 and _dj["day"] == "2026-10-23", "الخط الزمني: النقاط والمستويات بمكافئ SPX")
+        _d3 = dict(_n, snapshot_utc="2026-10-26T14:00:00+00:00")
+        gamma.append_day(_d3, _r4)
+        ok(len(gamma._rjson(os.path.join(_r4, "day.json"))["pts"]) == 1, "الخط الزمني: يوم جديد يبدأ ملفاً جديداً")
+    finally:
+        shutil.rmtree(_r4, ignore_errors=True)
 finally:
     shutil.rmtree(t, ignore_errors=True)
 print("tests_gamma: %d فحصاً نجحت" % N)
