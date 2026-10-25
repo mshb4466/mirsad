@@ -11,7 +11,7 @@ import verdict
 import impact
 import os
 
-VERSION = "0.23.3"      # يُعرض في الإعدادات ويُقارَن بإصدار الواجهة: يكشف رفعاً ناقصاً أو ملف بيانات أقدم من الواجهة
+VERSION = "0.24.3"      # يُعرض في الإعدادات ويُقارَن بإصدار الواجهة: يكشف رفعاً ناقصاً أو ملف بيانات أقدم من الواجهة
 from datetime import datetime, timedelta
 
 DOCS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
@@ -509,7 +509,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "quality": quality,
         "next_event": next((u for u in upcoming if u.get("high")), None) or (upcoming[0] if upcoming else None) or (later[0] if later else None),
         "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
-        "geo": [{"title": t["title"], "severity": t["severity"], "sources": t["sources"],
+        "geo": [{"title": t["title"], "title_ar": t.get("title_ar"), "severity": t["severity"], "sources": t["sources"],
                  "regions": t["regions"], "deesc": t["deesc"]} for t in (geo.get("top") or [])[:3]],
         "geo_confirmed": bool(geo.get("confirmed")),
         "news": {(news_labels or {}).get(k, k): v for k, v in (report.get("news") or {}).items() if v},

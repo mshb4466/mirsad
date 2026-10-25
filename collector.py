@@ -865,6 +865,12 @@ def build_report(prices, events, now, problems=None, extras=None):
     comps["geopolitics"] = score_geopolitics(prices)
     geo_items = extras.get("geo")
     gs, gnote, geo_detail = geo.score_geo_news(geo_items, comps["geopolitics"][0], now)
+    try:
+        if geo_detail and geo_detail.get("top"):
+            import translate
+            translate.add_ar(geo_detail["top"])
+    except Exception:  # noqa: BLE001
+        pass
     comps["geo_news"] = (gs, gnote)
     macro_view = macro.analyze(extras.get("macro"), prices, now)
     comps["fed_system"] = macro.score_fed_system(macro_view)
