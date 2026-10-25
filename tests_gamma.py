@@ -211,6 +211,9 @@ try:
         gamma._wjson(os.path.join(_root, "preopen", "2026-10-23.json"), _b)
         gamma.attach_changes(_n, _root)
         ok(_n["baseline"]["snapshot_et"] == "2026-10-23 08:00" and _n["changes"]["n"] == 1, "اللقطة تحمل baseline وchanges")
+        _cv = gamma.curve_of(dict(_b, spot=7700.0, strikes=[{"k": 7690.0, "net": 1e9}, {"k": 7900.0, "net": 2e9}]))
+        ok(_cv and _cv["SPX"] == [[7690.0, 1e9]] and "curve" in _n["baseline"], "baseline يحمل منحنى الجاما القديم للتراكب (±150)")
+        ok(gamma.curve_of({}) is None, "curve_of فشل ناعم")
         _sent = []
         ok(gamma.notify_changes(_n, _root, send=lambda m: _sent.append(m) or True) and len(_sent) == 1 and "SPX CALL WALL" in _sent[0] and "7780.00 ← 7786.00" in _sent[0], "إشعار تيليجرام بأسعار ES (7740+40 ← 7745+41)")
         ok(not gamma.notify_changes(_n, _root, send=lambda m: _sent.append(m) or True) and len(_sent) == 1, "لا تكرار لنفس التغيّر")
