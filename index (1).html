@@ -451,7 +451,7 @@
     .tabs { max-width: 1280px; }
     #tab-today { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 14px; align-items: start; }
     #tab-today[hidden] { display: none; }
-    #tab-today > #updCard, #tab-today > #safeCard, #tab-today > #pulseSec, #tab-today > #newsTable, #tab-today > #recentCard, #tab-today > #evCard { grid-column: 1 / -1; }
+    #tab-today > #updCard, #tab-today > #safeCard, #tab-today > #pulseSec, #tab-today > #newsTable, #tab-today > #recentCard, #tab-today > #geoCard, #tab-today > #evCard { grid-column: 1 / -1; }
     #tab-today > #mainCard { grid-column: 1; grid-row: span 2; } #tab-today > #nextCard, #tab-today > #riskCard { grid-column: 2; }
     .pcards { grid-template-columns: repeat(4, minmax(0, 1fr)); } .newsT { display: block; } #moreNews { display: none; }
     .upd dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } .unums { max-width: 520px; }
@@ -482,6 +482,9 @@
   #watchView .wt .w { font-size: clamp(11px, 2.4vmin, 34px); font-weight: 800; color: var(--fg); }
   #watchView .wt .gg { width: 92%; max-height: 17vmin; flex: 1 1 auto; min-height: 0; overflow: visible; }
   #watchView .wt .gg .zn path { fill: none; stroke-width: 20; opacity: .9; } #watchView .wt .gg .nd { transform-origin: 100px 100px; transform: rotate(-90deg); } #watchView .wt .gg .nd line { stroke: var(--fg); stroke-width: 7; stroke-linecap: round; } #watchView .wt .gg .nd circle { fill: var(--fg); }
+  #watchView .wgam { --tc: #7d8896; margin-top: 2.4vmin; display: flex; align-items: center; justify-content: center; gap: 1.6vmin; border: .6vmin solid var(--tc); background: color-mix(in srgb, var(--tc) 14%, var(--card)); border-radius: 2.6vmin; padding: 1.2vmin 3vmin; max-width: 92%; color: var(--fg); }
+  #watchView .wgam[data-t="neg"] { --tc: var(--crit); } #watchView .wgam[data-t="pos"] { --tc: var(--ok); } #watchView .wgam[data-t="late"] { --tc: var(--warn); }
+  #watchView .wgam .gk { font-size: clamp(11px, 2.6vmin, 36px); font-weight: 700; color: var(--muted); } #watchView .wgam b { font-size: clamp(18px, 6vmin, 90px); font-weight: 900; color: var(--tc); line-height: 1; } #watchView .wgam .gs { font-size: clamp(10px, 2.2vmin, 30px); font-weight: 700; color: var(--muted); border-inline-start: .3vmin solid color-mix(in srgb, var(--tc) 40%, transparent); padding-inline-start: 1.6vmin; line-height: 1.35; text-align: start; } #watchView .wgam .gs:empty { display: none; }
   #watchView #wRiskN { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   @media (prefers-reduced-motion: no-preference) { #watchView .wt .gg .nd { transition: transform 1.1s cubic-bezier(.3,1.5,.5,1); } #watchView .wbias .sym { animation: wBreath 3.2s ease-in-out infinite; } #watchView[data-int="3"] .wbias .sym { animation-duration: 1.2s; } @keyframes wBreath { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); } 50% { transform: scale(1.05); filter: drop-shadow(0 0 2.4vmin var(--mc)); } } }
   #watchView .wt .segs { display: flex; gap: .6vmin; width: 80%; height: 1.4vmin; } #watchView .wt .segs i { flex: 1; border-radius: 99px; background: color-mix(in srgb, var(--fg) 16%, transparent); } #watchView .wt .segs i.f { background: var(--tc); }
@@ -535,7 +538,7 @@
   #gLine .hv-bg, #gLine2 .hv-bg { fill: var(--card); stroke: var(--line); } #gLine .hv-t, #gLine2 .hv-t { font: 800 10px var(--font-mono); fill: var(--fg); } #gLine .hv-t2, #gLine2 .hv-t2 { font: 700 10px var(--font-body); fill: var(--muted); }
   #gCtl h3 { margin: 0 0 6px; font-size: 15px; } #gCtl h3 ~ h3 { margin-top: 12px; } .gseg { display: flex; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; } .gseg .gb { flex: 1; min-height: 44px; border: 0; background: transparent; color: var(--fg); font: 600 15px var(--font-body); cursor: pointer; } .gseg .gb.on { background: color-mix(in srgb, var(--brand) 25%, transparent); font-weight: 800; } .gseg .gb:disabled { color: var(--muted); cursor: not-allowed; } .gseg .gb + .gb { border-inline-start: 1px solid var(--line); }
   #gChg { border-inline-start: 4px solid #ffb02e; } #gChg h2 { margin: 0 0 6px; font-size: 16px; } #gChg .gcb { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; } #gChg .gcb button { min-height: 44px; padding: 4px 14px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 700 14px var(--font-body); cursor: pointer; } #gChg .gcb button.pri { background: color-mix(in srgb, var(--brand) 25%, transparent); border-color: var(--brand); }
-  #gChg table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; } #gChg th, #gChg td { padding: 6px 4px; text-align: center; border-bottom: 1px solid var(--line); } #gChg td.lv { text-align: start; font-weight: 700; } #gChg td.up, #gChg td.dn { direction: ltr; unicode-bidi: isolate; } #gChg .up { color: #2fe0a0; font-weight: 800; } #gChg .dn { color: #ff5c7a; font-weight: 800; } #gChg .cpy { min-height: 36px; padding: 2px 10px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; font: 600 13px var(--font-body); }
+  #gChg table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; } #gChg th, #gChg td { padding: 6px 4px; text-align: center; border-bottom: 1px solid var(--line); } #gChg td.lv { text-align: start; font-weight: 700; } #gChg small.rl { color: var(--muted); font-weight: 600; font-size: 11.5px; } #gChg .gdr { margin-top: 8px; } #gChg td.up, #gChg td.dn { direction: ltr; unicode-bidi: isolate; } #gChg .up { color: #2fe0a0; font-weight: 800; } #gChg .dn { color: #ff5c7a; font-weight: 800; } #gChg .cpy { min-height: 36px; padding: 2px 10px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; font: 600 13px var(--font-body); }
   .gchips { display: flex; flex-wrap: wrap; gap: 6px; } .gchip { min-height: 40px; padding: 4px 13px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 600 14px var(--font-body); cursor: pointer; } .gchip.on { background: color-mix(in srgb, var(--brand) 22%, transparent); border-color: var(--brand); font-weight: 800; } .gchip:disabled { color: var(--muted); opacity: .5; cursor: not-allowed; } .gb:focus-visible, .gchip:focus-visible, .gcp:focus-visible, .gall:focus-visible { outline: 2px solid var(--brand); }
   .ghd { display: flex; gap: 6px; padding: 2px 4px; font-size: 12px; color: var(--muted); } .ghd .hk { width: 58px; flex: none; } .ghd .he { width: 74px; flex: none; } .ghd .hb { flex: 1; text-align: center; } .ghd .hn { width: 62px; flex: none; } .ghd .hc { width: 52px; flex: none; text-align: center; }
   .gr .es { width: 74px; flex: none; font: 800 14px var(--font-mono); direction: ltr; unicode-bidi: isolate; text-align: start; color: #6c93ff; } .gcp { flex: none; width: 52px; min-height: 28px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: #6c93ff; font: 700 12px var(--font-body); cursor: pointer; } .gall { display: block; width: 100%; min-height: 44px; margin-top: 10px; border: 1px solid #6c93ff; border-radius: 12px; background: transparent; color: #6c93ff; font: 800 15px var(--font-body); cursor: pointer; }
@@ -547,15 +550,62 @@
   .hero .gauge { grid-area: g; max-width: 132px; } .hero .gauge .tick { display: none; } .hero .gauge-center { grid-area: c; margin: 0; text-align: start; } .hero .score { font-size: 44px; } .hero .lvl-badge { margin-top: 6px; padding: 4px 14px; font-size: 18px; }
   .hero .why { grid-area: w; } .hero .advice { grid-area: a; } .hero .scale { grid-area: s; }
   /* v0.23: مقياس المخاطر أصغر بكلمة بجانبه، وعدّاد الخبر ساعة:دقيقة:ثانية بشريط تقدّم */
-  #watchView #wRisk { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); grid-template-areas: "k k" "w g"; align-items: center; justify-items: center; column-gap: 1vmin; }
-  #watchView #wRisk .k { grid-area: k; } #watchView #wRisk .gg { grid-area: g; width: 100%; max-height: 9vmin; } #watchView #wRisk .w { grid-area: w; font-size: clamp(16px, 4.6vmin, 64px); font-weight: 900; color: var(--tc); line-height: 1.1; text-align: center; }
-  @media (min-aspect-ratio: 1/1) { #watchView .wtiles { grid-template-columns: 1.5fr repeat(3, minmax(0, 1fr)); } }
-  @media (max-aspect-ratio: 1/1) { #watchView #wRisk { grid-column: span 2; } }
   #watchView .wnext { position: relative; padding-bottom: 2.6vmin; } #watchView .wnext .nmw { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: .3vmin; } #watchView .wnext .nl { font-size: clamp(10px, 1.9vmin, 24px); color: var(--muted); font-weight: 700; } #watchView .wnext .nmw .nm { flex: none; }
   #watchView .wnext .cdw { display: flex; flex-direction: column; align-items: center; } #watchView .wnext .cu { font-size: clamp(9px, 1.6vmin, 20px); color: var(--muted); font-weight: 700; }
   #watchView .wnext .cd { font-size: clamp(26px, 10vmin, 150px); letter-spacing: .04em; }
   #watchView .wnext .wbar { position: absolute; inset-inline: 2vmin; bottom: .9vmin; height: 1vmin; border-radius: 1vmin; background: color-mix(in srgb, var(--tc) 22%, transparent); overflow: hidden; } #watchView .wnext .wbar u { display: block; height: 100%; width: 0; background: var(--tc); border-radius: 1vmin; transition: width 1s linear; text-decoration: none; }
   @media (prefers-reduced-motion: no-preference) { #watchView .wnext[data-t="crit"] { animation: wNextPulse 1s ease-in-out infinite; } @keyframes wNextPulse { 50% { background: color-mix(in srgb, var(--crit) 26%, var(--card)); } } }
+  /* ---- جاما على الحاسوب: شبكة 12 عموداً، خريطة بعمودين، خلفية التبويب بلون حالة الجاما ---- */
+  .mplv { display: none; }
+  body[data-gtint="neg"] { background-color: var(--bg); background-image: linear-gradient(180deg, rgba(255,92,122,.26) 0, rgba(255,92,122,.10) 520px, transparent 1200px); background-attachment: fixed; }
+  body[data-gtint="off"] { background-color: var(--bg); background-image: linear-gradient(180deg, rgba(143,157,181,.22) 0, rgba(143,157,181,.08) 520px, transparent 1200px); background-attachment: fixed; }
+  body[data-gsoft="1"][data-gtint="neg"] { background-image: linear-gradient(180deg, rgba(255,92,122,.12) 0, rgba(255,92,122,.04) 520px, transparent 1200px); } body[data-gsoft="1"][data-gtint="pos"] { background-image: linear-gradient(180deg, rgba(47,224,160,.10) 0, rgba(47,224,160,.04) 520px, transparent 1200px); }
+  body[data-gtint="pos"] { background-color: var(--bg); background-image: linear-gradient(180deg, rgba(47,224,160,.22) 0, rgba(47,224,160,.08) 520px, transparent 1200px); background-attachment: fixed; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) body[data-gtint="neg"] { background-image: linear-gradient(180deg, rgba(200,55,79,.16) 0, rgba(200,55,79,.06) 520px, transparent 1200px); } :root:not([data-theme="dark"]) body[data-gtint="pos"] { background-image: linear-gradient(180deg, rgba(31,157,99,.15) 0, rgba(31,157,99,.06) 520px, transparent 1200px); } }
+  :root[data-theme="light"] body[data-gtint="neg"] { background-image: linear-gradient(180deg, rgba(200,55,79,.16) 0, rgba(200,55,79,.06) 520px, transparent 1200px); } :root[data-theme="light"] body[data-gtint="pos"] { background-image: linear-gradient(180deg, rgba(31,157,99,.15) 0, rgba(31,157,99,.06) 520px, transparent 1200px); }
+
+  /* مرصاد 0.23.2: تراكب المنحنى القديم */
+  .goldt { margin: 0 0 6px; max-width: 100%; white-space: normal; display: block; font: 700 13px var(--font-body); min-height: 36px; padding: 4px 14px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; transition: background .15s, color .15s; } .goldt:hover { background: var(--card-2); color: var(--fg); }
+  .georow { padding: 10px 12px; border: 1px solid var(--line); border-inline-start: 4px solid var(--muted); border-radius: 10px; margin-top: 8px; background: var(--card); }
+  .georow.es { border-inline-start-color: var(--bad, #ff5c7a); } .georow.de { border-inline-start-color: var(--good, #2fe0a0); } .georow .t { font-weight: 700; font-size: 14px; } .georow .m { color: var(--muted); font-size: 12.5px; margin-top: 3px; }
+  /* الشريط الجانبي (الحاسب) */
+  @media (min-width: 900px) {
+    body { padding-bottom: 28px; padding-inline-start: 268px; }
+    .tabs { display: flex; flex-direction: column; gap: 6px; top: 0; bottom: 0; left: auto; right: 0; margin: 0; width: 240px; max-width: none; padding: 86px 12px 16px; border-top: 0; border-inline-start: 1px solid var(--line); border-radius: 0; box-shadow: -6px 0 24px rgba(0,0,0,.10); overflow-y: auto; }
+    .tabs::before { content: 'مِرصاد'; position: absolute; top: 20px; inset-inline: 0; text-align: center; font: 800 22px var(--font-body); color: var(--fg); letter-spacing: .5px; }
+    .tabs button { flex-direction: row; justify-content: flex-start; gap: 12px; width: 100%; min-height: 48px; padding: 8px 14px; border-radius: 12px; font-size: 15px; position: relative; transition: background .16s, color .16s, transform .16s, box-shadow .16s; }
+    .tabs button span { max-width: none; }
+    .tabs button i { font-size: 20px; transition: transform .16s, filter .16s, opacity .16s; }
+    .tabs button:hover { background: color-mix(in srgb, var(--brand) 14%, var(--card)); color: var(--fg); transform: translateX(-4px); } .tabs button:hover i { filter: none; opacity: 1; transform: scale(1.12); }
+    .tabs button:active { transform: translateX(-2px) scale(.97); }
+    .tabs button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .tabs button[aria-selected="true"] { box-shadow: 0 4px 14px color-mix(in srgb, var(--brand) 35%, transparent); transform: none; } .tabs button[aria-selected="true"]::after { content: ''; position: absolute; inset-inline-end: -12px; top: 10px; bottom: 10px; width: 4px; border-radius: 4px 0 0 4px; background: var(--brand); }
+    #backHome { display: none !important; }
+    .wrap { max-width: 1280px; }
+    #tab-today > #riskCard, #tab-today .gs { display: none; }
+    .card { transition: box-shadow .18s, transform .18s, border-color .18s; } .card:hover { box-shadow: 0 6px 22px rgba(0,0,0,.10); }
+    .pc { transition: transform .16s, box-shadow .16s; cursor: default; } .pc:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,.14); }
+    .pc.i3 { animation: pcpulse 2.4s ease-in-out infinite; }
+  }
+  @keyframes pcpulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--pcc) 45%, transparent); } 50% { box-shadow: 0 0 0 7px transparent; } }
+  @media (min-width: 900px) and (max-width: 1099px) {
+    body { padding-inline-start: 100px; }
+    .tabs { width: 72px; padding-inline: 8px; align-items: center; } .tabs::before { content: 'م'; }
+    .tabs button { justify-content: center; padding-inline: 4px; } .tabs button span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .tabs button:hover::before { content: attr(aria-label); position: absolute; inset-inline-end: calc(100% + 10px); white-space: nowrap; background: var(--fg); color: var(--bg); padding: 4px 10px; border-radius: 8px; font-size: 13px; z-index: 30; }
+  }
+  @media (prefers-reduced-motion: reduce) { .tabs button, .tabs button i, .card, .pc { transition: none !important; animation: none !important; } .tabs button:hover { transform: none; } }
+  @media (min-width: 1100px) {
+    #tab-gamma { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; align-items: start; } #tab-gamma[hidden] { display: none; }
+    #tab-gamma > * { grid-column: 1 / -1; }
+    #gammaHead { order: 0; } #gFresh { order: 1; grid-column: span 4; } #gChg { order: 2; grid-column: span 4; } #gLevels { order: 3; grid-column: span 4; } #gCtl { order: 4; } #gMap { order: 5; } #gLine { order: 6; } #gLine2 { order: 7; } #gCmp { order: 8; } #gChart { order: 9; } #gEsNote { order: 10; } #gSpy { order: 11; }
+    #gLine:has(+ #gLine2:not([hidden])), #gLine2 { grid-column: span 6; }
+    #gCtl:not([hidden]) { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 36px; align-items: start; } #gCtl > :nth-child(1) { grid-area: 1 / 1; } #gCtl > :nth-child(2) { grid-area: 2 / 1; } #gCtl > :nth-child(3) { grid-area: 1 / 2; margin-top: 0 !important; } #gCtl > :nth-child(4) { grid-area: 2 / 2; } #gCtl > :nth-child(5) { grid-area: 3 / 1 / auto / -1; }
+    #gMap:not([hidden]) { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 28px; align-items: start; padding: 14px 18px; }
+    #gMap > h2 { grid-column: 1 / -1; margin-inline: 0; } #gMap > .mpwrap { grid-column: 1; grid-row: 2 / span 6; } #gMap > .mpseg, #gMap > .mplv, #gMap > .mpleg, #gMap > .src { grid-column: 2; margin-inline: 0; padding-inline: 0; }
+    #gMap .mpsvg svg { height: clamp(640px, 94vh, 900px); width: auto; aspect-ratio: 390 / 790; max-width: none; }
+    #gMap .mplv { display: block; margin-top: 4px; max-height: clamp(560px, 82vh, 820px); overflow: auto; } #gMap table.mplt { width: 100%; border-collapse: collapse; font-size: 15px; color: #e9eef7; } #gMap .mplt td { padding: 4px 6px; border-bottom: 1px solid #22304a; } #gMap .mplt td.bar i { display: block; width: 26px; height: 4px; border-radius: 2px; } #gMap .mplt td.src b { display: inline-block; color: #0b1220; border-radius: 5px; padding: 1px 8px; font-size: 12px; } #gMap .mplt td.es { font-weight: 800; direction: ltr; text-align: end; font-family: var(--font-mono); } #gMap .mplt tr.now td { background: rgba(233,238,247,.13); font-weight: 800; } #gMap .mplt tr.chg td { background: rgba(255,176,46,.12); } #gMap .mplt tr.gone td { color: #8f9db5; font-style: italic; } #gMap .mplt small { color: #ffb02e; font-weight: 700; margin-inline-start: 6px; } #gMap .mplt button { background: transparent; color: #e9eef7; border: 1px solid #22304a; border-radius: 8px; padding: 2px 10px; font: 600 12px var(--font-body); cursor: pointer; }
+  }
   #gMap { padding: 10px 0 8px; background: #0b1220; border-color: #22304a; color: #e9eef7; } #gMap h2, #gMap .src, #gMap .mpleg, #gMap .mpb { color: #8f9db5; border-color: #22304a; } #gMap .mpb.on { color: #fff; border-color: #4f9bff; } #gMap .mpz { color: #9cc8ff; } @media (max-width: 640px) { #gMap { margin-inline: -16px; border-radius: 0; border-inline: 0; } } #gMap h2 { margin: 0 14px 8px; } #gMap .src { margin: 6px 14px 0; }
   .mpseg { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 14px 8px; align-items: center; } .mpb { font: 600 13.5px var(--font-body); min-height: 40px; padding: 4px 14px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; white-space: nowrap; } .mpb.on { background: #1b3a63; border-color: #4f9bff; color: #fff; font-weight: 800; } .mpb:disabled { opacity: .45; cursor: default; }
   .mpz { border: 1px solid #4f9bff; color: #9cc8ff; border-radius: 999px; padding: 6px 12px; font: 700 13px var(--font-body); margin-inline-start: auto; } .mpzc { display: flex; gap: 6px; } .mpc { min-width: 40px; padding: 4px 10px; font-size: 17px; }
@@ -590,10 +640,10 @@
 <div id="watchView" hidden role="dialog" aria-label="وضع المراقبة" data-key="na">
   <div class="wtop"><div class="wbtns"><button type="button" class="btn-main" id="wExit">✕ خروج</button><button type="button" class="btn-ghost" id="wFull">⛶</button></div><small id="wStamp"></small></div>
   <div class="wmain">
-    <div class="wbias" id="wBiasBox"><div class="sym" id="wSym">◆</div><div class="wd" id="wBias">—</div><div class="wln"><span id="wLean"></span></div><div class="wtag" id="wTag"></div></div>
+    <div class="wbias" id="wBiasBox"><div class="sym" id="wSym">◆</div><div class="wd" id="wBias">—</div><div class="wln"><span id="wLean"></span></div><div class="wtag" id="wTag"></div><div class="wgam" id="wGam" data-t="na"><span class="gk">الجاما</span><b id="wGamW">—</b><span class="gs" id="wGamS"></span></div></div>
     <div class="wright">
       <div class="wtiles">
-        <div class="wt" id="wRisk" data-t="warn" role="img" aria-label="المخاطر"><span class="k">المخاطر</span><svg class="gg" id="wRiskG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><b class="v" id="wRiskN">—</b><span class="w" id="wRiskW"></span></div>
+        <div class="wt" id="wRisk" data-t="warn" role="img" aria-label="المخاطر"><span class="k">المخاطر</span><svg class="gg" id="wRiskG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wRiskW"></span><b class="v" id="wRiskN">—</b></div>
         <div class="wt" id="wConfT" data-t="warn"><span class="k">الثقة</span><svg class="gg" id="wConfG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wConf"></span></div>
         <div class="wt" id="wIntT" data-t="warn"><span class="k">الحدة</span><svg class="gg" id="wIntG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wInt"></span></div>
         <div class="wt" id="wFed" data-t="na" role="img" aria-label="الفدرالي"><span class="k">الفدرالي</span><svg class="gg" id="wFedG" viewBox="0 0 200 118" aria-hidden="true"><g class="zn"></g><g class="nd"><line x1="100" y1="100" x2="100" y2="36"/><circle cx="100" cy="100" r="9"/></g></svg><span class="w" id="wFedW"></span><span class="chip" id="wLiq" data-t="na"></span></div>
@@ -685,6 +735,12 @@
       <h2>نبض الأسواق</h2>
       <div class="pcards" id="pcards"></div>
       <p class="src" id="pcNote"></p>
+    </section>
+
+    <section class="card" id="geoCard" hidden>
+      <h2>الأخبار السياسية المؤثرة</h2>
+      <div id="geoList"></div>
+      <p class="src" id="geoNote"></p>
     </section>
 
     <section class="card newsT" id="newsTable">
@@ -1275,7 +1331,7 @@ function render(data) {
   RISK_NOW = { score, lvl };
   riskCard_(data, score, lvl);
   renderMain_(data, score, lvl);
-  renderUpdate_(data); renderLog_(data); renderNext_(data); renderPulse_(data); renderNewsTable_(data); try { renderRecent_(data); } catch (e) { console.error(e); }
+  renderUpdate_(data); renderLog_(data); renderNext_(data); renderPulse_(data); renderNewsTable_(data); try { renderRecent_(data); } catch (e) { console.error(e); } try { renderGeo_(data); } catch (e) { console.error(e); }
 
   /* المنظومة الكلية */
   const mc = data.macro, fc = $('fedCard');
@@ -1890,6 +1946,19 @@ function renderRecent_(d) {
     b.onclick = () => openEvent_(a.id); box.appendChild(b);
   });
 }
+/* ---- الأخبار السياسية/الجيوسياسية المؤثرة (النوع والمنطقة والحدّة والتصعيد/التهدئة، بلا اتجاه أثر على ES) ---- */
+function renderGeo_(d) {
+  const box = $('geoList'), card = $('geoCard'), g = d.geo || []; box.innerHTML = ''; card.hidden = !g.length; if (!g.length) return;
+  const SV = ['', 'خفيفة', 'متوسطة', 'عالية', 'حرجة', 'حرجة'];
+  g.forEach(x => {
+    const kind = x.deesc ? ['▼ تهدئة', 'de'] : x.severity >= 2 ? ['▲ تصعيد', 'es'] : ['◆ متابعة', 'fl'];
+    const r = el('div', 'georow ' + kind[1]);
+    r.appendChild(el('div', 't', x.title));
+    r.appendChild(el('div', 'm', kind[0] + ' · ' + ((x.regions || []).join('، ') || 'منطقة غير محددة') + ' · حدّة ' + (SV[x.severity] || '—') + (x.sources ? ' · ' + x.sources + ' مصادر' : '')));
+    box.appendChild(r);
+  });
+  $('geoNote').textContent = (d.geo_confirmed ? 'السوق يؤكد الخبر بحركة فعلية.' : 'لا تأكيد من حركة السوق حتى الآن.') + ' التصنيف وصفي ولا يحدد اتجاه الأثر على ES. التفاصيل الكاملة في «التفاصيل».';
+}
 /* ---- جاما ---- */
 let GAMMA = null, GSEL = null, GASSET = 'SPX', GBSEL = null;
 const gAge_ = ms => { const m = Math.max(0, Math.round(ms / 60000)); if (m < 1) return 'أقل من دقيقة'; if (m < 60) return m + ' دقيقة'; const h = Math.floor(m / 60); if (h < 48) return h + ' ساعة' + (h < 6 && m % 60 ? ' و' + (m % 60) + ' دقيقة' : ''); return Math.floor(h / 24) + ' يوماً'; };
@@ -1954,8 +2023,10 @@ function gLine_(box, o) {
   if (pr.length < 5) { box.hidden = true; return null; }
   box.hidden = false;
   box.appendChild(el('h2', '', o.title)); if (o.desc) box.appendChild(el('p', 'src', o.desc));
+  if ((o.old || []).length >= 5) { const tg = el('button', 'goldt', GOLD ? 'إخفاء المنحنى القديم' : 'إظهار المنحنى القديم'); tg.type = 'button'; tg.setAttribute('aria-pressed', String(GOLD)); tg.onclick = () => { GOLD = !GOLD; renderGamma_(); }; box.appendChild(tg); }
   const W = 400, H = 300, Lm = 46, Rm = 10, Tm = 26, Bm = 58, base = H - Bm, v = pr.map(r => Number(r.net) / 1e9);
-  let mn = Math.min(0, ...v), mx = Math.max(0, ...v); const pad = (mx - mn) * .1 || 1; mn -= pad; mx += pad;
+  const kLo = pr[0].k, kHi = pr[pr.length - 1].k, oc = (o.old || []).filter(r => r && isFinite(Number(r[0])) && isFinite(Number(r[1])) && r[0] >= kLo && r[0] <= kHi).slice().sort((a, b) => a[0] - b[0]), ov = oc.map(r => r[1] / 1e9), showOld = oc.length >= 5 && GOLD;
+  let mn = Math.min(0, ...v, ...(showOld ? ov : [])), mx = Math.max(0, ...v, ...(showOld ? ov : [])); const pad = (mx - mn) * .1 || 1; mn -= pad; mx += pad;
   const k0 = o.kr ? o.kr[0] : pr[0].k, k1 = o.kr ? o.kr[1] : pr[pr.length - 1].k, X = k => Lm + (k - k0) / (k1 - k0 || 1) * (W - Lm - Rm), Y = y => Tm + (mx - y) / (mx - mn) * (base - Tm);
   const P = pr.map((r, i) => [X(r.k), Y(v[i])]), z = Y(0), f1 = n => n.toFixed(1), kl = k => String(Math.round(k * 10) / 10);
   const NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'مخطط صافي Gamma لكل Strike ' + (o.label || ''));
@@ -1965,7 +2036,14 @@ function gLine_(box, o) {
   area(Math.min, 'var(--ok)'); area(Math.max, 'var(--crit)');
   add('line', { x1: Lm, x2: W - Rm, y1: f1(z), y2: f1(z), stroke: 'var(--fg)', 'stroke-width': 1.6, class: 'zero' });
   add('line', { x1: Lm, x2: W - Rm, y1: base, y2: base, stroke: 'currentColor', 'stroke-opacity': .4 });
-  add('polyline', { points: P.map(p => f1(p[0]) + ',' + f1(p[1])).join(' '), fill: 'none', stroke: 'var(--fg)', 'stroke-width': 1.5 });
+  if (showOld) add('polyline', { points: oc.map((r, i) => f1(X(r[0])) + ',' + f1(Y(ov[i]))).join(' '), fill: 'none', stroke: '#8f9db5', 'stroke-width': 1, 'stroke-dasharray': '4 3', 'stroke-opacity': .9, class: 'oldc' });
+  add('polyline', { points: P.map(p => f1(p[0]) + ',' + f1(p[1])).join(' '), fill: 'none', stroke: 'var(--fg)', 'stroke-width': 1.1, class: 'mainc' });
+  const yNew = k => { let b = 0; pr.forEach((r, i) => { if (Math.abs(r.k - k) < Math.abs(pr[b].k - k)) b = i; }); return P[b][1]; }, yOld = k => { if (!oc.length) return base; let b = 0; oc.forEach((r, i) => { if (Math.abs(r[0] - k) < Math.abs(oc[b][0] - k)) b = i; }); return Y(ov[b]); };
+  if (showOld) (o.chg || []).forEach(c => {
+    if (c.change === 'moved' && c.old != null && c.nw != null) { const xa = X(c.old), xb = X(c.nw), ya = Math.max(Tm + 4, Math.min(yOld(c.old), yNew(c.nw)) - 8); add('line', { x1: f1(xa), x2: f1(xb), y1: f1(ya), y2: f1(ya), stroke: '#ffb020', 'stroke-width': 1.4, 'marker-end': 'none', class: 'chg-mv' }); add('circle', { cx: f1(xb), cy: f1(ya), r: 2.6, fill: '#ffb020', class: 'chg-mv' }); }
+    else if (c.change === 'new' && c.nw != null) add('circle', { cx: f1(X(c.nw)), cy: f1(yNew(c.nw)), r: 6, fill: 'none', stroke: '#fff', 'stroke-width': 1.6, class: 'chg-new' });
+    else if (c.change === 'gone' && c.old != null) add('circle', { cx: f1(X(c.old)), cy: f1(yOld(c.old)), r: 6, fill: 'none', stroke: '#b07cff', 'stroke-width': 1.4, 'stroke-dasharray': '2 2', class: 'chg-gone' });
+  });
   (o.marks || []).forEach((x, i) => { const n = Number(x[1]); if (x[1] == null || !isFinite(n) || n < k0 || n > k1) return; add('line', { x1: f1(X(n)), x2: f1(X(n)), y1: Tm, y2: base, stroke: x[2], 'stroke-width': 1.2, 'stroke-dasharray': '1 3' }); add('text', { x: f1(X(n)), y: Tm - 8 - (i === 1 ? 10 : 0), 'text-anchor': 'middle', 'font-size': 9, fill: x[2] }, x[0]); });
   /* القمم: كل قمة محلية حقيقية (أعلى/أدنى من جارَيها) قيمتها ≥ 30% من أكبر قمة، مرتبة بالحجم، بتباعد ≥ 2 Strike وحد أقصى 5 لكل جهة */
   const pick = (ord, n) => { const c = []; for (const i of ord) { if (c.every(j => Math.abs(i - j) >= 2)) c.push(i); if (c.length === n) break; } return c; };
@@ -1973,16 +2051,16 @@ function gLine_(box, o) {
   const isPk = i => { const a = i > 0 ? v[i - 1] : -Infinity, b = i < v.length - 1 ? v[i + 1] : -Infinity; return v[i] > 0 && v[i] >= a && v[i] >= b && v[i] >= amax * .3; };
   const isTr = i => { const c = i > 0 ? v[i - 1] : Infinity, d = i < v.length - 1 ? v[i + 1] : Infinity; return v[i] < 0 && v[i] <= c && v[i] <= d && -v[i] >= amax * .3; };
   const pos = pick(idx.filter(isPk).sort((a, b) => v[b] - v[a]), 5), neg = pick(idx.filter(isTr).sort((a, b) => v[a] - v[b]), 5);
-  const drop = (i, col) => { add('line', { x1: f1(P[i][0]), x2: f1(P[i][0]), y1: f1(P[i][1]), y2: base, stroke: col, 'stroke-width': 1, 'stroke-dasharray': '3 3', class: 'pk' }); add('circle', { cx: f1(P[i][0]), cy: f1(P[i][1]), r: 3, fill: col, class: 'pk' }); add('text', { transform: 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)', 'text-anchor': 'start', class: 'pk-l' }, String(Math.round(pr[i].k))); };
+  const drop = (i, col) => { add('line', { x1: f1(P[i][0]), x2: f1(P[i][0]), y1: f1(P[i][1]), y2: base, stroke: col, 'stroke-width': 1, 'stroke-dasharray': '3 3', class: 'pk' }); add('circle', { cx: f1(P[i][0]), cy: f1(P[i][1]), r: 3, fill: col, class: 'pk' }); add('text', { transform: 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)', 'text-anchor': 'start', class: 'pk-l' }, o.conv ? o.conv(pr[i].k) : String(Math.round(pr[i].k))); };
   pos.forEach(i => drop(i, 'var(--ok)')); neg.forEach(i => drop(i, 'var(--crit)'));
   const hv = add('g', { class: 'hv', visibility: 'hidden' });
   const hl = add('line', { y1: Tm, y2: base, stroke: '#6c93ff', 'stroke-width': 1.2 }, null, hv), hc = add('circle', { r: 4.5, fill: '#6c93ff' }, null, hv), ht = add('text', { 'text-anchor': 'start', class: 'hv-l' }, '', hv);
-  const tb = add('rect', { y: Tm + 2, width: 112, height: 31, rx: 6, class: 'hv-bg' }, null, hv), t1 = add('text', { y: Tm + 15, class: 'hv-t' }, '', hv), t2 = add('text', { y: Tm + 28, class: 'hv-t2' }, '', hv);
+  const tb = add('rect', { y: Tm + 2, width: 150, height: 31, rx: 6, class: 'hv-bg' }, null, hv), t1 = add('text', { y: Tm + 15, class: 'hv-t' }, '', hv), t2 = add('text', { y: Tm + 28, class: 'hv-t2' }, '', hv);
   const showI = i => {
     const x = P[i][0], r = pr[i]; hv.setAttribute('visibility', 'visible'); hl.setAttribute('x1', f1(x)); hl.setAttribute('x2', f1(x)); hc.setAttribute('cx', f1(x)); hc.setAttribute('cy', f1(P[i][1]));
-    ht.setAttribute('transform', 'translate(' + f1(x - 6) + ',' + (base + 9) + ') rotate(45)'); ht.textContent = String(Math.round(r.k));
-    const tx = x > W * .55 ? x - 118 : x + 6; tb.setAttribute('x', f1(tx)); t1.setAttribute('x', f1(tx + 6)); t2.setAttribute('x', f1(tx + 6));
-    t1.textContent = (o.label ? o.label + ' · ' : '') + kl(r.k) + (r.spyK != null ? ' (SPY ' + r.spyK + ')' : ''); t2.textContent = 'الصافي ' + gB_(r.net);
+    ht.setAttribute('transform', 'translate(' + f1(x - 6) + ',' + (base + 9) + ') rotate(45)'); ht.textContent = o.conv ? o.conv(r.k) : String(Math.round(r.k));
+    const tx = x > W * .55 ? x - 156 : x + 6; tb.setAttribute('x', f1(tx)); t1.setAttribute('x', f1(tx + 6)); t2.setAttribute('x', f1(tx + 6));
+    t1.textContent = (o.label ? o.label + ' · ' : '') + (o.conv ? 'ES ' + o.conv(r.k) + ' (' + kl(r.k) + ')' : kl(r.k)) + (r.spyK != null ? ' (SPY ' + r.spyK + ')' : ''); t2.textContent = 'الصافي ' + gB_(r.net);
   };
   const at = ev => { const rc = svg.getBoundingClientRect(), x = (ev.clientX - rc.left) / rc.width * W; let b = 0; P.forEach((p, i) => { if (Math.abs(p[0] - x) < Math.abs(P[b][0] - x)) b = i; }); return b; };
   svg.addEventListener('pointermove', ev => { const i = at(ev); showI(i); if (o.onHover) o.onHover(pr[i].k); }); svg.addEventListener('pointerdown', ev => { const i = at(ev); showI(i); if (o.onHover) o.onHover(pr[i].k); });
@@ -1994,6 +2072,8 @@ function gLine_(box, o) {
 function renderGamma_() {
   const g = GAMMA, st = gammaStatus_(g), fr = $('gFresh'); fr.dataset.s = st; fr.innerHTML = '';
   const show = (id, on) => { $(id).hidden = !on; };
+  /* خلفية التبويب: أحمر/أخضر بحالة الجاما عند لقطة صالحة (خفيفة إن كانت متأخرة)، ورمادية عند قِدَم اللقطة أو غيابها أو إغلاق السوق */
+  if (!$('tab-gamma').hidden) { const okg = (st === 'fresh' || st === 'late') && g && isFinite(Number(g.net_gex)); document.body.dataset.gtint = okg ? (Number(g.net_gex) < 0 ? 'neg' : 'pos') : 'off'; if (okg && st === 'late') document.body.dataset.gsoft = '1'; else document.body.removeAttribute('data-gsoft'); } else { document.body.removeAttribute('data-gtint'); document.body.removeAttribute('data-gsoft'); }
   const ALL = ['gLevels', 'gLine', 'gLine2', 'gCmp', 'gChart', 'gEsNote', 'gSpy', 'gCtl', 'gChg', 'gMap'];
   const TT = { fresh: '✓ بيانات طازجة', late: '⚠ بيانات متأخرة: تحقق من وقتها قبل الاعتماد', stale: '⛔ بيانات قديمة — لا تعتمدها للتداول', none: '⛔ لا توجد بيانات جاما اليوم' };
   fr.appendChild(el('h2', '', TT[st]));
@@ -2044,10 +2124,10 @@ function renderGamma_() {
   const rng = () => { const a = (dX ? dX.rows : []).map(r => r.k).concat(dY ? dY.rows.map(r => r.k) : []).filter(k => !isFinite(spot) || Math.abs(k - spot) <= 120); return a.length ? [Math.min(...a), Math.max(...a)] : null; };
   const kr = cmp ? rng() : null, DESC = 'الأفقي: Strike (SPX). العمودي: صافي GEX، والخط الأبيض الأفقي = الصفر، فوقه إيجابي (أخضر) وتحته سلبي (أحمر). من كل قمة خط إلى المحور وعليه رقم Strike. حرّك المؤشر أو المس أي نقطة لرؤية Strike الخاص بها.';
   const marks1 = d ? [['Put Wall', d.pw, 'var(--crit)'], ['Call Wall', d.cw, 'var(--ok)']].concat(spotMarks, d.flip != null ? [['Flip', d.flip, '#6c93ff']] : []) : spotMarks;
-  c1 = d ? gLine_($('gLine'), { title: cmp ? 'SPX — صافي Gamma لكل Strike' + stamp : 'صافي Gamma حسب Strike (خط)' + (main === 'SPY' ? ' — SPY (مكافئ SPX)' : '') + stamp, desc: DESC, rows: d.rows, spot, marks: marks1, kr, label: main === 'SPY' ? 'SPY→SPX' : 'SPX', onHover: cmp ? sync.h1 : null, onLeave: cmp ? sync.l1 : null, onPick: k => { GSEL = k; gMark_(false); } }) : ($('gLine').hidden = true, null);
+  c1 = d ? gLine_($('gLine'), { title: cmp ? 'SPX — صافي Gamma لكل Strike' + stamp : 'صافي Gamma حسب Strike (خط)' + (main === 'SPY' ? ' — SPY (مكافئ SPX)' : '') + stamp, desc: DESC, rows: d.rows, spot, marks: marks1, kr, label: main === 'SPY' ? 'SPY→SPX' : 'SPX', old: d.all && chg.base && chg.base.curve ? chg.base.curve[main === 'SPY' && !cmp ? 'SPY' : 'SPX'] : null, chg: chg.items.filter(c => c.kind === 'PEAK' && c.src === (main === 'SPY' && !cmp ? 'SPY' : 'SPX')), conv: esOk ? conv : null, onHover: cmp ? sync.h1 : null, onLeave: cmp ? sync.l1 : null, onPick: k => { GSEL = k; gMark_(false); } }) : ($('gLine').hidden = true, null);
   ln2.innerHTML = ''; ln2.hidden = true; c2 = null;
   if (cmp && dY) {
-    c2 = gLine_(ln2, { title: 'SPY — صافي Gamma لكل Strike (محوَّل إلى مكافئ SPX)' + stamp, desc: 'نفس رسم SPX وبنفس المحور الأفقي (Strike بمكافئ SPX) فتُقارَن القمم عمودياً بين المخططين. لكل مخطط محوره العمودي الخاص (صافي GEX بدولار كل أصل). المؤشر على أحدهما يظهر في الآخر.', rows: dY.rows, spot, marks: [['Put Wall', dY.pw, 'var(--crit)'], ['Call Wall', dY.cw, 'var(--ok)']].concat(spotMarks, dY.flip != null ? [['Flip', dY.flip, '#6c93ff']] : []), kr, label: 'SPY→SPX', onHover: sync.h2, onLeave: sync.l2, onPick: k => { GSEL = k; gMark_(false); } });
+    c2 = gLine_(ln2, { title: 'SPY — صافي Gamma لكل Strike (محوَّل إلى مكافئ SPX)' + stamp, desc: 'نفس رسم SPX وبنفس المحور الأفقي (Strike بمكافئ SPX) فتُقارَن القمم عمودياً بين المخططين. لكل مخطط محوره العمودي الخاص (صافي GEX بدولار كل أصل). المؤشر على أحدهما يظهر في الآخر.', rows: dY.rows, spot, marks: [['Put Wall', dY.pw, 'var(--crit)'], ['Call Wall', dY.cw, 'var(--ok)']].concat(spotMarks, dY.flip != null ? [['Flip', dY.flip, '#6c93ff']] : []), kr, label: 'SPY→SPX', old: dY.all && chg.base && chg.base.curve ? chg.base.curve.SPY : null, chg: chg.items.filter(c => c.kind === 'PEAK' && c.src === 'SPY'), conv: esOk ? conv : null, onHover: sync.h2, onLeave: sync.l2, onPick: k => { GSEL = k; gMark_(false); } });
   }
   /* جدول المقارنة */
   cm.innerHTML = ''; show('gCmp', cmp && !!dX && !!dY);
@@ -2113,41 +2193,46 @@ function renderGamma_() {
 }
 /* ---- تنبيه تغيّر المستويات: مقارنة بالتثبيت اليدوي (إن وُجد في المتصفح) وإلا بلقطة ما قبل الافتتاح من الخادم؛ الحد 5 نقاط ---- */
 const GPIN_KEY = 'mirsad_gpin', GCHG_MIN = 5;
-const gLevels_ = g => { const o = {}, sp = g && g.spy && g.spy.ok ? g.spy : {}; [['SPX', g.call_wall, g.put_wall, g.gamma_flip], ['SPY', sp.call_wall_x, sp.put_wall_x, sp.gamma_flip_x]].forEach(x => [['CALL WALL', x[1]], ['PUT WALL', x[2]], ['GAMMA FLIP', x[3]]].forEach(y => { if (y[1] != null && isFinite(Number(y[1]))) o[x[0] + '|' + y[0]] = Math.round(Number(y[1]) * 100) / 100; })); return o; };
+/* المقارنة بوحدة الأصل نفسه (SPX بنقاط SPX، وSPY بـ Strike الـ SPY): فلا يُحسب تغيّر نسبة SPX/SPY ولا فرق ES تغيّراً في المستوى */
+const gLevels_ = g => { const o = {}, sp = g && g.spy && g.spy.ok ? g.spy : {}; [['SPX', g.call_wall, g.put_wall, g.gamma_flip], ['SPY', sp.call_wall, sp.put_wall, sp.gamma_flip]].forEach(x => [['CALL WALL', x[1]], ['PUT WALL', x[2]], ['GAMMA FLIP', x[3]]].forEach(y => { if (y[1] != null && isFinite(Number(y[1]))) o[x[0] + '|' + y[0]] = Math.round(Number(y[1]) * 1000) / 1000; })); return o; };
+const gScale_ = g => ({ SPX: 1, SPY: g && g.spy && g.spy.ok && Number(g.spy.ratio) > 0 ? Number(g.spy.ratio) : null });
 const gDay_ = g => { try { return new Date(new Date(g.snapshot_utc).getTime() - 4 * 3600000).toISOString().substr(0, 10); } catch (e) { return ''; } };
-const gPin_ = g => { try { const p = JSON.parse(store_.get(GPIN_KEY, 'null')); return p && p.levels && p.day === gDay_(g) ? p : null; } catch (e) { return null; } };
+const gCurve_ = g => { const o = {}; ['SPX', 'SPY'].forEach(a => { try { const d = gData_(g, a); if (d && d.all) o[a] = d.rows.filter(r => Math.abs(r.k - Number(g.spot)) <= 150).map(r => [Number(r.k), Number(r.net) || 0]); } catch (e) {} }); return o; };
+let GOLD = true;
+const gPin_ = g => { try { const p = JSON.parse(store_.get(GPIN_KEY, 'null')); return p && p.v === 2 && p.levels && p.day === gDay_(g) ? p : null; } catch (e) { return null; } };
 /* قمم/قيعان net المحلية المهمة (≥25% من الأكبر ضمن ±150 من السعر)، تُستثنى المطابقة لجدار الأصل (≤3). نفس قاعدة gamma.py */
 function gPeaks_(g) {
   const out = {}, spot = Number(g.spot);
   ['SPX', 'SPY'].forEach(a => {
     const d = gData_(g, a); if (!d) return; const w = [d.cw, d.pw].filter(x => x != null && isFinite(Number(x))).map(Number);
-    const rs = d.rows.map(r => [Number(r.k), Number(r.net) || 0]).filter(r => Math.abs(r[0] - spot) <= 150).sort((x, y) => x[0] - y[0]), mx = Math.max(1, ...rs.map(r => Math.abs(r[1]))), pk = [];
-    rs.forEach((r, i) => { const v = r[1], p = i > 0 ? rs[i - 1][1] : 0, n = i < rs.length - 1 ? rs[i + 1][1] : 0; if (((v > 0 && v >= p && v >= n) || (v < 0 && v <= p && v <= n)) && Math.abs(v) >= 0.25 * mx && !w.some(x => Math.abs(r[0] - x) <= 3)) pk.push({ k: Math.round(r[0] * 10) / 10, s: v > 0 ? 1 : -1, strong: Math.abs(v) / mx >= 0.6 }); });
+    const rs = d.rows.map(r => [Number(r.k), Number(r.net) || 0, a === 'SPY' ? Number(r.spyK) : Number(r.k)]).filter(r => Math.abs(r[0] - spot) <= 150).sort((x, y) => x[0] - y[0]), mx = Math.max(1, ...rs.map(r => Math.abs(r[1]))), pk = [];
+    rs.forEach((r, i) => { const v = r[1], p = i > 0 ? rs[i - 1][1] : 0, n = i < rs.length - 1 ? rs[i + 1][1] : 0; if (((v > 0 && v >= p && v >= n) || (v < 0 && v <= p && v <= n)) && Math.abs(v) >= 0.25 * mx && !w.some(x => Math.abs(r[0] - x) <= 3)) pk.push({ k: Math.round(r[0] * 10) / 10, n: Math.round(r[2] * 1000) / 1000, s: v > 0 ? 1 : -1, strong: Math.abs(v) / mx >= 0.6 }); });
     out[a] = pk;
   });
   return out;
 }
-function gPeakChg_(old, cur) {
+function gPeakChg_(old, cur, sc) {
   const out = [];
-  Object.keys(cur).forEach(a => { if (!old[a]) return;
+  Object.keys(cur).forEach(a => { if (!old[a]) return; const rn = (sc && sc[a]) || 1, nn = x => (x.n != null ? x.n : x.k), D = (x, y) => Math.abs(nn(x) - nn(y)) * rn;
     [1, -1].forEach(s => {
       let os = old[a].filter(x => x.s === s), ns = cur[a].filter(x => x.s === s);
-      os.slice().forEach(x => { const m = ns.filter(y => Math.abs(y.k - x.k) < GCHG_MIN - 1e-9).sort((p, q) => Math.abs(p.k - x.k) - Math.abs(q.k - x.k)); if (m.length) { os = os.filter(z => z !== x); ns = ns.filter(z => z !== m[0]); } });
-      const pr = []; os.forEach(x => ns.forEach(y => { if (Math.abs(x.k - y.k) <= 25) pr.push([Math.abs(x.k - y.k), x, y]); })); pr.sort((p, q) => p[0] - q[0]);
-      pr.forEach(z => { if (os.indexOf(z[1]) >= 0 && ns.indexOf(z[2]) >= 0) { os = os.filter(q => q !== z[1]); ns = ns.filter(q => q !== z[2]); out.push({ key: a + '|PEAK', src: a, kind: 'PEAK', sign: s, change: 'moved', old: z[1].k, nw: z[2].k, strong: z[2].strong }); } });
+      os.slice().forEach(x => { const m = ns.filter(y => D(x, y) < GCHG_MIN - 1e-9).sort((p, q) => D(x, p) - D(x, q)); if (m.length) { os = os.filter(z => z !== x); ns = ns.filter(z => z !== m[0]); } });
+      const pr = []; os.forEach(x => ns.forEach(y => { if (D(x, y) <= 25) pr.push([D(x, y), x, y]); })); pr.sort((p, q) => p[0] - q[0]);
+      pr.forEach(z => { if (os.indexOf(z[1]) >= 0 && ns.indexOf(z[2]) >= 0) { os = os.filter(q => q !== z[1]); ns = ns.filter(q => q !== z[2]); out.push({ key: a + '|PEAK', src: a, kind: 'PEAK', sign: s, change: 'moved', old: z[1].k, nw: z[2].k, real: (nn(z[2]) - nn(z[1])) * rn, strong: z[2].strong, ostrong: z[1].strong }); } });
       ns.forEach(y => out.push({ key: a + '|PEAK', src: a, kind: 'PEAK', sign: s, change: 'new', old: null, nw: y.k, strong: y.strong }));
-      os.forEach(x => out.push({ key: a + '|PEAK', src: a, kind: 'PEAK', sign: s, change: 'gone', old: x.k, nw: null, strong: x.strong }));
+      os.forEach(x => out.push({ key: a + '|PEAK', src: a, kind: 'PEAK', sign: s, change: 'gone', old: x.k, nw: null, strong: x.strong, ostrong: x.strong }));
     });
   });
   return out;
 }
 function gChanges_(g) {
   const pin = gPin_(g), b = pin || (g.baseline && g.baseline.levels ? g.baseline : null); if (!b) return { base: null, items: [] };
-  const cur = gLevels_(g), bsN = g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null, bsO = isFinite(Number(b.basis)) ? Number(b.basis) : bsN, sn = v => Math.round(v * 4) / 4, items = [];
-  Object.keys(cur).forEach(k => { const o = b.levels[k]; if (o == null || Math.abs(cur[k] - o) < GCHG_MIN - 1e-9) return; const a = k.split('|'); items.push({ key: k, src: a[0], kind: a[1], change: 'moved', old: o, nw: cur[k] }); });
-  if (b.peaks) { try { gPeakChg_(b.peaks, gPeaks_(g)).forEach(x => items.push(x)); } catch (e) { console.error(e); } }
+  const cur = gLevels_(g), scN = gScale_(g), scO = b.scale || {}, bsN = g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null, bsO = isFinite(Number(b.basis)) ? Number(b.basis) : bsN, sn = v => Math.round(v * 4) / 4, items = [];
+  Object.keys(cur).forEach(k => { const o = b.levels[k]; if (o == null) return; const a = k.split('|'), rn = scN[a[0]] || 1, ro = scO[a[0]] || rn; if (Math.abs(cur[k] - o) * rn < GCHG_MIN - 1e-9) return; items.push({ key: k, src: a[0], kind: a[1], change: 'moved', old: o * ro, nw: cur[k] * rn, real: (cur[k] - o) * rn }); });
+  if (b.peaks) { try { gPeakChg_(b.peaks, gPeaks_(g), scN).forEach(x => items.push(x)); } catch (e) { console.error(e); } }
   items.forEach(c => { c.oldEs = c.old != null && bsO != null ? sn(c.old + bsO) : null; c.newEs = c.nw != null && bsN != null ? sn(c.nw + bsN) : null; });
-  return { base: { pinned: !!pin, at: pin ? pin.at : b.snapshot_et, basis: bsO }, items };
+  const drift = bsO != null && bsN != null ? Math.round((bsN - bsO) * 100) / 100 : null;
+  return { base: { pinned: !!pin, at: pin ? pin.at : b.snapshot_et, curve: b.curve || null, basis: bsO, bnew: bsN, drift, note: drift != null && Math.abs(drift) >= 1 }, items };
 }
 const gName_ = c => c.kind === 'PEAK' ? c.src + ' ' + (c.sign > 0 ? 'قمة' : 'قاع') + ' ' + (c.strong ? 'قوية' : 'متوسطة') : c.src + ' ' + c.kind;
 function gChg_(g, ch) {
@@ -2160,12 +2245,15 @@ function gChg_(g, ch) {
     const tb = el('table'), hr = el('tr'); ['المستوى', 'كان', 'صار', 'الفرق', ''].forEach(x => hr.appendChild(el('th', '', x))); tb.appendChild(hr);
     ch.items.forEach(c => { const r = el('tr'), unit = esOk && (c.oldEs != null || c.newEs != null), ov = c.old == null ? null : (unit ? c.oldEs : c.old), nv = c.nw == null ? null : (unit ? c.newEs : c.nw), d = ov != null && nv != null ? Math.round((nv - ov) * 100) / 100 : null;
       r.appendChild(el('td', 'lv', gName_(c))); r.appendChild(el('td', '', ov == null ? '—' : ov.toFixed(2))); r.appendChild(el('td', '', nv == null ? '—' : nv.toFixed(2)));
-      r.appendChild(el('td', d == null ? '' : d > 0 ? 'up' : 'dn', d == null ? (nv == null ? 'اختفى' : 'جديد') : (d > 0 ? '+' : '') + d.toFixed(2)));
+      const td = el('td', d == null ? '' : d > 0 ? 'up' : 'dn', d == null ? (nv == null ? 'اختفى' : 'جديد') : (d > 0 ? '+' : '') + d.toFixed(2));
+      if (d != null && unit && c.real != null && Math.abs(d - c.real) >= 0.5) { const sm = el('small', 'rl', 'حقيقي ' + (c.real > 0 ? '+' : '') + c.real.toFixed(2)); td.appendChild(document.createElement('br')); td.appendChild(sm); }
+      r.appendChild(td);
       const tdc = el('td'), cb = el('button', 'cpy', 'نسخ'); cb.type = 'button'; cb.onclick = () => gCopy_(nv != null ? nv.toFixed(2) : ov.toFixed(2), cb); tdc.appendChild(cb); r.appendChild(tdc); tb.appendChild(r); });
     box.appendChild(tb); box.appendChild(el('p', 'src', unit0_(esOk) + ' «كان» و«صار» بسعر ES (كل لقطة بفرقها).'));
   }
+  if (ch.base && ch.base.note) box.appendChild(el('p', 'src gdr', 'ℹ فرق ES−SPX تغيّر من ' + ch.base.basis.toFixed(2) + ' إلى ' + ch.base.bnew.toFixed(2) + ' (' + (ch.base.drift > 0 ? '+' : '') + ch.base.drift.toFixed(2) + '): كل أسعار ES تحرّكت بهذا المقدار بلا تغيّر حقيقي في الجاما. ' + (n ? 'عمود «حقيقي» يفصل تغيّر الجاما عن أثر هذا الفرق.' : 'إن نقلتَ مستوياتك بالفرق القديم فأعد نقلها بالفرق الحالي.')));
   const bar = el('div', 'gcb'), pb = el('button', 'pri', 'نقلتها: ثبّت المستويات الحالية'); pb.type = 'button'; pb.id = 'gPin';
-  pb.onclick = () => { store_.set(GPIN_KEY, JSON.stringify({ day: gDay_(g), at: g.snapshot_et, levels: gLevels_(g), peaks: (() => { try { return gPeaks_(g); } catch (e) { return null; } })(), basis: g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null })); renderGamma_(); };
+  pb.onclick = () => { store_.set(GPIN_KEY, JSON.stringify({ day: gDay_(g), at: g.snapshot_et, v: 2, levels: gLevels_(g), scale: gScale_(g), peaks: (() => { try { return gPeaks_(g); } catch (e) { return null; } })(), basis: g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null, curve: gCurve_(g) })); renderGamma_(); };
   bar.appendChild(pb);
   if (pinned) { const ub = el('button', '', 'إلغاء التثبيت'); ub.type = 'button'; ub.id = 'gUnpin'; ub.onclick = () => { store_.set(GPIN_KEY, 'null'); renderGamma_(); }; bar.appendChild(ub); }
   box.appendChild(bar);
@@ -2217,7 +2305,7 @@ function gMap_(o) {
     const gs = (hi - lo) > 150 ? 25 : (hi - lo) > 60 ? 10 : 5; for (let p = Math.ceil(lo / gs) * gs; p <= hi; p += gs) s += '<line x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + Y(p).toFixed(1) + '" y2="' + Y(p).toFixed(1) + '" stroke="#22304a" stroke-dasharray="2 5"/>';
     const vis = lv.filter(l => l.es >= lo && l.es <= hi);
     if (isFinite(esSpot) && esSpot >= lo && esSpot <= hi) { const y = Y(esSpot); s += '<line class="mp-spot" x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#e9eef7" stroke-width="1.2"/><rect x="150" y="' + (y - 9).toFixed(1) + '" width="74" height="18" rx="4" fill="#e9eef7"/><text x="187" y="' + (y + 4).toFixed(1) + '" text-anchor="middle" font-size="11" font-weight="800" fill="#0b1220">' + 'الآن ' + esSpot.toFixed(2) + '</text>'; }
-    chs.filter(c => c.oldEs != null && c.oldEs >= lo && c.oldEs <= hi).forEach(c => { const y = Y(c.oldEs); s += '<g class="mp-ghost" data-src="' + c.src + '" data-kind="' + c.kind + '"><line x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#8f9db5" stroke-width="1.6" stroke-dasharray="6 5"/><text x="' + (W - Rm - 4) + '" y="' + (y - 4).toFixed(1) + '" text-anchor="end" font-size="10" font-weight="700" fill="#b8c3d6">' + (c.newEs == null ? 'اختفى · ' : '') + 'كان ' + c.oldEs.toFixed(2) + '</text></g>'; });
+    chs.filter(c => c.oldEs != null && c.oldEs >= lo && c.oldEs <= hi).forEach(c => { const y = Y(c.oldEs), main = c.kind !== 'PEAK' || !!c.ostrong; s += '<g class="mp-ghost" data-main="' + (main ? 1 : 0) + '" data-src="' + c.src + '" data-kind="' + c.kind + '"><line x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#8f9db5" stroke-width="' + (main ? 2.2 : 1.5) + '"' + (main ? '' : ' stroke-dasharray="4 5"') + '/><text x="' + (W - Rm - 4) + '" y="' + (y - 4).toFixed(1) + '" text-anchor="end" font-size="10" font-weight="700" fill="#b8c3d6">' + (c.newEs == null ? 'اختفى · ' : '') + 'كان ' + c.oldEs.toFixed(2) + '</text></g>'; });
     const tg = vis.slice().sort((a, b) => b.es - a.es); let last = -99; tg.forEach(l => { let y = Y(l.es); if (y - last < 15) y = last + 15; l.ty = y; last = y; });
     vis.forEach(l => { const y = Y(l.es), x = W - Rm - 2; s += '<line class="mp-ln' + (l.strong ? ' st' : '') + '" data-src="' + l.src + '" data-es="' + l.es.toFixed(2) + '" x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="' + l.c + '" stroke-width="' + (l.kind ? 2.8 : l.strong ? 2.2 : 1.3) + '"' + (l.strong ? '' : ' stroke-dasharray="3 4"') + ' stroke-opacity="' + (l.strong ? 1 : 0.85) + '"/>'
       + '<path d="M' + (W - Rm) + ' ' + y.toFixed(1) + ' L' + (x + 4) + ' ' + l.ty.toFixed(1) + '" stroke="' + l.sc + '" stroke-width="1" fill="none"/><g class="mp-tag' + (l.chg ? ' chg' : '') + '" data-src="' + l.src + '" data-es="' + l.es.toFixed(2) + '"><rect x="' + (x + 4) + '" y="' + (l.ty - 8).toFixed(1) + '" width="' + (Rm - 16) + '" height="16" rx="4" fill="#0b1220" stroke="' + (l.chg ? '#ffffff' : l.sc) + '" stroke-width="' + (l.chg ? 2.2 : 1.2) + '"/><rect x="' + (x + 4) + '" y="' + (l.ty - 8).toFixed(1) + '" width="28" height="16" rx="4" fill="' + l.sc + '"/><text x="' + (x + 18) + '" y="' + (l.ty + 3.5).toFixed(1) + '" text-anchor="middle" font-size="9.5" font-weight="800" fill="#0b1220">' + l.src + '</text><text class="mp-es" x="' + (x + 36) + '" y="' + (l.ty + 3.5).toFixed(1) + '" font-size="11" font-weight="800" fill="#e9eef7">' + l.es.toFixed(2) + '</text></g>'; });
@@ -2240,6 +2328,16 @@ function gMap_(o) {
   let md = null; wrap.addEventListener('mousedown', e => { if (GMZ && e.button === 0) md = { y: e.clientY, c: cur() }; });
   window.addEventListener('mousemove', e => { if (!md || !wrap.isConnected) return; const r = svgBox.getBoundingClientRect(), d = (e.clientY - md.y) / Math.max(1, r.height) * H / (H - Tm - Bm) * (md.c.hi - md.c.lo); setZ(md.c.lo + d, md.c.hi + d); });
   window.addEventListener('mouseup', () => { md = null; });
+  /* جدول المستويات (يظهر على الحاسوب فقط): كل مستوى بسعر ES مرتباً من الأعلى، وصف «السعر الآن»، وما تغيّر/اختفى */
+  { const tv = el('div', 'mplv'), tb = el('table', 'mplt'), rows = lv.map(l => ({ es: l.es, l })).concat(isFinite(esSpot) ? [{ es: snap(esSpot), now: true }] : []).concat(chs.filter(c => c.newEs == null && c.oldEs != null).map(c => ({ es: c.oldEs, gone: c })));
+    rows.sort((a, b) => b.es - a.es).forEach(x => { const tr = el('tr');
+      if (x.now) { tr.className = 'now'; const td = el('td', '', '▶ السعر الآن'); td.colSpan = 3; tr.appendChild(td); tr.appendChild(el('td', 'es', x.es.toFixed(2))); tr.appendChild(el('td', '', '')); }
+      else if (x.gone) { tr.className = 'gone'; const c = x.gone, sc = c.src === 'SPX' ? '#4f9bff' : '#ffb02e'; const b1 = el('td', 'bar'), i = el('i'); i.style.background = '#8f9db5'; b1.appendChild(i); tr.appendChild(b1); const b2 = el('td', 'src'), bb = el('b', '', c.src); bb.style.background = sc; b2.appendChild(bb); tr.appendChild(b2); tr.appendChild(el('td', '', gName_(c) + ' — اختفى')); tr.appendChild(el('td', 'es', x.es.toFixed(2))); tr.appendChild(el('td', '', '')); }
+      else { const l = x.l; if (l.chg) tr.className = 'chg'; const b1 = el('td', 'bar'), i = el('i'); i.style.background = l.c; b1.appendChild(i); tr.appendChild(b1); const b2 = el('td', 'src'), bb = el('b', '', l.src); bb.style.background = l.sc; b2.appendChild(bb); tr.appendChild(b2);
+        const nm = el('td', '', l.kind || ((l.v > 0 ? 'قمة ' : 'قاع ') + (l.strong ? 'قوية' : 'متوسطة'))); if (l.chg) nm.appendChild(el('small', '', l.chg.change === 'new' ? 'جديد' : l.chg.oldEs != null ? 'كان ' + l.chg.oldEs.toFixed(2) : '')); tr.appendChild(nm);
+        tr.appendChild(el('td', 'es', l.es.toFixed(2))); const cb = el('button', '', 'نسخ'); cb.type = 'button'; cb.onclick = () => gCopy_(l.es.toFixed(2), cb); const tc = el('td'); tc.appendChild(cb); tr.appendChild(tc); }
+      tb.appendChild(tr); });
+    tv.appendChild(tb); box.appendChild(tv); }
   paint();
   const lg = el('div', 'mpleg'); lg.innerHTML = '<span><i style="border-top:2.5px solid #2fe0a0"></i>قوي (موجب)</span><span><i style="border-top:2.5px solid #ff5c7a"></i>قوي (سالب)</span><span><i style="border-top:2px dotted #8f9db5"></i>متوسط/صغير</span><span><i style="border-top:3px solid #ffd24a"></i>Gamma Flip</span><span><b class="sx">SPX</b> مصدره SPX</span><span><b class="sy">SPY</b> مصدره SPY محوَّلاً إلى ES</span><span><b class="gr"></b>' + (rg ? 'الخلفية: حالة الجاما لو وصل السعر هنا (أخضر = تهدئة، أحمر = تضخيم)' : 'الخلفية: سالب ← موجب، صافي GEX عند كل Strike') + (ga === 'SPY' ? ' (SPY)' : ' (SPX)') + '</span>';
   box.appendChild(lg);
@@ -2277,7 +2375,7 @@ function loadGamma_() {
     const t = g => (g && g.ok && g.snapshot_utc ? new Date(g.snapshot_utc).getTime() : -1);
     const ok = a.filter(g => g && g.ok), best = ok.length ? ok.reduce((x, y) => (t(y) > t(x) ? y : x)) : (a.find(g => g) || null);
     GAMMA = best;
-  }).then(() => { try { renderGamma_(); } catch (e) { console.error(e); } });
+  }).then(() => { try { renderGamma_(); } catch (e) { console.error(e); } try { renderWatch_(); } catch (e) { /* لا شيء */ } });
 }
 /* ---- صحة مرصاد: الأيقونة والنافذة ---- */
 function healthWhy_() {
@@ -2476,6 +2574,14 @@ function renderWatch_() {
   if (mc && typeof mc.lean === 'number') { const L = mc.lean; fe.dataset.t = L >= .6 ? 'crit' : L > .25 ? 'hi' : L <= -.25 ? 'ok' : 'warn'; gaugeSet_('wFedG', (Math.max(-1, Math.min(1, L)) + 1) / 2); $('wFedW').textContent = mc.label || ''; fe.setAttribute('aria-label', 'الفدرالي ' + (mc.label || '')); }
   else { fe.dataset.t = 'na'; gaugeSet_('wFedG', null); $('wFedW').textContent = '—'; }
   const lv = mc && mc.liqView; if (lv) { lq.dataset.t = lv.tone === 'bull' ? 'ok' : lv.tone === 'bear' ? 'crit' : 'na'; lq.textContent = (lv.tone === 'bull' ? '💧 ' : lv.tone === 'bear' ? '🔻 ' : '') + 'سيولة ' + lv.word; } else { lq.dataset.t = 'na'; lq.textContent = ''; }
+  /* حالة الجاما (إيجابية/سلبية) كشارة مستقلة: لا تدخل في تحيّز الماكرو */
+  try {
+    const gb = $('wGam'), gs_ = gammaStatus_(GAMMA);
+    if (gs_ === 'fresh' || gs_ === 'late') { const neg = Number(GAMMA.net_gex) < 0, flip = Number(GAMMA.gamma_flip), sp_ = Number(GAMMA.spot), es_ = GAMMA.es && isFinite(Number(GAMMA.es.basis)) ? Number(GAMMA.es.basis) : null; gb.dataset.t = gs_ === 'late' ? 'late' : neg ? 'neg' : 'pos';
+      $('wGamW').textContent = (neg ? 'سلبية' : 'إيجابية') + (gs_ === 'late' ? ' · متأخرة' : '') + (GAMMA.changes && GAMMA.changes.n ? ' ⚠' : '');
+      $('wGamS').innerHTML = ''; if (isFinite(flip) && isFinite(sp_)) { $('wGamS').appendChild(document.createTextNode((sp_ < flip ? 'السعر تحت Flip' : 'السعر فوق Flip') + ' ')); const fb = document.createElement('b'); fb.style.cssText = 'font-family:var(--font-mono);direction:ltr;unicode-bidi:isolate;color:var(--fg);font-size:inherit'; fb.textContent = (es_ != null ? Math.round((flip + es_) * 4) / 4 : flip).toFixed(2); $('wGamS').appendChild(fb); } }
+    else { gb.dataset.t = 'na'; $('wGamW').textContent = 'لا بيانات حديثة'; $('wGamS').textContent = ''; }
+  } catch (e) { console.error(e); }
   /* المخاطر */
   const wr = $('wRisk'), inc = d.risk && d.risk.incomplete;
   if (RISK_NOW && !inc) { const L = RISK_NOW.lvl; wr.dataset.t = ['ok', 'warn', 'hi', 'crit'][L.i]; gaugeSet_('wRiskG', RISK_NOW.score / 10); $('wRiskN').textContent = RISK_NOW.score + '/10'; $('wRiskW').textContent = tr_(L.name).replace(/^مخاطرة\s*/, ''); wr.setAttribute('aria-label', 'المخاطر ' + RISK_NOW.score + ' من 10'); }
@@ -2571,6 +2677,7 @@ function showTab(t) {
   document.querySelectorAll('.tab').forEach(d => { d.hidden = d.id !== 'tab-' + t; });
   document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
   try { localStorage.setItem('mirsad-tab', t); } catch (e) {}
+  if (t !== 'gamma') { document.body.removeAttribute('data-gtint'); document.body.removeAttribute('data-gsoft'); }
   if (t === 'gamma' && typeof renderGamma_ === 'function') { try { renderGamma_(); } catch (e) {} }
 }
 document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
@@ -2584,7 +2691,7 @@ let booted = false, loadedAt = 0, lastTry = 0, FAIL = null, btnTimer = null;
 /* ثلاثة أزمنة منفصلة: وقت البيانات المعروضة (LIVE.updated)، آخر جلب ناجح (loadedAt)، آخر محاولة (lastTry). فشل المحاولة لا يحدّث الثانية ولا يمحو اللقطة. */
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
 const FAILMSG = { http: 'الخادم رفض الطلب', network: 'لا اتصال بالشبكة', json: 'ملف البيانات تالف', source: 'المصدر أبلغ عن خطأ', render: 'تعذّر عرض البيانات' };
-const UI_VERSION = '0.23.0';
+const UI_VERSION = '0.23.2';
 function versionCheck_(d) {
   const dv = d && d.version, vl = $('verLine'), vw = $('verWarn');
   if (vl) vl.textContent = 'إصدار الواجهة: v' + UI_VERSION + ' · إصدار ملف البيانات: ' + (dv ? 'v' + dv : 'غير مذكور (أقدم من 0.20.0)');

@@ -451,7 +451,7 @@
     .tabs { max-width: 1280px; }
     #tab-today { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 14px; align-items: start; }
     #tab-today[hidden] { display: none; }
-    #tab-today > #updCard, #tab-today > #safeCard, #tab-today > #pulseSec, #tab-today > #newsTable, #tab-today > #recentCard, #tab-today > #evCard { grid-column: 1 / -1; }
+    #tab-today > #updCard, #tab-today > #safeCard, #tab-today > #pulseSec, #tab-today > #newsTable, #tab-today > #recentCard, #tab-today > #geoCard, #tab-today > #evCard { grid-column: 1 / -1; }
     #tab-today > #mainCard { grid-column: 1; grid-row: span 2; } #tab-today > #nextCard, #tab-today > #riskCard { grid-column: 2; }
     .pcards { grid-template-columns: repeat(4, minmax(0, 1fr)); } .newsT { display: block; } #moreNews { display: none; }
     .upd dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } .unums { max-width: 520px; }
@@ -558,9 +558,43 @@
   /* ---- جاما على الحاسوب: شبكة 12 عموداً، خريطة بعمودين، خلفية التبويب بلون حالة الجاما ---- */
   .mplv { display: none; }
   body[data-gtint="neg"] { background-color: var(--bg); background-image: linear-gradient(180deg, rgba(255,92,122,.26) 0, rgba(255,92,122,.10) 520px, transparent 1200px); background-attachment: fixed; }
+  body[data-gtint="off"] { background-color: var(--bg); background-image: linear-gradient(180deg, rgba(143,157,181,.22) 0, rgba(143,157,181,.08) 520px, transparent 1200px); background-attachment: fixed; }
+  body[data-gsoft="1"][data-gtint="neg"] { background-image: linear-gradient(180deg, rgba(255,92,122,.12) 0, rgba(255,92,122,.04) 520px, transparent 1200px); } body[data-gsoft="1"][data-gtint="pos"] { background-image: linear-gradient(180deg, rgba(47,224,160,.10) 0, rgba(47,224,160,.04) 520px, transparent 1200px); }
   body[data-gtint="pos"] { background-color: var(--bg); background-image: linear-gradient(180deg, rgba(47,224,160,.22) 0, rgba(47,224,160,.08) 520px, transparent 1200px); background-attachment: fixed; }
   @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) body[data-gtint="neg"] { background-image: linear-gradient(180deg, rgba(200,55,79,.16) 0, rgba(200,55,79,.06) 520px, transparent 1200px); } :root:not([data-theme="dark"]) body[data-gtint="pos"] { background-image: linear-gradient(180deg, rgba(31,157,99,.15) 0, rgba(31,157,99,.06) 520px, transparent 1200px); } }
   :root[data-theme="light"] body[data-gtint="neg"] { background-image: linear-gradient(180deg, rgba(200,55,79,.16) 0, rgba(200,55,79,.06) 520px, transparent 1200px); } :root[data-theme="light"] body[data-gtint="pos"] { background-image: linear-gradient(180deg, rgba(31,157,99,.15) 0, rgba(31,157,99,.06) 520px, transparent 1200px); }
+
+  /* مرصاد 0.23.2: تراكب المنحنى القديم */
+  .goldt { margin: 0 0 6px; max-width: 100%; white-space: normal; display: block; font: 700 13px var(--font-body); min-height: 36px; padding: 4px 14px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; transition: background .15s, color .15s; } .goldt:hover { background: var(--card-2); color: var(--fg); }
+  .georow { padding: 10px 12px; border: 1px solid var(--line); border-inline-start: 4px solid var(--muted); border-radius: 10px; margin-top: 8px; background: var(--card); }
+  .georow.es { border-inline-start-color: var(--bad, #ff5c7a); } .georow.de { border-inline-start-color: var(--good, #2fe0a0); } .georow .t { font-weight: 700; font-size: 14px; } .georow .m { color: var(--muted); font-size: 12.5px; margin-top: 3px; }
+  /* الشريط الجانبي (الحاسب) */
+  @media (min-width: 900px) {
+    body { padding-bottom: 28px; padding-inline-start: 268px; }
+    .tabs { display: flex; flex-direction: column; gap: 6px; top: 0; bottom: 0; left: auto; right: 0; margin: 0; width: 240px; max-width: none; padding: 86px 12px 16px; border-top: 0; border-inline-start: 1px solid var(--line); border-radius: 0; box-shadow: -6px 0 24px rgba(0,0,0,.10); overflow-y: auto; }
+    .tabs::before { content: 'مِرصاد'; position: absolute; top: 20px; inset-inline: 0; text-align: center; font: 800 22px var(--font-body); color: var(--fg); letter-spacing: .5px; }
+    .tabs button { flex-direction: row; justify-content: flex-start; gap: 12px; width: 100%; min-height: 48px; padding: 8px 14px; border-radius: 12px; font-size: 15px; position: relative; transition: background .16s, color .16s, transform .16s, box-shadow .16s; }
+    .tabs button span { max-width: none; }
+    .tabs button i { font-size: 20px; transition: transform .16s, filter .16s, opacity .16s; }
+    .tabs button:hover { background: color-mix(in srgb, var(--brand) 14%, var(--card)); color: var(--fg); transform: translateX(-4px); } .tabs button:hover i { filter: none; opacity: 1; transform: scale(1.12); }
+    .tabs button:active { transform: translateX(-2px) scale(.97); }
+    .tabs button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .tabs button[aria-selected="true"] { box-shadow: 0 4px 14px color-mix(in srgb, var(--brand) 35%, transparent); transform: none; } .tabs button[aria-selected="true"]::after { content: ''; position: absolute; inset-inline-end: -12px; top: 10px; bottom: 10px; width: 4px; border-radius: 4px 0 0 4px; background: var(--brand); }
+    #backHome { display: none !important; }
+    .wrap { max-width: 1280px; }
+    #tab-today > #riskCard, #tab-today .gs { display: none; }
+    .card { transition: box-shadow .18s, transform .18s, border-color .18s; } .card:hover { box-shadow: 0 6px 22px rgba(0,0,0,.10); }
+    .pc { transition: transform .16s, box-shadow .16s; cursor: default; } .pc:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,.14); }
+    .pc.i3 { animation: pcpulse 2.4s ease-in-out infinite; }
+  }
+  @keyframes pcpulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--pcc) 45%, transparent); } 50% { box-shadow: 0 0 0 7px transparent; } }
+  @media (min-width: 900px) and (max-width: 1099px) {
+    body { padding-inline-start: 100px; }
+    .tabs { width: 72px; padding-inline: 8px; align-items: center; } .tabs::before { content: 'م'; }
+    .tabs button { justify-content: center; padding-inline: 4px; } .tabs button span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .tabs button:hover::before { content: attr(aria-label); position: absolute; inset-inline-end: calc(100% + 10px); white-space: nowrap; background: var(--fg); color: var(--bg); padding: 4px 10px; border-radius: 8px; font-size: 13px; z-index: 30; }
+  }
+  @media (prefers-reduced-motion: reduce) { .tabs button, .tabs button i, .card, .pc { transition: none !important; animation: none !important; } .tabs button:hover { transform: none; } }
   @media (min-width: 1100px) {
     #tab-gamma { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; align-items: start; } #tab-gamma[hidden] { display: none; }
     #tab-gamma > * { grid-column: 1 / -1; }
@@ -701,6 +735,12 @@
       <h2>نبض الأسواق</h2>
       <div class="pcards" id="pcards"></div>
       <p class="src" id="pcNote"></p>
+    </section>
+
+    <section class="card" id="geoCard" hidden>
+      <h2>الأخبار السياسية المؤثرة</h2>
+      <div id="geoList"></div>
+      <p class="src" id="geoNote"></p>
     </section>
 
     <section class="card newsT" id="newsTable">
@@ -1291,7 +1331,7 @@ function render(data) {
   RISK_NOW = { score, lvl };
   riskCard_(data, score, lvl);
   renderMain_(data, score, lvl);
-  renderUpdate_(data); renderLog_(data); renderNext_(data); renderPulse_(data); renderNewsTable_(data); try { renderRecent_(data); } catch (e) { console.error(e); }
+  renderUpdate_(data); renderLog_(data); renderNext_(data); renderPulse_(data); renderNewsTable_(data); try { renderRecent_(data); } catch (e) { console.error(e); } try { renderGeo_(data); } catch (e) { console.error(e); }
 
   /* المنظومة الكلية */
   const mc = data.macro, fc = $('fedCard');
@@ -1906,6 +1946,19 @@ function renderRecent_(d) {
     b.onclick = () => openEvent_(a.id); box.appendChild(b);
   });
 }
+/* ---- الأخبار السياسية/الجيوسياسية المؤثرة (النوع والمنطقة والحدّة والتصعيد/التهدئة، بلا اتجاه أثر على ES) ---- */
+function renderGeo_(d) {
+  const box = $('geoList'), card = $('geoCard'), g = d.geo || []; box.innerHTML = ''; card.hidden = !g.length; if (!g.length) return;
+  const SV = ['', 'خفيفة', 'متوسطة', 'عالية', 'حرجة', 'حرجة'];
+  g.forEach(x => {
+    const kind = x.deesc ? ['▼ تهدئة', 'de'] : x.severity >= 2 ? ['▲ تصعيد', 'es'] : ['◆ متابعة', 'fl'];
+    const r = el('div', 'georow ' + kind[1]);
+    r.appendChild(el('div', 't', x.title));
+    r.appendChild(el('div', 'm', kind[0] + ' · ' + ((x.regions || []).join('، ') || 'منطقة غير محددة') + ' · حدّة ' + (SV[x.severity] || '—') + (x.sources ? ' · ' + x.sources + ' مصادر' : '')));
+    box.appendChild(r);
+  });
+  $('geoNote').textContent = (d.geo_confirmed ? 'السوق يؤكد الخبر بحركة فعلية.' : 'لا تأكيد من حركة السوق حتى الآن.') + ' التصنيف وصفي ولا يحدد اتجاه الأثر على ES. التفاصيل الكاملة في «التفاصيل».';
+}
 /* ---- جاما ---- */
 let GAMMA = null, GSEL = null, GASSET = 'SPX', GBSEL = null;
 const gAge_ = ms => { const m = Math.max(0, Math.round(ms / 60000)); if (m < 1) return 'أقل من دقيقة'; if (m < 60) return m + ' دقيقة'; const h = Math.floor(m / 60); if (h < 48) return h + ' ساعة' + (h < 6 && m % 60 ? ' و' + (m % 60) + ' دقيقة' : ''); return Math.floor(h / 24) + ' يوماً'; };
@@ -1970,8 +2023,10 @@ function gLine_(box, o) {
   if (pr.length < 5) { box.hidden = true; return null; }
   box.hidden = false;
   box.appendChild(el('h2', '', o.title)); if (o.desc) box.appendChild(el('p', 'src', o.desc));
+  if ((o.old || []).length >= 5) { const tg = el('button', 'goldt', GOLD ? 'إخفاء المنحنى القديم' : 'إظهار المنحنى القديم'); tg.type = 'button'; tg.setAttribute('aria-pressed', String(GOLD)); tg.onclick = () => { GOLD = !GOLD; renderGamma_(); }; box.appendChild(tg); }
   const W = 400, H = 300, Lm = 46, Rm = 10, Tm = 26, Bm = 58, base = H - Bm, v = pr.map(r => Number(r.net) / 1e9);
-  let mn = Math.min(0, ...v), mx = Math.max(0, ...v); const pad = (mx - mn) * .1 || 1; mn -= pad; mx += pad;
+  const kLo = pr[0].k, kHi = pr[pr.length - 1].k, oc = (o.old || []).filter(r => r && isFinite(Number(r[0])) && isFinite(Number(r[1])) && r[0] >= kLo && r[0] <= kHi).slice().sort((a, b) => a[0] - b[0]), ov = oc.map(r => r[1] / 1e9), showOld = oc.length >= 5 && GOLD;
+  let mn = Math.min(0, ...v, ...(showOld ? ov : [])), mx = Math.max(0, ...v, ...(showOld ? ov : [])); const pad = (mx - mn) * .1 || 1; mn -= pad; mx += pad;
   const k0 = o.kr ? o.kr[0] : pr[0].k, k1 = o.kr ? o.kr[1] : pr[pr.length - 1].k, X = k => Lm + (k - k0) / (k1 - k0 || 1) * (W - Lm - Rm), Y = y => Tm + (mx - y) / (mx - mn) * (base - Tm);
   const P = pr.map((r, i) => [X(r.k), Y(v[i])]), z = Y(0), f1 = n => n.toFixed(1), kl = k => String(Math.round(k * 10) / 10);
   const NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'مخطط صافي Gamma لكل Strike ' + (o.label || ''));
@@ -1981,7 +2036,14 @@ function gLine_(box, o) {
   area(Math.min, 'var(--ok)'); area(Math.max, 'var(--crit)');
   add('line', { x1: Lm, x2: W - Rm, y1: f1(z), y2: f1(z), stroke: 'var(--fg)', 'stroke-width': 1.6, class: 'zero' });
   add('line', { x1: Lm, x2: W - Rm, y1: base, y2: base, stroke: 'currentColor', 'stroke-opacity': .4 });
-  add('polyline', { points: P.map(p => f1(p[0]) + ',' + f1(p[1])).join(' '), fill: 'none', stroke: 'var(--fg)', 'stroke-width': 1.5 });
+  if (showOld) add('polyline', { points: oc.map((r, i) => f1(X(r[0])) + ',' + f1(Y(ov[i]))).join(' '), fill: 'none', stroke: '#8f9db5', 'stroke-width': 1, 'stroke-dasharray': '4 3', 'stroke-opacity': .9, class: 'oldc' });
+  add('polyline', { points: P.map(p => f1(p[0]) + ',' + f1(p[1])).join(' '), fill: 'none', stroke: 'var(--fg)', 'stroke-width': 1.1, class: 'mainc' });
+  const yNew = k => { let b = 0; pr.forEach((r, i) => { if (Math.abs(r.k - k) < Math.abs(pr[b].k - k)) b = i; }); return P[b][1]; }, yOld = k => { if (!oc.length) return base; let b = 0; oc.forEach((r, i) => { if (Math.abs(r[0] - k) < Math.abs(oc[b][0] - k)) b = i; }); return Y(ov[b]); };
+  if (showOld) (o.chg || []).forEach(c => {
+    if (c.change === 'moved' && c.old != null && c.nw != null) { const xa = X(c.old), xb = X(c.nw), ya = Math.max(Tm + 4, Math.min(yOld(c.old), yNew(c.nw)) - 8); add('line', { x1: f1(xa), x2: f1(xb), y1: f1(ya), y2: f1(ya), stroke: '#ffb020', 'stroke-width': 1.4, 'marker-end': 'none', class: 'chg-mv' }); add('circle', { cx: f1(xb), cy: f1(ya), r: 2.6, fill: '#ffb020', class: 'chg-mv' }); }
+    else if (c.change === 'new' && c.nw != null) add('circle', { cx: f1(X(c.nw)), cy: f1(yNew(c.nw)), r: 6, fill: 'none', stroke: '#fff', 'stroke-width': 1.6, class: 'chg-new' });
+    else if (c.change === 'gone' && c.old != null) add('circle', { cx: f1(X(c.old)), cy: f1(yOld(c.old)), r: 6, fill: 'none', stroke: '#b07cff', 'stroke-width': 1.4, 'stroke-dasharray': '2 2', class: 'chg-gone' });
+  });
   (o.marks || []).forEach((x, i) => { const n = Number(x[1]); if (x[1] == null || !isFinite(n) || n < k0 || n > k1) return; add('line', { x1: f1(X(n)), x2: f1(X(n)), y1: Tm, y2: base, stroke: x[2], 'stroke-width': 1.2, 'stroke-dasharray': '1 3' }); add('text', { x: f1(X(n)), y: Tm - 8 - (i === 1 ? 10 : 0), 'text-anchor': 'middle', 'font-size': 9, fill: x[2] }, x[0]); });
   /* القمم: كل قمة محلية حقيقية (أعلى/أدنى من جارَيها) قيمتها ≥ 30% من أكبر قمة، مرتبة بالحجم، بتباعد ≥ 2 Strike وحد أقصى 5 لكل جهة */
   const pick = (ord, n) => { const c = []; for (const i of ord) { if (c.every(j => Math.abs(i - j) >= 2)) c.push(i); if (c.length === n) break; } return c; };
@@ -1989,16 +2051,16 @@ function gLine_(box, o) {
   const isPk = i => { const a = i > 0 ? v[i - 1] : -Infinity, b = i < v.length - 1 ? v[i + 1] : -Infinity; return v[i] > 0 && v[i] >= a && v[i] >= b && v[i] >= amax * .3; };
   const isTr = i => { const c = i > 0 ? v[i - 1] : Infinity, d = i < v.length - 1 ? v[i + 1] : Infinity; return v[i] < 0 && v[i] <= c && v[i] <= d && -v[i] >= amax * .3; };
   const pos = pick(idx.filter(isPk).sort((a, b) => v[b] - v[a]), 5), neg = pick(idx.filter(isTr).sort((a, b) => v[a] - v[b]), 5);
-  const drop = (i, col) => { add('line', { x1: f1(P[i][0]), x2: f1(P[i][0]), y1: f1(P[i][1]), y2: base, stroke: col, 'stroke-width': 1, 'stroke-dasharray': '3 3', class: 'pk' }); add('circle', { cx: f1(P[i][0]), cy: f1(P[i][1]), r: 3, fill: col, class: 'pk' }); add('text', { transform: 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)', 'text-anchor': 'start', class: 'pk-l' }, String(Math.round(pr[i].k))); };
+  const drop = (i, col) => { add('line', { x1: f1(P[i][0]), x2: f1(P[i][0]), y1: f1(P[i][1]), y2: base, stroke: col, 'stroke-width': 1, 'stroke-dasharray': '3 3', class: 'pk' }); add('circle', { cx: f1(P[i][0]), cy: f1(P[i][1]), r: 3, fill: col, class: 'pk' }); add('text', { transform: 'translate(' + f1(P[i][0] - 6) + ',' + (base + 9) + ') rotate(45)', 'text-anchor': 'start', class: 'pk-l' }, o.conv ? o.conv(pr[i].k) : String(Math.round(pr[i].k))); };
   pos.forEach(i => drop(i, 'var(--ok)')); neg.forEach(i => drop(i, 'var(--crit)'));
   const hv = add('g', { class: 'hv', visibility: 'hidden' });
   const hl = add('line', { y1: Tm, y2: base, stroke: '#6c93ff', 'stroke-width': 1.2 }, null, hv), hc = add('circle', { r: 4.5, fill: '#6c93ff' }, null, hv), ht = add('text', { 'text-anchor': 'start', class: 'hv-l' }, '', hv);
-  const tb = add('rect', { y: Tm + 2, width: 112, height: 31, rx: 6, class: 'hv-bg' }, null, hv), t1 = add('text', { y: Tm + 15, class: 'hv-t' }, '', hv), t2 = add('text', { y: Tm + 28, class: 'hv-t2' }, '', hv);
+  const tb = add('rect', { y: Tm + 2, width: 150, height: 31, rx: 6, class: 'hv-bg' }, null, hv), t1 = add('text', { y: Tm + 15, class: 'hv-t' }, '', hv), t2 = add('text', { y: Tm + 28, class: 'hv-t2' }, '', hv);
   const showI = i => {
     const x = P[i][0], r = pr[i]; hv.setAttribute('visibility', 'visible'); hl.setAttribute('x1', f1(x)); hl.setAttribute('x2', f1(x)); hc.setAttribute('cx', f1(x)); hc.setAttribute('cy', f1(P[i][1]));
-    ht.setAttribute('transform', 'translate(' + f1(x - 6) + ',' + (base + 9) + ') rotate(45)'); ht.textContent = String(Math.round(r.k));
-    const tx = x > W * .55 ? x - 118 : x + 6; tb.setAttribute('x', f1(tx)); t1.setAttribute('x', f1(tx + 6)); t2.setAttribute('x', f1(tx + 6));
-    t1.textContent = (o.label ? o.label + ' · ' : '') + kl(r.k) + (r.spyK != null ? ' (SPY ' + r.spyK + ')' : ''); t2.textContent = 'الصافي ' + gB_(r.net);
+    ht.setAttribute('transform', 'translate(' + f1(x - 6) + ',' + (base + 9) + ') rotate(45)'); ht.textContent = o.conv ? o.conv(r.k) : String(Math.round(r.k));
+    const tx = x > W * .55 ? x - 156 : x + 6; tb.setAttribute('x', f1(tx)); t1.setAttribute('x', f1(tx + 6)); t2.setAttribute('x', f1(tx + 6));
+    t1.textContent = (o.label ? o.label + ' · ' : '') + (o.conv ? 'ES ' + o.conv(r.k) + ' (' + kl(r.k) + ')' : kl(r.k)) + (r.spyK != null ? ' (SPY ' + r.spyK + ')' : ''); t2.textContent = 'الصافي ' + gB_(r.net);
   };
   const at = ev => { const rc = svg.getBoundingClientRect(), x = (ev.clientX - rc.left) / rc.width * W; let b = 0; P.forEach((p, i) => { if (Math.abs(p[0] - x) < Math.abs(P[b][0] - x)) b = i; }); return b; };
   svg.addEventListener('pointermove', ev => { const i = at(ev); showI(i); if (o.onHover) o.onHover(pr[i].k); }); svg.addEventListener('pointerdown', ev => { const i = at(ev); showI(i); if (o.onHover) o.onHover(pr[i].k); });
@@ -2010,7 +2072,8 @@ function gLine_(box, o) {
 function renderGamma_() {
   const g = GAMMA, st = gammaStatus_(g), fr = $('gFresh'); fr.dataset.s = st; fr.innerHTML = '';
   const show = (id, on) => { $(id).hidden = !on; };
-  if (!$('tab-gamma').hidden && (st === 'fresh' || st === 'late') && g && isFinite(Number(g.net_gex))) document.body.dataset.gtint = Number(g.net_gex) < 0 ? 'neg' : 'pos'; else document.body.removeAttribute('data-gtint');
+  /* خلفية التبويب: أحمر/أخضر بحالة الجاما عند لقطة صالحة (خفيفة إن كانت متأخرة)، ورمادية عند قِدَم اللقطة أو غيابها أو إغلاق السوق */
+  if (!$('tab-gamma').hidden) { const okg = (st === 'fresh' || st === 'late') && g && isFinite(Number(g.net_gex)); document.body.dataset.gtint = okg ? (Number(g.net_gex) < 0 ? 'neg' : 'pos') : 'off'; if (okg && st === 'late') document.body.dataset.gsoft = '1'; else document.body.removeAttribute('data-gsoft'); } else { document.body.removeAttribute('data-gtint'); document.body.removeAttribute('data-gsoft'); }
   const ALL = ['gLevels', 'gLine', 'gLine2', 'gCmp', 'gChart', 'gEsNote', 'gSpy', 'gCtl', 'gChg', 'gMap'];
   const TT = { fresh: '✓ بيانات طازجة', late: '⚠ بيانات متأخرة: تحقق من وقتها قبل الاعتماد', stale: '⛔ بيانات قديمة — لا تعتمدها للتداول', none: '⛔ لا توجد بيانات جاما اليوم' };
   fr.appendChild(el('h2', '', TT[st]));
@@ -2061,10 +2124,10 @@ function renderGamma_() {
   const rng = () => { const a = (dX ? dX.rows : []).map(r => r.k).concat(dY ? dY.rows.map(r => r.k) : []).filter(k => !isFinite(spot) || Math.abs(k - spot) <= 120); return a.length ? [Math.min(...a), Math.max(...a)] : null; };
   const kr = cmp ? rng() : null, DESC = 'الأفقي: Strike (SPX). العمودي: صافي GEX، والخط الأبيض الأفقي = الصفر، فوقه إيجابي (أخضر) وتحته سلبي (أحمر). من كل قمة خط إلى المحور وعليه رقم Strike. حرّك المؤشر أو المس أي نقطة لرؤية Strike الخاص بها.';
   const marks1 = d ? [['Put Wall', d.pw, 'var(--crit)'], ['Call Wall', d.cw, 'var(--ok)']].concat(spotMarks, d.flip != null ? [['Flip', d.flip, '#6c93ff']] : []) : spotMarks;
-  c1 = d ? gLine_($('gLine'), { title: cmp ? 'SPX — صافي Gamma لكل Strike' + stamp : 'صافي Gamma حسب Strike (خط)' + (main === 'SPY' ? ' — SPY (مكافئ SPX)' : '') + stamp, desc: DESC, rows: d.rows, spot, marks: marks1, kr, label: main === 'SPY' ? 'SPY→SPX' : 'SPX', onHover: cmp ? sync.h1 : null, onLeave: cmp ? sync.l1 : null, onPick: k => { GSEL = k; gMark_(false); } }) : ($('gLine').hidden = true, null);
+  c1 = d ? gLine_($('gLine'), { title: cmp ? 'SPX — صافي Gamma لكل Strike' + stamp : 'صافي Gamma حسب Strike (خط)' + (main === 'SPY' ? ' — SPY (مكافئ SPX)' : '') + stamp, desc: DESC, rows: d.rows, spot, marks: marks1, kr, label: main === 'SPY' ? 'SPY→SPX' : 'SPX', old: d.all && chg.base && chg.base.curve ? chg.base.curve[main === 'SPY' && !cmp ? 'SPY' : 'SPX'] : null, chg: chg.items.filter(c => c.kind === 'PEAK' && c.src === (main === 'SPY' && !cmp ? 'SPY' : 'SPX')), conv: esOk ? conv : null, onHover: cmp ? sync.h1 : null, onLeave: cmp ? sync.l1 : null, onPick: k => { GSEL = k; gMark_(false); } }) : ($('gLine').hidden = true, null);
   ln2.innerHTML = ''; ln2.hidden = true; c2 = null;
   if (cmp && dY) {
-    c2 = gLine_(ln2, { title: 'SPY — صافي Gamma لكل Strike (محوَّل إلى مكافئ SPX)' + stamp, desc: 'نفس رسم SPX وبنفس المحور الأفقي (Strike بمكافئ SPX) فتُقارَن القمم عمودياً بين المخططين. لكل مخطط محوره العمودي الخاص (صافي GEX بدولار كل أصل). المؤشر على أحدهما يظهر في الآخر.', rows: dY.rows, spot, marks: [['Put Wall', dY.pw, 'var(--crit)'], ['Call Wall', dY.cw, 'var(--ok)']].concat(spotMarks, dY.flip != null ? [['Flip', dY.flip, '#6c93ff']] : []), kr, label: 'SPY→SPX', onHover: sync.h2, onLeave: sync.l2, onPick: k => { GSEL = k; gMark_(false); } });
+    c2 = gLine_(ln2, { title: 'SPY — صافي Gamma لكل Strike (محوَّل إلى مكافئ SPX)' + stamp, desc: 'نفس رسم SPX وبنفس المحور الأفقي (Strike بمكافئ SPX) فتُقارَن القمم عمودياً بين المخططين. لكل مخطط محوره العمودي الخاص (صافي GEX بدولار كل أصل). المؤشر على أحدهما يظهر في الآخر.', rows: dY.rows, spot, marks: [['Put Wall', dY.pw, 'var(--crit)'], ['Call Wall', dY.cw, 'var(--ok)']].concat(spotMarks, dY.flip != null ? [['Flip', dY.flip, '#6c93ff']] : []), kr, label: 'SPY→SPX', old: dY.all && chg.base && chg.base.curve ? chg.base.curve.SPY : null, chg: chg.items.filter(c => c.kind === 'PEAK' && c.src === 'SPY'), conv: esOk ? conv : null, onHover: sync.h2, onLeave: sync.l2, onPick: k => { GSEL = k; gMark_(false); } });
   }
   /* جدول المقارنة */
   cm.innerHTML = ''; show('gCmp', cmp && !!dX && !!dY);
@@ -2134,6 +2197,8 @@ const GPIN_KEY = 'mirsad_gpin', GCHG_MIN = 5;
 const gLevels_ = g => { const o = {}, sp = g && g.spy && g.spy.ok ? g.spy : {}; [['SPX', g.call_wall, g.put_wall, g.gamma_flip], ['SPY', sp.call_wall, sp.put_wall, sp.gamma_flip]].forEach(x => [['CALL WALL', x[1]], ['PUT WALL', x[2]], ['GAMMA FLIP', x[3]]].forEach(y => { if (y[1] != null && isFinite(Number(y[1]))) o[x[0] + '|' + y[0]] = Math.round(Number(y[1]) * 1000) / 1000; })); return o; };
 const gScale_ = g => ({ SPX: 1, SPY: g && g.spy && g.spy.ok && Number(g.spy.ratio) > 0 ? Number(g.spy.ratio) : null });
 const gDay_ = g => { try { return new Date(new Date(g.snapshot_utc).getTime() - 4 * 3600000).toISOString().substr(0, 10); } catch (e) { return ''; } };
+const gCurve_ = g => { const o = {}; ['SPX', 'SPY'].forEach(a => { try { const d = gData_(g, a); if (d && d.all) o[a] = d.rows.filter(r => Math.abs(r.k - Number(g.spot)) <= 150).map(r => [Number(r.k), Number(r.net) || 0]); } catch (e) {} }); return o; };
+let GOLD = true;
 const gPin_ = g => { try { const p = JSON.parse(store_.get(GPIN_KEY, 'null')); return p && p.v === 2 && p.levels && p.day === gDay_(g) ? p : null; } catch (e) { return null; } };
 /* قمم/قيعان net المحلية المهمة (≥25% من الأكبر ضمن ±150 من السعر)، تُستثنى المطابقة لجدار الأصل (≤3). نفس قاعدة gamma.py */
 function gPeaks_(g) {
@@ -2167,7 +2232,7 @@ function gChanges_(g) {
   if (b.peaks) { try { gPeakChg_(b.peaks, gPeaks_(g), scN).forEach(x => items.push(x)); } catch (e) { console.error(e); } }
   items.forEach(c => { c.oldEs = c.old != null && bsO != null ? sn(c.old + bsO) : null; c.newEs = c.nw != null && bsN != null ? sn(c.nw + bsN) : null; });
   const drift = bsO != null && bsN != null ? Math.round((bsN - bsO) * 100) / 100 : null;
-  return { base: { pinned: !!pin, at: pin ? pin.at : b.snapshot_et, basis: bsO, bnew: bsN, drift, note: drift != null && Math.abs(drift) >= 1 }, items };
+  return { base: { pinned: !!pin, at: pin ? pin.at : b.snapshot_et, curve: b.curve || null, basis: bsO, bnew: bsN, drift, note: drift != null && Math.abs(drift) >= 1 }, items };
 }
 const gName_ = c => c.kind === 'PEAK' ? c.src + ' ' + (c.sign > 0 ? 'قمة' : 'قاع') + ' ' + (c.strong ? 'قوية' : 'متوسطة') : c.src + ' ' + c.kind;
 function gChg_(g, ch) {
@@ -2188,7 +2253,7 @@ function gChg_(g, ch) {
   }
   if (ch.base && ch.base.note) box.appendChild(el('p', 'src gdr', 'ℹ فرق ES−SPX تغيّر من ' + ch.base.basis.toFixed(2) + ' إلى ' + ch.base.bnew.toFixed(2) + ' (' + (ch.base.drift > 0 ? '+' : '') + ch.base.drift.toFixed(2) + '): كل أسعار ES تحرّكت بهذا المقدار بلا تغيّر حقيقي في الجاما. ' + (n ? 'عمود «حقيقي» يفصل تغيّر الجاما عن أثر هذا الفرق.' : 'إن نقلتَ مستوياتك بالفرق القديم فأعد نقلها بالفرق الحالي.')));
   const bar = el('div', 'gcb'), pb = el('button', 'pri', 'نقلتها: ثبّت المستويات الحالية'); pb.type = 'button'; pb.id = 'gPin';
-  pb.onclick = () => { store_.set(GPIN_KEY, JSON.stringify({ day: gDay_(g), at: g.snapshot_et, v: 2, levels: gLevels_(g), scale: gScale_(g), peaks: (() => { try { return gPeaks_(g); } catch (e) { return null; } })(), basis: g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null })); renderGamma_(); };
+  pb.onclick = () => { store_.set(GPIN_KEY, JSON.stringify({ day: gDay_(g), at: g.snapshot_et, v: 2, levels: gLevels_(g), scale: gScale_(g), peaks: (() => { try { return gPeaks_(g); } catch (e) { return null; } })(), basis: g.es && isFinite(Number(g.es.basis)) ? Number(g.es.basis) : null, curve: gCurve_(g) })); renderGamma_(); };
   bar.appendChild(pb);
   if (pinned) { const ub = el('button', '', 'إلغاء التثبيت'); ub.type = 'button'; ub.id = 'gUnpin'; ub.onclick = () => { store_.set(GPIN_KEY, 'null'); renderGamma_(); }; bar.appendChild(ub); }
   box.appendChild(bar);
@@ -2612,7 +2677,7 @@ function showTab(t) {
   document.querySelectorAll('.tab').forEach(d => { d.hidden = d.id !== 'tab-' + t; });
   document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
   try { localStorage.setItem('mirsad-tab', t); } catch (e) {}
-  if (t !== 'gamma') document.body.removeAttribute('data-gtint');
+  if (t !== 'gamma') { document.body.removeAttribute('data-gtint'); document.body.removeAttribute('data-gsoft'); }
   if (t === 'gamma' && typeof renderGamma_ === 'function') { try { renderGamma_(); } catch (e) {} }
 }
 document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
@@ -2626,7 +2691,7 @@ let booted = false, loadedAt = 0, lastTry = 0, FAIL = null, btnTimer = null;
 /* ثلاثة أزمنة منفصلة: وقت البيانات المعروضة (LIVE.updated)، آخر جلب ناجح (loadedAt)، آخر محاولة (lastTry). فشل المحاولة لا يحدّث الثانية ولا يمحو اللقطة. */
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
 const FAILMSG = { http: 'الخادم رفض الطلب', network: 'لا اتصال بالشبكة', json: 'ملف البيانات تالف', source: 'المصدر أبلغ عن خطأ', render: 'تعذّر عرض البيانات' };
-const UI_VERSION = '0.23.1';
+const UI_VERSION = '0.23.2';
 function versionCheck_(d) {
   const dv = d && d.version, vl = $('verLine'), vw = $('verWarn');
   if (vl) vl.textContent = 'إصدار الواجهة: v' + UI_VERSION + ' · إصدار ملف البيانات: ' + (dv ? 'v' + dv : 'غير مذكور (أقدم من 0.20.0)');

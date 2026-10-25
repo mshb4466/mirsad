@@ -610,6 +610,19 @@ def _safe_peaks(snap):
         return None
 
 
+def curve_of(snap, rng=150):
+    """منحنى صافي GEX القديم للتراكب: {"SPX": [[k, net]], "SPY": [[kx, net]]} ضمن ±rng من السعر (بمكافئ SPX). فشل ناعم."""
+    try:
+        sp = float(snap["spot"])
+        out = {"SPX": [[r["k"], r["net"]] for r in snap.get("strikes") or [] if abs(float(r["k"]) - sp) <= rng and r.get("net") is not None]}
+        y = snap.get("spy") if isinstance(snap.get("spy"), dict) and snap["spy"].get("ok") else None
+        if y:
+            out["SPY"] = [[r["kx"], r["net"]] for r in y.get("strikes") or [] if r.get("kx") is not None and abs(float(r["kx"]) - sp) <= rng and r.get("net") is not None]
+        return out
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def preopen_baseline(snap, root=OUT_DIR):
     """نقطة المقارنة: أول لقطة صالحة قبل الافتتاح في يوم الجلسة نفسه، ما دامت أقدم من اللقطة الحالية."""
     try:
@@ -618,7 +631,7 @@ def preopen_baseline(snap, root=OUT_DIR):
         if not b or not b.get("ok") or b.get("snapshot_utc", "") >= snap["snapshot_utc"]:
             return None
         return {"snapshot_utc": b["snapshot_utc"], "snapshot_et": b["snapshot_et"], "levels": level_map(b), "scale": snap_scale(b), "peaks": _safe_peaks(b),
-                "basis": (b.get("es") or {}).get("basis"), "basis_mode": (b.get("es") or {}).get("mode")}
+                "basis": (b.get("es") or {}).get("basis"), "basis_mode": (b.get("es") or {}).get("mode"), "curve": curve_of(b)}
     except Exception:  # noqa: BLE001
         return None
 
