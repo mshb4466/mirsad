@@ -275,74 +275,74 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-25T13:19:04.665209+00:00",
-        "ok_at": "2026-10-25T13:19:04.665209+00:00"
+        "last_try": "2026-10-25T21:00:28.468783+00:00",
+        "ok_at": "2026-10-25T21:00:28.468783+00:00"
       },
       "fred": {
-        "last_try": "2026-10-25T13:19:04.665209+00:00",
-        "ok_at": "2026-10-25T13:19:04.665209+00:00"
+        "last_try": "2026-10-25T21:00:28.468783+00:00",
+        "ok_at": "2026-10-25T21:00:28.468783+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-25T13:19:04.665209+00:00",
-        "ok_at": "2026-10-25T13:19:04.665209+00:00"
+        "last_try": "2026-10-25T21:00:28.468783+00:00",
+        "ok_at": "2026-10-25T21:00:28.468783+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-25T13:19:04.665209+00:00",
-        "ok_at": "2026-10-25T13:19:04.665209+00:00"
+        "last_try": "2026-10-25T21:00:28.468783+00:00",
+        "ok_at": "2026-10-25T21:00:28.468783+00:00"
       },
       "oil": {
-        "last_try": "2026-10-25T13:19:04.665209+00:00",
-        "ok_at": "2026-10-25T13:19:04.665209+00:00"
+        "last_try": "2026-10-25T21:00:28.468783+00:00",
+        "ok_at": "2026-10-25T21:00:28.468783+00:00"
       },
       "news": {
-        "last_try": "2026-10-25T13:19:04.665209+00:00",
-        "ok_at": "2026-10-25T13:19:04.665209+00:00"
+        "last_try": "2026-10-25T21:00:28.468783+00:00",
+        "ok_at": "2026-10-25T21:00:28.468783+00:00"
       },
       "cot": {
-        "last_try": "2026-10-25T13:19:04.665209+00:00",
-        "ok_at": "2026-10-25T13:19:04.665209+00:00"
+        "last_try": "2026-10-25T21:00:28.468783+00:00",
+        "ok_at": "2026-10-25T21:00:28.468783+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-25T13:19:04.665209+00:00",
-        "ok_at": "2026-10-25T13:19:04.665209+00:00"
+        "last_try": "2026-10-25T21:00:28.468783+00:00",
+        "ok_at": "2026-10-25T21:00:28.468783+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-25T13:19:04.665209+00:00"
+      "at": "2026-10-25T21:00:28.468783+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-25T13:19:04.665209+00:00",
+    "at": "2026-10-25T21:00:28.468783+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-25T19:44:00+00:00",
+            "title": "Stock Futures Set to Trade Ahead of Fed Decision",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-10-25T19:33:34+00:00",
+            "title": "Weston tax rate cut shrinks to 8 cents, and another revaluation is coming",
+            "src": "Wausau Pilot & Review"
+          },
+          {
+            "t": "2026-10-25T19:12:00+00:00",
+            "title": "The Fed, Inflation, Verizon, Boeing, Alphabet, GE Vernova, Amazon, and Many More Stocks to Watch This Week",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-10-25T15:00:00+00:00",
+            "title": "Warsh Tells Traders to Watch the Data. They Still Follow the Fed",
+            "src": "Bloomberg.com"
+          },
+          {
             "t": "2026-10-25T12:44:00+00:00",
             "title": "‘Nonanswers’ aren’t working. This is what investors really need from the Fed.",
             "src": "MarketWatch"
-          },
-          {
-            "t": "2026-10-25T11:30:00+00:00",
-            "title": "Opinion: Here’s the real signal to watch for the Fed’s next move",
-            "src": "MarketWatch"
-          },
-          {
-            "t": "2026-10-25T04:34:10+00:00",
-            "title": "Fed expected to hold rates steady days ahead of US midterms",
-            "src": "AFP.com"
-          },
-          {
-            "t": "2026-10-25T03:18:00+00:00",
-            "title": "3 US Tech Stocks To Watch As Fed Signals Higher Rates",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-25T02:45:45+00:00",
-            "title": "Norman Powell drills trey vs. Washington Wizards",
-            "src": "ESPN"
           }
         ]
       },
@@ -350,29 +350,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-25T02:00:00+00:00",
-            "title": "Two AI Chipmakers Make Up 34% of America’s Earnings Boom",
+            "t": "2026-10-25T19:46:00+00:00",
+            "title": "Opinion | The Dude’s Guide to Making Friends",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-24T21:43:00+00:00",
-            "title": "Before You Buy the Vanguard S&P 500 ETF, There's 1 Sneaky Risk Investors Should Know",
+            "t": "2026-10-25T15:40:00+00:00",
+            "title": "Up 35%, How Long Can Coca-Cola Continue Crushing the S&P 500?",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-24T21:34:39+00:00",
-            "title": "Foundations: The Fate of the S&P 500’s Worst Stocks, the Y2K Analogue, and Time for Small Caps?",
-            "src": "Cassandra Unchained | Michael Burry"
-          },
-          {
-            "t": "2026-10-24T20:36:00+00:00",
-            "title": "Ukraine’s Military Starlink Is Working Again, Kyiv Says",
+            "t": "2026-10-25T15:00:00+00:00",
+            "title": "Saudi-Led Troops Had Just Gathered When a Houthi Missile Left Dozens Dead",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-24T16:11:39+00:00",
-            "title": "AI funding fears rattle Wall Street. Here's how we're adjusting our portfolio",
-            "src": "CNBC"
+            "t": "2026-10-25T14:00:00+00:00",
+            "title": "Zero-Day Option Traders Are Betting Against Big S&P 500 Swings",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-10-25T14:00:00+00:00",
+            "title": "More than a third of S&P 500 companies are about to report earnings as market confidence cracks",
+            "src": "MarketWatch"
           }
         ]
       },
@@ -380,29 +380,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-10-25T17:39:49+00:00",
+            "title": "'The world's super company': Wall Street weighs SpaceX earnings, company's likely Tesla tie-up",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-25T15:42:25+00:00",
+            "title": "Amazon earnings history before its October 29 report",
+            "src": "Opening Bell Daily"
+          },
+          {
             "t": "2026-10-25T11:54:08+00:00",
             "title": "Earnings playbook: Alphabet, Microsoft, Amazon and more report this week. Here's what to expect",
             "src": "CNBC"
           },
           {
             "t": "2026-10-25T11:00:00+00:00",
-            "title": "Alphabet, Microsoft, And Amazon Lead Busiest Week Of Earnings Season",
+            "title": "Alphabet, Microsoft And Amazon Lead The Busiest Week Of Earnings Season",
             "src": "Forbes"
           },
           {
             "t": "2026-10-25T10:47:22+00:00",
             "title": "Microsoft earnings history before its October 28 report",
             "src": "Opening Bell Daily"
-          },
-          {
-            "t": "2026-10-24T23:47:48+00:00",
-            "title": "Alphabet, Microsoft and Amazon lead 10 major earnings reports next week",
-            "src": "Opening Bell Daily"
-          },
-          {
-            "t": "2026-10-24T14:12:49+00:00",
-            "title": "Tesla (TSLA) Q3 Earnings Reveal A Sharper Margin Squeeze",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -410,29 +410,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-10-25T14:18:34+00:00",
+            "title": "Bangladesh per capita GDP forecast to outstrip India’s: What does it mean?",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-10-25T12:00:43+00:00",
+            "title": "Inflation under Trump is only about half the rate under Biden. Voters are still just as mad.",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-24T16:56:25+00:00",
+            "title": "Fed holds interest rates steady as inflation hits 3-year high",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
             "t": "2026-10-24T15:57:00+00:00",
             "title": "Rays, Brewers draw attention for low payrolls during World Series",
             "src": "Bay News 9"
           },
           {
-            "t": "2026-10-24T13:47:00+00:00",
-            "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week",
-            "src": "AP News"
-          },
-          {
-            "t": "2026-10-24T02:59:52+00:00",
-            "title": "Fed holds interest rates steady as inflation hits 3-year high",
-            "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
-            "t": "2026-10-24T02:43:00+00:00",
-            "title": "Consumer sentiment nears historic low, University of Michigan study finds",
-            "src": "WILX"
-          },
-          {
-            "t": "2026-10-24T02:41:00+00:00",
-            "title": "Inflation strains Mississippi churches as need for help grows",
-            "src": "WLBT"
+            "t": "2026-10-24T02:53:46+00:00",
+            "title": "Oregon, Washington farmland values don’t keep place with inflation",
+            "src": "Capital Press"
           }
         ]
       },
@@ -440,24 +440,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-25T04:44:54+00:00",
-            "title": "Trump hails tariffs for new US$4.2 billion Audi plant in Georgia",
-            "src": "South China Morning Post"
+            "t": "2026-10-25T16:57:44+00:00",
+            "title": "7th Congressional District candidates discuss tariffs, future of family farms at town hall",
+            "src": "Civic Media"
           },
           {
-            "t": "2026-10-25T01:07:00+00:00",
-            "title": "Trump Defends Tariffs at Rally as He Touts New US Audi Plant",
-            "src": "Bloomberg.com"
+            "t": "2026-10-25T16:02:56+00:00",
+            "title": "Audi defends plans for a $4 billion Georgia plant amid VW restructuring, tariffs",
+            "src": "CNBC"
           },
           {
-            "t": "2026-10-25T01:03:06+00:00",
-            "title": "Trump Announces Audi’s First-Ever U.S. Factory in Georgia as Tariffs Bite",
-            "src": "WSJ"
+            "t": "2026-10-25T10:33:28+00:00",
+            "title": "Audi to build $4bn US plant as it grapples with tariffs",
+            "src": "Financial Times"
           },
           {
-            "t": "2026-10-25T01:02:00+00:00",
-            "title": "Trump defends tariffs at rally as he says Audi to build U.S. plant",
-            "src": "The Japan Times"
+            "t": "2026-10-25T10:00:00+00:00",
+            "title": "TVA meeting with members of Congress about raising $30B debt ceiling",
+            "src": "Chattanooga Times Free Press"
           }
         ]
       },
@@ -465,24 +465,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-25T09:12:07+00:00",
-            "title": "Live - Araghchi says war would not alter Iran policy as Trump raises prospect of strike",
+            "t": "2026-10-25T20:42:09+00:00",
+            "title": "White House Fears Netanyahu Nuclear Post Could Trigger Iran Attack",
+            "src": "The Media Line"
+          },
+          {
+            "t": "2026-10-25T19:39:24+00:00",
+            "title": "Trump rules out Iran strike Sunday as tensions mount across Middle East",
+            "src": "Ynetnews"
+          },
+          {
+            "t": "2026-10-25T16:24:40+00:00",
+            "title": "Israel presses ahead with West Bank operation as election approaches",
+            "src": "PBS"
+          },
+          {
+            "t": "2026-10-25T14:01:06+00:00",
+            "title": "Israel's Eisenkot praises Trump strikes on Iran, warns of nuclear threat",
             "src": "Iran International"
-          },
-          {
-            "t": "2026-10-25T08:00:09+00:00",
-            "title": "Iran’s oil lifeline is drying up. The biggest pain may fall on ordinary citizens",
-            "src": "Fox News"
-          },
-          {
-            "t": "2026-10-25T06:23:07+00:00",
-            "title": "‘I’ll die here’: Israel widens West Bank crackdown, displacing families",
-            "src": "South China Morning Post"
-          },
-          {
-            "t": "2026-10-25T02:44:00+00:00",
-            "title": "Melania Rewrites History in Shocking Snub of Pope",
-            "src": "The Daily Beast"
           }
         ]
       }
@@ -490,7 +490,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-25T13:19:04.665209+00:00",
+    "at": "2026-10-25T21:00:28.468783+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -988,7 +988,7 @@
       "previous": "46.3",
       "country": "USD",
       "last_attempt": "2026-10-25T13:19:04.665209+00:00",
-      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+      "note": ""
     },
     "US|mich|level_pct|2026-10|-|2026-10-23": {
       "actual": "",
@@ -1001,7 +1001,7 @@
       "previous": "4.7%",
       "country": "USD",
       "last_attempt": "2026-10-25T13:19:04.665209+00:00",
-      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+      "note": ""
     }
   },
   "stats": {
@@ -7385,10 +7385,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-10-25T13:19:04.665209+00:00",
+  "last_publish_ok": "2026-10-25T21:00:28.468783+00:00",
   "last_run_ok": {
     "mode": "test",
-    "at": "2026-10-25T13:19:46.749528+00:00"
+    "at": "2026-10-25T21:01:41.771552+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7453,8 +7453,8 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "mixed",
-    "at": "2026-10-25T13:19:04.665209+00:00",
-    "ok_at": "2026-10-25T13:19:04.665209+00:00",
+    "at": "2026-10-25T21:00:28.468783+00:00",
+    "ok_at": "2026-10-25T21:00:28.468783+00:00",
     "change": null
   },
   "last_watch": {
