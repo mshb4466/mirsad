@@ -484,6 +484,67 @@ def archive(snap, root=OUT_DIR):
     return done
 
 
+LEVELS_HEADER = "asof_utc,%s,basis,%s,mode,%s"
+
+
+def levels_es_rows(snap):
+    """مستويات جاهزة للمنصة (Sierra Chart) بسعر ES: price,label,kind,strength,color,style,width.
+    الجدران وFlip ثم القمم/القيعان (قوية متصلة، متوسطة منقّطة). SPX وSPY بوسم المصدر. تُهمل بلا فرق ES."""
+    es = snap.get("es") or {}
+    if es.get("basis") is None:
+        return None
+    bs = float(es["basis"])
+    sc = snap_scale(snap)
+    rows = []
+
+    def add(src, k, label, kind, strength, color, style, width):
+        if k is None:
+            return
+        rows.append([round(round((float(k) + bs) * 4) / 4, 2), "%s %s" % (src, label), kind, strength, color, style, width])
+    GREEN, RED, YEL = "00E0A0", "FF5C7A", "FFD24A"
+    lv = level_map(snap)
+    for key, v in lv.items():
+        a, kind = key.split("|")
+        r = 1.0 if a == "SPX" else sc.get("SPY")
+        if not r:
+            continue
+        if kind == "CALL WALL":
+            add(a, v * r, "CALL WALL", "wall", "wall", GREEN, "solid", 3)
+        elif kind == "PUT WALL":
+            add(a, v * r, "PUT WALL", "wall", "wall", RED, "solid", 3)
+        elif kind == "GAMMA FLIP":
+            add(a, v * r, "GAMMA FLIP", "flip", "flip", YEL, "solid", 3)
+    for a, pks in (_safe_peaks(snap) or {}).items():
+        for x in pks:
+            sign = "+" if x["s"] > 0 else "-"
+            strong = bool(x["strong"])
+            add(a, x["k"], "PEAK%s %s" % (sign, "S" if strong else "M"), "peak", "strong" if strong else "medium",
+                GREEN if x["s"] > 0 else RED, "solid" if strong else "dash", 2 if strong else 1)
+    rows.sort(key=lambda r: -r[0])
+    return rows
+
+
+def write_levels_es(snap, root=OUT_DIR):
+    """يكتب gamma/levels_es.csv لدراسة Sierra Chart. فشل ناعم؛ لا يمس الخريطة."""
+    try:
+        rows = levels_es_rows(snap)
+        if not rows:
+            return False
+        es = snap.get("es") or {}
+        lines = [LEVELS_HEADER % (snap["snapshot_utc"], es.get("basis"), es.get("mode")), "price,label,kind,strength,color,style,width"]
+        lines += [",".join(str(c) for c in r) for r in rows]
+        path = os.path.join(root, "levels_es.csv")
+        os.makedirs(root, exist_ok=True)
+        tmp = path + ".tmp"
+        with open(tmp, "w", encoding="utf-8", newline="\n") as f:
+            f.write("\n".join(lines) + "\n")
+        os.replace(tmp, path)
+        return True
+    except Exception as e:  # noqa: BLE001
+        print("تعذّر كتابة levels_es.csv (الخريطة سليمة):", e)
+        return False
+
+
 DAY_MAX_PTS = 120
 
 
@@ -768,6 +829,8 @@ def collect(root=OUT_DIR):
     wrote = archive(snap, root)
     if snap.get("ok") and append_day(snap, root):
         wrote.append("day.json")
+    if snap.get("ok") and write_levels_es(snap, root):
+        wrote.append("levels_es.csv")
     if snap.get("ok"):
         notify_changes(snap, root)
     print("لقطة %s نيويورك | سعر %s | صالحة=%s | %s | كتب: %s" % (snap["snapshot_et"], snap["spot"], snap["ok"], snap["reason"] or "-", wrote))
