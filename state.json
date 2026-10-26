@@ -395,74 +395,74 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-26T11:33:02.380709+00:00",
-        "ok_at": "2026-10-26T11:33:02.380709+00:00"
+        "last_try": "2026-10-26T12:23:12.214936+00:00",
+        "ok_at": "2026-10-26T12:23:12.214936+00:00"
       },
       "fred": {
-        "last_try": "2026-10-26T11:33:02.380709+00:00",
-        "ok_at": "2026-10-26T11:33:02.380709+00:00"
+        "last_try": "2026-10-26T12:23:12.214936+00:00",
+        "ok_at": "2026-10-26T12:23:12.214936+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-26T11:33:02.380709+00:00",
-        "ok_at": "2026-10-26T11:33:02.380709+00:00"
+        "last_try": "2026-10-26T12:23:12.214936+00:00",
+        "ok_at": "2026-10-26T12:23:12.214936+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-26T11:33:02.380709+00:00",
-        "ok_at": "2026-10-26T11:33:02.380709+00:00"
+        "last_try": "2026-10-26T12:23:12.214936+00:00",
+        "ok_at": "2026-10-26T12:23:12.214936+00:00"
       },
       "oil": {
-        "last_try": "2026-10-26T11:33:02.380709+00:00",
-        "ok_at": "2026-10-26T11:33:02.380709+00:00"
+        "last_try": "2026-10-26T12:23:12.214936+00:00",
+        "ok_at": "2026-10-26T12:23:12.214936+00:00"
       },
       "news": {
-        "last_try": "2026-10-26T11:33:02.380709+00:00",
-        "ok_at": "2026-10-26T11:33:02.380709+00:00"
+        "last_try": "2026-10-26T12:23:12.214936+00:00",
+        "ok_at": "2026-10-26T12:23:12.214936+00:00"
       },
       "cot": {
-        "last_try": "2026-10-26T11:33:02.380709+00:00",
-        "ok_at": "2026-10-26T11:33:02.380709+00:00"
+        "last_try": "2026-10-26T12:23:12.214936+00:00",
+        "ok_at": "2026-10-26T12:23:12.214936+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-26T11:33:02.380709+00:00",
-        "ok_at": "2026-10-26T11:33:02.380709+00:00"
+        "last_try": "2026-10-26T12:23:12.214936+00:00",
+        "ok_at": "2026-10-26T12:23:12.214936+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-26T11:33:02.380709+00:00"
+      "at": "2026-10-26T12:23:12.214936+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-26T10:55:14.747846+00:00",
+    "at": "2026-10-26T12:23:12.214936+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-26T10:41:30+00:00",
+            "t": "2026-10-26T12:11:30+00:00",
             "title": "Why the Fed may hold off on another rate hike despite high inflation",
             "src": "USA Today"
           },
           {
-            "t": "2026-10-26T10:00:00+00:00",
-            "title": "Fed Meeting Focus Turns to Warsh Messaging With December in Mind",
-            "src": "Bloomberg.com"
+            "t": "2026-10-26T12:02:36+00:00",
+            "title": "Heavy rain in southeast Utah has prompted a rise in Lake Powell’s water level. Here’s how much.",
+            "src": "The Salt Lake Tribune"
           },
           {
-            "t": "2026-10-26T10:00:00+00:00",
-            "title": "Google, Microsoft, Amazon, and the Fed step up to a skittish market: What to watch this week",
-            "src": "Yahoo Finance"
+            "t": "2026-10-26T11:39:32+00:00",
+            "title": "US futures steady as oil retreats ahead of earnings deluge, Fed decision",
+            "src": "Reuters"
           },
           {
-            "t": "2026-10-26T10:00:00+00:00",
-            "title": "Big Tech Earnings, the Fed, and Elections. The Next 2 Weeks Could Make or Break the Stock Market.",
-            "src": "Barron's"
+            "t": "2026-10-26T11:08:07+00:00",
+            "title": "Morning Call Sheet: Big Tech earnings, AI spending and Fed rate outlook",
+            "src": "CNBC"
           },
           {
-            "t": "2026-10-26T09:30:00+00:00",
-            "title": "Why the Fed Is Expected to Hold Rates Steady Despite a Case for Raising Them",
-            "src": "WSJ"
+            "t": "2026-10-26T11:00:49+00:00",
+            "title": "European stocks rebound as investors eye ECB, Fed meetings",
+            "src": "Reuters"
           }
         ]
       },
@@ -470,29 +470,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-26T12:15:00+00:00",
+            "title": "Oil Prices Fall as Traders Weigh U.S.-Iran Diplomacy, Saudi Attacks",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-26T11:38:20+00:00",
+            "title": "Ukraine’s Military Starlink Is Working Again, Kyiv Says",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-26T10:48:58+00:00",
+            "title": "Stock futures climb as traders try to recover from the S&P 500′s losing week",
+            "src": "CNBC"
+          },
+          {
             "t": "2026-10-26T10:07:47+00:00",
             "title": "Why Wall Street banks want Democrats to back their capital relief",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-26T10:03:44+00:00",
+            "t": "2026-10-26T10:02:15+00:00",
             "title": "US stock futures edge up as oil falls heading into earnings barrage",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-26T09:37:00+00:00",
-            "title": "Stock Futures, Treasurys Steady as Brazilian Assets Slide",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-26T09:32:00+00:00",
-            "title": "Tanker Rates for Saudi Crude Rise as Regional Tensions Escalate",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-26T09:30:09+00:00",
-            "title": "The War Bump Is a False Victory for S&P 500 Profits",
-            "src": "Bloomberg.com"
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -500,29 +500,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-26T10:21:54+00:00",
-            "title": "Ahead of Earnings Is Microsoft Stock a Buy, a Sell, or Fairly Valued?",
+            "t": "2026-10-26T11:37:01+00:00",
+            "title": "Microsoft, Alphanet, Amazon Earnings Meet Fed Rate Decision: 3 Charts To Watch This Week",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-26T11:25:51+00:00",
+            "title": "Audi Announces Its First U.S. Factory; Nvidia, Micron Drive Earnings Boom",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-26T10:56:22+00:00",
+            "title": "Ahead of Earnings, Is Alphabet Stock a Buy, a Sell, or Fairly Valued?",
             "src": "Morningstar"
           },
           {
-            "t": "2026-10-26T10:06:48+00:00",
-            "title": "Ahead of Earnings, Is Alphabet Stock a Buy, a Sell, or Fairly Valued?",
+            "t": "2026-10-26T10:21:54+00:00",
+            "title": "Ahead of Earnings Is Microsoft Stock a Buy, a Sell, or Fairly Valued?",
             "src": "Morningstar"
           },
           {
             "t": "2026-10-26T09:57:00+00:00",
             "title": "The Mixed Blessing From Tech Earnings Weighing on Nvidia Stock",
             "src": "Barron's"
-          },
-          {
-            "t": "2026-10-26T08:47:26+00:00",
-            "title": "Stocktwits Tech Watch: More Big Earnings, Apple’s Touch-Screen MacBook And Intel Results In Focus",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-26T01:57:46+00:00",
-            "title": "Amazon, Microsoft earnings key to gauging AI investment returns: CIO",
-            "src": "CNBC"
           }
         ]
       },
@@ -530,7 +530,17 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-26T10:02:09+00:00",
+            "t": "2026-10-26T11:01:00+00:00",
+            "title": "‘We don’t have inflation’? Five charts show the US economic reality of Trump’s second term so far",
+            "src": "The Guardian"
+          },
+          {
+            "t": "2026-10-26T10:26:27+00:00",
+            "title": "Asia-focused banks face capital squeeze due to inflation, bond turbulence",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-26T10:24:33+00:00",
             "title": "Bank of Canada expected to hike rate on Wednesday to stem spillover of energy inflation",
             "src": "Reuters"
           },
@@ -543,16 +553,6 @@
             "t": "2026-10-26T09:00:00+00:00",
             "title": "Inflation under Trump is only about half the rate under Biden. Voters are still just as mad.",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-26T08:36:36+00:00",
-            "title": "Asia-focused banks face capital squeeze due to inflation, bond turbulence",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-26T05:56:00+00:00",
-            "title": "Gold gains as oil slide cools some inflation concerns",
-            "src": "Reuters"
           }
         ]
       },
@@ -565,19 +565,19 @@
             "src": "WSJ"
           },
           {
-            "t": "2026-10-26T07:49:09+00:00",
-            "title": "U.S. Treasury yields inch lower as investors look ahead to the Fed's rate decision",
-            "src": "CNBC"
+            "t": "2026-10-26T09:51:04+00:00",
+            "title": "Treasury Yields Slide as Investors Swap Stocks for the Safety of Bonds",
+            "src": "StoneX"
           },
           {
-            "t": "2026-10-26T07:19:01+00:00",
-            "title": "Supreme Court invalidates most of Trump's tariffs",
+            "t": "2026-10-26T08:04:39+00:00",
+            "title": "Trump's 50% tariffs on Canada take effect as Carney vows to retaliate",
             "src": "ABC News - Breaking News, Latest News and Videos"
           },
           {
-            "t": "2026-10-26T05:54:24+00:00",
-            "title": "Trump started a trade war with Canada. GOP candidates became casualties.",
-            "src": "The Washington Post"
+            "t": "2026-10-26T07:49:09+00:00",
+            "title": "U.S. Treasury yields are little changed as investors look ahead to the Fed's rate decision",
+            "src": "CNBC"
           }
         ]
       },
@@ -585,24 +585,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-26T08:40:27+00:00",
-            "title": "Iran says it’s prepared to go back to war amid threat from the U.S. and Israel",
-            "src": "NPR"
+            "t": "2026-10-26T12:02:56+00:00",
+            "title": "Ukrainian strike reportedly damages chemical plant in Russia's Voronezh",
+            "src": "The Kyiv Independent"
           },
           {
-            "t": "2026-10-26T08:18:01+00:00",
-            "title": "Netanyahu pushed for Iran strike, US held back after warning from IDF chief",
-            "src": "www.israelhayom.com"
+            "t": "2026-10-26T11:55:01+00:00",
+            "title": "UN-commissioned experts: Gaza ceasefire has not stopped Israel from committing genocide",
+            "src": "The New Arab"
           },
           {
-            "t": "2026-10-26T08:10:29+00:00",
-            "title": "US ready to strike Iran 'within 96 hours' of Trump's order, Israel pushes for joint attack - report",
-            "src": "The Jerusalem Post"
+            "t": "2026-10-26T11:49:58+00:00",
+            "title": "UN-commissioned experts say Gaza ceasefire has not stopped Israel from committing genocide",
+            "src": "New Haven Register"
           },
           {
-            "t": "2026-10-26T07:54:50+00:00",
-            "title": "Katz: Israel never planned pre-election strike on Iran",
-            "src": "Israel National News"
+            "t": "2026-10-26T11:39:19+00:00",
+            "title": "Saudi-led coalition says it has destroyed Yemeni rebels' missile facilities, and other Mideast news",
+            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       }
@@ -610,7 +610,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-26T11:33:02.380709+00:00",
+    "at": "2026-10-26T12:23:12.214936+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -1100,28 +1100,28 @@
     "US|umcsent|level|2026-10|-|2026-10-23": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 12,
+      "attempts": 13,
       "title": "Revised UoM Consumer Sentiment",
       "time": "2026-10-23T14:00:00+00:00",
       "impact": "Medium",
       "forecast": "46.3",
       "previous": "46.3",
       "country": "USD",
-      "last_attempt": "2026-10-25T13:19:04.665209+00:00",
-      "note": ""
+      "last_attempt": "2026-10-26T12:23:12.214936+00:00",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     },
     "US|mich|level_pct|2026-10|-|2026-10-23": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 12,
+      "attempts": 13,
       "title": "Revised UoM Inflation Expectations",
       "time": "2026-10-23T14:00:00+00:00",
       "impact": "Medium",
       "forecast": "",
       "previous": "4.7%",
       "country": "USD",
-      "last_attempt": "2026-10-25T13:19:04.665209+00:00",
-      "note": ""
+      "last_attempt": "2026-10-26T12:23:12.214936+00:00",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   },
   "stats": {
@@ -7503,12 +7503,58 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|umcsent|level|2026-10|-|2026-10-23",
+      "title": "Revised UoM Consumer Sentiment",
+      "release_time": "2026-10-23T14:00:00+00:00",
+      "fetched_at": "2026-10-26T12:23:12.214936+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "46.3",
+      "previous": "46.3",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|mich|level_pct|2026-10|-|2026-10-23",
+      "title": "Revised UoM Inflation Expectations",
+      "release_time": "2026-10-23T14:00:00+00:00",
+      "fetched_at": "2026-10-26T12:23:12.214936+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "4.7%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-10-26T11:33:02.380709+00:00",
+  "last_publish_ok": "2026-10-26T12:23:12.214936+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-10-26T11:33:23.583504+00:00"
+    "mode": "test",
+    "at": "2026-10-26T12:23:42.470906+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7563,7 +7609,7 @@
     "fred": {
       "ok": true,
       "detail": "2 سلسلة",
-      "at": "2026-10-25T13:19:04.665209+00:00"
+      "at": "2026-10-26T12:23:12.214936+00:00"
     }
   },
   "bls_calls": {
@@ -7572,9 +7618,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-10-26T11:33:02.380709+00:00",
-    "ok_at": "2026-10-26T11:33:02.380709+00:00",
+    "lean": "up",
+    "at": "2026-10-26T12:23:12.214936+00:00",
+    "ok_at": "2026-10-26T12:23:12.214936+00:00",
     "change": null
   },
   "last_watch": {
