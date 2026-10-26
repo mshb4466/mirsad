@@ -297,6 +297,20 @@ try:
         ok(len(gamma._rjson(os.path.join(_r4, "day.json"))["pts"]) == 1, "الخط الزمني: يوم جديد يبدأ ملفاً جديداً")
     finally:
         shutil.rmtree(_r4, ignore_errors=True)
+    # --- ملف مستويات Sierra Chart ---
+    _r5 = tempfile.mkdtemp()
+    try:
+        _ls = dict(_n, es={"basis": 42.5, "mode": "live"}, call_wall=7740.0, put_wall=7640.0)
+        ok(gamma.write_levels_es(_ls, _r5), "levels_es.csv يُكتب")
+        _csv = open(os.path.join(_r5, "levels_es.csv"), encoding="utf-8").read().splitlines()
+        ok(_csv[0].startswith("asof_utc,") and ",basis,42.5," in _csv[0] and _csv[1] == "price,label,kind,strength,color,style,width", "رأس الملف والأعمدة")
+        _rw = [l.split(",") for l in _csv[2:]]
+        ok(any(r[1] == "SPX CALL WALL" and r[0] == "7782.5" and r[5] == "solid" and r[6] == "3" for r in _rw), "Call Wall بسعر ES (Strike+الأساس) متصل سميك")
+        ok(any(r[1] == "SPX PUT WALL" and r[0] == "7682.5" and r[4] == "FF5C7A" for r in _rw), "Put Wall أحمر بسعر ES")
+        ok([float(r[0]) for r in _rw] == sorted([float(r[0]) for r in _rw], reverse=True), "مرتّبة من الأعلى")
+        ok(not gamma.write_levels_es(dict(_n, es=None), _r5 + "x"), "بلا فرق ES: لا ملف")
+    finally:
+        shutil.rmtree(_r5, ignore_errors=True)
 finally:
     shutil.rmtree(t, ignore_errors=True)
 print("tests_gamma: %d فحصاً نجحت" % N)

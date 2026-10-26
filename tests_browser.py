@@ -412,8 +412,8 @@ def main(shots):
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900); dp.evaluate("showTab('today')")
         aclick("#bellBtn"); dp.wait_for_timeout(100)      # كتم
         # فحص تطابق إصدار الواجهة والبيانات (يكشف رفعاً ناقصاً)
-        okv = copy.deepcopy(fx); okv["version"] = "0.24.5"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
-        check(not dp.locator("#verWarn").is_visible() and "v0.24.5" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
+        okv = copy.deepcopy(fx); okv["version"] = "0.24.6"; mode["data"] = okv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
+        check(not dp.locator("#verWarn").is_visible() and "v0.24.6" in dp.evaluate("document.getElementById('verLine').textContent"), "الإصدار: تطابق الواجهة والبيانات بلا تحذير ويظهر في الإعدادات")
         badv = copy.deepcopy(fx); badv["version"] = "0.18.1"; mode["data"] = badv; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
         check(dp.locator("#verWarn").is_visible() and "Run workflow" in dp.locator("#verWarn").inner_text(), "الإصدار: عدم التطابق يُظهر تحذيراً بخطوة الإصلاح")
         mode["data"] = fx; dp.wait_for_timeout(3000); refresh(); dp.wait_for_timeout(900)
