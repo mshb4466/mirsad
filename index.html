@@ -570,6 +570,8 @@
   :root[data-theme="light"] body[data-gtint="neg"] { background-image: linear-gradient(180deg, rgba(200,55,79,.16) 0, rgba(200,55,79,.06) 520px, transparent 1200px); } :root[data-theme="light"] body[data-gtint="pos"] { background-image: linear-gradient(180deg, rgba(31,157,99,.15) 0, rgba(31,157,99,.06) 520px, transparent 1200px); }
 
   body[data-mtint] { background-color: var(--bg); background-image: linear-gradient(180deg, var(--mt) 0, color-mix(in srgb, var(--mt) 45%, transparent) 520px, transparent 1200px); background-attachment: fixed; }
+  .mpgrp { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-inline-start: auto; max-width: 100%; } .mpgrp .mpb { white-space: normal; max-width: 100%; }
+  .gmore { margin: 8px auto 0; display: block; min-height: 40px; padding: 4px 16px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 700 13px var(--font-body); cursor: pointer; } .gsum { margin: 4px 0 0; }
   /* مرصاد 0.23.2: تراكب المنحنى القديم */
   .goldt { margin: 0 0 6px; max-width: 100%; white-space: normal; display: block; font: 700 13px var(--font-body); min-height: 36px; padding: 4px 14px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; transition: background .15s, color .15s; } .goldt:hover { background: var(--card-2); color: var(--fg); }
   .qb { margin-top: 12px; } .qh { display: flex; justify-content: space-between; align-items: baseline; } .qh b { font-size: 14px; } .qw { font-weight: 900; font-size: 15px; } .qw.ok { color: var(--ok); } .qw.warn { color: var(--warn); } .qw.hi { color: #e8832a; } .qw.crit { color: var(--crit); }
@@ -615,9 +617,14 @@
   @media (min-width: 1100px) {
     #tab-gamma { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; align-items: start; } #tab-gamma[hidden] { display: none; }
     #tab-gamma > * { grid-column: 1 / -1; }
-    #gammaHead { order: 0; } #gFresh { order: 1; grid-column: span 4; } #gChg { order: 2; grid-column: span 4; } #gLevels { order: 3; grid-column: span 4; } #gCtl { order: 4; } #gMap { order: 5; } #gLine { order: 6; } #gChart { order: 7; } #gLine2 { order: 8; } #gCmp { order: 9; } #gEsNote { order: 10; } #gSpy { order: 11; }
+    #gammaHead { order: 0; } #gFresh { order: 1; grid-column: span 6; align-self: stretch; } #gLevels { order: 2; grid-column: span 6; align-self: stretch; } #gCmp { order: 2; grid-column: span 6; align-self: stretch; } #gChg { order: 4; grid-column: 1 / -1; } #gCtl { order: 5; } #gMap { order: 6; } #gLine { order: 7; } #gChart { order: 8; } #gLine2 { order: 9; } #gEsNote { order: 10; } #gSpy { order: 11; }
+    #gFresh dl { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; } #gFresh dl > div { padding: 6px 8px; } #gFresh dl dd { font-size: 14px; }
+    #gLevels .glv { grid-template-columns: repeat(4, minmax(0, 1fr)); } #gLevels .glv > div { padding: 12px 8px; }
+    #gChg table { table-layout: auto; } #gChg td, #gChg th { white-space: nowrap; padding: 6px 12px; } #gChg td.lv { width: 28%; } #gChg td br { display: none; } #gChg td small.rl { display: inline; margin-inline-start: 8px; }
+    #gChg .gcb { margin-top: 10px; }
     #gLine, #gLine2 { grid-column: 1 / span 8; } #gChart { grid-column: 9 / span 4; grid-row: span 2; }
     #tab-gamma:has(#gChart[hidden]) #gLine, #tab-gamma:has(#gChart[hidden]) #gLine2 { grid-column: 1 / -1; }
+    #tab-gamma:has(#gChart[hidden]):has(#gLine2:not([hidden])) #gLine, #tab-gamma:has(#gChart[hidden]):has(#gLine2:not([hidden])) #gLine2 { grid-column: span 6; }
     #gChart .gr { padding: 1px 4px; font-size: 12.5px; gap: 5px; } #gChart .gr .k { font-size: 13px; } #gChart .gr .es { width: 62px; font-size: 12.5px; } #gChart .gr .n { width: 52px; font-size: 12px; } #gChart .gbar { height: 8px; } #gChart .src { font-size: 12px; }
     #gCtl:not([hidden]) { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 36px; align-items: start; } #gCtl > :nth-child(1) { grid-area: 1 / 1; } #gCtl > :nth-child(2) { grid-area: 2 / 1; } #gCtl > :nth-child(3) { grid-area: 1 / 2; margin-top: 0 !important; } #gCtl > :nth-child(4) { grid-area: 2 / 2; } #gCtl > :nth-child(5) { grid-area: 3 / 1 / auto / -1; }
     #gMap:not([hidden]) { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 28px; align-items: start; padding: 14px 18px; }
@@ -2310,7 +2317,7 @@ function gMap_(o) {
   const ga = dY ? GMAPA : 'SPX';
   const hd = el('div', 'mpseg');
   [['SPX', 'SPX', true], ['SPY', 'SPY', !!dY], ['BOTH', 'الاثنان', !!dY]].forEach(x => { const b = el('button', 'mpb' + (ga === x[0] ? ' on' : ''), x[2] ? x[1] : x[1] + ' · غير متاح'); b.type = 'button'; b.dataset.a = x[0]; b.disabled = !x[2]; b.setAttribute('aria-pressed', ga === x[0] ? 'true' : 'false'); b.onclick = () => { GMAPA = x[0]; GMZ = null; renderGamma_(); }; hd.appendChild(b); });
-  const bgs = el('span', 'mpgrp'); [[true, 'تدرّج أحمر/أخضر'], [false, 'مستوىً بمستوى']].forEach(x => { const b = el('button', 'mpb' + (GMBG === x[0] ? ' on' : ''), x[1]); b.type = 'button'; b.dataset.bg = x[0] ? '1' : '0'; b.setAttribute('aria-pressed', GMBG === x[0] ? 'true' : 'false'); b.onclick = () => { GMBG = x[0]; try { localStorage.setItem('mirsad_gmbg', x[0] ? '1' : '0'); } catch (e) { /* لا شيء */ } renderGamma_(); }; bgs.appendChild(b); }); hd.appendChild(bgs);
+  const bgs = el('span', 'mpgrp'); [[true, 'تدرّج: حالة السوق عند كل سعر'], [false, 'حسب صافي كل Strike']].forEach(x => { const b = el('button', 'mpb' + (GMBG === x[0] ? ' on' : ''), x[1]); b.type = 'button'; b.dataset.bg = x[0] ? '1' : '0'; b.setAttribute('aria-pressed', GMBG === x[0] ? 'true' : 'false'); b.onclick = () => { GMBG = x[0]; try { localStorage.setItem('mirsad_gmbg', x[0] ? '1' : '0'); } catch (e) { /* لا شيء */ } renderGamma_(); }; bgs.appendChild(b); }); hd.appendChild(bgs);
   const zb = el('span', 'mpz'); zb.hidden = true; const mk = (t, l, f) => { const b = el('button', 'mpb mpc', t); b.type = 'button'; b.setAttribute('aria-label', l); b.onclick = f; return b; };
   hd.appendChild(zb); box.appendChild(hd);
   const lv = [];
@@ -2340,8 +2347,8 @@ function gMap_(o) {
     const c = cur(), lo = c.lo, hi = c.hi, Y = p => Tm + (hi - p) / (hi - lo) * (H - Tm - Bm), z = GMZ ? full / (hi - lo) : 1;
     zb.hidden = !GMZ; zb.textContent = '🔍 ×' + z.toFixed(1); wrap.classList.toggle('zoomed', !!GMZ); rs.disabled = !GMZ;
     let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="خريطة مستويات Gamma بمقياس ES"><defs><clipPath id="mpc"><rect x="0" y="0" width="' + W + '" height="' + H + '"/></clipPath></defs><g clip-path="url(#mpc)">';
-    if (!GMBG) { /* بلا خلفية: خطوط المستويات فقط */ } else if (rg) { const n = 200, st = (hi - lo) / n; for (let i = 0; i < n; i++) { const e = lo + st * (i + 0.5), v = rgAt(e - bs); if (v == null) continue; const a = Math.min(0.5, Math.sqrt(Math.abs(v) / rgMax) * 0.5), y1 = Y(e + st / 2); s += '<rect class="mp-bg" x="' + Lm + '" y="' + y1.toFixed(2) + '" width="' + (W - Rm - Lm) + '" height="' + (Y(e - st / 2) - y1).toFixed(2) + '" shape-rendering="crispEdges" fill="' + (v > 0 ? '#2fe0a0' : '#ff5c7a') + '" fill-opacity="' + a.toFixed(3) + '"/>'; } }
-    else bgr.forEach(r => { const e = r.k + bs, y1 = Y(e + stp / 2), y2 = Y(e - stp / 2); if (y2 < 0 || y1 > H) return; const v = Number(r.net) || 0, a = Math.sqrt(Math.abs(v) / bmx) * 0.42; s += '<rect class="mp-bg" x="' + Lm + '" y="' + y1.toFixed(1) + '" width="' + (W - Rm - Lm) + '" height="' + (y2 - y1 + 0.6).toFixed(1) + '" fill="' + (v > 0 ? '#2fe0a0' : '#ff5c7a') + '" fill-opacity="' + a.toFixed(3) + '"/>'; });
+    if (GMBG && rg) { const n = 200, st = (hi - lo) / n; for (let i = 0; i < n; i++) { const e = lo + st * (i + 0.5), v = rgAt(e - bs); if (v == null) continue; const a = Math.min(0.5, Math.sqrt(Math.abs(v) / rgMax) * 0.5), y1 = Y(e + st / 2); s += '<rect class="mp-bg mp-prof" x="' + Lm + '" y="' + y1.toFixed(2) + '" width="' + (W - Rm - Lm) + '" height="' + (Y(e - st / 2) - y1).toFixed(2) + '" shape-rendering="crispEdges" fill="' + (v > 0 ? '#2fe0a0' : '#ff5c7a') + '" fill-opacity="' + a.toFixed(3) + '"/>'; } }
+    else bgr.forEach(r => { const e = r.k + bs, y1 = Y(e + stp / 2), y2 = Y(e - stp / 2); if (y2 < 0 || y1 > H) return; const v = Number(r.net) || 0, a = Math.sqrt(Math.abs(v) / bmx) * 0.42; s += '<rect class="mp-bg mp-strk" x="' + Lm + '" y="' + y1.toFixed(1) + '" width="' + (W - Rm - Lm) + '" height="' + (y2 - y1 + 0.6).toFixed(1) + '" fill="' + (v > 0 ? '#2fe0a0' : '#ff5c7a') + '" fill-opacity="' + a.toFixed(3) + '"/>'; });
     const gs = (hi - lo) > 150 ? 25 : (hi - lo) > 60 ? 10 : 5; for (let p = Math.ceil(lo / gs) * gs; p <= hi; p += gs) s += '<line x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + Y(p).toFixed(1) + '" y2="' + Y(p).toFixed(1) + '" stroke="#22304a" stroke-dasharray="2 5"/>';
     const vis = lv.filter(l => l.es >= lo && l.es <= hi);
     if (isFinite(esSpot) && esSpot >= lo && esSpot <= hi) { const y = Y(esSpot); s += '<line class="mp-spot" x1="' + Lm + '" x2="' + (W - Rm) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#e9eef7" stroke-width="1.2"/><rect x="150" y="' + (y - 9).toFixed(1) + '" width="74" height="18" rx="4" fill="#e9eef7"/><text x="187" y="' + (y + 4).toFixed(1) + '" text-anchor="middle" font-size="11" font-weight="800" fill="#0b1220">' + 'الآن ' + esSpot.toFixed(2) + '</text>'; }
@@ -2795,7 +2802,7 @@ let booted = false, loadedAt = 0, lastTry = 0, FAIL = null, btnTimer = null;
 /* ثلاثة أزمنة منفصلة: وقت البيانات المعروضة (LIVE.updated)، آخر جلب ناجح (loadedAt)، آخر محاولة (lastTry). فشل المحاولة لا يحدّث الثانية ولا يمحو اللقطة. */
 function ago_(ms) { const m = Math.max(0, Math.round(ms / 60000)); return m < 1 ? 'الآن' : m < 60 ? 'قبل ' + m + ' دقيقة' : 'قبل ' + Math.floor(m / 60) + ' ساعة'; }
 const FAILMSG = { http: 'الخادم رفض الطلب', network: 'لا اتصال بالشبكة', json: 'ملف البيانات تالف', source: 'المصدر أبلغ عن خطأ', render: 'تعذّر عرض البيانات' };
-const UI_VERSION = '0.24.3';
+const UI_VERSION = '0.24.5';
 function versionCheck_(d) {
   const dv = d && d.version, vl = $('verLine'), vw = $('verWarn');
   if (vl) vl.textContent = 'إصدار الواجهة: v' + UI_VERSION + ' · إصدار ملف البيانات: ' + (dv ? 'v' + dv : 'غير مذكور (أقدم من 0.20.0)');

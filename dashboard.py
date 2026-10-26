@@ -11,7 +11,7 @@ import verdict
 import impact
 import os
 
-VERSION = "0.24.3"      # يُعرض في الإعدادات ويُقارَن بإصدار الواجهة: يكشف رفعاً ناقصاً أو ملف بيانات أقدم من الواجهة
+VERSION = "0.24.5"      # يُعرض في الإعدادات ويُقارَن بإصدار الواجهة: يكشف رفعاً ناقصاً أو ملف بيانات أقدم من الواجهة
 from datetime import datetime, timedelta
 
 DOCS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
