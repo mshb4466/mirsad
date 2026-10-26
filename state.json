@@ -370,74 +370,74 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-26T20:12:26.971333+00:00",
-        "ok_at": "2026-10-26T20:12:26.971333+00:00"
+        "last_try": "2026-10-26T20:44:49.857772+00:00",
+        "ok_at": "2026-10-26T20:44:49.857772+00:00"
       },
       "fred": {
-        "last_try": "2026-10-26T20:12:26.971333+00:00",
-        "ok_at": "2026-10-26T20:12:26.971333+00:00"
+        "last_try": "2026-10-26T20:44:49.857772+00:00",
+        "ok_at": "2026-10-26T20:44:49.857772+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-26T20:12:26.971333+00:00",
-        "ok_at": "2026-10-26T20:12:26.971333+00:00"
+        "last_try": "2026-10-26T20:44:49.857772+00:00",
+        "ok_at": "2026-10-26T20:44:49.857772+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-26T20:12:26.971333+00:00",
-        "ok_at": "2026-10-26T20:12:26.971333+00:00"
+        "last_try": "2026-10-26T20:44:49.857772+00:00",
+        "ok_at": "2026-10-26T20:44:49.857772+00:00"
       },
       "oil": {
-        "last_try": "2026-10-26T20:12:26.971333+00:00",
-        "ok_at": "2026-10-26T20:12:26.971333+00:00"
+        "last_try": "2026-10-26T20:44:49.857772+00:00",
+        "ok_at": "2026-10-26T20:44:49.857772+00:00"
       },
       "news": {
-        "last_try": "2026-10-26T20:12:26.971333+00:00",
-        "ok_at": "2026-10-26T20:12:26.971333+00:00"
+        "last_try": "2026-10-26T20:44:49.857772+00:00",
+        "ok_at": "2026-10-26T20:44:49.857772+00:00"
       },
       "cot": {
-        "last_try": "2026-10-26T20:12:26.971333+00:00",
-        "ok_at": "2026-10-26T20:12:26.971333+00:00"
+        "last_try": "2026-10-26T20:44:49.857772+00:00",
+        "ok_at": "2026-10-26T20:44:49.857772+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-26T20:12:26.971333+00:00",
-        "ok_at": "2026-10-26T20:12:26.971333+00:00"
+        "last_try": "2026-10-26T20:44:49.857772+00:00",
+        "ok_at": "2026-10-26T20:44:49.857772+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-26T20:12:26.971333+00:00"
+      "at": "2026-10-26T20:44:49.857772+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-26T19:38:56.175606+00:00",
+    "at": "2026-10-26T20:44:49.857772+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-26T18:39:00+00:00",
-            "title": "Bank of America still forecasts Fed rate hike this week, but with low confidence",
-            "src": "The Business Journals"
+            "t": "2026-10-26T20:14:00+00:00",
+            "title": "This Week Could Help Decide Whether the Fed Raises Interest Rates in December",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-10-26T20:10:30+00:00",
+            "title": "Federal Reserve to announce its latest interest rate move this week. Here's what economists expect.",
+            "src": "CBS News"
+          },
+          {
+            "t": "2026-10-26T19:13:38+00:00",
+            "title": "Investment and deposit accounts that may benefit most from Fed rate hikes: How many do you have?",
+            "src": "Chase Bank"
+          },
+          {
+            "t": "2026-10-26T19:10:01+00:00",
+            "title": "Terri Powell Obituary October 26, 2026",
+            "src": "Hanlin Funeral Home"
           },
           {
             "t": "2026-10-26T18:25:28+00:00",
             "title": "New England’s Rural Economy: An Overview",
             "src": "Federal Reserve Bank of Boston"
-          },
-          {
-            "t": "2026-10-26T18:13:15+00:00",
-            "title": "Federal Reserve meeting: Rice experts available to discuss interest rates, inflation and economic outlook",
-            "src": "Rice University"
-          },
-          {
-            "t": "2026-10-26T18:08:13+00:00",
-            "title": "What to Expect from the October 2026 Fed Meeting",
-            "src": "Morningstar"
-          },
-          {
-            "t": "2026-10-26T18:00:59+00:00",
-            "title": "Going up: Water level at Lake Powell rises after recent rainstorms",
-            "src": "Las Vegas Review-Journal"
           }
         ]
       },
@@ -445,18 +445,18 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-26T18:37:31+00:00",
-            "title": "Equities climb as Anthropic's IPO filing buoys AI stocks",
+            "t": "2026-10-26T20:25:19+00:00",
+            "title": "Equities end higher as Anthropic's IPO filing buoys AI stocks",
             "src": "Reuters"
+          },
+          {
+            "t": "2026-10-26T18:53:00+00:00",
+            "title": "Tech Shares Rally After Anthropic Files for Historic IPO",
+            "src": "WSJ"
           },
           {
             "t": "2026-10-26T16:36:02+00:00",
             "title": "Oil Futures End Mixed as Traders Weigh Supply Recovery Against Shipping Risks",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-26T16:20:00+00:00",
-            "title": "U.S. Stocks Higher as Tech Rallies",
             "src": "WSJ"
           },
           {
@@ -485,8 +485,8 @@
             "src": "CNBC"
           },
           {
-            "t": "2026-10-26T13:43:02+00:00",
-            "title": "Here’s How Much Traders See Google Parent Alphabet’s Stock Moving After Earnings",
+            "t": "2026-10-26T13:37:01+00:00",
+            "title": "Meta Stock Has Dropped the Day After 3 Straight Earnings Reports. Is It a Buy Now?",
             "src": "Yahoo Finance"
           },
           {
@@ -495,8 +495,8 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-26T12:00:00+00:00",
-            "title": "Fed rate decision and Google, Microsoft and Amazon earnings: What to Watch",
+            "t": "2026-10-26T12:06:00+00:00",
+            "title": "Alphabet, Microsoft, Amazon, Meta, Tesla, Nvidia and Micron are part of Zacks Earnings Preview",
             "src": "Yahoo Finance"
           }
         ]
@@ -504,6 +504,11 @@
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-26T18:13:15+00:00",
+            "title": "Federal Reserve meeting: Rice experts available to discuss interest rates, inflation and economic outlook",
+            "src": "Rice University"
+          },
           {
             "t": "2026-10-26T16:15:00+00:00",
             "title": "‘We don’t have inflation’? Five charts show the US economic reality of Trump’s second term so far",
@@ -523,17 +528,22 @@
             "t": "2026-10-26T14:35:31+00:00",
             "title": "The GDP Center at the IMF and World Bank Annual Meetings in Bangkok, Thailand",
             "src": "Boston University"
-          },
-          {
-            "t": "2026-10-26T13:47:39+00:00",
-            "title": "Defense Spending Projected To Rise With Deficit at 6.6% Of GDP",
-            "src": "Legis1"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-10-26T19:58:05+00:00",
+            "title": "Trump tweaks Canada tariffs, removing certain goods while adding others",
+            "src": "Facilities Dive"
+          },
+          {
+            "t": "2026-10-26T19:34:00+00:00",
+            "title": "Treasury Yields Little Changed, French Bonds Outperform",
+            "src": "WSJ"
+          },
           {
             "t": "2026-10-26T19:33:43+00:00",
             "title": "EXCLUSIVE: US, Canada working on deal to ease steel, auto tariffs, sources say",
@@ -543,22 +553,22 @@
             "t": "2026-10-26T17:07:39+00:00",
             "title": "Compressed Gas Association Lobbies on Steel Tariffs and Defense",
             "src": "Legis1"
-          },
-          {
-            "t": "2026-10-26T16:39:46+00:00",
-            "title": "Trump tweaks Canada tariffs, removing certain goods while adding others",
-            "src": "Facilities Dive"
-          },
-          {
-            "t": "2026-10-26T16:23:26+00:00",
-            "title": "Trump tariffs test Republicans ahead of midterms",
-            "src": "Axios"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-10-26T19:48:36+00:00",
+            "title": "IDF sidesteps claims Eyal Zamir blocked Netanyahu's Iran move over political concerns",
+            "src": "The Jerusalem Post"
+          },
+          {
+            "t": "2026-10-26T19:21:00+00:00",
+            "title": "Netanyahu reportedly pressured military to attack Iran in run-up to election",
+            "src": "The Guardian"
+          },
           {
             "t": "2026-10-26T18:16:37+00:00",
             "title": "Scott Bessent says Iran's economy is 'collapsing' as Treasury tightens financial vise",
@@ -568,16 +578,6 @@
             "t": "2026-10-26T18:01:43+00:00",
             "title": "Russian missile strikes on Ukraine's Kharkiv kill two, injure four, mayor says",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-10-26T17:28:01+00:00",
-            "title": "Russian attacks on Ukraine’s energy infrastructure a war crime: UN",
-            "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-10-26T15:51:52+00:00",
-            "title": "Delegations meet in Iran with the Middle East on edge over potential for renewed fighting",
-            "src": "PBS"
           }
         ]
       }
@@ -585,7 +585,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-26T20:12:26.971333+00:00",
+    "at": "2026-10-26T20:44:49.857772+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -663,7 +663,7 @@
         "title": "Goods Trade Balance",
         "impact": "Low",
         "time": "2026-10-28T12:30:00+00:00",
-        "forecast": "-130.8B",
+        "forecast": "-130.4B",
         "previous": "-132.6B",
         "type": "OTHER"
       },
@@ -671,7 +671,7 @@
         "title": "Prelim Wholesale Inventories m/m",
         "impact": "Low",
         "time": "2026-10-28T12:30:00+00:00",
-        "forecast": "0.4%",
+        "forecast": "0.5%",
         "previous": "0.7%",
         "type": "OTHER"
       },
@@ -727,7 +727,7 @@
         "title": "Advance GDP Price Index q/q",
         "impact": "Medium",
         "time": "2026-10-29T12:30:00+00:00",
-        "forecast": "3.5%",
+        "forecast": "3.3%",
         "previous": "6.2%",
         "type": "OTHER"
       },
@@ -775,7 +775,7 @@
         "title": "Chicago PMI",
         "impact": "Low",
         "time": "2026-10-30T13:45:00+00:00",
-        "forecast": "54.8",
+        "forecast": "55.8",
         "previous": "58.8",
         "type": "OTHER"
       },
@@ -7526,10 +7526,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-10-26T20:12:26.971333+00:00",
+  "last_publish_ok": "2026-10-26T20:44:49.857772+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-10-26T20:12:54.217231+00:00"
+    "mode": "test",
+    "at": "2026-10-26T20:45:27.258499+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7593,9 +7593,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-10-26T20:12:26.971333+00:00",
-    "ok_at": "2026-10-26T20:12:26.971333+00:00",
+    "lean": "up",
+    "at": "2026-10-26T20:44:49.857772+00:00",
+    "ok_at": "2026-10-26T20:44:49.857772+00:00",
     "change": null
   },
   "last_watch": {
