@@ -258,119 +258,119 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": 0.54,
-      "th": 0.45,
-      "ratio": 1.21,
-      "val": "+0.54%",
-      "thr": "±0.45%",
-      "c15": "+0.06%",
-      "c60": "+0.54%",
-      "c180": "+0.20%",
-      "confirmed": true,
-      "why": "مؤكَّدة",
+      "w": 180,
+      "v": 0.4,
+      "th": 0.8,
+      "ratio": 0.5,
+      "val": "+0.40%",
+      "thr": "±0.8%",
+      "c15": "+0.01%",
+      "c60": "+0.21%",
+      "c180": "+0.40%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.82,
-      "z": 3.6,
-      "volx": 2.7
+      "eff": 0.52,
+      "z": 1.4,
+      "volx": 1.4
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 60,
-      "v": 0.81,
-      "th": 0.6,
-      "ratio": 1.34,
-      "val": "+0.81%",
-      "thr": "±0.6%",
-      "c15": "+0.07%",
-      "c60": "+0.81%",
-      "c180": "+0.61%",
-      "confirmed": true,
-      "why": "مؤكَّدة",
+      "w": 180,
+      "v": 1.02,
+      "th": 1.0,
+      "ratio": 1.02,
+      "val": "+1.02%",
+      "thr": "±1%",
+      "c15": "+0.09%",
+      "c60": "+0.44%",
+      "c180": "+1.02%",
+      "confirmed": false,
+      "why": "الحركة ضمن تقلب الأصل المعتاد",
       "tone": "bull",
-      "eff": 0.8,
-      "z": 3.1,
-      "volx": 1.7
+      "eff": 0.72,
+      "z": 1.7,
+      "volx": 1.2
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
-      "w": 60,
-      "v": -2.33,
-      "th": 8.0,
-      "ratio": 0.29,
-      "val": "-2.33%",
-      "thr": "±8%",
-      "c15": "-0.06%",
-      "c60": "-2.33%",
-      "c180": "-1.07%",
+      "w": 180,
+      "v": -1.68,
+      "th": 14.0,
+      "ratio": 0.12,
+      "val": "-1.68%",
+      "thr": "±14%",
+      "c15": "+0.06%",
+      "c60": "-0.11%",
+      "c180": "-1.68%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.5,
-      "z": 1.6,
+      "eff": 0.12,
+      "z": 0.1,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": -1.21,
-      "th": 1.3,
-      "ratio": 0.93,
-      "val": "-1.21%",
-      "thr": "±1.3%",
-      "c15": "-0.09%",
-      "c60": "-1.21%",
-      "c180": "-0.93%",
+      "w": 180,
+      "v": -0.91,
+      "th": 2.4,
+      "ratio": 0.38,
+      "val": "-0.91%",
+      "thr": "±2.4%",
+      "c15": "-0.16%",
+      "c60": "+0.05%",
+      "c180": "-0.91%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.54,
-      "z": 2.4,
-      "volx": 1.7
+      "eff": 0.03,
+      "z": 0.1,
+      "volx": 1.0
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 180,
-      "v": 1.06,
+      "v": 0.94,
       "th": 1.2,
-      "ratio": 0.88,
-      "val": "+1.06%",
+      "ratio": 0.79,
+      "val": "+0.94%",
       "thr": "±1.2%",
-      "c15": "+0.01%",
-      "c60": "+0.56%",
-      "c180": "+1.06%",
+      "c15": "-0.07%",
+      "c60": "+0.11%",
+      "c180": "+0.94%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.75,
-      "z": 2.7,
-      "volx": 1.6
+      "eff": 0.28,
+      "z": 0.5,
+      "volx": 0.7
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
-      "v": 0.04,
-      "th": 0.18,
-      "ratio": 0.24,
-      "val": "+0.04%",
-      "thr": "±0.18%",
-      "c15": "+0.04%",
+      "w": 180,
+      "v": 0.09,
+      "th": 0.5,
+      "ratio": 0.18,
+      "val": "+0.09%",
+      "thr": "±0.5%",
+      "c15": "+0.03%",
       "c60": "+0.04%",
-      "c180": "+0.06%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.15,
+      "eff": 0.51,
       "z": 0.7,
       "volx": null
     },
@@ -378,40 +378,40 @@
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 15,
-      "v": 0.04,
-      "th": 0.25,
-      "ratio": 0.14,
-      "val": "+0.04%",
-      "thr": "±0.25%",
-      "c15": "+0.04%",
-      "c60": "+0.01%",
+      "w": 60,
+      "v": 0.07,
+      "th": 0.4,
+      "ratio": 0.18,
+      "val": "+0.07%",
+      "thr": "±0.4%",
+      "c15": "+0.01%",
+      "c60": "+0.07%",
       "c180": "+0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.05,
-      "z": 0.1,
+      "eff": 0.66,
+      "z": 0.9,
       "volx": null
     },
     {
       "key": "y10",
       "name": "عائد 10 سنوات",
       "short": "10Y",
-      "w": 60,
-      "v": -1.5,
-      "th": 4.5,
-      "ratio": 0.33,
-      "val": "-2bp",
-      "thr": "±4.5bp",
-      "c15": "-0bp",
-      "c60": "-2bp",
+      "w": 15,
+      "v": 0.4,
+      "th": 3.0,
+      "ratio": 0.13,
+      "val": "+0bp",
+      "thr": "±3bp",
+      "c15": "+0bp",
+      "c60": "+1bp",
       "c180": "-0bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.33,
-      "z": 1.1,
+      "eff": 0.14,
+      "z": 0.4,
       "volx": null
     },
     {
@@ -419,19 +419,19 @@
       "name": "عائد 5 سنوات",
       "short": "5Y",
       "w": 60,
-      "v": -1.8,
+      "v": 0.6,
       "th": 4.5,
-      "ratio": 0.4,
-      "val": "-2bp",
+      "ratio": 0.13,
+      "val": "+1bp",
       "thr": "±4.5bp",
-      "c15": "-1bp",
-      "c60": "-2bp",
-      "c180": "-0bp",
+      "c15": "+0bp",
+      "c60": "+1bp",
+      "c180": "-1bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.38,
-      "z": 1.3,
+      "eff": 0.17,
+      "z": 0.4,
       "volx": null
     },
     {
@@ -439,19 +439,19 @@
       "name": "عائد 30 سنة",
       "short": "30Y",
       "w": 60,
-      "v": -0.8,
+      "v": 0.4,
       "th": 4.5,
-      "ratio": 0.18,
-      "val": "-1bp",
+      "ratio": 0.09,
+      "val": "+0bp",
       "thr": "±4.5bp",
-      "c15": "-0bp",
-      "c60": "-1bp",
-      "c180": "-0bp",
+      "c15": "+0bp",
+      "c60": "+0bp",
+      "c180": "+0bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.2,
-      "z": 0.7,
+      "eff": 0.12,
+      "z": 0.3,
       "volx": null
     },
     {
@@ -459,93 +459,98 @@
       "name": "سندات عالية العائد HYG",
       "short": "HYG",
       "w": 180,
-      "v": 0.3,
+      "v": 0.38,
       "th": 0.45,
-      "ratio": 0.68,
-      "val": "+0.30%",
+      "ratio": 0.83,
+      "val": "+0.38%",
       "thr": "±0.45%",
-      "c15": "+0.03%",
-      "c60": "+0.14%",
-      "c180": "+0.30%",
+      "c15": "+0.00%",
+      "c60": "+0.05%",
+      "c180": "+0.38%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.51,
-      "z": 1.3,
-      "volx": null
+      "eff": 0.31,
+      "z": 0.5,
+      "volx": 0.9
     },
     {
       "key": "kre",
       "name": "البنوك الإقليمية KRE",
       "short": "KRE",
       "w": 60,
-      "v": 0.33,
+      "v": 0.24,
       "th": 1.1,
-      "ratio": 0.3,
-      "val": "+0.33%",
+      "ratio": 0.22,
+      "val": "+0.24%",
       "thr": "±1.1%",
-      "c15": "+0.15%",
-      "c60": "+0.33%",
-      "c180": "-0.19%",
+      "c15": "+0.00%",
+      "c60": "+0.24%",
+      "c180": "+0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.53,
-      "z": 0.8,
-      "volx": null
+      "tone": "flat",
+      "eff": 0.66,
+      "z": 0.6,
+      "volx": 0.6
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-27T15:29:07.912110+00:00",
-        "ok_at": "2026-10-27T15:29:07.912110+00:00"
+        "last_try": "2026-10-27T16:19:01.393401+00:00",
+        "ok_at": "2026-10-27T16:19:01.393401+00:00"
       },
       "fred": {
-        "last_try": "2026-10-27T15:29:07.912110+00:00",
-        "ok_at": "2026-10-27T15:29:07.912110+00:00"
+        "last_try": "2026-10-27T16:19:01.393401+00:00",
+        "ok_at": "2026-10-27T16:19:01.393401+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-27T15:29:07.912110+00:00",
-        "ok_at": "2026-10-27T15:29:07.912110+00:00"
+        "last_try": "2026-10-27T16:19:01.393401+00:00",
+        "ok_at": "2026-10-27T16:19:01.393401+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-27T15:29:07.912110+00:00",
-        "ok_at": "2026-10-27T15:29:07.912110+00:00"
+        "last_try": "2026-10-27T16:19:01.393401+00:00",
+        "ok_at": "2026-10-27T16:19:01.393401+00:00"
       },
       "oil": {
-        "last_try": "2026-10-27T15:29:07.912110+00:00",
-        "ok_at": "2026-10-27T15:29:07.912110+00:00"
+        "last_try": "2026-10-27T16:19:01.393401+00:00",
+        "ok_at": "2026-10-27T16:19:01.393401+00:00"
       },
       "news": {
-        "last_try": "2026-10-27T15:29:07.912110+00:00",
-        "ok_at": "2026-10-27T15:29:07.912110+00:00"
+        "last_try": "2026-10-27T16:19:01.393401+00:00",
+        "ok_at": "2026-10-27T16:19:01.393401+00:00"
       },
       "cot": {
-        "last_try": "2026-10-27T15:29:07.912110+00:00",
-        "ok_at": "2026-10-27T15:29:07.912110+00:00"
+        "last_try": "2026-10-27T16:19:01.393401+00:00",
+        "ok_at": "2026-10-27T16:19:01.393401+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-27T15:29:07.912110+00:00",
-        "ok_at": "2026-10-27T15:29:07.912110+00:00"
+        "last_try": "2026-10-27T16:19:01.393401+00:00",
+        "ok_at": "2026-10-27T16:19:01.393401+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-27T15:29:07.912110+00:00"
+      "at": "2026-10-27T16:19:01.393401+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-27T14:41:13.861165+00:00",
+    "at": "2026-10-27T16:19:01.393401+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-27T14:33:00+00:00",
-            "title": "Wall Street rises ahead of Fed decision, tech earnings",
-            "src": "Seeking Alpha"
+            "t": "2026-10-27T16:06:03+00:00",
+            "title": "What to expect from the Fed's meeting this week",
+            "src": "Axios"
+          },
+          {
+            "t": "2026-10-27T14:32:33+00:00",
+            "title": "S&P 500, Nasdaq advance as oil eases ahead of Fed decision",
+            "src": "Reuters"
           },
           {
             "t": "2026-10-27T14:23:30+00:00",
@@ -558,14 +563,9 @@
             "src": "NACS"
           },
           {
-            "t": "2026-10-27T14:02:07+00:00",
-            "title": "Gold holds above $4,000 as traders brace for Fed interest rate decision",
-            "src": "FXStreet"
-          },
-          {
-            "t": "2026-10-27T13:55:27+00:00",
-            "title": "What the Fed's interest rate decision means for your bank accounts, loans, credit cards, and investments",
-            "src": "Yahoo Finance"
+            "t": "2026-10-27T13:59:54+00:00",
+            "title": "Czech central banker Seidler leaning towards November rate hike",
+            "src": "Reuters"
           }
         ]
       },
@@ -573,29 +573,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-27T14:39:09+00:00",
-            "title": "Opinion | Viktor Orbán, U.N. Secretary-General?",
-            "src": "WSJ"
+            "t": "2026-10-27T15:27:02+00:00",
+            "title": "MercadoLibre Cratered by 20% Last Year: Two Wall Street Pros Agree It's Going to Rise 50% Soon",
+            "src": "24/7 Wall St."
           },
           {
-            "t": "2026-10-27T14:38:02+00:00",
-            "title": "Wall Street drifts as Broadcom and other AI-related stocks help support the market",
-            "src": "San Antonio Express-News"
+            "t": "2026-10-27T15:15:55+00:00",
+            "title": "US futures and Asian stocks advance following a rally on Wall Street",
+            "src": "WHEC.com"
           },
           {
-            "t": "2026-10-27T14:02:00+00:00",
-            "title": "Stocks Inch Higher After Monday’s Anthropic Rally",
-            "src": "WSJ"
+            "t": "2026-10-27T15:06:55+00:00",
+            "title": "Wall Street drifts as Broadcom and other AI-related stocks support the market",
+            "src": "Anchorage Daily News"
           },
           {
-            "t": "2026-10-27T13:34:33+00:00",
-            "title": "U.S. Stock Futures Point Higher as AI Developments and Earnings Support Market Recovery: Dow Jones, S&P, Nasdaq, Wall Street",
+            "t": "2026-10-27T15:03:35+00:00",
+            "title": "Broadcom and other AI stocks lift Wall Street closer to its record",
+            "src": "Boston Herald"
+          },
+          {
+            "t": "2026-10-27T14:34:39+00:00",
+            "title": "Wall Street Banks Provide $63 Billion To Finance Broadcom AI Chips For Anthropic",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-27T13:34:22+00:00",
-            "title": "S&P 500, Nasdaq open higher as oil pulls back ahead of Fed decision",
-            "src": "Reuters"
           }
         ]
       },
@@ -603,29 +603,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-27T13:49:46+00:00",
-            "title": "‘Search for the Exit,’ Says Investor Ahead of Alphabet Earnings",
-            "src": "TipRanks"
+            "t": "2026-10-27T15:00:00+00:00",
+            "title": "Alphabet Stock Breaks Down Ahead of Q3 Earnings: Could GOOGL Fall 30%?",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-27T13:38:50+00:00",
-            "title": "Reddit's Crowd Turns Bearish on Microsoft Ahead of Earnings",
-            "src": "24/7 Wall St."
+            "t": "2026-10-27T14:53:00+00:00",
+            "title": "Microsoft earnings will look funky — but an elusive number is finally arriving",
+            "src": "MarketWatch"
           },
           {
-            "t": "2026-10-27T13:21:32+00:00",
-            "title": "Microsoft earnings: Options traders bet on $555 calls while stacking $460 puts (MSFT:NASDAQ)",
-            "src": "Seeking Alpha"
+            "t": "2026-10-27T09:41:55+00:00",
+            "title": "Collusion via Government: The Meta Settlement’s End Run Around Antitrust Law",
+            "src": "American Enterprise Institute - AEI"
           },
           {
-            "t": "2026-10-27T11:50:12+00:00",
-            "title": "Amazon Q3 Earnings Preview: AWS Is Booming, But Is $248 Too Much?",
-            "src": "Seeking Alpha"
+            "t": "2026-10-27T08:54:47+00:00",
+            "title": "Microsoft (MSFT) Q3 earnings report preview: what to look for",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-27T11:26:32+00:00",
-            "title": "Amazon Q3 Earnings Preview: AWS Growth Expected to Rise to 41%, Wall Street Top Price Target $400",
-            "src": "TradingKey"
+            "t": "2026-10-27T08:00:00+00:00",
+            "title": "Alphabet, FedEx, GE Vernova, KLA, Microsoft: Earnings-Day Vol",
+            "src": "Bloomberg Law News"
           }
         ]
       },
@@ -633,9 +633,9 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-27T14:05:19+00:00",
-            "title": "National Home Values Growth Accelerates Yet Continues to Trail Inflation",
-            "src": "Realtor.com"
+            "t": "2026-10-27T13:50:14+00:00",
+            "title": "U.K. Inflation Jumps Again, Strengthening Case for Rate Hike",
+            "src": "WSJ"
           },
           {
             "t": "2026-10-27T13:41:44+00:00",
@@ -643,19 +643,19 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-10-27T13:31:54+00:00",
-            "title": "Home prices rise in August but fall behind inflation, reports show",
-            "src": "Mortgage Professional America"
-          },
-          {
-            "t": "2026-10-27T13:04:39+00:00",
-            "title": "Former Fed Governor Stephen Miran: The Fed risks overreacting to transitory inflation",
-            "src": "CNBC"
+            "t": "2026-10-27T13:18:45+00:00",
+            "title": "The Inflation Debate Is No Longer Just About Supply",
+            "src": "Apollo Global Management"
           },
           {
             "t": "2026-10-27T12:52:09+00:00",
             "title": "Trump: “I Love the Inflation”",
             "src": "Democrats.org"
+          },
+          {
+            "t": "2026-10-27T10:00:00+00:00",
+            "title": "Why Denver’s 4% inflation may feel much higher",
+            "src": "The Colorado Sun"
           }
         ]
       },
@@ -663,24 +663,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-27T13:00:00+00:00",
-            "title": "Volvo faces profitability crisis in U.S. from tariffs, slumping demand",
-            "src": "Automotive News"
+            "t": "2026-10-27T16:15:34+00:00",
+            "title": "Boo! Tariffs Inflate Halloween Candy Prices",
+            "src": "National Taxpayers Union"
           },
           {
-            "t": "2026-10-27T10:11:08+00:00",
-            "title": "Hold or sell? High Treasury yields spur US banks to rethink bond portfolios",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-27T09:44:07+00:00",
-            "title": "U.S. Treasury yields are little changed as Federal Reserve's monetary policy meeting gets underway",
+            "t": "2026-10-27T15:45:57+00:00",
+            "title": "Honda warns 50% Canada auto tariffs would be catastrophic for auto industry",
             "src": "CNBC"
           },
           {
-            "t": "2026-10-27T09:00:00+00:00",
-            "title": "White House Publishes Modifications to Canadian Tariffs",
-            "src": "The Presidential Prayer Team"
+            "t": "2026-10-27T14:01:50+00:00",
+            "title": "Trump tweaks Canada tariffs, removing certain goods while adding others",
+            "src": "Construction Dive"
+          },
+          {
+            "t": "2026-10-27T13:38:51+00:00",
+            "title": "Doing business under US Canada tariffs and bans | Secondary Sources | National",
+            "src": "Westlaw Today"
           }
         ]
       },
@@ -688,24 +688,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-27T14:14:43+00:00",
+            "t": "2026-10-27T16:14:03+00:00",
+            "title": "Exclusive: U.S. Diplomat Suspects Trump Tied Netanyahu Nod to Iran Strike Delay",
+            "src": "الحرة"
+          },
+          {
+            "t": "2026-10-27T16:10:26+00:00",
+            "title": "First lady Melania Trump says Ukraine-Russia ceasefire expanded within Kherson",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-27T15:58:38+00:00",
             "title": "Localized Ukraine ceasefire brokered by Melania Trump starts as Nordic leaders speak to Putin",
-            "src": "The Killeen Daily Herald"
+            "src": "The Journal"
           },
           {
-            "t": "2026-10-27T14:10:42+00:00",
-            "title": "Russia and Ukraine Trade Drone Attacks Despite Local Ceasefire in Russian-Occupied Oleshky",
-            "src": "Democracy Now!"
-          },
-          {
-            "t": "2026-10-27T14:03:45+00:00",
-            "title": "Russia targets Kyiv as Finnish, Norwegian leaders hold rare call with Putin",
-            "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-10-27T13:54:37+00:00",
-            "title": "Photos show Ukraine's Starlink was throttled during Russian strike that killed 5 in park",
-            "src": "CBS News"
+            "t": "2026-10-27T15:20:37+00:00",
+            "title": "Israel Has Committed Genocidal Acts in Gaza Since Ceasefire, UN Human Rights Panel Says",
+            "src": "GV Wire"
           }
         ]
       }
@@ -713,7 +713,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-27T15:29:07.912110+00:00",
+    "at": "2026-10-27T16:19:01.393401+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -807,7 +807,7 @@
         "title": "Crude Oil Inventories",
         "impact": "Low",
         "time": "2026-10-28T14:30:00+00:00",
-        "forecast": "-0.3M",
+        "forecast": "-0.1M",
         "previous": "-3.1M",
         "type": "OTHER"
       },
@@ -7700,10 +7700,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-10-27T15:29:07.912110+00:00",
+  "last_publish_ok": "2026-10-27T16:19:01.393401+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-27T15:29:53.983081+00:00"
+    "at": "2026-10-27T16:19:38.759624+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7768,12 +7768,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-27T15:29:07.912110+00:00",
-    "ok_at": "2026-10-27T15:29:07.912110+00:00",
+    "at": "2026-10-27T16:19:01.393401+00:00",
+    "ok_at": "2026-10-27T16:19:01.393401+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-27T15:29:07.912110+00:00",
+    "at": "2026-10-27T16:19:01.393401+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
