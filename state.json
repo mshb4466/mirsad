@@ -330,74 +330,74 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-27T11:18:53.856924+00:00",
-        "ok_at": "2026-10-27T11:18:53.856924+00:00"
+        "last_try": "2026-10-27T12:02:10.350601+00:00",
+        "ok_at": "2026-10-27T12:02:10.350601+00:00"
       },
       "fred": {
-        "last_try": "2026-10-27T11:18:53.856924+00:00",
-        "ok_at": "2026-10-27T11:18:53.856924+00:00"
+        "last_try": "2026-10-27T12:02:10.350601+00:00",
+        "ok_at": "2026-10-27T12:02:10.350601+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-27T11:18:53.856924+00:00",
-        "ok_at": "2026-10-27T11:18:53.856924+00:00"
+        "last_try": "2026-10-27T12:02:10.350601+00:00",
+        "ok_at": "2026-10-27T12:02:10.350601+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-27T11:18:53.856924+00:00",
-        "ok_at": "2026-10-27T11:18:53.856924+00:00"
+        "last_try": "2026-10-27T12:02:10.350601+00:00",
+        "ok_at": "2026-10-27T12:02:10.350601+00:00"
       },
       "oil": {
-        "last_try": "2026-10-27T11:18:53.856924+00:00",
-        "ok_at": "2026-10-27T11:18:53.856924+00:00"
+        "last_try": "2026-10-27T12:02:10.350601+00:00",
+        "ok_at": "2026-10-27T12:02:10.350601+00:00"
       },
       "news": {
-        "last_try": "2026-10-27T11:18:53.856924+00:00",
-        "ok_at": "2026-10-27T11:18:53.856924+00:00"
+        "last_try": "2026-10-27T12:02:10.350601+00:00",
+        "ok_at": "2026-10-27T12:02:10.350601+00:00"
       },
       "cot": {
-        "last_try": "2026-10-27T11:18:53.856924+00:00",
-        "ok_at": "2026-10-27T11:18:53.856924+00:00"
+        "last_try": "2026-10-27T12:02:10.350601+00:00",
+        "ok_at": "2026-10-27T12:02:10.350601+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-27T11:18:53.856924+00:00",
-        "ok_at": "2026-10-27T11:18:53.856924+00:00"
+        "last_try": "2026-10-27T12:02:10.350601+00:00",
+        "ok_at": "2026-10-27T12:02:10.350601+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-27T11:18:53.856924+00:00"
+      "at": "2026-10-27T12:02:10.350601+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-27T10:30:32.741774+00:00",
+    "at": "2026-10-27T12:02:10.350601+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-27T10:10:33+00:00",
-            "title": "Asian Stocks to Gain as Anthropic Files for IPO: Markets Wrap",
-            "src": "Bloomberg.com"
+            "t": "2026-10-27T11:39:09+00:00",
+            "title": "Dow futures climb 129 points as traders weigh earnings and Fed meeting",
+            "src": "Quartz"
           },
           {
-            "t": "2026-10-27T10:00:00+00:00",
-            "title": "Kevin Warsh Wanted the Fed to Be Quiet. Instead, It’s as Noisy as Ever",
-            "src": "WSJ"
+            "t": "2026-10-27T11:35:39+00:00",
+            "title": "Fed is expected to hold rates steady, but Warsh may signal more hikes ahead",
+            "src": "Quartz"
           },
           {
-            "t": "2026-10-27T09:44:07+00:00",
-            "title": "U.S. Treasury yields are flat ahead of the Federal Reserve's monetary policy meeting",
+            "t": "2026-10-27T11:30:44+00:00",
+            "title": "CNBC Fed Survey: The Fed has work to do, but not expected to do it in October",
             "src": "CNBC"
           },
           {
-            "t": "2026-10-27T09:03:47+00:00",
-            "title": "The Fed Is Expected to Hold Rates Steady. Warsh Will Have to Explain Why.",
-            "src": "The New York Times"
+            "t": "2026-10-27T11:10:01+00:00",
+            "title": "Fed rate hikes are coming, but not this week: CNBC survey",
+            "src": "CNBC"
           },
           {
-            "t": "2026-10-27T08:26:02+00:00",
-            "title": "There's a New Source of Inflation, and It's Put Fed Chair Kevin Warsh and the FOMC Between a Rock and a Hard Place",
-            "src": "Yahoo Finance"
+            "t": "2026-10-27T11:07:00+00:00",
+            "title": "BGE rate hike proposal could leave customers paying extra $8 a month",
+            "src": "CBS News"
           }
         ]
       },
@@ -405,29 +405,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-27T10:30:13+00:00",
-            "title": "Opinion | Viktor Orbán, U.N. Secretary-General?",
-            "src": "WSJ"
+            "t": "2026-10-27T11:33:20+00:00",
+            "title": "Inflation Beaters: 10 S&P 500 Stocks Charge A Premium",
+            "src": "Investor's Business Daily"
           },
           {
-            "t": "2026-10-27T09:53:44+00:00",
-            "title": "US stock futures muted as oil holds near April highs ahead of Fed decision",
-            "src": "Reuters"
+            "t": "2026-10-27T11:14:17+00:00",
+            "title": "Tech Optimism Undergirds Wall Street Pre-Bell; Asia Up, Europe Off",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-27T09:41:00+00:00",
-            "title": "Stock Futures Steady as Anthropic Rally Stalls, Israel Election in Focus",
-            "src": "WSJ"
+            "t": "2026-10-27T11:11:00+00:00",
+            "title": "Options traders are seizing control of the S&P 500",
+            "src": "MarketWatch"
           },
           {
-            "t": "2026-10-27T09:30:00+00:00",
-            "title": "Anthropic’s ‘Adjusted’ Profit Exposes Wall Street’s Earnings Game",
-            "src": "WSJ"
+            "t": "2026-10-27T11:05:45+00:00",
+            "title": "What Invesco S&P 500 Momentum ETF (SPMO) Bought: Apple Leads on Friday",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-27T07:58:27+00:00",
-            "title": "U.S. Evacuates Mideast Outposts After Suspected Iranian Plot to Target Americans",
-            "src": "WSJ"
+            "t": "2026-10-27T11:04:35+00:00",
+            "title": "What State Street SPDR Portfolio S&P 500 ETF (SPYM) Bought: NVIDIA Leads on Oct. 23",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -435,35 +435,40 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-27T10:05:41+00:00",
-            "title": "Big Tech earnings a test of the AI boom amid market turmoil",
-            "src": "Reuters"
+            "t": "2026-10-27T11:50:12+00:00",
+            "title": "Amazon Stock Q3 Earnings Preview: AWS Is Booming, But Is $248 Too Much? (NASDAQ:AMZN)",
+            "src": "Seeking Alpha"
           },
           {
-            "t": "2026-10-27T09:02:57+00:00",
-            "title": "Microsoft Earnings Preview: Can Azure Growth Reach 47%? Wall Street’s Top Price Target at $725",
+            "t": "2026-10-27T11:26:32+00:00",
+            "title": "Amazon Q3 Earnings Preview: AWS Growth Expected to Rise to 41%, Wall Street Top Price Target $400",
             "src": "TradingKey"
           },
           {
-            "t": "2026-10-27T08:54:47+00:00",
-            "title": "Microsoft (MSFT) Q3 earnings report preview: what to look for",
-            "src": "Yahoo Finance"
+            "t": "2026-10-27T11:10:14+00:00",
+            "title": "Alphabet Likely To Report Higher Q3 Earnings; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
+            "src": "Benzinga"
           },
           {
-            "t": "2026-10-27T08:16:00+00:00",
-            "title": "Alphabet (GOOGL) Q3 earnings preview: US$200 billion AI capex test puts major uptrend at risk",
-            "src": "MarketPulse"
+            "t": "2026-10-27T10:51:26+00:00",
+            "title": "Show me the money: Big Tech earnings put spotlight on AI spending",
+            "src": "TradingView"
           },
           {
-            "t": "2026-10-27T08:00:00+00:00",
-            "title": "Alphabet, FedEx, GE Vernova, KLA, Microsoft: Earnings-Day Vol",
-            "src": "Bloomberg Law News"
+            "t": "2026-10-27T10:20:18+00:00",
+            "title": "Microsoft Earnings Are Imminent; These Most Accurate Analysts Revise Forecasts Ahead Of Earnings Call",
+            "src": "Benzinga"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-10-27T11:00:12+00:00",
+            "title": "The Inflation Debate Is No Longer Just About Supply",
+            "src": "Apollo Global Management"
+          },
           {
             "t": "2026-10-27T10:00:00+00:00",
             "title": "Why Denver’s 4% inflation rate may not feel right: It’s not personal",
@@ -480,14 +485,9 @@
             "src": "WSJ"
           },
           {
-            "t": "2026-10-27T08:00:00+00:00",
-            "title": "How is P&G’s CEO getting inflation-weary shoppers to pay more? It starts with cashmere-like diapers",
-            "src": "Fortune"
-          },
-          {
-            "t": "2026-10-27T06:58:53+00:00",
-            "title": "Inflation Defense: A Two-Pronged Approach",
-            "src": "AllianceBernstein"
+            "t": "2026-10-27T09:02:16+00:00",
+            "title": "Opinion | Inflation. War. Corruption. Hold Trump Accountable.",
+            "src": "The New York Times"
           }
         ]
       },
@@ -500,19 +500,19 @@
             "src": "Reuters"
           },
           {
+            "t": "2026-10-27T09:44:07+00:00",
+            "title": "U.S. Treasury yields are flat ahead of the Federal Reserve's monetary policy meeting",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-10-27T09:00:00+00:00",
+            "title": "White House Publishes Modifications to Canadian Tariffs",
+            "src": "The Presidential Prayer Team"
+          },
+          {
             "t": "2026-10-27T08:48:12+00:00",
             "title": "Some Michigan residents remain hopeful despite being hit hard by Trump's tariffs",
             "src": "NPR"
-          },
-          {
-            "t": "2026-10-27T05:07:49+00:00",
-            "title": "Majority of Americans disapprove of how Trump is handling tariffs: ABC/Post/Ipsos poll",
-            "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
-            "t": "2026-10-27T04:56:40+00:00",
-            "title": "Trump administration pays out milestone $100 billion in tariff refunds",
-            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
@@ -520,24 +520,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-27T10:24:43+00:00",
-            "title": "Kremlin reports no ceasefire violations in Oleshky, Ukraine",
-            "src": "Investing.com"
+            "t": "2026-10-27T11:03:00+00:00",
+            "title": "First lady Melania Trump secures one-city ceasefire between Russia and Ukraine",
+            "src": "KBTX News 3"
+          },
+          {
+            "t": "2026-10-27T10:23:00+00:00",
+            "title": "Ceasefire brokered by Melania Trump goes into effect in Russian-occupied town ‘on the brink of disaster’",
+            "src": "NBC News"
           },
           {
             "t": "2026-10-27T10:22:46+00:00",
-            "title": "Localized Russia-Ukraine ceasefire starts in deal brokered by Melania Trump",
-            "src": "Goshen News"
+            "title": "Localized Russia-Ukraine ceasefire starts in deal brokered by Melania Trump | National News | 2news.com",
+            "src": "KTVN"
           },
           {
             "t": "2026-10-27T10:17:03+00:00",
             "title": "Melania Trump-brokered local ceasefire begins as Russia continues attacks on Ukraine",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-10-27T10:10:41+00:00",
-            "title": "Woman injured in Samaria rock attack",
-            "src": "Israel National News"
           }
         ]
       }
@@ -545,7 +545,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-27T11:18:53.856924+00:00",
+    "at": "2026-10-27T12:02:10.350601+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -1035,28 +1035,28 @@
     "US|umcsent|level|2026-10|-|2026-10-23": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 13,
+      "attempts": 14,
       "title": "Revised UoM Consumer Sentiment",
       "time": "2026-10-23T14:00:00+00:00",
       "impact": "Medium",
       "forecast": "46.3",
       "previous": "46.3",
       "country": "USD",
-      "last_attempt": "2026-10-26T12:23:12.214936+00:00",
-      "note": ""
+      "last_attempt": "2026-10-27T12:02:10.350601+00:00",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     },
     "US|mich|level_pct|2026-10|-|2026-10-23": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 13,
+      "attempts": 14,
       "title": "Revised UoM Inflation Expectations",
       "time": "2026-10-23T14:00:00+00:00",
       "impact": "Medium",
       "forecast": "",
       "previous": "4.7%",
       "country": "USD",
-      "last_attempt": "2026-10-26T12:23:12.214936+00:00",
-      "note": ""
+      "last_attempt": "2026-10-27T12:02:10.350601+00:00",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   },
   "stats": {
@@ -7484,12 +7484,58 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|umcsent|level|2026-10|-|2026-10-23",
+      "title": "Revised UoM Consumer Sentiment",
+      "release_time": "2026-10-23T14:00:00+00:00",
+      "fetched_at": "2026-10-27T12:02:10.350601+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "46.3",
+      "previous": "46.3",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|mich|level_pct|2026-10|-|2026-10-23",
+      "title": "Revised UoM Inflation Expectations",
+      "release_time": "2026-10-23T14:00:00+00:00",
+      "fetched_at": "2026-10-27T12:02:10.350601+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "4.7%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-10-27T11:18:53.856924+00:00",
+  "last_publish_ok": "2026-10-27T12:02:10.350601+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-10-27T11:19:23.952391+00:00"
+    "mode": "preopen",
+    "at": "2026-10-27T12:02:40.520704+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7544,7 +7590,7 @@
     "fred": {
       "ok": true,
       "detail": "2 سلسلة",
-      "at": "2026-10-26T12:23:12.214936+00:00"
+      "at": "2026-10-27T12:02:10.350601+00:00"
     }
   },
   "bls_calls": {
@@ -7553,9 +7599,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-10-27T11:18:53.856924+00:00",
-    "ok_at": "2026-10-27T11:18:53.856924+00:00",
+    "lean": "mixed",
+    "at": "2026-10-27T12:02:10.350601+00:00",
+    "ok_at": "2026-10-27T12:02:10.350601+00:00",
     "change": null
   },
   "last_watch": {
