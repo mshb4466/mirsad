@@ -1,23 +1,22 @@
-asof_utc,2026-10-28T13:57:22+00:00,basis,38.41,mode,live
+asof_utc,2026-10-28T14:15:23+00:00,basis,35.59,mode,live
 price,label,kind,strength,color,style,width
-8064.75,SPY CALL WALL,wall,wall,00E0A0,solid,3
-8038.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7914.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7894.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7888.5,SPX PEAK+ S,peak,strong,00E0A0,solid,2
-7864.25,SPY PEAK+ S,peak,strong,00E0A0,solid,2
-7863.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7838.5,SPX PEAK+ S,peak,strong,00E0A0,solid,2
-7828.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7814.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7808.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7792.25,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7784.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7755.25,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7738.5,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7733.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7713.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7688.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7663.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7638.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7563.25,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+8062.25,SPY CALL WALL,wall,wall,00E0A0,solid,3
+8035.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7911.75,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7891.5,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7885.5,SPX PEAK+ S,peak,strong,00E0A0,solid,2
+7861.5,SPY PEAK+ S,peak,strong,00E0A0,solid,2
+7860.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7835.5,SPX PEAK+ S,peak,strong,00E0A0,solid,2
+7825.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7811.5,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7805.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7789.5,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7752.5,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7735.5,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7731.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7711.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7685.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7661.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7635.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7560.5,SPY PUT WALL,wall,wall,FF5C7A,solid,3
