@@ -259,59 +259,59 @@
       "name": "ES",
       "short": "ES",
       "w": 15,
-      "v": -0.09,
+      "v": -0.19,
       "th": 0.3,
-      "ratio": 0.29,
-      "val": "-0.09%",
+      "ratio": 0.63,
+      "val": "-0.19%",
       "thr": "±0.3%",
-      "c15": "-0.09%",
-      "c60": "-0.09%",
-      "c180": "-0.06%",
+      "c15": "-0.19%",
+      "c60": "-0.08%",
+      "c180": "-0.22%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.3,
-      "z": 0.8,
-      "volx": 1.0
+      "tone": "bear",
+      "eff": 0.1,
+      "z": 0.7,
+      "volx": 2.5
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 15,
-      "v": -0.12,
+      "v": -0.22,
       "th": 0.4,
-      "ratio": 0.3,
-      "val": "-0.12%",
+      "ratio": 0.54,
+      "val": "-0.22%",
       "thr": "±0.4%",
-      "c15": "-0.12%",
-      "c60": "-0.08%",
-      "c180": "-0.08%",
+      "c15": "-0.22%",
+      "c60": "+0.07%",
+      "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.16,
-      "z": 0.4,
-      "volx": 0.8
+      "eff": 0.06,
+      "z": 0.3,
+      "volx": 2.3
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 60,
-      "v": -0.58,
+      "v": -1.67,
       "th": 8.0,
-      "ratio": 0.07,
-      "val": "-0.58%",
+      "ratio": 0.21,
+      "val": "-1.67%",
       "thr": "±8%",
-      "c15": "+0.35%",
-      "c60": "-0.58%",
-      "c180": "+0.12%",
+      "c15": "-0.93%",
+      "c60": "-1.67%",
+      "c180": "-1.62%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.22,
-      "z": 0.6,
+      "eff": 0.36,
+      "z": 1.7,
       "volx": null
     },
     {
@@ -319,59 +319,59 @@
       "name": "النفط",
       "short": "نفط",
       "w": 15,
-      "v": 0.26,
+      "v": -0.37,
       "th": 0.9,
-      "ratio": 0.29,
-      "val": "+0.26%",
+      "ratio": 0.41,
+      "val": "-0.37%",
       "thr": "±0.9%",
-      "c15": "+0.26%",
-      "c60": "+0.05%",
-      "c180": "+0.47%",
+      "c15": "-0.37%",
+      "c60": "-0.36%",
+      "c180": "-0.95%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.03,
-      "z": 0.1,
-      "volx": 0.9
+      "eff": 0.22,
+      "z": 0.7,
+      "volx": 0.6
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 15,
-      "v": -0.22,
+      "v": 0.26,
       "th": 0.45,
-      "ratio": 0.49,
-      "val": "-0.22%",
+      "ratio": 0.58,
+      "val": "+0.26%",
       "thr": "±0.45%",
-      "c15": "-0.22%",
-      "c60": "-0.23%",
-      "c180": "-0.30%",
+      "c15": "+0.26%",
+      "c60": "+0.24%",
+      "c180": "+0.15%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.45,
+      "eff": 0.13,
       "z": 1.3,
-      "volx": 1.3
+      "volx": 3.6
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 60,
-      "v": 0.09,
+      "v": -0.19,
       "th": 0.28,
-      "ratio": 0.32,
-      "val": "+0.09%",
+      "ratio": 0.67,
+      "val": "-0.19%",
       "thr": "±0.28%",
-      "c15": "+0.02%",
-      "c60": "+0.09%",
-      "c180": "+0.00%",
+      "c15": "-0.05%",
+      "c60": "-0.19%",
+      "c180": "-0.13%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.58,
-      "z": 1.8,
+      "tone": "bull",
+      "eff": 0.29,
+      "z": 3.8,
       "volx": null
     },
     {
@@ -379,19 +379,19 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": 0.07,
+      "v": -0.3,
       "th": 0.4,
-      "ratio": 0.17,
-      "val": "+0.07%",
+      "ratio": 0.74,
+      "val": "-0.30%",
       "thr": "±0.4%",
-      "c15": "+0.00%",
-      "c60": "+0.07%",
-      "c180": "+0.06%",
+      "c15": "-0.01%",
+      "c60": "-0.30%",
+      "c180": "-0.23%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.41,
-      "z": 1.1,
+      "tone": "bear",
+      "eff": 0.57,
+      "z": 4.8,
       "volx": null
     },
     {
@@ -399,19 +399,19 @@
       "name": "عائد 10 سنوات",
       "short": "10Y",
       "w": 15,
-      "v": 1.6,
+      "v": 3.5,
       "th": 3.0,
-      "ratio": 0.53,
-      "val": "+2bp",
+      "ratio": 1.17,
+      "val": "+3bp",
       "thr": "±3bp",
-      "c15": "+2bp",
+      "c15": "+3bp",
       "c60": "+2bp",
       "c180": "+1bp",
       "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.42,
-      "z": 1.2,
+      "why": "الحركة متذبذبة",
+      "tone": "bear",
+      "eff": 0.18,
+      "z": 1.6,
       "volx": null
     },
     {
@@ -419,39 +419,39 @@
       "name": "عائد 5 سنوات",
       "short": "5Y",
       "w": 15,
-      "v": 1.5,
+      "v": 4.3,
       "th": 3.0,
-      "ratio": 0.5,
-      "val": "+1bp",
+      "ratio": 1.43,
+      "val": "+4bp",
       "thr": "±3bp",
-      "c15": "+1bp",
-      "c60": "+2bp",
-      "c180": "+1bp",
+      "c15": "+4bp",
+      "c60": "-1bp",
+      "c180": "-1bp",
       "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.59,
-      "z": 1.5,
+      "why": "الزخم غير متسق عبر الأطر",
+      "tone": "bear",
+      "eff": 0.03,
+      "z": 0.4,
       "volx": null
     },
     {
       "key": "y30",
       "name": "عائد 30 سنة",
       "short": "30Y",
-      "w": 15,
-      "v": 1.2,
-      "th": 3.0,
-      "ratio": 0.4,
-      "val": "+1bp",
-      "thr": "±3bp",
-      "c15": "+1bp",
-      "c60": "+1bp",
-      "c180": "+0bp",
+      "w": 60,
+      "v": 4.1,
+      "th": 4.5,
+      "ratio": 0.91,
+      "val": "+4bp",
+      "thr": "±4.5bp",
+      "c15": "+3bp",
+      "c60": "+4bp",
+      "c180": "+2bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.36,
-      "z": 0.8,
+      "tone": "bear",
+      "eff": 0.55,
+      "z": 3.5,
       "volx": null
     },
     {
@@ -459,113 +459,113 @@
       "name": "سندات عالية العائد HYG",
       "short": "HYG",
       "w": 60,
-      "v": -0.16,
+      "v": 0.19,
       "th": 0.25,
-      "ratio": 0.64,
-      "val": "-0.16%",
+      "ratio": 0.75,
+      "val": "+0.19%",
       "thr": "±0.25%",
-      "c15": "-0.06%",
-      "c60": "-0.16%",
-      "c180": "-0.28%",
+      "c15": "-0.04%",
+      "c60": "+0.19%",
+      "c180": "-0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.76,
-      "z": 1.8,
-      "volx": 0.7
+      "tone": "bull",
+      "eff": 0.38,
+      "z": 2.1,
+      "volx": 1.0
     },
     {
       "key": "kre",
       "name": "البنوك الإقليمية KRE",
       "short": "KRE",
       "w": 60,
-      "v": -0.62,
+      "v": 0.48,
       "th": 1.1,
-      "ratio": 0.56,
-      "val": "-0.62%",
+      "ratio": 0.43,
+      "val": "+0.48%",
       "thr": "±1.1%",
-      "c15": "-0.25%",
-      "c60": "-0.62%",
-      "c180": "-0.31%",
+      "c15": "+0.03%",
+      "c60": "+0.48%",
+      "c180": "-0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.67,
-      "z": 1.9,
-      "volx": 2.1
+      "tone": "bull",
+      "eff": 0.32,
+      "z": 1.5,
+      "volx": 0.9
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-28T18:21:43.579047+00:00",
-        "ok_at": "2026-10-28T18:21:43.579047+00:00"
+        "last_try": "2026-10-28T19:23:13.474024+00:00",
+        "ok_at": "2026-10-28T19:23:13.474024+00:00"
       },
       "fred": {
-        "last_try": "2026-10-28T18:21:43.579047+00:00",
-        "ok_at": "2026-10-28T18:21:43.579047+00:00"
+        "last_try": "2026-10-28T19:23:13.474024+00:00",
+        "ok_at": "2026-10-28T19:23:13.474024+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-28T18:21:43.579047+00:00",
-        "ok_at": "2026-10-28T18:21:43.579047+00:00"
+        "last_try": "2026-10-28T19:23:13.474024+00:00",
+        "ok_at": "2026-10-28T19:23:13.474024+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-28T18:21:43.579047+00:00",
-        "ok_at": "2026-10-28T18:21:43.579047+00:00"
+        "last_try": "2026-10-28T19:23:13.474024+00:00",
+        "ok_at": "2026-10-28T19:23:13.474024+00:00"
       },
       "oil": {
-        "last_try": "2026-10-28T18:21:43.579047+00:00",
-        "ok_at": "2026-10-28T14:24:15.711784+00:00"
+        "last_try": "2026-10-28T19:23:13.474024+00:00",
+        "ok_at": "2026-10-28T19:23:13.474024+00:00"
       },
       "news": {
-        "last_try": "2026-10-28T18:21:43.579047+00:00",
-        "ok_at": "2026-10-28T18:21:43.579047+00:00"
+        "last_try": "2026-10-28T19:23:13.474024+00:00",
+        "ok_at": "2026-10-28T19:23:13.474024+00:00"
       },
       "cot": {
-        "last_try": "2026-10-28T18:21:43.579047+00:00",
-        "ok_at": "2026-10-28T18:21:43.579047+00:00"
+        "last_try": "2026-10-28T19:23:13.474024+00:00",
+        "ok_at": "2026-10-28T19:23:13.474024+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-28T18:21:43.579047+00:00",
+        "last_try": "2026-10-28T19:23:13.474024+00:00",
         "ok_at": "2026-10-28T17:37:51.194610+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-28T18:21:43.579047+00:00"
+      "at": "2026-10-28T19:23:13.474024+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-28T17:37:51.194610+00:00",
+    "at": "2026-10-28T19:23:13.474024+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-10-28T16:36:07+00:00",
-            "title": "The Federal Reserve Will Release Its Interest Rate Decision Today. Here’s What to Watch.",
-            "src": "The New York Times"
+            "t": "2026-10-28T19:18:45+00:00",
+            "title": "Fed leaves interest rates unchanged despite inflation in the US",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-10-28T16:34:00+00:00",
-            "title": "Federal Reserve likely to skip rate hike despite elevated inflation",
-            "src": "AP News"
+            "t": "2026-10-28T19:18:30+00:00",
+            "title": "US Fed Chair Warsh warns inflation remains too high as energy prices climb",
+            "src": "Anadolu Ajansı"
           },
           {
-            "t": "2026-10-28T16:15:38+00:00",
-            "title": "Wall St treads water as chips rise, megacaps fall ahead of Fed, Big Tech earnings",
-            "src": "Reuters"
+            "t": "2026-10-28T19:12:50+00:00",
+            "title": "Federal Reserve holds interest rates steady",
+            "src": "The Washington Post"
           },
           {
-            "t": "2026-10-28T16:07:02+00:00",
-            "title": "Gold stalls its recovery as markets brace for Fed interest rate decision",
-            "src": "FXStreet"
+            "t": "2026-10-28T19:11:00+00:00",
+            "title": "Fed holds interest rates steady",
+            "src": "Gray TV"
           },
           {
-            "t": "2026-10-28T15:29:04+00:00",
-            "title": "Federal Reserve to announce its latest interest rate today. Here's what economists expect.",
-            "src": "CBS News"
+            "t": "2026-10-28T19:10:23+00:00",
+            "title": "Fed Chairman Warsh on a December hike: I don't believe in forward guidance absent a crisis",
+            "src": "CNBC"
           }
         ]
       },
@@ -573,9 +573,19 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-28T17:01:23+00:00",
-            "title": "Anthropic’s ‘Adjusted’ Profit Exposes Wall Street’s Earnings Game",
-            "src": "WSJ"
+            "t": "2026-10-28T18:27:02+00:00",
+            "title": "Wall Street wavers as Federal Reserve holds key rate steady, pending more data",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-10-28T18:22:00+00:00",
+            "title": "Meet the Dividend King That's Quietly Crushing the S&P 500 in 2026. Here's Why It's a Buy in November.",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-28T17:37:19+00:00",
+            "title": "AI giants' funding ambitions test Wall Street's appetite for risk",
+            "src": "Reuters"
           },
           {
             "t": "2026-10-28T16:53:00+00:00",
@@ -586,16 +596,6 @@
             "t": "2026-10-28T16:22:10+00:00",
             "title": "Brewers' World Series run may give Wall Street a reason to root for Milwaukee",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-28T16:21:18+00:00",
-            "title": "AI giants' funding ambitions test Wall Street's appetite for risk",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-28T15:11:28+00:00",
-            "title": "Amazon earnings preview: AWS is booked up, and Wall Street wants to know what comes next",
-            "src": "GeekWire"
           }
         ]
       },
@@ -603,24 +603,24 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-10-28T18:08:53+00:00",
+            "title": "Watch Investors Eye AI Payoff in Microsoft, Alphabet Earnings",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-10-28T17:53:59+00:00",
+            "title": "Amazon Earnings Preview: Why Wall Street Is Bullish On Cloud Growth",
+            "src": "Investor's Business Daily"
+          },
+          {
             "t": "2026-10-28T17:30:00+00:00",
             "title": "Microsoft earnings live: Microsoft to report Q1 earnings with Wall Street looking for further Azure growth",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-10-28T17:07:34+00:00",
-            "title": "Ahead of Amazon Earnings, Here's What Barchart Data Says Comes Next for AMZN Stock",
-            "src": "Barchart.com"
-          },
-          {
-            "t": "2026-10-28T16:07:10+00:00",
-            "title": "Amazon Q3 Earnings Preview: All Eyes on AWS After Posting Best Growth in Years in Q2",
-            "src": "Benzinga"
-          },
-          {
-            "t": "2026-10-28T16:04:40+00:00",
-            "title": "Forex Signals Oct 28: Microsoft, Google, GEV, ServiceNow, T-Mobile Earnings Preview in Focus for Wednesday",
-            "src": "FXLeaders"
+            "t": "2026-10-28T17:27:29+00:00",
+            "title": "Microsoft and Alphabet Earnings Put Focus on AI Cash Flow Drain",
+            "src": "Bloomberg.com"
           },
           {
             "t": "2026-10-28T16:00:01+00:00",
@@ -633,29 +633,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-28T17:35:58+00:00",
-            "title": "Steve Moore says Fed should hold rates steady, with inflation fight still 'job number one'",
-            "src": "fox23.com"
+            "t": "2026-10-28T19:23:05+00:00",
+            "title": "Federal Reserve keeps rates unchanged despite elevated inflation",
+            "src": "Scripps News"
           },
           {
-            "t": "2026-10-28T17:15:00+00:00",
-            "title": "Sudan war and inflation leave families struggling to survive in Khartoum",
-            "src": "Al Jazeera"
+            "t": "2026-10-28T19:14:18+00:00",
+            "title": "Fed chairman talks tough on inflation — plus, what's behind Micron's big rally",
+            "src": "CNBC"
           },
           {
-            "t": "2026-10-28T17:07:31+00:00",
-            "title": "What Will the GDP Report Say Tomorrow?",
-            "src": "Economist Writing Every Day"
+            "t": "2026-10-28T19:10:24+00:00",
+            "title": "Federal Reserve leaves interest rates unchanged amid inflation concerns",
+            "src": "The Detroit News"
           },
           {
-            "t": "2026-10-28T16:48:01+00:00",
-            "title": "Bank of Canada hikes citing ‘global upheaval’ risk to inflation",
-            "src": "Mortgage Professional America"
+            "t": "2026-10-28T19:10:00+00:00",
+            "title": "Fed Keeps Rates Steady Despite ‘Elevated’ Inflation",
+            "src": "The American Conservative"
           },
           {
-            "t": "2026-10-28T16:45:08+00:00",
-            "title": "Bank of Canada raises interest rates for the first time in three years",
-            "src": "Al Jazeera"
+            "t": "2026-10-28T19:08:00+00:00",
+            "title": "Federal Reserve keeps rates unchanged despite elevated inflation, gives little signal of next move",
+            "src": "AP News"
           }
         ]
       },
@@ -663,7 +663,7 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-10-28T16:03:09+00:00",
+            "t": "2026-10-28T19:10:59+00:00",
             "title": "Canada reports limited progress in trade talks with US",
             "src": "Reuters"
           },
@@ -688,24 +688,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-10-28T18:05:33+00:00",
+            "title": "US to maintain Iran blockade as Qatar mediates ceasefire deal",
+            "src": "The Jerusalem Post"
+          },
+          {
             "t": "2026-10-28T16:35:10+00:00",
             "title": "Caretaker role will limit Netanyahu though he’ll retain war powers, as possible Iran attack looms",
             "src": "The Times of Israel"
           },
           {
-            "t": "2026-10-28T16:32:13+00:00",
-            "title": "Police shoot dead assailant outside Israeli Embassy in Serbia",
-            "src": "Jewish Telegraphic Agency"
+            "t": "2026-10-28T16:09:37+00:00",
+            "title": "Pope Leo’s appeals help bring humanitarian ceasefire to southern Ukraine",
+            "src": "Vatican News"
           },
           {
-            "t": "2026-10-28T16:30:00+00:00",
-            "title": "Kremlin says European countries not included in next Ukraine talks",
-            "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-10-28T16:25:00+00:00",
-            "title": "Russia-Ukraine ceasefire in effect after Melania Trump, Pope Leo appeal to Putin",
-            "src": "KOAA News 5"
+            "t": "2026-10-28T15:26:55+00:00",
+            "title": "Oil Holds Decline as Traders Track Result of Israeli Election",
+            "src": "Bloomberg.com"
           }
         ]
       }
@@ -713,7 +713,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-28T18:21:43.579047+00:00",
+    "at": "2026-10-28T19:23:13.474024+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -1139,29 +1139,38 @@
       "note": ""
     },
     "US|oil:crude-oil-inventories|2026-10-28|1430": {
-      "actual": "",
-      "status": "awaiting",
-      "attempts": 3,
+      "actual": "-1.9M",
+      "note": "المصدر: EIA (واجهة رسمية)",
+      "status": "verified_official",
+      "trust": "official",
+      "source": "EIA (API)",
+      "period": "2026-10-23",
+      "received_at": "2026-10-28T19:23:13.474024+00:00",
+      "last_attempt": "2026-10-28T19:23:13.474024+00:00",
+      "attempts": 4,
       "title": "Crude Oil Inventories",
       "time": "2026-10-28T14:30:00+00:00",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
       "impact": "Low",
       "forecast": "0.1M",
       "previous": "-3.1M",
-      "country": "USD",
-      "last_attempt": "2026-10-28T17:37:51.194610+00:00",
-      "note": ""
+      "country": "USD"
     },
     "US|rate:federal-funds-rate|2026-10-28|1800": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 1,
+      "attempts": 2,
       "title": "Federal Funds Rate",
       "time": "2026-10-28T18:00:00+00:00",
       "impact": "High",
       "forecast": "4.00%",
       "previous": "4.00%",
       "country": "USD",
-      "last_attempt": "2026-10-28T18:21:43.579047+00:00",
+      "last_attempt": "2026-10-28T19:23:13.474024+00:00",
       "note": ""
     }
   },
@@ -1178,90 +1187,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|cpilfe|mm|2026-09|-|2026-10-14",
-      "title": "Core CPI m/m",
-      "release_time": "2026-10-14T12:30:00+00:00",
-      "fetched_at": "2026-10-14T18:59:05.627008+00:00",
-      "source": "BLS",
-      "tier": "official",
-      "value": "0.3%",
-      "period": "2026-09-01",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "basis": "محسوب من سلسلة رسمية",
-      "forecast": "0.2%",
-      "previous": "0.3%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: BLS (CUSR0000SA0L1E، فترة 2026-09-01) — CPI الأساسي شهرياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|cpilfe_ny|yy|2026-09|-|2026-10-14",
-      "title": "Core CPI y/y",
-      "release_time": "2026-10-14T12:30:00+00:00",
-      "fetched_at": "2026-10-14T18:59:05.627008+00:00",
-      "source": "BLS",
-      "tier": "official",
-      "value": "2.6%",
-      "period": "2026-09-01",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "basis": "محسوب من سلسلة رسمية",
-      "forecast": "2.5%",
-      "previous": "2.4%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: BLS (CUUR0000SA0L1E، فترة 2026-09-01) — CPI الأساسي سنوياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|cpi|mm|2026-09|-|2026-10-14",
-      "title": "CPI m/m",
-      "release_time": "2026-10-14T12:30:00+00:00",
-      "fetched_at": "2026-10-14T18:59:05.627008+00:00",
-      "source": "BLS",
-      "tier": "official",
-      "value": "0.6%",
-      "period": "2026-09-01",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "basis": "محسوب من سلسلة رسمية",
-      "forecast": "0.6%",
-      "previous": "0.4%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: BLS (CUSR0000SA0، فترة 2026-09-01) — CPI شهرياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|cpi_ny|yy|2026-09|-|2026-10-14",
-      "title": "CPI y/y",
-      "release_time": "2026-10-14T12:30:00+00:00",
-      "fetched_at": "2026-10-14T18:59:05.627008+00:00",
-      "source": "BLS",
-      "tier": "official",
-      "value": "3.7%",
-      "period": "2026-09-01",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "basis": "محسوب من سلسلة رسمية",
-      "forecast": "3.6%",
-      "previous": "3.4%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: BLS (CUUR0000SA0، فترة 2026-09-01) — CPI سنوياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
     {
       "id": "US|cpilfe|mm|2026-09|-|2026-10-14",
       "title": "Core CPI m/m",
@@ -7354,12 +7279,58 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": ""
+    },
+    {
+      "id": "US|oil:crude-oil-inventories|2026-10-28|1430",
+      "title": "Crude Oil Inventories",
+      "release_time": "2026-10-28T14:30:00+00:00",
+      "fetched_at": "2026-10-28T19:23:13.474024+00:00",
+      "source": "EIA (API)",
+      "tier": "official",
+      "value": "-1.9M",
+      "period": "2026-10-23",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "0.1M",
+      "previous": "-3.1M",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: EIA (واجهة رسمية)"
+    },
+    {
+      "id": "US|rate:federal-funds-rate|2026-10-28|1800",
+      "title": "Federal Funds Rate",
+      "release_time": "2026-10-28T18:00:00+00:00",
+      "fetched_at": "2026-10-28T19:23:13.474024+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "4.00%",
+      "previous": "4.00%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": ""
     }
   ],
-  "last_publish_ok": "2026-10-28T18:21:43.579047+00:00",
+  "last_publish_ok": "2026-10-28T19:23:13.474024+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-28T18:22:20.870741+00:00"
+    "at": "2026-10-28T19:23:53.215007+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7424,12 +7395,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-28T18:21:43.579047+00:00",
-    "ok_at": "2026-10-28T18:21:43.579047+00:00",
+    "at": "2026-10-28T19:23:13.474024+00:00",
+    "ok_at": "2026-10-28T19:23:13.474024+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-28T18:21:43.579047+00:00",
+    "at": "2026-10-28T19:23:13.474024+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
