@@ -1,22 +1,23 @@
-asof_utc,2026-10-28T14:27:23+00:00,basis,33.98,mode,live
+asof_utc,2026-10-28T14:56:25+00:00,basis,34.19,mode,live
 price,label,kind,strength,color,style,width
-8060.75,SPY CALL WALL,wall,wall,00E0A0,solid,3
-8034.0,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7910.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7890.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7884.0,SPX PEAK+ S,peak,strong,00E0A0,solid,2
-7860.0,SPY PEAK+ S,peak,strong,00E0A0,solid,2
-7859.0,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7834.0,SPX PEAK+ S,peak,strong,00E0A0,solid,2
-7824.0,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7810.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7804.0,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7787.75,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+8060.0,SPY CALL WALL,wall,wall,00E0A0,solid,3
+8034.25,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7909.5,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7889.5,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7884.25,SPX PEAK+ S,peak,strong,00E0A0,solid,2
+7859.5,SPY PEAK+ S,peak,strong,00E0A0,solid,2
+7859.25,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7834.25,SPX PEAK+ S,peak,strong,00E0A0,solid,2
+7824.25,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7809.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7804.25,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7787.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7779.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
 7751.0,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7734.0,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7729.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7709.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7684.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7659.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7634.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7559.0,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7734.25,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7729.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7709.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7684.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7658.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7634.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7558.5,SPY PUT WALL,wall,wall,FF5C7A,solid,3
