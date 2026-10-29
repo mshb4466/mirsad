@@ -264,102 +264,182 @@
   ],
   "pulse": [
     {
+      "key": "es",
+      "name": "ES",
+      "short": "ES",
+      "w": 180,
+      "v": -0.46,
+      "th": 0.8,
+      "ratio": 0.58,
+      "val": "-0.46%",
+      "thr": "±0.8%",
+      "c15": "-0.11%",
+      "c60": "-0.09%",
+      "c180": "-0.46%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "bear",
+      "eff": null,
+      "z": 0.9,
+      "volx": 0.1
+    },
+    {
+      "key": "nq",
+      "name": "ناسداك",
+      "short": "NQ",
+      "w": 180,
+      "v": -1.23,
+      "th": 1.0,
+      "ratio": 1.23,
+      "val": "-1.23%",
+      "thr": "±1%",
+      "c15": "-0.18%",
+      "c60": "-0.33%",
+      "c180": "-1.23%",
+      "confirmed": false,
+      "why": "الحركة ضمن تقلب الأصل المعتاد",
+      "tone": "bear",
+      "eff": null,
+      "z": 1.5,
+      "volx": 0.2
+    },
+    {
+      "key": "oil",
+      "name": "النفط",
+      "short": "نفط",
+      "w": 15,
+      "v": 0.19,
+      "th": 0.9,
+      "ratio": 0.22,
+      "val": "+0.19%",
+      "thr": "±0.9%",
+      "c15": "+0.19%",
+      "c60": "-0.03%",
+      "c180": "+0.50%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": null,
+      "z": 0.1,
+      "volx": 0.1
+    },
+    {
+      "key": "gold",
+      "name": "الذهب",
+      "short": "ذهب",
+      "w": 180,
+      "v": 0.17,
+      "th": 1.2,
+      "ratio": 0.14,
+      "val": "+0.17%",
+      "thr": "±1.2%",
+      "c15": "-0.06%",
+      "c60": "-0.04%",
+      "c180": "+0.17%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": null,
+      "z": 0.3,
+      "volx": 0.2
+    },
+    {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": -0.12,
+      "v": -0.17,
       "th": 0.5,
-      "ratio": 0.24,
-      "val": "-0.12%",
+      "ratio": 0.34,
+      "val": "-0.17%",
       "thr": "±0.5%",
-      "c15": "-0.02%",
-      "c60": "+0.05%",
-      "c180": "-0.12%",
+      "c15": "-0.06%",
+      "c60": "-0.04%",
+      "c180": "-0.17%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.41,
-      "z": 0.6,
+      "tone": "bull",
+      "eff": 0.25,
+      "z": 0.5,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": -0.19,
-      "th": 0.7,
-      "ratio": 0.27,
-      "val": "-0.19%",
-      "thr": "±0.7%",
-      "c15": "-0.01%",
-      "c60": "-0.02%",
-      "c180": "-0.19%",
+      "w": 15,
+      "v": 0.06,
+      "th": 0.25,
+      "ratio": 0.23,
+      "val": "+0.06%",
+      "thr": "±0.25%",
+      "c15": "+0.06%",
+      "c60": "+0.02%",
+      "c180": "-0.12%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.2,
-      "z": 0.3,
+      "eff": 0.11,
+      "z": 0.2,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-29T21:55:15.557810+00:00",
-        "ok_at": "2026-10-29T21:55:15.557810+00:00"
+        "last_try": "2026-10-29T22:30:51.663956+00:00",
+        "ok_at": "2026-10-29T22:30:51.663956+00:00"
       },
       "fred": {
-        "last_try": "2026-10-29T21:55:15.557810+00:00",
-        "ok_at": "2026-10-29T21:55:15.557810+00:00"
+        "last_try": "2026-10-29T22:30:51.663956+00:00",
+        "ok_at": "2026-10-29T22:30:51.663956+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-29T21:55:15.557810+00:00",
-        "ok_at": "2026-10-29T21:55:15.557810+00:00"
+        "last_try": "2026-10-29T22:30:51.663956+00:00",
+        "ok_at": "2026-10-29T22:30:51.663956+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-29T21:55:15.557810+00:00",
-        "ok_at": "2026-10-29T21:55:15.557810+00:00"
+        "last_try": "2026-10-29T22:30:51.663956+00:00",
+        "ok_at": "2026-10-29T22:30:51.663956+00:00"
       },
       "oil": {
-        "last_try": "2026-10-29T21:55:15.557810+00:00",
-        "ok_at": "2026-10-29T21:55:15.557810+00:00"
+        "last_try": "2026-10-29T22:30:51.663956+00:00",
+        "ok_at": "2026-10-29T22:30:51.663956+00:00"
       },
       "news": {
-        "last_try": "2026-10-29T21:55:15.557810+00:00",
-        "ok_at": "2026-10-29T21:55:15.557810+00:00"
+        "last_try": "2026-10-29T22:30:51.663956+00:00",
+        "ok_at": "2026-10-29T22:30:51.663956+00:00"
       },
       "cot": {
-        "last_try": "2026-10-29T21:55:15.557810+00:00",
-        "ok_at": "2026-10-29T21:55:15.557810+00:00"
+        "last_try": "2026-10-29T22:30:51.663956+00:00",
+        "ok_at": "2026-10-29T22:30:51.663956+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-29T21:55:15.557810+00:00",
+        "last_try": "2026-10-29T22:30:51.663956+00:00",
         "ok_at": "2026-10-28T17:37:51.194610+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-29T21:55:15.557810+00:00"
+      "at": "2026-10-29T22:30:51.663956+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-29T21:12:36.655596+00:00",
+    "at": "2026-10-29T22:30:51.663956+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-10-29T21:13:40+00:00",
+            "title": "Powell and Harding make final pitches in Nebraska’s 2nd Congressional District",
+            "src": "Nebraska Examiner"
+          },
+          {
             "t": "2026-10-29T20:26:15+00:00",
             "title": "Warsh shakes up Fed's approach to setting interest rates",
             "src": "WPEC"
-          },
-          {
-            "t": "2026-10-29T19:23:34+00:00",
-            "title": "Warsh’s ‘Forward Silence’ Risks Bigger Treasury Market Swings",
-            "src": "Bloomberg.com"
           },
           {
             "t": "2026-10-29T19:18:49+00:00",
@@ -382,28 +462,28 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-29T20:32:07+00:00",
-            "title": "Update: Nasdaq, S&P 500 Snap 3-Day Rise on Alphabet Sell-Off, Inflation Anxiety",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-29T20:30:59+00:00",
-            "title": "Exclusive | Top Admiral Briefs Trump on Iran Attack Options",
+            "t": "2026-10-29T22:02:29+00:00",
+            "title": "China’s Car Industry Is Wowing the World—but Crashing at Home",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-29T20:30:27+00:00",
-            "title": "Wall Street ends lower as Alphabet revenue miss revives AI capex jitters",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-10-29T20:15:00+00:00",
-            "title": "Amazon Cloud Growth Is Highest in Five Years",
+            "t": "2026-10-29T21:30:34+00:00",
+            "title": "Amazon Stock Drops on Wall Street Miss, Despite Biggest Cloud Growth in Years",
             "src": "WSJ"
           },
           {
-            "t": "2026-10-29T20:02:00+00:00",
+            "t": "2026-10-29T21:25:00+00:00",
+            "title": "Hackers Swipe Millions From Polymarket Users in Latest Security Breach",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-29T21:20:00+00:00",
             "title": "Alphabet Sheds Half a Trillion in Market Value in Stock’s Worst Day Ever",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-10-29T21:09:00+00:00",
+            "title": "Exclusive | Top Military Admiral Briefs Trump on Iran Options",
             "src": "WSJ"
           }
         ]
@@ -412,29 +492,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-29T21:05:59+00:00",
-            "title": "Amazon misses on third-quarter earnings",
-            "src": "Mass Market Retailers"
+            "t": "2026-10-29T22:05:00+00:00",
+            "title": "Amazon earnings fall short as retail revenue lags",
+            "src": "The Spokesman-Review"
           },
           {
-            "t": "2026-10-29T20:51:07+00:00",
-            "title": "Ahead of Apple Earnings, Here's What Barchart Data Says Comes Next for AAPL Stock",
-            "src": "Barchart.com"
+            "t": "2026-10-29T21:44:27+00:00",
+            "title": "After Earnings, We Raise Our Tesla Stock Fair Value Estimate. Are Shares a Buy?",
+            "src": "Morningstar"
           },
           {
-            "t": "2026-10-29T20:46:50+00:00",
-            "title": "Amazon Shares Fall On Q3 Earnings Miss As Big Tech Market Rout Continues",
-            "src": "TV News Check"
+            "t": "2026-10-29T21:43:00+00:00",
+            "title": "Amazon Earnings: Why the Stock Is Tanking",
+            "src": "Barron's"
           },
           {
-            "t": "2026-10-29T20:46:34+00:00",
-            "title": "Rivian (RIVN) Q3 2026 earnings: revenue up 38%, R2 now its best-seller",
-            "src": "Electrek"
+            "t": "2026-10-29T21:27:00+00:00",
+            "title": "Amazon gives Wall Street mixed financial picture in earnings report",
+            "src": "The Guardian"
           },
           {
-            "t": "2026-10-29T20:45:45+00:00",
-            "title": "Amazon shares sink as it spends heavily on AI",
-            "src": "Axios"
+            "t": "2026-10-29T21:19:00+00:00",
+            "title": "Amazon Ad Revenue Growth Slows in Q3, Ecommerce Giant Undershoots Earnings Estimates",
+            "src": "Variety"
           }
         ]
       },
@@ -442,29 +522,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-29T20:29:42+00:00",
-            "title": "Robust consumer spending, AI-related investment power US economy in third quarter",
-            "src": "Reuters"
+            "t": "2026-10-29T21:46:02+00:00",
+            "title": "Fresh inflation data vindicates Fed hawks following October rate hold",
+            "src": "Scotsman Guide"
           },
           {
-            "t": "2026-10-29T19:23:18+00:00",
-            "title": "Preliminary GDP report shows strong 3.4% growth for US economy",
-            "src": "WSYX"
+            "t": "2026-10-29T21:44:00+00:00",
+            "title": "Data: US economy is growing, inflation is rising",
+            "src": "KVUE"
           },
           {
-            "t": "2026-10-29T18:21:00+00:00",
+            "t": "2026-10-29T21:26:06+00:00",
+            "title": "Inflation, demand causing spike in gold prices. What does it mean for you?",
+            "src": "WLWT"
+          },
+          {
+            "t": "2026-10-29T20:53:20+00:00",
+            "title": "Economy in Q3 grew 3.4%, exceeding forecasts amid persistent inflation",
+            "src": "CFO Dive"
+          },
+          {
+            "t": "2026-10-29T20:39:12+00:00",
             "title": "Inflation heats up again, data shows, days before midterm elections where cost of living dominates",
-            "src": "WLOX"
-          },
-          {
-            "t": "2026-10-29T17:48:00+00:00",
-            "title": "Economist: Strong GDP growth, inflation complicate Fed's decisions",
-            "src": "The Center Square"
-          },
-          {
-            "t": "2026-10-29T17:43:38+00:00",
-            "title": "Voters’ Inflation Frustrations Take Shine Off Strong Economic Growth",
-            "src": "Bloomberg.com"
+            "src": "Sentinel Colorado"
           }
         ]
       },
@@ -472,24 +552,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-10-29T22:19:56+00:00",
+            "title": "Senate is skeptical about making daylight saving time permanent despite Trump's pressure",
+            "src": "PBS"
+          },
+          {
             "t": "2026-10-29T21:00:01+00:00",
             "title": "Schumer blames Trump tariffs for rising Oswego prices, touts End Trump’s Tariffs Act",
             "src": "WSTM"
           },
           {
-            "t": "2026-10-29T18:52:19+00:00",
-            "title": "Trump Skips Tariffs, Pushes Robotics Talks",
-            "src": "PlasticsToday"
-          },
-          {
-            "t": "2026-10-29T17:56:24+00:00",
-            "title": "NEWSLETTER: Dispatch from Motor City: fears swirl over tariffs and China",
+            "t": "2026-10-29T20:45:07+00:00",
+            "title": "Trump says Canada has been treating the US very nicely",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-29T17:28:51+00:00",
-            "title": "Trump and Canada Near a Deal to Ease Steel and Auto Tariffs as Ford Reports",
-            "src": "Yahoo Finance"
+            "t": "2026-10-29T18:52:19+00:00",
+            "title": "Trump Skips Tariffs, Pushes Robotics Talks",
+            "src": "PlasticsToday"
           }
         ]
       },
@@ -497,7 +577,7 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-29T20:40:54+00:00",
+            "t": "2026-10-29T22:10:54+00:00",
             "title": "Opinion | The terrifying catch in Melania Trump’s Ukraine ceasefire",
             "src": "The Washington Post"
           },
@@ -507,14 +587,14 @@
             "src": "Al-Monitor"
           },
           {
+            "t": "2026-10-29T20:22:46+00:00",
+            "title": "Russia's shadow fleet: Can the EU act even if the US eases sanctions on these ships?",
+            "src": "DW.com"
+          },
+          {
             "t": "2026-10-29T19:01:00+00:00",
             "title": "Seven oil tankers carrying 288,000 tonnes of Russian diesel sail towards US",
             "src": "The Guardian"
-          },
-          {
-            "t": "2026-10-29T18:31:00+00:00",
-            "title": "Pentagon planning chief departs amid Iran strike deliberations",
-            "src": "cbs19.tv"
           }
         ]
       }
@@ -522,7 +602,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-29T21:55:15.557810+00:00",
+    "at": "2026-10-29T22:30:51.663956+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -876,7 +956,7 @@
       "previous": "1.5%",
       "country": "USD",
       "last_attempt": "2026-10-29T21:55:15.557810+00:00",
-      "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
+      "note": ""
     },
     "US|pcelfe|mm|2026-09|-|2026-10-29": {
       "actual": "0.3%",
@@ -5900,10 +5980,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-10-29T21:55:15.557810+00:00",
+  "last_publish_ok": "2026-10-29T22:30:51.663956+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-29T21:55:47.757090+00:00"
+    "at": "2026-10-29T22:31:32.656380+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5979,12 +6059,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-29T21:55:15.557810+00:00",
-    "ok_at": "2026-10-29T21:55:15.557810+00:00",
+    "at": "2026-10-29T22:30:51.663956+00:00",
+    "ok_at": "2026-10-29T22:30:51.663956+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-29T21:55:15.557810+00:00",
+    "at": "2026-10-29T22:30:51.663956+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
