@@ -535,45 +535,45 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-30T22:29:51.235865+00:00",
-        "ok_at": "2026-10-30T22:29:51.235865+00:00"
+        "last_try": "2026-10-30T23:08:33.583787+00:00",
+        "ok_at": "2026-10-30T23:08:33.583787+00:00"
       },
       "fred": {
-        "last_try": "2026-10-30T22:29:51.235865+00:00",
-        "ok_at": "2026-10-30T22:29:51.235865+00:00"
+        "last_try": "2026-10-30T23:08:33.583787+00:00",
+        "ok_at": "2026-10-30T23:08:33.583787+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-30T22:29:51.235865+00:00",
-        "ok_at": "2026-10-30T22:29:51.235865+00:00"
+        "last_try": "2026-10-30T23:08:33.583787+00:00",
+        "ok_at": "2026-10-30T23:08:33.583787+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-30T22:29:51.235865+00:00",
-        "ok_at": "2026-10-30T22:29:51.235865+00:00"
+        "last_try": "2026-10-30T23:08:33.583787+00:00",
+        "ok_at": "2026-10-30T23:08:33.583787+00:00"
       },
       "oil": {
-        "last_try": "2026-10-30T22:29:51.235865+00:00",
-        "ok_at": "2026-10-30T22:29:51.235865+00:00"
+        "last_try": "2026-10-30T23:08:33.583787+00:00",
+        "ok_at": "2026-10-30T23:08:33.583787+00:00"
       },
       "news": {
-        "last_try": "2026-10-30T22:29:51.235865+00:00",
-        "ok_at": "2026-10-30T22:29:51.235865+00:00"
+        "last_try": "2026-10-30T23:08:33.583787+00:00",
+        "ok_at": "2026-10-30T23:08:33.583787+00:00"
       },
       "cot": {
-        "last_try": "2026-10-30T22:29:51.235865+00:00",
-        "ok_at": "2026-10-30T22:29:51.235865+00:00"
+        "last_try": "2026-10-30T23:08:33.583787+00:00",
+        "ok_at": "2026-10-30T23:08:33.583787+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-30T22:29:51.235865+00:00",
-        "ok_at": "2026-10-30T22:29:51.235865+00:00"
+        "last_try": "2026-10-30T23:08:33.583787+00:00",
+        "ok_at": "2026-10-30T23:08:33.583787+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-10-30T22:29:51.235865+00:00"
+      "at": "2026-10-30T23:08:33.583787+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-30T21:47:05.444919+00:00",
+    "at": "2026-10-30T23:08:33.583787+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -610,29 +610,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-10-30T22:20:00+00:00",
+            "title": "Okta Stock Can Find More Buyers as It Joins the S&P 500",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-10-30T21:59:08+00:00",
+            "title": "Okta jumps after-hours following tapped inclusion in the S&P 500",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-30T21:10:30+00:00",
+            "title": "Wall Street tumbles as tech stocks suffer sharp losses",
+            "src": "upi"
+          },
+          {
             "t": "2026-10-30T20:38:32+00:00",
             "title": "Wall Street closes sharply lower as AI cash burn fears spark tech selloff",
             "src": "Reuters"
           },
           {
-            "t": "2026-10-30T20:24:24+00:00",
-            "title": "The sell-off for tech stocks deepens and drags Wall Street toward its worst day since June",
-            "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
-            "t": "2026-10-30T18:06:08+00:00",
-            "title": "S&P 500 Unusual Volume Movers for Oct. 30, 2026",
-            "src": "ChartMill"
-          },
-          {
-            "t": "2026-10-30T17:54:09+00:00",
-            "title": "10 of the S&P 500's 20 largest daily percentage gains, from 1929 to 2025",
-            "src": "qz.com"
-          },
-          {
-            "t": "2026-10-30T17:18:00+00:00",
-            "title": "Exclusive | Ford CEO Aims for a 20% Sales Jump by 2032",
-            "src": "WSJ"
+            "t": "2026-10-30T20:35:24+00:00",
+            "title": "Wall Street Turns Ruthless as Earnings Misses Fuel Deep Selloffs",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -640,29 +640,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-30T20:46:44+00:00",
+            "t": "2026-10-30T22:42:20+00:00",
             "title": "FY27 Q1 - Press Releases - Investor Relations",
             "src": "Microsoft"
           },
           {
-            "t": "2026-10-30T20:40:00+00:00",
+            "t": "2026-10-30T22:04:00+00:00",
             "title": "U.S. Stocks Slide as Amazon, Intel Earnings Spark More AI Selling",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-10-30T21:04:00+00:00",
+            "title": "In A Bad Week For The AI Trade, This One Mag Seven Stock Holds Strong",
+            "src": "Investor's Business Daily"
+          },
+          {
+            "t": "2026-10-30T20:30:59+00:00",
+            "title": "Tech Stocks Sell Off as Intel, Amazon Earnings Spook Investors",
+            "src": "Morningstar"
           },
           {
             "t": "2026-10-30T18:30:13+00:00",
             "title": "Amazon.com announces third quarter results",
             "src": "About Amazon"
-          },
-          {
-            "t": "2026-10-30T17:40:46+00:00",
-            "title": "Apple Shares Are Up 27% This Year. Is the Stock Still a Buy Ahead of Earnings?",
-            "src": "Morningstar"
-          },
-          {
-            "t": "2026-10-30T17:40:24+00:00",
-            "title": "Amazon earnings fall short amid tech sell-off, and Anthropic becomes SpaceX's top partner",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -670,29 +670,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-30T20:43:21+00:00",
-            "title": "Inflation, AI concerns take their toll on Wall Street",
-            "src": "Courthouse News"
+            "t": "2026-10-30T15:53:00+00:00",
+            "title": "Canada GDP Seen Dipping in September After Two Flat Months",
+            "src": "WSJ"
           },
           {
-            "t": "2026-10-30T20:04:32+00:00",
-            "title": "Can AI be blamed for inflation? Partly, yes.",
-            "src": "CFO Brew"
+            "t": "2026-10-30T15:34:00+00:00",
+            "title": "As energy prices threaten inflation again, Lagarde’s European Central Bank legacy offers lessons",
+            "src": "Atlantic Council"
           },
           {
-            "t": "2026-10-30T19:54:49+00:00",
-            "title": "Federal debt surpassed GDP for fiscal 2026",
-            "src": "NewsNation"
+            "t": "2026-10-30T15:32:06+00:00",
+            "title": "Uganda's inflation rises to 3-year high after currency slump",
+            "src": "Reuters"
           },
           {
-            "t": "2026-10-30T19:32:21+00:00",
-            "title": "4 Your Money | Inflation Pressure Gauge",
-            "src": "OurQuadCities"
-          },
-          {
-            "t": "2026-10-30T19:11:00+00:00",
-            "title": "Consumer sentiment is lower than at the 9.1% inflation peak — top 10% do half of consumer spending",
+            "t": "2026-10-30T15:22:00+00:00",
+            "title": "A 3.4% GDP print hides a ‘haunted’ housing market and a September stall in the economy",
             "src": "Fortune"
+          },
+          {
+            "t": "2026-10-30T14:52:01+00:00",
+            "title": "Zach Morris Receives Grant to Build First Inflation Measure for People with Disabilities",
+            "src": "SBU News"
           }
         ]
       },
@@ -705,19 +705,19 @@
             "src": "WAMC"
           },
           {
+            "t": "2026-10-30T19:55:11+00:00",
+            "title": "Trade court decision on Canadian tariffs next year",
+            "src": "Tri-State Livestock News"
+          },
+          {
+            "t": "2026-10-30T19:50:55+00:00",
+            "title": "The Graham Act: Bipartisan Sanctions and Tariffs Waived",
+            "src": "Freshfields"
+          },
+          {
             "t": "2026-10-30T19:35:00+00:00",
             "title": "Global Bond Yields Fall Sharply in October Amid Flight to Safety",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-10-30T19:15:23+00:00",
-            "title": "U.S. Liquor Industry Urges Trump To End Alcohol Tariffs",
-            "src": "Forbes"
-          },
-          {
-            "t": "2026-10-30T19:07:30+00:00",
-            "title": "Changes to Tariffs on Canadian Imports Take Effect Today",
-            "src": "National Marine Manufacturers Association"
           }
         ]
       },
@@ -725,24 +725,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-10-30T21:33:02+00:00",
+            "t": "2026-10-30T22:07:19+00:00",
             "title": "Another Russian refinery is aflame despite Trump’s warning to Kyiv",
             "src": "The Washington Post"
+          },
+          {
+            "t": "2026-10-30T21:46:29+00:00",
+            "title": "Residents leave Russian-occupied Oleshky in evacuation operation",
+            "src": "France 24"
+          },
+          {
+            "t": "2026-10-30T21:30:37+00:00",
+            "title": "US approves $2.1 billion Patriot missile sale to Ukraine amid delayed missile deliveries",
+            "src": "The Jerusalem Post"
           },
           {
             "t": "2026-10-30T21:18:40+00:00",
             "title": "Iran says 3 oil tankers hit mines in Strait of Hormuz",
             "src": "The Business Journal"
-          },
-          {
-            "t": "2026-10-30T20:19:00+00:00",
-            "title": "Oil Prices Rise as Middle East, Ukraine-Russia Conflict Fuel Supply Worries",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-10-30T20:16:38+00:00",
-            "title": "Residents evacuated from Russian-occupied Oleshky during U.S.-brokered ceasefire",
-            "src": "CBS News"
           }
         ]
       }
@@ -750,7 +750,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-30T22:29:51.235865+00:00",
+    "at": "2026-10-30T23:08:33.583787+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -1161,52 +1161,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|retail|mm|2026-09|-|2026-10-15",
-      "title": "Retail Sales m/m",
-      "release_time": "2026-10-15T12:30:00+00:00",
-      "fetched_at": "2026-10-16T22:55:21.428210+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "0.8%",
-      "period": "2026-09-01",
-      "series": "RSAFS",
-      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
-      "raw": 0.7708413925190838,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "0.3%",
-      "previous": "1.2%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (RSAFS، فترة 2026-09-01) — مبيعات التجزئة شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|claims|claims_k|w2026-10-11|-|2026-10-15",
-      "title": "Unemployment Claims",
-      "release_time": "2026-10-15T12:30:00+00:00",
-      "fetched_at": "2026-10-16T22:55:21.428210+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "199K",
-      "period": "2026-10-10",
-      "series": "ICSA",
-      "method": "القيمة المنشورة مقسومة على 1000",
-      "raw": 199.0,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "199K",
-      "previous": "197K",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (ICSA، فترة 2026-10-10) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
     {
       "id": "US|ppife|mm|2026-09|-|2026-10-15",
       "title": "Core PPI m/m",
@@ -5072,10 +5026,10 @@
       "note": ""
     }
   ],
-  "last_publish_ok": "2026-10-30T22:29:51.235865+00:00",
+  "last_publish_ok": "2026-10-30T23:08:33.583787+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-10-30T22:30:48.897301+00:00"
+    "at": "2026-10-30T23:09:02.492955+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5157,12 +5111,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-10-30T22:29:51.235865+00:00",
-    "ok_at": "2026-10-30T22:29:51.235865+00:00",
+    "at": "2026-10-30T23:08:33.583787+00:00",
+    "ok_at": "2026-10-30T23:08:33.583787+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-10-30T22:29:51.235865+00:00",
+    "at": "2026-10-30T23:08:33.583787+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
