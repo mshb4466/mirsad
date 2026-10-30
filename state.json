@@ -430,45 +430,45 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-10-30T02:05:41.131418+00:00",
-        "ok_at": "2026-10-30T02:05:41.131418+00:00"
+        "last_try": "2026-10-30T02:49:49.725861+00:00",
+        "ok_at": "2026-10-30T02:49:49.725861+00:00"
       },
       "fred": {
-        "last_try": "2026-10-30T02:05:41.131418+00:00",
-        "ok_at": "2026-10-30T02:05:41.131418+00:00"
+        "last_try": "2026-10-30T02:49:49.725861+00:00",
+        "ok_at": "2026-10-30T02:49:49.725861+00:00"
       },
       "calendar": {
-        "last_try": "2026-10-30T02:05:41.131418+00:00",
-        "ok_at": "2026-10-30T02:05:41.131418+00:00"
+        "last_try": "2026-10-30T02:49:49.725861+00:00",
+        "ok_at": "2026-10-30T02:49:49.725861+00:00"
       },
       "auctions": {
-        "last_try": "2026-10-30T02:05:41.131418+00:00",
-        "ok_at": "2026-10-30T02:05:41.131418+00:00"
+        "last_try": "2026-10-30T02:49:49.725861+00:00",
+        "ok_at": "2026-10-30T02:49:49.725861+00:00"
       },
       "oil": {
-        "last_try": "2026-10-30T02:05:41.131418+00:00",
-        "ok_at": "2026-10-30T02:05:41.131418+00:00"
+        "last_try": "2026-10-30T02:49:49.725861+00:00",
+        "ok_at": "2026-10-30T02:49:49.725861+00:00"
       },
       "news": {
-        "last_try": "2026-10-30T02:05:41.131418+00:00",
-        "ok_at": "2026-10-30T02:05:41.131418+00:00"
+        "last_try": "2026-10-30T02:49:49.725861+00:00",
+        "ok_at": "2026-10-30T02:49:49.725861+00:00"
       },
       "cot": {
-        "last_try": "2026-10-30T02:05:41.131418+00:00",
-        "ok_at": "2026-10-30T02:05:41.131418+00:00"
+        "last_try": "2026-10-30T02:49:49.725861+00:00",
+        "ok_at": "2026-10-30T02:49:49.725861+00:00"
       },
       "indicators": {
-        "last_try": "2026-10-30T02:05:41.131418+00:00",
+        "last_try": "2026-10-30T02:49:49.725861+00:00",
         "ok_at": "2026-10-28T17:37:51.194610+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-10-30T02:05:41.131418+00:00"
+      "at": "2026-10-30T02:49:49.725861+00:00"
     }
   },
   "week_news": {
-    "at": "2026-10-30T01:09:44.404949+00:00",
+    "at": "2026-10-30T02:49:49.725861+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -505,7 +505,17 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-10-29T23:40:00+00:00",
+            "t": "2026-10-30T01:36:00+00:00",
+            "title": "U.S. stock futures sink, Nasdaq down 2% as Amazon, Intel earnings underwhelm",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-10-30T00:26:56+00:00",
+            "title": "Big Tech’s Data Center Blitz Is Burning Through Cash and Scaring Wall Street",
+            "src": "The New York Times"
+          },
+          {
+            "t": "2026-10-29T23:57:00+00:00",
             "title": "Exclusive | Ukraine Pauses Strikes on Russian Refineries After Pressure From U.S.",
             "src": "WSJ"
           },
@@ -518,16 +528,6 @@
             "t": "2026-10-29T23:20:00+00:00",
             "title": "20 Years of S&P 500 History Show: This Simple Strategy Is Only 8.3% Less Than \"Perfect\"",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-10-29T23:00:01+00:00",
-            "title": "Jim Cramer says Wall Street is punishing the wrong tech stocks",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-10-29T22:13:00+00:00",
-            "title": "Amazon Stock Drops on Wall Street Miss, Despite Biggest Cloud Growth in Years",
-            "src": "WSJ"
           }
         ]
       },
@@ -535,29 +535,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-10-30T00:34:54+00:00",
-            "title": "Is Alphabet Stock a Buy After Its Post-Earnings Drop?",
-            "src": "The Globe and Mail"
+            "t": "2026-10-30T02:24:45+00:00",
+            "title": "Nvidia Earnings or the Midterms—What Could Spark a November Rally?",
+            "src": "Moomoo"
           },
           {
-            "t": "2026-10-30T00:30:57+00:00",
-            "title": "Tech Futures Skid; Amazon, Intel, Twilio Are Earnings Losers",
-            "src": "Investor's Business Daily"
+            "t": "2026-10-30T02:20:50+00:00",
+            "title": "Amazon CEO predicts company’s revenue will hit $2 trillion in next decade",
+            "src": "The Seattle Times"
           },
           {
-            "t": "2026-10-29T23:54:49+00:00",
-            "title": "Amazon offers cautious view after disappointing 3Q results but delivers strong cloud growth",
-            "src": "The Washington Post"
+            "t": "2026-10-30T02:17:40+00:00",
+            "title": "Apple Earnings Preview: Can a Record Rally Survive the Memory Squeeze?",
+            "src": "Moomoo"
           },
           {
-            "t": "2026-10-29T23:48:39+00:00",
-            "title": "Jim Cramer breaks down the difference between Microsoft and Alphabet earnings",
-            "src": "CNBC"
+            "t": "2026-10-30T02:00:05+00:00",
+            "title": "Breaking Down Amazon's Third-Quarter Earnings",
+            "src": "Moomoo"
           },
           {
-            "t": "2026-10-29T23:37:30+00:00",
-            "title": "Amazon Puts a Million Robots Behind Its AI Ambitions",
-            "src": "PYMNTS.com"
+            "t": "2026-10-30T01:01:12+00:00",
+            "title": "Amazon Earnings Call: Soaring AI Spending Scares Off Investors; Is the $1 Trillion AWS Dream Losing Its Appeal?",
+            "src": "Moomoo"
           }
         ]
       },
@@ -565,29 +565,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-10-30T00:32:58+00:00",
-            "title": "Inflation heats up again, data shows, days before midterm elections where cost of living dominates",
-            "src": "Pittsburgh Post-Gazette"
+            "t": "2026-10-29T22:37:13+00:00",
+            "title": "FRED Adds Median Inflation Data from the Cleveland Fed",
+            "src": "Federal Reserve Economic Data | FRED | St. Louis Fed"
           },
           {
-            "t": "2026-10-29T23:44:49+00:00",
-            "title": "Tokyo Inflation Exceeds BOJ’s 2% Target Before Rate Decision",
-            "src": "Bloomberg.com"
+            "t": "2026-10-29T22:36:24+00:00",
+            "title": "The economy grew 3.4% this summer, but consumers got there by saving less",
+            "src": "www.marketplace.org"
           },
           {
-            "t": "2026-10-29T23:32:06+00:00",
-            "title": "Gold Steadies Near $4,000 as Inflation Keeps Rate-Hike Bets Firm",
-            "src": "Bloomberg.com"
+            "t": "2026-10-29T21:10:38+00:00",
+            "title": "U.S. GDP Increased 3.4% in Third Quarter",
+            "src": "The New York Times"
           },
           {
-            "t": "2026-10-29T23:27:51+00:00",
-            "title": "Lacker: Fed Behind Inflation Curve as Warsh Fails to Turn Strong Words into Rate Hike",
-            "src": "Kathleen Hays Presents: Central Bank Central"
+            "t": "2026-10-29T20:53:20+00:00",
+            "title": "Economy in Q3 grew 3.4%, exceeding forecasts amid persistent inflation",
+            "src": "CFO Dive"
           },
           {
-            "t": "2026-10-29T23:23:26+00:00",
-            "title": "Gasoline and energy costs rise, with inflation slightly up",
-            "src": "The Hill"
+            "t": "2026-10-29T20:36:23+00:00",
+            "title": "Beyond GDP: Measuring What Matters to Shape Policy",
+            "src": "Center for Global Development"
           }
         ]
       },
@@ -620,14 +620,14 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-10-30T02:13:00+00:00",
+            "title": "China’s Oil Majors Get More Firepower for Energy Security Push",
+            "src": "Bloomberg"
+          },
+          {
             "t": "2026-10-29T23:07:59+00:00",
             "title": "Opinion | The terrifying catch in Melania Trump’s Ukraine ceasefire",
             "src": "The Washington Post"
-          },
-          {
-            "t": "2026-10-29T22:44:00+00:00",
-            "title": "Russia strikes Ukraine amid ceasefire in occupied Oleshky",
-            "src": "Semafor"
           },
           {
             "t": "2026-10-29T21:09:00+00:00",
@@ -645,7 +645,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-10-30T02:05:41.131418+00:00",
+    "at": "2026-10-30T02:49:49.725861+00:00",
     "events": [
       {
         "title": "ADP Weekly Employment Change",
@@ -960,7 +960,7 @@
       "source": "EIA (API)",
       "period": "2026-10-23",
       "received_at": "2026-10-28T19:23:13.474024+00:00",
-      "last_attempt": "2026-10-29T23:17:37.988010+00:00",
+      "last_attempt": "2026-10-30T02:49:49.725861+00:00",
       "attempts": 4,
       "title": "Crude Oil Inventories",
       "time": "2026-10-28T14:30:00+00:00",
@@ -999,7 +999,7 @@
       "previous": "1.5%",
       "country": "USD",
       "last_attempt": "2026-10-30T02:05:41.131418+00:00",
-      "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
+      "note": ""
     },
     "US|pcelfe|mm|2026-09|-|2026-10-29": {
       "actual": "0.3%",
@@ -1061,90 +1061,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|growth:core-retail-sales-m-m|2026-10-15|1230",
-      "title": "Core Retail Sales m/m",
-      "release_time": "2026-10-15T12:30:00+00:00",
-      "fetched_at": "2026-10-16T02:11:04.552594+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "basis": "",
-      "forecast": "0.6%",
-      "previous": "1.4%",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": ""
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-15|1600",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-15T16:00:00+00:00",
-      "fetched_at": "2026-10-16T02:11:04.552594+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "basis": "",
-      "forecast": "0.2M",
-      "previous": "-3.2M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
-    {
-      "id": "US|retail|mm|2026-09|-|2026-10-15",
-      "title": "Retail Sales m/m",
-      "release_time": "2026-10-15T12:30:00+00:00",
-      "fetched_at": "2026-10-16T02:44:22.338726+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "0.8%",
-      "period": "2026-09-01",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "0.3%",
-      "previous": "1.2%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (RSAFS، فترة 2026-09-01) — مبيعات التجزئة شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|claims|claims_k|w2026-10-11|-|2026-10-15",
-      "title": "Unemployment Claims",
-      "release_time": "2026-10-15T12:30:00+00:00",
-      "fetched_at": "2026-10-16T02:44:22.338726+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "199K",
-      "period": "2026-10-10",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "199K",
-      "previous": "197K",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (ICSA، فترة 2026-10-10) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
     {
       "id": "US|growth:core-retail-sales-m-m|2026-10-15|1230",
       "title": "Core Retail Sales m/m",
@@ -5888,12 +5804,35 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
+    },
+    {
+      "id": "US|oil:crude-oil-inventories|2026-10-28|1430",
+      "title": "Crude Oil Inventories",
+      "release_time": "2026-10-28T14:30:00+00:00",
+      "fetched_at": "2026-10-30T02:49:49.725861+00:00",
+      "source": "EIA (API)",
+      "tier": "official",
+      "value": "-1.9M",
+      "period": "2026-10-23",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "0.1M",
+      "previous": "-3.1M",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: EIA (واجهة رسمية)"
     }
   ],
-  "last_publish_ok": "2026-10-30T02:05:41.131418+00:00",
+  "last_publish_ok": "2026-10-30T02:49:49.725861+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-10-30T02:06:30.691740+00:00"
+    "mode": "test",
+    "at": "2026-10-30T02:50:20.528787+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5968,9 +5907,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-10-30T02:05:41.131418+00:00",
-    "ok_at": "2026-10-30T02:05:41.131418+00:00",
+    "lean": "down",
+    "at": "2026-10-30T02:49:49.725861+00:00",
+    "ok_at": "2026-10-30T02:49:49.725861+00:00",
     "change": null
   },
   "last_watch": {
