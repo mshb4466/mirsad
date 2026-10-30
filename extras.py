@@ -8,6 +8,7 @@
 import json
 import os
 import re
+import urllib.error
 import urllib.parse
 from datetime import date, timedelta, timezone
 
@@ -156,7 +157,10 @@ def _detail(e, det):
 
 def fetch_gdp_vintage(now, collector, sid, ref, rel_date, key=None):
     """نسخة ALFRED لربع GDP يوم الإصدار: {dates, vdate, value, first_seen}. يلزمه FRED_API_KEY (بدونه None: لا دليل فلا رقم).
-    لم يُختبر حياً من بيئة التطوير (الشبكة محجوبة): verify.py / actuals-check يختبره على GitHub. يرفع استثناءً عند فشل الاتصال."""
+    الاشتقاق من طلب واحد لمشاهدات الربع عبر كل النسخ (realtime من 1776-07-04): تاريخ كل نسخة = realtime_start لصف المشاهدة،
+    وقيمة نسخة الإصدار = قيمة الصف الذي بدأ ضمن [يوم الإصدار، +3 أيام]. (إصلاح: كان يطلب أيضاً vintagedates بنافذة تنتهي بعد اليوم
+    الحالي ثم observations بنافذة تاريخية، فيفشل بـHTTPError ولا يظهر GDP؛ الطلب الآن واحد بلا نافذة مستقبلية، وأي خطأ يُبلَّغ برمزه ونصّه.)
+    لم يُختبر حياً من بيئة التطوير (الشبكة محجوبة): يُختبر على GitHub. يرفع RuntimeError برمز HTTP عند فشل الاتصال."""
     key = (key or os.environ.get("FRED_API_KEY", "")).strip()
     if not key:
         return None
@@ -164,23 +168,32 @@ def fetch_gdp_vintage(now, collector, sid, ref, rel_date, key=None):
 
     def q(path, **kw):
         url = base + path + "?" + urllib.parse.urlencode(dict(kw, api_key=key, file_type="json"))
-        return json.loads(collector._http_get(url, 20).decode("utf-8"))
-    dates = q("series/vintagedates", series_id=sid, realtime_start=(rel_date - timedelta(days=1)).isoformat(),
-              realtime_end=(rel_date + timedelta(days=4)).isoformat()).get("vintage_dates") or []
-    cand = sorted(x for x in dates if 0 <= (date.fromisoformat(x) - rel_date).days <= 3)
+        try:
+            raw = collector._http_get(url, 20)
+        except urllib.error.HTTPError as ex:   # رمز الخطأ ونص FRED (بلا المفتاح) ليظهرا في التشخيص
+            body = ""
+            try:
+                body = " ".join(ex.read().decode("utf-8", errors="replace").split())[:120]
+            except Exception:  # noqa: BLE001
+                pass
+            raise RuntimeError(f"HTTP {ex.code} ({path}) {body}".strip())
+        return json.loads(raw.decode("utf-8"))
+    obs = q("series/observations", series_id=sid, observation_start=ref.isoformat(), observation_end=ref.isoformat(),
+            realtime_start="1776-07-04", realtime_end="9999-12-31").get("observations") or []
+    rows = sorted((o for o in obs if o.get("realtime_start")), key=lambda o: o["realtime_start"])
+    dates = sorted({o["realtime_start"] for o in rows})
+    cand = [d for d in dates if 0 <= (date.fromisoformat(d) - rel_date).days <= 3]
     vdate, value = (cand[0] if cand else None), None
     if vdate:
-        obs = q("series/observations", series_id=sid, observation_start=ref.isoformat(), observation_end=ref.isoformat(),
-                realtime_start=vdate, realtime_end=vdate).get("observations") or []
-        if obs and obs[0].get("value") not in (".", "", None):
-            value = float(obs[0]["value"])
-    allv = q("series/observations", series_id=sid, observation_start=ref.isoformat(), observation_end=ref.isoformat(),
-             realtime_start="1776-07-04", realtime_end="9999-12-31").get("observations") or []
-    first_seen = min((o["realtime_start"] for o in allv), default=None)
+        for o in rows:
+            if o["realtime_start"] == vdate and o.get("value") not in (".", "", None):
+                value = float(o["value"])
+                break
+    first_seen = dates[0] if dates else None
     return {"dates": dates, "vdate": vdate, "value": value, "first_seen": first_seen}
 
 
-def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None, fetch_bls_fn=None, window_h=30, diag=None, fetch_vintage_fn=None):
+def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=None, fetch_heads_fn=None, fetch_series_fn=None, fetch_heads_q_fn=None, fetch_bls_fn=None, fetch_umich_fn=None, window_h=30, diag=None, fetch_vintage_fn=None):
     """يملأ الأرقام الفعلية الناقصة للأحداث الصادرة (نفط، مزادات) ويكتب في e['actual_note'] المصدر أو سبب الغياب.
     يعيد عدد ما ملأ. لا يرفع استثناءً."""
     todo = [e for e in events if not e.get("actual") and now - timedelta(hours=window_h) <= e["time"] < now]
@@ -300,7 +313,7 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                     except Exception as ex:  # noqa: BLE001
                         vint = None
                         if diag is not None:
-                            diag["alfred"] = {"ok": False, "detail": f"ALFRED: تعذّر الاتصال ({type(ex).__name__})"}
+                            diag["alfred"] = {"ok": False, "detail": f"ALFRED: تعذّر الاتصال ({type(ex).__name__}: {str(ex)[:160]})"}
                 det = indicators.resolve_detail(e.get("title", ""), e["time"], ind_rows, ET, "FRED", None, now, vint)
                 val, note = det["value"], det["note"]
                 if val:
@@ -313,6 +326,18 @@ def apply_actuals(events, now, collector, fetch_oil_fn=None, fetch_auctions_fn=N
                     why = ind_err or note or "لا رقم فعلي متاح"
                     if bnote:
                         why = bnote + " | FRED: " + why
+                    if fetch_umich_fn and re.search(r"uom consumer sentiment", e.get("title", "").lower()):
+                        try:
+                            uv, un = indicators.umich_official(fetch_umich_fn(), e["time"], ET)
+                        except Exception as ex:  # noqa: BLE001
+                            uv, un = None, f"الموقع الرسمي (ميشيغان): تعذّر الاتصال ({type(ex).__name__})"
+                        if uv:
+                            e["actual"], e["actual_note"] = uv, un + " (FRED: " + why + ")"
+                            e["actual_src"], e["actual_source"] = "official", "University of Michigan (الموقع الرسمي)"
+                            n += 1
+                            continue
+                        if un:
+                            why = why + " | " + un
                     if fetch_heads_q_fn:
                         hv, hn = indicators.from_headlines(e.get("title", ""), fetch_heads_q_fn)
                         if hv:

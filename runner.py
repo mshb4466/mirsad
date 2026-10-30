@@ -1252,7 +1252,7 @@ def resolve_actuals(events, now, state, deps):
                                  (lambda: fetch_headlines(now, query="EIA crude oil inventories", hours=36, limit=6)) if live else None,
                                  fetch_series_fn=deps.get("fetch_series"),
                                  fetch_heads_q_fn=deps.get("fetch_heads_q") or ((lambda q: fetch_headlines(now, query=q, hours=48, limit=10)) if live else None),
-                                 fetch_bls_fn=fb, window_h=24 * 7 + 1, diag=diag,
+                                 fetch_bls_fn=fb, fetch_umich_fn=(deps.get("fetch_umich") or ((lambda: c._http_get(indicators.UMICH_URL, 25).decode("utf-8", errors="replace")) if live else None)), window_h=24 * 7 + 1, diag=diag,
                                  fetch_vintage_fn=deps.get("fetch_vintage") or ((lambda sid, ref, rel: extras.fetch_gdp_vintage(now, c, sid, ref, rel)) if live else None))
             for k, v in diag.items():            # حالة المصدر من آخر محاولة فعلية (للتقرير والصحة)
                 state.setdefault("source_status", {})[k] = dict(v, at=marker)

@@ -373,6 +373,56 @@ HEAD_SPECS = [
 ]
 
 
+# ───────── ثقة المستهلك (ميشيغان) من الموقع الرسمي للجامعة (data.sca.isr.umich.edu) ─────────
+# الصفحة تعرض «Results for <Month> <Year>» وجدولاً فيه «The Index of Consumer Sentiment | <قيمة>»، وفوقها قائمة تقارير بتاريخ كل إصدار.
+# لا تُوسَم مرحلة الإصدار (أولي/نهائي) في الجدول؛ لذلك يُقبل الرقم فقط إذا: شهر النتائج = شهر الحدث، وأحدث تقرير في القائمة بتاريخ يوم
+# الإصدار نفسه (دليل أن الصفحة تعرض هذا الإصدار لا غيره). غير ذلك: لا رقم مع سبب. لم يُجرَّب حياً من بيئة التطوير.
+UMICH_URL = "https://data.sca.isr.umich.edu/"
+_MONTHS_EN = {m: i for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"], 1)}
+
+
+def _plain_text(html):
+    import html as _h
+    t = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", html or "")
+    t = re.sub(r"(?s)<[^>]+>", " ", t)
+    return " ".join(_h.unescape(t).split())
+
+
+def umich_official(html, ev_time, et):
+    """(قيمة نصية مثل '48.0' أو None، ملاحظة). ev_time وقت الحدث (aware)."""
+    txt = _plain_text(html)
+    if not txt:
+        return None, "الموقع الرسمي (ميشيغان): صفحة فارغة"
+    m = re.search(r"Results for ([A-Za-z]+) (20\d\d)", txt)
+    if not m or m.group(1).lower() not in _MONTHS_EN:
+        return None, "الموقع الرسمي (ميشيغان): لم أجد عنوان «Results for …» (تغيّر شكل الصفحة؟)"
+    ref = (int(m.group(2)), _MONTHS_EN[m.group(1).lower()])
+    d = ev_time.astimezone(et).date()
+    if ref != (d.year, d.month):
+        return None, f"الموقع الرسمي (ميشيغان): يعرض نتائج {m.group(1)} {m.group(2)} وليس شهر هذا الإصدار"
+    head = txt[:m.start()]
+    ri = head.find("Reports")
+    dates = []
+    for mm in re.finditer(r"([A-Za-z]+) (\d{1,2}), (20\d\d)", head[ri:] if ri >= 0 else head):
+        mon = _MONTHS_EN.get(mm.group(1).lower())
+        if mon:
+            try:
+                dates.append(date(int(mm.group(3)), mon, int(mm.group(2))))
+            except ValueError:
+                pass
+    if not dates:
+        return None, "الموقع الرسمي (ميشيغان): لا تواريخ تقارير في الصفحة، فلا دليل أن الرقم يخص هذا الإصدار"
+    if max(dates) != d:
+        return None, f"الموقع الرسمي (ميشيغان): أحدث تقرير على الصفحة بتاريخ {max(dates).isoformat()} لا يطابق تاريخ الإصدار {d.isoformat()}، فقد يخص إصداراً آخر"
+    v = re.search(r"Index of Consumer Sentiment\s*\|?\s*(\d{2,3}(?:\.\d)?)\b", txt[m.end():])
+    if not v:
+        return None, "الموقع الرسمي (ميشيغان): لم أجد قيمة The Index of Consumer Sentiment"
+    x = float(v.group(1))
+    if not 30 <= x <= 120:
+        return None, f"الموقع الرسمي (ميشيغان): القيمة {x} خارج النطاق المعقول، لم تُعتمد"
+    return f"{x:.1f}", f"المصدر: الموقع الرسمي لمسوح المستهلكين (جامعة ميشيغان)، نتائج {m.group(1)} {m.group(2)}، إصدار {d.isoformat()}"
+
+
 def from_headlines(title, fetch_q):
     """(رقم أو None، ملاحظة) من عناوين الأخبار. fetch_q(query) -> قائمة عناوين. فشل ناعم."""
     t = (title or "").lower()
