@@ -555,58 +555,53 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-02T11:22:58.750115+00:00",
-        "ok_at": "2026-11-02T11:22:58.750115+00:00"
+        "last_try": "2026-11-02T12:18:50.065144+00:00",
+        "ok_at": "2026-11-02T12:18:50.065144+00:00"
       },
       "fred": {
-        "last_try": "2026-11-02T11:22:58.750115+00:00",
-        "ok_at": "2026-11-02T11:22:58.750115+00:00"
+        "last_try": "2026-11-02T12:18:50.065144+00:00",
+        "ok_at": "2026-11-02T12:18:50.065144+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-02T11:22:58.750115+00:00",
-        "ok_at": "2026-11-02T11:22:58.750115+00:00"
+        "last_try": "2026-11-02T12:18:50.065144+00:00",
+        "ok_at": "2026-11-02T12:18:50.065144+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-02T11:22:58.750115+00:00",
-        "ok_at": "2026-11-02T11:22:58.750115+00:00"
+        "last_try": "2026-11-02T12:18:50.065144+00:00",
+        "ok_at": "2026-11-02T12:18:50.065144+00:00"
       },
       "oil": {
-        "last_try": "2026-11-02T11:22:58.750115+00:00",
-        "ok_at": "2026-11-02T11:22:58.750115+00:00"
+        "last_try": "2026-11-02T12:18:50.065144+00:00",
+        "ok_at": "2026-11-02T12:18:50.065144+00:00"
       },
       "news": {
-        "last_try": "2026-11-02T11:22:58.750115+00:00",
-        "ok_at": "2026-11-02T11:22:58.750115+00:00"
+        "last_try": "2026-11-02T12:18:50.065144+00:00",
+        "ok_at": "2026-11-02T12:18:50.065144+00:00"
       },
       "cot": {
-        "last_try": "2026-11-02T11:22:58.750115+00:00",
-        "ok_at": "2026-11-02T11:22:58.750115+00:00"
+        "last_try": "2026-11-02T12:18:50.065144+00:00",
+        "ok_at": "2026-11-02T12:18:50.065144+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-02T11:22:58.750115+00:00",
-        "ok_at": "2026-11-02T11:22:58.750115+00:00"
+        "last_try": "2026-11-02T12:18:50.065144+00:00",
+        "ok_at": "2026-11-02T12:18:50.065144+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-02T11:22:58.750115+00:00"
+      "at": "2026-11-02T12:18:50.065144+00:00"
     }
   },
   "week_news": {
-    "at": "2026-11-02T10:27:53.268497+00:00",
+    "at": "2026-11-02T12:18:50.065144+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-02T05:04:00+00:00",
-            "title": "Gold rises on softer oil; markets parse Fed signals",
-            "src": "Reuters"
-          },
-          {
             "t": "2026-11-01T21:02:10+00:00",
-            "title": "Kelly, Powell Earn Silver at Southeast Open",
+            "title": "Kelly, Powell Earn Silver at Southeast Open - University of Illinois Athletics",
             "src": "University of Illinois Athletics"
           },
           {
@@ -620,6 +615,11 @@
             "src": "Reuters"
           },
           {
+            "t": "2026-10-30T19:43:32+00:00",
+            "title": "Fed watchdog pushes central bank toward more streamlined IT operations",
+            "src": "FedScoop"
+          },
+          {
             "t": "2026-10-30T18:13:00+00:00",
             "title": "Fed Needs to Implement at Least Two More Rate Increases, Dallas Fed’s Logan Says",
             "src": "WSJ"
@@ -630,29 +630,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-02T09:39:00+00:00",
-            "title": "Stock Futures Higher, Oil Lower as Investors Return to Risk",
+            "t": "2026-11-02T11:29:43+00:00",
+            "title": "AI Investors Are Racing to Get Insurance on the Biggest Market Bet in History",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-02T05:00:52+00:00",
-            "title": "S&P 500’s perfect midterm record faces a test in 2026",
-            "src": "Financial Times"
+            "t": "2026-11-02T11:29:15+00:00",
+            "title": "The midterm races Wall Street and other financial firms are watching",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-02T04:17:33+00:00",
-            "title": "The S&P 500's Shiller P/E Is Above 40. History Says What Happened the Only Other Time.",
-            "src": "Yahoo Finance"
+            "t": "2026-11-02T10:57:52+00:00",
+            "title": "Wall Street futures rise as AI stocks catch their breath; midterms in focus",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-02T03:16:00+00:00",
-            "title": "Midterms, Jobs Data, and Apple Earnings Test Wall Street This Week: Will Stocks Hold?",
-            "src": "Yahoo Finance"
+            "t": "2026-11-02T10:54:00+00:00",
+            "title": "Exclusive | U.S. Pushes to Restore Russian Gas Sales to Europe Via Ukraine",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-02T02:06:00+00:00",
-            "title": "Stock futures jump ahead of a monster week after a $5 trillion AI rout",
-            "src": "Yahoo Finance"
+            "t": "2026-11-02T10:20:00+00:00",
+            "title": "The S&P 500 may be headed for 'outsized gains' despite tech-stock rout, JPMorgan says",
+            "src": "Business Insider"
           }
         ]
       },
@@ -660,29 +660,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-02T10:06:45+00:00",
+            "t": "2026-11-02T11:05:31+00:00",
+            "title": "Apple Earnings, Midterms, Jobs Data Put Markets To The Test: 3 Charts To Watch This Week",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-02T10:23:24+00:00",
+            "title": "US Stock Futures Rise Ahead of Apple Earnings as Binance Hack, Oil Prices and Midterm Elections Take Focus: Dow Jones, S&P, Nasdaq, Wall Street",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-02T10:18:45+00:00",
             "title": "We Raised Our Fair Value Estimates for Tesla and SpaceX. Are They Buys?",
             "src": "Morningstar"
           },
           {
-            "t": "2026-11-02T10:06:40+00:00",
+            "t": "2026-11-02T10:16:48+00:00",
+            "title": "FY27 Q1 - Press Releases - Investor Relations",
+            "src": "Microsoft"
+          },
+          {
+            "t": "2026-11-02T10:12:17+00:00",
             "title": "Meta Shares Are Down Since Earnings. Is the Stock a Buy?",
             "src": "Morningstar"
-          },
-          {
-            "t": "2026-11-02T09:34:46+00:00",
-            "title": "QQQ at $705 Eyes $680 200-Day Floor Before Nvidia [2026]",
-            "src": "https://tech-insider.org/"
-          },
-          {
-            "t": "2026-11-02T09:13:50+00:00",
-            "title": "Apple earnings preview as investors watch iPhone 18 demand and AI strategy",
-            "src": "FXStreet"
-          },
-          {
-            "t": "2026-11-02T08:52:23+00:00",
-            "title": "Apple earnings, Binance hack, midterm elections - What’s moving markets",
-            "src": "Investing.com"
           }
         ]
       },
@@ -690,29 +690,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-02T09:36:25+00:00",
-            "title": "The Illusion of Food Security: How Inflation Erased Iran’s Electronic Coupon Increase",
-            "src": "IranWire"
+            "t": "2026-11-02T11:47:43+00:00",
+            "title": "Canada futures gain as oil retreat cools inflation fears",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-02T09:36:00+00:00",
-            "title": "Housing Week Ahead: Monthly Trends Data, Mortgage Rates, and Jobs Report",
-            "src": "Realtor.com"
+            "t": "2026-11-02T11:00:15+00:00",
+            "title": "Market Minute: Expect a solid jobs report for October",
+            "src": "The Real Economy Blog"
           },
           {
-            "t": "2026-11-02T08:12:00+00:00",
-            "title": "Kevin Warsh Offered a Warning on Inflation. Here's What History Says Is Coming Next.",
-            "src": "The Motley Fool"
+            "t": "2026-11-02T04:17:00+00:00",
+            "title": "Indonesia October inflation eases slightly to 3.23% y/y",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-02T07:44:59+00:00",
-            "title": "Saudi Arabia’s Economy Shrinks 3.8% as Oil Output Falls",
-            "src": "WSJ"
+            "t": "2026-11-01T20:00:00+00:00",
+            "title": "Australia Set for Fifth Rate Hike as Inflation Fight Intensifies",
+            "src": "Bloomberg"
           },
           {
-            "t": "2026-11-02T07:28:00+00:00",
-            "title": "BOE Expected to Join Peers in Raising Key Rate",
-            "src": "WSJ"
+            "t": "2026-10-31T20:32:40+00:00",
+            "title": "Hiring worse than expected in June, but White House says labor market on 'upward trajectory'",
+            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
@@ -720,24 +720,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-02T10:07:30+00:00",
-            "title": "US aluminium tariffs become campaign subject in Virginia congressional race as breweries face higher costs",
-            "src": "AL Circle"
+            "t": "2026-11-02T11:27:50+00:00",
+            "title": "Investors gaming out Congress control for spending, AI outlook",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-02T11:25:37+00:00",
+            "title": "U.S. President Trump delivers remarks on tariffs, at the White House",
+            "src": "The Lufkin Daily News"
+          },
+          {
+            "t": "2026-11-02T11:06:00+00:00",
+            "title": "U.S. Treasury, European Bond Yields Fall as Oil Prices Drop",
+            "src": "WSJ"
           },
           {
             "t": "2026-11-02T09:27:17+00:00",
             "title": "Treasury yields mixed as oil prices tumble ahead of the midterms",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-11-02T07:10:00+00:00",
-            "title": "Treasury Yields Little Changed in Asian Trade Ahead of Midterms, Key Data This Week",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-02T06:02:54+00:00",
-            "title": "Trump Is Using a Trade Law Relic to Illegally Punish Canada",
-            "src": "The Dispatch"
           }
         ]
       },
@@ -745,24 +745,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-02T10:32:47+00:00",
+            "title": "Where things stand on Iran after a tense weekend",
+            "src": "The Washington Post"
+          },
+          {
             "t": "2026-11-02T10:21:41+00:00",
-            "title": "Oil falls on Hormuz deal hopes as Trump keeps strikes on the table",
+            "title": "Oil slides on Hormuz deal hopes but Trump keeps Iran strikes on the table",
             "src": "Euronews.com"
           },
           {
-            "t": "2026-11-02T10:00:00+00:00",
-            "title": "Ukraine braces for end of brief ceasefire",
-            "src": "The Arkansas Democrat-Gazette"
+            "t": "2026-11-02T10:14:52+00:00",
+            "title": "Fake alerts warn of nuclear danger as Ukraine and Russia report emergency app hacks",
+            "src": "NBC News"
           },
           {
-            "t": "2026-11-02T09:42:11+00:00",
-            "title": "Hundreds evacuate city during temporary ceasefire between Russia and Ukraine",
-            "src": "NPR"
-          },
-          {
-            "t": "2026-11-02T09:30:30+00:00",
-            "title": "Doomsday Iran strike loading? Israel polls, US mid-terms and Trump's big dilemma",
-            "src": "India Today"
+            "t": "2026-11-02T09:59:41+00:00",
+            "title": "Oil Prices Rise as Middle East, Ukraine-Russia Conflict Fuel Supply Worries",
+            "src": "WSJ"
           }
         ]
       }
@@ -770,7 +770,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-02T11:22:58.750115+00:00",
+    "at": "2026-11-02T12:18:50.065144+00:00",
     "events": [
       {
         "title": "Daylight Saving Time Shift",
@@ -4841,10 +4841,10 @@
       "note": ""
     }
   ],
-  "last_publish_ok": "2026-11-02T11:22:58.750115+00:00",
+  "last_publish_ok": "2026-11-02T12:18:50.065144+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-11-02T11:23:27.686593+00:00"
+    "mode": "preopen",
+    "at": "2026-11-02T12:19:21.372910+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -4925,9 +4925,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-11-02T11:22:58.750115+00:00",
-    "ok_at": "2026-11-02T11:22:58.750115+00:00",
+    "lean": "up",
+    "at": "2026-11-02T12:18:50.065144+00:00",
+    "ok_at": "2026-11-02T12:18:50.065144+00:00",
     "change": null
   },
   "last_watch": {
