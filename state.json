@@ -297,120 +297,120 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": 0.21,
-      "th": 0.45,
-      "ratio": 0.46,
-      "val": "+0.21%",
-      "thr": "±0.45%",
-      "c15": "+0.05%",
-      "c60": "+0.21%",
-      "c180": "+0.22%",
+      "w": 15,
+      "v": 0.22,
+      "th": 0.3,
+      "ratio": 0.74,
+      "val": "+0.22%",
+      "thr": "±0.3%",
+      "c15": "+0.22%",
+      "c60": "+0.01%",
+      "c180": "+0.36%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.33,
-      "z": 1.4,
-      "volx": 1.9
+      "eff": 0.02,
+      "z": 0.1,
+      "volx": 3.5
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 60,
-      "v": 0.29,
-      "th": 0.6,
-      "ratio": 0.48,
-      "val": "+0.29%",
-      "thr": "±0.6%",
-      "c15": "+0.06%",
-      "c60": "+0.29%",
-      "c180": "+0.35%",
+      "w": 15,
+      "v": 0.17,
+      "th": 0.4,
+      "ratio": 0.43,
+      "val": "+0.17%",
+      "thr": "±0.4%",
+      "c15": "+0.17%",
+      "c60": "-0.13%",
+      "c180": "+0.39%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.35,
-      "z": 1.1,
-      "volx": 2.2
+      "eff": 0.2,
+      "z": 0.5,
+      "volx": 5.6
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 60,
-      "v": -2.56,
+      "v": 1.31,
       "th": 8.0,
-      "ratio": 0.32,
-      "val": "-2.56%",
+      "ratio": 0.16,
+      "val": "+1.31%",
       "thr": "±8%",
-      "c15": "+0.38%",
-      "c60": "-2.56%",
-      "c180": "-1.46%",
+      "c15": "-0.24%",
+      "c60": "+1.31%",
+      "c180": "-2.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.4,
-      "z": 1.2,
+      "eff": 0.32,
+      "z": 0.6,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": -1.62,
-      "th": 1.3,
-      "ratio": 1.24,
-      "val": "-1.62%",
-      "thr": "±1.3%",
-      "c15": "+0.36%",
-      "c60": "-1.62%",
-      "c180": "-2.91%",
+      "w": 180,
+      "v": -2.4,
+      "th": 2.4,
+      "ratio": 1.0,
+      "val": "-2.40%",
+      "thr": "±2.4%",
+      "c15": "-0.06%",
+      "c60": "+1.30%",
+      "c180": "-2.40%",
       "confirmed": false,
-      "why": "الزخم غير متسق عبر الأطر",
+      "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.21,
-      "z": 2.3,
-      "volx": 2.1
+      "eff": 0.33,
+      "z": 1.6,
+      "volx": 1.9
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 180,
-      "v": 1.09,
+      "v": 1.07,
       "th": 1.2,
-      "ratio": 0.91,
-      "val": "+1.09%",
+      "ratio": 0.89,
+      "val": "+1.07%",
       "thr": "±1.2%",
-      "c15": "-0.21%",
-      "c60": "+0.30%",
-      "c180": "+1.09%",
+      "c15": "+0.14%",
+      "c60": "-0.36%",
+      "c180": "+1.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.19,
-      "z": 1.2,
-      "volx": 1.5
+      "eff": 0.38,
+      "z": 1.3,
+      "volx": 1.2
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
-      "v": -0.02,
-      "th": 0.18,
-      "ratio": 0.12,
-      "val": "-0.02%",
-      "thr": "±0.18%",
-      "c15": "-0.02%",
-      "c60": "-0.01%",
-      "c180": "-0.06%",
+      "w": 60,
+      "v": 0.04,
+      "th": 0.28,
+      "ratio": 0.16,
+      "val": "+0.04%",
+      "thr": "±0.28%",
+      "c15": "+0.00%",
+      "c60": "+0.04%",
+      "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.02,
-      "z": 0.2,
+      "eff": 0.14,
+      "z": 0.7,
       "volx": null
     },
     {
@@ -418,39 +418,39 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": 0.09,
+      "v": 0.11,
       "th": 0.4,
-      "ratio": 0.22,
-      "val": "+0.09%",
+      "ratio": 0.27,
+      "val": "+0.11%",
       "thr": "±0.4%",
-      "c15": "+0.04%",
-      "c60": "+0.09%",
-      "c180": "-0.04%",
+      "c15": "+0.00%",
+      "c60": "+0.11%",
+      "c180": "-0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.33,
-      "z": 1.5,
+      "eff": 0.74,
+      "z": 1.8,
       "volx": null
     },
     {
       "key": "y10",
       "name": "عائد 10 سنوات",
       "short": "10Y",
-      "w": 60,
-      "v": 2.5,
-      "th": 4.5,
-      "ratio": 0.56,
-      "val": "+2bp",
-      "thr": "±4.5bp",
-      "c15": "+0bp",
+      "w": 180,
+      "v": 3.3,
+      "th": 7.5,
+      "ratio": 0.44,
+      "val": "+3bp",
+      "thr": "±7.5bp",
+      "c15": "+1bp",
       "c60": "+2bp",
-      "c180": "+2bp",
+      "c180": "+3bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.2,
-      "z": 1.8,
+      "eff": 0.23,
+      "z": 0.7,
       "volx": null
     },
     {
@@ -458,113 +458,153 @@
       "name": "عائد 5 سنوات",
       "short": "5Y",
       "w": 60,
-      "v": 1.6,
+      "v": 2.6,
       "th": 4.5,
-      "ratio": 0.36,
-      "val": "+2bp",
+      "ratio": 0.58,
+      "val": "+3bp",
       "thr": "±4.5bp",
-      "c15": "+0bp",
-      "c60": "+2bp",
-      "c180": "+2bp",
+      "c15": "+1bp",
+      "c60": "+3bp",
+      "c180": "+3bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.13,
-      "z": 1.0,
+      "tone": "bear",
+      "eff": 0.33,
+      "z": 1.2,
       "volx": null
     },
     {
       "key": "y30",
       "name": "عائد 30 سنة",
       "short": "30Y",
-      "w": 60,
-      "v": 2.5,
-      "th": 4.5,
-      "ratio": 0.56,
-      "val": "+2bp",
-      "thr": "±4.5bp",
-      "c15": "+0bp",
-      "c60": "+2bp",
-      "c180": "+2bp",
+      "w": 180,
+      "v": 3.4,
+      "th": 7.5,
+      "ratio": 0.45,
+      "val": "+3bp",
+      "thr": "±7.5bp",
+      "c15": "+1bp",
+      "c60": "+1bp",
+      "c180": "+3bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.27,
-      "z": 2.1,
+      "eff": 0.19,
+      "z": 0.5,
+      "volx": null
+    },
+    {
+      "key": "hyg",
+      "name": "سندات عالية العائد HYG",
+      "short": "HYG",
+      "w": 15,
+      "v": 0.03,
+      "th": 0.15,
+      "ratio": 0.2,
+      "val": "+0.03%",
+      "thr": "±0.15%",
+      "c15": "+0.03%",
+      "c60": "+0.05%",
+      "c180": "+0.05%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": null,
+      "z": 0.8,
+      "volx": null
+    },
+    {
+      "key": "kre",
+      "name": "البنوك الإقليمية KRE",
+      "short": "KRE",
+      "w": 60,
+      "v": -0.84,
+      "th": 1.1,
+      "ratio": 0.76,
+      "val": "-0.84%",
+      "thr": "±1.1%",
+      "c15": "-0.21%",
+      "c60": "-0.84%",
+      "c180": "-0.84%",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "bear",
+      "eff": null,
+      "z": 3.9,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-03T14:29:27.066168+00:00",
-        "ok_at": "2026-11-03T14:29:27.066168+00:00"
+        "last_try": "2026-11-03T14:48:30.799471+00:00",
+        "ok_at": "2026-11-03T14:48:30.799471+00:00"
       },
       "fred": {
-        "last_try": "2026-11-03T14:29:27.066168+00:00",
-        "ok_at": "2026-11-03T14:29:27.066168+00:00"
+        "last_try": "2026-11-03T14:48:30.799471+00:00",
+        "ok_at": "2026-11-03T14:48:30.799471+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-03T14:29:27.066168+00:00",
-        "ok_at": "2026-11-03T14:29:27.066168+00:00"
+        "last_try": "2026-11-03T14:48:30.799471+00:00",
+        "ok_at": "2026-11-03T14:48:30.799471+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-03T14:29:27.066168+00:00",
-        "ok_at": "2026-11-03T14:29:27.066168+00:00"
+        "last_try": "2026-11-03T14:48:30.799471+00:00",
+        "ok_at": "2026-11-03T14:48:30.799471+00:00"
       },
       "oil": {
-        "last_try": "2026-11-03T14:29:27.066168+00:00",
-        "ok_at": "2026-11-03T14:29:27.066168+00:00"
+        "last_try": "2026-11-03T14:48:30.799471+00:00",
+        "ok_at": "2026-11-03T14:48:30.799471+00:00"
       },
       "news": {
-        "last_try": "2026-11-03T14:29:27.066168+00:00",
-        "ok_at": "2026-11-03T14:29:27.066168+00:00"
+        "last_try": "2026-11-03T14:48:30.799471+00:00",
+        "ok_at": "2026-11-03T14:48:30.799471+00:00"
       },
       "cot": {
-        "last_try": "2026-11-03T14:29:27.066168+00:00",
-        "ok_at": "2026-11-03T14:29:27.066168+00:00"
+        "last_try": "2026-11-03T14:48:30.799471+00:00",
+        "ok_at": "2026-11-03T14:48:30.799471+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-03T14:29:27.066168+00:00",
-        "ok_at": "2026-11-03T14:29:27.066168+00:00"
+        "last_try": "2026-11-03T14:48:30.799471+00:00",
+        "ok_at": "2026-11-03T14:48:30.799471+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-03T14:29:27.066168+00:00"
+      "at": "2026-11-03T14:48:30.799471+00:00"
     }
   },
   "week_news": {
-    "at": "2026-11-03T13:39:02.442120+00:00",
+    "at": "2026-11-03T14:48:30.799471+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-11-03T14:21:40+00:00",
+            "title": "Fed Survey Finds Weaker Demand For Auto, Mortgage Loans, But Credit Cards Buck Trend",
+            "src": "CU Today"
+          },
+          {
+            "t": "2026-11-03T14:02:00+00:00",
+            "title": "For Avelima’s family, every RBA rate hike means more shifts, a stretched budget – and less time together",
+            "src": "The Guardian"
+          },
+          {
+            "t": "2026-11-03T14:01:55+00:00",
+            "title": "This Election Day, America’s Servicemembers Are Fed Up",
+            "src": "The National Interest"
+          },
+          {
+            "t": "2026-11-03T14:01:30+00:00",
+            "title": "The Fed paused. Stocks stalled. Underneath, everything moved.",
+            "src": "InvestmentNews"
+          },
+          {
             "t": "2026-11-03T13:30:00+00:00",
             "title": "Case: Patents/Obviousness (Fed. Cir.)",
             "src": "Bloomberg Law News"
-          },
-          {
-            "t": "2026-11-03T13:23:41+00:00",
-            "title": "Bank of England set for first rate hike as energy shock worsens",
-            "src": "ing think"
-          },
-          {
-            "t": "2026-11-03T12:05:48+00:00",
-            "title": "Bulls' Norman Powell: Goes for 18 points Monday",
-            "src": "CBS Sports"
-          },
-          {
-            "t": "2026-11-03T11:27:28+00:00",
-            "title": "Fire chief asking for convictions to be removed, see pardon hearing",
-            "src": "The Oklahoman"
-          },
-          {
-            "t": "2026-11-03T11:00:00+00:00",
-            "title": "The economy is 'less K-shaped than you think' — and that's bad news for the Fed",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -572,29 +612,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-03T13:15:24+00:00",
-            "title": "Oil Prices Rebound as U.S. Strikes on Iran Renew Supply Concerns",
-            "src": "WSJ"
+            "t": "2026-11-03T14:35:00+00:00",
+            "title": "US stocks drift in mixed early trading on Wall Street as Apple falls",
+            "src": "AP News"
+          },
+          {
+            "t": "2026-11-03T14:22:00+00:00",
+            "title": "Why Wall Street Is Split on Tech Stocks Right Now",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-11-03T14:16:51+00:00",
+            "title": "US Stock Futures Climb as Investors Seek Tech Rebound Following Nasdaq Selloff: Dow Jones, S&P, Nasdaq, Wall Street",
+            "src": "Yahoo Finance UK"
+          },
+          {
+            "t": "2026-11-03T14:12:56+00:00",
+            "title": "The Average Stock Just Beat the S&P 500 by the Most Since 2009",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-03T13:13:43+00:00",
             "title": "US Stock Market Today: S&P 500 Futures Slip On Firm Manufacturing And Jobs Focus",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-03T13:11:04+00:00",
-            "title": "Apple stock 2026: only Mag 7 stock beating the S&P 500",
-            "src": "Opening Bell Daily"
-          },
-          {
-            "t": "2026-11-03T12:47:08+00:00",
-            "title": "UBS Traders See ‘Combustible Setup’ for S&P 500 Rally After Vote",
-            "src": "Bloomberg"
-          },
-          {
-            "t": "2026-11-03T12:22:00+00:00",
-            "title": "Wall Street’s most hated stocks are faring far better than its favorites",
-            "src": "MarketWatch"
           }
         ]
       },
@@ -602,14 +642,19 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-11-03T13:49:42+00:00",
+            "title": "Apple Retreats 4% Despite Earnings Beat as Memory Costs Squeeze Margin Outlook; Microsoft Dips, Meta Holds Steady",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-11-03T12:20:00+00:00",
             "title": "What analysts are telling us while Apple’s stock falls after earnings report",
             "src": "MarketWatch"
           },
           {
-            "t": "2026-11-03T11:32:50+00:00",
-            "title": "Apple earnings beat expectations, but rising chip costs worry investors",
-            "src": "Yahoo Finance UK"
+            "t": "2026-11-03T12:09:15+00:00",
+            "title": "FY27 Q1 - Press Releases - Investor Relations",
+            "src": "Microsoft"
           },
           {
             "t": "2026-11-03T11:30:39+00:00",
@@ -620,11 +665,6 @@
             "t": "2026-11-03T11:00:25+00:00",
             "title": "Apple’s Tight-Lipped CEO John Ternus Fails to Inspire",
             "src": "Bloomberg"
-          },
-          {
-            "t": "2026-11-03T11:00:09+00:00",
-            "title": "Apple Q4 2026 earnings call: CEO John Ternus addresses iPhone Duo availability and increasing prices",
-            "src": "Mashable"
           }
         ]
       },
@@ -632,28 +672,28 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-03T13:35:12+00:00",
-            "title": "Alabama public school spending lost ground to inflation, new data show",
-            "src": "Alabama Daily News"
+            "t": "2026-11-03T11:00:00+00:00",
+            "title": "Health Insurance Is the Sleeper Inflation Issue",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-03T13:30:00+00:00",
-            "title": "VanEck Launches EM Focus Inflation Bond ETF (EMIL), Targeting Higher Real Yield Beyond U.S. TIPS",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-03T13:18:34+00:00",
-            "title": "Bulgarian inflation rises to five-month high",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-03T12:28:59+00:00",
-            "title": "FTSE 100 slips as inflation fears build on oil rise",
+            "t": "2026-11-03T09:15:51+00:00",
+            "title": "Hong Kong Q3 GDP expands by 5.2% year-on-year, outlook positive",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-03T12:21:45+00:00",
-            "title": "Brazil economists raise inflation, rate forecasts after Lula reelection",
+            "t": "2026-11-03T08:49:00+00:00",
+            "title": "Swiss Inflation Jumps to Highest Since 2023 as Energy Costs Climb",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-03T06:55:10+00:00",
+            "title": "Opinion | The inflation election",
+            "src": "The Washington Post"
+          },
+          {
+            "t": "2026-11-03T06:33:00+00:00",
+            "title": "From grains to chicken and milk, India faces prolonged food inflation",
             "src": "Reuters"
           }
         ]
@@ -662,14 +702,14 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-11-03T14:10:09+00:00",
+            "title": "Christina Bohannan says Trump’s tariffs are costing families $4,200. That’s Mostly False.",
+            "src": "The Daily Iowan"
+          },
+          {
             "t": "2026-11-03T13:00:00+00:00",
             "title": "Guest commentary: Tariffs expose the auto industry’s real blind spot",
             "src": "Automotive News"
-          },
-          {
-            "t": "2026-11-03T12:23:00+00:00",
-            "title": "India agrees to cut tariffs on bulk Scotch whisky",
-            "src": "The Drinks Business"
           },
           {
             "t": "2026-11-03T11:57:00+00:00",
@@ -677,8 +717,8 @@
             "src": "Fortune"
           },
           {
-            "t": "2026-11-03T10:59:27+00:00",
-            "title": "Fed’s Rate Hold Sends Bond Yields in Different Directions",
+            "t": "2026-11-03T10:41:54+00:00",
+            "title": "Treasury, European Government Bond Yields Rise as Markets Await U.S. Midterm Election Results",
             "src": "WSJ"
           }
         ]
@@ -692,19 +732,19 @@
             "src": "CNBC"
           },
           {
-            "t": "2026-11-03T13:20:45+00:00",
-            "title": "Melania Trump to Host Russia-Ukraine Meeting After Oleshky Ceasefire",
-            "src": "The Pavlovic Today"
+            "t": "2026-11-03T13:15:28+00:00",
+            "title": "Oil prices rebound after U.S. attacks Iran",
+            "src": "Transport Topics"
           },
           {
-            "t": "2026-11-03T13:16:49+00:00",
-            "title": "Oil prices climb after U.S. strikes Iran's Qeshm Island in Strait of Hormuz",
-            "src": "Quartz"
+            "t": "2026-11-03T11:34:18+00:00",
+            "title": "Live - Qatar remains hopeful of US-Iran deal despite Tehran saying deal is far off",
+            "src": "Iran International"
           },
           {
-            "t": "2026-11-03T13:07:41+00:00",
-            "title": "Lavrov says EU calls for Ukraine ceasefire seek to give Kyiv ‘breather to restore combat potential’",
-            "src": "Anadolu Ajansı"
+            "t": "2026-11-03T11:29:49+00:00",
+            "title": "Oil Prices Rise as Middle East, Ukraine-Russia Conflict Fuel Supply Worries",
+            "src": "WSJ"
           }
         ]
       }
@@ -712,7 +752,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-03T14:29:27.066168+00:00",
+    "at": "2026-11-03T14:48:30.799471+00:00",
     "events": [
       {
         "title": "Daylight Saving Time Shift",
@@ -763,6 +803,14 @@
         "type": "OTHER"
       },
       {
+        "title": "RCM/TIPP Economic Optimism",
+        "impact": "Low",
+        "time": "2026-11-03T09:00:00+00:00",
+        "forecast": "46.2",
+        "previous": "46.8",
+        "type": "OTHER"
+      },
+      {
         "title": "JOLTS Job Openings",
         "impact": "Medium",
         "time": "2026-11-03T15:00:00+00:00",
@@ -776,14 +824,6 @@
         "time": "2026-11-03T15:00:00+00:00",
         "forecast": "1.2%",
         "previous": "0.1%",
-        "type": "OTHER"
-      },
-      {
-        "title": "RCM/TIPP Economic Optimism",
-        "impact": "Low",
-        "time": "2026-11-03T15:10:00+00:00",
-        "forecast": "46.2",
-        "previous": "46.8",
         "type": "OTHER"
       },
       {
@@ -4760,10 +4800,10 @@
       "note": ""
     }
   ],
-  "last_publish_ok": "2026-11-03T14:29:27.066168+00:00",
+  "last_publish_ok": "2026-11-03T14:48:30.799471+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-03T14:29:57.815189+00:00"
+    "at": "2026-11-03T14:48:57.738734+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -4845,12 +4885,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-03T14:29:27.066168+00:00",
-    "ok_at": "2026-11-03T14:29:27.066168+00:00",
+    "at": "2026-11-03T14:48:30.799471+00:00",
+    "ok_at": "2026-11-03T14:48:30.799471+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-03T14:29:27.066168+00:00",
+    "at": "2026-11-03T14:48:30.799471+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
