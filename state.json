@@ -411,118 +411,118 @@
       "name": "ES",
       "short": "ES",
       "w": 60,
-      "v": 0.22,
+      "v": 0.18,
       "th": 0.45,
-      "ratio": 0.49,
-      "val": "+0.22%",
+      "ratio": 0.4,
+      "val": "+0.18%",
       "thr": "±0.45%",
-      "c15": "+0.01%",
-      "c60": "+0.22%",
-      "c180": "+0.09%",
+      "c15": "+0.06%",
+      "c60": "+0.18%",
+      "c180": "-0.20%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.83,
-      "z": 0.9,
-      "volx": 0.1
+      "eff": 0.41,
+      "z": 0.8,
+      "volx": 0.2
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 60,
-      "v": 0.34,
+      "v": 0.58,
       "th": 0.6,
-      "ratio": 0.57,
-      "val": "+0.34%",
+      "ratio": 0.96,
+      "val": "+0.58%",
       "thr": "±0.6%",
-      "c15": "+0.02%",
-      "c60": "+0.34%",
-      "c180": "+0.07%",
+      "c15": "+0.18%",
+      "c60": "+0.58%",
+      "c180": "-0.55%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.71,
-      "z": 0.8,
-      "volx": 0.1
+      "eff": 0.49,
+      "z": 1.4,
+      "volx": 0.5
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": -0.7,
-      "th": 1.3,
-      "ratio": 0.54,
-      "val": "-0.70%",
-      "thr": "±1.3%",
-      "c15": "-0.20%",
-      "c60": "-0.70%",
-      "c180": "+0.23%",
+      "w": 180,
+      "v": -1.1,
+      "th": 2.4,
+      "ratio": 0.46,
+      "val": "-1.10%",
+      "thr": "±2.4%",
+      "c15": "+0.26%",
+      "c60": "-0.31%",
+      "c180": "-1.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.74,
-      "z": 0.8,
-      "volx": 0.1
+      "eff": 0.12,
+      "z": 0.4,
+      "volx": 1.5
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 15,
-      "v": 0.03,
-      "th": 0.45,
-      "ratio": 0.08,
-      "val": "+0.03%",
-      "thr": "±0.45%",
-      "c15": "+0.03%",
-      "c60": "+0.01%",
-      "c180": "-0.04%",
+      "w": 180,
+      "v": 1.59,
+      "th": 1.2,
+      "ratio": 1.33,
+      "val": "+1.59%",
+      "thr": "±1.2%",
+      "c15": "-0.08%",
+      "c60": "+0.45%",
+      "c180": "+1.59%",
       "confirmed": false,
-      "why": "لم يتجاوز الحد",
+      "why": "الزخم غير متسق عبر الأطر",
       "tone": "flat",
-      "eff": 0.02,
-      "z": 0.0,
-      "volx": 0.2
+      "eff": 0.32,
+      "z": 1.4,
+      "volx": 1.3
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": -0.07,
+      "v": -0.17,
       "th": 0.5,
-      "ratio": 0.15,
-      "val": "-0.07%",
+      "ratio": 0.35,
+      "val": "-0.17%",
       "thr": "±0.5%",
       "c15": "+0.00%",
-      "c60": "+0.02%",
-      "c180": "-0.07%",
+      "c60": "+0.03%",
+      "c180": "-0.17%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.22,
-      "z": 0.2,
+      "tone": "bull",
+      "eff": 0.17,
+      "z": 0.3,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": -0.07,
-      "th": 0.4,
-      "ratio": 0.16,
-      "val": "-0.07%",
-      "thr": "±0.4%",
-      "c15": "-0.04%",
-      "c60": "-0.07%",
-      "c180": "-0.05%",
+      "w": 180,
+      "v": -0.29,
+      "th": 0.7,
+      "ratio": 0.42,
+      "val": "-0.29%",
+      "thr": "±0.7%",
+      "c15": "-0.02%",
+      "c60": "-0.08%",
+      "c180": "-0.29%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.43,
+      "tone": "bear",
+      "eff": 0.35,
       "z": 0.7,
       "volx": null
     }
@@ -530,74 +530,74 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-04T22:03:32.239659+00:00",
-        "ok_at": "2026-11-04T22:03:32.239659+00:00"
+        "last_try": "2026-11-05T02:29:02.900371+00:00",
+        "ok_at": "2026-11-05T02:29:02.900371+00:00"
       },
       "fred": {
-        "last_try": "2026-11-04T22:03:32.239659+00:00",
-        "ok_at": "2026-11-04T22:03:32.239659+00:00"
+        "last_try": "2026-11-05T02:29:02.900371+00:00",
+        "ok_at": "2026-11-05T02:29:02.900371+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-04T22:03:32.239659+00:00",
-        "ok_at": "2026-11-04T22:03:32.239659+00:00"
+        "last_try": "2026-11-05T02:29:02.900371+00:00",
+        "ok_at": "2026-11-05T02:29:02.900371+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-04T22:03:32.239659+00:00",
-        "ok_at": "2026-11-04T22:03:32.239659+00:00"
+        "last_try": "2026-11-05T02:29:02.900371+00:00",
+        "ok_at": "2026-11-05T02:29:02.900371+00:00"
       },
       "oil": {
-        "last_try": "2026-11-04T22:03:32.239659+00:00",
-        "ok_at": "2026-11-04T22:03:32.239659+00:00"
+        "last_try": "2026-11-05T02:29:02.900371+00:00",
+        "ok_at": "2026-11-05T02:29:02.900371+00:00"
       },
       "news": {
-        "last_try": "2026-11-04T22:03:32.239659+00:00",
-        "ok_at": "2026-11-04T22:03:32.239659+00:00"
+        "last_try": "2026-11-05T02:29:02.900371+00:00",
+        "ok_at": "2026-11-05T02:29:02.900371+00:00"
       },
       "cot": {
-        "last_try": "2026-11-04T22:03:32.239659+00:00",
-        "ok_at": "2026-11-04T22:03:32.239659+00:00"
+        "last_try": "2026-11-05T02:29:02.900371+00:00",
+        "ok_at": "2026-11-05T02:29:02.900371+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-04T22:03:32.239659+00:00",
-        "ok_at": "2026-11-04T22:03:32.239659+00:00"
+        "last_try": "2026-11-05T02:29:02.900371+00:00",
+        "ok_at": "2026-11-05T02:29:02.900371+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-04T22:03:32.239659+00:00"
+      "at": "2026-11-05T02:29:02.900371+00:00"
     }
   },
   "week_news": {
-    "at": "2026-11-04T22:03:32.239659+00:00",
+    "at": "2026-11-05T02:29:02.900371+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-04T21:57:24+00:00",
-            "title": "Denise Powell wins Nebraska s 2nd Congressional District seat in historic victory",
-            "src": "KHGI"
+            "t": "2026-11-05T01:14:23+00:00",
+            "title": "BPA, Earthjustice Reach Settlement to Reduce $250M Rate Hike",
+            "src": "RTO Insider"
           },
           {
-            "t": "2026-11-04T21:25:22+00:00",
-            "title": "FRED Adds Inflation Indicators from the St. Louis Fed",
-            "src": "Federal Reserve Economic Data | FRED | St. Louis Fed"
+            "t": "2026-11-05T01:12:00+00:00",
+            "title": "'Folks are scared': Denise Powell says she’ll fight Medicaid cuts after Nebraska district victory",
+            "src": "KETV"
           },
           {
-            "t": "2026-11-04T20:39:38+00:00",
-            "title": "Friday’s jobs report looms as Fed weighs December move on interest rates",
-            "src": "Scotsman Guide"
+            "t": "2026-11-04T23:59:00+00:00",
+            "title": "Trump committee hearing on Fed Governor Lisa Cook rescheduled to Dec. 14",
+            "src": "CNBC"
           },
           {
-            "t": "2026-11-04T20:32:57+00:00",
-            "title": "Election stiffens the Fed's guardrails, but independence risks remain",
-            "src": "Reuters"
+            "t": "2026-11-04T23:54:44+00:00",
+            "title": "How Pittsburgh's 3 sports teams help keep neighbors fed during holiday season",
+            "src": "CBS News"
           },
           {
-            "t": "2026-11-04T19:01:37+00:00",
-            "title": "Kathy Covington Jones Obituary Nov 4, 2026",
-            "src": "Powell Funeral Home"
+            "t": "2026-11-04T23:49:00+00:00",
+            "title": "How Pittsburgh's sports teams help keep neighbors fed during holiday season",
+            "src": "CBS News"
           }
         ]
       },
@@ -605,35 +605,50 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-04T21:58:52+00:00",
-            "title": "Exclusive | U.S. Strikes Iran’s Qeshm Island as Trump Talks Down War Risks",
-            "src": "WSJ"
+            "t": "2026-11-05T01:33:07+00:00",
+            "title": "The S&P 500 climbs after Democrats sweep the midterms",
+            "src": "The Washington Post"
           },
           {
-            "t": "2026-11-04T21:56:15+00:00",
-            "title": "Appeals Court Gives Mamdani Administration Green Light on Pied-à-Terre Rollout",
-            "src": "WSJ"
+            "t": "2026-11-05T01:05:00+00:00",
+            "title": "This year’s worst-performing S&P 500 stock is finally seeing some major relief",
+            "src": "MarketWatch"
           },
           {
-            "t": "2026-11-04T21:44:13+00:00",
-            "title": "US Equity Futures Inch Higher as Investors Await Midterm Results",
-            "src": "Bloomberg"
+            "t": "2026-11-05T00:22:16+00:00",
+            "title": "What a Democratic Congress means for Wall Street",
+            "src": "WBUR"
           },
           {
-            "t": "2026-11-04T21:42:15+00:00",
-            "title": "Exclusive | CrowdStrike to Buy Two AI Security Startups for $495 Million",
-            "src": "WSJ"
+            "t": "2026-11-04T23:54:37+00:00",
+            "title": "Wall Street ends higher after Democrats win Congress; data center stocks tumble",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-04T21:33:04+00:00",
-            "title": "The Blue Wave Sets Off a Potential Regime Change in Markets",
-            "src": "WSJ"
+            "t": "2026-11-04T23:17:56+00:00",
+            "title": "What Wall Street billionaires are saying about Democrats' midterm sweep",
+            "src": "CNBC"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-04T23:20:03+00:00",
+            "title": "AppLovin Stock What Changed After Its Earnings Beat",
+            "src": "Yahoo Finance Singapore"
+          },
+          {
+            "t": "2026-11-04T23:15:06+00:00",
+            "title": "ANTITRUST—W.D. Wash.: Walmart, eBay shoppers granted certification in Amazon Marketplace price parity clause suit",
+            "src": "VitalLaw.com"
+          },
+          {
+            "t": "2026-11-04T22:10:04+00:00",
+            "title": "CPI | Apple Wins Bid to Move Rave Antitrust Lawsuit to California |",
+            "src": "PYMNTS.com"
+          },
           {
             "t": "2026-11-04T21:24:00+00:00",
             "title": "Apple Gets Rave Inc.'s Antitrust Suit Transferred to California",
@@ -643,21 +658,6 @@
             "t": "2026-11-04T20:32:45+00:00",
             "title": "Apple reportedly lowers daily AI spending limits for engineers",
             "src": "Yahoo Finance Singapore"
-          },
-          {
-            "t": "2026-11-04T18:49:15+00:00",
-            "title": "Alphabet Stock Sinks, Dragging Nasdaq Lower",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-04T18:20:27+00:00",
-            "title": "Apple Defends Google Search Payments as Antitrust Fight Heads to Appeals Court",
-            "src": "PYMNTS.com"
-          },
-          {
-            "t": "2026-11-04T17:59:21+00:00",
-            "title": "Arista Networks earnings analysis: questions answered and next catalysts",
-            "src": "Yahoo Finance Singapore"
           }
         ]
       },
@@ -665,29 +665,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-04T21:32:21+00:00",
-            "title": "The Beer Pricing Tightrope: Brewers Weigh Inflation Against Volume Declines",
-            "src": "Brewbound"
+            "t": "2026-11-05T00:28:03+00:00",
+            "title": "Monetary policy in times of high public debt",
+            "src": "CEPR"
           },
           {
-            "t": "2026-11-04T20:26:15+00:00",
-            "title": "October Jobs Report Seen Showing Resilient Labor Market",
-            "src": "Morningstar"
+            "t": "2026-11-05T00:20:17+00:00",
+            "title": "Australia has a bad inflation problem. So why are we middle-of-the pack on the misery index?",
+            "src": "The Guardian"
           },
           {
-            "t": "2026-11-04T19:34:00+00:00",
-            "title": "Indiana Public Retirement System reworks inflation-linked bond allocation",
-            "src": "Pensions & Investments"
+            "t": "2026-11-04T23:28:25+00:00",
+            "title": "Democrats clinch huge wins on inflation anger and Trump fatigue",
+            "src": "The Japan Times"
           },
           {
-            "t": "2026-11-04T19:14:51+00:00",
-            "title": "What CPI Card Group (PMTS) Said on Its Q3 Earnings Call",
-            "src": "Yahoo Finance"
+            "t": "2026-11-04T23:09:00+00:00",
+            "title": "Brazil’s Central Bank Stops Easing Cycle as Inflation Remains High",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-04T19:05:37+00:00",
-            "title": "CPI Card Group Inc. Q3 2026 Earnings Call Summary",
-            "src": "Yahoo Finance"
+            "t": "2026-11-04T23:00:42+00:00",
+            "title": "Maple Leaf Foods poultry sales up 4.3% as inflation tempers outlook",
+            "src": "WATTPoultry.com"
           }
         ]
       },
@@ -695,24 +695,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-04T21:27:17+00:00",
-            "title": "Services sector growth slows, impeded by tariffs, rising fuel costs: ISM",
-            "src": "CFO Dive"
+            "t": "2026-11-05T01:51:00+00:00",
+            "title": "Democrats gain influence over trade agenda, but tariff repeals to hit Trump veto wall",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-04T21:24:50+00:00",
+            "t": "2026-11-05T01:48:41+00:00",
             "title": "Opinion | Trump taxed imports. Voters sent Republicans the bill.",
             "src": "The Washington Post"
           },
           {
-            "t": "2026-11-04T21:05:30+00:00",
-            "title": "Mercedes Delays U.S. GLC Production, Leaving the Model Exposed to Increased Tariff-Related Pricing",
-            "src": "Car and Driver"
+            "t": "2026-11-04T23:28:24+00:00",
+            "title": "How this week's election results can impact the bond market — and interest rates",
+            "src": "Marketplace.org"
           },
           {
-            "t": "2026-11-04T20:54:00+00:00",
-            "title": "Why Trump Won’t Let Up on Tariffs, Even With Democrats in Control",
-            "src": "Barron's"
+            "t": "2026-11-04T22:45:35+00:00",
+            "title": "Debt ceiling fight looms after Democratic sweep",
+            "src": "CNBC"
           }
         ]
       },
@@ -720,24 +720,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-04T20:50:00+00:00",
-            "title": "Israel condemns Russian strike on Komyshuvakha",
-            "src": "Ukrinform"
+            "t": "2026-11-05T02:20:00+00:00",
+            "title": "Oil falls for a fourth day on expectations for lower risk of Iran war escalation",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-04T20:37:53+00:00",
-            "title": "Ukraine raises death toll from Russian strike on Zaporizhia to 40 people",
-            "src": "Al Jazeera"
+            "t": "2026-11-05T00:01:00+00:00",
+            "title": "China weathered the Hormuz shock. Clean energy can make that resilience last.",
+            "src": "Centre for Research on Energy and Clean Air"
           },
           {
-            "t": "2026-11-04T20:28:00+00:00",
-            "title": "Oil prices are in freefall now that the Democratic sweep is ‘rewriting the Iran playbook’",
-            "src": "MarketWatch"
+            "t": "2026-11-04T23:19:56+00:00",
+            "title": "2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict",
+            "src": "Britannica"
           },
           {
-            "t": "2026-11-04T20:18:00+00:00",
-            "title": "‘Vast criminal network’: US sanctions Indian couple, linked firms over maritime fraud aiding Iran’s oil t",
-            "src": "The Times of India"
+            "t": "2026-11-04T23:01:08+00:00",
+            "title": "Zelensky awards Melania Trump Ukraine's highest honor for women after brokering Oleshky ceasefire",
+            "src": "The Jerusalem Post"
           }
         ]
       }
@@ -745,7 +745,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-04T22:03:32.239659+00:00",
+    "at": "2026-11-05T02:29:02.900371+00:00",
     "events": [
       {
         "title": "Daylight Saving Time Shift",
@@ -1176,7 +1176,7 @@
       "source": "BLS",
       "period": "2026-09-01",
       "received_at": "2026-11-03T15:40:48.756992+00:00",
-      "last_attempt": "2026-11-04T19:58:16.910063+00:00",
+      "last_attempt": "2026-11-05T02:29:02.900371+00:00",
       "attempts": 1,
       "title": "JOLTS Job Openings",
       "time": "2026-11-03T15:00:00+00:00",
@@ -1194,14 +1194,14 @@
     "US|payems|diff_k|2026-10|-|2026-11-04": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 3,
+      "attempts": 4,
       "title": "ADP Non-Farm Employment Change",
       "time": "2026-11-04T13:15:00+00:00",
       "impact": "Low",
       "forecast": "67K",
       "previous": "90K",
       "country": "USD",
-      "last_attempt": "2026-11-04T22:03:32.239659+00:00",
+      "last_attempt": "2026-11-05T02:29:02.900371+00:00",
       "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
     },
     "US|oil:crude-oil-inventories|2026-11-04|1530": {
@@ -1212,7 +1212,7 @@
       "source": "EIA (API)",
       "period": "2026-10-30",
       "received_at": "2026-11-04T19:58:16.910063+00:00",
-      "last_attempt": "2026-11-04T19:58:16.910063+00:00",
+      "last_attempt": "2026-11-05T02:29:02.900371+00:00",
       "attempts": 1,
       "title": "Crude Oil Inventories",
       "time": "2026-11-04T15:30:00+00:00",
@@ -1252,144 +1252,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|growth:core-retail-sales-m-m|2026-10-15|1230",
-      "title": "Core Retail Sales m/m",
-      "release_time": "2026-10-15T12:30:00+00:00",
-      "fetched_at": "2026-10-21T22:13:36.969044+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "0.6%",
-      "previous": "1.4%",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": ""
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-15|1600",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-15T16:00:00+00:00",
-      "fetched_at": "2026-10-21T22:13:36.969044+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "0.2M",
-      "previous": "-3.2M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-21T22:48:28.967346+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-21T23:53:55.591551+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-22T01:10:49.734872+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-22T02:24:07.865392+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
     {
       "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
       "title": "Crude Oil Inventories",
@@ -4931,12 +4793,81 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
+    },
+    {
+      "id": "US|jolts|jolts_m|2026-09|-|2026-11-03",
+      "title": "JOLTS Job Openings",
+      "release_time": "2026-11-03T15:00:00+00:00",
+      "fetched_at": "2026-11-05T02:29:02.900371+00:00",
+      "source": "BLS",
+      "tier": "official",
+      "value": "7.52M",
+      "period": "2026-09-01",
+      "series": "JTS000000000000000JOL",
+      "method": "القيمة المنشورة (ألف) مقسومة على 1000",
+      "raw": 7.523,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "7.19M",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "7.15M",
+      "previous": "7.08M",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: BLS (JTS000000000000000JOL، فترة 2026-09-01) — الوظائف الشاغرة JOLTS (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|oil:crude-oil-inventories|2026-11-04|1530",
+      "title": "Crude Oil Inventories",
+      "release_time": "2026-11-04T15:30:00+00:00",
+      "fetched_at": "2026-11-05T02:29:02.900371+00:00",
+      "source": "EIA (API)",
+      "tier": "official",
+      "value": "-0.9M",
+      "period": "2026-10-30",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "-1.7M",
+      "previous": "-1.9M",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: EIA (واجهة رسمية)"
+    },
+    {
+      "id": "US|payems|diff_k|2026-10|-|2026-11-04",
+      "title": "ADP Non-Farm Employment Change",
+      "release_time": "2026-11-04T13:15:00+00:00",
+      "fetched_at": "2026-11-05T02:29:02.900371+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "67K",
+      "previous": "90K",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
     }
   ],
-  "last_publish_ok": "2026-11-04T22:03:32.239659+00:00",
+  "last_publish_ok": "2026-11-05T02:29:02.900371+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-04T22:04:02.547029+00:00"
+    "at": "2026-11-05T02:29:37.559261+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -4997,13 +4928,13 @@
   "source_status": {
     "bls": {
       "ok": true,
-      "detail": "1 سلسلة",
-      "at": "2026-11-04T22:03:32.239659+00:00"
+      "detail": "2 سلسلة",
+      "at": "2026-11-05T02:29:02.900371+00:00"
     },
     "fred": {
       "ok": true,
-      "detail": "1 سلسلة",
-      "at": "2026-11-04T22:03:32.239659+00:00"
+      "detail": "2 سلسلة",
+      "at": "2026-11-05T02:29:02.900371+00:00"
     },
     "alfred": {
       "ok": false,
@@ -5012,18 +4943,18 @@
     }
   },
   "bls_calls": {
-    "2026-11-04": 6
+    "2026-11-05": 1
   },
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-04T22:03:32.239659+00:00",
-    "ok_at": "2026-11-04T22:03:32.239659+00:00",
+    "at": "2026-11-05T02:29:02.900371+00:00",
+    "ok_at": "2026-11-05T02:29:02.900371+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-04T22:03:32.239659+00:00",
+    "at": "2026-11-05T02:29:02.900371+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
