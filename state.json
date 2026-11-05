@@ -530,74 +530,74 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-05T11:46:27.772428+00:00",
-        "ok_at": "2026-11-05T11:46:27.772428+00:00"
+        "last_try": "2026-11-05T16:20:11.967668+00:00",
+        "ok_at": "2026-11-05T16:20:11.967668+00:00"
       },
       "fred": {
-        "last_try": "2026-11-05T11:46:27.772428+00:00",
-        "ok_at": "2026-11-05T11:46:27.772428+00:00"
+        "last_try": "2026-11-05T16:20:11.967668+00:00",
+        "ok_at": "2026-11-05T16:20:11.967668+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-05T11:46:27.772428+00:00",
-        "ok_at": "2026-11-05T11:46:27.772428+00:00"
+        "last_try": "2026-11-05T16:20:11.967668+00:00",
+        "ok_at": "2026-11-05T16:20:11.967668+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-05T11:46:27.772428+00:00",
-        "ok_at": "2026-11-05T11:46:27.772428+00:00"
+        "last_try": "2026-11-05T16:20:11.967668+00:00",
+        "ok_at": "2026-11-05T16:20:11.967668+00:00"
       },
       "oil": {
-        "last_try": "2026-11-05T11:46:27.772428+00:00",
-        "ok_at": "2026-11-05T11:46:27.772428+00:00"
+        "last_try": "2026-11-05T16:20:11.967668+00:00",
+        "ok_at": "2026-11-05T16:20:11.967668+00:00"
       },
       "news": {
-        "last_try": "2026-11-05T11:46:27.772428+00:00",
-        "ok_at": "2026-11-05T11:46:27.772428+00:00"
+        "last_try": "2026-11-05T16:20:11.967668+00:00",
+        "ok_at": "2026-11-05T16:20:11.967668+00:00"
       },
       "cot": {
-        "last_try": "2026-11-05T11:46:27.772428+00:00",
-        "ok_at": "2026-11-05T11:46:27.772428+00:00"
+        "last_try": "2026-11-05T16:20:11.967668+00:00",
+        "ok_at": "2026-11-05T16:20:11.967668+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-05T11:46:27.772428+00:00",
-        "ok_at": "2026-11-05T11:46:27.772428+00:00"
+        "last_try": "2026-11-05T16:20:11.967668+00:00",
+        "ok_at": "2026-11-05T16:20:11.967668+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-05T11:46:27.772428+00:00"
+      "at": "2026-11-05T16:20:11.967668+00:00"
     }
   },
   "week_news": {
-    "at": "2026-11-05T11:30:32.637435+00:00",
+    "at": "2026-11-05T16:20:11.967668+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-05T11:00:21+00:00",
-            "title": "The Fed Needs a Better Way to Talk About Interest Rates",
+            "t": "2026-11-05T15:53:46+00:00",
+            "title": "Men's Bowling Signs Ottawa High Product Kolten Powell for 2027-28 Season",
+            "src": "Ottawa Braves"
+          },
+          {
+            "t": "2026-11-05T15:45:00+00:00",
+            "title": "With Only 1 Word, The Fed Just Sent an Important Message to Investors",
+            "src": "The Motley Fool"
+          },
+          {
+            "t": "2026-11-05T15:42:12+00:00",
+            "title": "Cleveland Fed president says restrictive rates are needed to cool inflation",
+            "src": "Quartz"
+          },
+          {
+            "t": "2026-11-05T15:41:26+00:00",
+            "title": "Fed’s Hammack Says Restrictive Rates Needed to Cool Inflation",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-05T11:00:00+00:00",
-            "title": "Chile Rate-Hike Bets Build After Hawkish Central Bank Minutes",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-05T10:40:24+00:00",
-            "title": "ECB’s Zigman Sees ‘Rather Big Chance’ of December Rate Hike",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-05T10:00:00+00:00",
-            "title": "Trump's Fed pressure campaign hits a new Democratic wall in the Senate",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-05T09:32:34+00:00",
-            "title": "Czechs Set for Second Rate Hike This Year as Price Risks Persist",
-            "src": "Bloomberg.com"
+            "t": "2026-11-05T15:40:37+00:00",
+            "title": "Richmond Fed's Thomas Barkin said more rate hikes are coming",
+            "src": "Quartz"
           }
         ]
       },
@@ -605,29 +605,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-05T11:19:55+00:00",
-            "title": "Oil Futures Turn Lower as Market Holds Out Hope for Middle East Diplomacy",
-            "src": "WSJ"
+            "t": "2026-11-05T15:56:39+00:00",
+            "title": "A wipeout for AI stocks sends Wall Street tumbling, and the S&P 500 drops more than 3% | National News | 2news.com",
+            "src": "KTVN"
           },
           {
-            "t": "2026-11-05T11:19:19+00:00",
-            "title": "Iran Turns to Guerrilla Tactics in Bid to Reassert Grip on Strait of Hormuz",
-            "src": "WSJ"
+            "t": "2026-11-05T15:53:44+00:00",
+            "title": "A wipeout for AI stocks sends Wall Street reeling, and the S&P 500 tumbles more than 3%",
+            "src": "Boston Herald"
           },
           {
-            "t": "2026-11-05T11:18:49+00:00",
-            "title": "North Korea, on Busiest Missile-Testing Spree in Years, Rebuffs Trump Diplomacy",
-            "src": "WSJ"
+            "t": "2026-11-05T15:53:04+00:00",
+            "title": "US Stock Futures Diverge as Chip Selloff Extends Into Second Day",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-05T11:02:31+00:00",
-            "title": "S&P 500 futures steady after midterm rally; Nasdaq lags on chip weakness",
-            "src": "Reuters"
+            "t": "2026-11-05T15:48:00+00:00",
+            "title": "Wall Street slumps as tech losses put Nasdaq on course for correction",
+            "src": "The Detroit News"
           },
           {
-            "t": "2026-11-05T10:23:56+00:00",
-            "title": "US Stock Futures Mixed After Midterm Elections as Qualcomm Falls and Semiconductor Shares Decline: Dow Jones, S&P, Nasdaq, Wall Street",
-            "src": "Yahoo Finance"
+            "t": "2026-11-05T15:47:43+00:00",
+            "title": "S&P 500 tumbles 3% as AI chip stocks drag Wall Street toward its worst day since Trump's tariff announcements in 2025",
+            "src": "KTVN"
           }
         ]
       },
@@ -635,29 +635,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-05T11:05:07+00:00",
-            "title": "Amazon Shares Are Up 10% Since Earnings. Is the Stock a Buy?",
-            "src": "Morningstar"
+            "t": "2026-11-05T13:38:41+00:00",
+            "title": "Amazon: An Earnings Supercycle Is Taking Shape (NASDAQ:AMZN)",
+            "src": "Seeking Alpha"
           },
           {
-            "t": "2026-11-05T11:05:07+00:00",
-            "title": "Alphabet Shares Are Down 10% Since Earnings. Is the Stock a Buy?",
-            "src": "Morningstar"
+            "t": "2026-11-05T12:56:54+00:00",
+            "title": "Gibraltar Industries: Q3 Earnings Snapshot",
+            "src": "Yahoo Finance Australia"
           },
           {
-            "t": "2026-11-05T09:24:56+00:00",
-            "title": "Zacks Earnings Trends Highlights: Nvidia, Micron and Alphabet",
-            "src": "The Globe and Mail"
+            "t": "2026-11-05T12:30:00+00:00",
+            "title": "SiTime Q3 Earnings Surpass Estimates, Revenues Increase Y/Y",
+            "src": "Yahoo Finance Australia"
           },
           {
-            "t": "2026-11-04T23:39:48+00:00",
-            "title": "ANTITRUST—W.D. Wash.: Walmart, eBay shoppers granted certification in Amazon Marketplace price parity clause suit",
-            "src": "VitalLaw.com"
+            "t": "2026-11-05T12:05:00+00:00",
+            "title": "Nvidia Investors Need to Be Paying Attention on Nov. 17",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-04T23:20:03+00:00",
-            "title": "AppLovin Stock What Changed After Its Earnings Beat",
-            "src": "Yahoo Finance Singapore"
+            "t": "2026-11-05T12:04:47+00:00",
+            "title": "What Does Apple's Q4 Earnings Reveal About the Future of XR?",
+            "src": "UC Today"
           }
         ]
       },
@@ -665,29 +665,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-05T11:04:00+00:00",
-            "title": "Why inflation shock has some savers talking I Bonds and TIPS",
-            "src": "Detroit Free Press"
+            "t": "2026-11-05T16:03:32+00:00",
+            "title": "Payrolls vs CPI and How Two Data Releases Steer the U.S. Dollar",
+            "src": "StoneX"
           },
           {
-            "t": "2026-11-05T11:02:20+00:00",
-            "title": "Eurozone producer inflation climbs to 11.1%, highest since February 2023",
-            "src": "Anadolu Ajansı"
+            "t": "2026-11-05T16:00:29+00:00",
+            "title": "BoE's Bailey: Energy shock could push UK inflation close to 5%",
+            "src": "CNBC"
           },
           {
-            "t": "2026-11-05T10:50:00+00:00",
-            "title": "Friday's jobs report could be a tiebreaker for Wall Street's AI trade as inflation worries linger",
-            "src": "Business Insider"
+            "t": "2026-11-05T16:00:03+00:00",
+            "title": "The Week Ahead: Inflation Data on Deck as Earnings Slow",
+            "src": "Schaeffer's Investment Research"
           },
           {
-            "t": "2026-11-05T10:39:57+00:00",
-            "title": "Bank of England set to hike interest rates to tackle higher inflation caused by Iran war",
-            "src": "CoastTV"
-          },
-          {
-            "t": "2026-11-05T10:22:26+00:00",
-            "title": "Indian Bonds, Rupee Rally as Sliding Oil Eases Inflation Risks",
+            "t": "2026-11-05T15:16:11+00:00",
+            "title": "Hertz Misses as Inflation and Maintenance Costs Hit Profits",
             "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-05T14:59:49+00:00",
+            "title": "Previewing the jobs report: The Labor market is 'mixed at best'",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -695,24 +695,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-05T11:15:00+00:00",
-            "title": "Treasury, European Bond Yields Tumble as Markets Lifted By U.S. Democrats’ Victory",
-            "src": "WSJ"
+            "t": "2026-11-05T16:12:54+00:00",
+            "title": "Analysis | Trump’s favorite economic policy was among Tuesday’s biggest losers",
+            "src": "The Washington Post"
           },
           {
-            "t": "2026-11-05T11:13:43+00:00",
-            "title": "US tariffs squeeze Canadian cabinet makers facing doubling of Trump duty",
-            "src": "Reuters"
+            "t": "2026-11-05T15:15:44+00:00",
+            "title": "How Trump's Undermining of the Constitution Helped Cause a \"Blue Tsunami\"",
+            "src": "Reason Magazine"
           },
           {
-            "t": "2026-11-05T11:11:57+00:00",
-            "title": "MAC Products in Kearny feeling the sting from Trump tariffs",
-            "src": "Bergen Record"
+            "t": "2026-11-05T15:15:41+00:00",
+            "title": "National View: Exemption needed in tariffs fighting for US industries",
+            "src": "Duluth News Tribune"
           },
           {
-            "t": "2026-11-05T11:02:00+00:00",
-            "title": "MAC Products transmitting electrical power despite Trump tariffs",
-            "src": "Bergen Record"
+            "t": "2026-11-05T14:51:00+00:00",
+            "title": "House Democrat: ‘We’re going to have one hell of a donnybrook over ending these tariffs’",
+            "src": "The Hill"
           }
         ]
       },
@@ -720,24 +720,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-05T11:15:11+00:00",
-            "title": "Russia Tries to Keep Fuel Flowing, but Ukrainian Strikes Shut Down 15 of Its 38 Major Oil Refineries",
-            "src": "UNITED24 Media"
+            "t": "2026-11-05T16:00:00+00:00",
+            "title": "Russia might have rehearsed satellite attack",
+            "src": "Taipei Times"
           },
           {
-            "t": "2026-11-05T11:15:00+00:00",
-            "title": "Iran Reports More Tanker Fires in Strait of Hormuz",
-            "src": "Crude Oil Prices Today | OilPrice.com"
+            "t": "2026-11-05T15:55:20+00:00",
+            "title": "Ukraine continues strikes on Russian refineries in lead-up to White House meeting",
+            "src": "The Washington Post"
           },
           {
-            "t": "2026-11-05T10:59:48+00:00",
-            "title": "Vietnam seeks Russia’s help for its nuclear ambition. Will sanctions stall it?",
-            "src": "South China Morning Post"
+            "t": "2026-11-05T15:53:35+00:00",
+            "title": "WATCH LIVE: Melania Trump hosts Russia and Ukraine representatives for Oleshky ceasefire talks",
+            "src": "Washington Examiner"
           },
           {
-            "t": "2026-11-05T10:52:30+00:00",
-            "title": "Russian Diesel Tankers Flee US Route as Trump-Putin Deal Hits Sanctions Wall",
-            "src": "Kyiv Post"
+            "t": "2026-11-05T15:48:58+00:00",
+            "title": "Moscow: US poll setbacks won’t harm oil sales or Ukraine Policy",
+            "src": "EFE - Agencia de noticias"
           }
         ]
       }
@@ -745,7 +745,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-05T11:46:27.772428+00:00",
+    "at": "2026-11-05T16:20:11.967668+00:00",
     "events": [
       {
         "title": "Daylight Saving Time Shift",
@@ -1014,29 +1014,6 @@
     ]
   },
   "actuals": {
-    "US|claims|claims_k|w2026-10-18|-|2026-10-22": {
-      "actual": "194K",
-      "note": "المصدر: FRED (ICSA، فترة 2026-10-17) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري",
-      "status": "verified_secondary",
-      "trust": "secondary",
-      "source": "FRED",
-      "period": "2026-10-17",
-      "received_at": "2026-10-22T12:41:07.551335+00:00",
-      "last_attempt": "2026-10-24T11:28:49.758517+00:00",
-      "attempts": 1,
-      "title": "Unemployment Claims",
-      "time": "2026-10-22T12:30:00+00:00",
-      "series": "ICSA",
-      "method": "القيمة المنشورة مقسومة على 1000",
-      "raw": 194.0,
-      "stage": "",
-      "stage_ok": "",
-      "impact": "Medium",
-      "forecast": "200K",
-      "previous": "199K",
-      "country": "USD",
-      "prev_revised": ""
-    },
     "US|umcsent|level|2026-10|-|2026-10-23": {
       "actual": "",
       "status": "awaiting",
@@ -1194,15 +1171,15 @@
     "US|payems|diff_k|2026-10|-|2026-11-04": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 6,
+      "attempts": 7,
       "title": "ADP Non-Farm Employment Change",
       "time": "2026-11-04T13:15:00+00:00",
       "impact": "Low",
       "forecast": "67K",
       "previous": "90K",
       "country": "USD",
-      "last_attempt": "2026-11-05T11:30:32.637435+00:00",
-      "note": ""
+      "last_attempt": "2026-11-05T16:20:11.967668+00:00",
+      "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
     },
     "US|oil:crude-oil-inventories|2026-11-04|1530": {
       "actual": "-0.9M",
@@ -1212,7 +1189,7 @@
       "source": "EIA (API)",
       "period": "2026-10-30",
       "received_at": "2026-11-04T19:58:16.910063+00:00",
-      "last_attempt": "2026-11-05T09:47:31.812539+00:00",
+      "last_attempt": "2026-11-05T16:20:11.967668+00:00",
       "attempts": 1,
       "title": "Crude Oil Inventories",
       "time": "2026-11-04T15:30:00+00:00",
@@ -1237,6 +1214,28 @@
         }
       ],
       "prev_revised": ""
+    },
+    "US|claims|claims_k|w2026-11-01|-|2026-11-05": {
+      "actual": "189K",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-31) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري",
+      "status": "verified_secondary",
+      "trust": "secondary",
+      "source": "FRED",
+      "period": "2026-10-31",
+      "received_at": "2026-11-05T16:20:11.967668+00:00",
+      "last_attempt": "2026-11-05T16:20:11.967668+00:00",
+      "attempts": 1,
+      "title": "Unemployment Claims",
+      "time": "2026-11-05T13:30:00+00:00",
+      "series": "ICSA",
+      "method": "القيمة المنشورة مقسومة على 1000",
+      "raw": 189.0,
+      "stage": "",
+      "stage_ok": null,
+      "impact": "Medium",
+      "forecast": "197K",
+      "previous": "194K",
+      "country": "USD"
     }
   },
   "stats": {
@@ -1252,144 +1251,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-22T12:00:16.930377+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
-    {
-      "id": "US|claims|claims_k|w2026-10-18|-|2026-10-22",
-      "title": "Unemployment Claims",
-      "release_time": "2026-10-22T12:30:00+00:00",
-      "fetched_at": "2026-10-22T12:41:07.551335+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "194K",
-      "period": "2026-10-17",
-      "series": "ICSA",
-      "method": "القيمة المنشورة مقسومة على 1000",
-      "raw": 194.0,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "200K",
-      "previous": "199K",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (ICSA، فترة 2026-10-17) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-22T13:27:49.452852+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-22T14:46:44.967738+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
-    {
-      "id": "US|claims|claims_k|w2026-10-18|-|2026-10-22",
-      "title": "Unemployment Claims",
-      "release_time": "2026-10-22T12:30:00+00:00",
-      "fetched_at": "2026-10-22T16:07:25.339131+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "194K",
-      "period": "2026-10-17",
-      "series": "ICSA",
-      "method": "القيمة المنشورة مقسومة على 1000",
-      "raw": 194.0,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "200K",
-      "previous": "199K",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (ICSA، فترة 2026-10-17) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-22T16:07:25.339131+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
     {
       "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
       "title": "Crude Oil Inventories",
@@ -4816,12 +4677,81 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
+    },
+    {
+      "id": "US|oil:crude-oil-inventories|2026-11-04|1530",
+      "title": "Crude Oil Inventories",
+      "release_time": "2026-11-04T15:30:00+00:00",
+      "fetched_at": "2026-11-05T16:20:11.967668+00:00",
+      "source": "EIA (API)",
+      "tier": "official",
+      "value": "-0.9M",
+      "period": "2026-10-30",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "-1.7M",
+      "previous": "-1.9M",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: EIA (واجهة رسمية)"
+    },
+    {
+      "id": "US|payems|diff_k|2026-10|-|2026-11-04",
+      "title": "ADP Non-Farm Employment Change",
+      "release_time": "2026-11-04T13:15:00+00:00",
+      "fetched_at": "2026-11-05T16:20:11.967668+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "67K",
+      "previous": "90K",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
+    },
+    {
+      "id": "US|claims|claims_k|w2026-11-01|-|2026-11-05",
+      "title": "Unemployment Claims",
+      "release_time": "2026-11-05T13:30:00+00:00",
+      "fetched_at": "2026-11-05T16:20:11.967668+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "189K",
+      "period": "2026-10-31",
+      "series": "ICSA",
+      "method": "القيمة المنشورة مقسومة على 1000",
+      "raw": 189.0,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "197K",
+      "previous": "194K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-31) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-05T11:46:27.772428+00:00",
+  "last_publish_ok": "2026-11-05T16:20:11.967668+00:00",
   "last_run_ok": {
     "mode": "test",
-    "at": "2026-11-05T11:47:01.729608+00:00"
+    "at": "2026-11-05T16:20:51.169564+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -4883,12 +4813,12 @@
     "bls": {
       "ok": true,
       "detail": "1 سلسلة",
-      "at": "2026-11-05T11:30:32.637435+00:00"
+      "at": "2026-11-05T16:20:11.967668+00:00"
     },
     "fred": {
       "ok": true,
-      "detail": "1 سلسلة",
-      "at": "2026-11-05T11:30:32.637435+00:00"
+      "detail": "2 سلسلة",
+      "at": "2026-11-05T16:20:11.967668+00:00"
     },
     "alfred": {
       "ok": false,
@@ -4897,15 +4827,21 @@
     }
   },
   "bls_calls": {
-    "2026-11-05": 3
+    "2026-11-05": 4
   },
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "mixed",
-    "at": "2026-11-05T11:46:27.772428+00:00",
-    "ok_at": "2026-11-05T11:46:27.772428+00:00",
-    "change": null
+    "lean": "down",
+    "at": "2026-11-05T16:20:11.967668+00:00",
+    "ok_at": "2026-11-05T16:20:11.967668+00:00",
+    "change": {
+      "changed": true,
+      "text": "تغيّر الميل من مختلط إلى هبوطي (موضع السعر)",
+      "from": "مختلط",
+      "to": "هبوطي",
+      "at": "2026-11-05T16:20:11.967668+00:00"
+    }
   },
   "last_watch": {
     "at": "2026-11-05T09:47:31.812539+00:00",
