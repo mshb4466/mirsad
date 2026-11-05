@@ -530,72 +530,72 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-05T09:47:31.812539+00:00",
-        "ok_at": "2026-11-05T09:47:31.812539+00:00"
+        "last_try": "2026-11-05T11:30:32.637435+00:00",
+        "ok_at": "2026-11-05T11:30:32.637435+00:00"
       },
       "fred": {
-        "last_try": "2026-11-05T09:47:31.812539+00:00",
-        "ok_at": "2026-11-05T09:47:31.812539+00:00"
+        "last_try": "2026-11-05T11:30:32.637435+00:00",
+        "ok_at": "2026-11-05T11:30:32.637435+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-05T09:47:31.812539+00:00",
-        "ok_at": "2026-11-05T09:47:31.812539+00:00"
+        "last_try": "2026-11-05T11:30:32.637435+00:00",
+        "ok_at": "2026-11-05T11:30:32.637435+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-05T09:47:31.812539+00:00",
-        "ok_at": "2026-11-05T09:47:31.812539+00:00"
+        "last_try": "2026-11-05T11:30:32.637435+00:00",
+        "ok_at": "2026-11-05T11:30:32.637435+00:00"
       },
       "oil": {
-        "last_try": "2026-11-05T09:47:31.812539+00:00",
-        "ok_at": "2026-11-05T09:47:31.812539+00:00"
+        "last_try": "2026-11-05T11:30:32.637435+00:00",
+        "ok_at": "2026-11-05T11:30:32.637435+00:00"
       },
       "news": {
-        "last_try": "2026-11-05T09:47:31.812539+00:00",
-        "ok_at": "2026-11-05T09:47:31.812539+00:00"
+        "last_try": "2026-11-05T11:30:32.637435+00:00",
+        "ok_at": "2026-11-05T11:30:32.637435+00:00"
       },
       "cot": {
-        "last_try": "2026-11-05T09:47:31.812539+00:00",
-        "ok_at": "2026-11-05T09:47:31.812539+00:00"
+        "last_try": "2026-11-05T11:30:32.637435+00:00",
+        "ok_at": "2026-11-05T11:30:32.637435+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-05T09:47:31.812539+00:00",
-        "ok_at": "2026-11-05T09:47:31.812539+00:00"
+        "last_try": "2026-11-05T11:30:32.637435+00:00",
+        "ok_at": "2026-11-05T11:30:32.637435+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-05T09:47:31.812539+00:00"
+      "at": "2026-11-05T11:30:32.637435+00:00"
     }
   },
   "week_news": {
-    "at": "2026-11-05T09:47:31.812539+00:00",
+    "at": "2026-11-05T11:30:32.637435+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-05T09:26:01+00:00",
-            "title": "The Federal Reserve's Initial November Inflation Forecast Has Arrived, and Things Are Getting Downright Ugly for Wall Street",
+            "t": "2026-11-05T11:00:21+00:00",
+            "title": "The Fed Needs a Better Way to Talk About Interest Rates",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-05T11:00:00+00:00",
+            "title": "Chile Rate-Hike Bets Build After Hawkish Central Bank Minutes",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-05T10:40:24+00:00",
+            "title": "ECB’s Zigman Sees ‘Rather Big Chance’ of December Rate Hike",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-05T10:00:00+00:00",
+            "title": "Trump's Fed pressure campaign hits a new Democratic wall in the Senate",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-05T08:44:27+00:00",
-            "title": "Eurozone Inflation Rises to 4%, Boosting Case for ECB Interest Rate Hike in December",
-            "src": "Morningstar"
-          },
-          {
-            "t": "2026-11-05T08:14:32+00:00",
-            "title": "Sweden’s Slowing Inflation Weakens Riksbank Rate Hike Case",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-05T06:00:00+00:00",
-            "title": "BOE Poised for First Rate Hike in Three Years: Decision Guide",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-05T05:00:00+00:00",
+            "t": "2026-11-05T09:32:34+00:00",
             "title": "Czechs Set for Second Rate Hike This Year as Price Risks Persist",
             "src": "Bloomberg.com"
           }
@@ -605,35 +605,45 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-05T05:11:00+00:00",
-            "title": "Wall Street may be expecting too much from a Democratic Congress, an economist says",
-            "src": "Business Insider"
+            "t": "2026-11-05T11:19:55+00:00",
+            "title": "Oil Futures Turn Lower as Market Holds Out Hope for Middle East Diplomacy",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-05T05:00:26+00:00",
-            "title": "Wall Street after the anti-Trump tsunami",
-            "src": "Financial Times"
+            "t": "2026-11-05T11:19:19+00:00",
+            "title": "Iran Turns to Guerrilla Tactics in Bid to Reassert Grip on Strait of Hormuz",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-05T02:37:00+00:00",
-            "title": "Wall Street Trading Desks Bet on US Stock Rally After Midterms",
-            "src": "Bloomberg.com"
+            "t": "2026-11-05T11:18:49+00:00",
+            "title": "North Korea, on Busiest Missile-Testing Spree in Years, Rebuffs Trump Diplomacy",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-05T02:00:00+00:00",
-            "title": "The S&P 500 climbs after Democrats sweep the midterms",
-            "src": "The Washington Post"
+            "t": "2026-11-05T11:02:31+00:00",
+            "title": "S&P 500 futures steady after midterm rally; Nasdaq lags on chip weakness",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-05T01:12:00+00:00",
-            "title": "Agility Robotics is taking humanoid robots public in a first for Wall Street",
-            "src": "Business Insider"
+            "t": "2026-11-05T10:23:56+00:00",
+            "title": "US Stock Futures Mixed After Midterm Elections as Qualcomm Falls and Semiconductor Shares Decline: Dow Jones, S&P, Nasdaq, Wall Street",
+            "src": "Yahoo Finance"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-05T11:05:07+00:00",
+            "title": "Amazon Shares Are Up 10% Since Earnings. Is the Stock a Buy?",
+            "src": "Morningstar"
+          },
+          {
+            "t": "2026-11-05T11:05:07+00:00",
+            "title": "Alphabet Shares Are Down 10% Since Earnings. Is the Stock a Buy?",
+            "src": "Morningstar"
+          },
           {
             "t": "2026-11-05T09:24:56+00:00",
             "title": "Zacks Earnings Trends Highlights: Nvidia, Micron and Alphabet",
@@ -648,16 +658,6 @@
             "t": "2026-11-04T23:20:03+00:00",
             "title": "AppLovin Stock What Changed After Its Earnings Beat",
             "src": "Yahoo Finance Singapore"
-          },
-          {
-            "t": "2026-11-04T22:10:04+00:00",
-            "title": "CPI | Apple Wins Bid to Move Rave Antitrust Lawsuit to California |",
-            "src": "PYMNTS.com"
-          },
-          {
-            "t": "2026-11-04T21:24:00+00:00",
-            "title": "Apple Gets Rave Inc.'s Antitrust Suit Transferred to California",
-            "src": "Bloomberg Law News"
           }
         ]
       },
@@ -665,29 +665,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-05T09:08:37+00:00",
-            "title": "US jobs report: will gold and bitcoin extend their rebound or will the dollar recover?",
-            "src": "CMC Markets"
+            "t": "2026-11-05T11:04:00+00:00",
+            "title": "Why inflation shock has some savers talking I Bonds and TIPS",
+            "src": "Detroit Free Press"
           },
           {
-            "t": "2026-11-05T09:07:28+00:00",
-            "title": "Jim Cramer Warns Friday's Jobs Report Could 'Repeal' Midterm Rally, Says Elections 'Did Not Upend' Busine",
-            "src": "Benzinga"
+            "t": "2026-11-05T11:02:20+00:00",
+            "title": "Eurozone producer inflation climbs to 11.1%, highest since February 2023",
+            "src": "Anadolu Ajansı"
           },
           {
-            "t": "2026-11-05T09:00:33+00:00",
-            "title": "Bulgaria sees highest Oct inflation among eurozone states in SEE - flash data",
-            "src": "SeeNews"
+            "t": "2026-11-05T10:50:00+00:00",
+            "title": "Friday's jobs report could be a tiebreaker for Wall Street's AI trade as inflation worries linger",
+            "src": "Business Insider"
           },
           {
-            "t": "2026-11-05T08:27:05+00:00",
-            "title": "Eurozone inflation accelerated to 4% in October",
-            "src": "GMK Center"
+            "t": "2026-11-05T10:39:57+00:00",
+            "title": "Bank of England set to hike interest rates to tackle higher inflation caused by Iran war",
+            "src": "CoastTV"
           },
           {
-            "t": "2026-11-05T08:22:36+00:00",
-            "title": "Taiwan Inflation Rate Eases in October",
-            "src": "TradingView"
+            "t": "2026-11-05T10:22:26+00:00",
+            "title": "Indian Bonds, Rupee Rally as Sliding Oil Eases Inflation Risks",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -695,24 +695,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-05T09:38:43+00:00",
-            "title": "Treasury yields continue to fall after midterms, traders look ahead to jobs data",
-            "src": "CNBC"
+            "t": "2026-11-05T11:15:00+00:00",
+            "title": "Treasury, European Bond Yields Tumble as Markets Lifted By U.S. Democrats’ Victory",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-05T09:38:16+00:00",
-            "title": "Inflation, tariffs and a voter revolt: The midterm verdict on Trump’s economy",
-            "src": "The Seattle Times"
+            "t": "2026-11-05T11:13:43+00:00",
+            "title": "US tariffs squeeze Canadian cabinet makers facing doubling of Trump duty",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-05T08:49:21+00:00",
-            "title": "Carney’s US Trade Minister Warns Blue Wave Didn’t Wipe Out Tariff War",
-            "src": "Bloomberg.com"
+            "t": "2026-11-05T11:11:57+00:00",
+            "title": "MAC Products in Kearny feeling the sting from Trump tariffs",
+            "src": "Bergen Record"
           },
           {
-            "t": "2026-11-05T08:16:48+00:00",
-            "title": "Gold rallies as dollar, Treasury yields soften after US midterm results",
-            "src": "TradingView"
+            "t": "2026-11-05T11:02:00+00:00",
+            "title": "MAC Products transmitting electrical power despite Trump tariffs",
+            "src": "Bergen Record"
           }
         ]
       },
@@ -720,24 +720,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-05T09:35:04+00:00",
-            "title": "U.S. issues fresh Iran-related sanctions",
-            "src": "upi"
+            "t": "2026-11-05T11:15:11+00:00",
+            "title": "Russia Tries to Keep Fuel Flowing, but Ukrainian Strikes Shut Down 15 of Its 38 Major Oil Refineries",
+            "src": "UNITED24 Media"
           },
           {
-            "t": "2026-11-05T09:16:56+00:00",
-            "title": "Russia says it hit Ukrainian postal hub and ship as Ukraine strikes Ryazan",
-            "src": "Al Jazeera"
+            "t": "2026-11-05T11:15:00+00:00",
+            "title": "Iran Reports More Tanker Fires in Strait of Hormuz",
+            "src": "Crude Oil Prices Today | OilPrice.com"
           },
           {
-            "t": "2026-11-05T08:36:37+00:00",
-            "title": "U.S. Sanctions Network Assisting Iran’s Oil Shadow Fleet",
-            "src": "IranWire"
+            "t": "2026-11-05T10:59:48+00:00",
+            "title": "Vietnam seeks Russia’s help for its nuclear ambition. Will sanctions stall it?",
+            "src": "South China Morning Post"
           },
           {
-            "t": "2026-11-05T08:16:00+00:00",
-            "title": "Russia may have rehearsed attack on Western satellite, specialist says",
-            "src": "The Japan Times"
+            "t": "2026-11-05T10:52:30+00:00",
+            "title": "Russian Diesel Tankers Flee US Route as Trump-Putin Deal Hits Sanctions Wall",
+            "src": "Kyiv Post"
           }
         ]
       }
@@ -745,7 +745,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-05T09:47:31.812539+00:00",
+    "at": "2026-11-05T11:30:32.637435+00:00",
     "events": [
       {
         "title": "Daylight Saving Time Shift",
@@ -1194,14 +1194,14 @@
     "US|payems|diff_k|2026-10|-|2026-11-04": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 5,
+      "attempts": 6,
       "title": "ADP Non-Farm Employment Change",
       "time": "2026-11-04T13:15:00+00:00",
       "impact": "Low",
       "forecast": "67K",
       "previous": "90K",
       "country": "USD",
-      "last_attempt": "2026-11-05T09:47:31.812539+00:00",
+      "last_attempt": "2026-11-05T11:30:32.637435+00:00",
       "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
     },
     "US|oil:crude-oil-inventories|2026-11-04|1530": {
@@ -1252,29 +1252,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
-      "title": "Crude Oil Inventories",
-      "release_time": "2026-10-21T14:30:00+00:00",
-      "fetched_at": "2026-10-22T10:43:53.765197+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "-0.1M",
-      "previous": "-8.6M",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "لم يصل الرقم من FRED بعد"
-    },
     {
       "id": "US|oil:crude-oil-inventories|2026-10-21|1430",
       "title": "Crude Oil Inventories",
@@ -4816,12 +4793,35 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
+    },
+    {
+      "id": "US|payems|diff_k|2026-10|-|2026-11-04",
+      "title": "ADP Non-Farm Employment Change",
+      "release_time": "2026-11-04T13:15:00+00:00",
+      "fetched_at": "2026-11-05T11:30:32.637435+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "67K",
+      "previous": "90K",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
     }
   ],
-  "last_publish_ok": "2026-11-05T09:47:31.812539+00:00",
+  "last_publish_ok": "2026-11-05T11:30:32.637435+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-11-05T09:48:06.367829+00:00"
+    "mode": "test",
+    "at": "2026-11-05T11:31:13.514200+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -4882,13 +4882,13 @@
   "source_status": {
     "bls": {
       "ok": true,
-      "detail": "2 سلسلة",
-      "at": "2026-11-05T09:47:31.812539+00:00"
+      "detail": "1 سلسلة",
+      "at": "2026-11-05T11:30:32.637435+00:00"
     },
     "fred": {
       "ok": true,
-      "detail": "2 سلسلة",
-      "at": "2026-11-05T09:47:31.812539+00:00"
+      "detail": "1 سلسلة",
+      "at": "2026-11-05T11:30:32.637435+00:00"
     },
     "alfred": {
       "ok": false,
@@ -4897,14 +4897,14 @@
     }
   },
   "bls_calls": {
-    "2026-11-05": 2
+    "2026-11-05": 3
   },
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-11-05T09:47:31.812539+00:00",
-    "ok_at": "2026-11-05T09:47:31.812539+00:00",
+    "lean": "mixed",
+    "at": "2026-11-05T11:30:32.637435+00:00",
+    "ok_at": "2026-11-05T11:30:32.637435+00:00",
     "change": null
   },
   "last_watch": {
