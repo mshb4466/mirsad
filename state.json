@@ -650,74 +650,74 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-05T17:52:26.580478+00:00",
-        "ok_at": "2026-11-05T17:52:26.580478+00:00"
+        "last_try": "2026-11-05T18:53:57.888009+00:00",
+        "ok_at": "2026-11-05T18:53:57.888009+00:00"
       },
       "fred": {
-        "last_try": "2026-11-05T17:52:26.580478+00:00",
-        "ok_at": "2026-11-05T17:52:26.580478+00:00"
+        "last_try": "2026-11-05T18:53:57.888009+00:00",
+        "ok_at": "2026-11-05T18:53:57.888009+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-05T17:52:26.580478+00:00",
-        "ok_at": "2026-11-05T17:52:26.580478+00:00"
+        "last_try": "2026-11-05T18:53:57.888009+00:00",
+        "ok_at": "2026-11-05T18:53:57.888009+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-05T17:52:26.580478+00:00",
-        "ok_at": "2026-11-05T17:52:26.580478+00:00"
+        "last_try": "2026-11-05T18:53:57.888009+00:00",
+        "ok_at": "2026-11-05T18:53:57.888009+00:00"
       },
       "oil": {
-        "last_try": "2026-11-05T17:52:26.580478+00:00",
-        "ok_at": "2026-11-05T17:52:26.580478+00:00"
+        "last_try": "2026-11-05T18:53:57.888009+00:00",
+        "ok_at": "2026-11-05T18:53:57.888009+00:00"
       },
       "news": {
-        "last_try": "2026-11-05T17:52:26.580478+00:00",
-        "ok_at": "2026-11-05T17:52:26.580478+00:00"
+        "last_try": "2026-11-05T18:53:57.888009+00:00",
+        "ok_at": "2026-11-05T18:53:57.888009+00:00"
       },
       "cot": {
-        "last_try": "2026-11-05T17:52:26.580478+00:00",
-        "ok_at": "2026-11-05T17:52:26.580478+00:00"
+        "last_try": "2026-11-05T18:53:57.888009+00:00",
+        "ok_at": "2026-11-05T18:53:57.888009+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-05T17:52:26.580478+00:00",
-        "ok_at": "2026-11-05T17:52:26.580478+00:00"
+        "last_try": "2026-11-05T18:53:57.888009+00:00",
+        "ok_at": "2026-11-05T18:53:57.888009+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-05T17:52:26.580478+00:00"
+      "at": "2026-11-05T18:53:57.888009+00:00"
     }
   },
   "week_news": {
-    "at": "2026-11-05T17:52:26.580478+00:00",
+    "at": "2026-11-05T18:53:57.888009+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-05T17:05:20+00:00",
-            "title": "Beef Demand Growth Reshapes Fed Cattle Market Reporting",
-            "src": "RFD-TV"
+            "t": "2026-11-05T18:46:00+00:00",
+            "title": "Land-Grant Brewing Company acquires Nocterra Brewing, Powell taproom",
+            "src": "10TV"
           },
           {
-            "t": "2026-11-05T17:04:33+00:00",
-            "title": "The Fed Finds Disturbing Trend as Credit Card Demand Hits 4-Year High",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-05T17:00:00+00:00",
-            "title": "Nocterra reopening in Powell as Land-Grant revives brand",
-            "src": "The Business Journals"
-          },
-          {
-            "t": "2026-11-05T16:53:43+00:00",
-            "title": "Standard Chartered sees another BOE rate hike in February after hawkish tone",
+            "t": "2026-11-05T18:21:44+00:00",
+            "title": "Rate-cut hopes fade in Brazil as Lula's reelection fans inflation fears",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-05T16:00:00+00:00",
-            "title": "Early results show support for City of Page proposition on Lake Powell Boulevard",
-            "src": "Arizona Daily Sun"
+            "t": "2026-11-05T18:13:43+00:00",
+            "title": "US Midterms Came Too Late to Prevent Bank of England Rate Hike",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-05T18:07:06+00:00",
+            "title": "Fed's Hammack, Barkin favor gradual rate-hike path to lower inflation",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-05T17:59:11+00:00",
+            "title": "Bulls Notes: Wilson, Smith, Claxton, Swain, Powell",
+            "src": "Hoops Rumors"
           }
         ]
       },
@@ -725,29 +725,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-05T17:34:16+00:00",
-            "title": "Wall Street's fear gauge surges the most since April. Why traders think it should be even higher",
-            "src": "CNBC"
+            "t": "2026-11-05T18:33:43+00:00",
+            "title": "Wall Street fear gauge jumps most since 'Liberation Day' as AI trade stumbles",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-05T17:33:00+00:00",
-            "title": "Nasdaq heading for worst day in 18 months as Wall Street sustains widespread losses",
-            "src": "The Guardian"
+            "t": "2026-11-05T18:29:47+00:00",
+            "title": "Nasdaq set to confirm correction as AI stocks tumble",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-05T17:11:00+00:00",
-            "title": "Is this ‘the big one’ for the stock market? Wall Street sounds off as tech plunges.",
+            "t": "2026-11-05T18:07:40+00:00",
+            "title": "This Year’s Worst S&P 500 Stock Just Got a Huge Reprieve",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-05T18:05:21+00:00",
+            "title": "S&P 500 Plunges, Wall Street Fears Circuit Breaker, Just One Day After Trump Celebrated Record Highs",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-05T18:03:00+00:00",
+            "title": "Bloom Energy’s stock is one of the S&P 500’s biggest losers amid fears of data-center delays",
             "src": "MarketWatch"
-          },
-          {
-            "t": "2026-11-05T17:10:20+00:00",
-            "title": "The S&P 500 Fell 2% or More on 85 Days From 2017 to 2025 and Still More Than Tripled",
-            "src": "Quantisnow"
-          },
-          {
-            "t": "2026-11-05T17:09:20+00:00",
-            "title": "US Stock Futures Diverge as Chip Selloff Extends Into Second Day",
-            "src": "Bloomberg.com"
           }
         ]
       },
@@ -770,13 +770,13 @@
             "src": "Yahoo Finance Australia"
           },
           {
-            "t": "2026-11-05T12:56:54+00:00",
-            "title": "Gibraltar Industries: Q3 Earnings Snapshot",
-            "src": "Yahoo Finance Australia"
+            "t": "2026-11-05T13:38:41+00:00",
+            "title": "Amazon: An Earnings Supercycle Is Taking Shape (NASDAQ:AMZN)",
+            "src": "Seeking Alpha"
           },
           {
-            "t": "2026-11-05T12:30:00+00:00",
-            "title": "SiTime Q3 Earnings Surpass Estimates, Revenues Increase Y/Y",
+            "t": "2026-11-05T12:56:54+00:00",
+            "title": "Gibraltar Industries: Q3 Earnings Snapshot",
             "src": "Yahoo Finance Australia"
           }
         ]
@@ -785,29 +785,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-05T16:51:51+00:00",
+            "t": "2026-11-05T18:40:04+00:00",
+            "title": "Hertz Misses Estimates as Inflation, Maintenance Hit Profits",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-05T17:37:39+00:00",
+            "title": "A stable jobs market is marred by lagging wage growth: Nonfarm payrolls preview",
+            "src": "Seeking Alpha"
+          },
+          {
+            "t": "2026-11-05T17:33:00+00:00",
+            "title": "Heyburn utility rates rise 7% as city cites inflation, material costs",
+            "src": "KMVT"
+          },
+          {
+            "t": "2026-11-05T17:11:41+00:00",
+            "title": "Bank of England raises rates for first time since 2023, warns more likely",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-05T16:53:44+00:00",
             "title": "Bank of England Raises Rates for First Time in Three Years",
             "src": "The New York Times"
-          },
-          {
-            "t": "2026-11-05T16:34:00+00:00",
-            "title": "What 3.4% GDP Growth and a 4.2% Jobless Rate Say About a Hard Day on Wall Street",
-            "src": "Yahoo! Finance Canada"
-          },
-          {
-            "t": "2026-11-05T16:03:32+00:00",
-            "title": "Payrolls vs CPI and How Two Data Releases Steer the U.S. Dollar",
-            "src": "StoneX"
-          },
-          {
-            "t": "2026-11-05T16:00:03+00:00",
-            "title": "The Week Ahead: Inflation Data on Deck as Earnings Slow",
-            "src": "Schaeffer's Investment Research"
-          },
-          {
-            "t": "2026-11-05T15:59:50+00:00",
-            "title": "Bank of England raises rates for first time since 2023, warns another move likely",
-            "src": "Reuters"
           }
         ]
       },
@@ -815,24 +815,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-11-05T18:49:42+00:00",
+            "title": "Republicans race to act on debt ceiling, energy permits and IRS reform before January",
+            "src": "WPEC"
+          },
+          {
+            "t": "2026-11-05T18:16:22+00:00",
+            "title": "High Tariffs Impacted the Election: Democrats Gained Senate Seats in States with Highest Tariff Costs on Households",
+            "src": "National Taxpayers Union"
+          },
+          {
+            "t": "2026-11-05T17:55:54+00:00",
+            "title": "Analysts: Democratic midterm election sweep could shift permitting rules, but not tariffs",
+            "src": "DC Velocity"
+          },
+          {
             "t": "2026-11-05T17:42:54+00:00",
             "title": "Analysis | Trump’s favorite economic policy was among Tuesday’s biggest losers",
             "src": "The Washington Post"
-          },
-          {
-            "t": "2026-11-05T16:48:00+00:00",
-            "title": "Wall Street Is Already Bracing for a 2027 Debt Ceiling Fight",
-            "src": "24/7 Wall St."
-          },
-          {
-            "t": "2026-11-05T16:44:41+00:00",
-            "title": "How Shifting U.S. Tariff Rates Have Strained Newton’s Small Businesses",
-            "src": "The Heights"
-          },
-          {
-            "t": "2026-11-05T16:38:33+00:00",
-            "title": "Investors eye risk of debt-ceiling standoff after Democratic sweep",
-            "src": "Reuters"
           }
         ]
       },
@@ -840,24 +840,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-05T17:40:00+00:00",
-            "title": "Melania Trump marks Oleshky ceasefire with Russia, Ukraine officials",
-            "src": "USA Today"
-          },
-          {
-            "t": "2026-11-05T17:30:04+00:00",
+            "t": "2026-11-05T18:46:08+00:00",
             "title": "Melania Trump touts Oleshky ceasefire as spark for lasting Russia-Ukraine peace",
-            "src": "WCHS"
+            "src": "Baltimore Sun"
           },
           {
-            "t": "2026-11-05T17:16:14+00:00",
-            "title": "Melania Trump speaks on localized Ukraine-Russia ceasefire: 'Humanity over war'",
-            "src": "FOX 32 Chicago"
+            "t": "2026-11-05T18:45:08+00:00",
+            "title": "Rights court holds Ukraine liable for deadly acid attack on activist",
+            "src": "Courthouse News"
           },
           {
-            "t": "2026-11-05T17:04:21+00:00",
-            "title": "Melania Trump ceasefire agreement in Ukraine",
-            "src": "FOX 9 Minneapolis-St. Paul"
+            "t": "2026-11-05T18:44:18+00:00",
+            "title": "Melania Trump calls for lasting Ukraine ceasefire after brokering brief truce in Oleshky",
+            "src": "Firstpost"
+          },
+          {
+            "t": "2026-11-05T18:26:17+00:00",
+            "title": "Ukraine continues strikes on Russian refineries in lead-up to White House meeting",
+            "src": "The Washington Post"
           }
         ]
       }
@@ -865,7 +865,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-05T17:52:26.580478+00:00",
+    "at": "2026-11-05T18:53:57.888009+00:00",
     "events": [
       {
         "title": "Daylight Saving Time Shift",
@@ -1291,14 +1291,14 @@
     "US|payems|diff_k|2026-10|-|2026-11-04": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 8,
+      "attempts": 9,
       "title": "ADP Non-Farm Employment Change",
       "time": "2026-11-04T13:15:00+00:00",
       "impact": "Low",
       "forecast": "67K",
       "previous": "90K",
       "country": "USD",
-      "last_attempt": "2026-11-05T17:52:26.580478+00:00",
+      "last_attempt": "2026-11-05T18:53:57.888009+00:00",
       "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
     },
     "US|oil:crude-oil-inventories|2026-11-04|1530": {
@@ -4866,12 +4866,35 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
+    },
+    {
+      "id": "US|payems|diff_k|2026-10|-|2026-11-04",
+      "title": "ADP Non-Farm Employment Change",
+      "release_time": "2026-11-04T13:15:00+00:00",
+      "fetched_at": "2026-11-05T18:53:57.888009+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "67K",
+      "previous": "90K",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "BLS لم يُحدَّث بعد (CES0000000001: آخر قراءة 2026-09-01) | FRED: FRED لم يُحدَّث بعد (PAYEMS: آخر قراءة 2026-09-01)"
     }
   ],
-  "last_publish_ok": "2026-11-05T17:52:26.580478+00:00",
+  "last_publish_ok": "2026-11-05T18:53:57.888009+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-11-05T17:53:02.660693+00:00"
+    "mode": "preopen",
+    "at": "2026-11-05T18:54:31.014304+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -4933,12 +4956,12 @@
     "bls": {
       "ok": true,
       "detail": "1 سلسلة",
-      "at": "2026-11-05T17:52:26.580478+00:00"
+      "at": "2026-11-05T18:53:57.888009+00:00"
     },
     "fred": {
       "ok": true,
       "detail": "1 سلسلة",
-      "at": "2026-11-05T17:52:26.580478+00:00"
+      "at": "2026-11-05T18:53:57.888009+00:00"
     },
     "alfred": {
       "ok": false,
@@ -4947,14 +4970,14 @@
     }
   },
   "bls_calls": {
-    "2026-11-05": 5
+    "2026-11-05": 6
   },
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-11-05T17:52:26.580478+00:00",
-    "ok_at": "2026-11-05T17:52:26.580478+00:00",
+    "lean": "down",
+    "at": "2026-11-05T18:53:57.888009+00:00",
+    "ok_at": "2026-11-05T18:53:57.888009+00:00",
     "change": {
       "changed": true,
       "text": "تغيّر الميل من مختلط إلى هبوطي (موضع السعر)",
