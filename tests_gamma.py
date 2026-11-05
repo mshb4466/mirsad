@@ -295,6 +295,11 @@ try:
         _d3 = dict(_n, snapshot_utc="2026-10-26T14:00:00+00:00")
         gamma.append_day(_d3, _r4)
         ok(len(gamma._rjson(os.path.join(_r4, "day.json"))["pts"]) == 1, "الخط الزمني: يوم جديد يبدأ ملفاً جديداً")
+        _d4 = dict(_n, snapshot_utc="2026-10-26T14:15:00+00:00")
+        gamma.append_day(_d4, _r4)
+        _d5 = dict(_n, snapshot_utc="2026-10-27T04:00:00+00:00")
+        gamma.append_day(_d5, _r4)
+        ok(len(gamma._rjson(os.path.join(_r4, "day.json"))["pts"]) == 3, "الخط الزمني: عبور منتصف الليل يُبقي نقاط آخر 30 ساعة")
     finally:
         shutil.rmtree(_r4, ignore_errors=True)
     # --- ملف مستويات Sierra Chart ---

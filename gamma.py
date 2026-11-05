@@ -570,8 +570,12 @@ def append_day(snap, root=OUT_DIR):
         day = et.strftime("%Y-%m-%d")
         path = os.path.join(root, "day.json")
         cur = _rjson(path)
-        if not cur or cur.get("day") != day:
+        if not cur:
             cur = {"day": day, "pts": []}
+        elif cur.get("day") != day:
+            # يوم جديد: لا نبدأ فارغين (كان المخطط يختفي حتى تصل لقطتان)؛ نُبقي نقاط آخر 30 ساعة
+            lim = (datetime.fromisoformat(snap["snapshot_utc"]) - timedelta(hours=30)).isoformat()
+            cur = {"day": day, "pts": [q for q in cur.get("pts", []) if str(q.get("t", "")) >= lim]}
         if any(p_["t"] == snap["snapshot_utc"] for p_ in cur["pts"]):
             return False
         cur["pts"].append(day_point(snap))
