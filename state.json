@@ -521,41 +521,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-06T20:02:56.105479+00:00",
-        "ok_at": "2026-11-06T20:02:56.105479+00:00"
+        "last_try": "2026-11-06T23:27:05.135050+00:00",
+        "ok_at": "2026-11-06T23:27:05.135050+00:00"
       },
       "fred": {
-        "last_try": "2026-11-06T20:02:56.105479+00:00",
-        "ok_at": "2026-11-06T20:02:56.105479+00:00"
+        "last_try": "2026-11-06T23:27:05.135050+00:00",
+        "ok_at": "2026-11-06T23:27:05.135050+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-06T20:02:56.105479+00:00",
-        "ok_at": "2026-11-06T20:02:56.105479+00:00"
+        "last_try": "2026-11-06T23:27:05.135050+00:00",
+        "ok_at": "2026-11-06T23:27:05.135050+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-06T20:02:56.105479+00:00",
-        "ok_at": "2026-11-06T20:02:56.105479+00:00"
+        "last_try": "2026-11-06T23:27:05.135050+00:00",
+        "ok_at": "2026-11-06T23:27:05.135050+00:00"
       },
       "oil": {
-        "last_try": "2026-11-06T20:02:56.105479+00:00",
-        "ok_at": "2026-11-06T20:02:56.105479+00:00"
+        "last_try": "2026-11-06T23:27:05.135050+00:00",
+        "ok_at": "2026-11-06T23:27:05.135050+00:00"
       },
       "news": {
-        "last_try": "2026-11-06T20:02:56.105479+00:00",
-        "ok_at": "2026-11-06T20:02:56.105479+00:00"
+        "last_try": "2026-11-06T23:27:05.135050+00:00",
+        "ok_at": "2026-11-06T23:27:05.135050+00:00"
       },
       "cot": {
-        "last_try": "2026-11-06T20:02:56.105479+00:00",
-        "ok_at": "2026-11-06T20:02:56.105479+00:00"
+        "last_try": "2026-11-06T23:27:05.135050+00:00",
+        "ok_at": "2026-11-06T23:27:05.135050+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-06T20:02:56.105479+00:00",
+        "last_try": "2026-11-06T23:27:05.135050+00:00",
         "ok_at": "2026-11-06T12:12:15.044756+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-06T20:02:56.105479+00:00"
+      "at": "2026-11-06T23:27:05.135050+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 4.6% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -563,36 +563,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-06T19:38:43.191100+00:00",
+    "at": "2026-11-06T23:27:05.135050+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-06T18:47:22+00:00",
-            "title": "Strong October Hiring Raises Odds of Fed Rate Hike",
-            "src": "Advanced Manufacturing"
+            "t": "2026-11-06T23:00:30+00:00",
+            "title": "We Energies customers face another rate hike — but smaller, as regulators push back on utility",
+            "src": "Wisconsin Watch"
           },
           {
-            "t": "2026-11-06T18:39:20+00:00",
-            "title": "Americans are on a 'treadmill of high inflation' and more rate hikes are likely, Fed's Daly says",
+            "t": "2026-11-06T22:52:44+00:00",
+            "title": "Volatile jobs, inflation data should temper Fed's actions, expert says",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-06T22:05:00+00:00",
+            "title": "The Midterms Give the Fed More Room to Raise Rates, But Maybe Less Reason to Do So",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-11-06T22:02:09+00:00",
+            "title": "Inflations plus strong jobs number could give Fed 'latitude' to raise rates, says Moody's Mark Zandi",
             "src": "CNBC"
           },
           {
-            "t": "2026-11-06T18:32:00+00:00",
-            "title": "Daly Says Fed Rate Hike Likely, Despite 'Painful' Tech-Stock Dive",
-            "src": "U.S. News - Money"
-          },
-          {
-            "t": "2026-11-06T18:27:31+00:00",
-            "title": "Watch CNBC's full interview with San Francisco Fed President Mary Daly",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-11-06T18:26:00+00:00",
-            "title": "WE Energies rate hike approved",
-            "src": "WBAY"
+            "t": "2026-11-06T21:55:00+00:00",
+            "title": "Hawaiʻi Island lawmakers review sewer rate hike",
+            "src": "Hawaii Public Radio"
           }
         ]
       },
@@ -600,29 +600,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-06T19:00:20+00:00",
-            "title": "Anatomy of a Selloff: Sudden Chain Reaction Rattles Wall Street",
+            "t": "2026-11-06T22:03:58+00:00",
+            "title": "AI stocks halt their brutal, worldwide sell-off as Wall Street trims its loss for the week",
+            "src": "Toledo Blade"
+          },
+          {
+            "t": "2026-11-06T21:53:16+00:00",
+            "title": "Wall Street’s Script Gets Flipped by Post-Election Rout",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-06T18:56:00+00:00",
-            "title": "AI stocks halt their brutal, worldwide sell-off as Wall Street trims its loss for the week",
-            "src": "AP News"
-          },
-          {
-            "t": "2026-11-06T17:54:00+00:00",
-            "title": "Stock Momentum Has Reversed. One Chart Spells It Out.",
-            "src": "Barron's"
-          },
-          {
-            "t": "2026-11-06T17:40:22+00:00",
-            "title": "Furniture stocks reverse course as 25 decline in broad Wall Street sell-off",
-            "src": "Furniture Today"
-          },
-          {
-            "t": "2026-11-06T17:19:34+00:00",
-            "title": "Nasdaq rebounds as chip stocks recover from steep losses",
+            "t": "2026-11-06T21:42:10+00:00",
+            "title": "Nasdaq rebounds but posts fourth straight weekly decline",
             "src": "Reuters"
+          },
+          {
+            "t": "2026-11-06T21:40:15+00:00",
+            "title": "Wall Street Gets $2.5 Trillion AI Reality Check With Historic Rout of Tech Stocks",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-06T21:36:00+00:00",
+            "title": "Midterms Are Over. Here's What History Says the S&P 500 Does Next.",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -630,29 +630,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-11-06T20:26:02+00:00",
+            "title": "Apple’s DOJ antitrust case draws subpoena disputes with Epic, Samsung, Oura and others",
+            "src": "Mezha.net"
+          },
+          {
+            "t": "2026-11-06T19:57:00+00:00",
+            "title": "Stock Market Outlook: Nvidia Earnings, Anthropic’s IPO, and the Fed Rate Decision",
+            "src": "Barron's"
+          },
+          {
             "t": "2026-11-06T18:33:54+00:00",
             "title": "Apple Hospitality (APLE) Q3 2026 Earnings Call Transcript",
             "src": "The Globe and Mail"
           },
           {
-            "t": "2026-11-06T18:16:58+00:00",
-            "title": "Microsoft Is Winding Down Oracle Deal to Rent AI Cloud Capacity",
-            "src": "Bloomberg.com"
+            "t": "2026-11-06T16:38:04+00:00",
+            "title": "NVIDIA Corporation (NVDA) Stock Price, News, Quote & History",
+            "src": "Yahoo! Finance Canada"
           },
           {
             "t": "2026-11-06T14:35:56+00:00",
             "title": "Progressive group's 182-page blueprint maps out potential Dem investigations into Trump, corporate allies",
             "src": "Fox News"
-          },
-          {
-            "t": "2026-11-06T14:17:00+00:00",
-            "title": "TEAM Q1 Earnings Beat Estimates on Cloud Growth and Margin Gains",
-            "src": "Yahoo Finance Australia"
-          },
-          {
-            "t": "2026-11-06T14:15:00+00:00",
-            "title": "Jensen Huang Says Nvidia's Next-Gen Vera Rubin Chips Will Generate $40 Billion in Revenue per Gigawatt, Up From $25 Billion for Grace Blackwell. What That Means for Nvidia's Growth Runway?",
-            "src": "The Motley Fool"
           }
         ]
       },
@@ -660,29 +660,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-06T19:22:05+00:00",
+            "t": "2026-11-06T22:15:00+00:00",
+            "title": "Latest jobs report shows a white-collar hiring turnaround",
+            "src": "Marketplace.org"
+          },
+          {
+            "t": "2026-11-06T22:04:06+00:00",
+            "title": "US labor market regains ground as job growth surges, unemployment rate falls to 4.1%",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-06T21:59:27+00:00",
+            "title": "Wall St Week Ahead As tech swoon roils market, US inflation data on tap",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-06T21:41:07+00:00",
             "title": "Four things to note from Friday's US jobs report",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-06T19:00:23+00:00",
-            "title": "Why Is the US Jobs Report So Hard to Forecast?",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-06T18:56:00+00:00",
+            "t": "2026-11-06T21:37:00+00:00",
             "title": "Blowout jobs report rescues stocks from brutal tech rout",
             "src": "USA Today"
-          },
-          {
-            "t": "2026-11-06T18:37:00+00:00",
-            "title": "52% of Americans think inflation will ruin the holidays, survey finds",
-            "src": "WVIR"
-          },
-          {
-            "t": "2026-11-06T18:24:30+00:00",
-            "title": "White House hails 'skyrocketing' labor demand after blockbuster October jobs report",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -690,24 +690,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-06T19:32:36+00:00",
-            "title": "Carney welcomes Democrats' push to end Trump's tariffs on Canada after midterm victory",
-            "src": "Big Rapids Pioneer"
+            "t": "2026-11-06T22:33:38+00:00",
+            "title": "What Investors Need to Watch as Congress Returns: Debt Ceiling, Iran",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-06T19:29:17+00:00",
-            "title": "The Week Ahead: Tariffs, Import Compliance, Carbon Border Charges",
-            "src": "Sandler, Travis & Rosenberg, P.A."
+            "t": "2026-11-06T22:30:13+00:00",
+            "title": "Treasury Yields Snapshot: November 6, 2026",
+            "src": "Advisor Perspectives"
           },
           {
-            "t": "2026-11-06T19:20:11+00:00",
-            "title": "Chuck Schumer seeks Republican help to take down Trump’s tariffs",
-            "src": "The Times"
+            "t": "2026-11-06T22:28:17+00:00",
+            "title": "Carney welcomes Democrats’ push to end Trump’s tariffs on Canada after midterm victory",
+            "src": "The Seattle Times"
           },
           {
-            "t": "2026-11-06T19:09:16+00:00",
-            "title": "ArcelorMittal Says Europe’s Steel Tariffs Are Boosting Profits",
-            "src": "WSJ"
+            "t": "2026-11-06T22:03:11+00:00",
+            "title": "Canada Goose will revisit pricing to blunt tariffs next year, CFO says",
+            "src": "CFO Dive"
           }
         ]
       },
@@ -715,24 +715,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-06T18:59:43+00:00",
-            "title": "Zelenskiy says Ukraine is continuing attacks on Russia's oil refining sector",
+            "t": "2026-11-06T23:04:12+00:00",
+            "title": "Two missiles strike Iran's Qeshm Island, Tasnim news agency says",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-06T18:47:20+00:00",
-            "title": "Russia’s land gains in Ukraine dwindle as its diesel reportedly goes unsold",
-            "src": "Al Jazeera"
+            "t": "2026-11-06T22:56:15+00:00",
+            "title": "US sanctions Canadian crypto, money services over Iran ties",
+            "src": "The Jerusalem Post"
           },
           {
-            "t": "2026-11-06T17:33:12+00:00",
-            "title": "Israeli Media Reports IDF Awaits US Decision on Iran Strike",
-            "src": "Kurdistan24"
+            "t": "2026-11-06T21:44:34+00:00",
+            "title": "Can the US Democrats' 'Blue Wave' election sweep buoy Ukraine?",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-06T15:53:40+00:00",
-            "title": "Europe’s Sanctions on Russia: Riddled With Loopholes",
-            "src": "Center for European Policy Analysis (CEPA)"
+            "t": "2026-11-06T20:58:00+00:00",
+            "title": "US Treasury Sanctions Canadian Money Services Firms Over Iran-Related Transactions",
+            "src": "U.S. News & World Report"
           }
         ]
       }
@@ -740,7 +740,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-06T20:02:56.105479+00:00",
+    "at": "2026-11-06T23:27:05.135050+00:00",
     "events": [
       {
         "title": "Daylight Saving Time Shift",
@@ -1210,7 +1210,7 @@
       "source": "FRED",
       "period": "2026-10-31",
       "received_at": "2026-11-05T16:20:11.967668+00:00",
-      "last_attempt": "2026-11-06T18:12:45.475880+00:00",
+      "last_attempt": "2026-11-06T23:27:05.135050+00:00",
       "attempts": 1,
       "title": "Unemployment Claims",
       "time": "2026-11-05T13:30:00+00:00",
@@ -1233,7 +1233,7 @@
       "source": "BLS",
       "period": "2026-10-01",
       "received_at": "2026-11-06T18:12:45.475880+00:00",
-      "last_attempt": "2026-11-06T18:12:45.475880+00:00",
+      "last_attempt": "2026-11-06T23:27:05.135050+00:00",
       "attempts": 1,
       "title": "Average Hourly Earnings m/m",
       "time": "2026-11-06T13:30:00+00:00",
@@ -1241,7 +1241,7 @@
       "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
       "raw": 0.3697834125726329,
       "stage": "",
-      "stage_ok": null,
+      "stage_ok": "",
       "impact": "High",
       "forecast": "0.3%",
       "previous": "0.1%",
@@ -1256,7 +1256,7 @@
       "source": "BLS",
       "period": "2026-10-01",
       "received_at": "2026-11-06T18:12:45.475880+00:00",
-      "last_attempt": "2026-11-06T18:12:45.475880+00:00",
+      "last_attempt": "2026-11-06T23:27:05.135050+00:00",
       "attempts": 1,
       "title": "Non-Farm Employment Change",
       "time": "2026-11-06T13:30:00+00:00",
@@ -1264,7 +1264,7 @@
       "method": "فرق المستوى عن الشهر السابق في السلسلة نفسها",
       "raw": 165.0,
       "stage": "",
-      "stage_ok": null,
+      "stage_ok": "",
       "impact": "High",
       "forecast": "65K",
       "previous": "29K",
@@ -1279,7 +1279,7 @@
       "source": "BLS",
       "period": "2026-10-01",
       "received_at": "2026-11-06T18:12:45.475880+00:00",
-      "last_attempt": "2026-11-06T18:12:45.475880+00:00",
+      "last_attempt": "2026-11-06T23:27:05.135050+00:00",
       "attempts": 1,
       "title": "Unemployment Rate",
       "time": "2026-11-06T13:30:00+00:00",
@@ -1287,7 +1287,7 @@
       "method": "القيمة المنشورة كما هي (نسبة)",
       "raw": 4.1,
       "stage": "",
-      "stage_ok": null,
+      "stage_ok": "",
       "impact": "High",
       "forecast": "4.2%",
       "previous": "4.2%",
@@ -1297,28 +1297,28 @@
     "US|umcsent|level|2026-11|-|2026-11-06": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 2,
+      "attempts": 3,
       "title": "Prelim UoM Consumer Sentiment",
       "time": "2026-11-06T15:00:00+00:00",
       "impact": "Medium",
       "forecast": "48.1",
       "previous": "46.3",
       "country": "USD",
-      "last_attempt": "2026-11-06T19:38:43.191100+00:00",
-      "note": ""
+      "last_attempt": "2026-11-06T23:27:05.135050+00:00",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     },
     "US|mich|level_pct|2026-11|-|2026-11-06": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 2,
+      "attempts": 3,
       "title": "Prelim UoM Inflation Expectations",
       "time": "2026-11-06T15:00:00+00:00",
       "impact": "Medium",
       "forecast": "",
       "previous": "4.7%",
       "country": "USD",
-      "last_attempt": "2026-11-06T19:38:43.191100+00:00",
-      "note": ""
+      "last_attempt": "2026-11-06T23:27:05.135050+00:00",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   },
   "stats": {
@@ -1334,167 +1334,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|umcsent|level|2026-10|-|2026-10-23",
-      "title": "Revised UoM Consumer Sentiment",
-      "release_time": "2026-10-23T14:00:00+00:00",
-      "fetched_at": "2026-10-23T21:01:58.627972+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "46.3",
-      "previous": "46.3",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
-    },
-    {
-      "id": "US|mich|level_pct|2026-10|-|2026-10-23",
-      "title": "Revised UoM Inflation Expectations",
-      "release_time": "2026-10-23T14:00:00+00:00",
-      "fetched_at": "2026-10-23T21:01:58.627972+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "",
-      "previous": "4.7%",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
-    },
-    {
-      "id": "US|claims|claims_k|w2026-10-18|-|2026-10-22",
-      "title": "Unemployment Claims",
-      "release_time": "2026-10-22T12:30:00+00:00",
-      "fetched_at": "2026-10-23T22:12:39.225630+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "194K",
-      "period": "2026-10-17",
-      "series": "ICSA",
-      "method": "القيمة المنشورة مقسومة على 1000",
-      "raw": 194.0,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "200K",
-      "previous": "199K",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (ICSA، فترة 2026-10-17) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|umcsent|level|2026-10|-|2026-10-23",
-      "title": "Revised UoM Consumer Sentiment",
-      "release_time": "2026-10-23T14:00:00+00:00",
-      "fetched_at": "2026-10-23T22:12:39.225630+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "46.3",
-      "previous": "46.3",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
-    },
-    {
-      "id": "US|mich|level_pct|2026-10|-|2026-10-23",
-      "title": "Revised UoM Inflation Expectations",
-      "release_time": "2026-10-23T14:00:00+00:00",
-      "fetched_at": "2026-10-23T22:12:39.225630+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "",
-      "previous": "4.7%",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
-    },
-    {
-      "id": "US|umcsent|level|2026-10|-|2026-10-23",
-      "title": "Revised UoM Consumer Sentiment",
-      "release_time": "2026-10-23T14:00:00+00:00",
-      "fetched_at": "2026-10-23T23:10:33.891926+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "46.3",
-      "previous": "46.3",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
-    },
-    {
-      "id": "US|mich|level_pct|2026-10|-|2026-10-23",
-      "title": "Revised UoM Inflation Expectations",
-      "release_time": "2026-10-23T14:00:00+00:00",
-      "fetched_at": "2026-10-23T23:10:33.891926+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "",
-      "previous": "4.7%",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
-    },
     {
       "id": "US|claims|claims_k|w2026-10-18|-|2026-10-22",
       "title": "Unemployment Claims",
@@ -4737,12 +4576,150 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|claims|claims_k|w2026-11-01|-|2026-11-05",
+      "title": "Unemployment Claims",
+      "release_time": "2026-11-05T13:30:00+00:00",
+      "fetched_at": "2026-11-06T23:27:05.135050+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "189K",
+      "period": "2026-10-31",
+      "series": "ICSA",
+      "method": "القيمة المنشورة مقسومة على 1000",
+      "raw": 189.0,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "197K",
+      "previous": "194K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (ICSA، فترة 2026-10-31) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|ahe|mm|2026-10|-|2026-11-06",
+      "title": "Average Hourly Earnings m/m",
+      "release_time": "2026-11-06T13:30:00+00:00",
+      "fetched_at": "2026-11-06T23:27:05.135050+00:00",
+      "source": "BLS",
+      "tier": "official",
+      "value": "0.4%",
+      "period": "2026-10-01",
+      "series": "CES0500000003",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.3697834125726329,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "0.3%",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "0.3%",
+      "previous": "0.1%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: BLS (CES0500000003، فترة 2026-10-01) — متوسط الأجور بالساعة (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|payems|diff_k|2026-10|-|2026-11-06",
+      "title": "Non-Farm Employment Change",
+      "release_time": "2026-11-06T13:30:00+00:00",
+      "fetched_at": "2026-11-06T23:27:05.135050+00:00",
+      "source": "BLS",
+      "tier": "official",
+      "value": "165K",
+      "period": "2026-10-01",
+      "series": "CES0000000001",
+      "method": "فرق المستوى عن الشهر السابق في السلسلة نفسها",
+      "raw": 165.0,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "60K",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "65K",
+      "previous": "29K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: BLS (CES0000000001، فترة 2026-10-01) — الوظائف غير الزراعية (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|unrate|level_pct|2026-10|-|2026-11-06",
+      "title": "Unemployment Rate",
+      "release_time": "2026-11-06T13:30:00+00:00",
+      "fetched_at": "2026-11-06T23:27:05.135050+00:00",
+      "source": "BLS",
+      "tier": "official",
+      "value": "4.1%",
+      "period": "2026-10-01",
+      "series": "LNS14000000",
+      "method": "القيمة المنشورة كما هي (نسبة)",
+      "raw": 4.1,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "4.2%",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "4.2%",
+      "previous": "4.2%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: BLS (LNS14000000، فترة 2026-10-01) — معدل البطالة (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|umcsent|level|2026-11|-|2026-11-06",
+      "title": "Prelim UoM Consumer Sentiment",
+      "release_time": "2026-11-06T15:00:00+00:00",
+      "fetched_at": "2026-11-06T23:27:05.135050+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "48.1",
+      "previous": "46.3",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|mich|level_pct|2026-11|-|2026-11-06",
+      "title": "Prelim UoM Inflation Expectations",
+      "release_time": "2026-11-06T15:00:00+00:00",
+      "fetched_at": "2026-11-06T23:27:05.135050+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "4.7%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-09-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-06T20:02:56.105479+00:00",
+  "last_publish_ok": "2026-11-06T23:27:05.135050+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-06T20:03:25.077202+00:00"
+    "at": "2026-11-06T23:27:40.459993+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -4822,12 +4799,12 @@
     "bls": {
       "ok": true,
       "detail": "3 سلسلة",
-      "at": "2026-11-06T18:12:45.475880+00:00"
+      "at": "2026-11-06T23:27:05.135050+00:00"
     },
     "fred": {
       "ok": true,
-      "detail": "2 سلسلة",
-      "at": "2026-11-06T19:38:43.191100+00:00"
+      "detail": "6 سلسلة",
+      "at": "2026-11-06T23:27:05.135050+00:00"
     },
     "alfred": {
       "ok": false,
@@ -4836,18 +4813,18 @@
     }
   },
   "bls_calls": {
-    "2026-11-06": 1
+    "2026-11-06": 2
   },
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-06T20:02:56.105479+00:00",
-    "ok_at": "2026-11-06T20:02:56.105479+00:00",
+    "at": "2026-11-06T23:27:05.135050+00:00",
+    "ok_at": "2026-11-06T23:27:05.135050+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-06T20:02:56.105479+00:00",
+    "at": "2026-11-06T23:27:05.135050+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
