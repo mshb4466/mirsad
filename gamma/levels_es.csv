@@ -1,6 +1,7 @@
-asof_utc,2026-11-12T12:50:16+00:00,basis,25.16,mode,close
+asof_utc,2026-11-12T13:00:17+00:00,basis,25.16,mode,close
 price,label,kind,strength,color,style,width
 7795.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7775.25,SPX PEAK+ M,peak,medium,00E0A0,dash,1
 7745.25,SPY PEAK+ S,peak,strong,00E0A0,solid,2
 7725.25,SPX CALL WALL,wall,wall,00E0A0,solid,3
 7695.25,SPY PEAK+ S,peak,strong,00E0A0,solid,2
