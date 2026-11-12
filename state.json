@@ -24,7 +24,7 @@
     "kre_up": "2026-10-08T17:44:38.039516+00:00",
     "nq_up": "2026-11-11T16:00:44.314296+00:00",
     "es_down": "2026-11-10T13:45:38.893975+00:00",
-    "gold_down": "2026-11-10T13:45:38.893975+00:00",
+    "gold_down": "2026-11-12T14:00:43.844385+00:00",
     "dxy_up": "2026-11-10T13:45:38.893975+00:00",
     "y10_up": "2026-11-10T13:45:38.893975+00:00",
     "y5_up": "2026-11-10T13:45:38.893975+00:00",
@@ -43,7 +43,7 @@
     "kre_up": 1.0885300566982083,
     "nq_up": 1.4175923057632898,
     "es_down": 0.9238789718546907,
-    "gold_down": 1.28788639430396,
+    "gold_down": 1.7596501206307633,
     "dxy_up": 0.9404132954736267,
     "y10_up": 2.000003390842014,
     "y5_up": 2.8444396124945746,
@@ -393,6 +393,74 @@
         "Global AI stocks sink as Nvidia crisis deepens sector selloff - Reuters"
       ],
       "rev": 0
+    },
+    {
+      "id": "move|202611121400|gold",
+      "t": "2026-11-12T14:00:43.844385+00:00",
+      "kind": "move",
+      "important": true,
+      "icon": "📉",
+      "title": "عامل مؤثر يتحرك بقوة (الذهب)",
+      "what": "عامل مؤثر يتحرك بقوة (الذهب)",
+      "why": "النفط يرتفع والأسهم تهبط: نمط يرتبط عادة بمخاوف التضخم أو توتر جيوسياسي؛ العوائد ترتفع عكس الأسهم: السوق يعيد تسعير الفائدة، وهذا ما يحرّك التقنية خاصة",
+      "rows": [
+        {
+          "name": "ES",
+          "c60": "-0.31%",
+          "c180": "-0.40%",
+          "lead": false
+        },
+        {
+          "name": "VIX",
+          "c60": "+2.40%",
+          "c180": "+2.79%",
+          "lead": false
+        },
+        {
+          "name": "النفط",
+          "c60": "+1.40%",
+          "c180": "+1.60%",
+          "lead": false
+        },
+        {
+          "name": "الذهب",
+          "c60": "-1.14%",
+          "c180": "-1.55%",
+          "lead": true
+        },
+        {
+          "name": "الدولار DXY",
+          "c60": "+0.04%",
+          "c180": "+0.15%",
+          "lead": false
+        },
+        {
+          "name": "عائد 10 سنوات",
+          "c60": "+5bp",
+          "c180": "+5bp",
+          "lead": false
+        },
+        {
+          "name": "عائد 30 سنة",
+          "c60": "+3bp",
+          "c180": "+3bp",
+          "lead": false
+        }
+      ],
+      "confirm": [
+        "الذهب: كفاءة الاتجاه 0.82 | دلالة الحركة 5.2σ | التقلب اللحظي ×2.2 | الحجم ×3.9"
+      ],
+      "pattern": [
+        "النفط يرتفع والأسهم تهبط: نمط يرتبط عادة بمخاوف التضخم أو توتر جيوسياسي",
+        "العوائد ترتفع عكس الأسهم: السوق يعيد تسعير الفائدة، وهذا ما يحرّك التقنية خاصة"
+      ],
+      "headlines": [
+        "BP, Shell, and TotalEnergies: Where Next for Oil Stocks as Crude Prices Fall? - Morningstar",
+        "Bernstein Warns Oil Stocks May Stall Even With Crude at $90, Cuts Three U.S. Producers - finance.biggo.com",
+        "Oman monitors handling of oil tanker run aground off its coast - 1470 & 100.3 WMBD",
+        "Oil Prices Face Mixed Signals as U.S. Distillate Stocks Fall - FXEmpire"
+      ],
+      "rev": 0
     }
   ],
   "pulse": [
@@ -401,59 +469,59 @@
       "name": "ES",
       "short": "ES",
       "w": 60,
-      "v": -0.21,
+      "v": -0.31,
       "th": 0.45,
-      "ratio": 0.47,
-      "val": "-0.21%",
+      "ratio": 0.69,
+      "val": "-0.31%",
       "thr": "±0.45%",
-      "c15": "+0.08%",
-      "c60": "-0.21%",
-      "c180": "-0.31%",
+      "c15": "-0.03%",
+      "c60": "-0.31%",
+      "c180": "-0.40%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.31,
-      "z": 1.5,
-      "volx": 3.9
+      "eff": 0.36,
+      "z": 2.1,
+      "volx": 2.8
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 180,
-      "v": -0.55,
-      "th": 1.0,
-      "ratio": 0.55,
-      "val": "-0.55%",
-      "thr": "±1%",
-      "c15": "+0.13%",
-      "c60": "-0.21%",
-      "c180": "-0.55%",
+      "w": 60,
+      "v": -0.44,
+      "th": 0.6,
+      "ratio": 0.74,
+      "val": "-0.44%",
+      "thr": "±0.6%",
+      "c15": "-0.14%",
+      "c60": "-0.44%",
+      "c180": "-0.66%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.19,
-      "z": 0.7,
-      "volx": 3.2
+      "eff": 0.32,
+      "z": 1.6,
+      "volx": 3.6
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 60,
-      "v": 3.7,
+      "v": 2.4,
       "th": 8.0,
-      "ratio": 0.46,
-      "val": "+3.70%",
+      "ratio": 0.3,
+      "val": "+2.40%",
       "thr": "±8%",
-      "c15": "-0.42%",
-      "c60": "+3.70%",
-      "c180": "+4.33%",
+      "c15": "-0.37%",
+      "c60": "+2.40%",
+      "c180": "+2.79%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.6,
-      "z": 2.3,
+      "tone": "flat",
+      "eff": 0.34,
+      "z": 1.5,
       "volx": null
     },
     {
@@ -461,98 +529,98 @@
       "name": "النفط",
       "short": "نفط",
       "w": 60,
-      "v": 1.56,
+      "v": 1.4,
       "th": 1.3,
-      "ratio": 1.2,
-      "val": "+1.56%",
+      "ratio": 1.08,
+      "val": "+1.40%",
       "thr": "±1.3%",
-      "c15": "+0.08%",
-      "c60": "+1.56%",
-      "c180": "+1.58%",
-      "confirmed": true,
-      "why": "مؤكَّدة",
+      "c15": "-0.37%",
+      "c60": "+1.40%",
+      "c180": "+1.60%",
+      "confirmed": false,
+      "why": "الزخم غير متسق عبر الأطر",
       "tone": "flat",
-      "eff": 0.47,
-      "z": 3.0,
-      "volx": 4.6
+      "eff": 0.38,
+      "z": 2.7,
+      "volx": 1.7
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 60,
-      "v": -0.79,
+      "v": -1.14,
       "th": 0.65,
-      "ratio": 1.21,
-      "val": "-0.79%",
+      "ratio": 1.76,
+      "val": "-1.14%",
       "thr": "±0.65%",
-      "c15": "-0.23%",
-      "c60": "-0.79%",
-      "c180": "-1.17%",
+      "c15": "-0.32%",
+      "c60": "-1.14%",
+      "c180": "-1.55%",
       "confirmed": true,
       "why": "مؤكَّدة",
       "tone": "flat",
-      "eff": 0.71,
-      "z": 3.6,
-      "volx": 3.6
+      "eff": 0.82,
+      "z": 5.2,
+      "volx": 3.9
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": 0.09,
+      "v": 0.15,
       "th": 0.5,
-      "ratio": 0.18,
-      "val": "+0.09%",
+      "ratio": 0.29,
+      "val": "+0.15%",
       "thr": "±0.5%",
-      "c15": "-0.02%",
-      "c60": "-0.03%",
-      "c180": "+0.09%",
+      "c15": "+0.03%",
+      "c60": "+0.04%",
+      "c180": "+0.15%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.14,
-      "z": 0.5,
+      "eff": 0.19,
+      "z": 0.7,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": 0.08,
-      "th": 0.4,
-      "ratio": 0.2,
-      "val": "+0.08%",
-      "thr": "±0.4%",
-      "c15": "+0.02%",
-      "c60": "+0.08%",
-      "c180": "+0.12%",
+      "w": 15,
+      "v": -0.05,
+      "th": 0.25,
+      "ratio": 0.19,
+      "val": "-0.05%",
+      "thr": "±0.25%",
+      "c15": "-0.05%",
+      "c60": "+0.03%",
+      "c180": "+0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.55,
-      "z": 1.3,
+      "eff": 0.15,
+      "z": 0.4,
       "volx": null
     },
     {
       "key": "y10",
       "name": "عائد 10 سنوات",
       "short": "10Y",
-      "w": 15,
-      "v": 5.4,
-      "th": 3.0,
-      "ratio": 1.8,
+      "w": 60,
+      "v": 5.0,
+      "th": 4.5,
+      "ratio": 1.11,
       "val": "+5bp",
-      "thr": "±3bp",
-      "c15": "+5bp",
+      "thr": "±4.5bp",
+      "c15": "+0bp",
       "c60": "+5bp",
       "c180": "+5bp",
-      "confirmed": true,
-      "why": "مؤكَّدة",
+      "confirmed": false,
+      "why": "الزخم غير متسق عبر الأطر",
       "tone": "bear",
-      "eff": null,
+      "eff": 0.81,
       "z": null,
       "volx": null
     },
@@ -560,19 +628,19 @@
       "key": "y5",
       "name": "عائد 5 سنوات",
       "short": "5Y",
-      "w": 15,
-      "v": 6.6,
-      "th": 3.0,
-      "ratio": 2.2,
-      "val": "+7bp",
-      "thr": "±3bp",
-      "c15": "+7bp",
-      "c60": "+7bp",
-      "c180": "+7bp",
-      "confirmed": true,
-      "why": "مؤكَّدة",
+      "w": 60,
+      "v": 6.4,
+      "th": 4.5,
+      "ratio": 1.42,
+      "val": "+6bp",
+      "thr": "±4.5bp",
+      "c15": "+0bp",
+      "c60": "+6bp",
+      "c180": "+6bp",
+      "confirmed": false,
+      "why": "الزخم غير متسق عبر الأطر",
       "tone": "bear",
-      "eff": null,
+      "eff": 0.84,
       "z": null,
       "volx": null
     },
@@ -580,19 +648,19 @@
       "key": "y30",
       "name": "عائد 30 سنة",
       "short": "30Y",
-      "w": 15,
-      "v": 3.6,
-      "th": 3.0,
-      "ratio": 1.2,
-      "val": "+4bp",
-      "thr": "±3bp",
-      "c15": "+4bp",
-      "c60": "+4bp",
-      "c180": "+4bp",
-      "confirmed": true,
-      "why": "مؤكَّدة",
+      "w": 60,
+      "v": 3.0,
+      "th": 4.5,
+      "ratio": 0.67,
+      "val": "+3bp",
+      "thr": "±4.5bp",
+      "c15": "-0bp",
+      "c60": "+3bp",
+      "c180": "+3bp",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": null,
+      "eff": 0.6,
       "z": null,
       "volx": null
     }
@@ -600,41 +668,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-12T13:45:34.651748+00:00",
-        "ok_at": "2026-11-12T13:45:34.651748+00:00"
+        "last_try": "2026-11-12T14:00:43.844385+00:00",
+        "ok_at": "2026-11-12T14:00:43.844385+00:00"
       },
       "fred": {
-        "last_try": "2026-11-12T13:45:34.651748+00:00",
-        "ok_at": "2026-11-12T13:45:34.651748+00:00"
+        "last_try": "2026-11-12T14:00:43.844385+00:00",
+        "ok_at": "2026-11-12T14:00:43.844385+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-12T13:45:34.651748+00:00",
-        "ok_at": "2026-11-12T13:45:34.651748+00:00"
+        "last_try": "2026-11-12T14:00:43.844385+00:00",
+        "ok_at": "2026-11-12T14:00:43.844385+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-12T13:45:34.651748+00:00",
-        "ok_at": "2026-11-12T13:45:34.651748+00:00"
+        "last_try": "2026-11-12T14:00:43.844385+00:00",
+        "ok_at": "2026-11-12T14:00:43.844385+00:00"
       },
       "oil": {
-        "last_try": "2026-11-12T13:45:34.651748+00:00",
-        "ok_at": "2026-11-12T13:45:34.651748+00:00"
+        "last_try": "2026-11-12T14:00:43.844385+00:00",
+        "ok_at": "2026-11-12T14:00:43.844385+00:00"
       },
       "news": {
-        "last_try": "2026-11-12T13:45:34.651748+00:00",
-        "ok_at": "2026-11-12T13:45:34.651748+00:00"
+        "last_try": "2026-11-12T14:00:43.844385+00:00",
+        "ok_at": "2026-11-12T14:00:43.844385+00:00"
       },
       "cot": {
-        "last_try": "2026-11-12T13:45:34.651748+00:00",
-        "ok_at": "2026-11-12T13:45:34.651748+00:00"
+        "last_try": "2026-11-12T14:00:43.844385+00:00",
+        "ok_at": "2026-11-12T14:00:43.844385+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-12T13:45:34.651748+00:00",
-        "ok_at": "2026-11-12T13:45:34.651748+00:00"
+        "last_try": "2026-11-12T14:00:43.844385+00:00",
+        "ok_at": "2026-11-12T14:00:43.844385+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-12T13:45:34.651748+00:00"
+      "at": "2026-11-12T14:00:43.844385+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -642,21 +710,26 @@
     }
   },
   "week_news": {
-    "at": "2026-11-12T12:45:35.482231+00:00",
+    "at": "2026-11-12T14:00:43.844385+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-11-12T12:46:50+00:00",
+            "title": "ECB set for last rate hike in December but inflation risks keep door open for one more: Reuters poll",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-11-12T11:32:59+00:00",
             "title": "October Inflation and the Fed",
             "src": "The American Action Forum"
           },
           {
-            "t": "2026-11-12T11:20:48+00:00",
-            "title": "Fed Forced to Confront Case for Bigger and Faster Rate Rises",
-            "src": "WSJ"
+            "t": "2026-11-12T11:30:00+00:00",
+            "title": "What’s Flashing Warning Signs for Fed in Latest US CPI Report",
+            "src": "Bloomberg.com"
           },
           {
             "t": "2026-11-12T11:17:47+00:00",
@@ -667,11 +740,6 @@
             "t": "2026-11-12T11:17:15+00:00",
             "title": "Gold Holds Below $4,000 as Market Looks Ahead to Fed Rate Hike",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-12T11:03:43+00:00",
-            "title": "Fed's Waller, Bowman and Goolsbee Keep Rate Hike Bets Alive",
-            "src": "StoneX"
           }
         ]
       },
@@ -679,29 +747,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-12T12:26:36+00:00",
-            "title": "Nasdaq, S&P 500 futures fall as Nvidia turbulence unsettles AI stocks",
-            "src": "Reuters"
+            "t": "2026-11-12T13:10:51+00:00",
+            "title": "Imagining Nvidia Without Jensen Huang",
+            "src": "The New York Times"
           },
           {
-            "t": "2026-11-12T11:40:00+00:00",
-            "title": "Ukraine Says Its Military Starlink Is Disrupted Again, Hurting Defenses",
+            "t": "2026-11-12T13:01:00+00:00",
+            "title": "Nvidia Leadership Crisis Drags on U.S. Stock Futures, Pressures AI Trade",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-12T11:36:16+00:00",
-            "title": "Exclusive | Nvidia Is Preparing to Oust CEO Jensen Huang",
+            "t": "2026-11-12T12:59:59+00:00",
+            "title": "Maybelline Redefines ‘Maybe’ in a Refresh of Its Classic Catchphrase",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-12T11:09:00+00:00",
-            "title": "Hoping to Sell Your Home in the Spring? It’s Not Looking Good",
-            "src": "WSJ"
+            "t": "2026-11-12T12:58:09+00:00",
+            "title": "Here are Thursday's biggest analyst calls: Nvidia, SpaceX, AMD, Apple, Ulta, Disney & more",
+            "src": "CNBC"
           },
           {
-            "t": "2026-11-12T11:05:08+00:00",
-            "title": "What SPDR Portfolio S&P 500 Growth (SPYG) Sold: NVIDIA Leads on Nov. 10",
-            "src": "Yahoo Finance"
+            "t": "2026-11-12T12:52:28+00:00",
+            "title": "Foxconn Stays Bullish After Robust Quarter, Cautious About AI Data-Center Outlook",
+            "src": "WSJ"
           }
         ]
       },
@@ -709,12 +777,22 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-12T11:22:00+00:00",
-            "title": "NVIDIA Gears Up for Q3 Earnings: Should Investors Buy the Stock?",
-            "src": "Yahoo! Finance Canada"
+            "t": "2026-11-12T13:38:22+00:00",
+            "title": "Nvidia CEO Jensen Huang’s future uncertain as Megaspeed pledges to cooperate with US probe",
+            "src": "Boston Herald"
           },
           {
-            "t": "2026-11-12T11:03:45+00:00",
+            "t": "2026-11-12T13:18:46+00:00",
+            "title": "Nvidia scandal won't impact earnings because it is fully sold out: Wolfe Research's Caso",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-12T13:11:07+00:00",
+            "title": "Michael Burry warned Jensen Huang affair could invite antitrust crackdown on Nvidia",
+            "src": "Quartz"
+          },
+          {
+            "t": "2026-11-12T11:12:25+00:00",
             "title": "Apple Earnings Review: Revenue Beats Estimates as Memory Crunch Threatens Margins",
             "src": "Morningstar"
           },
@@ -722,16 +800,6 @@
             "t": "2026-11-12T07:17:00+00:00",
             "title": "Michael Burry Says Nvidia Earnings Will Be 'Great' — So Why Is He Telling NVDA Bulls To 'Get Out'?",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-12T03:36:36+00:00",
-            "title": "Nvidia is the 'mother of all supply chains around AI' and sustainable earnings are key: UBS CIO",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-11-12T02:59:43+00:00",
-            "title": "Alphabet sets initial price guidance for Hong Kong, Singapore bond sales, term sheet shows",
-            "src": "Central Oregon Daily"
           }
         ]
       },
@@ -739,29 +807,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-12T12:43:46+00:00",
-            "title": "BOE Should Raise Key Rate to Around 5%, U.K. Economic Think Tank Says",
-            "src": "WSJ"
+            "t": "2026-11-12T12:49:56+00:00",
+            "title": "Brazil inflation remains above goal despite softer-than-expected October reading",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-12T12:27:03+00:00",
+            "title": "India's inflation breaches central bank's 6% limit, bolsters case for rate hikes",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-12T12:23:20+00:00",
+            "title": "Brazilian Inflation Ticks Up After Lula’s Win Rattles Markets",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-12T11:57:38+00:00",
+            "title": "How the midterms swing each party's economic feelings",
+            "src": "Axios"
           },
           {
             "t": "2026-11-12T11:45:27+00:00",
             "title": "Nasdaq chief economist: Inflation will likely fade and interest rates will lower",
             "src": "Repairer Driven News"
-          },
-          {
-            "t": "2026-11-12T11:33:48+00:00",
-            "title": "India October inflation tops RBI's 6% limit, strengthens case for rate hikes",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-11-12T11:30:00+00:00",
-            "title": "What’s Flashing Warning Signs for Fed in Latest US CPI Report",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-12T11:22:31+00:00",
-            "title": "VIEW India's October retail inflation at 6.09% on-year",
-            "src": "Reuters"
           }
         ]
       },
@@ -769,24 +837,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-12T12:40:58+00:00",
-            "title": "Trump threatens to double tariffs on Mexico over alleged migrant caravans",
-            "src": "Anadolu Ajansı"
+            "t": "2026-11-12T13:31:40+00:00",
+            "title": "Trump trade chief Greer speaks with 'Squawk Box' as tariff threats rise",
+            "src": "CNBC"
           },
           {
-            "t": "2026-11-12T12:29:32+00:00",
-            "title": "Trump threatens to double tariffs on Mexico if it does not halt migrants",
-            "src": "Reuters"
+            "t": "2026-11-12T13:14:27+00:00",
+            "title": "Canada envoy Mark Wiseman warned Trump tariffs raise investment costs",
+            "src": "Quartz"
           },
           {
-            "t": "2026-11-12T11:27:51+00:00",
-            "title": "Global markets trade mixed amid tech volatility, surging US Treasury yields",
-            "src": "Anadolu Ajansı"
+            "t": "2026-11-12T13:02:37+00:00",
+            "title": "Trump threatened to double Mexico tariffs immediately over migrant caravans",
+            "src": "Quartz"
           },
           {
-            "t": "2026-11-12T10:02:00+00:00",
-            "title": "Treasury Yields Rise, European Bond Yields Fall",
-            "src": "WSJ"
+            "t": "2026-11-12T13:00:15+00:00",
+            "title": "Trump Threatens to Double Tariffs on Mexico Over Migrants",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -794,24 +862,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-12T12:30:00+00:00",
-            "title": "Nigeria Hits OPEC Oil Production Quota for Sixth Straight Month",
-            "src": "Crude Oil Prices Today | OilPrice.com"
+            "t": "2026-11-12T13:45:43+00:00",
+            "title": "Finland says it detects strike on Russian warship in Baltic Sea",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-12T12:27:07+00:00",
-            "title": "Ukraine Says It Hit Russia’s Biggest Oil Refinery in Siberia",
+            "t": "2026-11-12T13:30:42+00:00",
+            "title": "Ukraine’s Spec Ops Strikes Russia’s Largest Oil Refinery for 3rd Time, 2,500 km From Border",
+            "src": "Kyiv Post"
+          },
+          {
+            "t": "2026-11-12T13:14:35+00:00",
+            "title": "Oil Jumps After Trump Says US Doesn’t Need Deal With Iran",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-12T12:26:46+00:00",
-            "title": "Ukraine Hits Russian Refineries Nine Times in 13 Days. How Bad Is Russia’s Fuel Crunch?",
-            "src": "UNITED24 Media"
-          },
-          {
-            "t": "2026-11-12T11:43:43+00:00",
-            "title": "Shafaq News..OPEC: Iraq’s oil output jumps 11% in October",
-            "src": "شفق نيوز"
+            "t": "2026-11-12T12:53:24+00:00",
+            "title": "EU To Add Wildberries CEO, Other Business Chiefs To Russia Sanctions Blacklist",
+            "src": "Radio Free Europe/Radio Liberty"
           }
         ]
       }
@@ -819,7 +887,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-12T13:45:34.651748+00:00",
+    "at": "2026-11-12T14:00:43.844385+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -1410,7 +1478,7 @@
   },
   "stats": {
     "date": "2026-11-12",
-    "sent": 1
+    "sent": 2
   },
   "schema_version": 2,
   "migration": {
@@ -5700,10 +5768,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-07) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-12T13:45:34.651748+00:00",
+  "last_publish_ok": "2026-11-12T14:00:43.844385+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-12T13:46:04.016213+00:00"
+    "at": "2026-11-12T14:02:30.594084+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5820,12 +5888,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-12T13:45:34.651748+00:00",
-    "ok_at": "2026-11-12T13:45:34.651748+00:00",
+    "at": "2026-11-12T14:00:43.844385+00:00",
+    "ok_at": "2026-11-12T14:00:43.844385+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-12T13:45:34.651748+00:00",
+    "at": "2026-11-12T14:00:43.844385+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
