@@ -1,22 +1,18 @@
-asof_utc,2026-11-12T16:10:26+00:00,basis,20.66,mode,live
+asof_utc,2026-11-12T16:20:26+00:00,basis,19.4,mode,live
 price,label,kind,strength,color,style,width
-7793.75,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7770.75,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7743.5,SPY PEAK+ S,peak,strong,00E0A0,solid,2
-7720.75,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7693.5,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7673.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7670.75,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7663.25,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7655.75,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7653.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7643.25,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7643.25,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7620.75,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7593.25,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7573.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7570.75,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7543.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7520.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7495.75,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7492.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7792.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7769.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7742.5,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7719.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7692.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7669.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7662.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7654.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7642.75,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7642.0,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7619.5,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7592.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7569.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7541.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7519.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7494.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
