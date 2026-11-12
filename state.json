@@ -539,7 +539,7 @@
       "w": 15,
       "v": -0.01,
       "th": 0.18,
-      "ratio": 0.08,
+      "ratio": 0.07,
       "val": "-0.01%",
       "thr": "±0.18%",
       "c15": "-0.01%",
@@ -556,61 +556,61 @@
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 15,
+      "w": 60,
       "v": 0.02,
-      "th": 0.25,
-      "ratio": 0.1,
+      "th": 0.4,
+      "ratio": 0.05,
       "val": "+0.02%",
-      "thr": "±0.25%",
-      "c15": "+0.02%",
-      "c60": "-0.00%",
-      "c180": "-0.01%",
+      "thr": "±0.4%",
+      "c15": "-0.00%",
+      "c60": "+0.02%",
+      "c180": "+0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.01,
-      "z": 0.0,
+      "eff": 0.11,
+      "z": 0.3,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-12T22:45:35.500668+00:00",
-        "ok_at": "2026-11-12T22:45:35.500668+00:00"
+        "last_try": "2026-11-12T23:00:49.067977+00:00",
+        "ok_at": "2026-11-12T23:00:49.067977+00:00"
       },
       "fred": {
-        "last_try": "2026-11-12T22:45:35.500668+00:00",
-        "ok_at": "2026-11-12T22:45:35.500668+00:00"
+        "last_try": "2026-11-12T23:00:49.067977+00:00",
+        "ok_at": "2026-11-12T23:00:49.067977+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-12T22:45:35.500668+00:00",
-        "ok_at": "2026-11-12T22:45:35.500668+00:00"
+        "last_try": "2026-11-12T23:00:49.067977+00:00",
+        "ok_at": "2026-11-12T23:00:49.067977+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-12T22:45:35.500668+00:00",
+        "last_try": "2026-11-12T23:00:49.067977+00:00",
         "ok_at": "2026-11-12T18:00:47.967732+00:00"
       },
       "oil": {
-        "last_try": "2026-11-12T22:45:35.500668+00:00",
-        "ok_at": "2026-11-12T22:45:35.500668+00:00"
+        "last_try": "2026-11-12T23:00:49.067977+00:00",
+        "ok_at": "2026-11-12T23:00:49.067977+00:00"
       },
       "news": {
-        "last_try": "2026-11-12T22:45:35.500668+00:00",
-        "ok_at": "2026-11-12T22:45:35.500668+00:00"
+        "last_try": "2026-11-12T23:00:49.067977+00:00",
+        "ok_at": "2026-11-12T23:00:49.067977+00:00"
       },
       "cot": {
-        "last_try": "2026-11-12T22:45:35.500668+00:00",
-        "ok_at": "2026-11-12T22:45:35.500668+00:00"
+        "last_try": "2026-11-12T23:00:49.067977+00:00",
+        "ok_at": "2026-11-12T23:00:49.067977+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-12T22:45:35.500668+00:00",
-        "ok_at": "2026-11-12T22:45:35.500668+00:00"
+        "last_try": "2026-11-12T23:00:49.067977+00:00",
+        "ok_at": "2026-11-12T23:00:49.067977+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-12T22:45:35.500668+00:00"
+      "at": "2026-11-12T23:00:49.067977+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -618,12 +618,22 @@
     }
   },
   "week_news": {
-    "at": "2026-11-12T22:00:46.991189+00:00",
+    "at": "2026-11-12T23:00:49.067977+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-12T22:13:43+00:00",
+            "title": "US Treasury bought yen in July; Fed made no solo FX interventions in Q3",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-12T22:07:56+00:00",
+            "title": "Fed meeting schedule sets seven rate-setting sessions for 2027",
+            "src": "finchannel"
+          },
           {
             "t": "2026-11-12T21:03:43+00:00",
             "title": "Fed has time to calibrate rate hikes, Daly says",
@@ -638,16 +648,6 @@
             "t": "2026-11-12T20:49:17+00:00",
             "title": "EXCLUSIVE: Former Nvidia CEO Huang had a relationship with a second employee, sources say",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-11-12T20:44:00+00:00",
-            "title": "Meet Jensen Huang’s alleged Nvidia mistress Kimberly Powell, as neighbors express shock over affair allegations",
-            "src": "New York Post"
-          },
-          {
-            "t": "2026-11-12T20:36:24+00:00",
-            "title": "New Atlanta Fed Community Advisory Council: Informing Economic Policy",
-            "src": "Federal Reserve Bank of Atlanta"
           }
         ]
       },
@@ -655,14 +655,19 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-11-12T22:07:30+00:00",
+            "title": "United Automobile, Aerospace and Agricultural Implement Workers of America",
+            "src": "UAW"
+          },
+          {
+            "t": "2026-11-12T21:43:00+00:00",
+            "title": "Exclusive | Democrats Open Probe Into Top Trump Fundraiser Meredith O’Rourke",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-12T21:37:51+00:00",
             "title": "Wall Street Whistles Past Nvidia Risk to Bet on Wobbly AI Trade",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-12T21:36:55+00:00",
-            "title": "Exclusive | Democrats Open Probe Into Top Trump Fundraiser Meredith O’Rourke",
-            "src": "WSJ"
           },
           {
             "t": "2026-11-12T21:34:00+00:00",
@@ -670,20 +675,25 @@
             "src": "Atlantic Council"
           },
           {
-            "t": "2026-11-12T21:27:08+00:00",
-            "title": "Equities close lower as Nvidia drop outweighs energy gains",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-11-12T21:02:53+00:00",
-            "title": "Wall Street shakes with swings for Nvidia and oil prices but recovers most of its early losses",
-            "src": "KTVN"
+            "t": "2026-11-12T21:28:00+00:00",
+            "title": "You Don’t Need Nvidia to Beat the S&P 500. These ETFs Prove It.",
+            "src": "Barron's"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-12T22:52:00+00:00",
+            "title": "Top trade committee Democrats launch probe into Trump administration approving Nvidia’s chip sales to China",
+            "src": "The Hill"
+          },
+          {
+            "t": "2026-11-12T22:18:45+00:00",
+            "title": "Jensen Huang To Testify Before Congress As Lawmakers Launch Nvidia Probe Over China Chip Scheme",
+            "src": "Inc.com"
+          },
           {
             "t": "2026-11-12T20:28:25+00:00",
             "title": "Top Dems Launch Probe Into Trump Admin's Nvidia Dealings",
@@ -698,16 +708,6 @@
             "t": "2026-11-12T19:50:05+00:00",
             "title": "Top Democrats Launch Congressional Probe Into Trump-Nvidia ‘Scheme’",
             "src": "Common Dreams"
-          },
-          {
-            "t": "2026-11-12T19:41:18+00:00",
-            "title": "Chinese ‘spy’ Alice Huang at center of DOJ probe into another alleged Nvidia smuggling scheme",
-            "src": "New York Post"
-          },
-          {
-            "t": "2026-11-12T19:33:48+00:00",
-            "title": "Jensen Huang is out ahead of Nvidia earnings",
-            "src": "FXStreet"
           }
         ]
       },
@@ -718,6 +718,11 @@
             "t": "2026-11-12T20:52:43+00:00",
             "title": "Oil, Gas Producers Brace for Persistent Inflation",
             "src": "Hart Energy"
+          },
+          {
+            "t": "2026-11-12T20:45:01+00:00",
+            "title": "Fed Governor Outlines Inflation Progress as ‘Disappointing,’ Sees Path to 2% Goal in the Next Year",
+            "src": "RISMedia"
           },
           {
             "t": "2026-11-12T20:24:23+00:00",
@@ -733,11 +738,6 @@
             "t": "2026-11-12T20:18:11+00:00",
             "title": "Argentina’s Inflation Ticked Up More Than Expected in October",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-12T19:45:00+00:00",
-            "title": "Opinion | The Vote Against the Wealth Tax Was a Verdict on Inflation",
-            "src": "WSJ"
           }
         ]
       },
@@ -745,24 +745,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-12T21:35:52+00:00",
-            "title": "Trump reverts to an old theme, warns of immigrant caravans",
-            "src": "The Washington Post"
+            "t": "2026-11-12T22:29:40+00:00",
+            "title": "Trump threatens to double tariffs on Mexico over group of migrants headed for southern border",
+            "src": "WQAD"
+          },
+          {
+            "t": "2026-11-12T22:16:45+00:00",
+            "title": "Gold, silver slide as Treasury yields surge, Fed hike concerns intensify - Kitco PM Report",
+            "src": "Kitco"
+          },
+          {
+            "t": "2026-11-12T21:33:00+00:00",
+            "title": "He Has $100,000 in His Federal Retirement Bond Fund as Treasury Yields Hit 5%. Another 1-Point Rise Could Cost Him $6,000. A Different Fund Protects His Principal",
+            "src": "24/7 Wall St."
           },
           {
             "t": "2026-11-12T21:20:36+00:00",
             "title": "Trump threatens to double tariffs on Mexico as a new migrant caravan heads north",
             "src": "Mexico News Daily"
-          },
-          {
-            "t": "2026-11-12T21:09:30+00:00",
-            "title": "Jeffries refuses to rule out government shutdown over Iran war",
-            "src": "Denver Gazette"
-          },
-          {
-            "t": "2026-11-12T20:42:48+00:00",
-            "title": "Trump threatens to double Mexico tariffs as migrants head north",
-            "src": "Texas Public Radio | TPR"
           }
         ]
       },
@@ -785,9 +785,9 @@
             "src": "Kyiv Post"
           },
           {
-            "t": "2026-11-12T20:30:33+00:00",
-            "title": "Southern Iran's Sirik County near Strait of Hormuz hit by 'enemy' strike: State media",
-            "src": "Anadolu Ajansı"
+            "t": "2026-11-12T20:35:01+00:00",
+            "title": "Baghaei Warns Countries Against Joining US Military or Sanctions Actions Against Iran",
+            "src": "WANA News Agency"
           }
         ]
       }
@@ -795,7 +795,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-12T22:45:35.500668+00:00",
+    "at": "2026-11-12T23:00:49.067977+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -1350,16 +1350,16 @@
     },
     "US|auction:10-y-bond-auction|2026-11-10|1801": {
       "actual": "",
-      "status": "awaiting",
-      "attempts": 34,
+      "status": "failed",
+      "attempts": 35,
       "title": "10-y Bond Auction",
       "time": "2026-11-10T18:01:00+00:00",
       "impact": "Low",
       "forecast": "",
       "previous": "5.30|2.8",
       "country": "USD",
-      "last_attempt": "2026-11-12T00:00:42.404009+00:00",
-      "note": ""
+      "last_attempt": "2026-11-12T23:00:49.067977+00:00",
+      "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     },
     "US|claims|claims_k|w2026-11-08|-|2026-11-12": {
       "actual": "200K",
@@ -1369,7 +1369,7 @@
       "source": "FRED",
       "period": "2026-11-07",
       "received_at": "2026-11-12T13:45:34.651748+00:00",
-      "last_attempt": "2026-11-12T20:00:43.705614+00:00",
+      "last_attempt": "2026-11-12T23:00:49.067977+00:00",
       "attempts": 2,
       "title": "Unemployment Claims",
       "time": "2026-11-12T13:30:00+00:00",
@@ -5780,12 +5780,58 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
+    },
+    {
+      "id": "US|claims|claims_k|w2026-11-08|-|2026-11-12",
+      "title": "Unemployment Claims",
+      "release_time": "2026-11-12T13:30:00+00:00",
+      "fetched_at": "2026-11-12T23:00:49.067977+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "200K",
+      "period": "2026-11-07",
+      "series": "ICSA",
+      "method": "القيمة المنشورة مقسومة على 1000",
+      "raw": 200.0,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "194K",
+      "previous": "189K",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (ICSA، فترة 2026-11-07) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|auction:10-y-bond-auction|2026-11-10|1801",
+      "title": "10-y Bond Auction",
+      "release_time": "2026-11-10T18:01:00+00:00",
+      "fetched_at": "2026-11-12T23:00:49.067977+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "5.30|2.8",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-12T22:45:35.500668+00:00",
+  "last_publish_ok": "2026-11-12T23:00:49.067977+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-12T22:45:58.635873+00:00"
+    "at": "2026-11-12T23:01:58.695342+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -5882,7 +5928,7 @@
     "fred": {
       "ok": true,
       "detail": "1 سلسلة",
-      "at": "2026-11-12T20:00:43.705614+00:00"
+      "at": "2026-11-12T23:00:49.067977+00:00"
     },
     "alfred": {
       "ok": false,
@@ -5892,7 +5938,7 @@
     "treasury": {
       "ok": false,
       "detail": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)",
-      "at": "2026-11-12T22:30:38.894645+00:00"
+      "at": "2026-11-12T23:00:49.067977+00:00"
     }
   },
   "bls_calls": {
@@ -5902,12 +5948,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-12T22:45:35.500668+00:00",
-    "ok_at": "2026-11-12T22:45:35.500668+00:00",
+    "at": "2026-11-12T23:00:49.067977+00:00",
+    "ok_at": "2026-11-12T23:00:49.067977+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-12T22:45:35.500668+00:00",
+    "at": "2026-11-12T23:00:49.067977+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
