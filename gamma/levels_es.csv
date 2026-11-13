@@ -1,23 +1,22 @@
-asof_utc,2026-11-13T14:30:22+00:00,basis,24.39,mode,close
+asof_utc,2026-11-13T14:40:22+00:00,basis,28.44,mode,live
 price,label,kind,strength,color,style,width
-7793.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7764.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7743.25,SPY PEAK+ S,peak,strong,00E0A0,solid,2
-7724.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7713.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7693.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7674.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
-7673.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7663.25,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7653.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7650.5,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7643.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7624.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7613.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7593.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7574.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7542.75,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7524.5,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7499.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7492.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7474.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7799.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7768.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7749.25,SPY PEAK+ S,peak,strong,00E0A0,solid,2
+7728.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7699.25,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7679.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7678.5,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7669.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7659.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7654.75,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7649.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7628.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7619.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7599.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7578.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7548.75,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7528.5,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7503.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7498.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7478.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
