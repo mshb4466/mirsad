@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-13T22:30:50.087436+00:00",
-        "ok_at": "2026-11-13T22:30:50.087436+00:00"
+        "last_try": "2026-11-13T22:45:37.665076+00:00",
+        "ok_at": "2026-11-13T22:45:37.665076+00:00"
       },
       "fred": {
-        "last_try": "2026-11-13T22:30:50.087436+00:00",
-        "ok_at": "2026-11-13T22:30:50.087436+00:00"
+        "last_try": "2026-11-13T22:45:37.665076+00:00",
+        "ok_at": "2026-11-13T22:45:37.665076+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-13T22:30:50.087436+00:00",
-        "ok_at": "2026-11-13T22:30:50.087436+00:00"
+        "last_try": "2026-11-13T22:45:37.665076+00:00",
+        "ok_at": "2026-11-13T22:45:37.665076+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-13T22:30:50.087436+00:00",
+        "last_try": "2026-11-13T22:45:37.665076+00:00",
         "ok_at": "2026-11-12T18:00:47.967732+00:00"
       },
       "oil": {
-        "last_try": "2026-11-13T22:30:50.087436+00:00",
-        "ok_at": "2026-11-13T22:30:50.087436+00:00"
+        "last_try": "2026-11-13T22:45:37.665076+00:00",
+        "ok_at": "2026-11-13T22:45:37.665076+00:00"
       },
       "news": {
-        "last_try": "2026-11-13T22:30:50.087436+00:00",
-        "ok_at": "2026-11-13T22:30:50.087436+00:00"
+        "last_try": "2026-11-13T22:45:37.665076+00:00",
+        "ok_at": "2026-11-13T22:45:37.665076+00:00"
       },
       "cot": {
-        "last_try": "2026-11-13T22:30:50.087436+00:00",
-        "ok_at": "2026-11-13T22:30:50.087436+00:00"
+        "last_try": "2026-11-13T22:45:37.665076+00:00",
+        "ok_at": "2026-11-13T22:45:37.665076+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-13T22:30:50.087436+00:00",
-        "ok_at": "2026-11-13T22:30:50.087436+00:00"
+        "last_try": "2026-11-13T22:45:37.665076+00:00",
+        "ok_at": "2026-11-13T22:45:37.665076+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-13T22:30:50.087436+00:00"
+      "at": "2026-11-13T22:45:37.665076+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,36 +862,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-13T21:31:53.227727+00:00",
+    "at": "2026-11-13T22:45:37.665076+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-13T21:18:33+00:00",
-            "title": "Producer prices surge at 6.5% annual pace as Fed officials signal hike",
-            "src": "CFO Dive"
-          },
-          {
-            "t": "2026-11-13T21:17:47+00:00",
-            "title": "Fed Hike Bets Outrun the BoE and Push the Dollar to a 19-Month High",
-            "src": "StoneX"
-          },
-          {
-            "t": "2026-11-13T21:17:38+00:00",
-            "title": "Fed's Waller, Bowman and Goolsbee Keep Rate Hike Bets Alive",
-            "src": "StoneX"
-          },
-          {
-            "t": "2026-11-13T21:03:43+00:00",
+            "t": "2026-11-13T22:26:58+00:00",
             "title": "AI rockets to top of worries about financial system in latest Fed survey",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-13T21:01:00+00:00",
-            "title": "Kevin Warsh’s Plan to Remake the Fed: Fewer Rate Votes, More Deliberating",
-            "src": "WSJ"
+            "t": "2026-11-13T21:33:54+00:00",
+            "title": "Gold Holds Drop to Near One-Year Low as Rate-Hike Bets Increase",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-13T21:32:24+00:00",
+            "title": "Dollar Poised for Best Week in Over a Month on Fed Hike Bets",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-13T21:30:04+00:00",
+            "title": "Fed releases financial stability report, respondents raised concerns around AI",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-13T21:18:33+00:00",
+            "title": "Producer prices surge at 6.5% annual pace as Fed officials signal hike",
+            "src": "CFO Dive"
           }
         ]
       },
@@ -899,29 +899,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-13T21:23:36+00:00",
+            "t": "2026-11-13T21:41:27+00:00",
+            "title": "Widespread Microsoft Outage Roils Businesses, Governments",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-13T21:34:31+00:00",
             "title": "S&P 500, Nasdaq end lower as Nvidia uncertainty weighs on tech shares",
-            "src": "Virginia Business"
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-13T21:32:06+00:00",
+            "title": "5 Multibagger Stocks to Buy According to Wall Street",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-13T21:25:24+00:00",
+            "title": "Wall Street’s Wild Ride Delivers Big Paydays and Bigger Bruises",
+            "src": "Bloomberg.com"
           },
           {
             "t": "2026-11-13T21:15:31+00:00",
             "title": "Stocks sway as Wall Street heads for a winning week after several turbulent days",
             "src": "Pittsburgh Post-Gazette"
-          },
-          {
-            "t": "2026-11-13T21:06:14+00:00",
-            "title": "Stocks fall but Wall Street notches a winning week after several turbulent days | National News | 2news.com",
-            "src": "KTVN"
-          },
-          {
-            "t": "2026-11-13T20:30:46+00:00",
-            "title": "Nvidia’s Disappearing Singapore Sales Deepen Mystery Around Megaspeed",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-13T20:15:00+00:00",
-            "title": "Opinion | Jensen Huang and the World’s Information Chaos",
-            "src": "WSJ"
           }
         ]
       },
@@ -929,35 +929,50 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-13T21:04:19+00:00",
-            "title": "The AI trade faces big tests next week, starting with Nvidia earnings and capped by Anthropic IPO",
-            "src": "CNBC"
+            "t": "2026-11-13T22:35:00+00:00",
+            "title": "What will happen at Nvidia's impending earnings call?",
+            "src": "www.marketplace.org"
           },
           {
-            "t": "2026-11-13T20:57:20+00:00",
-            "title": "Nvidia Q3 Earnings Preview: What Options Traders Expect After Jensen Huang’s Sudden Exit",
-            "src": "Yahoo Finance"
+            "t": "2026-11-13T22:16:27+00:00",
+            "title": "US Congress widens Nvidia probe, seeks testimony from Huang and Trump officials",
+            "src": "South China Morning Post"
           },
           {
-            "t": "2026-11-13T20:36:00+00:00",
-            "title": "America's Greatest Opportunities: The Earnings Gap That Put Tesla Stock At Ludicrous Speed",
+            "t": "2026-11-13T21:55:16+00:00",
+            "title": "Nvidia Board Faces Credibility Test In CEO Probe",
+            "src": "Law360"
+          },
+          {
+            "t": "2026-11-13T21:55:07+00:00",
+            "title": "How Nvidia Can Move Forward Without Its Founder",
+            "src": "Harvard Business Review"
+          },
+          {
+            "t": "2026-11-13T21:39:00+00:00",
+            "title": "Market Rally Hard To Handle; Nvidia Earnings, Anthropic IPO Ahead",
             "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-11-13T20:26:55+00:00",
-            "title": "Congress doubles down on Nvidia probe",
-            "src": "Global Investigations Review"
-          },
-          {
-            "t": "2026-11-13T20:04:34+00:00",
-            "title": "Nvidia Earnings Preview: NVDA’s First Test of the Post Jenson Huang Era",
-            "src": "FOREX.com"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-11-13T22:26:11+00:00",
+            "title": "How Will Higher-than-Expected Inflation Data Impact the Fed's Next Rate Decisions?",
+            "src": "Goldman Sachs"
+          },
+          {
+            "t": "2026-11-13T21:24:00+00:00",
+            "title": "Stock Market Today: Indexes Trim Losses, Manage To Score Weekly Gains Despite Strong Volatility",
+            "src": "Investor's Business Daily"
+          },
+          {
+            "t": "2026-11-13T21:22:11+00:00",
+            "title": "US Stocks Drift Before Inflation Test of Fed Bets: Markets Wrap",
+            "src": "Bloomberg.com"
+          },
           {
             "t": "2026-11-13T21:16:00+00:00",
             "title": "Inflation Pressures And Fiscal Risks Shape Bond Markets - TalkMarkets",
@@ -967,21 +982,6 @@
             "t": "2026-11-13T20:41:26+00:00",
             "title": "Fed’s Williams signals more rate hikes as inflation stays stubborn",
             "src": "Mortgage Professional America"
-          },
-          {
-            "t": "2026-11-13T20:39:04+00:00",
-            "title": "As inflation grips Turkey, Erdogan struggles to contain fund scandal",
-            "src": "Al-Monitor"
-          },
-          {
-            "t": "2026-11-13T20:38:00+00:00",
-            "title": "After the Blue Wave, will we see lower gas and food prices?",
-            "src": "www.marketplace.org"
-          },
-          {
-            "t": "2026-11-13T20:19:31+00:00",
-            "title": "Inflation isn't going away. Here's what that means for interest rates.",
-            "src": "CBS News"
           }
         ]
       },
@@ -994,19 +994,19 @@
             "src": "Law360"
           },
           {
+            "t": "2026-11-13T20:38:00+00:00",
+            "title": "After the Blue Wave, will we see lower gas and food prices?",
+            "src": "www.marketplace.org"
+          },
+          {
             "t": "2026-11-13T20:00:50+00:00",
             "title": "Van Hollen Challenge to Schumer Raises Odds of Government Shutdown",
             "src": "New York Magazine"
           },
           {
-            "t": "2026-11-13T19:35:24+00:00",
-            "title": "How the Democrats plan to stop Trump’s tariffs",
-            "src": "The Times"
-          },
-          {
-            "t": "2026-11-13T19:32:53+00:00",
-            "title": "Odds for Government Shutdown in December: Trade on Politics Markets",
-            "src": "Federal News Network"
+            "t": "2026-11-13T20:00:06+00:00",
+            "title": "Mexico's Sheinbaum says migrant caravan not moving toward US now as Trump threatens tariffs",
+            "src": "Reuters"
           }
         ]
       },
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-13T22:30:50.087436+00:00",
+    "at": "2026-11-13T22:45:37.665076+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -1653,7 +1653,7 @@
     },
     "US|auction:30-y-bond-auction|2026-11-12|1801": {
       "actual": "",
-      "status": "failed",
+      "status": "awaiting",
       "attempts": 34,
       "title": "30-y Bond Auction",
       "time": "2026-11-12T18:01:00+00:00",
@@ -1662,7 +1662,7 @@
       "previous": "5.62|2.5",
       "country": "USD",
       "last_attempt": "2026-11-13T22:30:50.087436+00:00",
-      "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
+      "note": ""
     },
     "US|ppife|mm|2026-10|-|2026-11-13": {
       "actual": "0.3%",
@@ -7268,10 +7268,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-13T22:30:50.087436+00:00",
+  "last_publish_ok": "2026-11-13T22:45:37.665076+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-13T22:31:32.316496+00:00"
+    "at": "2026-11-13T22:46:08.823616+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7400,12 +7400,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-13T22:30:50.087436+00:00",
-    "ok_at": "2026-11-13T22:30:50.087436+00:00",
+    "at": "2026-11-13T22:45:37.665076+00:00",
+    "ok_at": "2026-11-13T22:45:37.665076+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-13T22:30:50.087436+00:00",
+    "at": "2026-11-13T22:45:37.665076+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
