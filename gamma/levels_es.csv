@@ -1,18 +1,18 @@
-asof_utc,2026-11-13T17:30:30+00:00,basis,20.11,mode,live
+asof_utc,2026-11-13T17:40:30+00:00,basis,19.37,mode,live
 price,label,kind,strength,color,style,width
-7792.25,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7720.0,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7645.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7630.75,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7620.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7591.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7571.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7570.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7541.5,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7540.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7520.0,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7495.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7491.25,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7470.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7441.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7420.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7791.0,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7719.25,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7648.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7633.5,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7619.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7590.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7570.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7569.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7540.25,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7539.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7519.25,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7494.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7490.25,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7469.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7440.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7419.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
