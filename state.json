@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T12:00:40.953928+00:00",
-        "ok_at": "2026-11-14T12:00:40.953928+00:00"
+        "last_try": "2026-11-14T12:15:37.564693+00:00",
+        "ok_at": "2026-11-14T12:15:37.564693+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T12:00:40.953928+00:00",
-        "ok_at": "2026-11-14T12:00:40.953928+00:00"
+        "last_try": "2026-11-14T12:15:37.564693+00:00",
+        "ok_at": "2026-11-14T12:15:37.564693+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T12:00:40.953928+00:00",
-        "ok_at": "2026-11-14T12:00:40.953928+00:00"
+        "last_try": "2026-11-14T12:15:37.564693+00:00",
+        "ok_at": "2026-11-14T12:15:37.564693+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T12:00:40.953928+00:00",
-        "ok_at": "2026-11-14T12:00:40.953928+00:00"
+        "last_try": "2026-11-14T12:15:37.564693+00:00",
+        "ok_at": "2026-11-14T12:15:37.564693+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T12:00:40.953928+00:00",
-        "ok_at": "2026-11-14T12:00:40.953928+00:00"
+        "last_try": "2026-11-14T12:15:37.564693+00:00",
+        "ok_at": "2026-11-14T12:15:37.564693+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T12:00:40.953928+00:00",
-        "ok_at": "2026-11-14T12:00:40.953928+00:00"
+        "last_try": "2026-11-14T12:15:37.564693+00:00",
+        "ok_at": "2026-11-14T12:15:37.564693+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T12:00:40.953928+00:00",
-        "ok_at": "2026-11-14T12:00:40.953928+00:00"
+        "last_try": "2026-11-14T12:15:37.564693+00:00",
+        "ok_at": "2026-11-14T12:15:37.564693+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T12:00:40.953928+00:00",
-        "ok_at": "2026-11-14T12:00:40.953928+00:00"
+        "last_try": "2026-11-14T12:15:37.564693+00:00",
+        "ok_at": "2026-11-14T12:15:37.564693+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T12:00:40.953928+00:00"
+      "at": "2026-11-14T12:15:37.564693+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,12 +862,17 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T11:00:53.935248+00:00",
+    "at": "2026-11-14T12:15:37.564693+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-14T10:00:00+00:00",
+            "title": "Charting the Global Economy: Inflation in US Exceeds Projections",
+            "src": "Bloomberg"
+          },
           {
             "t": "2026-11-14T07:16:42+00:00",
             "title": "Asian Bond Yields Rise on Growing Expectations for Fed Rate Hike",
@@ -887,11 +892,6 @@
             "t": "2026-11-14T00:53:41+00:00",
             "title": "The Fed Got It Right; Now Congress Must Do the Same",
             "src": "The Heritage Foundation"
-          },
-          {
-            "t": "2026-11-14T00:03:00+00:00",
-            "title": "Fed's Jefferson says he is taking his policy cues from inflation",
-            "src": "Reuters"
           }
         ]
       },
@@ -899,13 +899,8 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-14T10:35:09+00:00",
-            "title": "The 31-Year-Old Trader Who Called Out Jensen Huang’s ‘China Problem’—and Shorted Nvidia",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-14T10:31:51+00:00",
-            "title": "Oil Prices Rebound as Trump Questions Need for Iran Deal",
+            "t": "2026-11-14T11:59:58+00:00",
+            "title": "U.S. Crude-Oil Stockpiles Post Unexpected Weekly Build",
             "src": "WSJ"
           },
           {
@@ -914,20 +909,35 @@
             "src": "WSJ"
           },
           {
-            "t": "2026-11-14T10:11:47+00:00",
-            "title": "Ukraine Says Its Military Starlink Is Disrupted Again, Hurting Defenses",
-            "src": "WSJ"
-          },
-          {
             "t": "2026-11-14T09:41:02+00:00",
             "title": "Should You Really Buy Nvidia Stock After CEO Jensen Huang's Exit? Wall Street Has a Clear Answer for Investors.",
             "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-14T07:53:30+00:00",
+            "title": "30 S&P 500 Stocks Just Made New 52-Week Highs",
+            "src": "Trefis"
+          },
+          {
+            "t": "2026-11-14T07:41:38+00:00",
+            "title": "S&P 500 Movers | Winners: CHTR, STE, GPN | Losers: AMD, DELL, CSCO",
+            "src": "Trefis"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-14T12:05:03+00:00",
+            "title": "Smart Investor: What’s Next for Nvidia, Undervalued Earnings Crushers, and is Anthropic a Buy?",
+            "src": "Morningstar"
+          },
+          {
+            "t": "2026-11-14T11:05:02+00:00",
+            "title": "Should You Buy Nvidia Stock Before Nov. 17?",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-11-14T10:25:00+00:00",
             "title": "Nvidia Earnings and Anthropic's Debut Set Up a Pivotal Nov. 18 for AI Stocks",
@@ -942,16 +952,6 @@
             "t": "2026-11-14T07:29:52+00:00",
             "title": "Alphabet Dropped After Earnings. Is It Actually Cheap Now?",
             "src": "Moomoo"
-          },
-          {
-            "t": "2026-11-14T03:56:00+00:00",
-            "title": "How To Handle This Market; Nvidia Earnings, Anthropic IPO Ahead",
-            "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-11-14T01:16:40+00:00",
-            "title": "How Nvidia Can Move Forward Without Its Founder",
-            "src": "Harvard Business Review"
           }
         ]
       },
@@ -964,9 +964,9 @@
             "src": "Business Insider"
           },
           {
-            "t": "2026-11-14T09:06:00+00:00",
+            "t": "2026-11-14T09:26:02+00:00",
             "title": "New Inflation Data Offers Terrible News for President Donald Trump's Economy and the AI-Driven Bull Market",
-            "src": "The Motley Fool"
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-14T04:32:05+00:00",
@@ -979,7 +979,7 @@
             "src": "PYMNTS.com"
           },
           {
-            "t": "2026-11-14T01:00:00+00:00",
+            "t": "2026-11-14T01:01:38+00:00",
             "title": "The Next Wave of Food Inflation Is Coming",
             "src": "WSJ"
           }
@@ -989,14 +989,14 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-14T09:28:16+00:00",
-            "title": "US, China hold first trade council meeting, discuss tariffs, agricultural trade",
-            "src": "Anadolu Ajansı"
+            "t": "2026-11-14T11:48:45+00:00",
+            "title": "China, US discuss tariffs, farm trade ahead of Xi-Trump meeting",
+            "src": "The New Arab"
           },
           {
             "t": "2026-11-14T07:46:00+00:00",
             "title": "China, US Discuss Tariffs in First Meeting of Trade Council",
-            "src": "Bloomberg.com"
+            "src": "Bloomberg"
           },
           {
             "t": "2026-11-14T06:10:18+00:00",
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-14T10:56:16+00:00",
+            "title": "Ukraine Says It Hit Oil-Pumping Station in Russia’s Samara",
+            "src": "Bloomberg"
+          },
+          {
             "t": "2026-11-14T10:44:59+00:00",
             "title": "“Sort this out with Putin.” Zelenskyy Reveals Russia’s Reply on a Ceasefire Negotiations",
             "src": "UNITED24 Media"
           },
           {
-            "t": "2026-11-14T10:31:30+00:00",
-            "title": "Iran's navy says oil tanker on fire after hitting mine in Hormuz",
-            "src": "Reuters"
-          },
-          {
             "t": "2026-11-14T08:30:00+00:00",
             "title": "The Oil Market Is Brimming With Crude Despite Tanker Attacks",
-            "src": "Bloomberg.com"
+            "src": "Bloomberg"
           },
           {
-            "t": "2026-11-14T07:56:21+00:00",
-            "title": "UN says 25 seafarers killed in, around Hormuz since US-Israel war on Iran",
-            "src": "Al Jazeera"
+            "t": "2026-11-14T04:58:49+00:00",
+            "title": "Waialua engineer sentenced for evading Iran sanctions",
+            "src": "Honolulu Star-Advertiser"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T12:00:40.953928+00:00",
+    "at": "2026-11-14T12:15:37.564693+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7590,10 +7590,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T12:00:40.953928+00:00",
+  "last_publish_ok": "2026-11-14T12:15:37.564693+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T12:01:27.165012+00:00"
+    "at": "2026-11-14T12:16:00.528029+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7722,12 +7722,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T12:00:40.953928+00:00",
-    "ok_at": "2026-11-14T12:00:40.953928+00:00",
+    "at": "2026-11-14T12:15:37.564693+00:00",
+    "ok_at": "2026-11-14T12:15:37.564693+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T12:00:40.953928+00:00",
+    "at": "2026-11-14T12:15:37.564693+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
