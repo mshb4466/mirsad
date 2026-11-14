@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T05:15:32.201620+00:00",
-        "ok_at": "2026-11-14T05:15:32.201620+00:00"
+        "last_try": "2026-11-14T05:30:43.002746+00:00",
+        "ok_at": "2026-11-14T05:30:43.002746+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T05:15:32.201620+00:00",
-        "ok_at": "2026-11-14T05:15:32.201620+00:00"
+        "last_try": "2026-11-14T05:30:43.002746+00:00",
+        "ok_at": "2026-11-14T05:30:43.002746+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T05:15:32.201620+00:00",
-        "ok_at": "2026-11-14T05:15:32.201620+00:00"
+        "last_try": "2026-11-14T05:30:43.002746+00:00",
+        "ok_at": "2026-11-14T05:30:43.002746+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T05:15:32.201620+00:00",
-        "ok_at": "2026-11-14T05:15:32.201620+00:00"
+        "last_try": "2026-11-14T05:30:43.002746+00:00",
+        "ok_at": "2026-11-14T05:30:43.002746+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T05:15:32.201620+00:00",
-        "ok_at": "2026-11-14T05:15:32.201620+00:00"
+        "last_try": "2026-11-14T05:30:43.002746+00:00",
+        "ok_at": "2026-11-14T05:30:43.002746+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T05:15:32.201620+00:00",
-        "ok_at": "2026-11-14T05:15:32.201620+00:00"
+        "last_try": "2026-11-14T05:30:43.002746+00:00",
+        "ok_at": "2026-11-14T05:30:43.002746+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T05:15:32.201620+00:00",
-        "ok_at": "2026-11-14T05:15:32.201620+00:00"
+        "last_try": "2026-11-14T05:30:43.002746+00:00",
+        "ok_at": "2026-11-14T05:30:43.002746+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T05:15:32.201620+00:00",
-        "ok_at": "2026-11-14T05:15:32.201620+00:00"
+        "last_try": "2026-11-14T05:30:43.002746+00:00",
+        "ok_at": "2026-11-14T05:30:43.002746+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T05:15:32.201620+00:00"
+      "at": "2026-11-14T05:30:43.002746+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T04:30:39.945486+00:00",
+    "at": "2026-11-14T05:30:43.002746+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -874,7 +874,7 @@
             "src": "NBA.com"
           },
           {
-            "t": "2026-11-14T00:45:00+00:00",
+            "t": "2026-11-14T00:53:41+00:00",
             "title": "The Fed Got It Right; Now Congress Must Do the Same",
             "src": "The Heritage Foundation"
           },
@@ -889,9 +889,9 @@
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-13T23:24:20+00:00",
-            "title": "The AI boom has handed the Fed an inflation problem that rate hikes may not fix",
-            "src": "Marketplace.org"
+            "t": "2026-11-13T22:54:38+00:00",
+            "title": "Fed warns of financial risks from AI-driven market optimism",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -899,7 +899,12 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-14T02:51:00+00:00",
+            "t": "2026-11-14T05:17:26+00:00",
+            "title": "CVS Breakup Won’t Satisfy Washington. It Could Still Work for Wall Street.",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T02:32:20+00:00",
             "title": "FAA Lifts Nationwide Groundstop That Upended Flights",
             "src": "WSJ"
           },
@@ -917,11 +922,6 @@
             "t": "2026-11-13T22:36:12+00:00",
             "title": "Wall Street Makes Its Pitch for Anthropic’s I.P.O.",
             "src": "The New York Times"
-          },
-          {
-            "t": "2026-11-13T22:14:00+00:00",
-            "title": "U.S. Stocks Mixed on Nvidia Fallout Fears",
-            "src": "WSJ"
           }
         ]
       },
@@ -929,14 +929,14 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-11-14T03:56:00+00:00",
+            "title": "How To Handle This Market; Nvidia Earnings, Anthropic IPO Ahead",
+            "src": "Investor's Business Daily"
+          },
+          {
             "t": "2026-11-14T01:09:52+00:00",
             "title": "Stock Market Today, November 13, 2026: Tech Stocks Fall as Nvidia Earnings and Anthropic IPO Loom",
             "src": "Eurasia Business News"
-          },
-          {
-            "t": "2026-11-14T00:41:00+00:00",
-            "title": "How To Handle This Market; SpaceX Booster Diverts",
-            "src": "Investor's Business Daily"
           },
           {
             "t": "2026-11-13T22:36:00+00:00",
@@ -959,6 +959,11 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-11-14T04:30:00+00:00",
+            "title": "How Will Higher-than-Expected Inflation Data Impact the Fed's Next Rate Decisions?",
+            "src": "Goldman Sachs"
+          },
+          {
             "t": "2026-11-14T01:10:32+00:00",
             "title": "12-Month Wholesale Inflation Reaches 4-Year High Despite October Slowdown",
             "src": "PYMNTS.com"
@@ -969,25 +974,25 @@
             "src": "WSJ"
           },
           {
+            "t": "2026-11-14T00:23:00+00:00",
+            "title": "3 US Cash Yield Stocks Retail Investors Are Watching After The Inflation Surprise",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-11-14T00:06:34+00:00",
             "title": "Differences in GDP per capita across sub-Saharan Africa are large",
             "src": "Our World in Data"
-          },
-          {
-            "t": "2026-11-13T23:09:00+00:00",
-            "title": "Wholesale inflation rises again",
-            "src": "The Hill"
-          },
-          {
-            "t": "2026-11-13T22:55:00+00:00",
-            "title": "Inflation rose in October",
-            "src": "WKOW"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-11-14T03:15:00+00:00",
+            "title": "Tariffs Pushed Prices Up. Why Retail and Industrial Investors Shouldn't Expect a Quick Reversal",
+            "src": "The Motley Fool"
+          },
           {
             "t": "2026-11-13T22:59:00+00:00",
             "title": "Former US Trade Officials Challenge Trump's Canada Tariffs",
@@ -1002,17 +1007,17 @@
             "t": "2026-11-13T22:46:15+00:00",
             "title": "Gold posts steep weekly loss as Treasury yields rise, Fed tightening bets persist - Kitco PM Report",
             "src": "Kitco"
-          },
-          {
-            "t": "2026-11-13T22:30:21+00:00",
-            "title": "Canada’s Ambassador Warns Trump’s Tariffs Are Raising Business Costs: ‘Uncertainty Increases Your Cost of Capital’",
-            "src": "Yahoo Finance"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-11-14T04:43:46+00:00",
+            "title": "Iran Guards say two oil tankers hit by mines in Hormuz",
+            "src": "Arab News"
+          },
           {
             "t": "2026-11-14T02:34:04+00:00",
             "title": "Iran's oil output plunges below pre-war domestic needs",
@@ -1027,11 +1032,6 @@
             "t": "2026-11-14T02:31:00+00:00",
             "title": "Russia strikes hospital in central Kyiv after SpaceX system falters again",
             "src": "The Guardian"
-          },
-          {
-            "t": "2026-11-14T00:45:00+00:00",
-            "title": "Rubio says further US military action is not needed against economically weakened Iran",
-            "src": "AP News"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T05:15:32.201620+00:00",
+    "at": "2026-11-14T05:30:43.002746+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7406,10 +7406,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T05:15:32.201620+00:00",
+  "last_publish_ok": "2026-11-14T05:30:43.002746+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T05:15:59.209814+00:00"
+    "at": "2026-11-14T05:31:08.194928+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7538,12 +7538,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T05:15:32.201620+00:00",
-    "ok_at": "2026-11-14T05:15:32.201620+00:00",
+    "at": "2026-11-14T05:30:43.002746+00:00",
+    "ok_at": "2026-11-14T05:30:43.002746+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T05:15:32.201620+00:00",
+    "at": "2026-11-14T05:30:43.002746+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
