@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T03:15:37.539367+00:00",
-        "ok_at": "2026-11-14T03:15:37.539367+00:00"
+        "last_try": "2026-11-14T03:30:39.727076+00:00",
+        "ok_at": "2026-11-14T03:30:39.727076+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T03:15:37.539367+00:00",
-        "ok_at": "2026-11-14T03:15:37.539367+00:00"
+        "last_try": "2026-11-14T03:30:39.727076+00:00",
+        "ok_at": "2026-11-14T03:30:39.727076+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T03:15:37.539367+00:00",
-        "ok_at": "2026-11-14T03:15:37.539367+00:00"
+        "last_try": "2026-11-14T03:30:39.727076+00:00",
+        "ok_at": "2026-11-14T03:30:39.727076+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T03:15:37.539367+00:00",
-        "ok_at": "2026-11-14T03:15:37.539367+00:00"
+        "last_try": "2026-11-14T03:30:39.727076+00:00",
+        "ok_at": "2026-11-14T03:30:39.727076+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T03:15:37.539367+00:00",
-        "ok_at": "2026-11-14T03:15:37.539367+00:00"
+        "last_try": "2026-11-14T03:30:39.727076+00:00",
+        "ok_at": "2026-11-14T03:30:39.727076+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T03:15:37.539367+00:00",
-        "ok_at": "2026-11-14T03:15:37.539367+00:00"
+        "last_try": "2026-11-14T03:30:39.727076+00:00",
+        "ok_at": "2026-11-14T03:30:39.727076+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T03:15:37.539367+00:00",
-        "ok_at": "2026-11-14T03:15:37.539367+00:00"
+        "last_try": "2026-11-14T03:30:39.727076+00:00",
+        "ok_at": "2026-11-14T03:30:39.727076+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T03:15:37.539367+00:00",
-        "ok_at": "2026-11-14T03:15:37.539367+00:00"
+        "last_try": "2026-11-14T03:30:39.727076+00:00",
+        "ok_at": "2026-11-14T03:30:39.727076+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T03:15:37.539367+00:00"
+      "at": "2026-11-14T03:30:39.727076+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,12 +862,17 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T02:15:41.974737+00:00",
+    "at": "2026-11-14T03:30:39.727076+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-14T03:01:13+00:00",
+            "title": "Norman Powell tough lay up",
+            "src": "NBA.com"
+          },
           {
             "t": "2026-11-14T00:45:00+00:00",
             "title": "The Fed Got It Right; Now Congress Must Do the Same",
@@ -881,17 +886,12 @@
           {
             "t": "2026-11-14T00:00:00+00:00",
             "title": "Fed’s Jefferson Says Inflation Will Determine Rate Decisions",
-            "src": "Bloomberg"
+            "src": "Bloomberg.com"
           },
           {
             "t": "2026-11-13T23:24:20+00:00",
             "title": "The AI boom has handed the Fed an inflation problem that rate hikes may not fix",
             "src": "Marketplace.org"
-          },
-          {
-            "t": "2026-11-13T23:04:46+00:00",
-            "title": "Men's Basketball Welcomes Leon Powell",
-            "src": "Belmont Bruins"
           }
         ]
       },
@@ -899,29 +899,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-14T01:37:00+00:00",
-            "title": "FAA Lifts Nationwide Groundstop that Upended More Than 14,500 Flights",
+            "t": "2026-11-14T02:51:00+00:00",
+            "title": "FAA Lifts Nationwide Groundstop that Upended Flights",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-14T00:46:04+00:00",
-            "title": "Exclusive | U.S. Aircraft Evacuated From Second U.K. Base Due to Iran Threat",
+            "t": "2026-11-14T02:00:00+00:00",
+            "title": "Inside Stephen Miller’s Frenetic First Week as White House Chief of Staff",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T01:50:42+00:00",
+            "title": "‘The Ass-Kicking We Needed’: A Loss in GOP Heartland Exposes a Party in Pieces",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T00:36:25+00:00",
+            "title": "S&P 500, Nasdaq fall as Nvidia jitters drag down tech stocks",
+            "src": "Reuters"
           },
           {
             "t": "2026-11-14T00:30:00+00:00",
             "title": "Exclusive | U.S. Loses Measles-Elimination Status as Historic Resurgence Sickens Thousands",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-13T23:37:29+00:00",
-            "title": "S&P 500, Dow, Nasdaq End Lower Amid Nvidia Turmoil, But Record Best Week Since August — SPCX, NVDA, ARM, AZN In Focus",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-13T23:07:04+00:00",
-            "title": "Wall Street stocks mostly lower as Nvidia extends slump",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -939,6 +939,11 @@
             "src": "Investor's Business Daily"
           },
           {
+            "t": "2026-11-13T22:36:00+00:00",
+            "title": "Stock Market Falls But Nasdaq Holds Key Level; Anthropic IPO, Nvidia Earnings Loom",
+            "src": "Investor's Business Daily"
+          },
+          {
             "t": "2026-11-13T22:35:00+00:00",
             "title": "What will happen at Nvidia's impending earnings call?",
             "src": "Marketplace.org"
@@ -947,11 +952,6 @@
             "t": "2026-11-13T22:16:27+00:00",
             "title": "US Congress widens Nvidia probe, seeks testimony from Huang and Trump officials",
             "src": "South China Morning Post"
-          },
-          {
-            "t": "2026-11-13T21:55:16+00:00",
-            "title": "Nvidia Board Faces Credibility Test In CEO Probe",
-            "src": "Law360"
           }
         ]
       },
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-14T00:01:13+00:00",
-            "title": "Iran warns of 'immediate and decisive response' to any new US or Israel attack",
-            "src": "TRT World"
+            "t": "2026-11-14T02:34:04+00:00",
+            "title": "Iran's oil output plunges below pre-war domestic needs",
+            "src": "Iran International"
           },
           {
-            "t": "2026-11-13T20:52:00+00:00",
-            "title": "US military downs 2 Iranian attack drones as Iran claims a strike on a US radar in Bahrain",
+            "t": "2026-11-14T02:31:00+00:00",
+            "title": "Global oil supply returns to surplus for first time since start of Iran war, says IEA",
+            "src": "The Guardian"
+          },
+          {
+            "t": "2026-11-14T02:31:00+00:00",
+            "title": "Russia strikes hospital in central Kyiv after SpaceX system falters again",
+            "src": "The Guardian"
+          },
+          {
+            "t": "2026-11-14T00:45:00+00:00",
+            "title": "Rubio says further US military action is not needed against economically weakened Iran",
             "src": "AP News"
-          },
-          {
-            "t": "2026-11-13T20:44:49+00:00",
-            "title": "Ukraine Intensifies Strikes on Russia’s Oil Industry as Peace Negotiations Enter a Critical Phase",
-            "src": "EU Today"
-          },
-          {
-            "t": "2026-11-13T19:51:00+00:00",
-            "title": "U.S. downs two Iranian drones as Iran says it struck U.S. radar in Bahrain",
-            "src": "Haaretz"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T03:15:37.539367+00:00",
+    "at": "2026-11-14T03:30:39.727076+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7337,10 +7337,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-07) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T03:15:37.539367+00:00",
+  "last_publish_ok": "2026-11-14T03:30:39.727076+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T03:16:06.286029+00:00"
+    "at": "2026-11-14T03:31:06.320163+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7469,12 +7469,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T03:15:37.539367+00:00",
-    "ok_at": "2026-11-14T03:15:37.539367+00:00",
+    "at": "2026-11-14T03:30:39.727076+00:00",
+    "ok_at": "2026-11-14T03:30:39.727076+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T03:15:37.539367+00:00",
+    "at": "2026-11-14T03:30:39.727076+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
