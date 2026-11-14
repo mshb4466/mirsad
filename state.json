@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T06:30:38.315248+00:00",
-        "ok_at": "2026-11-14T06:30:38.315248+00:00"
+        "last_try": "2026-11-14T06:45:36.204504+00:00",
+        "ok_at": "2026-11-14T06:45:36.204504+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T06:30:38.315248+00:00",
-        "ok_at": "2026-11-14T06:30:38.315248+00:00"
+        "last_try": "2026-11-14T06:45:36.204504+00:00",
+        "ok_at": "2026-11-14T06:45:36.204504+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T06:30:38.315248+00:00",
-        "ok_at": "2026-11-14T06:30:38.315248+00:00"
+        "last_try": "2026-11-14T06:45:36.204504+00:00",
+        "ok_at": "2026-11-14T06:45:36.204504+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T06:30:38.315248+00:00",
-        "ok_at": "2026-11-14T06:30:38.315248+00:00"
+        "last_try": "2026-11-14T06:45:36.204504+00:00",
+        "ok_at": "2026-11-14T06:45:36.204504+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T06:30:38.315248+00:00",
-        "ok_at": "2026-11-14T06:30:38.315248+00:00"
+        "last_try": "2026-11-14T06:45:36.204504+00:00",
+        "ok_at": "2026-11-14T06:45:36.204504+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T06:30:38.315248+00:00",
-        "ok_at": "2026-11-14T06:30:38.315248+00:00"
+        "last_try": "2026-11-14T06:45:36.204504+00:00",
+        "ok_at": "2026-11-14T06:45:36.204504+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T06:30:38.315248+00:00",
-        "ok_at": "2026-11-14T06:30:38.315248+00:00"
+        "last_try": "2026-11-14T06:45:36.204504+00:00",
+        "ok_at": "2026-11-14T06:45:36.204504+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T06:30:38.315248+00:00",
-        "ok_at": "2026-11-14T06:30:38.315248+00:00"
+        "last_try": "2026-11-14T06:45:36.204504+00:00",
+        "ok_at": "2026-11-14T06:45:36.204504+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T06:30:38.315248+00:00"
+      "at": "2026-11-14T06:45:36.204504+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T05:30:43.002746+00:00",
+    "at": "2026-11-14T06:45:36.204504+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -899,13 +899,18 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-14T05:17:26+00:00",
-            "title": "CVS Breakup Won’t Satisfy Washington. It Could Still Work for Wall Street.",
+            "t": "2026-11-14T02:32:20+00:00",
+            "title": "FAA Lifts Nationwide Groundstop That Upended Flights",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-14T02:32:20+00:00",
-            "title": "FAA Lifts Nationwide Groundstop That Upended Flights",
+            "t": "2026-11-14T01:30:09+00:00",
+            "title": "‘The Ass-Kicking We Needed’: A Loss in GOP Heartland Exposes a Party in Pieces",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T00:30:00+00:00",
+            "title": "Exclusive | U.S. Loses Measles-Elimination Status as Historic Resurgence Sickens Thousands",
             "src": "WSJ"
           },
           {
@@ -914,14 +919,9 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-13T23:07:04+00:00",
-            "title": "Wall Street stocks mostly lower as Nvidia extends slump",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-13T22:36:12+00:00",
-            "title": "Wall Street Makes Its Pitch for Anthropic’s I.P.O.",
-            "src": "The New York Times"
+            "t": "2026-11-13T23:33:00+00:00",
+            "title": "Exclusive | Democrats Order Musk to Preserve Records Over Ukraine Starlink Access",
+            "src": "WSJ"
           }
         ]
       },
@@ -939,6 +939,11 @@
             "src": "Eurasia Business News"
           },
           {
+            "t": "2026-11-14T00:09:16+00:00",
+            "title": "Democrats clash over Senate leadership as GOP seeks answers in Nvidia probe",
+            "src": "cbs19.tv"
+          },
+          {
             "t": "2026-11-13T22:36:00+00:00",
             "title": "Stock Market Falls But Nasdaq Holds Key Level; Anthropic IPO, Nvidia Earnings Loom",
             "src": "Investor's Business Daily"
@@ -947,11 +952,6 @@
             "t": "2026-11-13T22:35:00+00:00",
             "title": "What will happen at Nvidia's impending earnings call?",
             "src": "Marketplace.org"
-          },
-          {
-            "t": "2026-11-13T22:16:27+00:00",
-            "title": "US Congress widens Nvidia probe, seeks testimony from Huang and Trump officials",
-            "src": "South China Morning Post"
           }
         ]
       },
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-14T04:58:49+00:00",
+            "title": "Waialua engineer sentenced for evading Iran sanctions",
+            "src": "Honolulu Star-Advertiser"
+          },
+          {
             "t": "2026-11-14T04:43:46+00:00",
             "title": "Iran Guards say two oil tankers hit by mines in Hormuz",
             "src": "Arab News"
           },
           {
-            "t": "2026-11-14T02:34:04+00:00",
-            "title": "Iran's oil output plunges below pre-war domestic needs",
+            "t": "2026-11-14T04:41:22+00:00",
+            "title": "Live - Trump to raise Iran with Putin and Xi, Rubio warns of region held hostage",
             "src": "Iran International"
           },
           {
-            "t": "2026-11-14T02:31:00+00:00",
-            "title": "Global oil supply returns to surplus for first time since start of Iran war, says IEA",
-            "src": "The Guardian"
-          },
-          {
-            "t": "2026-11-14T02:31:00+00:00",
-            "title": "Russia strikes hospital in central Kyiv after SpaceX system falters again",
-            "src": "The Guardian"
+            "t": "2026-11-14T02:34:04+00:00",
+            "title": "Iran's oil output plunges below pre-war domestic needs",
+            "src": "Iran International"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T06:30:38.315248+00:00",
+    "at": "2026-11-14T06:45:36.204504+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7429,10 +7429,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-07) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T06:30:38.315248+00:00",
+  "last_publish_ok": "2026-11-14T06:45:36.204504+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T06:31:04.340931+00:00"
+    "at": "2026-11-14T06:45:57.251165+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7561,12 +7561,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T06:30:38.315248+00:00",
-    "ok_at": "2026-11-14T06:30:38.315248+00:00",
+    "at": "2026-11-14T06:45:36.204504+00:00",
+    "ok_at": "2026-11-14T06:45:36.204504+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T06:30:38.315248+00:00",
+    "at": "2026-11-14T06:45:36.204504+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
