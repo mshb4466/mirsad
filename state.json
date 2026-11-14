@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T09:45:31.334932+00:00",
-        "ok_at": "2026-11-14T09:45:31.334932+00:00"
+        "last_try": "2026-11-14T10:00:41.873028+00:00",
+        "ok_at": "2026-11-14T10:00:41.873028+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T09:45:31.334932+00:00",
-        "ok_at": "2026-11-14T09:45:31.334932+00:00"
+        "last_try": "2026-11-14T10:00:41.873028+00:00",
+        "ok_at": "2026-11-14T10:00:41.873028+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T09:45:31.334932+00:00",
-        "ok_at": "2026-11-14T09:45:31.334932+00:00"
+        "last_try": "2026-11-14T10:00:41.873028+00:00",
+        "ok_at": "2026-11-14T10:00:41.873028+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T09:45:31.334932+00:00",
-        "ok_at": "2026-11-14T09:45:31.334932+00:00"
+        "last_try": "2026-11-14T10:00:41.873028+00:00",
+        "ok_at": "2026-11-14T10:00:41.873028+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T09:45:31.334932+00:00",
-        "ok_at": "2026-11-14T09:45:31.334932+00:00"
+        "last_try": "2026-11-14T10:00:41.873028+00:00",
+        "ok_at": "2026-11-14T10:00:41.873028+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T09:45:31.334932+00:00",
-        "ok_at": "2026-11-14T09:45:31.334932+00:00"
+        "last_try": "2026-11-14T10:00:41.873028+00:00",
+        "ok_at": "2026-11-14T10:00:41.873028+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T09:45:31.334932+00:00",
-        "ok_at": "2026-11-14T09:45:31.334932+00:00"
+        "last_try": "2026-11-14T10:00:41.873028+00:00",
+        "ok_at": "2026-11-14T10:00:41.873028+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T09:45:31.334932+00:00",
-        "ok_at": "2026-11-14T09:45:31.334932+00:00"
+        "last_try": "2026-11-14T10:00:41.873028+00:00",
+        "ok_at": "2026-11-14T10:00:41.873028+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T09:45:31.334932+00:00"
+      "at": "2026-11-14T10:00:41.873028+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T08:45:47.854541+00:00",
+    "at": "2026-11-14T10:00:41.873028+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -874,12 +874,17 @@
             "src": "WSJ"
           },
           {
+            "t": "2026-11-14T07:00:47+00:00",
+            "title": "Fault-tolerant multi-leg inverter-fed roadway-powered dynamic wireless power transfer charging system",
+            "src": "Nature"
+          },
+          {
             "t": "2026-11-14T06:25:54+00:00",
             "title": "Yen Slumps as Fed Rate-Hike Bets Boost Dollar",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-14T03:01:13+00:00",
+            "t": "2026-11-14T03:02:49+00:00",
             "title": "Norman Powell tough lay up",
             "src": "NBA.com"
           },
@@ -887,17 +892,22 @@
             "t": "2026-11-14T00:53:41+00:00",
             "title": "The Fed Got It Right; Now Congress Must Do the Same",
             "src": "The Heritage Foundation"
-          },
-          {
-            "t": "2026-11-14T00:03:00+00:00",
-            "title": "Fed's Jefferson says he is taking his policy cues from inflation",
-            "src": "Reuters"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-11-14T09:24:19+00:00",
+            "title": "Lutnick Fights for His Job as Trump Aides Blame Him for Nvidia Fallout",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T09:01:26+00:00",
+            "title": "CVS Breakup Won’t Satisfy Washington. It Could Still Work for Wall Street.",
+            "src": "WSJ"
+          },
           {
             "t": "2026-11-14T07:53:30+00:00",
             "title": "30 S&P 500 Stocks Just Made New 52-Week Highs",
@@ -912,16 +922,6 @@
             "t": "2026-11-14T07:41:38+00:00",
             "title": "S&P 500 Movers | Winners: CHTR, STE, GPN | Losers: AMD, DELL, CSCO",
             "src": "Trefis"
-          },
-          {
-            "t": "2026-11-14T07:33:00+00:00",
-            "title": "FAA Lifts Nationwide Groundstop That Upended Flights",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-14T05:08:13+00:00",
-            "title": "Stocks sway as Wall Street heads for winning week after several turbulent days",
-            "src": "Anchorage Daily News"
           }
         ]
       },
@@ -944,14 +944,14 @@
             "src": "Investor's Business Daily"
           },
           {
+            "t": "2026-11-14T01:16:40+00:00",
+            "title": "How Nvidia Can Move Forward Without Its Founder",
+            "src": "Harvard Business Review"
+          },
+          {
             "t": "2026-11-14T01:09:52+00:00",
             "title": "Stock Market Today, November 13, 2026: Tech Stocks Fall as Nvidia Earnings and Anthropic IPO Loom",
             "src": "Eurasia Business News"
-          },
-          {
-            "t": "2026-11-14T00:09:16+00:00",
-            "title": "Democrats clash over Senate leadership as GOP seeks answers in Nvidia probe",
-            "src": "cbs19.tv"
           }
         ]
       },
@@ -979,9 +979,9 @@
             "src": "Our World in Data"
           },
           {
-            "t": "2026-11-14T00:00:00+00:00",
-            "title": "Fed’s Jefferson Says Inflation Will Determine Rate Decisions",
-            "src": "Bloomberg.com"
+            "t": "2026-11-14T00:03:00+00:00",
+            "title": "Fed's Jefferson says he is taking his policy cues from inflation",
+            "src": "Reuters"
           }
         ]
       },
@@ -989,24 +989,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-14T08:16:44+00:00",
-            "title": "China, US discuss tariffs, farm trade ahead of Xi-Trump meeting",
-            "src": "CNBC"
+            "t": "2026-11-14T09:28:16+00:00",
+            "title": "US, China hold first trade council meeting, discuss tariffs, agricultural trade",
+            "src": "Anadolu Ajansı"
           },
           {
-            "t": "2026-11-14T07:13:00+00:00",
+            "t": "2026-11-14T07:46:00+00:00",
+            "title": "China, US Discuss Tariffs in First Meeting of Trade Council",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-14T07:41:38+00:00",
             "title": "China, US discuss tariffs, farm trade at first trade council meeting",
-            "src": "Reuters"
+            "src": "KFGO"
           },
           {
             "t": "2026-11-14T06:10:18+00:00",
             "title": "Treasury, European Bond Yields Tumble as Markets Lifted by U.S. Democrats’ Victory",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-14T03:15:00+00:00",
-            "title": "Tariffs Pushed Prices Up. Why Retail and Industrial Investors Shouldn't Expect a Quick Reversal",
-            "src": "The Motley Fool"
           }
         ]
       },
@@ -1014,14 +1014,14 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-14T07:52:30+00:00",
-            "title": "UN says 25 seafarers killed in, around Hormuz since US-Israel war on Iran",
-            "src": "Al Jazeera"
+            "t": "2026-11-14T08:30:00+00:00",
+            "title": "The Oil Market Is Brimming With Crude Despite Tanker Attacks",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-14T05:30:00+00:00",
-            "title": "Iraqi oil blended in Iran, relabeled to dodge sanctions, report says",
-            "src": "الحرة"
+            "t": "2026-11-14T07:56:21+00:00",
+            "title": "UN says 25 seafarers killed in, around Hormuz since US-Israel war on Iran",
+            "src": "Al Jazeera"
           },
           {
             "t": "2026-11-14T04:58:49+00:00",
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T09:45:31.334932+00:00",
+    "at": "2026-11-14T10:00:41.873028+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7521,10 +7521,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-07) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T09:45:31.334932+00:00",
+  "last_publish_ok": "2026-11-14T10:00:41.873028+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T09:46:10.742168+00:00"
+    "at": "2026-11-14T10:01:22.494934+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7653,12 +7653,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T09:45:31.334932+00:00",
-    "ok_at": "2026-11-14T09:45:31.334932+00:00",
+    "at": "2026-11-14T10:00:41.873028+00:00",
+    "ok_at": "2026-11-14T10:00:41.873028+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T09:45:31.334932+00:00",
+    "at": "2026-11-14T10:00:41.873028+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
