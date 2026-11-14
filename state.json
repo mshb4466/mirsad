@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T21:15:34.147017+00:00",
-        "ok_at": "2026-11-14T21:15:34.147017+00:00"
+        "last_try": "2026-11-14T21:30:39.663995+00:00",
+        "ok_at": "2026-11-14T21:30:39.663995+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T21:15:34.147017+00:00",
-        "ok_at": "2026-11-14T21:15:34.147017+00:00"
+        "last_try": "2026-11-14T21:30:39.663995+00:00",
+        "ok_at": "2026-11-14T21:30:39.663995+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T21:15:34.147017+00:00",
-        "ok_at": "2026-11-14T21:15:34.147017+00:00"
+        "last_try": "2026-11-14T21:30:39.663995+00:00",
+        "ok_at": "2026-11-14T21:30:39.663995+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T21:15:34.147017+00:00",
-        "ok_at": "2026-11-14T21:15:34.147017+00:00"
+        "last_try": "2026-11-14T21:30:39.663995+00:00",
+        "ok_at": "2026-11-14T21:30:39.663995+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T21:15:34.147017+00:00",
-        "ok_at": "2026-11-14T21:15:34.147017+00:00"
+        "last_try": "2026-11-14T21:30:39.663995+00:00",
+        "ok_at": "2026-11-14T21:30:39.663995+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T21:15:34.147017+00:00",
-        "ok_at": "2026-11-14T21:15:34.147017+00:00"
+        "last_try": "2026-11-14T21:30:39.663995+00:00",
+        "ok_at": "2026-11-14T21:30:39.663995+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T21:15:34.147017+00:00",
-        "ok_at": "2026-11-14T21:15:34.147017+00:00"
+        "last_try": "2026-11-14T21:30:39.663995+00:00",
+        "ok_at": "2026-11-14T21:30:39.663995+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T21:15:34.147017+00:00",
-        "ok_at": "2026-11-14T21:15:34.147017+00:00"
+        "last_try": "2026-11-14T21:30:39.663995+00:00",
+        "ok_at": "2026-11-14T21:30:39.663995+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T21:15:34.147017+00:00"
+      "at": "2026-11-14T21:30:39.663995+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,12 +862,17 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T20:30:38.752326+00:00",
+    "at": "2026-11-14T21:30:39.663995+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-14T21:04:04+00:00",
+            "title": "Fed Rate Hikes Threaten U.S. Farm Margins as Debt Hits $605 Billion",
+            "src": "AgroLatam"
+          },
           {
             "t": "2026-11-14T19:39:55+00:00",
             "title": "Smith (left finger sprain), Powell (low back injury …",
@@ -887,27 +892,12 @@
             "t": "2026-11-14T16:04:00+00:00",
             "title": "Boston Fed’s Collins Backs Gradual Rate Increases as Inflation Broadens",
             "src": "Barron's"
-          },
-          {
-            "t": "2026-11-14T15:51:06+00:00",
-            "title": "Christine E. Powell Obituary (1947 - 2026) - Aurora, CO",
-            "src": "Denver Gazette"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
-          {
-            "t": "2026-11-14T20:23:47+00:00",
-            "title": "Oil Prices Rebound as Trump Questions Need for Iran Deal",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-14T19:31:39+00:00",
-            "title": "Putin Had Four Plans to Defeat Ukraine. He Only Has Two Left.",
-            "src": "WSJ"
-          },
           {
             "t": "2026-11-14T18:56:19+00:00",
             "title": "Anthropic IPO to test Wall Street’s faith in AI as skepticism mounts",
@@ -922,12 +912,27 @@
             "t": "2026-11-14T17:25:00+00:00",
             "title": "Wall Street Makes Its Pitch for Anthropic’s I.P.O.",
             "src": "The New York Times"
+          },
+          {
+            "t": "2026-11-14T16:58:02+00:00",
+            "title": "The S&P 500 Has Gone 18 Months Without a 10% Drop. Here's How the Next Year Has Gone After Streaks This Long.",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-14T16:01:02+00:00",
+            "title": "What Is Canton Network? The Privacy Blockchain Built for Wall Street",
+            "src": "Yahoo Finance"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-14T20:06:56+00:00",
+            "title": "AMD Just Had Its Biggest Run Against Nvidia Since 1999. Can It Survive Earnings?",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-11-14T19:30:00+00:00",
             "title": "New Rally Shaky, But Many Stocks Set Up. Nvidia, Anthropic Ahead.",
@@ -947,22 +952,12 @@
             "t": "2026-11-14T11:05:02+00:00",
             "title": "Should You Buy Nvidia Stock Before Nov. 17?",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-14T10:28:47+00:00",
-            "title": "Nvidia Earnings and Anthropic's Debut Set Up a Pivotal Nov. 18 for AI Stocks",
-            "src": "BigGo Finance"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
-          {
-            "t": "2026-11-14T17:03:39+00:00",
-            "title": "The Inflation Fight May Be About to Turn Painful",
-            "src": "WSJ"
-          },
           {
             "t": "2026-11-14T17:00:00+00:00",
             "title": "Personal Finance: Jobs report confirms stable labor market",
@@ -982,6 +977,11 @@
             "t": "2026-11-14T13:04:38+00:00",
             "title": "Eye on consumer: Inflation and Wall Street",
             "src": "WKMG"
+          },
+          {
+            "t": "2026-11-14T10:00:00+00:00",
+            "title": "Inflation Is Pushing Consumers to Trade Down and Hunt for Value",
+            "src": "Business Insider"
           }
         ]
       },
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-14T21:13:54+00:00",
+            "title": "Trump wagers time is on US side, for now, in dealing with Iran",
+            "src": "Al-Monitor"
+          },
+          {
             "t": "2026-11-14T20:05:02+00:00",
             "title": "Several muslim countries condemn IDF's strike on Gaza hospital, call for lifting aid restrictions",
             "src": "The Jerusalem Post"
           },
           {
             "t": "2026-11-14T20:00:28+00:00",
-            "title": "IDF fears surprise US attack on Iran as tensions rise over nuclear talks",
+            "title": "Israel fears surprise US strike on Iran as nuclear talks fuel concerns of escalation - analysis",
             "src": "The Jerusalem Post"
           },
           {
             "t": "2026-11-14T19:30:36+00:00",
             "title": "This Week in Palestine: Israel Kills Surgeon in Hospital Attack and a Baby Dies of Hypothermia in Gaza",
             "src": "Zeteo"
-          },
-          {
-            "t": "2026-11-14T18:30:49+00:00",
-            "title": "China and Russia lose their grip on Venezuelan oil as US takes control of $12 billion in revenues but faces a billionaire's growing grip on prized African crude",
-            "src": "Business Insider Africa"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T21:15:34.147017+00:00",
+    "at": "2026-11-14T21:30:39.663995+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -1594,16 +1594,16 @@
     },
     "US|auction:10-y-bond-auction|2026-11-10|1801": {
       "actual": "",
-      "status": "awaiting",
-      "attempts": 36,
+      "status": "failed",
+      "attempts": 37,
       "title": "10-y Bond Auction",
       "time": "2026-11-10T18:01:00+00:00",
       "impact": "Low",
       "forecast": "",
       "previous": "5.30|2.8",
       "country": "USD",
-      "last_attempt": "2026-11-13T22:15:38.336635+00:00",
-      "note": ""
+      "last_attempt": "2026-11-14T21:30:39.663995+00:00",
+      "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     },
     "US|claims|claims_k|w2026-11-08|-|2026-11-12": {
       "actual": "200K",
@@ -7795,12 +7795,35 @@
       "bulletin_check": "لم تُقارَن بنشرة الإصدار",
       "match": "مطابقة فترة التقرير",
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|auction:10-y-bond-auction|2026-11-10|1801",
+      "title": "10-y Bond Auction",
+      "release_time": "2026-11-10T18:01:00+00:00",
+      "fetched_at": "2026-11-14T21:30:39.663995+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "5.30|2.8",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-14T21:15:34.147017+00:00",
+  "last_publish_ok": "2026-11-14T21:30:39.663995+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T21:16:08.679642+00:00"
+    "at": "2026-11-14T21:31:28.658794+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7919,7 +7942,7 @@
     "treasury": {
       "ok": false,
       "detail": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)",
-      "at": "2026-11-13T23:30:40.713511+00:00"
+      "at": "2026-11-14T21:30:39.663995+00:00"
     }
   },
   "bls_calls": {
@@ -7929,12 +7952,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T21:15:34.147017+00:00",
-    "ok_at": "2026-11-14T21:15:34.147017+00:00",
+    "at": "2026-11-14T21:30:39.663995+00:00",
+    "ok_at": "2026-11-14T21:30:39.663995+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T21:15:34.147017+00:00",
+    "at": "2026-11-14T21:30:39.663995+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
