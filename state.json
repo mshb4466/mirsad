@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T10:45:37.064089+00:00",
-        "ok_at": "2026-11-14T10:45:37.064089+00:00"
+        "last_try": "2026-11-14T11:00:53.935248+00:00",
+        "ok_at": "2026-11-14T11:00:53.935248+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T10:45:37.064089+00:00",
-        "ok_at": "2026-11-14T10:45:37.064089+00:00"
+        "last_try": "2026-11-14T11:00:53.935248+00:00",
+        "ok_at": "2026-11-14T11:00:53.935248+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T10:45:37.064089+00:00",
-        "ok_at": "2026-11-14T10:45:37.064089+00:00"
+        "last_try": "2026-11-14T11:00:53.935248+00:00",
+        "ok_at": "2026-11-14T11:00:53.935248+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T10:45:37.064089+00:00",
-        "ok_at": "2026-11-14T10:45:37.064089+00:00"
+        "last_try": "2026-11-14T11:00:53.935248+00:00",
+        "ok_at": "2026-11-14T11:00:53.935248+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T10:45:37.064089+00:00",
-        "ok_at": "2026-11-14T10:45:37.064089+00:00"
+        "last_try": "2026-11-14T11:00:53.935248+00:00",
+        "ok_at": "2026-11-14T11:00:53.935248+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T10:45:37.064089+00:00",
-        "ok_at": "2026-11-14T10:45:37.064089+00:00"
+        "last_try": "2026-11-14T11:00:53.935248+00:00",
+        "ok_at": "2026-11-14T11:00:53.935248+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T10:45:37.064089+00:00",
-        "ok_at": "2026-11-14T10:45:37.064089+00:00"
+        "last_try": "2026-11-14T11:00:53.935248+00:00",
+        "ok_at": "2026-11-14T11:00:53.935248+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T10:45:37.064089+00:00",
-        "ok_at": "2026-11-14T10:45:37.064089+00:00"
+        "last_try": "2026-11-14T11:00:53.935248+00:00",
+        "ok_at": "2026-11-14T11:00:53.935248+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T10:45:37.064089+00:00"
+      "at": "2026-11-14T11:00:53.935248+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T10:00:41.873028+00:00",
+    "at": "2026-11-14T11:00:53.935248+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -872,11 +872,6 @@
             "t": "2026-11-14T07:16:42+00:00",
             "title": "Asian Bond Yields Rise on Growing Expectations for Fed Rate Hike",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-14T07:00:47+00:00",
-            "title": "Fault-tolerant multi-leg inverter-fed roadway-powered dynamic wireless power transfer charging system",
-            "src": "Nature"
           },
           {
             "t": "2026-11-14T06:25:54+00:00",
@@ -892,6 +887,11 @@
             "t": "2026-11-14T00:53:41+00:00",
             "title": "The Fed Got It Right; Now Congress Must Do the Same",
             "src": "The Heritage Foundation"
+          },
+          {
+            "t": "2026-11-14T00:03:00+00:00",
+            "title": "Fed's Jefferson says he is taking his policy cues from inflation",
+            "src": "Reuters"
           }
         ]
       },
@@ -899,35 +899,40 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-14T09:24:19+00:00",
-            "title": "Lutnick Fights for His Job as Trump Aides Blame Him for Nvidia Fallout",
+            "t": "2026-11-14T10:35:09+00:00",
+            "title": "The 31-Year-Old Trader Who Called Out Jensen Huang’s ‘China Problem’—and Shorted Nvidia",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-14T09:01:26+00:00",
-            "title": "CVS Breakup Won’t Satisfy Washington. It Could Still Work for Wall Street.",
+            "t": "2026-11-14T10:31:51+00:00",
+            "title": "Oil Prices Rebound as Trump Questions Need for Iran Deal",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-14T07:53:30+00:00",
-            "title": "30 S&P 500 Stocks Just Made New 52-Week Highs",
-            "src": "Trefis"
+            "t": "2026-11-14T10:22:00+00:00",
+            "title": "Weekend Air Travel Woes Mount After FAA Lifts Nationwide Groundstop",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-14T07:49:10+00:00",
-            "title": "3 S&P 500 Stocks Just Made New 52-Week Lows",
-            "src": "Trefis"
+            "t": "2026-11-14T10:11:47+00:00",
+            "title": "Ukraine Says Its Military Starlink Is Disrupted Again, Hurting Defenses",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-14T07:41:38+00:00",
-            "title": "S&P 500 Movers | Winners: CHTR, STE, GPN | Losers: AMD, DELL, CSCO",
-            "src": "Trefis"
+            "t": "2026-11-14T09:41:02+00:00",
+            "title": "Should You Really Buy Nvidia Stock After CEO Jensen Huang's Exit? Wall Street Has a Clear Answer for Investors.",
+            "src": "Yahoo Finance"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-14T10:25:00+00:00",
+            "title": "Nvidia Earnings and Anthropic's Debut Set Up a Pivotal Nov. 18 for AI Stocks",
+            "src": "BigGo Finance"
+          },
           {
             "t": "2026-11-14T08:02:37+00:00",
             "title": "Investor Focus: Nvidia CEO Crisis, Anthropic IPO Valuation, and Undervalued UK Stocks After Earnings",
@@ -947,11 +952,6 @@
             "t": "2026-11-14T01:16:40+00:00",
             "title": "How Nvidia Can Move Forward Without Its Founder",
             "src": "Harvard Business Review"
-          },
-          {
-            "t": "2026-11-14T01:09:52+00:00",
-            "title": "Stock Market Today, November 13, 2026: Tech Stocks Fall as Nvidia Earnings and Anthropic IPO Loom",
-            "src": "Eurasia Business News"
           }
         ]
       },
@@ -959,7 +959,17 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-14T04:30:00+00:00",
+            "t": "2026-11-14T10:00:00+00:00",
+            "title": "Inflation Is Pushing Consumers to Trade Down and Hunt for Value",
+            "src": "Business Insider"
+          },
+          {
+            "t": "2026-11-14T09:06:00+00:00",
+            "title": "New Inflation Data Offers Terrible News for President Donald Trump's Economy and the AI-Driven Bull Market",
+            "src": "The Motley Fool"
+          },
+          {
+            "t": "2026-11-14T04:32:05+00:00",
             "title": "How Will Higher-than-Expected Inflation Data Impact the Fed's Next Rate Decisions?",
             "src": "Goldman Sachs"
           },
@@ -972,16 +982,6 @@
             "t": "2026-11-14T01:00:00+00:00",
             "title": "The Next Wave of Food Inflation Is Coming",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-14T00:06:34+00:00",
-            "title": "Differences in GDP per capita across sub-Saharan Africa are large",
-            "src": "Our World in Data"
-          },
-          {
-            "t": "2026-11-14T00:03:00+00:00",
-            "title": "Fed's Jefferson says he is taking his policy cues from inflation",
-            "src": "Reuters"
           }
         ]
       },
@@ -999,20 +999,30 @@
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-14T07:41:38+00:00",
-            "title": "China, US discuss tariffs, farm trade at first trade council meeting",
-            "src": "KFGO"
-          },
-          {
             "t": "2026-11-14T06:10:18+00:00",
             "title": "Treasury, European Bond Yields Tumble as Markets Lifted by U.S. Democrats’ Victory",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T06:00:58+00:00",
+            "title": "Vietnam’s real trade test lies beyond Trump’s tariffs",
+            "src": "Asia Times"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-11-14T10:44:59+00:00",
+            "title": "“Sort this out with Putin.” Zelenskyy Reveals Russia’s Reply on a Ceasefire Negotiations",
+            "src": "UNITED24 Media"
+          },
+          {
+            "t": "2026-11-14T10:31:30+00:00",
+            "title": "Iran's navy says oil tanker on fire after hitting mine in Hormuz",
+            "src": "Reuters"
+          },
           {
             "t": "2026-11-14T08:30:00+00:00",
             "title": "The Oil Market Is Brimming With Crude Despite Tanker Attacks",
@@ -1022,16 +1032,6 @@
             "t": "2026-11-14T07:56:21+00:00",
             "title": "UN says 25 seafarers killed in, around Hormuz since US-Israel war on Iran",
             "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-11-14T04:58:49+00:00",
-            "title": "Waialua engineer sentenced for evading Iran sanctions",
-            "src": "Honolulu Star-Advertiser"
-          },
-          {
-            "t": "2026-11-14T02:34:04+00:00",
-            "title": "Iran's oil output plunges below pre-war domestic needs",
-            "src": "Iran International"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T10:45:37.064089+00:00",
+    "at": "2026-11-14T11:00:53.935248+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7590,10 +7590,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T10:45:37.064089+00:00",
+  "last_publish_ok": "2026-11-14T11:00:53.935248+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T10:45:57.232447+00:00"
+    "at": "2026-11-14T11:01:19.573800+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7722,12 +7722,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T10:45:37.064089+00:00",
-    "ok_at": "2026-11-14T10:45:37.064089+00:00",
+    "at": "2026-11-14T11:00:53.935248+00:00",
+    "ok_at": "2026-11-14T11:00:53.935248+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T10:45:37.064089+00:00",
+    "at": "2026-11-14T11:00:53.935248+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
