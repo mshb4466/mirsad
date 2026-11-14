@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T22:15:36.064946+00:00",
-        "ok_at": "2026-11-14T22:15:36.064946+00:00"
+        "last_try": "2026-11-14T22:30:40.456994+00:00",
+        "ok_at": "2026-11-14T22:30:40.456994+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T22:15:36.064946+00:00",
-        "ok_at": "2026-11-14T22:15:36.064946+00:00"
+        "last_try": "2026-11-14T22:30:40.456994+00:00",
+        "ok_at": "2026-11-14T22:30:40.456994+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T22:15:36.064946+00:00",
-        "ok_at": "2026-11-14T22:15:36.064946+00:00"
+        "last_try": "2026-11-14T22:30:40.456994+00:00",
+        "ok_at": "2026-11-14T22:30:40.456994+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T22:15:36.064946+00:00",
-        "ok_at": "2026-11-14T22:15:36.064946+00:00"
+        "last_try": "2026-11-14T22:30:40.456994+00:00",
+        "ok_at": "2026-11-14T22:30:40.456994+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T22:15:36.064946+00:00",
-        "ok_at": "2026-11-14T22:15:36.064946+00:00"
+        "last_try": "2026-11-14T22:30:40.456994+00:00",
+        "ok_at": "2026-11-14T22:30:40.456994+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T22:15:36.064946+00:00",
-        "ok_at": "2026-11-14T22:15:36.064946+00:00"
+        "last_try": "2026-11-14T22:30:40.456994+00:00",
+        "ok_at": "2026-11-14T22:30:40.456994+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T22:15:36.064946+00:00",
-        "ok_at": "2026-11-14T22:15:36.064946+00:00"
+        "last_try": "2026-11-14T22:30:40.456994+00:00",
+        "ok_at": "2026-11-14T22:30:40.456994+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T22:15:36.064946+00:00",
-        "ok_at": "2026-11-14T22:15:36.064946+00:00"
+        "last_try": "2026-11-14T22:30:40.456994+00:00",
+        "ok_at": "2026-11-14T22:30:40.456994+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T22:15:36.064946+00:00"
+      "at": "2026-11-14T22:30:40.456994+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T21:30:39.663995+00:00",
+    "at": "2026-11-14T22:30:40.456994+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -872,6 +872,11 @@
             "t": "2026-11-14T21:04:04+00:00",
             "title": "Fed Rate Hikes Threaten U.S. Farm Margins as Debt Hits $605 Billion",
             "src": "AgroLatam"
+          },
+          {
+            "t": "2026-11-14T20:46:22+00:00",
+            "title": "Is Norman Powell playing tonight? Bulls vs. Timberwolves injury report",
+            "src": "Yahoo Sports"
           },
           {
             "t": "2026-11-14T19:39:55+00:00",
@@ -887,11 +892,6 @@
             "t": "2026-11-14T17:03:05+00:00",
             "title": "Asian Bond Yields Rise on Growing Expectations for Fed Rate Hike",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-14T16:04:00+00:00",
-            "title": "Boston Fed’s Collins Backs Gradual Rate Increases as Inflation Broadens",
-            "src": "Barron's"
           }
         ]
       },
@@ -909,18 +909,18 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-14T17:25:00+00:00",
-            "title": "Wall Street Makes Its Pitch for Anthropic’s I.P.O.",
-            "src": "The New York Times"
-          },
-          {
             "t": "2026-11-14T16:58:02+00:00",
             "title": "The S&P 500 Has Gone 18 Months Without a 10% Drop. Here's How the Next Year Has Gone After Streaks This Long.",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-14T16:01:02+00:00",
-            "title": "What Is Canton Network? The Privacy Blockchain Built for Wall Street",
+            "t": "2026-11-14T15:14:57+00:00",
+            "title": "Rising rents draw Wall Street money to industrial outdoor storage lot investments across the U.S.",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-14T15:05:02+00:00",
+            "title": "Billionaire Bill Ackman Says There’s a Huge Disconnect in Wall Street’s Expectations for Amazon, Microsoft, Meta, and Alphabet",
             "src": "Yahoo Finance"
           }
         ]
@@ -928,6 +928,11 @@
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-14T21:33:08+00:00",
+            "title": "How to Read Nvidia Earnings: Hyperscalers at 51%",
+            "src": "shattered.io"
+          },
           {
             "t": "2026-11-14T20:06:56+00:00",
             "title": "AMD Just Had Its Biggest Run Against Nvidia Since 1999. Can It Survive Earnings?",
@@ -947,11 +952,6 @@
             "t": "2026-11-14T12:09:14+00:00",
             "title": "Smart Investor: What’s Next for Nvidia, Undervalued Earnings Crushers, and is Anthropic a Buy?",
             "src": "Morningstar"
-          },
-          {
-            "t": "2026-11-14T11:05:02+00:00",
-            "title": "Should You Buy Nvidia Stock Before Nov. 17?",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -962,6 +962,11 @@
             "t": "2026-11-14T17:00:00+00:00",
             "title": "Personal Finance: Jobs report confirms stable labor market",
             "src": "Chattanooga Times Free Press"
+          },
+          {
+            "t": "2026-11-14T16:04:00+00:00",
+            "title": "Boston Fed’s Collins Backs Gradual Rate Increases as Inflation Broadens",
+            "src": "Barron's"
           },
           {
             "t": "2026-11-14T16:02:41+00:00",
@@ -977,11 +982,6 @@
             "t": "2026-11-14T13:04:38+00:00",
             "title": "Eye on consumer: Inflation and Wall Street",
             "src": "WKMG"
-          },
-          {
-            "t": "2026-11-14T10:00:00+00:00",
-            "title": "Inflation Is Pushing Consumers to Trade Down and Hunt for Value",
-            "src": "Business Insider"
           }
         ]
       },
@@ -1014,9 +1014,14 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-14T21:13:54+00:00",
-            "title": "Trump wagers time is on US side, for now, in dealing with Iran",
-            "src": "Al-Monitor"
+            "t": "2026-11-14T22:19:46+00:00",
+            "title": "2 oil tankers hit mines, catch fire near Strait of Hormuz: Iran's Revolutionary Guard",
+            "src": "Anadolu Ajansı"
+          },
+          {
+            "t": "2026-11-14T21:43:53+00:00",
+            "title": "Live - Iran hits more tankers, says US blockade seeks to starve Iranians",
+            "src": "Iran International"
           },
           {
             "t": "2026-11-14T20:05:02+00:00",
@@ -1027,11 +1032,6 @@
             "t": "2026-11-14T20:00:28+00:00",
             "title": "Israel fears surprise US strike on Iran as nuclear talks fuel concerns of escalation - analysis",
             "src": "The Jerusalem Post"
-          },
-          {
-            "t": "2026-11-14T19:30:36+00:00",
-            "title": "This Week in Palestine: Israel Kills Surgeon in Hospital Attack and a Baby Dies of Hypothermia in Gaza",
-            "src": "Zeteo"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T22:15:36.064946+00:00",
+    "at": "2026-11-14T22:30:40.456994+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7820,10 +7820,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-14T22:15:36.064946+00:00",
+  "last_publish_ok": "2026-11-14T22:30:40.456994+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T22:16:01.061408+00:00"
+    "at": "2026-11-14T22:31:10.263338+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7952,12 +7952,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T22:15:36.064946+00:00",
-    "ok_at": "2026-11-14T22:15:36.064946+00:00",
+    "at": "2026-11-14T22:30:40.456994+00:00",
+    "ok_at": "2026-11-14T22:30:40.456994+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T22:15:36.064946+00:00",
+    "at": "2026-11-14T22:30:40.456994+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
