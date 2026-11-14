@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T23:15:30.440472+00:00",
-        "ok_at": "2026-11-14T23:15:30.440472+00:00"
+        "last_try": "2026-11-14T23:30:40.824742+00:00",
+        "ok_at": "2026-11-14T23:30:40.824742+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T23:15:30.440472+00:00",
-        "ok_at": "2026-11-14T23:15:30.440472+00:00"
+        "last_try": "2026-11-14T23:30:40.824742+00:00",
+        "ok_at": "2026-11-14T23:30:40.824742+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T23:15:30.440472+00:00",
-        "ok_at": "2026-11-14T23:15:30.440472+00:00"
+        "last_try": "2026-11-14T23:30:40.824742+00:00",
+        "ok_at": "2026-11-14T23:30:40.824742+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T23:15:30.440472+00:00",
-        "ok_at": "2026-11-14T23:15:30.440472+00:00"
+        "last_try": "2026-11-14T23:30:40.824742+00:00",
+        "ok_at": "2026-11-14T23:30:40.824742+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T23:15:30.440472+00:00",
-        "ok_at": "2026-11-14T23:15:30.440472+00:00"
+        "last_try": "2026-11-14T23:30:40.824742+00:00",
+        "ok_at": "2026-11-14T23:30:40.824742+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T23:15:30.440472+00:00",
-        "ok_at": "2026-11-14T23:15:30.440472+00:00"
+        "last_try": "2026-11-14T23:30:40.824742+00:00",
+        "ok_at": "2026-11-14T23:30:40.824742+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T23:15:30.440472+00:00",
-        "ok_at": "2026-11-14T23:15:30.440472+00:00"
+        "last_try": "2026-11-14T23:30:40.824742+00:00",
+        "ok_at": "2026-11-14T23:30:40.824742+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T23:15:30.440472+00:00",
-        "ok_at": "2026-11-14T23:15:30.440472+00:00"
+        "last_try": "2026-11-14T23:30:40.824742+00:00",
+        "ok_at": "2026-11-14T23:30:40.824742+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T23:15:30.440472+00:00"
+      "at": "2026-11-14T23:30:40.824742+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T22:30:40.456994+00:00",
+    "at": "2026-11-14T23:30:40.824742+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -879,11 +879,6 @@
             "src": "Yahoo Sports"
           },
           {
-            "t": "2026-11-14T19:39:55+00:00",
-            "title": "Smith (left finger sprain), Powell (low back injury …",
-            "src": "Yahoo Sports"
-          },
-          {
             "t": "2026-11-14T17:15:00+00:00",
             "title": "A Larger-Than-Normal Fed Rate Hike in December Now Looks More Likely. Here's Why.",
             "src": "The Motley Fool"
@@ -892,6 +887,11 @@
             "t": "2026-11-14T17:03:05+00:00",
             "title": "Asian Bond Yields Rise on Growing Expectations for Fed Rate Hike",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T16:04:00+00:00",
+            "title": "Boston Fed’s Collins Backs Gradual Rate Increases as Inflation Broadens",
+            "src": "Barron's"
           }
         ]
       },
@@ -914,20 +914,25 @@
             "src": "Yahoo Finance"
           },
           {
+            "t": "2026-11-14T15:30:00+00:00",
+            "title": "Prediction: This Small-Cap Value ETF Will Beat the S&P 500 Over the Next 10 Years",
+            "src": "The Motley Fool"
+          },
+          {
             "t": "2026-11-14T15:14:57+00:00",
             "title": "Rising rents draw Wall Street money to industrial outdoor storage lot investments across the U.S.",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-11-14T15:05:02+00:00",
-            "title": "Billionaire Bill Ackman Says There’s a Huge Disconnect in Wall Street’s Expectations for Amazon, Microsoft, Meta, and Alphabet",
-            "src": "Yahoo Finance"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-14T21:55:00+00:00",
+            "title": "Rally Shaky, But Many Stocks Are Setting Up. What Should You Do?",
+            "src": "Investor's Business Daily"
+          },
           {
             "t": "2026-11-14T21:33:08+00:00",
             "title": "How to Read Nvidia Earnings: Hyperscalers at 51%",
@@ -937,11 +942,6 @@
             "t": "2026-11-14T20:06:56+00:00",
             "title": "AMD Just Had Its Biggest Run Against Nvidia Since 1999. Can It Survive Earnings?",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-14T19:30:00+00:00",
-            "title": "New Rally Shaky, But Many Stocks Set Up. Nvidia, Anthropic Ahead.",
-            "src": "Investor's Business Daily"
           },
           {
             "t": "2026-11-14T12:19:24+00:00",
@@ -964,11 +964,6 @@
             "src": "Chattanooga Times Free Press"
           },
           {
-            "t": "2026-11-14T16:04:00+00:00",
-            "title": "Boston Fed’s Collins Backs Gradual Rate Increases as Inflation Broadens",
-            "src": "Barron's"
-          },
-          {
             "t": "2026-11-14T16:02:41+00:00",
             "title": "Why the biggest risk for investors in 2027 isn't Nvidia — it's inflation",
             "src": "Yahoo Finance"
@@ -982,6 +977,11 @@
             "t": "2026-11-14T13:04:38+00:00",
             "title": "Eye on consumer: Inflation and Wall Street",
             "src": "WKMG"
+          },
+          {
+            "t": "2026-11-14T10:00:00+00:00",
+            "title": "Inflation Is Pushing Consumers to Trade Down and Hunt for Value",
+            "src": "Business Insider"
           }
         ]
       },
@@ -1014,6 +1014,11 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-14T22:54:19+00:00",
+            "title": "Iran's navy says three tankers on fire after hitting mines in Hormuz",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-11-14T22:19:46+00:00",
             "title": "2 oil tankers hit mines, catch fire near Strait of Hormuz: Iran's Revolutionary Guard",
             "src": "Anadolu Ajansı"
@@ -1027,11 +1032,6 @@
             "t": "2026-11-14T20:05:02+00:00",
             "title": "Several muslim countries condemn IDF's strike on Gaza hospital, call for lifting aid restrictions",
             "src": "The Jerusalem Post"
-          },
-          {
-            "t": "2026-11-14T20:00:28+00:00",
-            "title": "Israel fears surprise US strike on Iran as nuclear talks fuel concerns of escalation - analysis",
-            "src": "The Jerusalem Post"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T23:15:30.440472+00:00",
+    "at": "2026-11-14T23:30:40.824742+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7889,10 +7889,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T23:15:30.440472+00:00",
+  "last_publish_ok": "2026-11-14T23:30:40.824742+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T23:16:00.326440+00:00"
+    "at": "2026-11-14T23:31:10.165865+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8021,12 +8021,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T23:15:30.440472+00:00",
-    "ok_at": "2026-11-14T23:15:30.440472+00:00",
+    "at": "2026-11-14T23:30:40.824742+00:00",
+    "ok_at": "2026-11-14T23:30:40.824742+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T23:15:30.440472+00:00",
+    "at": "2026-11-14T23:30:40.824742+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
