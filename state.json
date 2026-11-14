@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T04:15:44.876930+00:00",
-        "ok_at": "2026-11-14T04:15:44.876930+00:00"
+        "last_try": "2026-11-14T04:30:39.945486+00:00",
+        "ok_at": "2026-11-14T04:30:39.945486+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T04:15:44.876930+00:00",
-        "ok_at": "2026-11-14T04:15:44.876930+00:00"
+        "last_try": "2026-11-14T04:30:39.945486+00:00",
+        "ok_at": "2026-11-14T04:30:39.945486+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T04:15:44.876930+00:00",
-        "ok_at": "2026-11-14T04:15:44.876930+00:00"
+        "last_try": "2026-11-14T04:30:39.945486+00:00",
+        "ok_at": "2026-11-14T04:30:39.945486+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T04:15:44.876930+00:00",
-        "ok_at": "2026-11-14T04:15:44.876930+00:00"
+        "last_try": "2026-11-14T04:30:39.945486+00:00",
+        "ok_at": "2026-11-14T04:30:39.945486+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T04:15:44.876930+00:00",
-        "ok_at": "2026-11-14T04:15:44.876930+00:00"
+        "last_try": "2026-11-14T04:30:39.945486+00:00",
+        "ok_at": "2026-11-14T04:30:39.945486+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T04:15:44.876930+00:00",
-        "ok_at": "2026-11-14T04:15:44.876930+00:00"
+        "last_try": "2026-11-14T04:30:39.945486+00:00",
+        "ok_at": "2026-11-14T04:30:39.945486+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T04:15:44.876930+00:00",
-        "ok_at": "2026-11-14T04:15:44.876930+00:00"
+        "last_try": "2026-11-14T04:30:39.945486+00:00",
+        "ok_at": "2026-11-14T04:30:39.945486+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T04:15:44.876930+00:00",
-        "ok_at": "2026-11-14T04:15:44.876930+00:00"
+        "last_try": "2026-11-14T04:30:39.945486+00:00",
+        "ok_at": "2026-11-14T04:30:39.945486+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T04:15:44.876930+00:00"
+      "at": "2026-11-14T04:30:39.945486+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T03:30:39.727076+00:00",
+    "at": "2026-11-14T04:30:39.945486+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -900,27 +900,27 @@
         "items": [
           {
             "t": "2026-11-14T02:51:00+00:00",
-            "title": "FAA Lifts Nationwide Groundstop that Upended Flights",
+            "title": "FAA Lifts Nationwide Groundstop That Upended Flights",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-14T02:00:00+00:00",
-            "title": "Inside Stephen Miller’s Frenetic First Week as White House Chief of Staff",
-            "src": "WSJ"
+            "t": "2026-11-13T23:37:29+00:00",
+            "title": "S&P 500, Dow, Nasdaq End Lower Amid Nvidia Turmoil, But Record Best Week Since August — SPCX, NVDA, ARM, AZN In Focus",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-14T01:50:42+00:00",
-            "title": "‘The Ass-Kicking We Needed’: A Loss in GOP Heartland Exposes a Party in Pieces",
-            "src": "WSJ"
+            "t": "2026-11-13T23:07:04+00:00",
+            "title": "Wall Street stocks mostly lower as Nvidia extends slump",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-14T00:36:25+00:00",
-            "title": "S&P 500, Nasdaq fall as Nvidia jitters drag down tech stocks",
-            "src": "Reuters"
+            "t": "2026-11-13T22:36:12+00:00",
+            "title": "Wall Street Makes Its Pitch for Anthropic’s I.P.O.",
+            "src": "The New York Times"
           },
           {
-            "t": "2026-11-14T00:30:00+00:00",
-            "title": "Exclusive | U.S. Loses Measles-Elimination Status as Historic Resurgence Sickens Thousands",
+            "t": "2026-11-13T22:14:00+00:00",
+            "title": "U.S. Stocks Mixed on Nvidia Fallout Fears",
             "src": "WSJ"
           }
         ]
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T04:15:44.876930+00:00",
+    "at": "2026-11-14T04:30:39.945486+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7406,10 +7406,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T04:15:44.876930+00:00",
+  "last_publish_ok": "2026-11-14T04:30:39.945486+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T04:16:04.955443+00:00"
+    "at": "2026-11-14T04:31:11.101929+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7538,12 +7538,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T04:15:44.876930+00:00",
-    "ok_at": "2026-11-14T04:15:44.876930+00:00",
+    "at": "2026-11-14T04:30:39.945486+00:00",
+    "ok_at": "2026-11-14T04:30:39.945486+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T04:15:44.876930+00:00",
+    "at": "2026-11-14T04:30:39.945486+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
