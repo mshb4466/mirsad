@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T20:15:34.550709+00:00",
-        "ok_at": "2026-11-14T20:15:34.550709+00:00"
+        "last_try": "2026-11-14T20:30:38.752326+00:00",
+        "ok_at": "2026-11-14T20:30:38.752326+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T20:15:34.550709+00:00",
-        "ok_at": "2026-11-14T20:15:34.550709+00:00"
+        "last_try": "2026-11-14T20:30:38.752326+00:00",
+        "ok_at": "2026-11-14T20:30:38.752326+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T20:15:34.550709+00:00",
-        "ok_at": "2026-11-14T20:15:34.550709+00:00"
+        "last_try": "2026-11-14T20:30:38.752326+00:00",
+        "ok_at": "2026-11-14T20:30:38.752326+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T20:15:34.550709+00:00",
-        "ok_at": "2026-11-14T20:15:34.550709+00:00"
+        "last_try": "2026-11-14T20:30:38.752326+00:00",
+        "ok_at": "2026-11-14T20:30:38.752326+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T20:15:34.550709+00:00",
-        "ok_at": "2026-11-14T20:15:34.550709+00:00"
+        "last_try": "2026-11-14T20:30:38.752326+00:00",
+        "ok_at": "2026-11-14T20:30:38.752326+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T20:15:34.550709+00:00",
-        "ok_at": "2026-11-14T20:15:34.550709+00:00"
+        "last_try": "2026-11-14T20:30:38.752326+00:00",
+        "ok_at": "2026-11-14T20:30:38.752326+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T20:15:34.550709+00:00",
-        "ok_at": "2026-11-14T20:15:34.550709+00:00"
+        "last_try": "2026-11-14T20:30:38.752326+00:00",
+        "ok_at": "2026-11-14T20:30:38.752326+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T20:15:34.550709+00:00",
-        "ok_at": "2026-11-14T20:15:34.550709+00:00"
+        "last_try": "2026-11-14T20:30:38.752326+00:00",
+        "ok_at": "2026-11-14T20:30:38.752326+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T20:15:34.550709+00:00"
+      "at": "2026-11-14T20:30:38.752326+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,16 +862,16 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T19:15:37.307549+00:00",
+    "at": "2026-11-14T20:30:38.752326+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-14T17:57:14+00:00",
-            "title": "Bulls' Norman Powell: Questionable to face Minnesota",
-            "src": "CBS Sports"
+            "t": "2026-11-14T19:39:55+00:00",
+            "title": "Smith (left finger sprain), Powell (low back injury …",
+            "src": "Yahoo Sports"
           },
           {
             "t": "2026-11-14T17:15:00+00:00",
@@ -889,9 +889,9 @@
             "src": "Barron's"
           },
           {
-            "t": "2026-11-14T16:02:04+00:00",
-            "title": "Retail sales and Fed minutes in focus next week",
-            "src": "WTOP News"
+            "t": "2026-11-14T15:51:06+00:00",
+            "title": "Christine E. Powell Obituary (1947 - 2026) - Aurora, CO",
+            "src": "Denver Gazette"
           }
         ]
       },
@@ -899,12 +899,17 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-14T18:49:35+00:00",
-            "title": "The 31-Year-Old Trader Who Called Out Jensen Huang’s ‘China Problem’—and Shorted Nvidia",
+            "t": "2026-11-14T20:23:47+00:00",
+            "title": "Oil Prices Rebound as Trump Questions Need for Iran Deal",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-14T18:00:07+00:00",
+            "t": "2026-11-14T19:31:39+00:00",
+            "title": "Putin Had Four Plans to Defeat Ukraine. He Only Has Two Left.",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T18:56:19+00:00",
             "title": "Anthropic IPO to test Wall Street’s faith in AI as skepticism mounts",
             "src": "Yahoo Finance"
           },
@@ -912,11 +917,6 @@
             "t": "2026-11-14T17:54:02+00:00",
             "title": "Warren Buffett's Berkshire Compounded at More Than 19% a Year Over Six Decades, Nearly Double the S&P 500's 10% Return. Can Investors Still Apply That Playbook Today?",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-14T17:52:00+00:00",
-            "title": "Air-Travel Outage Linked to Contractor Replacing Copper Wire",
-            "src": "WSJ"
           },
           {
             "t": "2026-11-14T17:25:00+00:00",
@@ -929,14 +929,9 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-14T16:24:00+00:00",
+            "t": "2026-11-14T19:30:00+00:00",
             "title": "New Rally Shaky, But Many Stocks Set Up. Nvidia, Anthropic Ahead.",
             "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-11-14T16:10:00+00:00",
-            "title": "Nvidia Leadership Crisis Raises Concerns Over AI Semiconductor Earnings and US Export Restrictions",
-            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-14T12:19:24+00:00",
@@ -952,6 +947,11 @@
             "t": "2026-11-14T11:05:02+00:00",
             "title": "Should You Buy Nvidia Stock Before Nov. 17?",
             "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-14T10:28:47+00:00",
+            "title": "Nvidia Earnings and Anthropic's Debut Set Up a Pivotal Nov. 18 for AI Stocks",
+            "src": "BigGo Finance"
           }
         ]
       },
@@ -989,9 +989,9 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-14T17:03:00+00:00",
-            "title": "Wall Street is watching a troubling move in Treasury yields",
-            "src": "Yahoo Finance"
+            "t": "2026-11-14T14:32:14+00:00",
+            "title": "Tariffs Hit Cash Flow Before They Hit Margins: How Importers Are Financing Equipment and Inventory in 2026",
+            "src": "Global Trade Magazine"
           },
           {
             "t": "2026-11-14T13:30:00+00:00",
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-14T17:58:49+00:00",
-            "title": "US appears to have pushed China and Russia out of Venezuelan oil deals but faces a billionaire's growing grip on prized African crude",
+            "t": "2026-11-14T20:05:02+00:00",
+            "title": "Several muslim countries condemn IDF's strike on Gaza hospital, call for lifting aid restrictions",
+            "src": "The Jerusalem Post"
+          },
+          {
+            "t": "2026-11-14T20:00:28+00:00",
+            "title": "IDF fears surprise US attack on Iran as tensions rise over nuclear talks",
+            "src": "The Jerusalem Post"
+          },
+          {
+            "t": "2026-11-14T19:30:36+00:00",
+            "title": "This Week in Palestine: Israel Kills Surgeon in Hospital Attack and a Baby Dies of Hypothermia in Gaza",
+            "src": "Zeteo"
+          },
+          {
+            "t": "2026-11-14T18:30:49+00:00",
+            "title": "China and Russia lose their grip on Venezuelan oil as US takes control of $12 billion in revenues but faces a billionaire's growing grip on prized African crude",
             "src": "Business Insider Africa"
-          },
-          {
-            "t": "2026-11-14T17:50:20+00:00",
-            "title": "Live - Trump to raise Iran with Putin, Xi as Hormuz tanker strikes continue",
-            "src": "Iran International"
-          },
-          {
-            "t": "2026-11-14T16:59:20+00:00",
-            "title": "Ukraine Says It Hit Oil-Pumping Station in Russia’s Samara",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-14T16:15:08+00:00",
-            "title": "IEA Sees First Oil Surplus Since Iran War As Gulf Supply Rebounds",
-            "src": "Benzinga"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T20:15:34.550709+00:00",
+    "at": "2026-11-14T20:30:38.752326+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7797,10 +7797,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T20:15:34.550709+00:00",
+  "last_publish_ok": "2026-11-14T20:30:38.752326+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T20:16:07.258918+00:00"
+    "at": "2026-11-14T20:31:15.131090+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7929,12 +7929,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T20:15:34.550709+00:00",
-    "ok_at": "2026-11-14T20:15:34.550709+00:00",
+    "at": "2026-11-14T20:30:38.752326+00:00",
+    "ok_at": "2026-11-14T20:30:38.752326+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T20:15:34.550709+00:00",
+    "at": "2026-11-14T20:30:38.752326+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
