@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-14T02:00:47.456164+00:00",
-        "ok_at": "2026-11-14T02:00:47.456164+00:00"
+        "last_try": "2026-11-14T02:15:41.974737+00:00",
+        "ok_at": "2026-11-14T02:15:41.974737+00:00"
       },
       "fred": {
-        "last_try": "2026-11-14T02:00:47.456164+00:00",
-        "ok_at": "2026-11-14T02:00:47.456164+00:00"
+        "last_try": "2026-11-14T02:15:41.974737+00:00",
+        "ok_at": "2026-11-14T02:15:41.974737+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-14T02:00:47.456164+00:00",
-        "ok_at": "2026-11-14T02:00:47.456164+00:00"
+        "last_try": "2026-11-14T02:15:41.974737+00:00",
+        "ok_at": "2026-11-14T02:15:41.974737+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-14T02:00:47.456164+00:00",
-        "ok_at": "2026-11-14T02:00:47.456164+00:00"
+        "last_try": "2026-11-14T02:15:41.974737+00:00",
+        "ok_at": "2026-11-14T02:15:41.974737+00:00"
       },
       "oil": {
-        "last_try": "2026-11-14T02:00:47.456164+00:00",
-        "ok_at": "2026-11-14T02:00:47.456164+00:00"
+        "last_try": "2026-11-14T02:15:41.974737+00:00",
+        "ok_at": "2026-11-14T02:15:41.974737+00:00"
       },
       "news": {
-        "last_try": "2026-11-14T02:00:47.456164+00:00",
-        "ok_at": "2026-11-14T02:00:47.456164+00:00"
+        "last_try": "2026-11-14T02:15:41.974737+00:00",
+        "ok_at": "2026-11-14T02:15:41.974737+00:00"
       },
       "cot": {
-        "last_try": "2026-11-14T02:00:47.456164+00:00",
-        "ok_at": "2026-11-14T02:00:47.456164+00:00"
+        "last_try": "2026-11-14T02:15:41.974737+00:00",
+        "ok_at": "2026-11-14T02:15:41.974737+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-14T02:00:47.456164+00:00",
-        "ok_at": "2026-11-14T02:00:47.456164+00:00"
+        "last_try": "2026-11-14T02:15:41.974737+00:00",
+        "ok_at": "2026-11-14T02:15:41.974737+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-14T02:00:47.456164+00:00"
+      "at": "2026-11-14T02:15:41.974737+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-14T01:00:56.679918+00:00",
+    "at": "2026-11-14T02:15:41.974737+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -899,13 +899,18 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-14T00:59:09+00:00",
-            "title": "‘The Ass-Kicking We Needed’: A Loss in GOP Heartland Exposes a Party in Pieces",
+            "t": "2026-11-14T01:37:00+00:00",
+            "title": "FAA Lifts Nationwide Groundstop that Upended More Than 14,500 Flights",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-13T23:57:00+00:00",
-            "title": "More Than 13,000 Flights Delayed or Canceled in FAA’s Nationwide Groundstop",
+            "t": "2026-11-14T00:46:04+00:00",
+            "title": "Exclusive | U.S. Aircraft Evacuated From Second U.K. Base Due to Iran Threat",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-14T00:30:00+00:00",
+            "title": "Exclusive | U.S. Loses Measles-Elimination Status as Historic Resurgence Sickens Thousands",
             "src": "WSJ"
           },
           {
@@ -917,11 +922,6 @@
             "t": "2026-11-13T23:07:04+00:00",
             "title": "Wall Street stocks mostly lower as Nvidia extends slump",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-13T22:36:12+00:00",
-            "title": "Wall Street Makes Its Pitch for Anthropic’s I.P.O.",
-            "src": "The New York Times"
           }
         ]
       },
@@ -929,8 +929,13 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-13T22:36:00+00:00",
-            "title": "Stock Market Falls But Nasdaq Holds Key Level; Anthropic IPO, Nvidia Earnings Loom",
+            "t": "2026-11-14T01:09:52+00:00",
+            "title": "Stock Market Today, November 13, 2026: Tech Stocks Fall as Nvidia Earnings and Anthropic IPO Loom",
+            "src": "Eurasia Business News"
+          },
+          {
+            "t": "2026-11-14T00:41:00+00:00",
+            "title": "How To Handle This Market; SpaceX Booster Diverts",
             "src": "Investor's Business Daily"
           },
           {
@@ -947,11 +952,6 @@
             "t": "2026-11-13T21:55:16+00:00",
             "title": "Nvidia Board Faces Credibility Test In CEO Probe",
             "src": "Law360"
-          },
-          {
-            "t": "2026-11-13T21:55:07+00:00",
-            "title": "How Nvidia Can Move Forward Without Its Founder",
-            "src": "Harvard Business Review"
           }
         ]
       },
@@ -959,14 +959,19 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-11-14T01:10:32+00:00",
+            "title": "12-Month Wholesale Inflation Reaches 4-Year High Despite October Slowdown",
+            "src": "PYMNTS.com"
+          },
+          {
+            "t": "2026-11-14T01:00:00+00:00",
+            "title": "The Next Wave of Food Inflation Is Coming",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-14T00:06:34+00:00",
             "title": "Differences in GDP per capita across sub-Saharan Africa are large",
             "src": "Our World in Data"
-          },
-          {
-            "t": "2026-11-13T23:57:47+00:00",
-            "title": "PPI Inflation Rages in the Revisions? Businesses Hit by 6.5% Inflation, Worst since 2022",
-            "src": "Wolf Street"
           },
           {
             "t": "2026-11-13T23:09:00+00:00",
@@ -977,11 +982,6 @@
             "t": "2026-11-13T22:55:00+00:00",
             "title": "Inflation rose in October",
             "src": "WKOW"
-          },
-          {
-            "t": "2026-11-13T22:26:11+00:00",
-            "title": "How Will Higher-than-Expected Inflation Data Impact the Fed's Next Rate Decisions?",
-            "src": "Goldman Sachs"
           }
         ]
       },
@@ -990,7 +990,7 @@
         "items": [
           {
             "t": "2026-11-13T22:59:00+00:00",
-            "title": "Architects of US Trade Policy Turn Against Trump Over Canada Tariffs",
+            "title": "Former US Trade Officials Challenge Trump's Canada Tariffs",
             "src": "Newsweek"
           },
           {
@@ -999,14 +999,14 @@
             "src": "WWD"
           },
           {
+            "t": "2026-11-13T22:46:15+00:00",
+            "title": "Gold posts steep weekly loss as Treasury yields rise, Fed tightening bets persist - Kitco PM Report",
+            "src": "Kitco"
+          },
+          {
             "t": "2026-11-13T22:30:21+00:00",
             "title": "Canada’s Ambassador Warns Trump’s Tariffs Are Raising Business Costs: ‘Uncertainty Increases Your Cost of Capital’",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-13T20:57:13+00:00",
-            "title": "Trump Threatens Doubling Mexico Tariffs Over Migrant Claims",
-            "src": "Law360"
           }
         ]
       },
@@ -1019,11 +1019,6 @@
             "src": "TRT World"
           },
           {
-            "t": "2026-11-13T22:23:06+00:00",
-            "title": "Homeland security chief says no current signs that 'a nefarious attack' grounded flight across US",
-            "src": "The Times of Israel"
-          },
-          {
             "t": "2026-11-13T20:52:00+00:00",
             "title": "US military downs 2 Iranian attack drones as Iran claims a strike on a US radar in Bahrain",
             "src": "AP News"
@@ -1032,6 +1027,11 @@
             "t": "2026-11-13T20:44:49+00:00",
             "title": "Ukraine Intensifies Strikes on Russia’s Oil Industry as Peace Negotiations Enter a Critical Phase",
             "src": "EU Today"
+          },
+          {
+            "t": "2026-11-13T19:51:00+00:00",
+            "title": "U.S. downs two Iranian drones as Iran says it struck U.S. radar in Bahrain",
+            "src": "Haaretz"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-14T02:00:47.456164+00:00",
+    "at": "2026-11-14T02:15:41.974737+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7314,10 +7314,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-14T02:00:47.456164+00:00",
+  "last_publish_ok": "2026-11-14T02:15:41.974737+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-14T02:01:21.504002+00:00"
+    "at": "2026-11-14T02:16:07.907049+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -7446,12 +7446,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-14T02:00:47.456164+00:00",
-    "ok_at": "2026-11-14T02:00:47.456164+00:00",
+    "at": "2026-11-14T02:15:41.974737+00:00",
+    "ok_at": "2026-11-14T02:15:41.974737+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-14T02:00:47.456164+00:00",
+    "at": "2026-11-14T02:15:41.974737+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
