@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-15T11:00:46.429645+00:00",
-        "ok_at": "2026-11-15T11:00:46.429645+00:00"
+        "last_try": "2026-11-15T11:15:36.438864+00:00",
+        "ok_at": "2026-11-15T11:15:36.438864+00:00"
       },
       "fred": {
-        "last_try": "2026-11-15T11:00:46.429645+00:00",
-        "ok_at": "2026-11-15T11:00:46.429645+00:00"
+        "last_try": "2026-11-15T11:15:36.438864+00:00",
+        "ok_at": "2026-11-15T11:15:36.438864+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-15T11:00:46.429645+00:00",
-        "ok_at": "2026-11-15T11:00:46.429645+00:00"
+        "last_try": "2026-11-15T11:15:36.438864+00:00",
+        "ok_at": "2026-11-15T11:15:36.438864+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-15T11:00:46.429645+00:00",
-        "ok_at": "2026-11-15T11:00:46.429645+00:00"
+        "last_try": "2026-11-15T11:15:36.438864+00:00",
+        "ok_at": "2026-11-15T11:15:36.438864+00:00"
       },
       "oil": {
-        "last_try": "2026-11-15T11:00:46.429645+00:00",
-        "ok_at": "2026-11-15T11:00:46.429645+00:00"
+        "last_try": "2026-11-15T11:15:36.438864+00:00",
+        "ok_at": "2026-11-15T11:15:36.438864+00:00"
       },
       "news": {
-        "last_try": "2026-11-15T11:00:46.429645+00:00",
-        "ok_at": "2026-11-15T11:00:46.429645+00:00"
+        "last_try": "2026-11-15T11:15:36.438864+00:00",
+        "ok_at": "2026-11-15T11:15:36.438864+00:00"
       },
       "cot": {
-        "last_try": "2026-11-15T11:00:46.429645+00:00",
-        "ok_at": "2026-11-15T11:00:46.429645+00:00"
+        "last_try": "2026-11-15T11:15:36.438864+00:00",
+        "ok_at": "2026-11-15T11:15:36.438864+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-15T11:00:46.429645+00:00",
-        "ok_at": "2026-11-15T11:00:46.429645+00:00"
+        "last_try": "2026-11-15T11:15:36.438864+00:00",
+        "ok_at": "2026-11-15T11:15:36.438864+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-15T11:00:46.429645+00:00"
+      "at": "2026-11-15T11:15:36.438864+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-15T10:00:48.682024+00:00",
+    "at": "2026-11-15T11:15:36.438864+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -874,24 +874,24 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-15T04:26:20+00:00",
-            "title": "Bulls' Norman Powell: Leads Bulls with 23 points",
-            "src": "CBS Sports"
-          },
-          {
             "t": "2026-11-15T03:45:28+00:00",
             "title": "Norman Powell connects from deep",
             "src": "NBA.com"
           },
           {
-            "t": "2026-11-15T03:32:03+00:00",
-            "title": "ECONOMIC WEEK AHEAD: November 16-20",
-            "src": "Yardeni QuickTakes"
-          },
-          {
             "t": "2026-11-15T00:45:30+00:00",
             "title": "Yen Slumps as Fed Rate-Hike Bets Boost Dollar",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-11-15T00:40:39+00:00",
+            "title": "Federal Reserve Warns of AI-Driven Stock Overvaluation, Debt Surge",
+            "src": "조선일보"
+          },
+          {
+            "t": "2026-11-14T23:31:00+00:00",
+            "title": "The Fed’s battle against inflation risks turning into a forever war as Iran 'status quo' drags on",
+            "src": "Fortune"
           }
         ]
       },
@@ -899,8 +899,13 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-15T08:57:36+00:00",
-            "title": "Top Takeaways From Joe Biden’s New Memoir",
+            "t": "2026-11-15T10:30:00+00:00",
+            "title": "The Individual Investors Who Are Hot on Anthropic’s IPO But Cool on AI",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-15T05:47:58+00:00",
+            "title": "Lutnick Fights for His Job as Trump Aides Blame Him for Nvidia Fallout",
             "src": "WSJ"
           },
           {
@@ -917,17 +922,22 @@
             "t": "2026-11-14T18:56:19+00:00",
             "title": "Anthropic IPO to test Wall Street’s faith in AI as skepticism mounts",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-14T17:54:02+00:00",
-            "title": "Warren Buffett's Berkshire Compounded at More Than 19% a Year Over Six Decades, Nearly Double the S&P 500's 10% Return. Can Investors Still Apply That Playbook Today?",
-            "src": "Yahoo Finance"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-15T11:00:00+00:00",
+            "title": "Nvidia's first post-Jensen earnings and Anthropic's IPO: What to watch this week",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-15T10:14:12+00:00",
+            "title": "Launching probe amid Nvidia fallout, Megaspeed says Alice Huang left company in August 2025",
+            "src": "The Times of Israel"
+          },
           {
             "t": "2026-11-15T08:20:51+00:00",
             "title": "Megaspeed says Alice Huang left in 2025 as it launches internal probe into reports about its business",
@@ -939,19 +949,9 @@
             "src": "Moomoo"
           },
           {
-            "t": "2026-11-15T04:08:07+00:00",
-            "title": "The Week Ahead: Blockbuster Nvidia Q3 Earnings Arrive as US October Retail Sales, FOMC Minutes and Walmart Earnings Follow",
-            "src": "TradingKey"
-          },
-          {
-            "t": "2026-11-15T04:05:00+00:00",
-            "title": "Futures Loom As Bitcoin Dives In Shaky Rally. What To Do Now.",
-            "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-11-14T23:55:00+00:00",
-            "title": "Nvidia Earnings and Anthropic IPO Land in Same Week, Testing Both Ends of the AI Supply Chain",
-            "src": "BigGo Finance"
+            "t": "2026-11-15T05:37:00+00:00",
+            "title": "Nvidia earnings — along with the baggage — top next week's markets",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -959,9 +959,14 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-15T09:06:00+00:00",
+            "t": "2026-11-15T10:00:00+00:00",
+            "title": "Allison Schrager: The affordability crisis isn’t about inflation",
+            "src": "The Spokesman-Review"
+          },
+          {
+            "t": "2026-11-15T09:26:02+00:00",
             "title": "President Donald Trump Claims, \"Tariffs Don't Cause Inflation, They Cause Wealth\" -- but Economic Data Says Otherwise",
-            "src": "The Motley Fool"
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-15T07:10:00+00:00",
@@ -969,25 +974,25 @@
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-14T23:31:00+00:00",
-            "title": "The Fed’s battle against inflation risks turning into a forever war as Iran 'status quo' drags on",
-            "src": "Fortune"
+            "t": "2026-11-15T07:10:00+00:00",
+            "title": "3 Consumer Staples Stocks Investors Are Watching As Producer Inflation Heats Up",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-14T17:00:00+00:00",
-            "title": "Personal Finance: Jobs report confirms stable labor market",
-            "src": "Chattanooga Times Free Press"
-          },
-          {
-            "t": "2026-11-14T16:04:00+00:00",
-            "title": "Boston Fed’s Collins Backs Gradual Rate Increases as Inflation Broadens",
-            "src": "Barron's"
+            "t": "2026-11-15T05:09:00+00:00",
+            "title": "Morton Marcus: Inflation, the dependable companion for life",
+            "src": "The Republic News"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-11-14T21:38:03+00:00",
+            "title": "Have Trump's tariffs blocked Chinese EVs from the US market?",
+            "src": "DW.com"
+          },
           {
             "t": "2026-11-14T20:44:32+00:00",
             "title": "Trump faces Carney's refusal to back down as Canada pushes back against U.S. trade demands and Africa's largest economy turns to China",
@@ -1002,11 +1007,6 @@
             "t": "2026-11-14T14:32:14+00:00",
             "title": "Tariffs Hit Cash Flow Before They Hit Margins: How Importers Are Financing Equipment and Inventory in 2026",
             "src": "Global Trade Magazine"
-          },
-          {
-            "t": "2026-11-14T13:30:00+00:00",
-            "title": "Opinion: Washington can start delivering on affordability by rejecting Trump’s tariffs",
-            "src": "MarketWatch"
           }
         ]
       },
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-15T10:33:45+00:00",
+            "title": "Bahrain intercepts Iranian attacks after first nationwide alert in months",
+            "src": "The National"
+          },
+          {
+            "t": "2026-11-15T10:11:06+00:00",
+            "title": "Trump keeps Iran strike option open but leans towards holding fire",
+            "src": "Middle East Online"
+          },
+          {
+            "t": "2026-11-15T10:09:50+00:00",
+            "title": "Drone Strike Sparks Fire at One of Russia’s Largest Petrochemical Plants 800 Miles From Ukraine",
+            "src": "UNITED24 Media"
+          },
+          {
             "t": "2026-11-15T09:57:35+00:00",
             "title": "Iran claims attack on US military airbase in Bahrain",
             "src": "France 24"
-          },
-          {
-            "t": "2026-11-15T09:41:04+00:00",
-            "title": "Trump keeps Iran strike option open but leans towards holding fire",
-            "src": "middle-east-online.com"
-          },
-          {
-            "t": "2026-11-15T08:54:42+00:00",
-            "title": "Live - Bahrain urges UN action over Iran’s attacks as Tehran vows to keep responding",
-            "src": "Iran International"
-          },
-          {
-            "t": "2026-11-15T08:26:15+00:00",
-            "title": "Bahrain intercepts Iranian attacks after first nationwide alert in months",
-            "src": "The National"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-15T11:00:46.429645+00:00",
+    "at": "2026-11-15T11:15:36.438864+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1696,7 +1696,7 @@
       "source": "FRED",
       "period": "2026-10-01",
       "received_at": "2026-11-13T15:45:35.897554+00:00",
-      "last_attempt": "2026-11-15T08:15:31.528105+00:00",
+      "last_attempt": "2026-11-15T11:15:36.438864+00:00",
       "attempts": 18,
       "title": "Core PPI m/m",
       "time": "2026-11-13T13:30:00+00:00",
@@ -1719,7 +1719,7 @@
       "source": "FRED",
       "period": "2026-10-01",
       "received_at": "2026-11-13T15:45:35.897554+00:00",
-      "last_attempt": "2026-11-15T08:15:31.528105+00:00",
+      "last_attempt": "2026-11-15T11:15:36.438864+00:00",
       "attempts": 18,
       "title": "PPI m/m",
       "time": "2026-11-13T13:30:00+00:00",
@@ -8049,12 +8049,58 @@
       "bulletin_check": "لم تُقارَن بنشرة الإصدار",
       "match": "مطابقة فترة التقرير",
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|ppife|mm|2026-10|-|2026-11-13",
+      "title": "Core PPI m/m",
+      "release_time": "2026-11-13T13:30:00+00:00",
+      "fetched_at": "2026-11-15T11:15:36.438864+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.3%",
+      "period": "2026-10-01",
+      "series": "PPIFES",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.32644178454843686,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.3%",
+      "previous": "0.7%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (PPIFES، فترة 2026-10-01) — PPI الأساسي شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
+    },
+    {
+      "id": "US|ppi|mm|2026-10|-|2026-11-13",
+      "title": "PPI m/m",
+      "release_time": "2026-11-13T13:30:00+00:00",
+      "fetched_at": "2026-11-15T11:15:36.438864+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.3%",
+      "period": "2026-10-01",
+      "series": "PPIFIS",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.3475287885334133,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.4%",
+      "previous": "1.3%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-15T11:00:46.429645+00:00",
+  "last_publish_ok": "2026-11-15T11:15:36.438864+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-15T11:01:16.006737+00:00"
+    "at": "2026-11-15T11:16:08.682187+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8163,7 +8209,7 @@
     "fred": {
       "ok": true,
       "detail": "2 سلسلة",
-      "at": "2026-11-15T08:15:31.528105+00:00"
+      "at": "2026-11-15T11:15:36.438864+00:00"
     },
     "alfred": {
       "ok": false,
@@ -8183,12 +8229,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-15T11:00:46.429645+00:00",
-    "ok_at": "2026-11-15T11:00:46.429645+00:00",
+    "at": "2026-11-15T11:15:36.438864+00:00",
+    "ok_at": "2026-11-15T11:15:36.438864+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-15T11:00:46.429645+00:00",
+    "at": "2026-11-15T11:15:36.438864+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
