@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-15T20:45:33.507439+00:00",
-        "ok_at": "2026-11-15T20:45:33.507439+00:00"
+        "last_try": "2026-11-15T21:00:47.304360+00:00",
+        "ok_at": "2026-11-15T21:00:47.304360+00:00"
       },
       "fred": {
-        "last_try": "2026-11-15T20:45:33.507439+00:00",
-        "ok_at": "2026-11-15T20:45:33.507439+00:00"
+        "last_try": "2026-11-15T21:00:47.304360+00:00",
+        "ok_at": "2026-11-15T21:00:47.304360+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-15T20:45:33.507439+00:00",
-        "ok_at": "2026-11-15T20:45:33.507439+00:00"
+        "last_try": "2026-11-15T21:00:47.304360+00:00",
+        "ok_at": "2026-11-15T21:00:47.304360+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-15T20:45:33.507439+00:00",
-        "ok_at": "2026-11-15T20:45:33.507439+00:00"
+        "last_try": "2026-11-15T21:00:47.304360+00:00",
+        "ok_at": "2026-11-15T21:00:47.304360+00:00"
       },
       "oil": {
-        "last_try": "2026-11-15T20:45:33.507439+00:00",
-        "ok_at": "2026-11-15T20:45:33.507439+00:00"
+        "last_try": "2026-11-15T21:00:47.304360+00:00",
+        "ok_at": "2026-11-15T21:00:47.304360+00:00"
       },
       "news": {
-        "last_try": "2026-11-15T20:45:33.507439+00:00",
-        "ok_at": "2026-11-15T20:45:33.507439+00:00"
+        "last_try": "2026-11-15T21:00:47.304360+00:00",
+        "ok_at": "2026-11-15T21:00:47.304360+00:00"
       },
       "cot": {
-        "last_try": "2026-11-15T20:45:33.507439+00:00",
-        "ok_at": "2026-11-15T20:45:33.507439+00:00"
+        "last_try": "2026-11-15T21:00:47.304360+00:00",
+        "ok_at": "2026-11-15T21:00:47.304360+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-15T20:45:33.507439+00:00",
-        "ok_at": "2026-11-15T20:45:33.507439+00:00"
+        "last_try": "2026-11-15T21:00:47.304360+00:00",
+        "ok_at": "2026-11-15T21:00:47.304360+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-15T20:45:33.507439+00:00"
+      "at": "2026-11-15T21:00:47.304360+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,36 +862,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-15T20:00:45.506463+00:00",
+    "at": "2026-11-15T21:00:47.304360+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-15T19:00:00+00:00",
-            "title": "Nvidia, Anthropic, Walmart, Home Depot, the Fed, Home Sales, and More to Watch This Week",
-            "src": "Barron's"
-          },
-          {
-            "t": "2026-11-15T18:40:00+00:00",
-            "title": "Schmid Says Fed Has More Work To Do to Bring Down Inflation",
+            "t": "2026-11-15T20:00:00+00:00",
+            "title": "Roughed-Up Bond Traders Look to Fedspeak, Minutes for Next Move",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-15T16:49:50+00:00",
-            "title": "SPP Hires Arielle Schwartz as Fed Policy Lead",
-            "src": "RTO Insider"
+            "t": "2026-11-15T19:35:00+00:00",
+            "title": "Kansas City Fed's Schmid Says Inflation Still Too Hot, Pushes Back on 'Beyond Fed Control' Talk",
+            "src": "BigGo Finance"
           },
           {
-            "t": "2026-11-15T16:47:28+00:00",
-            "title": "Emily Powell: ACCC Introduces a Guide to Advancing Precision Medicine Stewardship",
-            "src": "Oncodaily"
+            "t": "2026-11-15T19:30:00+00:00",
+            "title": "Fed's Warsh to take stock of AI revolution as US public grows wary",
+            "src": "Channel 3000"
           },
           {
-            "t": "2026-11-15T16:06:03+00:00",
-            "title": "AI Tops Financial Stability Risks Cited in Fed Survey",
-            "src": "The Defiant"
+            "t": "2026-11-15T19:07:30+00:00",
+            "title": "Asian Bond Yields Rise on Growing Expectations for Fed Rate Hike",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-15T19:00:51+00:00",
+            "title": "Kansas City Fed’s Schmid says central bank has work to do on inflation",
+            "src": "Investing.com"
           }
         ]
       },
@@ -899,14 +899,14 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-11-15T20:13:00+00:00",
+            "title": "Stock Futures Begin New Week of Trading Ahead of Nvidia’s Earnings, Anthropic’s IPO",
+            "src": "Barron's"
+          },
+          {
             "t": "2026-11-15T18:50:02+00:00",
             "title": "This Dividend King Yields 5 Times the S&P 500. Is It a Buy Now?",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-15T18:34:22+00:00",
-            "title": "California Voters Pass Ban on Wealth Taxes",
-            "src": "WSJ"
           },
           {
             "t": "2026-11-15T18:04:53+00:00",
@@ -929,35 +929,40 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-11-15T20:41:59+00:00",
+            "title": "Megaspeed says Alice Huang left in 2025, launches internal probe over Nvidia",
+            "src": "Global News"
+          },
+          {
+            "t": "2026-11-15T20:25:00+00:00",
+            "title": "Nvidia's First Earnings Call Without Jensen Huang: Options Market Prices an 8.3% Swing, Roughly $341 Billion",
+            "src": "BigGo Finance"
+          },
+          {
+            "t": "2026-11-15T20:00:30+00:00",
+            "title": "Nvidia Earnings Without Jensen Huang Could Trigger $341 Billion Stock Swing As Options Traders Brace For Volatility",
+            "src": "Benzinga"
+          },
+          {
             "t": "2026-11-15T19:35:00+00:00",
             "title": "Futures Indicated Lower With Rally Under Pressure. What To Do.",
             "src": "Investor's Business Daily"
           },
           {
-            "t": "2026-11-15T19:33:00+00:00",
-            "title": "Megaspeed says Alice Huang left in 2025 as company conducts internal probe over Nvidia fallout",
-            "src": "PBS"
-          },
-          {
             "t": "2026-11-15T19:30:32+00:00",
             "title": "Nvidia Earnings and Anthropic IPO Lead Market Week",
             "src": "Oz Arab Media"
-          },
-          {
-            "t": "2026-11-15T19:12:42+00:00",
-            "title": "US Stock Market Week Ahead: Can Nvidia Earnings and Fed Minutes Spark a Nasdaq Rally?",
-            "src": "Stocks Down Under"
-          },
-          {
-            "t": "2026-11-15T19:05:59+00:00",
-            "title": "Nvidia Q3 Earnings Preview, 17 November",
-            "src": "AskTraders.com"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-11-15T18:40:00+00:00",
+            "title": "Schmid Says Fed Has More Work To Do to Bring Down Inflation",
+            "src": "Bloomberg.com"
+          },
           {
             "t": "2026-11-15T18:15:00+00:00",
             "title": "Vanguard Economists Say: Inflation Might Be Better Than It Looks. Here's Why That's Good News for Stocks.",
@@ -977,22 +982,12 @@
             "t": "2026-11-15T13:25:15+00:00",
             "title": "Over 63% skeptical about PM's tax cut to help fight inflation",
             "src": "Japan Wire by Kyodo News"
-          },
-          {
-            "t": "2026-11-15T13:10:51+00:00",
-            "title": "Weekly Wrap-Up: Nflation, Nvidia, ‘n the AI Bubble",
-            "src": "Jared Bernstein | Substack"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
-          {
-            "t": "2026-11-15T19:22:40+00:00",
-            "title": "U.S., Eurozone Bond Yields Rise",
-            "src": "WSJ"
-          },
           {
             "t": "2026-11-15T17:00:45+00:00",
             "title": "I Asked ChatGPT How I Can Dodge Tariffs and Save My Holiday Budget",
@@ -1007,6 +1002,11 @@
             "t": "2026-11-15T11:38:56+00:00",
             "title": "China-U.S. Trade Council Holds First Meeting: Tariffs and Agriculture on Agenda",
             "src": "La Voce di New York"
+          },
+          {
+            "t": "2026-11-15T11:33:05+00:00",
+            "title": "Bugatti's new US CEO talks manuals, electric hypercars and the business of tariffs",
+            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-15T19:19:37+00:00",
-            "title": "Iran launches drone strike on U.S. base in Bahrain",
-            "src": "upi"
-          },
-          {
-            "t": "2026-11-15T19:00:00+00:00",
-            "title": "EU flexes muscle on Russia sanctions, as Trump and Putin discuss Ukraine’s future in China",
-            "src": "EUobserver"
-          },
-          {
-            "t": "2026-11-15T18:23:00+00:00",
-            "title": "Estonia to close all border crossings with Russia after attack on drone maker",
-            "src": "The Guardian"
-          },
-          {
-            "t": "2026-11-15T18:11:15+00:00",
-            "title": "Estonia to close border crossings with Russia after attack on drone maker",
+            "t": "2026-11-15T20:43:53+00:00",
+            "title": "Estonia to close border crossings with Russia after alleged arson attack",
             "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-15T20:38:15+00:00",
+            "title": "Who can force Israel to implement Gaza ceasefire deal?",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-15T20:38:12+00:00",
+            "title": "Iran’s navy says oil tanker on fire after hitting mine east of Hormuz",
+            "src": "Arab News"
+          },
+          {
+            "t": "2026-11-15T20:30:00+00:00",
+            "title": "Zelensky: We disabled 55% of Russia's oil refining capacity",
+            "src": "Breakingthenews.net"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-15T20:45:33.507439+00:00",
+    "at": "2026-11-15T21:00:47.304360+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -8120,10 +8120,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-15T20:45:33.507439+00:00",
+  "last_publish_ok": "2026-11-15T21:00:47.304360+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-15T20:46:07.175416+00:00"
+    "at": "2026-11-15T21:01:14.361941+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8252,12 +8252,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-15T20:45:33.507439+00:00",
-    "ok_at": "2026-11-15T20:45:33.507439+00:00",
+    "at": "2026-11-15T21:00:47.304360+00:00",
+    "ok_at": "2026-11-15T21:00:47.304360+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-15T20:45:33.507439+00:00",
+    "at": "2026-11-15T21:00:47.304360+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
