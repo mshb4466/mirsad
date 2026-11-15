@@ -306,7 +306,7 @@ def test_preopen_includes_context_and_news():
     d["earnings"] = lambda now: [("NVDA", NOW.date().isoformat())]
     r.run_preopen(NOW, new_state(), box, d)
     m = box.msgs[0]
-    assert "السياق:" in m and "تمركز المضاربين" in m and "منحنى 2-10" in m
+    assert "السياق:" in m and "تمركز الصناديق ذات الرافعة" in m and "منحنى 2-10" in m
     assert "عناوين عن توقعات البنوك" in m and "Goldman raises" in m
     assert "عناوين الشركات الكبرى" in m and "Nvidia faces" in m
     assert "عناوين السياسة" not in m                      # محور فارغ لا يظهر

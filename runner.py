@@ -1128,6 +1128,19 @@ def gather_extras(now, deps, state=None):
                 extras[name] = deps[name](now)
             except Exception as e:  # noqa: BLE001
                 problems.append(f"تعذّر جلب {name}: {e}")
+    if state is not None:                                # سجل COT الأسبوعي يبقى في state.json (docs/data.json لا يُحفظ بين التشغيلات)
+        try:
+            import cot as cot_mod
+            got = extras.get("cot")
+            if isinstance(got, dict) and got.get("date") and "lev_long" in got:
+                state["cot_hist"] = cot_mod.update_history(state.get("cot_hist"), got)
+                state["cot_last"] = {k: v for k, v in got.items() if k != "hist"}
+            elif isinstance(state.get("cot_last"), dict):
+                extras["cot"] = state["cot_last"]        # فشل الجلب: آخر تقرير صالح، وتوسمه الواجهة «قديم» إن تجاوز 14 يوماً (عطلة رسمية قد تؤخّر الإصدار إلى 13 يوماً)
+            if isinstance(extras.get("cot"), dict) and state.get("cot_hist"):
+                extras["cot"] = {**extras["cot"], "hist": state["cot_hist"]}
+        except Exception as e:  # noqa: BLE001
+            problems.append(f"تعذّر حفظ سجل COT: {e}")
     # مزوّدو المكوّنات المدفوعة (فارغ الآن): {"gamma": دالة(now) -> (درجة 0-10، ملاحظة)} — انظر ROADMAP.md
     for key, fn in (deps.get("premium") or {}).items():
         try:

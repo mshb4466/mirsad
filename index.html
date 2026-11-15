@@ -362,6 +362,16 @@
   #sumCard button[aria-expanded="true"] { outline: 2px solid var(--brand); outline-offset: 1px; }
   .xp { background: var(--card-2); border-inline-start: 4px solid var(--brand); border-radius: 12px; padding: 12px 14px; font-size: 16px; line-height: 1.8; } .xp b { display: block; font-size: 17px; margin-bottom: 2px; } .xp ul { margin: 6px 0 0; padding-inline-start: 20px; } .xp small { color: var(--muted); display: block; margin-top: 6px; font-size: 14px; }
   .src { margin: 0; font-size: 13.5px; color: var(--muted); }
+  .cotc .cverd { display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 14px; margin-bottom: 12px; background: var(--card-2); }
+  .cotc .cverd b { display: block; font-size: 22px; font-weight: 900; } .cotc .cverd small, .cotc .crow small { display: block; font-size: 13px; color: var(--muted); }
+  .cotc .cverd .ci2 { font-size: 44px; line-height: 1; min-width: 48px; text-align: center; }
+  .cotc .crow { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .cotc .crow b { display: block; font-size: 15px; font-weight: 700; } .cotc .crow .ci2 { font-size: 26px; min-width: 32px; text-align: center; }
+  .cotc.up .cverd { background: var(--ok-bg); } .cotc.up .cverd .ci2, .cotc .crow.up .ci2 { color: var(--ok); }
+  .cotc.down .cverd { background: var(--crit-bg); } .cotc.down .cverd .ci2, .cotc .crow.down .ci2 { color: var(--crit); }
+  .cotc.flat .cverd .ci2, .cotc .crow.flat .ci2, .cotc .crow.na .ci2 { color: var(--muted); }
+  .cotc.stale .cverd { opacity: .55; }
+  .cotc .src { margin-top: 10px; font-size: 12.5px; }
   .t3 { width: 100%; text-align: start; font-family: inherit; color: inherit; background: var(--card-2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin-bottom: 8px; display: block; cursor: pointer; font-size: 17px; line-height: 1.6; }
   .t3 .h { display: flex; gap: 10px; align-items: flex-start; font-weight: 700; } .t3 .ar { font-size: 20px; min-width: 24px; text-align: center; } .t3 .w { display: block; margin-top: 8px; font-size: 16px; font-weight: 400; color: var(--muted); } 
   .t3.bull .ar { color: var(--ok); } .t3.bear .ar { color: var(--hi); } .t3.flat .ar { color: var(--neutral); }
@@ -452,8 +462,8 @@
     #tab-today { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 14px; align-items: start; }
     #tab-today[hidden] { display: none; }
     #tab-today > #updCard, #tab-today > #safeCard, #tab-today > #pulseSec, #tab-today > #newsTable, #tab-today > #evCard { grid-column: 1 / -1; }
-    #tab-today > #mainCard { grid-column: 1; } #tab-today > #nextCard, #tab-today > #riskCard, #tab-today > #geoCard, #tab-today > #recentCard { grid-column: 2; } #tab-today > #mainCard { grid-row: span 3; }
-    #tab-today > #mainCard { order: 1; } #tab-today > #nextCard { order: 2; } #tab-today > #riskCard { order: 3; } #tab-today > #geoCard { order: 4; } #tab-today > #recentCard { order: 5; } #tab-today > #pulseSec { order: 6; } #tab-today > #newsTable { order: 7; } #tab-today > #evCard { order: 8; }
+    #tab-today > #mainCard { grid-column: 1; } #tab-today > #nextCard, #tab-today > #riskCard, #tab-today > #cotCard, #tab-today > #geoCard, #tab-today > #recentCard { grid-column: 2; } #tab-today > #mainCard { grid-row: span 3; }
+    #tab-today > #mainCard { order: 1; } #tab-today > #nextCard { order: 2; } #tab-today > #riskCard { order: 3; } #tab-today > #cotCard { order: 4; } #tab-today > #geoCard { order: 4; } #tab-today > #recentCard { order: 5; } #tab-today > #pulseSec { order: 6; } #tab-today > #newsTable { order: 7; } #tab-today > #evCard { order: 8; }
     .pcards { grid-template-columns: repeat(4, minmax(0, 1fr)); } .newsT { display: block; } #moreNews { display: none; }
     .upd dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } .unums { max-width: 520px; }
     #evList { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; align-items: start; }
@@ -761,6 +771,14 @@
       <h2>نبض الأسواق</h2>
       <div class="pcards" id="pcards"></div>
       <p class="src" id="pcNote"></p>
+    </section>
+
+    <section class="card cotc" id="cotCard" hidden aria-labelledby="cotH">
+      <h2 id="cotH">ميل المؤسسات الأسبوعي</h2>
+      <div class="cverd" id="cotVerd"><span class="ci2" id="cotVI" aria-hidden="true"></span><div><b id="cotVT">—</b><small id="cotVS"></small></div></div>
+      <div class="crow" id="cotLev"><span class="ci2" aria-hidden="true"></span><div><b>الصناديق ذات الرافعة</b><small></small></div></div>
+      <div class="crow" id="cotAm"><span class="ci2" aria-hidden="true"></span><div><b>مديرو الأصول</b><small></small></div></div>
+      <p class="src" id="cotNote"></p>
     </section>
 
     <section class="card" id="geoCard" hidden>
@@ -1359,7 +1377,7 @@ function render(data) {
   RISK_NOW = { score, lvl };
   riskCard_(data, score, lvl);
   renderMain_(data, score, lvl);
-  renderUpdate_(data); renderLog_(data); renderNext_(data); renderPulse_(data); renderNewsTable_(data); try { renderRecent_(data); } catch (e) { console.error(e); } try { renderGeo_(data); } catch (e) { console.error(e); }
+  renderUpdate_(data); renderLog_(data); renderNext_(data); renderPulse_(data); renderNewsTable_(data); try { renderRecent_(data); } catch (e) { console.error(e); } try { renderGeo_(data); } catch (e) { console.error(e); } try { renderCot_(data); } catch (e) { console.error(e); }
 
   /* المنظومة الكلية */
   const mc = data.macro, fc = $('fedCard');
@@ -1985,6 +2003,29 @@ function qbars_(d, b, score, lvl) {
   mk('النظام الاقتصادي', rg ? (REG_AR[rg.key] || rg.key) : 'غير متاح', rg && REG_POS[rg.key] != null ? REG_POS[rg.key] : null, ['ضاغط', 'انتقالي', 'داعم'], true, '');
   const cf = b && b.confirm;
   mk('تأكيد السوق', cf ? cf.label : 'غير متاح', cf && typeof cf.market === 'number' ? (cf.market + 1) / 2 : null, ['يعارض', 'غير حاسم', 'يؤكد'], true, '');
+}
+/* ---- ميل المؤسسات الأسبوعي (COT، TFF موحّد): حكم واحد وسببان، بلا أرقام ---- */
+function renderCot_(d) {
+  const c = d.cot, card = $('cotCard');
+  if (!c || !c.verdict) { card.hidden = true; return; }
+  const ICON = { up: '▲', down: '▼', flat: '●' };
+  const VW = { up: 'الميل صعودي', down: 'الميل هبوطي', flat: 'الميل محايد' };
+  const LEV = { up: 'صافي مراكزها يتحرّك نحو الشراء عن الأسبوع الماضي', down: 'صافي مراكزها يتحرّك نحو البيع عن الأسبوع الماضي', flat: 'بلا تغيّر يُذكر عن الأسبوع الماضي' };
+  const AM = { up: 'اتجاههم الأكبر شراء', down: 'اتجاههم الأكبر بيع', flat: 'اتجاههم الأكبر ثابت' };
+  card.hidden = false;
+  card.className = 'card cotc ' + c.verdict;
+  $('cotVI').textContent = ICON[c.verdict];
+  $('cotVT').textContent = VW[c.verdict];
+  $('cotVS').textContent = c.partial ? 'سبب واحد حتى الآن' : (c.agree ? 'الإشارتان متفقتان' : 'الإشارتان متعارضتان');
+  const row = (id, dir, txt) => {
+    const r = $(id); r.className = 'crow ' + (dir || 'na');
+    r.querySelector('.ci2').textContent = dir ? ICON[dir] : '…'; r.querySelector('small').textContent = txt;
+  };
+  row('cotLev', c.lev, LEV[c.lev] || '');
+  row('cotAm', c.am, c.am ? AM[c.am] + ' (' + c.am_basis + ')' : c.am_basis);
+  let age = ''; const t = Date.parse(c.date);
+  if (!isNaN(t)) { const days = Math.floor((Date.now() - t) / 86400000); if (days > 14) { card.classList.add('stale'); age = ' · قديم: تأخّر التقرير الجديد'; } }
+  $('cotNote').textContent = 'بيانات ثلاثاء ' + c.date + age + ' · خلفية للأسبوع فقط وليست إشارة دخول.';
 }
 /* ---- الأخبار السياسية/الجيوسياسية المؤثرة (النوع والمنطقة والحدّة والتصعيد/التهدئة، بلا اتجاه أثر على ES) ---- */
 function renderGeo_(d) {

@@ -6,6 +6,7 @@
 """
 import json
 import actuals
+import cot as cot_mod
 import events_ctx
 import verdict
 import impact
@@ -509,6 +510,7 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "quality": quality,
         "next_event": next((u for u in upcoming if u.get("high")), None) or (upcoming[0] if upcoming else None) or (later[0] if later else None),
         "info": [info[k] for k in ("rates", "long_end", "tech", "mag7", "banks", "cot", "earnings") if k in info],
+        "cot": _cot_card(report, prev_view),
         "geo": [{"title": t["title"], "title_ar": t.get("title_ar"), "severity": t["severity"], "sources": t["sources"],
                  "regions": t["regions"], "deesc": t["deesc"]} for t in (geo.get("top") or [])[:3]],
         "geo_confirmed": bool(geo.get("confirmed")),
@@ -525,6 +527,14 @@ def build_view(report, events, now, news_labels=None, alerts=None, pulse=None, e
         "version": VERSION,
     }
     return view
+
+
+def _cot_card(report, prev_view):
+    """بطاقة ميل المؤسسات الأسبوعي (cot.py). فشلها ناعم: لا تُسقط اللقطة."""
+    try:
+        return cot_mod.card(report.get("cot"), (prev_view or {}).get("cot"))
+    except Exception:  # noqa: BLE001
+        return None
 
 
 def _releases_view(rel):

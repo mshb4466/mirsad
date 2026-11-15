@@ -53,7 +53,7 @@ SYMBOLS.update({"b_" + t: t for t in BANKS})
 
 CAL_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
 FRED_SERIES = {"t10y2y": "T10Y2Y", "dgs2": "DGS2", "hy_oas": "BAMLH0A0HYM2", "tp10": "THREEFYTP10"}
-COT_URL = "https://www.cftc.gov/dea/newcot/deafut.txt"
+COT_URL = "https://www.cftc.gov/dea/newcot/FinComWk.txt"   # TFF موحّد (العقود الآجلة والخيارات)؛ الجلب الفعلي في cot.py
 UA = {"User-Agent": "Mozilla/5.0 (mirsad-collector)"}
 
 # تقويم بورصة نيويورك 2026 (يُراجع سنوياً)
@@ -293,17 +293,10 @@ def fetch_fred(now, days=45, series=None):
 
 
 def fetch_cot():
-    """مراكز المضاربين الكبار في عقد E-mini S&P 500 (تقرير CFTC الأسبوعي). صيغة الملف لم تُتحقق منها."""
-    req = urllib.request.Request(COT_URL, headers=UA)
-    with urllib.request.urlopen(req, timeout=25) as r:
-        text = r.read().decode("utf-8", errors="replace")
-    for row in csv.reader(io.StringIO(text)):
-        if row and "E-MINI S&P 500" in row[0].upper() and "CHICAGO MERCANTILE" in row[0].upper():
-            oi, nl, ns = int(row[7]), int(row[8]), int(row[9])
-            if oi <= 0 or nl < 0 or ns < 0 or nl > oi or ns > oi:
-                raise ValueError("أرقام COT غير منطقية: الصيغة تغيّرت على الأرجح")
-            return {"date": row[2].strip(), "net_pct": (nl - ns) / oi * 100, "oi": oi}
-    raise ValueError("لم يُعثر على عقد E-mini S&P 500 في ملف COT")
+    """تمركز المؤسسات في E-mini S&P 500 من تقرير CFTC الأسبوعي (TFF، العقود الآجلة والخيارات موحّدة): الصناديق ذات الرافعة ومديرو الأصول.
+    كان يقرأ الملف القديم (futures-only، مضاربون/تجاريون)؛ التفاصيل والتحقق في cot.py."""
+    import cot as cot_mod
+    return cot_mod.fetch()
 
 
 def fetch_earnings(now):
@@ -825,7 +818,7 @@ def build_info(p, fred, cot, earn_names, corrs, events, now):
                  for k, v in corrs.items()]
         info["corr"] = "ارتباط 20 يوماً مع ES: " + " | ".join(parts)
     if cot:
-        info["cot"] = f"تمركز المضاربين الكبار في ES: صافي {cot['net_pct']:+.1f}% من الفائدة المفتوحة (تقرير {cot['date']})"
+        info["cot"] = f"تمركز الصناديق ذات الرافعة في ES (آجلة وخيارات): صافي {cot['net_pct']:+.1f}% من الفائدة المفتوحة (تقرير {cot['date']})"
     if earn_names:
         info["earnings"] = "أرباح خلال 48 ساعة: " + "، ".join(earn_names)
     fs = fed_speakers_soon(events, now)
@@ -991,6 +984,7 @@ def build_report(prices, events, now, problems=None, extras=None):
                         "forecast": ev["forecast"], "previous": ev["previous"], "actual": ev["actual"]}
                        if ev else None),
         "info": build_info(prices, fred, cot, earn_names, corrs, events, now),
+        "cot": cot,
         "news": news,
         "geo": geo_detail,
         "macro": macro_view,
