@@ -24,7 +24,7 @@
     "nq_down": "2026-11-13T21:15:38.364007+00:00",
     "y5_down": "2026-10-08T17:44:38.039516+00:00",
     "kre_up": "2026-10-08T17:44:38.039516+00:00",
-    "nq_up": "2026-11-12T16:15:40.750988+00:00",
+    "nq_up": "2026-11-15T23:45:40.013574+00:00",
     "es_down": "2026-11-13T15:30:39.352623+00:00",
     "gold_down": "2026-11-12T14:00:43.844385+00:00",
     "dxy_up": "2026-11-10T13:45:38.893975+00:00",
@@ -43,7 +43,7 @@
     "nq_down": 1.179196183746419,
     "y5_down": 1.0444429185655382,
     "kre_up": 1.0885300566982083,
-    "nq_up": 1.6393006831896262,
+    "nq_up": 1.826173361143694,
     "es_down": 3.414891104935252,
     "gold_down": 1.7596501206307633,
     "dxy_up": 0.9404132954736267,
@@ -57,257 +57,6 @@
     "dxy_down": 1.538784800668832
   },
   "alerts": [
-    {
-      "id": "move|202611111600|nq",
-      "t": "2026-11-11T16:00:44.314296+00:00",
-      "kind": "move",
-      "important": true,
-      "icon": "📈",
-      "title": "حركة كبيرة في السوق (ناسداك)",
-      "what": "حركة كبيرة في السوق (ناسداك)",
-      "why": "",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "+0.24%",
-          "c180": "+0.16%",
-          "lead": false
-        },
-        {
-          "name": "ناسداك",
-          "c60": "+0.85%",
-          "c180": "+0.42%",
-          "lead": true
-        },
-        {
-          "name": "VIX",
-          "c60": "-4.99%",
-          "c180": "-3.96%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "+0.84%",
-          "c180": "+1.31%",
-          "lead": false
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "-0.06%",
-          "c180": "+0.31%",
-          "lead": false
-        },
-        {
-          "name": "عائد 10 سنوات",
-          "c60": "+0bp",
-          "c180": "+1bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 30 سنة",
-          "c60": "+0bp",
-          "c180": "+1bp",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "ناسداك: كفاءة الاتجاه 0.62 | دلالة الحركة 2.6σ | التقلب اللحظي ×1.4 | الحجم ×2.1"
-      ],
-      "pattern": [],
-      "headlines": [
-        "Wall Street is cooling on Jensen Huang's Nvidia — but history says don't give up on the stock just yet - Yahoo! Finance Canada",
-        "OU football coach Brent Venables 'not on hot seat,' Regents chair says - The Oklahoman",
-        "Inflation Fears Push Treasury Yields Further Above Fair Value - Seeking Alpha",
-        "Even $50,000 in Dividend Stocks Pays More Inside a Roth IRA. Here’s How Much More - 24/7 Wall St."
-      ],
-      "rev": 0
-    },
-    {
-      "id": "move|202611121330|oil",
-      "t": "2026-11-12T13:30:40.054906+00:00",
-      "kind": "move",
-      "important": true,
-      "icon": "📉",
-      "title": "عامل مؤثر يتحرك بقوة (النفط)",
-      "what": "عامل مؤثر يتحرك بقوة (النفط)",
-      "why": "النفط يرتفع والأسهم تهبط: نمط يرتبط عادة بمخاوف التضخم أو توتر جيوسياسي؛ VIX يرتفع: زيادة الطلب على الحماية",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-0.33%",
-          "c180": "-0.39%",
-          "lead": false
-        },
-        {
-          "name": "VIX",
-          "c60": "+5.07%",
-          "c180": "+4.72%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "+2.13%",
-          "c180": "+1.99%",
-          "lead": true
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "+0.03%",
-          "c180": "+0.11%",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "النفط: كفاءة الاتجاه 0.78 | دلالة الحركة 4.1σ | التقلب اللحظي ×3.5 | الحجم ×7.1"
-      ],
-      "pattern": [
-        "النفط يرتفع والأسهم تهبط: نمط يرتبط عادة بمخاوف التضخم أو توتر جيوسياسي",
-        "VIX يرتفع: زيادة الطلب على الحماية"
-      ],
-      "headlines": [
-        "Divided Government Is Back: 4 Steady Passive Income Dividend Stocks to Own - 24/7 Wall St.",
-        "Gold extends losses to one-week low as dollar rallies on Fed hike bets - Kitco",
-        "Saudi oil production rebounds to near prewar levels - Semafor",
-        "Global AI stocks sink as Nvidia crisis deepens sector selloff - Reuters"
-      ],
-      "rev": 0
-    },
-    {
-      "id": "move|202611121400|gold",
-      "t": "2026-11-12T14:00:43.844385+00:00",
-      "kind": "move",
-      "important": true,
-      "icon": "📉",
-      "title": "عامل مؤثر يتحرك بقوة (الذهب)",
-      "what": "عامل مؤثر يتحرك بقوة (الذهب)",
-      "why": "النفط يرتفع والأسهم تهبط: نمط يرتبط عادة بمخاوف التضخم أو توتر جيوسياسي؛ العوائد ترتفع عكس الأسهم: السوق يعيد تسعير الفائدة، وهذا ما يحرّك التقنية خاصة",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-0.31%",
-          "c180": "-0.40%",
-          "lead": false
-        },
-        {
-          "name": "VIX",
-          "c60": "+2.40%",
-          "c180": "+2.79%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "+1.40%",
-          "c180": "+1.60%",
-          "lead": false
-        },
-        {
-          "name": "الذهب",
-          "c60": "-1.14%",
-          "c180": "-1.55%",
-          "lead": true
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "+0.04%",
-          "c180": "+0.15%",
-          "lead": false
-        },
-        {
-          "name": "عائد 10 سنوات",
-          "c60": "+5bp",
-          "c180": "+5bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 30 سنة",
-          "c60": "+3bp",
-          "c180": "+3bp",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "الذهب: كفاءة الاتجاه 0.82 | دلالة الحركة 5.2σ | التقلب اللحظي ×2.2 | الحجم ×3.9"
-      ],
-      "pattern": [
-        "النفط يرتفع والأسهم تهبط: نمط يرتبط عادة بمخاوف التضخم أو توتر جيوسياسي",
-        "العوائد ترتفع عكس الأسهم: السوق يعيد تسعير الفائدة، وهذا ما يحرّك التقنية خاصة"
-      ],
-      "headlines": [
-        "BP, Shell, and TotalEnergies: Where Next for Oil Stocks as Crude Prices Fall? - Morningstar",
-        "Bernstein Warns Oil Stocks May Stall Even With Crude at $90, Cuts Three U.S. Producers - finance.biggo.com",
-        "Oman monitors handling of oil tanker run aground off its coast - 1470 & 100.3 WMBD",
-        "Oil Prices Face Mixed Signals as U.S. Distillate Stocks Fall - FXEmpire"
-      ],
-      "rev": 0
-    },
-    {
-      "id": "move|202611121615|es-nq",
-      "t": "2026-11-12T16:15:40.750988+00:00",
-      "kind": "move",
-      "important": true,
-      "icon": "📈",
-      "title": "حركة كبيرة في السوق (ES، ناسداك)",
-      "what": "حركة كبيرة في السوق (ES، ناسداك)",
-      "why": "VIX ينخفض: ارتياح وتراجع الطلب على الحماية",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "+0.59%",
-          "c180": "+0.82%",
-          "lead": true
-        },
-        {
-          "name": "ناسداك",
-          "c60": "+0.98%",
-          "c180": "+1.54%",
-          "lead": true
-        },
-        {
-          "name": "VIX",
-          "c60": "-5.20%",
-          "c180": "-4.99%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "-0.18%",
-          "c180": "-0.58%",
-          "lead": false
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "+0.05%",
-          "c180": "+0.16%",
-          "lead": false
-        },
-        {
-          "name": "عائد 10 سنوات",
-          "c60": "+0bp",
-          "c180": "+7bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 30 سنة",
-          "c60": "+0bp",
-          "c180": "+5bp",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "ES: كفاءة الاتجاه 0.59 | دلالة الحركة 3.5σ | التقلب اللحظي ×2.0 | الحجم ×2.1",
-        "ناسداك: كفاءة الاتجاه 0.48 | دلالة الحركة 3.0σ | التقلب اللحظي ×2.1 | الحجم ×1.9"
-      ],
-      "pattern": [
-        "VIX ينخفض: ارتياح وتراجع الطلب على الحماية"
-      ],
-      "headlines": [
-        "Wall Street steadies after absorbing big swings for Nvidia's stock and oil prices - Barchart.com",
-        "Jensen Huang Has Been Ousted as Nvidia CEO - WSJ",
-        "November 12, 2026: 2-Year U.S. Treasury 15 min · 11:00–11:15 AM EST Prediction Market - Robinhood",
-        "Sharp swings for Nvidia and oil prices weigh on Wall Street - WQAD"
-      ],
-      "rev": 0
-    },
     {
       "id": "move|202611131445|es-nq-y10-y5",
       "t": "2026-11-13T14:45:33.529410+00:00",
@@ -693,6 +442,53 @@
         "12 Industrials Stocks Moving In Friday's After-Market Session - Benzinga"
       ],
       "rev": 0
+    },
+    {
+      "id": "move|202611152345|nq",
+      "t": "2026-11-15T23:45:40.013574+00:00",
+      "kind": "move",
+      "important": true,
+      "icon": "📈",
+      "title": "حركة كبيرة في السوق (ناسداك)",
+      "what": "حركة كبيرة في السوق (ناسداك)",
+      "why": "",
+      "rows": [
+        {
+          "name": "ES",
+          "c60": "+0.33%",
+          "c180": "+0.33%",
+          "lead": false
+        },
+        {
+          "name": "ناسداك",
+          "c60": "+1.10%",
+          "c180": "+1.10%",
+          "lead": true
+        },
+        {
+          "name": "النفط",
+          "c60": "-0.05%",
+          "c180": "-0.05%",
+          "lead": false
+        },
+        {
+          "name": "الدولار DXY",
+          "c60": "+0.02%",
+          "c180": "+0.02%",
+          "lead": false
+        }
+      ],
+      "confirm": [
+        "ناسداك: كفاءة الاتجاه 0.85 | دلالة الحركة 3.4σ | التقلب اللحظي ×3.0 | الحجم غير متاح (شروط زخم أشد)"
+      ],
+      "pattern": [],
+      "headlines": [
+        "Brent Venables reacts to Oklahoma’s 24-17 win over Ole Miss - News 9",
+        "Kansas City Fed's Schmid Says Inflation Still Too High, More Action Needed on Price Stability - bloomingbit",
+        "Fed Bank Finds “Modest” Rise in Central Corn Belt Farmland Values - Pro Farmer",
+        "Integrated Chemical Fingerprinting Enhances Safety and Traceability of Global Palm Oil - Bioengineer.org"
+      ],
+      "rev": 0
     }
   ],
   "pulse": [
@@ -700,40 +496,40 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 15,
-      "v": 0.21,
-      "th": 0.3,
-      "ratio": 0.71,
-      "val": "+0.21%",
-      "thr": "±0.3%",
-      "c15": "+0.21%",
-      "c60": "+0.21%",
-      "c180": "+0.21%",
+      "w": 60,
+      "v": 0.33,
+      "th": 0.45,
+      "ratio": 0.73,
+      "val": "+0.33%",
+      "thr": "±0.45%",
+      "c15": "+0.05%",
+      "c60": "+0.33%",
+      "c180": "+0.33%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": null,
-      "z": 1.5,
+      "eff": 0.78,
+      "z": 1.6,
       "volx": null
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 15,
-      "v": 0.44,
-      "th": 0.4,
-      "ratio": 1.11,
-      "val": "+0.44%",
-      "thr": "±0.4%",
-      "c15": "+0.44%",
-      "c60": "+0.44%",
-      "c180": "+0.44%",
-      "confirmed": false,
-      "why": "الحجم غير متاح والزخم غير كافٍ",
+      "w": 60,
+      "v": 1.1,
+      "th": 0.6,
+      "ratio": 1.83,
+      "val": "+1.10%",
+      "thr": "±0.6%",
+      "c15": "+0.15%",
+      "c60": "+1.10%",
+      "c180": "+1.10%",
+      "confirmed": true,
+      "why": "مؤكَّدة",
       "tone": "bull",
-      "eff": null,
-      "z": 1.9,
+      "eff": 0.85,
+      "z": 3.4,
       "volx": null
     },
     {
@@ -741,19 +537,19 @@
       "name": "النفط",
       "short": "نفط",
       "w": 15,
-      "v": -0.17,
+      "v": 0.14,
       "th": 0.9,
-      "ratio": 0.19,
-      "val": "-0.17%",
+      "ratio": 0.15,
+      "val": "+0.14%",
       "thr": "±0.9%",
-      "c15": "-0.17%",
-      "c60": "-0.17%",
-      "c180": "-0.17%",
+      "c15": "+0.14%",
+      "c60": "-0.05%",
+      "c180": "-0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": null,
-      "z": 0.7,
+      "eff": 0.07,
+      "z": 0.1,
       "volx": null
     },
     {
@@ -761,80 +557,80 @@
       "name": "الذهب",
       "short": "ذهب",
       "w": 15,
-      "v": -0.11,
+      "v": 0.03,
       "th": 0.45,
-      "ratio": 0.25,
-      "val": "-0.11%",
+      "ratio": 0.07,
+      "val": "+0.03%",
       "thr": "±0.45%",
-      "c15": "-0.11%",
-      "c60": "-0.11%",
-      "c180": "-0.11%",
+      "c15": "+0.03%",
+      "c60": "+0.01%",
+      "c180": "+0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": null,
-      "z": 0.8,
+      "eff": 0.02,
+      "z": 0.0,
       "volx": null
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
-      "v": 0.03,
-      "th": 0.18,
-      "ratio": 0.14,
-      "val": "+0.03%",
-      "thr": "±0.18%",
-      "c15": "+0.03%",
-      "c60": "+0.03%",
-      "c180": "+0.03%",
+      "w": 60,
+      "v": 0.02,
+      "th": 0.28,
+      "ratio": 0.07,
+      "val": "+0.02%",
+      "thr": "±0.28%",
+      "c15": "-0.00%",
+      "c60": "+0.02%",
+      "c180": "+0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": null,
-      "z": 0.6,
+      "eff": 0.26,
+      "z": 0.4,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-15T23:30:39.674554+00:00",
-        "ok_at": "2026-11-15T23:30:39.674554+00:00"
+        "last_try": "2026-11-15T23:45:40.013574+00:00",
+        "ok_at": "2026-11-15T23:45:40.013574+00:00"
       },
       "fred": {
-        "last_try": "2026-11-15T23:30:39.674554+00:00",
-        "ok_at": "2026-11-15T23:30:39.674554+00:00"
+        "last_try": "2026-11-15T23:45:40.013574+00:00",
+        "ok_at": "2026-11-15T23:45:40.013574+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-15T23:30:39.674554+00:00",
-        "ok_at": "2026-11-15T23:30:39.674554+00:00"
+        "last_try": "2026-11-15T23:45:40.013574+00:00",
+        "ok_at": "2026-11-15T23:45:40.013574+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-15T23:30:39.674554+00:00",
-        "ok_at": "2026-11-15T23:30:39.674554+00:00"
+        "last_try": "2026-11-15T23:45:40.013574+00:00",
+        "ok_at": "2026-11-15T23:45:40.013574+00:00"
       },
       "oil": {
-        "last_try": "2026-11-15T23:30:39.674554+00:00",
-        "ok_at": "2026-11-15T23:30:39.674554+00:00"
+        "last_try": "2026-11-15T23:45:40.013574+00:00",
+        "ok_at": "2026-11-15T23:45:40.013574+00:00"
       },
       "news": {
-        "last_try": "2026-11-15T23:30:39.674554+00:00",
-        "ok_at": "2026-11-15T23:30:39.674554+00:00"
+        "last_try": "2026-11-15T23:45:40.013574+00:00",
+        "ok_at": "2026-11-15T23:45:40.013574+00:00"
       },
       "cot": {
-        "last_try": "2026-11-15T23:30:39.674554+00:00",
-        "ok_at": "2026-11-15T23:30:39.674554+00:00"
+        "last_try": "2026-11-15T23:45:40.013574+00:00",
+        "ok_at": "2026-11-15T23:45:40.013574+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-15T23:30:39.674554+00:00",
-        "ok_at": "2026-11-15T23:30:39.674554+00:00"
+        "last_try": "2026-11-15T23:45:40.013574+00:00",
+        "ok_at": "2026-11-15T23:45:40.013574+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-15T23:30:39.674554+00:00"
+      "at": "2026-11-15T23:45:40.013574+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1019,7 +815,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-15T23:30:39.674554+00:00",
+    "at": "2026-11-15T23:45:40.013574+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1716,7 +1512,7 @@
     }
   },
   "stats": {
-    "date": "2026-11-14",
+    "date": "2026-11-16",
     "sent": 1
   },
   "schema_version": 2,
@@ -8123,10 +7919,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-15T23:30:39.674554+00:00",
+  "last_publish_ok": "2026-11-15T23:45:40.013574+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-15T23:31:12.298097+00:00"
+    "at": "2026-11-15T23:46:14.402209+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8255,12 +8051,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-15T23:30:39.674554+00:00",
-    "ok_at": "2026-11-15T23:30:39.674554+00:00",
+    "at": "2026-11-15T23:45:40.013574+00:00",
+    "ok_at": "2026-11-15T23:45:40.013574+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-15T23:30:39.674554+00:00",
+    "at": "2026-11-15T23:45:40.013574+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
