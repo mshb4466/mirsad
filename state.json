@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-15T09:45:34.160964+00:00",
-        "ok_at": "2026-11-15T09:45:34.160964+00:00"
+        "last_try": "2026-11-15T10:00:48.682024+00:00",
+        "ok_at": "2026-11-15T10:00:48.682024+00:00"
       },
       "fred": {
-        "last_try": "2026-11-15T09:45:34.160964+00:00",
-        "ok_at": "2026-11-15T09:45:34.160964+00:00"
+        "last_try": "2026-11-15T10:00:48.682024+00:00",
+        "ok_at": "2026-11-15T10:00:48.682024+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-15T09:45:34.160964+00:00",
-        "ok_at": "2026-11-15T09:45:34.160964+00:00"
+        "last_try": "2026-11-15T10:00:48.682024+00:00",
+        "ok_at": "2026-11-15T10:00:48.682024+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-15T09:45:34.160964+00:00",
-        "ok_at": "2026-11-15T09:45:34.160964+00:00"
+        "last_try": "2026-11-15T10:00:48.682024+00:00",
+        "ok_at": "2026-11-15T10:00:48.682024+00:00"
       },
       "oil": {
-        "last_try": "2026-11-15T09:45:34.160964+00:00",
-        "ok_at": "2026-11-15T09:45:34.160964+00:00"
+        "last_try": "2026-11-15T10:00:48.682024+00:00",
+        "ok_at": "2026-11-15T10:00:48.682024+00:00"
       },
       "news": {
-        "last_try": "2026-11-15T09:45:34.160964+00:00",
-        "ok_at": "2026-11-15T09:45:34.160964+00:00"
+        "last_try": "2026-11-15T10:00:48.682024+00:00",
+        "ok_at": "2026-11-15T10:00:48.682024+00:00"
       },
       "cot": {
-        "last_try": "2026-11-15T09:45:34.160964+00:00",
-        "ok_at": "2026-11-15T09:45:34.160964+00:00"
+        "last_try": "2026-11-15T10:00:48.682024+00:00",
+        "ok_at": "2026-11-15T10:00:48.682024+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-15T09:45:34.160964+00:00",
-        "ok_at": "2026-11-15T09:45:34.160964+00:00"
+        "last_try": "2026-11-15T10:00:48.682024+00:00",
+        "ok_at": "2026-11-15T10:00:48.682024+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-15T09:45:34.160964+00:00"
+      "at": "2026-11-15T10:00:48.682024+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,7 +862,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-15T08:45:35.399167+00:00",
+    "at": "2026-11-15T10:00:48.682024+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -899,13 +899,8 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-15T08:20:04+00:00",
-            "title": "Before His Ouster, Jensen Huang Belittled the Executive Replacing Him",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-15T02:53:00+00:00",
-            "title": "Trump Administration Can’t Close D.C. Golf Course for Now, Judge Rules",
+            "t": "2026-11-15T08:57:36+00:00",
+            "title": "Top Takeaways From Joe Biden’s New Memoir",
             "src": "WSJ"
           },
           {
@@ -922,12 +917,22 @@
             "t": "2026-11-14T18:56:19+00:00",
             "title": "Anthropic IPO to test Wall Street’s faith in AI as skepticism mounts",
             "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-14T17:54:02+00:00",
+            "title": "Warren Buffett's Berkshire Compounded at More Than 19% a Year Over Six Decades, Nearly Double the S&P 500's 10% Return. Can Investors Still Apply That Playbook Today?",
+            "src": "Yahoo Finance"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-15T08:20:51+00:00",
+            "title": "Megaspeed says Alice Huang left in 2025 as it launches internal probe into reports about its business",
+            "src": "CNBC"
+          },
           {
             "t": "2026-11-15T07:45:59+00:00",
             "title": "With Nvidia’s earnings coming up, could a strong report give the broader tech sector a much-needed boost?",
@@ -947,17 +952,17 @@
             "t": "2026-11-14T23:55:00+00:00",
             "title": "Nvidia Earnings and Anthropic IPO Land in Same Week, Testing Both Ends of the AI Supply Chain",
             "src": "BigGo Finance"
-          },
-          {
-            "t": "2026-11-14T21:00:00+00:00",
-            "title": "Nvidia earnings, Anthropic IPO and US-China summit to test rebound hopes",
-            "src": "Chosunbiz"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-11-15T09:06:00+00:00",
+            "title": "President Donald Trump Claims, \"Tariffs Don't Cause Inflation, They Cause Wealth\" -- but Economic Data Says Otherwise",
+            "src": "The Motley Fool"
+          },
           {
             "t": "2026-11-15T07:10:00+00:00",
             "title": "BOE’s Case to Raise Rates Again May Strengthen on UK Price Data",
@@ -977,11 +982,6 @@
             "t": "2026-11-14T16:04:00+00:00",
             "title": "Boston Fed’s Collins Backs Gradual Rate Increases as Inflation Broadens",
             "src": "Barron's"
-          },
-          {
-            "t": "2026-11-14T16:02:41+00:00",
-            "title": "Why the biggest risk for investors in 2027 isn't Nvidia — it's inflation",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-15T09:57:35+00:00",
+            "title": "Iran claims attack on US military airbase in Bahrain",
+            "src": "France 24"
+          },
+          {
+            "t": "2026-11-15T09:41:04+00:00",
+            "title": "Trump keeps Iran strike option open but leans towards holding fire",
+            "src": "middle-east-online.com"
+          },
+          {
+            "t": "2026-11-15T08:54:42+00:00",
+            "title": "Live - Bahrain urges UN action over Iran’s attacks as Tehran vows to keep responding",
+            "src": "Iran International"
+          },
+          {
             "t": "2026-11-15T08:26:15+00:00",
             "title": "Bahrain intercepts Iranian attacks after first nationwide alert in months",
             "src": "The National"
-          },
-          {
-            "t": "2026-11-15T08:07:53+00:00",
-            "title": "Middle East latest: Bahrain says it intercepted Iranian aerial attacks after nationwide alert",
-            "src": "thenationalnews.com"
-          },
-          {
-            "t": "2026-11-15T08:03:00+00:00",
-            "title": "Iran Attacks Bahrain as Conflict Escalates",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-15T07:40:52+00:00",
-            "title": "Is Gulf oil rebound at risk as US-Iran war enters uncharted waters?",
-            "src": "Al-Monitor"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-15T09:45:34.160964+00:00",
+    "at": "2026-11-15T10:00:48.682024+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -8051,10 +8051,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-15T09:45:34.160964+00:00",
+  "last_publish_ok": "2026-11-15T10:00:48.682024+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-15T09:45:55.718584+00:00"
+    "at": "2026-11-15T10:01:11.883169+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8183,12 +8183,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-15T09:45:34.160964+00:00",
-    "ok_at": "2026-11-15T09:45:34.160964+00:00",
+    "at": "2026-11-15T10:00:48.682024+00:00",
+    "ok_at": "2026-11-15T10:00:48.682024+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-15T09:45:34.160964+00:00",
+    "at": "2026-11-15T10:00:48.682024+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
