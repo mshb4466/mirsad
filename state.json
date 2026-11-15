@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-15T05:15:33.230239+00:00",
-        "ok_at": "2026-11-15T05:15:33.230239+00:00"
+        "last_try": "2026-11-15T05:30:39.076273+00:00",
+        "ok_at": "2026-11-15T05:30:39.076273+00:00"
       },
       "fred": {
-        "last_try": "2026-11-15T05:15:33.230239+00:00",
-        "ok_at": "2026-11-15T05:15:33.230239+00:00"
+        "last_try": "2026-11-15T05:30:39.076273+00:00",
+        "ok_at": "2026-11-15T05:30:39.076273+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-15T05:15:33.230239+00:00",
-        "ok_at": "2026-11-15T05:15:33.230239+00:00"
+        "last_try": "2026-11-15T05:30:39.076273+00:00",
+        "ok_at": "2026-11-15T05:30:39.076273+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-15T05:15:33.230239+00:00",
-        "ok_at": "2026-11-15T05:15:33.230239+00:00"
+        "last_try": "2026-11-15T05:30:39.076273+00:00",
+        "ok_at": "2026-11-15T05:30:39.076273+00:00"
       },
       "oil": {
-        "last_try": "2026-11-15T05:15:33.230239+00:00",
-        "ok_at": "2026-11-15T05:15:33.230239+00:00"
+        "last_try": "2026-11-15T05:30:39.076273+00:00",
+        "ok_at": "2026-11-15T05:30:39.076273+00:00"
       },
       "news": {
-        "last_try": "2026-11-15T05:15:33.230239+00:00",
-        "ok_at": "2026-11-15T05:15:33.230239+00:00"
+        "last_try": "2026-11-15T05:30:39.076273+00:00",
+        "ok_at": "2026-11-15T05:30:39.076273+00:00"
       },
       "cot": {
-        "last_try": "2026-11-15T05:15:33.230239+00:00",
-        "ok_at": "2026-11-15T05:15:33.230239+00:00"
+        "last_try": "2026-11-15T05:30:39.076273+00:00",
+        "ok_at": "2026-11-15T05:30:39.076273+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-15T05:15:33.230239+00:00",
-        "ok_at": "2026-11-15T05:15:33.230239+00:00"
+        "last_try": "2026-11-15T05:30:39.076273+00:00",
+        "ok_at": "2026-11-15T05:30:39.076273+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-15T05:15:33.230239+00:00"
+      "at": "2026-11-15T05:30:39.076273+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,21 +862,21 @@
     }
   },
   "week_news": {
-    "at": "2026-11-15T04:15:36.983727+00:00",
+    "at": "2026-11-15T05:30:39.076273+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-11-15T04:26:20+00:00",
+            "title": "Bulls' Norman Powell: Leads Bulls with 23 points",
+            "src": "CBS Sports"
+          },
+          {
             "t": "2026-11-15T03:45:28+00:00",
             "title": "Norman Powell connects from deep",
             "src": "NBA.com"
-          },
-          {
-            "t": "2026-11-15T03:34:02+00:00",
-            "title": "Norman Powell hits from way downtown",
-            "src": "Yahoo Sports"
           },
           {
             "t": "2026-11-15T03:32:03+00:00",
@@ -899,6 +899,11 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-11-15T04:43:46+00:00",
+            "title": "The 31-Year-Old Trader Who Called Out Jensen Huang’s ‘China Problem’—and Shorted Nvidia",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-14T23:03:46+00:00",
             "title": "He Thinks His $200,000 S&P 500 401(k) Spreads His AI Risk. Two Alphabet Share Classes Put $10,380 in One Company. A 20% Drop Could Cost Him $2,076",
             "src": "Yahoo Finance"
@@ -917,11 +922,6 @@
             "t": "2026-11-14T17:25:00+00:00",
             "title": "Wall Street Makes Its Pitch for Anthropic’s I.P.O.",
             "src": "The New York Times"
-          },
-          {
-            "t": "2026-11-14T16:58:02+00:00",
-            "title": "The S&P 500 Has Gone 18 Months Without a 10% Drop. Here's How the Next Year Has Gone After Streaks This Long.",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -929,8 +929,8 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-15T01:30:00+00:00",
-            "title": "Rally Shaky, But Many Stocks Are Setting Up. What Should You Do?",
+            "t": "2026-11-15T04:05:00+00:00",
+            "title": "Futures Loom As Bitcoin Dives In Shaky Rally. What To Do Now.",
             "src": "Investor's Business Daily"
           },
           {
@@ -939,9 +939,9 @@
             "src": "BigGo Finance"
           },
           {
-            "t": "2026-11-14T21:33:08+00:00",
-            "title": "How to Read Nvidia Earnings: Hyperscalers at 51%",
-            "src": "shattered.io"
+            "t": "2026-11-14T21:00:00+00:00",
+            "title": "Nvidia earnings, Anthropic IPO and US-China summit to test rebound hopes",
+            "src": "Chosunbiz"
           },
           {
             "t": "2026-11-14T20:06:56+00:00",
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-15T01:59:07+00:00",
-            "title": "Iraq PM sacks nine officials over oil smuggling in pro-Iran stronghold",
-            "src": "Al Jazeera"
+            "t": "2026-11-15T04:54:46+00:00",
+            "title": "Iran Attacks Bahrain as Conflict Escalates",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-15T01:13:47+00:00",
-            "title": "Ukraine Says Starshield Restrictions Persist, Hampering Drone Defenses",
-            "src": "Radio Free Europe/Radio Liberty"
+            "t": "2026-11-15T04:51:26+00:00",
+            "title": "Middle East latest: Bahrain issues nationwide threat alert amid Iran attack claims",
+            "src": "The National"
           },
           {
-            "t": "2026-11-15T01:07:22+00:00",
-            "title": "Russian Offensive Campaign Assessment, November 14, 2026",
-            "src": "Critical Threats"
+            "t": "2026-11-15T03:23:36+00:00",
+            "title": "Fire reported at industrial facility in Russia's Tatarstan amid drone attack",
+            "src": "The Kyiv Independent"
           },
           {
-            "t": "2026-11-15T01:05:02+00:00",
-            "title": "Israeli air strike kills senior Hamas commander in Gaza",
-            "src": "Al Jazeera"
+            "t": "2026-11-14T22:54:19+00:00",
+            "title": "Iran's navy says three tankers on fire after hitting mines in Hormuz",
+            "src": "Reuters"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-15T05:15:33.230239+00:00",
+    "at": "2026-11-15T05:30:39.076273+00:00",
     "events": [
       {
         "title": "FOMC Member Bowman Speaks",
@@ -7981,10 +7981,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-15T05:15:33.230239+00:00",
+  "last_publish_ok": "2026-11-15T05:30:39.076273+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-15T05:16:00.413550+00:00"
+    "at": "2026-11-15T05:31:15.196470+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8113,12 +8113,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-15T05:15:33.230239+00:00",
-    "ok_at": "2026-11-15T05:15:33.230239+00:00",
+    "at": "2026-11-15T05:30:39.076273+00:00",
+    "ok_at": "2026-11-15T05:30:39.076273+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-15T05:15:33.230239+00:00",
+    "at": "2026-11-15T05:30:39.076273+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
