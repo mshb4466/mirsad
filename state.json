@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-15T18:45:32.867078+00:00",
-        "ok_at": "2026-11-15T18:45:32.867078+00:00"
+        "last_try": "2026-11-15T19:00:41.665578+00:00",
+        "ok_at": "2026-11-15T19:00:41.665578+00:00"
       },
       "fred": {
-        "last_try": "2026-11-15T18:45:32.867078+00:00",
-        "ok_at": "2026-11-15T18:45:32.867078+00:00"
+        "last_try": "2026-11-15T19:00:41.665578+00:00",
+        "ok_at": "2026-11-15T19:00:41.665578+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-15T18:45:32.867078+00:00",
-        "ok_at": "2026-11-15T18:45:32.867078+00:00"
+        "last_try": "2026-11-15T19:00:41.665578+00:00",
+        "ok_at": "2026-11-15T19:00:41.665578+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-15T18:45:32.867078+00:00",
-        "ok_at": "2026-11-15T18:45:32.867078+00:00"
+        "last_try": "2026-11-15T19:00:41.665578+00:00",
+        "ok_at": "2026-11-15T19:00:41.665578+00:00"
       },
       "oil": {
-        "last_try": "2026-11-15T18:45:32.867078+00:00",
-        "ok_at": "2026-11-15T18:45:32.867078+00:00"
+        "last_try": "2026-11-15T19:00:41.665578+00:00",
+        "ok_at": "2026-11-15T19:00:41.665578+00:00"
       },
       "news": {
-        "last_try": "2026-11-15T18:45:32.867078+00:00",
-        "ok_at": "2026-11-15T18:45:32.867078+00:00"
+        "last_try": "2026-11-15T19:00:41.665578+00:00",
+        "ok_at": "2026-11-15T19:00:41.665578+00:00"
       },
       "cot": {
-        "last_try": "2026-11-15T18:45:32.867078+00:00",
-        "ok_at": "2026-11-15T18:45:32.867078+00:00"
+        "last_try": "2026-11-15T19:00:41.665578+00:00",
+        "ok_at": "2026-11-15T19:00:41.665578+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-15T18:45:32.867078+00:00",
-        "ok_at": "2026-11-15T18:45:32.867078+00:00"
+        "last_try": "2026-11-15T19:00:41.665578+00:00",
+        "ok_at": "2026-11-15T19:00:41.665578+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-15T18:45:32.867078+00:00"
+      "at": "2026-11-15T19:00:41.665578+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,36 +862,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-15T17:45:39.744395+00:00",
+    "at": "2026-11-15T19:00:41.665578+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-11-15T18:43:43+00:00",
+            "title": "Fed 'has some work to do on inflation,' KC Fed chief says",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-15T18:40:00+00:00",
+            "title": "Schmid Says Fed Has More Work To Do to Bring Down Inflation",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-15T16:47:28+00:00",
+            "title": "Emily Powell: ACCC Introduces a Guide to Advancing Precision Medicine Stewardship",
+            "src": "Oncodaily"
+          },
+          {
+            "t": "2026-11-15T16:06:03+00:00",
+            "title": "AI Tops Financial Stability Risks Cited in Fed Survey",
+            "src": "The Defiant"
+          },
+          {
             "t": "2026-11-15T15:00:00+00:00",
             "title": "Government Spending Saps Economic Growth, So Does Fed Rate Fiddling",
             "src": "Forbes"
-          },
-          {
-            "t": "2026-11-15T13:41:39+00:00",
-            "title": "Fed And OCC Believe Banks Are Strong, But Non-Bank Risks Are Growing",
-            "src": "Forbes"
-          },
-          {
-            "t": "2026-11-15T13:10:51+00:00",
-            "title": "Weekly Wrap-Up: Nflation, Nvidia, ‘n the AI Bubble",
-            "src": "Jared Bernstein | Substack"
-          },
-          {
-            "t": "2026-11-15T12:22:00+00:00",
-            "title": "How Will the Market React to a Potential Fed Rate Hike in December? Here's What History Suggests.",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-15T11:56:00+00:00",
-            "title": "The Fed Is Raising Rates the Slow Way. History Says the Pace Matters More Than the Hike.",
-            "src": "The Motley Fool"
           }
         ]
       },
@@ -899,8 +899,13 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-15T16:38:32+00:00",
-            "title": "Crude Futures Post Back-to-Back Weekly Losses",
+            "t": "2026-11-15T18:34:22+00:00",
+            "title": "California Voters Pass Ban on Wealth Taxes",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-15T18:04:53+00:00",
+            "title": "Exclusive | U.S. Aircraft Evacuated From Second U.K. Base Due to Iran Threat",
             "src": "WSJ"
           },
           {
@@ -917,11 +922,6 @@
             "t": "2026-11-15T13:18:54+00:00",
             "title": "'Massive shoes to fill': Wall Street sours on Nvidia stock after Jensen Huang's exit",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-15T12:49:07+00:00",
-            "title": "Top Wall Street analysts are bullish on these 3 stocks for the long term",
-            "src": "CNBC"
           }
         ]
       },
@@ -944,20 +944,30 @@
             "src": "investingLive"
           },
           {
+            "t": "2026-11-15T16:48:48+00:00",
+            "title": "Megaspeed says Alice Huang left in 2025 as company conducts internal probe over Nvidia fallout",
+            "src": "PBS"
+          },
+          {
             "t": "2026-11-15T16:18:31+00:00",
             "title": "Who Is Howard Lutnick? Commerce Secretary in Nvidia Probe",
             "src": "The Profile | Polina Pompliano"
-          },
-          {
-            "t": "2026-11-15T16:16:00+00:00",
-            "title": "Futures Indicated Lower, Bitcoin Dives. What To Do Now.",
-            "src": "Investor's Business Daily"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-11-15T18:15:00+00:00",
+            "title": "Vanguard Economists Say: Inflation Might Be Better Than It Looks. Here's Why That's Good News for Stocks.",
+            "src": "The Motley Fool"
+          },
+          {
+            "t": "2026-11-15T16:42:57+00:00",
+            "title": "BOE’s Case to Raise Rates Again May Strengthen on UK Price Data",
+            "src": "Bloomberg.com"
+          },
           {
             "t": "2026-11-15T15:12:32+00:00",
             "title": "3 Indian Consumer Staples Stocks With Pricing Power When Inflation Stays High",
@@ -969,19 +979,9 @@
             "src": "Japan Wire by Kyodo News"
           },
           {
-            "t": "2026-11-15T12:30:00+00:00",
-            "title": "Gold and silver are supposed to protect against inflation. So why are both metals tumbling instead?",
-            "src": "MarketWatch"
-          },
-          {
-            "t": "2026-11-15T12:30:00+00:00",
-            "title": "My Near-Perfect Retirement Stocks For An Inflation Decade",
-            "src": "Seeking Alpha"
-          },
-          {
-            "t": "2026-11-15T10:00:00+00:00",
-            "title": "Allison Schrager: The affordability crisis isn’t about inflation",
-            "src": "The Spokesman-Review"
+            "t": "2026-11-15T13:10:51+00:00",
+            "title": "Weekly Wrap-Up: Nflation, Nvidia, ‘n the AI Bubble",
+            "src": "Jared Bernstein | Substack"
           }
         ]
       },
@@ -1004,9 +1004,9 @@
             "src": "La Voce di New York"
           },
           {
-            "t": "2026-11-15T09:26:02+00:00",
-            "title": "President Donald Trump Claims, \"Tariffs Don't Cause Inflation, They Cause Wealth\" -- but Economic Data Says Otherwise",
-            "src": "Yahoo Finance"
+            "t": "2026-11-15T11:33:05+00:00",
+            "title": "Bugatti's new US CEO talks manuals, electric hypercars and the business of tariffs",
+            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
@@ -1014,24 +1014,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-15T16:31:02+00:00",
-            "title": "Estonia to shut its border with Russia, blaming the Kremlin for failed arson attack",
-            "src": "CNN"
+            "t": "2026-11-15T18:23:00+00:00",
+            "title": "Estonia to close all border crossings with Russia after attack on drone maker",
+            "src": "The Guardian"
           },
           {
-            "t": "2026-11-15T16:10:10+00:00",
-            "title": "Estonia to close Russian border crossings after attempted arson attack",
-            "src": "Reuters"
+            "t": "2026-11-15T18:11:15+00:00",
+            "title": "Estonia to close border crossings with Russia after attack on drone maker",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-15T16:09:04+00:00",
-            "title": "Iran drone attack on US: Islamic Revolutionary Guard Corps target America military base in Bahrain wit six drones",
-            "src": "BBC"
+            "t": "2026-11-15T18:02:19+00:00",
+            "title": "Ukraine war latest: Russia launches mass attack on Odesa Oblast as Ukraine strikes airfield, drone launch site in Russia",
+            "src": "The Kyiv Independent"
           },
           {
-            "t": "2026-11-15T16:07:00+00:00",
-            "title": "Army whistleblower alleges senior military officials ignored warnings ahead of deadly attack in Kuwait",
-            "src": "CBS News"
+            "t": "2026-11-15T17:57:00+00:00",
+            "title": "Bahrain intercepts Iranian strikes on US airbase",
+            "src": "The Hill"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-15T18:45:32.867078+00:00",
+    "at": "2026-11-15T19:00:41.665578+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -8097,10 +8097,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-15T18:45:32.867078+00:00",
+  "last_publish_ok": "2026-11-15T19:00:41.665578+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-15T18:45:54.587746+00:00"
+    "at": "2026-11-15T19:01:13.674721+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8229,12 +8229,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-15T18:45:32.867078+00:00",
-    "ok_at": "2026-11-15T18:45:32.867078+00:00",
+    "at": "2026-11-15T19:00:41.665578+00:00",
+    "ok_at": "2026-11-15T19:00:41.665578+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-15T18:45:32.867078+00:00",
+    "at": "2026-11-15T19:00:41.665578+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
