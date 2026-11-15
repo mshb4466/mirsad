@@ -820,41 +820,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-15T19:45:32.778079+00:00",
-        "ok_at": "2026-11-15T19:45:32.778079+00:00"
+        "last_try": "2026-11-15T20:00:45.506463+00:00",
+        "ok_at": "2026-11-15T20:00:45.506463+00:00"
       },
       "fred": {
-        "last_try": "2026-11-15T19:45:32.778079+00:00",
-        "ok_at": "2026-11-15T19:45:32.778079+00:00"
+        "last_try": "2026-11-15T20:00:45.506463+00:00",
+        "ok_at": "2026-11-15T20:00:45.506463+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-15T19:45:32.778079+00:00",
-        "ok_at": "2026-11-15T19:45:32.778079+00:00"
+        "last_try": "2026-11-15T20:00:45.506463+00:00",
+        "ok_at": "2026-11-15T20:00:45.506463+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-15T19:45:32.778079+00:00",
-        "ok_at": "2026-11-15T19:45:32.778079+00:00"
+        "last_try": "2026-11-15T20:00:45.506463+00:00",
+        "ok_at": "2026-11-15T20:00:45.506463+00:00"
       },
       "oil": {
-        "last_try": "2026-11-15T19:45:32.778079+00:00",
-        "ok_at": "2026-11-15T19:45:32.778079+00:00"
+        "last_try": "2026-11-15T20:00:45.506463+00:00",
+        "ok_at": "2026-11-15T20:00:45.506463+00:00"
       },
       "news": {
-        "last_try": "2026-11-15T19:45:32.778079+00:00",
-        "ok_at": "2026-11-15T19:45:32.778079+00:00"
+        "last_try": "2026-11-15T20:00:45.506463+00:00",
+        "ok_at": "2026-11-15T20:00:45.506463+00:00"
       },
       "cot": {
-        "last_try": "2026-11-15T19:45:32.778079+00:00",
-        "ok_at": "2026-11-15T19:45:32.778079+00:00"
+        "last_try": "2026-11-15T20:00:45.506463+00:00",
+        "ok_at": "2026-11-15T20:00:45.506463+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-15T19:45:32.778079+00:00",
-        "ok_at": "2026-11-15T19:45:32.778079+00:00"
+        "last_try": "2026-11-15T20:00:45.506463+00:00",
+        "ok_at": "2026-11-15T20:00:45.506463+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-15T19:45:32.778079+00:00"
+      "at": "2026-11-15T20:00:45.506463+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -862,21 +862,26 @@
     }
   },
   "week_news": {
-    "at": "2026-11-15T19:00:41.665578+00:00",
+    "at": "2026-11-15T20:00:45.506463+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-15T18:43:43+00:00",
-            "title": "Fed 'has some work to do on inflation,' KC Fed chief says",
-            "src": "Reuters"
+            "t": "2026-11-15T19:00:00+00:00",
+            "title": "Nvidia, Anthropic, Walmart, Home Depot, the Fed, Home Sales, and More to Watch This Week",
+            "src": "Barron's"
           },
           {
             "t": "2026-11-15T18:40:00+00:00",
             "title": "Schmid Says Fed Has More Work To Do to Bring Down Inflation",
             "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-15T16:49:50+00:00",
+            "title": "SPP Hires Arielle Schwartz as Fed Policy Lead",
+            "src": "RTO Insider"
           },
           {
             "t": "2026-11-15T16:47:28+00:00",
@@ -887,17 +892,17 @@
             "t": "2026-11-15T16:06:03+00:00",
             "title": "AI Tops Financial Stability Risks Cited in Fed Survey",
             "src": "The Defiant"
-          },
-          {
-            "t": "2026-11-15T15:00:00+00:00",
-            "title": "Government Spending Saps Economic Growth, So Does Fed Rate Fiddling",
-            "src": "Forbes"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-11-15T18:50:02+00:00",
+            "title": "This Dividend King Yields 5 Times the S&P 500. Is It a Buy Now?",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-11-15T18:34:22+00:00",
             "title": "California Voters Pass Ban on Wealth Taxes",
@@ -917,11 +922,6 @@
             "t": "2026-11-15T15:00:00+00:00",
             "title": "Nvidia is gearing up for one of Wall Street’s most anticipated earnings calls in years",
             "src": "MarketWatch"
-          },
-          {
-            "t": "2026-11-15T13:18:54+00:00",
-            "title": "'Massive shoes to fill': Wall Street sours on Nvidia stock after Jensen Huang's exit",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -929,29 +929,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-15T17:34:21+00:00",
-            "title": "Nvidia earnings report on Nov. 17 amid leadership change and AI demand focus",
-            "src": "Crypto Briefing"
+            "t": "2026-11-15T19:35:00+00:00",
+            "title": "Futures Indicated Lower With Rally Under Pressure. What To Do.",
+            "src": "Investor's Business Daily"
           },
           {
-            "t": "2026-11-15T17:32:30+00:00",
-            "title": "Bessent questions did Nvidia \"goose\" earnings with suspect China chip sales",
-            "src": "Axios"
-          },
-          {
-            "t": "2026-11-15T16:51:20+00:00",
-            "title": "Nvida stock analysis before its earnings",
-            "src": "investingLive"
-          },
-          {
-            "t": "2026-11-15T16:48:48+00:00",
+            "t": "2026-11-15T19:33:00+00:00",
             "title": "Megaspeed says Alice Huang left in 2025 as company conducts internal probe over Nvidia fallout",
             "src": "PBS"
           },
           {
-            "t": "2026-11-15T16:18:31+00:00",
-            "title": "Who Is Howard Lutnick? Commerce Secretary in Nvidia Probe",
-            "src": "The Profile | Polina Pompliano"
+            "t": "2026-11-15T19:30:32+00:00",
+            "title": "Nvidia Earnings and Anthropic IPO Lead Market Week",
+            "src": "Oz Arab Media"
+          },
+          {
+            "t": "2026-11-15T19:12:42+00:00",
+            "title": "US Stock Market Week Ahead: Can Nvidia Earnings and Fed Minutes Spark a Nasdaq Rally?",
+            "src": "Stocks Down Under"
+          },
+          {
+            "t": "2026-11-15T19:05:59+00:00",
+            "title": "Nvidia Q3 Earnings Preview, 17 November",
+            "src": "AskTraders.com"
           }
         ]
       },
@@ -989,6 +989,11 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-11-15T19:22:40+00:00",
+            "title": "U.S., Eurozone Bond Yields Rise",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-15T17:00:45+00:00",
             "title": "I Asked ChatGPT How I Can Dodge Tariffs and Save My Holiday Budget",
             "src": "Yahoo Finance"
@@ -1002,17 +1007,22 @@
             "t": "2026-11-15T11:38:56+00:00",
             "title": "China-U.S. Trade Council Holds First Meeting: Tariffs and Agriculture on Agenda",
             "src": "La Voce di New York"
-          },
-          {
-            "t": "2026-11-15T11:33:05+00:00",
-            "title": "Bugatti's new US CEO talks manuals, electric hypercars and the business of tariffs",
-            "src": "ABC News - Breaking News, Latest News and Videos"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-11-15T19:19:37+00:00",
+            "title": "Iran launches drone strike on U.S. base in Bahrain",
+            "src": "upi"
+          },
+          {
+            "t": "2026-11-15T19:00:00+00:00",
+            "title": "EU flexes muscle on Russia sanctions, as Trump and Putin discuss Ukraine’s future in China",
+            "src": "EUobserver"
+          },
           {
             "t": "2026-11-15T18:23:00+00:00",
             "title": "Estonia to close all border crossings with Russia after attack on drone maker",
@@ -1022,16 +1032,6 @@
             "t": "2026-11-15T18:11:15+00:00",
             "title": "Estonia to close border crossings with Russia after attack on drone maker",
             "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-11-15T18:02:19+00:00",
-            "title": "Ukraine war latest: Russia launches mass attack on Odesa Oblast as Ukraine strikes airfield, drone launch site in Russia",
-            "src": "The Kyiv Independent"
-          },
-          {
-            "t": "2026-11-15T17:57:00+00:00",
-            "title": "Bahrain intercepts Iranian strikes on US airbase",
-            "src": "The Hill"
           }
         ]
       }
@@ -1039,7 +1039,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-15T19:45:32.778079+00:00",
+    "at": "2026-11-15T20:00:45.506463+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -8097,10 +8097,10 @@
       "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-15T19:45:32.778079+00:00",
+  "last_publish_ok": "2026-11-15T20:00:45.506463+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-15T19:46:03.665077+00:00"
+    "at": "2026-11-15T20:01:12.709075+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8229,12 +8229,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-15T19:45:32.778079+00:00",
-    "ok_at": "2026-11-15T19:45:32.778079+00:00",
+    "at": "2026-11-15T20:00:45.506463+00:00",
+    "ok_at": "2026-11-15T20:00:45.506463+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-15T19:45:32.778079+00:00",
+    "at": "2026-11-15T20:00:45.506463+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
