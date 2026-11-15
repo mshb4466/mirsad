@@ -701,19 +701,19 @@
       "name": "ES",
       "short": "ES",
       "w": 15,
-      "v": 0.0,
+      "v": 0.21,
       "th": 0.3,
-      "ratio": 0.0,
-      "val": "+0.00%",
+      "ratio": 0.71,
+      "val": "+0.21%",
       "thr": "±0.3%",
-      "c15": "+0.00%",
-      "c60": "+0.00%",
-      "c180": "+0.00%",
+      "c15": "+0.21%",
+      "c60": "+0.21%",
+      "c180": "+0.21%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
+      "tone": "bull",
       "eff": null,
-      "z": 0.0,
+      "z": 1.5,
       "volx": null
     },
     {
@@ -721,19 +721,19 @@
       "name": "ناسداك",
       "short": "NQ",
       "w": 15,
-      "v": 0.38,
+      "v": 0.44,
       "th": 0.4,
-      "ratio": 0.96,
-      "val": "+0.38%",
+      "ratio": 1.11,
+      "val": "+0.44%",
       "thr": "±0.4%",
-      "c15": "+0.38%",
-      "c60": "+0.38%",
-      "c180": "+0.38%",
+      "c15": "+0.44%",
+      "c60": "+0.44%",
+      "c180": "+0.44%",
       "confirmed": false,
-      "why": "لم يتجاوز الحد",
+      "why": "الحجم غير متاح والزخم غير كافٍ",
       "tone": "bull",
       "eff": null,
-      "z": 3.0,
+      "z": 1.9,
       "volx": null
     },
     {
@@ -741,19 +741,19 @@
       "name": "النفط",
       "short": "نفط",
       "w": 15,
-      "v": 0.0,
+      "v": -0.17,
       "th": 0.9,
-      "ratio": 0.0,
-      "val": "+0.00%",
+      "ratio": 0.19,
+      "val": "-0.17%",
       "thr": "±0.9%",
-      "c15": "+0.00%",
-      "c60": "+0.00%",
-      "c180": "+0.00%",
+      "c15": "-0.17%",
+      "c60": "-0.17%",
+      "c180": "-0.17%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
       "eff": null,
-      "z": 0.0,
+      "z": 0.7,
       "volx": null
     },
     {
@@ -761,19 +761,19 @@
       "name": "الذهب",
       "short": "ذهب",
       "w": 15,
-      "v": 0.0,
+      "v": -0.11,
       "th": 0.45,
-      "ratio": 0.0,
-      "val": "+0.00%",
+      "ratio": 0.25,
+      "val": "-0.11%",
       "thr": "±0.45%",
-      "c15": "+0.00%",
-      "c60": "+0.00%",
-      "c180": "+0.00%",
+      "c15": "-0.11%",
+      "c60": "-0.11%",
+      "c180": "-0.11%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
       "eff": null,
-      "z": 0.0,
+      "z": 0.8,
       "volx": null
     },
     {
@@ -781,60 +781,60 @@
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 15,
-      "v": 0.01,
+      "v": 0.03,
       "th": 0.18,
-      "ratio": 0.03,
-      "val": "+0.01%",
+      "ratio": 0.14,
+      "val": "+0.03%",
       "thr": "±0.18%",
-      "c15": "+0.01%",
-      "c60": "+0.01%",
-      "c180": "+0.01%",
+      "c15": "+0.03%",
+      "c60": "+0.03%",
+      "c180": "+0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
       "eff": null,
-      "z": 0.2,
+      "z": 0.6,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-15T23:15:35.966486+00:00",
-        "ok_at": "2026-11-15T23:15:35.966486+00:00"
+        "last_try": "2026-11-15T23:30:39.674554+00:00",
+        "ok_at": "2026-11-15T23:30:39.674554+00:00"
       },
       "fred": {
-        "last_try": "2026-11-15T23:15:35.966486+00:00",
-        "ok_at": "2026-11-15T23:15:35.966486+00:00"
+        "last_try": "2026-11-15T23:30:39.674554+00:00",
+        "ok_at": "2026-11-15T23:30:39.674554+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-15T23:15:35.966486+00:00",
-        "ok_at": "2026-11-15T23:15:35.966486+00:00"
+        "last_try": "2026-11-15T23:30:39.674554+00:00",
+        "ok_at": "2026-11-15T23:30:39.674554+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-15T23:15:35.966486+00:00",
-        "ok_at": "2026-11-15T23:15:35.966486+00:00"
+        "last_try": "2026-11-15T23:30:39.674554+00:00",
+        "ok_at": "2026-11-15T23:30:39.674554+00:00"
       },
       "oil": {
-        "last_try": "2026-11-15T23:15:35.966486+00:00",
-        "ok_at": "2026-11-15T23:15:35.966486+00:00"
+        "last_try": "2026-11-15T23:30:39.674554+00:00",
+        "ok_at": "2026-11-15T23:30:39.674554+00:00"
       },
       "news": {
-        "last_try": "2026-11-15T23:15:35.966486+00:00",
-        "ok_at": "2026-11-15T23:15:35.966486+00:00"
+        "last_try": "2026-11-15T23:30:39.674554+00:00",
+        "ok_at": "2026-11-15T23:30:39.674554+00:00"
       },
       "cot": {
-        "last_try": "2026-11-15T23:15:35.966486+00:00",
-        "ok_at": "2026-11-15T23:15:35.966486+00:00"
+        "last_try": "2026-11-15T23:30:39.674554+00:00",
+        "ok_at": "2026-11-15T23:30:39.674554+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-15T23:15:35.966486+00:00",
-        "ok_at": "2026-11-15T23:15:35.966486+00:00"
+        "last_try": "2026-11-15T23:30:39.674554+00:00",
+        "ok_at": "2026-11-15T23:30:39.674554+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-15T23:15:35.966486+00:00"
+      "at": "2026-11-15T23:30:39.674554+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -842,36 +842,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-15T22:15:38.024204+00:00",
+    "at": "2026-11-15T23:30:39.674554+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-11-15T23:24:54+00:00",
+            "title": "Australian Dollar declines below 0.6800 on hawkish Fed, Chinese data in focus",
+            "src": "FXStreet"
+          },
+          {
+            "t": "2026-11-15T23:22:32+00:00",
+            "title": "Brittany Renner and Celina Powell go viral with courtside entrance at Clippers-Thunder game",
+            "src": "MARCA"
+          },
+          {
+            "t": "2026-11-15T23:03:25+00:00",
+            "title": "Fed’s Schmid signals potential rate hikes as inflation exceeds target",
+            "src": "Crypto Briefing"
+          },
+          {
+            "t": "2026-11-15T22:58:56+00:00",
+            "title": "Fed Study: AI Data Centers vs Productivity Gains",
+            "src": "CASRAI"
+          },
+          {
             "t": "2026-11-15T21:51:02+00:00",
             "title": "ECB’s Nagel says another rate hike ‘highly probable’ as energy prices push inflation",
             "src": "investingLive"
-          },
-          {
-            "t": "2026-11-15T21:50:00+00:00",
-            "title": "SoFi Planned for 2 Rate Cuts This Year and Got a Rate Hike. It Raised Its Guidance Anyway.",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-15T21:37:00+00:00",
-            "title": "Hotter October inflation and a 6.5% producer-price surge put a December Fed hike fully on the table",
-            "src": "Latin Times"
-          },
-          {
-            "t": "2026-11-15T21:34:35+00:00",
-            "title": "Weekend Fed speak: Collins backs steady, gradual rate hikes, cool on a bigger December move",
-            "src": "investingLive"
-          },
-          {
-            "t": "2026-11-15T21:25:05+00:00",
-            "title": "Fed’s Schmid warns inflation fight has grown harder",
-            "src": "TradingView"
           }
         ]
       },
@@ -879,35 +879,50 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-11-15T23:05:00+00:00",
+            "title": "Stock Futures Are Rising Ahead of Nvidia’s Earnings, Anthropic’s IPO",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-11-15T22:13:00+00:00",
+            "title": "Miguel Ángel Félix Gallardo, Architect of Mexico’s Modern Drug Trade, Dies at 80",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-15T21:32:00+00:00",
             "title": "Nvidia is gearing up for one of Wall Street’s most anticipated earnings calls in years",
             "src": "MarketWatch"
           },
           {
-            "t": "2026-11-15T20:30:00+00:00",
-            "title": "Prediction: This Will Be Micron's Stock Price by Late 2027 (Hint: Wall Street Expects 106% Upside)",
-            "src": "The Motley Fool"
-          },
-          {
-            "t": "2026-11-15T20:13:00+00:00",
-            "title": "Stock Futures Begin New Week of Trading Ahead of Nvidia’s Earnings, Anthropic’s IPO",
-            "src": "Barron's"
-          },
-          {
-            "t": "2026-11-15T19:38:16+00:00",
-            "title": "Essay | What Greece Learned From Going Broke—and Others In Europe Still Haven’t",
+            "t": "2026-11-15T21:15:26+00:00",
+            "title": "Exclusive | U.S. Aircraft Evacuated From Second U.K. Base Due to Iran Threat",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-15T18:50:02+00:00",
-            "title": "This Dividend King Yields 5 Times the S&P 500. Is It a Buy Now?",
-            "src": "Yahoo Finance"
+            "t": "2026-11-15T20:30:00+00:00",
+            "title": "Prediction: This Will Be Micron's Stock Price by Late 2027 (Hint: Wall Street Expects 106% Upside)",
+            "src": "The Motley Fool"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-15T23:09:21+00:00",
+            "title": "Wall Street futures edge higher as Nvidia earnings, Anthropic IPO loom",
+            "src": "Traders Union"
+          },
+          {
+            "t": "2026-11-15T23:00:00+00:00",
+            "title": "Nvidia’s Earnings on Deck; Anthropic’s Public Debut",
+            "src": "The Information"
+          },
+          {
+            "t": "2026-11-15T22:58:00+00:00",
+            "title": "Dow Jones Futures Due; How Will Nvidia React As Jensen Huang Mulls Return?",
+            "src": "Investor's Business Daily"
+          },
           {
             "t": "2026-11-15T21:38:32+00:00",
             "title": "Nvidia faces earnings test after CEO exit, stock slide",
@@ -917,27 +932,22 @@
             "t": "2026-11-15T21:24:30+00:00",
             "title": "The Week Ahead: Nvidia Earnings, Anthropic IPO Test AI Trade",
             "src": "FXEmpire"
-          },
-          {
-            "t": "2026-11-15T20:41:59+00:00",
-            "title": "Megaspeed says Alice Huang left in 2025, launches internal probe over Nvidia",
-            "src": "Global News"
-          },
-          {
-            "t": "2026-11-15T20:25:29+00:00",
-            "title": "Amazon Stock (AMZN): AWS, Earnings, Capex, Anthropic Stake and News, Tracked",
-            "src": "FourWeekMBA"
-          },
-          {
-            "t": "2026-11-15T20:25:00+00:00",
-            "title": "Nvidia's First Earnings Call Without Jensen Huang: Options Market Prices an 8.3% Swing, Roughly $341 Billion",
-            "src": "BigGo Finance"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-11-15T21:37:00+00:00",
+            "title": "Hotter October inflation and a 6.5% producer-price surge put a December Fed hike fully on the table",
+            "src": "Latin Times"
+          },
+          {
+            "t": "2026-11-15T21:25:05+00:00",
+            "title": "Fed’s Schmid warns inflation fight has grown harder",
+            "src": "Seeking Alpha"
+          },
           {
             "t": "2026-11-15T18:58:22+00:00",
             "title": "Fed 'has some work to do on inflation,' Kansas City Fed chief says",
@@ -952,16 +962,6 @@
             "t": "2026-11-15T18:24:21+00:00",
             "title": "Contrary to forecasts, consumer price index fell, inflation eased, and home prices dropped across Israel",
             "src": "i24NEWS"
-          },
-          {
-            "t": "2026-11-15T18:15:00+00:00",
-            "title": "Vanguard Economists Say: Inflation Might Be Better Than It Looks. Here's Why That's Good News for Stocks.",
-            "src": "The Motley Fool"
-          },
-          {
-            "t": "2026-11-15T16:42:57+00:00",
-            "title": "BOE’s Case to Raise Rates Again May Strengthen on UK Price Data",
-            "src": "Bloomberg.com"
           }
         ]
       },
@@ -994,24 +994,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-15T22:54:17+00:00",
+            "title": "U.S. sanctions fail to stop Russia, China and India as Putin's oil revenues hit their highest level since the Ukraine war began and 2 African nations emerge in his shadow fleet",
+            "src": "Business Insider Africa"
+          },
+          {
+            "t": "2026-11-15T22:10:37+00:00",
+            "title": "Russia Sanctions Tighten as Crypto and Fintech Fuel Oil Revenue Flows, Hockey Tensions, and Legislative Pushback",
+            "src": "Crowdfund Insider"
+          },
+          {
             "t": "2026-11-15T22:04:40+00:00",
             "title": "Iran targets Bahrain twice after months of quiet, claiming retaliation against U.S.",
             "src": "The Washington Post"
           },
           {
-            "t": "2026-11-15T21:50:19+00:00",
-            "title": "Iran attack on US base intercepted as Israel warns of Iranian plot against President Trump",
-            "src": "Fox News"
-          },
-          {
-            "t": "2026-11-15T21:15:56+00:00",
-            "title": "Live - Bessent warns of historic Iran economic collapse while Pence criticizes halt to war",
-            "src": "Iran International"
-          },
-          {
-            "t": "2026-11-15T21:14:13+00:00",
-            "title": "Iran’s navy says oil tanker on fire after hitting mine east of Hormuz",
-            "src": "The Times of Israel"
+            "t": "2026-11-15T22:00:50+00:00",
+            "title": "Iran says supertanker with 2 million barrels sank after Hormuz mine strike, unconfirmed",
+            "src": "investingLive"
           }
         ]
       }
@@ -1019,7 +1019,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-15T23:15:35.966486+00:00",
+    "at": "2026-11-15T23:30:39.674554+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -8123,10 +8123,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-15T23:15:35.966486+00:00",
+  "last_publish_ok": "2026-11-15T23:30:39.674554+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-15T23:16:00.835437+00:00"
+    "at": "2026-11-15T23:31:12.298097+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8255,12 +8255,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-15T23:15:35.966486+00:00",
-    "ok_at": "2026-11-15T23:15:35.966486+00:00",
+    "at": "2026-11-15T23:30:39.674554+00:00",
+    "ok_at": "2026-11-15T23:30:39.674554+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-15T23:15:35.966486+00:00",
+    "at": "2026-11-15T23:30:39.674554+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
