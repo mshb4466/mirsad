@@ -24,8 +24,43 @@ def test_relevance_and_grouping():
     sps = [g for g in view["events"] if g["kind"] == "speech"]
     assert {g["day"] for g in sps} == {"اليوم", "غداً"}
     today = next(g for g in sps if g["day"] == "اليوم")
-    assert len(today["items"]) == 2 and len(today["scenarios"]) == 3
+    assert len(today["items"]) == 2 and today["scenarios"] == [] and not today["short"]    # لا سيناريوهات نبرة للخطابات
+    oil = next(g for g in view["events"] if g["kind"] == "oil")
+    assert len(oil["scenarios"]) == 3                                                     # بقية الأحداث كما هي
     assert all(g["day"] == "اليوم" for g in view["events"] if g["kind"] in ("oil", "auction"))
+
+
+def test_released_speech_shows_event_only_no_tone_result():
+    evs = [ev("FOMC Member Powell Speaks", "Low", -3), ev("FOMC Member Barr Speaks", "Low", -2)]
+    heads = ["Powell: no rush to cut, inflation remains sticky", "Fed signals higher for longer"]
+    view = dashboard.build_view({"risk": {"score": 3, "level": "x", "main_reason": "", "advice": "", "components": []}}, evs, NOW,
+                                fed_heads=heads, series={"es": [], "y10": [], "dxy": []})
+    sp = [g for g in view["events_past"] if g["kind"] == "speech"]
+    assert sp, "الخطاب الذي صدر يجب أن يبقى مذكوراً كحدث"
+    for g in sp:
+        assert g.get("time") and (g.get("name") or g.get("title"))
+        assert g["verdict"] is None and g["heads"] == [] and not g.get("scenarios") and not g.get("note")
+        assert all(it.get("verdict") is None for it in g.get("items") or [])
+        assert g["agree"] == ""
+    blob = str(view["events_past"])
+    assert "متشدد" not in blob and "تيسير" not in blob and "hawk" not in blob.lower()
+
+
+def test_speech_has_no_tone_anywhere_even_with_macro_context():
+    """الخطاب (القادم والذي صدر): لا نبرة ولا «ميل الفدرالي» ولا سيناريوهات في أي حقل، حتى مع وجود سياق الماكرو."""
+    macro = {"label": "ميل الفدرالي متشدد", "confidence": "عالية", "lean": 0.4, "pillars": [{"key": "dots", "name": "توقعات الفائدة", "arrow": "↑", "note": "السوق يسعّر فائدة أعلى"}]}
+    ctx = {"macro": macro, "score": 3, "level": "x", "vix": 15.0, "loc": "above_value"}
+    for title in ("FOMC Member Powell Speaks", "FOMC Meeting Minutes", "FOMC Member Barr Speaks", "Fed Chair Powell Speaks at press conference"):
+        d = events_ctx.describe(ev(title, "Low", 2), "15:00", macro["label"], ctx)
+        assert d["kind"] == "speech" and d["time"] == "15:00" and d["name"], title
+        assert d["scenarios"] == [] and not d["short"] and not d["note"] and not d["worst"], title
+        assert d["system"] == [] and not d["system_effect"] and "chain" not in d, title
+        blob = str(d)
+        for bad in ("نبرة", "متشدد", "تيسير", "نبرته"):
+            assert bad not in blob, (title, bad, blob)
+    # الأحداث الأخرى تحتفظ بسياقها
+    oil = events_ctx.describe(ev("Crude Oil Inventories", "Low", 2, "-1.2M", "3.7M"), "15:00", macro["label"], ctx)
+    assert oil["system"] and len(oil["scenarios"]) == 3
 
 
 def test_ratio_auction_polarity():
@@ -38,7 +73,8 @@ def test_ratio_auction_polarity():
 def test_preopen_dedupes_scenarios():
     rep = {"risk": {"score": 3, "emoji": "🟢", "level": "x", "main_reason": "", "advice": "", "components": [], "weights_note": []}, "info": {}, "problems": []}
     msg = runner.format_preopen(rep, EVS, NOW)
-    assert msg.count("متشددة=ضغط") == 1
+    assert msg.count("بناء مخزون=نفط أضعف") == 1       # السطر المختصر لا يتكرر
+    assert "متشددة" not in msg and "تيسيرية" not in msg   # ولا نبرة للخطابات في الرسالة
 
 
 def test_alert_persist_and_pulse():

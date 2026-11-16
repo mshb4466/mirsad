@@ -1278,13 +1278,7 @@ def resolve_actuals(events, now, state, deps):
 def enrich_for_ui(events, now, deps, intr=None, state=None):
     """أرقام فعلية ناقصة (تُحلّ مرة واحدة لكل تشغيل)، عناوين الفدرالي إن صدر كلام خلال 24 ساعة، وسلاسل الأسعار لقياس رد الفعل."""
     resolve_actuals(events, now, state if state is not None else {}, deps)
-    heads = []
-    try:
-        has_speech = any(events_ctx.classify(e.get("title", ""))[0] == "speech" and now - timedelta(hours=24) <= e["time"] < now for e in events)
-        if has_speech and deps.get("headlines_fed"):
-            heads = deps["headlines_fed"](now)
-    except Exception:  # noqa: BLE001
-        heads = []
+    heads = []      # عناوين الفدرالي كانت لتقدير نبرة الخطاب؛ لا نبرة للخطابات في مرصاد الآن (2026-11-16) فلا جلب
     series = {k: intr[k] for k in ("es", "y10", "dxy", "oil") if isinstance(intr, dict) and intr.get(k)} if intr else {}
     return heads, series
 

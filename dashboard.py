@@ -170,9 +170,12 @@ def _past_events(events, now, report, series, fed_heads=None):
             x["react"] = _react(series, t_last) if (x.get("items") and t_last) else x.get("react")
             x["reaction"] = (x.get("react") or {}).get("es")
             if kind == "speech":
-                k, basis = events_ctx.speech_outcome(fed_heads, x.get("react"))
-                x["verdict"] = _verdict(k, x.get("scenarios") or [], basis)
-                x["heads"] = list(fed_heads or [])[:3]
+                # خطاب/محضر الفدرالي الذي صدر: يُذكر الحدث فقط (التوقيت واسم الكلمة)، دون نتيجة الكلام (متشدد/تيسيري) ولا عناوين ولا سيناريوهات نبرة.
+                # (طلب المستخدم 2026-11-16؛ events_ctx.speech_outcome باقية لكنها لا تُستدعى هنا)
+                for key in ("scenarios", "note", "short", "worst", "chain", "system", "system_effect"):
+                    x.pop(key, None)
+                x["verdict"] = None
+                x["heads"] = []
                 for it in x.get("items") or []:
                     it["verdict"] = None
             else:

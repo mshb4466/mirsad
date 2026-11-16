@@ -12,9 +12,9 @@ import values
 # (نمط بالعنوان, النوع, الاسم العربي, ماذا يقيس)
 RULES = [
     (r"federal funds rate|fomc statement|interest rate decision", "rate", "قرار الفائدة (FOMC)", "قرار الفدرالي بشأن سعر الفائدة وبيانه"),
-    (r"fomc press conference|powell", "speech", "مؤتمر/كلمة رئيس الفدرالي", "نبرة الفدرالي ومسار الفائدة القادم"),
-    (r"fomc.*minutes|minutes", "speech", "محضر اجتماع الفدرالي", "تفاصيل نقاش الفدرالي ونبرته"),
-    (r"fed .*speak|speaks|speech|testif", "speech", "كلمة مسؤول في الفدرالي", "إشارات حول الفائدة من مسؤول الفدرالي"),
+    (r"fomc press conference|powell", "speech", "مؤتمر/كلمة رئيس الفدرالي", "كلمة أو مؤتمر صحفي لرئيس الفدرالي"),
+    (r"fomc.*minutes|minutes", "speech", "محضر اجتماع الفدرالي", "تفاصيل نقاش الفدرالي في اجتماعه الأخير"),
+    (r"fed .*speak|speaks|speech|testif", "speech", "كلمة مسؤول في الفدرالي", "كلمة لمسؤول في الفدرالي"),
     (r"core pce", "infl", "PCE الأساسي", "مقياس التضخم المفضّل لدى الفدرالي (دون الغذاء والطاقة)"),
     (r"pce", "infl", "مؤشر PCE", "التضخم حسب إنفاق المستهلك، مقياس الفدرالي المفضّل"),
     (r"core cpi", "infl", "CPI الأساسي", "تضخم أسعار المستهلك دون الغذاء والطاقة"),
@@ -61,10 +61,6 @@ TEXT = {
              "يتحرك السوق على نبرة البيان والمؤتمر الصحفي وتوقعات الاجتماعات التالية.",
              "دعم لـ ES، لكن انتبه لسبب التيسير إن كان خوفاً من تباطؤ.",
              "حدث الأعلى تأثيراً، والتقلب حوله مرتفع"),
-    "speech": ("ضغط على ES وارتفاع العوائد.",
-               "تأثير محدود.",
-               "دعم لـ ES.",
-               "الأثر يعتمد على النبرة لا على رقم"),
     "auction": ("ضغط على الأسهم.",
                 "تأثير محدود.",
                 "يريح الأسهم.",
@@ -82,7 +78,7 @@ SHORT = {
     "infl": ("أعلى=ضغط على ES", "أقل=دعم"), "labor": ("أقوى=عوائد أعلى (ضغط محتمل)", "أضعف=دعم أولاً ثم قلق ركود"),
     "unemp": ("أعلى=ضعف عمل، دعم للفائدة الأقل", "أقل=عوائد أعلى"), "growth": ("أقوى=مختلط", "أضعف=دعم للفائدة الأقل"),
     "sent": ("أعلى=إيجابي", "أقل=سلبي"), "rate": ("أشد تشدداً=ضغط", "أكثر تيسيراً=دعم"),
-    "speech": ("متشددة=ضغط", "تيسيرية=دعم"), "auction": ("طلب ضعيف=ضغط", "طلب قوي=دعم"), "housing": ("ثانوي", "ثانوي"),
+    "auction": ("طلب ضعيف=ضغط", "طلب قوي=دعم"), "housing": ("ثانوي", "ثانوي"),
     "oil": ("بناء مخزون=نفط أضعف (دعم لـ ES)", "سحب مخزون=نفط أقوى (ضغط تضخمي)"),
 }
 
@@ -305,7 +301,7 @@ def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
          "likely": "", "worst": "",
          "system": [], "system_effect": "",
          "combined": combined(ev.get("actual"), ev.get("forecast"), ev.get("previous")) if ev.get("actual") else ""}
-    if ctx is not None:
+    if ctx is not None and kind != "speech":      # الخطاب: الحدث فقط، بلا سطور «ميل الفدرالي العام» التي تُقرأ كنبرة له
         d["system"], d["system_effect"] = system_lines(kind, ev, ctx)
         m = (ctx or {}).get("macro") or {}
         by = {p["key"]: p for p in m.get("pillars", [])}
@@ -313,16 +309,15 @@ def describe(ev, hhmm_baghdad, macro_label="", ctx=None):
         if m and pk:
             d["chain"] = [{"t": name or ev.get("title", ""), "s": "الحدث"}, {"t": f"{pk['name']} {pk['arrow']}", "s": "الركيزة الآن"},
                           {"t": m.get("label", ""), "s": "ميل الفدرالي"}]
-    if kind in TEXT:
+    # الخطابات والمحاضر لا سيناريوهات لها: نبرة الكلام لا تُقرأ في مرصاد (طلب المستخدم 2026-11-16)، فلا معنى لسيناريو «نبرة متشددة/تيسيرية».
+    # يبقى الحدث بتوقيته واسمه فقط؛ scenarios/note/short تبقى فارغة من القيم الافتراضية أعلاه.
+    if kind in TEXT and kind != "speech":
         up, mid, down, note = TEXT[kind]
         d["scenarios"] = [{"k": "above", "label": "أعلى من المتوقع", "text": up},
                           {"k": "inline", "label": "مطابق", "text": mid},
                           {"k": "below", "label": "أقل من المتوقع", "text": down}]
         d["note"] = note
         d["short"] = " | ".join(SHORT[kind])
-        if kind == "speech":
-            for sc, lab in zip(d["scenarios"], ("نبرة متشددة", "نبرة محايدة", "نبرة تيسيرية")):
-                sc["label"] = lab
         if kind == "auction" and _is_ratio(ev):
             d["scenarios"] = [{"k": "above", "label": "أعلى من المتوقع", "text": "طلب أقوى على السندات (نسبة التغطية أعلى)، يريح العوائد ويدعم الأسهم."},
                               {"k": "inline", "label": "مطابق", "text": "تأثير محدود."},

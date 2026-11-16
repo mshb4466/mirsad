@@ -1610,9 +1610,8 @@ function render(data) {
     const w = document.createElement('details'); w.className = 'rel'; const h = document.createElement('summary'); h.className = 'relh';
     h.appendChild(document.createTextNode('✅ ')); h.appendChild(el('span', 'num evtime', e.time)); h.appendChild(el('span', '', e.name || e.title));
     /* شارة واحدة مختصرة؛ كل التفاصيل داخل البطاقة المطوية */
-    const vd0 = e.verdict;
-    if (vd0 && e.kind === 'speech') h.appendChild(el('span', 'pill v-' + vd0.es, (vd0.k === 'above' ? '▲ ' : vd0.k === 'below' ? '▼ ' : '◆ ') + vd0.label));
-    else if (vd0 && !(e.items || []).length) h.appendChild(el('span', 'pill v-' + vd0.es, (vd0.k === 'above' ? '▲ ' : vd0.k === 'below' ? '▼ ' : '◆ ') + vd0.label));
+    const vd0 = e.kind === 'speech' ? null : e.verdict;      /* خطاب الفدرالي: الحدث فقط بلا نتيجة الكلام */
+    if (vd0 && !(e.items || []).length) h.appendChild(el('span', 'pill v-' + vd0.es, (vd0.k === 'above' ? '▲ ' : vd0.k === 'below' ? '▼ ' : '◆ ') + vd0.label));
     else if (!(e.items || []).length && !e.actual && NEEDNUM(e.kind)) h.appendChild(el('span', 'pill', e.status === 'failed' ? 'تعذّر الجلب' : e.status === 'awaiting' ? 'بانتظار الرقم' : 'الرقم غير متوفر'));
     w.appendChild(h);
     if ((e.items || []).length) {
@@ -1625,12 +1624,6 @@ function render(data) {
     } else {
       if (e.actual || e.forecast || e.previous) w.appendChild(nums3(e, e.verdict));
       w.appendChild(verdictRow(e, e.verdict, e.kind));
-    }
-    if (e.kind === 'speech' && e.verdict) {
-      const t = el('div', 'tone v-' + e.verdict.es); t.appendChild(el('b', '', (e.verdict.k === 'above' ? '▲ ' : e.verdict.k === 'below' ? '▼ ' : '◆ ') + e.verdict.label + ' (مرجّحة)'));
-      t.appendChild(el('span', '', e.verdict.effect)); w.appendChild(t);
-      w.appendChild(el('p', 'evnote', 'الأساس: ' + e.verdict.basis + '. قراءة بالقواعد وليست فهماً لنص الكلام.'));
-      if ((e.heads || []).length) { const ul = el('ul', 'play'); e.heads.forEach(h => ul.appendChild(el('li', '', h))); w.appendChild(ul); }
     }
     const rr = reactRow(e); if (rr.children.length) w.appendChild(rr);
     const det = e.kind !== 'speech' && ((e.verdict && e.verdict.text) || e.system_effect);
