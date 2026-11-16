@@ -585,60 +585,60 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 15,
-      "v": 0.08,
-      "th": 0.3,
-      "ratio": 0.26,
-      "val": "+0.08%",
-      "thr": "±0.3%",
-      "c15": "+0.08%",
-      "c60": "+0.07%",
-      "c180": "+0.05%",
+      "w": 180,
+      "v": -0.08,
+      "th": 0.8,
+      "ratio": 0.1,
+      "val": "-0.08%",
+      "thr": "±0.8%",
+      "c15": "-0.02%",
+      "c60": "+0.02%",
+      "c180": "-0.08%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.23,
-      "z": 0.4,
-      "volx": 0.7
+      "eff": 0.07,
+      "z": 0.1,
+      "volx": 0.9
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 15,
-      "v": 0.11,
-      "th": 0.4,
-      "ratio": 0.28,
-      "val": "+0.11%",
-      "thr": "±0.4%",
-      "c15": "+0.11%",
-      "c60": "+0.12%",
-      "c180": "+0.03%",
+      "w": 180,
+      "v": -0.18,
+      "th": 1.0,
+      "ratio": 0.18,
+      "val": "-0.18%",
+      "thr": "±1%",
+      "c15": "-0.01%",
+      "c60": "+0.09%",
+      "c180": "-0.18%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.26,
-      "z": 0.3,
-      "volx": 0.5
+      "tone": "bear",
+      "eff": 0.17,
+      "z": 0.2,
+      "volx": 0.6
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 180,
-      "v": 3.63,
+      "v": 3.32,
       "th": 14.0,
-      "ratio": 0.26,
-      "val": "+3.63%",
+      "ratio": 0.24,
+      "val": "+3.32%",
       "thr": "±14%",
-      "c15": "-0.20%",
-      "c60": "-0.75%",
-      "c180": "+3.63%",
+      "c15": "-0.60%",
+      "c60": "-0.45%",
+      "c180": "+3.32%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.35,
-      "z": 0.3,
+      "eff": 0.22,
+      "z": 0.2,
       "volx": null
     },
     {
@@ -646,19 +646,19 @@
       "name": "النفط",
       "short": "نفط",
       "w": 180,
-      "v": -0.53,
+      "v": -0.8,
       "th": 2.4,
-      "ratio": 0.22,
-      "val": "-0.53%",
+      "ratio": 0.33,
+      "val": "-0.80%",
       "thr": "±2.4%",
-      "c15": "-0.06%",
-      "c60": "-0.02%",
-      "c180": "-0.53%",
+      "c15": "-0.16%",
+      "c60": "-0.36%",
+      "c180": "-0.80%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.03,
-      "z": 0.0,
+      "eff": 0.47,
+      "z": 0.8,
       "volx": 0.6
     },
     {
@@ -666,39 +666,39 @@
       "name": "الذهب",
       "short": "ذهب",
       "w": 60,
-      "v": 0.23,
+      "v": 0.29,
       "th": 0.65,
-      "ratio": 0.36,
-      "val": "+0.23%",
+      "ratio": 0.45,
+      "val": "+0.29%",
       "thr": "±0.65%",
-      "c15": "-0.02%",
-      "c60": "+0.23%",
-      "c180": "+0.40%",
+      "c15": "-0.00%",
+      "c60": "+0.29%",
+      "c180": "+0.46%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.44,
-      "z": 0.6,
-      "volx": 0.8
+      "eff": 0.59,
+      "z": 0.7,
+      "volx": 0.7
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": 0.1,
+      "v": 0.08,
       "th": 0.5,
-      "ratio": 0.2,
-      "val": "+0.10%",
+      "ratio": 0.15,
+      "val": "+0.08%",
       "thr": "±0.5%",
-      "c15": "+0.00%",
-      "c60": "+0.05%",
-      "c180": "+0.10%",
+      "c15": "-0.01%",
+      "c60": "+0.04%",
+      "c180": "+0.08%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.44,
-      "z": 1.0,
+      "eff": 0.29,
+      "z": 0.7,
       "volx": null
     },
     {
@@ -706,60 +706,60 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": 0.08,
+      "v": 0.07,
       "th": 0.7,
-      "ratio": 0.12,
-      "val": "+0.08%",
+      "ratio": 0.1,
+      "val": "+0.07%",
       "thr": "±0.7%",
-      "c15": "-0.01%",
-      "c60": "+0.01%",
-      "c180": "+0.08%",
+      "c15": "-0.02%",
+      "c60": "-0.00%",
+      "c180": "+0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.08,
-      "z": 0.1,
+      "eff": 0.03,
+      "z": 0.0,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-16T11:15:39.169504+00:00",
-        "ok_at": "2026-11-16T11:15:39.169504+00:00"
+        "last_try": "2026-11-16T11:23:09.514120+00:00",
+        "ok_at": "2026-11-16T11:23:09.514120+00:00"
       },
       "fred": {
-        "last_try": "2026-11-16T11:15:39.169504+00:00",
-        "ok_at": "2026-11-16T11:15:39.169504+00:00"
+        "last_try": "2026-11-16T11:23:09.514120+00:00",
+        "ok_at": "2026-11-16T11:23:09.514120+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-16T11:15:39.169504+00:00",
-        "ok_at": "2026-11-16T11:15:39.169504+00:00"
+        "last_try": "2026-11-16T11:23:09.514120+00:00",
+        "ok_at": "2026-11-16T11:23:09.514120+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-16T11:15:39.169504+00:00",
-        "ok_at": "2026-11-16T11:15:39.169504+00:00"
+        "last_try": "2026-11-16T11:23:09.514120+00:00",
+        "ok_at": "2026-11-16T11:23:09.514120+00:00"
       },
       "oil": {
-        "last_try": "2026-11-16T11:15:39.169504+00:00",
-        "ok_at": "2026-11-16T11:15:39.169504+00:00"
+        "last_try": "2026-11-16T11:23:09.514120+00:00",
+        "ok_at": "2026-11-16T11:23:09.514120+00:00"
       },
       "news": {
-        "last_try": "2026-11-16T11:15:39.169504+00:00",
-        "ok_at": "2026-11-16T11:15:39.169504+00:00"
+        "last_try": "2026-11-16T11:23:09.514120+00:00",
+        "ok_at": "2026-11-16T11:23:09.514120+00:00"
       },
       "cot": {
-        "last_try": "2026-11-16T11:15:39.169504+00:00",
-        "ok_at": "2026-11-16T11:15:39.169504+00:00"
+        "last_try": "2026-11-16T11:23:09.514120+00:00",
+        "ok_at": "2026-11-16T11:23:09.514120+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-16T11:15:39.169504+00:00",
-        "ok_at": "2026-11-16T11:15:39.169504+00:00"
+        "last_try": "2026-11-16T11:23:09.514120+00:00",
+        "ok_at": "2026-11-16T11:23:09.514120+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-16T11:15:39.169504+00:00"
+      "at": "2026-11-16T11:23:09.514120+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -767,7 +767,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-16T11:15:39.169504+00:00",
+    "at": "2026-11-16T11:23:09.514120+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -789,14 +789,14 @@
             "src": "Washington Examiner"
           },
           {
-            "t": "2026-11-16T10:26:54+00:00",
-            "title": "Global markets start new week mixed amid Nvidia turmoil, hawkish Fed outlook",
-            "src": "Anadolu Ajansı"
+            "t": "2026-11-16T10:31:27+00:00",
+            "title": "U.S. Treasury Yields Decline but Fed Rate-Hike Prospects in Focus",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-16T10:06:31+00:00",
-            "title": "Fed's Barr warns on AI risks to financial system",
-            "src": "Reuters"
+            "t": "2026-11-16T10:29:12+00:00",
+            "title": "Productivity and Jobs Task Force Conference",
+            "src": "Federal Reserve Bank of San Francisco"
           }
         ]
       },
@@ -814,6 +814,11 @@
             "src": "Reuters"
           },
           {
+            "t": "2026-11-16T10:36:00+00:00",
+            "title": "Inside the Frenetic Month That Shook Wall Street’s AI Trade",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-16T10:32:02+00:00",
             "title": "Should You Really Buy Micron Stock Right Now? Wall Street Has a Clear Answer for Investors.",
             "src": "Yahoo Finance"
@@ -821,11 +826,6 @@
           {
             "t": "2026-11-16T10:30:00+00:00",
             "title": "Exclusive | Activist Calls on Landlord Invitation Homes to Sell Houses ‘One at a Time’",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-16T10:30:00+00:00",
-            "title": "The Investors Set to Win Big in Anthropic’s IPO",
             "src": "WSJ"
           }
         ]
@@ -894,30 +894,40 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-16T11:12:34+00:00",
+            "t": "2026-11-16T11:09:48+00:00",
             "title": "Trump's tariffs are unpopular -- but they'll be tough to repeal despite Democrats' landslide win",
-            "src": "Huron Daily Tribune"
+            "src": "SFGATE"
           },
           {
-            "t": "2026-11-16T10:03:00+00:00",
-            "title": "U.S. Treasury Yields Decline but Fed Rate-Hike Prospects in Focus",
-            "src": "WSJ"
+            "t": "2026-11-16T11:00:26+00:00",
+            "title": "Trump Tariffs Congress",
+            "src": "chronicleonline.com"
+          },
+          {
+            "t": "2026-11-16T11:00:05+00:00",
+            "title": "South African exporters face higher US tariffs and massive competition as AGOA benefits end in 2027",
+            "src": "FreshFruitPortal.com"
           },
           {
             "t": "2026-11-16T09:17:30+00:00",
             "title": "Treasury yields fall as investors await comments from Fed Chairman Warsh",
             "src": "CNBC"
-          },
-          {
-            "t": "2026-11-16T08:26:00+00:00",
-            "title": "Why EU Tariffs Haven’t Slowed Chinese Carmakers in Europe",
-            "src": "DirectIndustry e-Magazine"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-11-16T11:16:59+00:00",
+            "title": "INTERVIEW - 'The same crime': Gaza-born US Senate hopeful eyes South Africa-style Israel sanctions",
+            "src": "Anadolu Ajansı"
+          },
+          {
+            "t": "2026-11-16T11:14:00+00:00",
+            "title": "Iran says 2 oil tankers hit mines near Strait of Hormuz, 1 sinks",
+            "src": "Middle East Monitor"
+          },
           {
             "t": "2026-11-16T11:13:49+00:00",
             "title": "Russia’s FIMI and malicious cyber activities: Council imposes sanctions on 30 individuals and two entities",
@@ -927,16 +937,6 @@
             "t": "2026-11-16T11:13:36+00:00",
             "title": "Middle East conflict continues with new Iranian attack ahead of Qatar GP",
             "src": "GPblog"
-          },
-          {
-            "t": "2026-11-16T11:12:52+00:00",
-            "title": "Video | EU to agree 113 new sanctions listings on Russia - McEntee | RTÉ",
-            "src": "RTE.ie"
-          },
-          {
-            "t": "2026-11-16T11:10:03+00:00",
-            "title": "Ghana, DRC and other African countries feature in new report linking 50 African women to Russia's attack drone industry used to fight Ukraine",
-            "src": "Business Insider Africa"
           }
         ]
       }
@@ -944,7 +944,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-16T11:15:39.169504+00:00",
+    "at": "2026-11-16T11:23:09.514120+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -8034,10 +8034,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-16T11:15:39.169504+00:00",
+  "last_publish_ok": "2026-11-16T11:23:09.514120+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-16T11:16:05.285019+00:00"
+    "at": "2026-11-16T11:23:45.590587+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8166,12 +8166,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-16T11:15:39.169504+00:00",
-    "ok_at": "2026-11-16T11:15:39.169504+00:00",
+    "at": "2026-11-16T11:23:09.514120+00:00",
+    "ok_at": "2026-11-16T11:23:09.514120+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-16T11:15:39.169504+00:00",
+    "at": "2026-11-16T11:23:09.514120+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
