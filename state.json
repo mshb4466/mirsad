@@ -563,18 +563,18 @@
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": 0.08,
+      "v": 0.06,
       "th": 0.5,
-      "ratio": 0.16,
-      "val": "+0.08%",
+      "ratio": 0.11,
+      "val": "+0.06%",
       "thr": "±0.5%",
-      "c15": "+0.01%",
+      "c15": "+0.00%",
       "c60": "+0.01%",
-      "c180": "+0.08%",
+      "c180": "+0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.25,
+      "eff": 0.2,
       "z": 0.2,
       "volx": null
     },
@@ -582,61 +582,61 @@
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 15,
+      "w": 60,
       "v": 0.02,
-      "th": 0.25,
-      "ratio": 0.1,
+      "th": 0.4,
+      "ratio": 0.04,
       "val": "+0.02%",
-      "thr": "±0.25%",
-      "c15": "+0.02%",
-      "c60": "-0.01%",
-      "c180": "-0.02%",
+      "thr": "±0.4%",
+      "c15": "+0.00%",
+      "c60": "+0.02%",
+      "c180": "-0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.06,
-      "z": 0.1,
+      "eff": 0.14,
+      "z": 0.2,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-16T22:59:48.594438+00:00",
-        "ok_at": "2026-11-16T22:45:36.520596+00:00"
+        "last_try": "2026-11-16T23:02:17.063680+00:00",
+        "ok_at": "2026-11-16T23:02:17.063680+00:00"
       },
       "fred": {
-        "last_try": "2026-11-16T22:59:48.594438+00:00",
-        "ok_at": "2026-11-16T22:45:36.520596+00:00"
+        "last_try": "2026-11-16T23:02:17.063680+00:00",
+        "ok_at": "2026-11-16T23:02:17.063680+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-16T22:59:48.594438+00:00",
-        "ok_at": "2026-11-16T22:59:48.594438+00:00"
+        "last_try": "2026-11-16T23:02:17.063680+00:00",
+        "ok_at": "2026-11-16T23:02:17.063680+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-16T22:59:48.594438+00:00",
-        "ok_at": "2026-11-16T22:59:48.594438+00:00"
+        "last_try": "2026-11-16T23:02:17.063680+00:00",
+        "ok_at": "2026-11-16T23:02:17.063680+00:00"
       },
       "oil": {
-        "last_try": "2026-11-16T22:59:48.594438+00:00",
-        "ok_at": "2026-11-16T22:59:48.594438+00:00"
+        "last_try": "2026-11-16T23:02:17.063680+00:00",
+        "ok_at": "2026-11-16T23:02:17.063680+00:00"
       },
       "news": {
-        "last_try": "2026-11-16T22:59:48.594438+00:00",
-        "ok_at": "2026-11-16T22:59:48.594438+00:00"
+        "last_try": "2026-11-16T23:02:17.063680+00:00",
+        "ok_at": "2026-11-16T23:02:17.063680+00:00"
       },
       "cot": {
-        "last_try": "2026-11-16T22:59:48.594438+00:00",
-        "ok_at": "2026-11-16T22:59:48.594438+00:00"
+        "last_try": "2026-11-16T23:02:17.063680+00:00",
+        "ok_at": "2026-11-16T23:02:17.063680+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-16T22:59:48.594438+00:00",
-        "ok_at": "2026-11-16T22:59:48.594438+00:00"
+        "last_try": "2026-11-16T23:02:17.063680+00:00",
+        "ok_at": "2026-11-16T23:02:17.063680+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-16T22:59:48.594438+00:00"
+      "at": "2026-11-16T23:02:17.063680+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -644,66 +644,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-16T22:00:45.989381+00:00",
+    "at": "2026-11-16T23:02:17.063680+00:00",
     "asset": "es",
     "data": {
-      "companies": {
-        "label": "الشركات الكبرى والأرباح",
-        "items": [
-          {
-            "t": "2026-11-16T21:56:00+00:00",
-            "title": "This Is a Huge Week for the Stock Market: Nvidia Earnings, Fed Minutes, and Anthropic’s IPO",
-            "src": "The Motley Fool"
-          },
-          {
-            "t": "2026-11-16T21:55:00+00:00",
-            "title": "Dow Jones Futures: AMD, Nvidia, Micron Lead AI Trade Lower With Nvidia Earnings On Deck",
-            "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-11-16T21:31:41+00:00",
-            "title": "Nvidia Earnings Are Sideshow as Huang’s Ouster Looms Over Market",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-16T21:19:10+00:00",
-            "title": "Nasdaq 100 Plunges as Nvidia Earnings, Anthropic IPO on Horizon",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-16T21:04:02+00:00",
-            "title": "U.S. equities conclude in the red ahead of Nvidia earnings",
-            "src": "TradingView"
-          }
-        ]
-      },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-11-16T22:24:44+00:00",
+            "title": "Additional Balloon Inflation Zones on the UWS for This Year's Thanksgiving Day Parade: What to Know",
+            "src": "West Side Rag"
+          },
           {
             "t": "2026-11-16T21:04:29+00:00",
             "title": "Wall Street Has Bad News for Your Wallet",
             "src": "U.S. News & World Report"
           },
           {
-            "t": "2026-11-16T20:47:26+00:00",
-            "title": "CPI | Paul Weiss Bolsters M&A Practice With Senior Partner Hire From Goodwin",
-            "src": "PYMNTS.com"
-          },
-          {
-            "t": "2026-11-16T20:43:06+00:00",
-            "title": "CPI | Europe’s Smaller Soccer Clubs Take on UEFA in Antitrust Fight",
-            "src": "PYMNTS.com"
-          },
-          {
-            "t": "2026-11-16T20:40:09+00:00",
-            "title": "CPI | Supreme Court Denies Custodia Bank Appeal in Federal Reserve Dispute",
-            "src": "PYMNTS.com"
-          },
-          {
             "t": "2026-11-16T20:00:15+00:00",
             "title": "October CPI Shows Inflation Contained Outside of Gas Prices. Here’s What It Means for Interest Rates",
             "src": "Morningstar"
+          },
+          {
+            "t": "2026-11-16T19:46:04+00:00",
+            "title": "Cleveland Fed's Hammack says more rate hikes are needed to lower inflation",
+            "src": "Seeking Alpha"
+          },
+          {
+            "t": "2026-11-16T19:44:42+00:00",
+            "title": "Village faces delays, inflation on sidewalk project",
+            "src": "C & G Newspapers"
           }
         ]
       },
@@ -711,60 +681,37 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-11-16T22:30:00+00:00",
+            "title": "Brazil defies Trump tariffs as trade with China and other nations",
+            "src": "Modern Ghana"
+          },
+          {
+            "t": "2026-11-16T22:07:30+00:00",
+            "title": "Which Sectors Do Well Amid 5% 10-Year Treasury Yields?",
+            "src": "ETF Database"
+          },
+          {
+            "t": "2026-11-16T21:59:00+00:00",
+            "title": "Congress could soon rein in Trump’s tariffs on Canada. Here’s what that could look like.",
+            "src": "Atlantic Council"
+          },
+          {
             "t": "2026-11-16T21:55:39+00:00",
             "title": "Trump Tariffs Congress",
             "src": "Columbia Missourian"
-          },
-          {
-            "t": "2026-11-16T21:53:53+00:00",
-            "title": "Ex-US Trade Officials Support Axing Trump's Canada Tariffs",
-            "src": "Law360"
-          },
-          {
-            "t": "2026-11-16T21:43:00+00:00",
-            "title": "Michigan’s next governor hasn’t talked to Trump yet—but wants to work with him on a 50% auto tariff set for her first day",
-            "src": "Fortune"
-          },
-          {
-            "t": "2026-11-16T21:38:00+00:00",
-            "title": "AI Stocks Resume Their Slide",
-            "src": "WSJ"
-          }
-        ]
-      },
-      "geo": {
-        "label": "الجيوسياسة والنفط",
-        "items": [
-          {
-            "t": "2026-11-16T21:20:17+00:00",
-            "title": "Russia says its defenses intercepted over 1,300 Ukrainian drones in a major attack",
-            "src": "KRCG"
-          },
-          {
-            "t": "2026-11-16T19:20:50+00:00",
-            "title": "EU sanctions Wildberries CEO Tatyana Kim as well as enablers of Moscow's shadow fleet",
-            "src": "DW.com"
-          },
-          {
-            "t": "2026-11-16T19:15:13+00:00",
-            "title": "Ukraine war latest: Crimean Bridge hit in reported attack, traffic restrictions imposed",
-            "src": "The Kyiv Independent"
-          },
-          {
-            "t": "2026-11-16T19:04:48+00:00",
-            "title": "Russia says Ukraine hit Crimea bridge in its largest drone attack",
-            "src": "upi"
           }
         ]
       }
     },
     "failed": [
       "الفدرالي والفائدة",
-      "الأسهم الأمريكية و S&P 500"
+      "الأسهم الأمريكية و S&P 500",
+      "الشركات الكبرى والأرباح",
+      "الجيوسياسة والنفط"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-16T22:59:48.594438+00:00",
+    "at": "2026-11-16T23:02:17.063680+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -7932,10 +7879,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-16T22:59:48.594438+00:00",
+  "last_publish_ok": "2026-11-16T23:02:17.063680+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-16T23:01:23.081510+00:00"
+    "at": "2026-11-16T23:02:48.530578+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8064,12 +8011,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-16T22:59:48.594438+00:00",
-    "ok_at": "2026-11-16T22:59:48.594438+00:00",
+    "at": "2026-11-16T23:02:17.063680+00:00",
+    "ok_at": "2026-11-16T23:02:17.063680+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-16T22:59:48.594438+00:00",
+    "at": "2026-11-16T23:02:17.063680+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
