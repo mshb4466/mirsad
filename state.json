@@ -574,7 +574,7 @@
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.2,
+      "eff": 0.18,
       "z": 0.2,
       "volx": null
     },
@@ -583,60 +583,60 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": 0.02,
+      "v": 0.03,
       "th": 0.4,
-      "ratio": 0.04,
-      "val": "+0.02%",
+      "ratio": 0.07,
+      "val": "+0.03%",
       "thr": "±0.4%",
-      "c15": "+0.00%",
-      "c60": "+0.02%",
-      "c180": "-0.01%",
+      "c15": "+0.02%",
+      "c60": "+0.03%",
+      "c180": "+0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.14,
-      "z": 0.2,
+      "eff": 0.21,
+      "z": 0.4,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-16T23:02:17.063680+00:00",
-        "ok_at": "2026-11-16T23:02:17.063680+00:00"
+        "last_try": "2026-11-16T23:03:27.688528+00:00",
+        "ok_at": "2026-11-16T23:03:27.688528+00:00"
       },
       "fred": {
-        "last_try": "2026-11-16T23:02:17.063680+00:00",
-        "ok_at": "2026-11-16T23:02:17.063680+00:00"
+        "last_try": "2026-11-16T23:03:27.688528+00:00",
+        "ok_at": "2026-11-16T23:03:27.688528+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-16T23:02:17.063680+00:00",
-        "ok_at": "2026-11-16T23:02:17.063680+00:00"
+        "last_try": "2026-11-16T23:03:27.688528+00:00",
+        "ok_at": "2026-11-16T23:03:27.688528+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-16T23:02:17.063680+00:00",
-        "ok_at": "2026-11-16T23:02:17.063680+00:00"
+        "last_try": "2026-11-16T23:03:27.688528+00:00",
+        "ok_at": "2026-11-16T23:03:27.688528+00:00"
       },
       "oil": {
-        "last_try": "2026-11-16T23:02:17.063680+00:00",
-        "ok_at": "2026-11-16T23:02:17.063680+00:00"
+        "last_try": "2026-11-16T23:03:27.688528+00:00",
+        "ok_at": "2026-11-16T23:03:27.688528+00:00"
       },
       "news": {
-        "last_try": "2026-11-16T23:02:17.063680+00:00",
-        "ok_at": "2026-11-16T23:02:17.063680+00:00"
+        "last_try": "2026-11-16T23:03:27.688528+00:00",
+        "ok_at": "2026-11-16T23:03:27.688528+00:00"
       },
       "cot": {
-        "last_try": "2026-11-16T23:02:17.063680+00:00",
-        "ok_at": "2026-11-16T23:02:17.063680+00:00"
+        "last_try": "2026-11-16T23:03:27.688528+00:00",
+        "ok_at": "2026-11-16T23:03:27.688528+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-16T23:02:17.063680+00:00",
-        "ok_at": "2026-11-16T23:02:17.063680+00:00"
+        "last_try": "2026-11-16T23:03:27.688528+00:00",
+        "ok_at": "2026-11-16T23:03:27.688528+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-16T23:02:17.063680+00:00"
+      "at": "2026-11-16T23:03:27.688528+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -644,36 +644,96 @@
     }
   },
   "week_news": {
-    "at": "2026-11-16T23:02:17.063680+00:00",
+    "at": "2026-11-16T23:03:27.688528+00:00",
     "asset": "es",
     "data": {
-      "macro": {
-        "label": "الاقتصاد والبيانات",
+      "fed": {
+        "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-16T22:24:44+00:00",
-            "title": "Additional Balloon Inflation Zones on the UWS for This Year's Thanksgiving Day Parade: What to Know",
-            "src": "West Side Rag"
+            "t": "2026-11-16T22:56:20+00:00",
+            "title": "AI arms race has changed the nature of economic competition, Fed chair warns",
+            "src": "Scotsman Guide"
           },
           {
-            "t": "2026-11-16T21:04:29+00:00",
-            "title": "Wall Street Has Bad News for Your Wallet",
-            "src": "U.S. News & World Report"
+            "t": "2026-11-16T22:09:43+00:00",
+            "title": "Obituary for Michael David Howle",
+            "src": "Waters-Powell Funeral Home"
           },
           {
-            "t": "2026-11-16T20:00:15+00:00",
-            "title": "October CPI Shows Inflation Contained Outside of Gas Prices. Here’s What It Means for Interest Rates",
-            "src": "Morningstar"
+            "t": "2026-11-16T22:03:00+00:00",
+            "title": "Affordability, transparency concerns prompt Council to delay vote on water rate hike",
+            "src": "WVXU"
           },
           {
-            "t": "2026-11-16T19:46:04+00:00",
-            "title": "Cleveland Fed's Hammack says more rate hikes are needed to lower inflation",
-            "src": "Seeking Alpha"
+            "t": "2026-11-16T21:43:43+00:00",
+            "title": "Fed’s Hammack Reiterates Preference for Small, Incremental Hikes",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-16T19:44:42+00:00",
-            "title": "Village faces delays, inflation on sidewalk project",
-            "src": "C & G Newspapers"
+            "t": "2026-11-16T21:38:07+00:00",
+            "title": "Warsh says Fed examining whether AI will boost or jolt US economy",
+            "src": "CFO Dive"
+          }
+        ]
+      },
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
+        "items": [
+          {
+            "t": "2026-11-16T23:02:51+00:00",
+            "title": "Exclusive | The Single Router in Southern Arkansas That Ground Air Travel to a Halt",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-16T23:02:51+00:00",
+            "title": "How Jensen Huang Built the Backdoor Route That Keeps Beijing in the AI Race",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-16T22:11:00+00:00",
+            "title": "Commerce Department Moves to Crack Down on Chip Exports",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-16T22:07:46+00:00",
+            "title": "COMMENTARY: Trading Day: AI jitters slam Wall Street",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-16T22:07:25+00:00",
+            "title": "Trading Day: AI jitters slam Wall Street",
+            "src": "Yahoo Finance"
+          }
+        ]
+      },
+      "companies": {
+        "label": "الشركات الكبرى والأرباح",
+        "items": [
+          {
+            "t": "2026-11-16T22:55:00+00:00",
+            "title": "US tech extends slide ahead of Nvidia earnings",
+            "src": "Semafor"
+          },
+          {
+            "t": "2026-11-16T22:35:27+00:00",
+            "title": "'Fast Money' traders weigh Nvidia sell-off ahead of earnings",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-16T22:26:14+00:00",
+            "title": "Nvidia earnings, Anthropic IPO put AI trade to the test",
+            "src": "Fox Business"
+          },
+          {
+            "t": "2026-11-16T22:16:02+00:00",
+            "title": "This Is a Huge Week for the Stock Market: Nvidia Earnings, Fed Minutes, and Anthropic’s IPO",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-16T22:12:00+00:00",
+            "title": "Dow Jones Futures: AMD, Nvidia, Micron Lead AI Trade Lower With Nvidia Earnings On Deck",
+            "src": "Investor's Business Daily"
           }
         ]
       },
@@ -701,17 +761,39 @@
             "src": "Columbia Missourian"
           }
         ]
+      },
+      "geo": {
+        "label": "الجيوسياسة والنفط",
+        "items": [
+          {
+            "t": "2026-11-16T22:47:36+00:00",
+            "title": "What Every Multinational Should Know About … Operation Economic Outcast and the Tightening Sanctions on Iran",
+            "src": "The National Law Review"
+          },
+          {
+            "t": "2026-11-16T22:14:22+00:00",
+            "title": "EU Targets Russia’s E-Commerce Giant and Dozens More Banks in Latest Wartime Sanctions Push",
+            "src": "Kharon"
+          },
+          {
+            "t": "2026-11-16T22:11:54+00:00",
+            "title": "On Monday in Oil and Gas, Federal Hormuz Data Lands as Two Acquisitions Are Announced",
+            "src": "Quantisnow"
+          },
+          {
+            "t": "2026-11-16T22:08:25+00:00",
+            "title": "Russia says its defenses intercepted over 1,300 Ukrainian drones in a major attack",
+            "src": "Arab News"
+          }
+        ]
       }
     },
     "failed": [
-      "الفدرالي والفائدة",
-      "الأسهم الأمريكية و S&P 500",
-      "الشركات الكبرى والأرباح",
-      "الجيوسياسة والنفط"
+      "الاقتصاد والبيانات"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-16T23:02:17.063680+00:00",
+    "at": "2026-11-16T23:03:27.688528+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -7879,10 +7961,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-16T23:02:17.063680+00:00",
+  "last_publish_ok": "2026-11-16T23:03:27.688528+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-16T23:02:48.530578+00:00"
+    "at": "2026-11-16T23:03:56.533765+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8011,23 +8093,19 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-16T23:02:17.063680+00:00",
-    "ok_at": "2026-11-16T23:02:17.063680+00:00",
+    "at": "2026-11-16T23:03:27.688528+00:00",
+    "ok_at": "2026-11-16T23:03:27.688528+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-16T23:02:17.063680+00:00",
+    "at": "2026-11-16T23:03:27.688528+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
     "waited_s": 0.0,
     "reason": "لا حدث مدعوم ينتظر رقمه"
   },
-  "fred_stale": {
-    "at": "2026-11-16T22:59:48.594438+00:00",
-    "n": 1,
-    "oldest": "2026-11-16T12:30:46.159467+00:00"
-  },
+  "fred_stale": null,
   "fred_cache": {
     "fred": {
       "t10y2y": {
