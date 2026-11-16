@@ -563,139 +563,139 @@
       "name": "ES",
       "short": "ES",
       "w": 60,
-      "v": -0.58,
+      "v": -0.61,
       "th": 0.45,
-      "ratio": 1.29,
-      "val": "-0.58%",
+      "ratio": 1.36,
+      "val": "-0.61%",
       "thr": "±0.45%",
-      "c15": "+0.13%",
-      "c60": "-0.58%",
-      "c180": "-0.58%",
+      "c15": "+0.09%",
+      "c60": "-0.61%",
+      "c180": "-0.76%",
       "confirmed": false,
       "why": "الزخم غير متسق عبر الأطر",
       "tone": "bear",
-      "eff": 0.64,
-      "z": 2.8,
-      "volx": 3.3
+      "eff": 0.71,
+      "z": 3.0,
+      "volx": 3.1
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 60,
-      "v": -0.83,
+      "v": -0.92,
       "th": 0.6,
-      "ratio": 1.38,
-      "val": "-0.83%",
+      "ratio": 1.54,
+      "val": "-0.92%",
       "thr": "±0.6%",
-      "c15": "+0.15%",
-      "c60": "-0.83%",
-      "c180": "-0.77%",
+      "c15": "+0.23%",
+      "c60": "-0.92%",
+      "c180": "-0.93%",
       "confirmed": false,
       "why": "الزخم غير متسق عبر الأطر",
       "tone": "bear",
-      "eff": 0.53,
-      "z": 2.1,
-      "volx": 2.9
+      "eff": 0.63,
+      "z": 2.4,
+      "volx": 2.7
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 60,
-      "v": 3.11,
+      "v": 5.17,
       "th": 8.0,
-      "ratio": 0.39,
-      "val": "+3.11%",
+      "ratio": 0.65,
+      "val": "+5.17%",
       "thr": "±8%",
-      "c15": "+0.33%",
-      "c60": "+3.11%",
-      "c180": "+3.86%",
+      "c15": "-0.32%",
+      "c60": "+5.17%",
+      "c180": "+3.96%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.35,
-      "z": 1.1,
+      "eff": 0.67,
+      "z": 1.9,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": -1.34,
-      "th": 2.4,
-      "ratio": 0.56,
-      "val": "-1.34%",
-      "thr": "±2.4%",
-      "c15": "+0.35%",
-      "c60": "-0.15%",
-      "c180": "-1.34%",
+      "w": 15,
+      "v": 0.59,
+      "th": 0.9,
+      "ratio": 0.65,
+      "val": "+0.59%",
+      "thr": "±0.9%",
+      "c15": "+0.59%",
+      "c60": "+0.15%",
+      "c180": "-0.79%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
       "eff": 0.09,
       "z": 0.3,
-      "volx": 1.7
+      "volx": 1.9
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 60,
-      "v": -0.4,
+      "v": -0.38,
       "th": 0.65,
-      "ratio": 0.61,
-      "val": "-0.40%",
+      "ratio": 0.58,
+      "val": "-0.38%",
       "thr": "±0.65%",
-      "c15": "+0.02%",
-      "c60": "-0.40%",
-      "c180": "-0.05%",
+      "c15": "-0.02%",
+      "c60": "-0.38%",
+      "c180": "-0.08%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.45,
-      "z": 1.1,
-      "volx": 1.4
+      "eff": 0.44,
+      "z": 1.0,
+      "volx": 1.3
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
+      "w": 60,
       "v": 0.04,
-      "th": 0.18,
-      "ratio": 0.2,
+      "th": 0.28,
+      "ratio": 0.13,
       "val": "+0.04%",
-      "thr": "±0.18%",
-      "c15": "+0.04%",
-      "c60": "+0.03%",
+      "thr": "±0.28%",
+      "c15": "+0.01%",
+      "c60": "+0.04%",
       "c180": "+0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.15,
-      "z": 0.6,
+      "eff": 0.16,
+      "z": 0.7,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": -0.04,
-      "th": 0.4,
-      "ratio": 0.11,
-      "val": "-0.04%",
-      "thr": "±0.4%",
-      "c15": "+0.00%",
-      "c60": "-0.04%",
-      "c180": "+0.02%",
+      "w": 15,
+      "v": 0.06,
+      "th": 0.25,
+      "ratio": 0.26,
+      "val": "+0.06%",
+      "thr": "±0.25%",
+      "c15": "+0.06%",
+      "c60": "-0.01%",
+      "c180": "+0.11%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.23,
-      "z": 0.5,
+      "eff": 0.04,
+      "z": 0.1,
       "volx": null
     },
     {
@@ -709,13 +709,13 @@
       "val": "-4bp",
       "thr": "±7.5bp",
       "c15": "+0bp",
-      "c60": "-1bp",
+      "c60": "-2bp",
       "c180": "-4bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.25,
-      "z": 0.6,
+      "eff": 0.31,
+      "z": 0.7,
       "volx": null
     },
     {
@@ -723,19 +723,19 @@
       "name": "عائد 5 سنوات",
       "short": "5Y",
       "w": 180,
-      "v": -4.5,
+      "v": -4.3,
       "th": 7.5,
-      "ratio": 0.6,
-      "val": "-5bp",
+      "ratio": 0.57,
+      "val": "-4bp",
       "thr": "±7.5bp",
-      "c15": "+0bp",
-      "c60": "-1bp",
-      "c180": "-5bp",
+      "c15": "+1bp",
+      "c60": "-2bp",
+      "c180": "-4bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.29,
-      "z": 0.6,
+      "eff": 0.32,
+      "z": 0.8,
       "volx": null
     },
     {
@@ -743,9 +743,9 @@
       "name": "عائد 30 سنة",
       "short": "30Y",
       "w": 180,
-      "v": -2.7,
+      "v": -2.6,
       "th": 7.5,
-      "ratio": 0.36,
+      "ratio": 0.35,
       "val": "-3bp",
       "thr": "±7.5bp",
       "c15": "+0bp",
@@ -754,47 +754,47 @@
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.16,
-      "z": 0.4,
+      "eff": 0.17,
+      "z": 0.5,
       "volx": null
     },
     {
       "key": "hyg",
       "name": "سندات عالية العائد HYG",
       "short": "HYG",
-      "w": 15,
-      "v": -0.05,
-      "th": 0.15,
-      "ratio": 0.3,
-      "val": "-0.05%",
-      "thr": "±0.15%",
-      "c15": "-0.05%",
-      "c60": "-0.07%",
-      "c180": "-0.08%",
+      "w": 60,
+      "v": -0.04,
+      "th": 0.25,
+      "ratio": 0.16,
+      "val": "-0.04%",
+      "thr": "±0.25%",
+      "c15": "-0.01%",
+      "c60": "-0.04%",
+      "c180": "-0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.38,
-      "z": 1.1,
+      "eff": 0.2,
+      "z": 0.6,
       "volx": null
     },
     {
       "key": "kre",
       "name": "البنوك الإقليمية KRE",
       "short": "KRE",
-      "w": 180,
-      "v": -0.34,
-      "th": 1.9,
-      "ratio": 0.18,
-      "val": "-0.34%",
-      "thr": "±1.9%",
-      "c15": "-0.04%",
-      "c60": "-0.14%",
-      "c180": "-0.34%",
+      "w": 15,
+      "v": 0.16,
+      "th": 0.7,
+      "ratio": 0.23,
+      "val": "+0.16%",
+      "thr": "±0.7%",
+      "c15": "+0.16%",
+      "c60": "+0.15%",
+      "c180": "-0.25%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.13,
+      "tone": "flat",
+      "eff": 0.16,
       "z": 0.5,
       "volx": null
     }
@@ -802,41 +802,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-16T15:45:39.739583+00:00",
-        "ok_at": "2026-11-16T15:45:39.739583+00:00"
+        "last_try": "2026-11-16T15:52:50.882076+00:00",
+        "ok_at": "2026-11-16T15:52:50.882076+00:00"
       },
       "fred": {
-        "last_try": "2026-11-16T15:45:39.739583+00:00",
-        "ok_at": "2026-11-16T15:45:39.739583+00:00"
+        "last_try": "2026-11-16T15:52:50.882076+00:00",
+        "ok_at": "2026-11-16T15:52:50.882076+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-16T15:45:39.739583+00:00",
-        "ok_at": "2026-11-16T15:45:39.739583+00:00"
+        "last_try": "2026-11-16T15:52:50.882076+00:00",
+        "ok_at": "2026-11-16T15:52:50.882076+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-16T15:45:39.739583+00:00",
-        "ok_at": "2026-11-16T15:45:39.739583+00:00"
+        "last_try": "2026-11-16T15:52:50.882076+00:00",
+        "ok_at": "2026-11-16T15:52:50.882076+00:00"
       },
       "oil": {
-        "last_try": "2026-11-16T15:45:39.739583+00:00",
-        "ok_at": "2026-11-16T15:45:39.739583+00:00"
+        "last_try": "2026-11-16T15:52:50.882076+00:00",
+        "ok_at": "2026-11-16T15:52:50.882076+00:00"
       },
       "news": {
-        "last_try": "2026-11-16T15:45:39.739583+00:00",
-        "ok_at": "2026-11-16T15:45:39.739583+00:00"
+        "last_try": "2026-11-16T15:52:50.882076+00:00",
+        "ok_at": "2026-11-16T15:52:50.882076+00:00"
       },
       "cot": {
-        "last_try": "2026-11-16T15:45:39.739583+00:00",
-        "ok_at": "2026-11-16T15:45:39.739583+00:00"
+        "last_try": "2026-11-16T15:52:50.882076+00:00",
+        "ok_at": "2026-11-16T15:52:50.882076+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-16T15:45:39.739583+00:00",
-        "ok_at": "2026-11-16T15:45:39.739583+00:00"
+        "last_try": "2026-11-16T15:52:50.882076+00:00",
+        "ok_at": "2026-11-16T15:52:50.882076+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-16T15:45:39.739583+00:00"
+      "at": "2026-11-16T15:52:50.882076+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -844,16 +844,26 @@
     }
   },
   "week_news": {
-    "at": "2026-11-16T15:45:39.739583+00:00",
+    "at": "2026-11-16T15:52:50.882076+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-11-16T15:24:11+00:00",
+            "title": "Supreme Court Ends Custodia's Fight For A Fed Account",
+            "src": "Bitcoin Magazine"
+          },
+          {
             "t": "2026-11-16T15:19:59+00:00",
             "title": "Federal Reserve task force weighs AI's promise and risks",
             "src": "CNBC"
+          },
+          {
+            "t": "2026-11-16T14:46:43+00:00",
+            "title": "KC Fed Notes Signs of Easing Pressure on Farm Finances",
+            "src": "Pro Farmer"
           },
           {
             "t": "2026-11-16T14:46:00+00:00",
@@ -864,16 +874,6 @@
             "t": "2026-11-16T14:38:05+00:00",
             "title": "Housing crunch weighs on employers’ ability to hire, Boston Fed chief says",
             "src": "Mainebiz"
-          },
-          {
-            "t": "2026-11-16T14:32:01+00:00",
-            "title": "Supreme Court Rejects Crypto Bank Custodia's Bid for Fed Payment Access",
-            "src": "Bloomberg"
-          },
-          {
-            "t": "2026-11-16T14:17:53+00:00",
-            "title": "Mpls Fed: Ag lenders hopeful that farmers’ tough economic situation will improve",
-            "src": "MPR News"
           }
         ]
       },
@@ -881,28 +881,28 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-11-16T15:50:52+00:00",
+            "title": "Facing Backlash on Land, Data Centers Look to the Sea",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-16T15:34:05+00:00",
             "title": "Hear How the FAA’s Ground Stop Unfolded",
             "src": "WSJ"
           },
           {
+            "t": "2026-11-16T15:13:00+00:00",
+            "title": "UniCredit’s Commerzbank Bid Gets EU, U.S. Approval",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-16T15:12:00+00:00",
+            "title": "Nasdaq Slides at Open as Nvidia Drama Continues to Play Out",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-16T15:01:08+00:00",
             "title": "They’re Lucky Enough to Have a 3% Mortgage—and Feel Like They Can Never Move",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-16T14:44:00+00:00",
-            "title": "The Campaign to Bring Back Jensen Huang as Nvidia CEO",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-16T14:32:59+00:00",
-            "title": "Nearly a fifth of the S&P 500 is tied to three men with no clear successors",
-            "src": "The Washington Post"
-          },
-          {
-            "t": "2026-11-16T14:09:00+00:00",
-            "title": "The Geezer NFL Quarterback Who’s Back to Save His Former Team",
             "src": "WSJ"
           }
         ]
@@ -971,6 +971,11 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-11-16T15:42:48+00:00",
+            "title": "China, security, tariffs: Trump’s three days in an anxious Asia",
+            "src": "The Times"
+          },
+          {
             "t": "2026-11-16T15:37:10+00:00",
             "title": "EU to impose tariffs on cold-rolled flat steel from five countries",
             "src": "Euronext Markets: Real-time Stock Market Data | live"
@@ -984,11 +989,6 @@
             "t": "2026-11-16T14:00:00+00:00",
             "title": "Trump's tariffs are unpopular -- but they'll be tough to repeal despite Democrats' landslide win",
             "src": "Herald-Banner"
-          },
-          {
-            "t": "2026-11-16T12:20:12+00:00",
-            "title": "PTV. . #PTVNewsNow | Brazilian President Lula da Silva defends multilateralism amid rising U.S. tariffs and Trump’s political retaliation",
-            "src": "Facebook"
           }
         ]
       },
@@ -1021,7 +1021,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-16T15:45:39.739583+00:00",
+    "at": "2026-11-16T15:52:50.882076+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -8111,10 +8111,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-16T15:45:39.739583+00:00",
+  "last_publish_ok": "2026-11-16T15:52:50.882076+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-16T15:46:05.448966+00:00"
+    "at": "2026-11-16T15:53:18.969979+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8243,12 +8243,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-16T15:45:39.739583+00:00",
-    "ok_at": "2026-11-16T15:45:39.739583+00:00",
+    "at": "2026-11-16T15:52:50.882076+00:00",
+    "ok_at": "2026-11-16T15:52:50.882076+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-16T15:45:39.739583+00:00",
+    "at": "2026-11-16T15:52:50.882076+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
