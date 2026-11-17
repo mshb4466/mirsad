@@ -1,22 +1,22 @@
-asof_utc,2026-11-17T17:20:27+00:00,basis,18.37,mode,live
+asof_utc,2026-11-17T17:30:28+00:00,basis,14.57,mode,live
 price,label,kind,strength,color,style,width
-7586.25,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7569.5,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7537.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7518.25,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7487.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7468.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7437.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7418.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7387.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7368.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7343.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7337.0,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7318.25,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7317.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7293.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7287.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7268.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7236.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7218.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7216.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7590.5,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7589.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7534.25,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7514.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7484.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7464.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7434.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7414.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7384.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7364.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7339.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7333.75,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7314.5,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7313.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7289.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7283.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7264.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7233.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7214.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7213.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
