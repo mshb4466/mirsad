@@ -562,161 +562,161 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": -0.11,
-      "th": 0.45,
-      "ratio": 0.24,
-      "val": "-0.11%",
-      "thr": "±0.45%",
-      "c15": "-0.00%",
-      "c60": "-0.11%",
-      "c180": "-0.15%",
+      "w": 180,
+      "v": -0.2,
+      "th": 0.8,
+      "ratio": 0.25,
+      "val": "-0.20%",
+      "thr": "±0.8%",
+      "c15": "+0.04%",
+      "c60": "-0.08%",
+      "c180": "-0.20%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.31,
-      "z": 0.5,
-      "volx": 0.6
+      "eff": 0.26,
+      "z": 0.4,
+      "volx": 0.7
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 60,
-      "v": -0.3,
+      "v": -0.27,
       "th": 0.6,
-      "ratio": 0.5,
-      "val": "-0.30%",
+      "ratio": 0.45,
+      "val": "-0.27%",
       "thr": "±0.6%",
-      "c15": "-0.04%",
-      "c60": "-0.30%",
-      "c180": "-0.00%",
+      "c15": "+0.07%",
+      "c60": "-0.27%",
+      "c180": "-0.16%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.45,
-      "z": 0.8,
-      "volx": 0.5
+      "eff": 0.43,
+      "z": 0.7,
+      "volx": 0.6
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 180,
-      "v": -0.21,
-      "th": 2.4,
-      "ratio": 0.09,
-      "val": "-0.21%",
-      "thr": "±2.4%",
-      "c15": "+0.07%",
-      "c60": "+0.00%",
-      "c180": "-0.21%",
+      "w": 15,
+      "v": 0.22,
+      "th": 0.9,
+      "ratio": 0.25,
+      "val": "+0.22%",
+      "thr": "±0.9%",
+      "c15": "+0.22%",
+      "c60": "+0.05%",
+      "c180": "-0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.0,
-      "z": 0.0,
-      "volx": 0.5
+      "eff": 0.05,
+      "z": 0.1,
+      "volx": 0.6
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 180,
-      "v": 0.56,
+      "v": 0.26,
       "th": 1.2,
-      "ratio": 0.47,
-      "val": "+0.56%",
+      "ratio": 0.22,
+      "val": "+0.26%",
       "thr": "±1.2%",
-      "c15": "-0.05%",
-      "c60": "-0.23%",
-      "c180": "+0.56%",
+      "c15": "-0.02%",
+      "c60": "-0.11%",
+      "c180": "+0.26%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.57,
-      "z": 0.7,
-      "volx": 0.4
+      "eff": 0.25,
+      "z": 0.3,
+      "volx": 0.5
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": -0.17,
+      "v": -0.16,
       "th": 0.5,
-      "ratio": 0.34,
-      "val": "-0.17%",
+      "ratio": 0.32,
+      "val": "-0.16%",
       "thr": "±0.5%",
-      "c15": "+0.02%",
-      "c60": "-0.00%",
-      "c180": "-0.17%",
+      "c15": "+0.01%",
+      "c60": "-0.01%",
+      "c180": "-0.16%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.01,
-      "z": 0.0,
+      "eff": 0.09,
+      "z": 0.2,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": -0.24,
-      "th": 0.7,
-      "ratio": 0.34,
-      "val": "-0.24%",
-      "thr": "±0.7%",
-      "c15": "-0.06%",
-      "c60": "-0.13%",
-      "c180": "-0.24%",
+      "w": 15,
+      "v": 0.05,
+      "th": 0.25,
+      "ratio": 0.21,
+      "val": "+0.05%",
+      "thr": "±0.25%",
+      "c15": "+0.05%",
+      "c60": "-0.02%",
+      "c180": "-0.14%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.5,
-      "z": 1.7,
+      "eff": 0.06,
+      "z": 0.2,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-17T04:30:47.257358+00:00",
-        "ok_at": "2026-11-17T04:30:47.257358+00:00"
+        "last_try": "2026-11-17T04:45:46.886232+00:00",
+        "ok_at": "2026-11-17T04:45:46.886232+00:00"
       },
       "fred": {
-        "last_try": "2026-11-17T04:30:47.257358+00:00",
-        "ok_at": "2026-11-17T04:30:47.257358+00:00"
+        "last_try": "2026-11-17T04:45:46.886232+00:00",
+        "ok_at": "2026-11-17T04:45:46.886232+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-17T04:30:47.257358+00:00",
-        "ok_at": "2026-11-17T04:30:47.257358+00:00"
+        "last_try": "2026-11-17T04:45:46.886232+00:00",
+        "ok_at": "2026-11-17T04:45:46.886232+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-17T04:30:47.257358+00:00",
-        "ok_at": "2026-11-17T04:30:47.257358+00:00"
+        "last_try": "2026-11-17T04:45:46.886232+00:00",
+        "ok_at": "2026-11-17T04:45:46.886232+00:00"
       },
       "oil": {
-        "last_try": "2026-11-17T04:30:47.257358+00:00",
-        "ok_at": "2026-11-17T04:30:47.257358+00:00"
+        "last_try": "2026-11-17T04:45:46.886232+00:00",
+        "ok_at": "2026-11-17T04:45:46.886232+00:00"
       },
       "news": {
-        "last_try": "2026-11-17T04:30:47.257358+00:00",
-        "ok_at": "2026-11-17T04:30:47.257358+00:00"
+        "last_try": "2026-11-17T04:45:46.886232+00:00",
+        "ok_at": "2026-11-17T04:45:46.886232+00:00"
       },
       "cot": {
-        "last_try": "2026-11-17T04:30:47.257358+00:00",
-        "ok_at": "2026-11-17T04:30:47.257358+00:00"
+        "last_try": "2026-11-17T04:45:46.886232+00:00",
+        "ok_at": "2026-11-17T04:45:46.886232+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-17T04:30:47.257358+00:00",
-        "ok_at": "2026-11-17T04:30:47.257358+00:00"
+        "last_try": "2026-11-17T04:45:46.886232+00:00",
+        "ok_at": "2026-11-17T04:45:46.886232+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-17T04:30:47.257358+00:00"
+      "at": "2026-11-17T04:45:46.886232+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -724,12 +724,17 @@
     }
   },
   "week_news": {
-    "at": "2026-11-17T03:30:56.787213+00:00",
+    "at": "2026-11-17T04:45:46.886232+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-17T04:18:00+00:00",
+            "title": "Gold hovers near over one-year low as firm dollar, Fed-hike bets weigh",
+            "src": "CNBC"
+          },
           {
             "t": "2026-11-17T02:58:06+00:00",
             "title": "Productivity and Jobs Task Force Conference",
@@ -739,11 +744,6 @@
             "t": "2026-11-17T01:48:02+00:00",
             "title": "Fed Chair talks AI impact",
             "src": "KTVU"
-          },
-          {
-            "t": "2026-11-17T01:47:00+00:00",
-            "title": "Gold hovers near over one-year low as firm dollar, Fed-hike bets weigh",
-            "src": "Reuters"
           },
           {
             "t": "2026-11-17T01:33:37+00:00",
@@ -757,46 +757,41 @@
           }
         ]
       },
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
+      "geo": {
+        "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-17T02:11:00+00:00",
-            "title": "Nvidia’s Board Not Considering Reinstating Jensen Huang as CEO",
-            "src": "WSJ"
+            "t": "2026-11-17T04:34:00+00:00",
+            "title": "Third U.S. carrier arrives, stoking concerns about renewed conflicts with Iran",
+            "src": "CNBC"
           },
           {
-            "t": "2026-11-17T02:10:00+00:00",
-            "title": "USA Rare Earth (USAR) Gets a Reality Check From Wall Street. Shares Slide",
-            "src": "Yahoo Finance"
+            "t": "2026-11-17T04:13:06+00:00",
+            "title": "LPG tanker suffers engine room fire following Hormuz attack",
+            "src": "Seatrade Maritime News"
           },
           {
-            "t": "2026-11-17T01:43:00+00:00",
-            "title": "Silver Crashes 61% From All-Time High: One Wall Street Bull Sees A Buy Signal, Another Critic Says Wait",
-            "src": "Yahoo Finance"
+            "t": "2026-11-17T04:00:31+00:00",
+            "title": "Gunfire erupts in occupied West Bank settler attack",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-17T00:09:00+00:00",
-            "title": "S&P 500, Dow, Nasdaq End Lower As Investors Hold Back Ahead Of Nvidia Earnings, Anthropic IPO This Week — NVDA, TSLA, ANT In Focus",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-16T23:45:50+00:00",
-            "title": "Wall Street ends sharply lower on AI jitters ahead of Nvidia results, Anthropic IPO",
-            "src": "Reuters"
+            "t": "2026-11-17T03:33:45+00:00",
+            "title": "Tankers hit in Strait of Hormuz as drone raises alarm at Iraq gas field",
+            "src": "Al Jazeera"
           }
         ]
       }
     },
     "failed": [
+      "الأسهم الأمريكية و S&P 500",
       "الشركات الكبرى والأرباح",
       "الاقتصاد والبيانات",
-      "السياسة التجارية والمالية",
-      "الجيوسياسة والنفط"
+      "السياسة التجارية والمالية"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-17T04:30:47.257358+00:00",
+    "at": "2026-11-17T04:45:46.886232+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -7941,10 +7936,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-17T04:30:47.257358+00:00",
+  "last_publish_ok": "2026-11-17T04:45:46.886232+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-17T04:31:08.624957+00:00"
+    "at": "2026-11-17T04:46:15.878332+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -8073,12 +8068,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-17T04:30:47.257358+00:00",
-    "ok_at": "2026-11-17T04:30:47.257358+00:00",
+    "at": "2026-11-17T04:45:46.886232+00:00",
+    "ok_at": "2026-11-17T04:45:46.886232+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-17T04:30:47.257358+00:00",
+    "at": "2026-11-17T04:45:46.886232+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
