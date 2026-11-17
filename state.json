@@ -637,80 +637,80 @@
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": 0.1,
+      "v": 0.09,
       "th": 0.5,
-      "ratio": 0.2,
-      "val": "+0.10%",
+      "ratio": 0.18,
+      "val": "+0.09%",
       "thr": "±0.5%",
-      "c15": "+0.01%",
-      "c60": "+0.02%",
-      "c180": "+0.10%",
+      "c15": "+0.00%",
+      "c60": "+0.01%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.43,
-      "z": 0.3,
+      "eff": 0.24,
+      "z": 0.1,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": 0.05,
-      "th": 0.7,
-      "ratio": 0.07,
-      "val": "+0.05%",
-      "thr": "±0.7%",
-      "c15": "-0.01%",
-      "c60": "+0.01%",
-      "c180": "+0.05%",
+      "w": 60,
+      "v": 0.06,
+      "th": 0.4,
+      "ratio": 0.16,
+      "val": "+0.06%",
+      "thr": "±0.4%",
+      "c15": "+0.04%",
+      "c60": "+0.06%",
+      "c180": "+0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.07,
-      "z": 0.2,
+      "eff": 0.36,
+      "z": 0.8,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-17T22:45:35.747514+00:00",
-        "ok_at": "2026-11-17T22:45:35.747514+00:00"
+        "last_try": "2026-11-17T23:00:46.075221+00:00",
+        "ok_at": "2026-11-17T23:00:46.075221+00:00"
       },
       "fred": {
-        "last_try": "2026-11-17T22:45:35.747514+00:00",
-        "ok_at": "2026-11-17T22:45:35.747514+00:00"
+        "last_try": "2026-11-17T23:00:46.075221+00:00",
+        "ok_at": "2026-11-17T23:00:46.075221+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-17T22:45:35.747514+00:00",
-        "ok_at": "2026-11-17T22:45:35.747514+00:00"
+        "last_try": "2026-11-17T23:00:46.075221+00:00",
+        "ok_at": "2026-11-17T23:00:46.075221+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-17T22:45:35.747514+00:00",
-        "ok_at": "2026-11-17T22:45:35.747514+00:00"
+        "last_try": "2026-11-17T23:00:46.075221+00:00",
+        "ok_at": "2026-11-17T23:00:46.075221+00:00"
       },
       "oil": {
-        "last_try": "2026-11-17T22:45:35.747514+00:00",
-        "ok_at": "2026-11-17T22:45:35.747514+00:00"
+        "last_try": "2026-11-17T23:00:46.075221+00:00",
+        "ok_at": "2026-11-17T23:00:46.075221+00:00"
       },
       "news": {
-        "last_try": "2026-11-17T22:45:35.747514+00:00",
-        "ok_at": "2026-11-17T22:45:35.747514+00:00"
+        "last_try": "2026-11-17T23:00:46.075221+00:00",
+        "ok_at": "2026-11-17T23:00:46.075221+00:00"
       },
       "cot": {
-        "last_try": "2026-11-17T22:45:35.747514+00:00",
-        "ok_at": "2026-11-17T22:45:35.747514+00:00"
+        "last_try": "2026-11-17T23:00:46.075221+00:00",
+        "ok_at": "2026-11-17T23:00:46.075221+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-17T22:45:35.747514+00:00",
+        "last_try": "2026-11-17T23:00:46.075221+00:00",
         "ok_at": "2026-11-17T13:15:40.514119+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-17T22:45:35.747514+00:00"
+      "at": "2026-11-17T23:00:46.075221+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -718,42 +718,52 @@
     }
   },
   "week_news": {
-    "at": "2026-11-17T21:52:28.377486+00:00",
+    "at": "2026-11-17T23:00:46.075221+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-17T21:39:01+00:00",
+            "t": "2026-11-17T22:51:36+00:00",
             "title": "Fed official Lisa Cook refuses to attend White House firing hearing, citing bias",
             "src": "The Washington Post"
           },
           {
-            "t": "2026-11-17T21:11:15+00:00",
+            "t": "2026-11-17T22:01:54+00:00",
+            "title": "US Fed’s Lisa Cook refuses to attend White House hearing",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-17T21:52:56+00:00",
+            "title": "Wall Street ends lower ahead of Nvidia results, focus turns to Anthropic debut",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-17T21:48:36+00:00",
+            "title": "Fed Issues Possible Bank Run Warning As Outages Fuel Wild Nov. 17 ‘Blackout’ Theories",
+            "src": "Forbes"
+          },
+          {
+            "t": "2026-11-17T21:18:07+00:00",
             "title": "Emerging markets are less hostile to the Fed than they used to be",
             "src": "OMFIF"
-          },
-          {
-            "t": "2026-11-17T21:10:02+00:00",
-            "title": "Fed’s Lisa Cook to skip dubious hearing with Trump’s ‘committee of inquiry’",
-            "src": "MS NOW"
-          },
-          {
-            "t": "2026-11-17T21:04:38+00:00",
-            "title": "Fed’s Williams Says No Need for ‘Dramatic’ Rate Move",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-17T21:01:55+00:00",
-            "title": "Wall Street ends lower ahead of Nvidia earnings, Anthropic debut",
-            "src": "Reuters"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-11-17T22:39:00+00:00",
+            "title": "Nvidia Beats Estimates, Raises Guidance in First Earnings Report After Huang’s Ouster",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-17T22:36:02+00:00",
+            "title": "Cisco upgraded, PepsiCo downgraded: Wall Street’s top analyst calls",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-11-17T21:32:01+00:00",
             "title": "Wall Street shakes again as Nvidia and other jittery AI stocks swing lower",
@@ -766,18 +776,8 @@
           },
           {
             "t": "2026-11-17T21:12:00+00:00",
-            "title": "Why Salesforce’s stock is leading S&P 500 decliners amid tech jitters",
+            "title": "Why Salesforce’s stock led the S&P 500’s decliners amid tech jitters",
             "src": "MarketWatch"
-          },
-          {
-            "t": "2026-11-17T21:07:00+00:00",
-            "title": "SpaceX Stock (SPCX) Could Crush Wall Street’s Estimates. Here’s Why",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-17T20:44:00+00:00",
-            "title": "Oil Futures Rise as Middle East Shipping Risks Persist",
-            "src": "WSJ"
           }
         ]
       },
@@ -785,28 +785,28 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-17T21:49:00+00:00",
-            "title": "Dow Jones Futures: Nvidia Earnings Lift Techs After Market Breaks Lower; Target, Anthropic IPO Ahead",
+            "t": "2026-11-17T22:47:00+00:00",
+            "title": "Tech Futures Rise; Nvidia Beats, Says Jensen Huang Isn't Returning",
             "src": "Investor's Business Daily"
           },
           {
-            "t": "2026-11-17T21:44:46+00:00",
-            "title": "Embattled Nvidia faces SEC probe as California attorney general eyes action",
-            "src": "InvestmentNews"
+            "t": "2026-11-17T22:37:02+00:00",
+            "title": "Nvidia board rules out Jensen Huang’s return as CEO during earnings call",
+            "src": "Scripps News"
           },
           {
-            "t": "2026-11-17T21:38:07+00:00",
-            "title": "Nvidia’s Earnings Arrive At A Junction Point",
-            "src": "Yahoo Finance"
+            "t": "2026-11-17T22:36:25+00:00",
+            "title": "Nvidia’s closely watched earnings surpass Wall Street expectations",
+            "src": "The Boston Globe"
           },
           {
-            "t": "2026-11-17T21:35:26+00:00",
-            "title": "Nvidia Earnings: $115.8 Billion In Q3 Revenue Beats Expectations",
-            "src": "Forbes"
+            "t": "2026-11-17T22:34:53+00:00",
+            "title": "Nvidia leans on record revenue as it faces questions about its future",
+            "src": "The Washington Post"
           },
           {
-            "t": "2026-11-17T21:33:16+00:00",
-            "title": "Nvidia beats Q3 earnings expectations in first report without Jensen Huang",
+            "t": "2026-11-17T22:34:06+00:00",
+            "title": "Nvidia shuts door on Jensen Huang’s return as stock pops on earnings",
             "src": "Yahoo Finance"
           }
         ]
@@ -814,6 +814,21 @@
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-11-17T21:55:00+00:00",
+            "title": "Import prices are up for AI components, construction materials, and more",
+            "src": "www.marketplace.org"
+          },
+          {
+            "t": "2026-11-17T21:52:06+00:00",
+            "title": "Why the US Economy Is Forecast to Grow Faster than Consensus Estimates",
+            "src": "Goldman Sachs"
+          },
+          {
+            "t": "2026-11-17T21:47:42+00:00",
+            "title": "Target, Walmart Q3 Earnings Could Offer Consumer Health & Inflation Clues for Investors",
+            "src": "Benzinga"
+          },
           {
             "t": "2026-11-17T21:44:02+00:00",
             "title": "Economic optimism plunges to lowest level since Great Recession: Gallup",
@@ -823,46 +838,6 @@
             "t": "2026-11-17T21:29:52+00:00",
             "title": "Can Idaho Stop the Inflation Grinch?",
             "src": "Idaho Freedom Foundation"
-          },
-          {
-            "t": "2026-11-17T20:53:41+00:00",
-            "title": "Autumn 2026 Economic Forecast shows continued growth amid higher inflation",
-            "src": "PubAffairs Bruxelles"
-          },
-          {
-            "t": "2026-11-17T19:34:33+00:00",
-            "title": "Fed's Williams: The economy is getting stronger, inflation not moving in the right direction",
-            "src": "investingLive"
-          },
-          {
-            "t": "2026-11-17T19:28:00+00:00",
-            "title": "Farm and wholesale prices hinted at October's 0.4% grocery jump",
-            "src": "MarketScale"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-17T19:33:36+00:00",
-            "title": "Congress Should Reform Spending, Raise the Debt Ceiling During Lame Duck",
-            "src": "National Taxpayers Union"
-          },
-          {
-            "t": "2026-11-17T18:56:00+00:00",
-            "title": "Opinion | The Broken Promises Behind Trump’s Tariffs",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-17T18:01:16+00:00",
-            "title": "U.S., Thailand near trade deal on tariffs, agricultural exports",
-            "src": "upi"
-          },
-          {
-            "t": "2026-11-17T17:58:00+00:00",
-            "title": "GM planning on tariffs sticking around, regardless of next president",
-            "src": "The Detroit News"
           }
         ]
       },
@@ -870,32 +845,34 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-17T21:40:24+00:00",
-            "title": "Iran Prepared to Build Oil Refinery In Armenia",
-            "src": "Asbarez"
+            "t": "2026-11-17T22:25:00+00:00",
+            "title": "What is a 'dirty bomb' and is Iran capable of this type of attack in DC?",
+            "src": "WUSA9"
           },
           {
-            "t": "2026-11-17T21:31:00+00:00",
-            "title": "Ukraine’s Crimean Bridge attack is a very personal humiliation for Putin",
-            "src": "Atlantic Council"
+            "t": "2026-11-17T22:07:35+00:00",
+            "title": "Netanyahu is pushing for new Iran attack in bid to stay in power, his rivals warn",
+            "src": "The Washington Post"
           },
           {
-            "t": "2026-11-17T21:18:30+00:00",
-            "title": "Huckabee says foreign diplomats privately oppose sanctions on Israel",
-            "src": "Jewish Insider"
+            "t": "2026-11-17T22:07:07+00:00",
+            "title": "Arms control expert: Threat of Iran attack on DC is 'relatively low’",
+            "src": "KFOX"
           },
           {
-            "t": "2026-11-17T21:17:00+00:00",
-            "title": "Australia Imposes New Sanctions Targeting West Bank Settlement Expansion",
-            "src": "Haaretz"
+            "t": "2026-11-17T21:42:25+00:00",
+            "title": "Pentagon Official Says Ukraine War Likely To Last Through Winter, Despite Mediation Efforts",
+            "src": "Radio Free Europe/Radio Liberty"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "السياسة التجارية والمالية"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-17T22:45:35.747514+00:00",
+    "at": "2026-11-17T23:00:46.075221+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1628,7 +1605,7 @@
       "source": "FRED",
       "period": "2026-10-01",
       "received_at": "2026-11-17T13:36:12.284326+00:00",
-      "last_attempt": "2026-11-17T19:45:38.404851+00:00",
+      "last_attempt": "2026-11-17T23:00:46.075221+00:00",
       "attempts": 12,
       "title": "Retail Sales m/m",
       "time": "2026-11-17T13:30:00+00:00",
@@ -9062,12 +9039,35 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": ""
+    },
+    {
+      "id": "US|retail|mm|2026-10|-|2026-11-17",
+      "title": "Retail Sales m/m",
+      "release_time": "2026-11-17T13:30:00+00:00",
+      "fetched_at": "2026-11-17T23:00:46.075221+00:00",
+      "source": "FRED",
+      "tier": "secondary",
+      "value": "0.2%",
+      "period": "2026-10-01",
+      "series": "RSAFS",
+      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
+      "raw": 0.21201735247515785,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة ثانوية",
+      "forecast": "0.1%",
+      "previous": "0.8%",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: FRED (RSAFS، فترة 2026-10-01) — مبيعات التجزئة شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-17T22:45:35.747514+00:00",
+  "last_publish_ok": "2026-11-17T23:00:46.075221+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-17T22:46:02.022613+00:00"
+    "at": "2026-11-17T23:01:54.498239+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -9182,7 +9182,7 @@
     "fred": {
       "ok": true,
       "detail": "1 سلسلة",
-      "at": "2026-11-17T20:30:44.046963+00:00"
+      "at": "2026-11-17T23:00:46.075221+00:00"
     },
     "alfred": {
       "ok": false,
@@ -9202,12 +9202,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-17T22:45:35.747514+00:00",
-    "ok_at": "2026-11-17T22:45:35.747514+00:00",
+    "at": "2026-11-17T23:00:46.075221+00:00",
+    "ok_at": "2026-11-17T23:00:46.075221+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-17T22:45:35.747514+00:00",
+    "at": "2026-11-17T23:00:46.075221+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
