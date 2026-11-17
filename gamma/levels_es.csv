@@ -1,22 +1,22 @@
-asof_utc,2026-11-17T17:10:27+00:00,basis,21.91,mode,live
+asof_utc,2026-11-17T17:20:27+00:00,basis,18.37,mode,live
 price,label,kind,strength,color,style,width
-7597.5,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7593.5,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7540.75,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7522.0,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7472.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7440.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7422.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7390.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7372.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7347.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7340.25,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7322.0,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7320.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7297.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7290.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7272.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7240.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7222.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7220.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7190.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7586.25,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7569.5,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7537.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7518.25,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7487.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7468.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7437.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7418.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7387.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7368.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7343.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7337.0,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7318.25,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7317.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7293.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7287.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7268.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7236.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7218.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7216.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
