@@ -1,8 +1,8 @@
-asof_utc,2026-11-17T14:10:19+00:00,basis,21.56,mode,close
+asof_utc,2026-11-17T14:20:20+00:00,basis,21.56,mode,close
 price,label,kind,strength,color,style,width
 7721.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7613.75,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7602.25,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7605.25,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7602.5,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
 7541.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
 7521.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
 7496.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
