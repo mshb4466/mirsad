@@ -1,21 +1,23 @@
-asof_utc,2026-11-17T20:40:19+00:00,basis,19.96,mode,live
+asof_utc,2026-11-17T20:49:37+00:00,basis,22.95,mode,live
 price,label,kind,strength,color,style,width
-7598.25,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7584.75,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7539.25,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7520.0,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7470.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7439.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7420.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7389.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7370.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7358.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7345.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7338.75,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7320.0,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7318.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7288.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7270.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7238.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7220.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7218.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7599.0,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7591.25,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7541.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7523.0,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7491.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7473.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7441.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7423.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7391.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7373.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7363.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7361.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7348.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7341.25,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7323.0,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7321.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7291.0,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7273.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7240.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7223.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7220.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
