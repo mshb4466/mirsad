@@ -636,60 +636,60 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": 0.61,
-      "th": 0.45,
-      "ratio": 1.36,
-      "val": "+0.61%",
-      "thr": "±0.45%",
-      "c15": "-0.08%",
-      "c60": "+0.61%",
-      "c180": "+0.98%",
+      "w": 180,
+      "v": 0.72,
+      "th": 0.8,
+      "ratio": 0.9,
+      "val": "+0.72%",
+      "thr": "±0.8%",
+      "c15": "+0.05%",
+      "c60": "-0.25%",
+      "c180": "+0.72%",
       "confirmed": false,
-      "why": "الزخم غير متسق عبر الأطر",
+      "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.46,
-      "z": 2.3,
-      "volx": 0.1
+      "eff": 0.45,
+      "z": 0.8,
+      "volx": 0.0
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 60,
-      "v": 1.21,
-      "th": 0.6,
-      "ratio": 2.01,
-      "val": "+1.21%",
-      "thr": "±0.6%",
-      "c15": "-0.22%",
-      "c60": "+1.21%",
-      "c180": "+1.87%",
+      "w": 180,
+      "v": 1.28,
+      "th": 1.0,
+      "ratio": 1.28,
+      "val": "+1.28%",
+      "thr": "±1%",
+      "c15": "+0.10%",
+      "c60": "-0.50%",
+      "c180": "+1.28%",
       "confirmed": false,
       "why": "الزخم غير متسق عبر الأطر",
       "tone": "bull",
-      "eff": 0.46,
-      "z": 2.8,
-      "volx": 0.3
+      "eff": 0.38,
+      "z": 1.0,
+      "volx": 0.0
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": 0.26,
-      "th": 1.3,
-      "ratio": 0.2,
-      "val": "+0.26%",
-      "thr": "±1.3%",
-      "c15": "-0.01%",
-      "c60": "+0.26%",
-      "c180": "+0.19%",
+      "w": 15,
+      "v": 0.1,
+      "th": 0.9,
+      "ratio": 0.12,
+      "val": "+0.10%",
+      "thr": "±0.9%",
+      "c15": "+0.10%",
+      "c60": "+0.02%",
+      "c180": "+0.24%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.27,
-      "z": 0.6,
+      "eff": 0.03,
+      "z": 0.1,
       "volx": 0.0
     },
     {
@@ -697,80 +697,80 @@
       "name": "الذهب",
       "short": "ذهب",
       "w": 15,
-      "v": -0.03,
+      "v": -0.26,
       "th": 0.45,
-      "ratio": 0.07,
-      "val": "-0.03%",
+      "ratio": 0.59,
+      "val": "-0.26%",
       "thr": "±0.45%",
-      "c15": "-0.03%",
-      "c60": "-0.01%",
-      "c180": "+0.04%",
+      "c15": "-0.26%",
+      "c60": "-0.28%",
+      "c180": "-0.23%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.03,
-      "z": 0.0,
-      "volx": 1.1
+      "eff": 0.5,
+      "z": 1.0,
+      "volx": 1.2
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": 0.11,
-      "th": 0.7,
-      "ratio": 0.15,
-      "val": "+0.11%",
-      "thr": "±0.7%",
-      "c15": "+0.03%",
-      "c60": "+0.02%",
-      "c180": "+0.11%",
+      "w": 60,
+      "v": 0.12,
+      "th": 0.4,
+      "ratio": 0.29,
+      "val": "+0.12%",
+      "thr": "±0.4%",
+      "c15": "-0.02%",
+      "c60": "+0.12%",
+      "c180": "+0.12%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.13,
-      "z": 0.3,
+      "eff": null,
+      "z": 2.5,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-18T00:00:44.509027+00:00",
-        "ok_at": "2026-11-18T00:00:44.509027+00:00"
+        "last_try": "2026-11-18T00:15:40.350454+00:00",
+        "ok_at": "2026-11-18T00:15:40.350454+00:00"
       },
       "fred": {
-        "last_try": "2026-11-18T00:00:44.509027+00:00",
-        "ok_at": "2026-11-18T00:00:44.509027+00:00"
+        "last_try": "2026-11-18T00:15:40.350454+00:00",
+        "ok_at": "2026-11-18T00:15:40.350454+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-18T00:00:44.509027+00:00",
-        "ok_at": "2026-11-18T00:00:44.509027+00:00"
+        "last_try": "2026-11-18T00:15:40.350454+00:00",
+        "ok_at": "2026-11-18T00:15:40.350454+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-18T00:00:44.509027+00:00",
-        "ok_at": "2026-11-18T00:00:44.509027+00:00"
+        "last_try": "2026-11-18T00:15:40.350454+00:00",
+        "ok_at": "2026-11-18T00:15:40.350454+00:00"
       },
       "oil": {
-        "last_try": "2026-11-18T00:00:44.509027+00:00",
-        "ok_at": "2026-11-18T00:00:44.509027+00:00"
+        "last_try": "2026-11-18T00:15:40.350454+00:00",
+        "ok_at": "2026-11-18T00:15:40.350454+00:00"
       },
       "news": {
-        "last_try": "2026-11-18T00:00:44.509027+00:00",
-        "ok_at": "2026-11-18T00:00:44.509027+00:00"
+        "last_try": "2026-11-18T00:15:40.350454+00:00",
+        "ok_at": "2026-11-18T00:15:40.350454+00:00"
       },
       "cot": {
-        "last_try": "2026-11-18T00:00:44.509027+00:00",
-        "ok_at": "2026-11-18T00:00:44.509027+00:00"
+        "last_try": "2026-11-18T00:15:40.350454+00:00",
+        "ok_at": "2026-11-18T00:15:40.350454+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-18T00:00:44.509027+00:00",
+        "last_try": "2026-11-18T00:15:40.350454+00:00",
         "ok_at": "2026-11-17T13:15:40.514119+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-18T00:00:44.509027+00:00"
+      "at": "2026-11-18T00:15:40.350454+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -778,19 +778,24 @@
     }
   },
   "week_news": {
-    "at": "2026-11-17T23:00:46.075221+00:00",
+    "at": "2026-11-18T00:15:40.350454+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-17T22:51:36+00:00",
+            "t": "2026-11-18T00:07:40+00:00",
             "title": "Fed official Lisa Cook refuses to attend White House firing hearing, citing bias",
             "src": "The Washington Post"
           },
           {
-            "t": "2026-11-17T22:01:54+00:00",
+            "t": "2026-11-17T23:33:52+00:00",
+            "title": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-17T22:05:27+00:00",
             "title": "US Fed’s Lisa Cook refuses to attend White House hearing",
             "src": "Al Jazeera"
           },
@@ -800,14 +805,9 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-11-17T21:48:36+00:00",
-            "title": "Fed Issues Possible Bank Run Warning As Outages Fuel Wild Nov. 17 ‘Blackout’ Theories",
-            "src": "Forbes"
-          },
-          {
-            "t": "2026-11-17T21:18:07+00:00",
-            "title": "Emerging markets are less hostile to the Fed than they used to be",
-            "src": "OMFIF"
+            "t": "2026-11-17T21:52:12+00:00",
+            "title": "Minneapolis Fed reports subtle land value growth",
+            "src": "Brownfield Ag News"
           }
         ]
       },
@@ -815,9 +815,14 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-17T22:39:00+00:00",
-            "title": "Nvidia Beats Estimates, Raises Guidance in First Earnings Report After Huang’s Ouster",
+            "t": "2026-11-17T23:59:05+00:00",
+            "title": "Nvidia Reports Faster Growth, Says Jensen Huang Won’t Return as CEO",
             "src": "WSJ"
+          },
+          {
+            "t": "2026-11-17T23:36:41+00:00",
+            "title": "Asian Stocks to Fall, Nvidia Sales Outlook Beats: Markets Wrap",
+            "src": "Bloomberg.com"
           },
           {
             "t": "2026-11-17T22:36:02+00:00",
@@ -825,19 +830,14 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-17T21:32:01+00:00",
-            "title": "Wall Street shakes again as Nvidia and other jittery AI stocks swing lower",
-            "src": "Los Angeles Times"
-          },
-          {
             "t": "2026-11-17T21:14:00+00:00",
             "title": "Another wipeout hits Wall Street as Nvidia, other jittery AI stocks swing lower",
-            "src": "WWNY"
+            "src": "WLBT"
           },
           {
-            "t": "2026-11-17T21:12:00+00:00",
-            "title": "Why Salesforce’s stock led the S&P 500’s decliners amid tech jitters",
-            "src": "MarketWatch"
+            "t": "2026-11-17T21:07:00+00:00",
+            "title": "SpaceX Stock (SPCX) Could Crush Wall Street’s Estimates. Here’s Why",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -845,28 +845,28 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-17T22:47:00+00:00",
-            "title": "Tech Futures Rise; Nvidia Beats, Says Jensen Huang Isn't Returning",
-            "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-11-17T22:37:02+00:00",
-            "title": "Nvidia board rules out Jensen Huang’s return as CEO during earnings call",
-            "src": "Scripps News"
-          },
-          {
-            "t": "2026-11-17T22:36:25+00:00",
-            "title": "Nvidia’s closely watched earnings surpass Wall Street expectations",
-            "src": "The Boston Globe"
-          },
-          {
-            "t": "2026-11-17T22:34:53+00:00",
+            "t": "2026-11-18T00:07:34+00:00",
             "title": "Nvidia leans on record revenue as it faces questions about its future",
             "src": "The Washington Post"
           },
           {
-            "t": "2026-11-17T22:34:06+00:00",
-            "title": "Nvidia shuts door on Jensen Huang’s return as stock pops on earnings",
+            "t": "2026-11-17T23:45:03+00:00",
+            "title": "Nvidia’s first earnings call without Jensen Huang had one message: It’s business as usual",
+            "src": "Fast Company"
+          },
+          {
+            "t": "2026-11-17T23:44:51+00:00",
+            "title": "Nvidia's Q3 numbers were pretty good. Its earnings call optics were another story.",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-17T23:35:00+00:00",
+            "title": "Nvidia earnings call offers a crucial clue about who could succeed Jensen Huang",
+            "src": "Business Insider"
+          },
+          {
+            "t": "2026-11-17T23:30:44+00:00",
+            "title": "Nvidia earnings special coverage: \"The street wants to believe in Nvidia after Jensen\"",
             "src": "Yahoo Finance"
           }
         ]
@@ -875,9 +875,19 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-17T21:55:00+00:00",
+            "t": "2026-11-18T00:05:29+00:00",
+            "title": "Opinion | Joe Biden’s alternative history of inflation",
+            "src": "The Washington Post"
+          },
+          {
+            "t": "2026-11-17T23:21:58+00:00",
             "title": "Import prices are up for AI components, construction materials, and more",
-            "src": "www.marketplace.org"
+            "src": "Marketplace.org"
+          },
+          {
+            "t": "2026-11-17T22:06:05+00:00",
+            "title": "CPI | Teva Reaches Settlement With US States Over Generic Drug Price-Fixing",
+            "src": "PYMNTS.com"
           },
           {
             "t": "2026-11-17T21:52:06+00:00",
@@ -888,16 +898,31 @@
             "t": "2026-11-17T21:47:42+00:00",
             "title": "Target, Walmart Q3 Earnings Could Offer Consumer Health & Inflation Clues for Investors",
             "src": "Benzinga"
+          }
+        ]
+      },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-11-17T22:59:04+00:00",
+            "title": "Washington Can Start Delivering on Affordability by Rejecting Trump’s Tariffs",
+            "src": "Tax Foundation"
           },
           {
-            "t": "2026-11-17T21:44:02+00:00",
-            "title": "Economic optimism plunges to lowest level since Great Recession: Gallup",
-            "src": "CFO Dive"
+            "t": "2026-11-17T21:56:04+00:00",
+            "title": "USMCA Review and Tariffs Reshape Mexican Auto Retail Allocation",
+            "src": "Mexico Business News"
           },
           {
-            "t": "2026-11-17T21:29:52+00:00",
-            "title": "Can Idaho Stop the Inflation Grinch?",
-            "src": "Idaho Freedom Foundation"
+            "t": "2026-11-17T19:33:36+00:00",
+            "title": "Congress Should Reform Spending, Raise the Debt Ceiling During Lame Duck",
+            "src": "National Taxpayers Union"
+          },
+          {
+            "t": "2026-11-17T18:56:00+00:00",
+            "title": "Opinion | The Broken Promises Behind Trump’s Tariffs",
+            "src": "WSJ"
           }
         ]
       },
@@ -905,34 +930,32 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-17T22:25:00+00:00",
-            "title": "What is a 'dirty bomb' and is Iran capable of this type of attack in DC?",
-            "src": "WUSA9"
+            "t": "2026-11-17T23:41:52+00:00",
+            "title": "Kuwait reports drone attacks as Iran, US trade attacks on Qeshm and Bahrain",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-17T22:07:35+00:00",
-            "title": "Netanyahu is pushing for new Iran attack in bid to stay in power, his rivals warn",
-            "src": "The Washington Post"
+            "t": "2026-11-17T23:37:30+00:00",
+            "title": "Ukraine updates: Strike appears to partially destroy part of key Kerch bridge in occupied Crimea",
+            "src": "DW.com"
           },
           {
-            "t": "2026-11-17T22:07:07+00:00",
-            "title": "Arms control expert: Threat of Iran attack on DC is 'relatively low’",
-            "src": "KFOX"
+            "t": "2026-11-17T23:37:30+00:00",
+            "title": "Tanker crew member missing after Strait of Hormuz attack",
+            "src": "The New Region"
           },
           {
-            "t": "2026-11-17T21:42:25+00:00",
-            "title": "Pentagon Official Says Ukraine War Likely To Last Through Winter, Despite Mediation Efforts",
-            "src": "Radio Free Europe/Radio Liberty"
+            "t": "2026-11-17T22:29:51+00:00",
+            "title": "Russia says Ukraine struck its bridge to Crimea for second day in biggest drone attack of war",
+            "src": "New York Post"
           }
         ]
       }
     },
-    "failed": [
-      "السياسة التجارية والمالية"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-18T00:00:44.509027+00:00",
+    "at": "2026-11-18T00:15:40.350454+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -9170,10 +9193,10 @@
       "note": ""
     }
   ],
-  "last_publish_ok": "2026-11-18T00:00:44.509027+00:00",
+  "last_publish_ok": "2026-11-18T00:15:40.350454+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-18T00:01:48.905936+00:00"
+    "at": "2026-11-18T00:16:07.225105+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -9308,12 +9331,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-18T00:00:44.509027+00:00",
-    "ok_at": "2026-11-18T00:00:44.509027+00:00",
+    "at": "2026-11-18T00:15:40.350454+00:00",
+    "ok_at": "2026-11-18T00:15:40.350454+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-18T00:00:44.509027+00:00",
+    "at": "2026-11-18T00:15:40.350454+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
