@@ -686,79 +686,79 @@
       "name": "ES",
       "short": "ES",
       "w": 180,
-      "v": 0.35,
+      "v": 0.27,
       "th": 0.8,
-      "ratio": 0.44,
-      "val": "+0.35%",
+      "ratio": 0.34,
+      "val": "+0.27%",
       "thr": "±0.8%",
-      "c15": "-0.04%",
-      "c60": "+0.07%",
-      "c180": "+0.35%",
+      "c15": "-0.00%",
+      "c60": "-0.04%",
+      "c180": "+0.27%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.18,
-      "z": 0.2,
-      "volx": 0.7
+      "eff": 0.1,
+      "z": 0.1,
+      "volx": 0.8
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
       "w": 180,
-      "v": 0.54,
+      "v": 0.36,
       "th": 1.0,
-      "ratio": 0.54,
-      "val": "+0.54%",
+      "ratio": 0.36,
+      "val": "+0.36%",
       "thr": "±1%",
       "c15": "-0.05%",
-      "c60": "+0.14%",
-      "c180": "+0.54%",
+      "c60": "-0.08%",
+      "c180": "+0.36%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.22,
-      "z": 0.3,
-      "volx": 0.7
+      "eff": 0.15,
+      "z": 0.1,
+      "volx": 0.9
     },
     {
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
       "w": 180,
-      "v": -7.58,
+      "v": -6.92,
       "th": 14.0,
-      "ratio": 0.54,
-      "val": "-7.58%",
+      "ratio": 0.49,
+      "val": "-6.92%",
       "thr": "±14%",
-      "c15": "-0.25%",
-      "c60": "-1.18%",
-      "c180": "-7.58%",
+      "c15": "+0.30%",
+      "c60": "-0.63%",
+      "c180": "-6.92%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.36,
-      "z": 0.3,
+      "eff": 0.2,
+      "z": 0.1,
       "volx": null
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 60,
-      "v": 0.47,
-      "th": 1.3,
-      "ratio": 0.36,
-      "val": "+0.47%",
-      "thr": "±1.3%",
-      "c15": "+0.31%",
-      "c60": "+0.47%",
-      "c180": "-0.55%",
+      "w": 180,
+      "v": -0.8,
+      "th": 2.4,
+      "ratio": 0.33,
+      "val": "-0.80%",
+      "thr": "±2.4%",
+      "c15": "-0.24%",
+      "c60": "+0.35%",
+      "c180": "-0.80%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.25,
-      "z": 0.9,
+      "eff": 0.2,
+      "z": 0.7,
       "volx": 0.6
     },
     {
@@ -766,100 +766,100 @@
       "name": "الذهب",
       "short": "ذهب",
       "w": 15,
-      "v": -0.21,
+      "v": -0.08,
       "th": 0.45,
-      "ratio": 0.46,
-      "val": "-0.21%",
+      "ratio": 0.18,
+      "val": "-0.08%",
       "thr": "±0.45%",
-      "c15": "-0.21%",
-      "c60": "+0.03%",
-      "c180": "+0.03%",
+      "c15": "-0.08%",
+      "c60": "-0.07%",
+      "c180": "-0.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.04,
-      "z": 0.1,
-      "volx": 1.0
+      "eff": 0.11,
+      "z": 0.3,
+      "volx": 0.7
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 60,
-      "v": -0.08,
+      "v": -0.06,
       "th": 0.28,
-      "ratio": 0.28,
-      "val": "-0.08%",
+      "ratio": 0.2,
+      "val": "-0.06%",
       "thr": "±0.28%",
-      "c15": "-0.02%",
-      "c60": "-0.08%",
-      "c180": "+0.01%",
+      "c15": "+0.03%",
+      "c60": "-0.06%",
+      "c180": "+0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.39,
-      "z": 1.2,
+      "eff": 0.26,
+      "z": 0.9,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 60,
-      "v": -0.03,
-      "th": 0.4,
-      "ratio": 0.07,
-      "val": "-0.03%",
-      "thr": "±0.4%",
-      "c15": "-0.01%",
+      "w": 15,
+      "v": -0.02,
+      "th": 0.25,
+      "ratio": 0.1,
+      "val": "-0.02%",
+      "thr": "±0.25%",
+      "c15": "-0.02%",
       "c60": "-0.03%",
-      "c180": "+0.02%",
+      "c180": "+0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.19,
-      "z": 0.3,
+      "eff": 0.22,
+      "z": 0.4,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-18T10:15:32.823117+00:00",
-        "ok_at": "2026-11-18T10:15:32.823117+00:00"
+        "last_try": "2026-11-18T10:30:41.152037+00:00",
+        "ok_at": "2026-11-18T10:30:41.152037+00:00"
       },
       "fred": {
-        "last_try": "2026-11-18T10:15:32.823117+00:00",
-        "ok_at": "2026-11-18T10:15:32.823117+00:00"
+        "last_try": "2026-11-18T10:30:41.152037+00:00",
+        "ok_at": "2026-11-18T10:30:41.152037+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-18T10:15:32.823117+00:00",
-        "ok_at": "2026-11-18T10:15:32.823117+00:00"
+        "last_try": "2026-11-18T10:30:41.152037+00:00",
+        "ok_at": "2026-11-18T10:30:41.152037+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-18T10:15:32.823117+00:00",
-        "ok_at": "2026-11-18T10:15:32.823117+00:00"
+        "last_try": "2026-11-18T10:30:41.152037+00:00",
+        "ok_at": "2026-11-18T10:30:41.152037+00:00"
       },
       "oil": {
-        "last_try": "2026-11-18T10:15:32.823117+00:00",
-        "ok_at": "2026-11-18T10:15:32.823117+00:00"
+        "last_try": "2026-11-18T10:30:41.152037+00:00",
+        "ok_at": "2026-11-18T10:30:41.152037+00:00"
       },
       "news": {
-        "last_try": "2026-11-18T10:15:32.823117+00:00",
-        "ok_at": "2026-11-18T10:15:32.823117+00:00"
+        "last_try": "2026-11-18T10:30:41.152037+00:00",
+        "ok_at": "2026-11-18T10:30:41.152037+00:00"
       },
       "cot": {
-        "last_try": "2026-11-18T10:15:32.823117+00:00",
-        "ok_at": "2026-11-18T10:15:32.823117+00:00"
+        "last_try": "2026-11-18T10:30:41.152037+00:00",
+        "ok_at": "2026-11-18T10:30:41.152037+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-18T10:15:32.823117+00:00",
+        "last_try": "2026-11-18T10:30:41.152037+00:00",
         "ok_at": "2026-11-17T13:15:40.514119+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-18T10:15:32.823117+00:00"
+      "at": "2026-11-18T10:30:41.152037+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -867,12 +867,17 @@
     }
   },
   "week_news": {
-    "at": "2026-11-18T09:30:38.595737+00:00",
+    "at": "2026-11-18T10:30:41.152037+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-18T09:32:43+00:00",
+            "title": "Treasury yields hold steady as investors look ahead to Fed minutes",
+            "src": "CNBC"
+          },
           {
             "t": "2026-11-18T09:06:00+00:00",
             "title": "The Latest Federal Reserve Interest Rate Forecast Points to 4 Hikes by mid-September -- and That's Terrible News for Wall Street",
@@ -892,66 +897,36 @@
             "t": "2026-11-18T06:56:00+00:00",
             "title": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-18T06:05:19+00:00",
-            "title": "FOMC Minutes Today: Fed Rate Hike Clues Put Crypto on Alert",
-            "src": "Coinpedia"
           }
         ]
       },
-      "macro": {
-        "label": "الاقتصاد والبيانات",
+      "companies": {
+        "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-18T08:54:35+00:00",
-            "title": "Average pay set to continue to trail inflation",
-            "src": "Personnel Today"
+            "t": "2026-11-18T10:28:55+00:00",
+            "title": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+            "src": "NVIDIA Newsroom"
           },
           {
-            "t": "2026-11-18T08:53:40+00:00",
-            "title": "Watch UK Inflation Accelerates to Highest Level in a Year",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-18T08:45:12+00:00",
-            "title": "BoE, in new statement on CPI data, says inflation to rise further",
+            "t": "2026-11-18T10:00:53+00:00",
+            "title": "Democrats probe whether Howard Lutnick helped Cantor avoid Nvidia losses, FT reports",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-18T08:40:13+00:00",
-            "title": "UK Jobs and Inflation Data Pull the BoE in Different Directions",
-            "src": "StoneX"
+            "t": "2026-11-18T09:53:22+00:00",
+            "title": "Crypto Stocks Rebound As Nvidia’s Earnings Beat Lifts Risk Appetite — Why COIN, CRCL, NXXT Are Moving Today",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-18T08:40:10+00:00",
-            "title": "Why Tech Stocks Are So Sensitive to Inflation and Rising Yields",
-            "src": "StoneX"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-18T07:29:28+00:00",
-            "title": "Trump Secures Thailand Trade Deal As Bangkok Agrees to Scrap Tariffs On US Goods, Buy $2.6 Billion In Far",
-            "src": "Benzinga"
+            "t": "2026-11-18T09:45:01+00:00",
+            "title": "Cantor Fitzgerald's Nvidia business interests targeted in Democrats' Lutnick probe",
+            "src": "CNBC"
           },
           {
-            "t": "2026-11-18T01:21:06+00:00",
-            "title": "Hoover’s Philip Zelikow, Robert Zoellick File Amicus Brief Against Canada Tariffs",
-            "src": "Hoover Institution"
-          },
-          {
-            "t": "2026-11-18T00:12:00+00:00",
-            "title": "Trade talks between top Canada, U.S. officials ramping up: sources",
-            "src": "CBC"
-          },
-          {
-            "t": "2026-11-17T23:10:37+00:00",
-            "title": "Tariffs and Port Bottlenecks for Asian Solar Modules in Mexico",
-            "src": "Mexico Business News"
+            "t": "2026-11-18T09:45:00+00:00",
+            "title": "Democrats Plan Probe of Lutnick, Cantor Fitzgerald’s Nvidia Ties",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -959,35 +934,36 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-18T09:07:04+00:00",
+            "t": "2026-11-18T10:00:00+00:00",
+            "title": "ADNOC Ship Attacked in Hormuz as Maritime Security Risks Rise",
+            "src": "Crude Oil Prices Today | OilPrice.com"
+          },
+          {
+            "t": "2026-11-18T09:57:43+00:00",
+            "title": "Russia says US, despite current sanctions, will likely need more of its uranium in future",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-18T09:38:59+00:00",
             "title": "Canada says Russia sanctions to keep increasing while Ukraine war continues",
-            "src": "Anadolu Ajansı"
+            "src": "A News"
           },
           {
-            "t": "2026-11-18T07:59:22+00:00",
-            "title": "Iran, Hezbollah recruited Thai clerics to attack Israeli embassy, report says",
-            "src": "Ynetnews"
-          },
-          {
-            "t": "2026-11-18T07:46:42+00:00",
-            "title": "Putin says Western sanctions backfiring as he pitches Russia as Asia trade hub",
-            "src": "South China Morning Post"
-          },
-          {
-            "t": "2026-11-18T07:44:09+00:00",
-            "title": "These Dutch-made missiles helped Ukraine attack Russia’s Crimean Bridge",
-            "src": "DutchReview"
+            "t": "2026-11-18T09:38:00+00:00",
+            "title": "Dramatic moment oil tanker erupts into huge inferno in Strait of Hormuz",
+            "src": "The Independent"
           }
         ]
       }
     },
     "failed": [
       "الأسهم الأمريكية و S&P 500",
-      "الشركات الكبرى والأرباح"
+      "الاقتصاد والبيانات",
+      "السياسة التجارية والمالية"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-18T10:15:32.823117+00:00",
+    "at": "2026-11-18T10:30:41.152037+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -9524,10 +9500,10 @@
       "note": ""
     }
   ],
-  "last_publish_ok": "2026-11-18T10:15:32.823117+00:00",
+  "last_publish_ok": "2026-11-18T10:30:41.152037+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-18T10:15:57.317752+00:00"
+    "at": "2026-11-18T10:31:10.603262+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -9662,12 +9638,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-18T10:15:32.823117+00:00",
-    "ok_at": "2026-11-18T10:15:32.823117+00:00",
+    "at": "2026-11-18T10:30:41.152037+00:00",
+    "ok_at": "2026-11-18T10:30:41.152037+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-18T10:15:32.823117+00:00",
+    "at": "2026-11-18T10:30:41.152037+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
