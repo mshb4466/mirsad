@@ -1,22 +1,22 @@
-asof_utc,2026-11-18T16:20:26+00:00,basis,21.98,mode,live
+asof_utc,2026-11-18T16:30:26+00:00,basis,20.42,mode,live
 price,label,kind,strength,color,style,width
-7565.75,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7563.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7539.75,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7439.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7422.0,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7389.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7372.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7347.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7339.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7322.0,SPX PUT WALL,wall,wall,FF5C7A,solid,3
-7319.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7297.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7289.25,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7272.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7259.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7239.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7222.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7219.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7199.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7038.75,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7574.25,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7540.75,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7539.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7439.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7420.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7389.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7370.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7345.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7339.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7320.5,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7319.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7295.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7288.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7270.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7258.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7238.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7220.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7218.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7188.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7038.25,SPY PUT WALL,wall,wall,FF5C7A,solid,3
