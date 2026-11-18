@@ -1059,41 +1059,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-18T19:15:38.588809+00:00",
-        "ok_at": "2026-11-18T19:15:38.588809+00:00"
+        "last_try": "2026-11-18T19:29:15.780741+00:00",
+        "ok_at": "2026-11-18T19:29:15.780741+00:00"
       },
       "fred": {
-        "last_try": "2026-11-18T19:15:38.588809+00:00",
-        "ok_at": "2026-11-18T19:15:38.588809+00:00"
+        "last_try": "2026-11-18T19:29:15.780741+00:00",
+        "ok_at": "2026-11-18T19:29:15.780741+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-18T19:15:38.588809+00:00",
-        "ok_at": "2026-11-18T19:15:38.588809+00:00"
+        "last_try": "2026-11-18T19:29:15.780741+00:00",
+        "ok_at": "2026-11-18T19:29:15.780741+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-18T19:15:38.588809+00:00",
-        "ok_at": "2026-11-18T19:15:38.588809+00:00"
+        "last_try": "2026-11-18T19:29:15.780741+00:00",
+        "ok_at": "2026-11-18T19:29:15.780741+00:00"
       },
       "oil": {
-        "last_try": "2026-11-18T19:15:38.588809+00:00",
-        "ok_at": "2026-11-18T19:15:38.588809+00:00"
+        "last_try": "2026-11-18T19:29:15.780741+00:00",
+        "ok_at": "2026-11-18T19:29:15.780741+00:00"
       },
       "news": {
-        "last_try": "2026-11-18T19:15:38.588809+00:00",
-        "ok_at": "2026-11-18T19:15:38.588809+00:00"
+        "last_try": "2026-11-18T19:29:15.780741+00:00",
+        "ok_at": "2026-11-18T19:29:15.780741+00:00"
       },
       "cot": {
-        "last_try": "2026-11-18T19:15:38.588809+00:00",
-        "ok_at": "2026-11-18T19:15:38.588809+00:00"
+        "last_try": "2026-11-18T19:29:15.780741+00:00",
+        "ok_at": "2026-11-18T19:29:15.780741+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-18T19:15:38.588809+00:00",
+        "last_try": "2026-11-18T19:29:15.780741+00:00",
         "ok_at": "2026-11-17T13:15:40.514119+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-18T19:15:38.588809+00:00"
+      "at": "2026-11-18T19:29:15.780741+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1101,36 +1101,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-18T18:15:46.701469+00:00",
+    "at": "2026-11-18T19:29:15.780741+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-18T17:53:27+00:00",
-            "title": "Fed’s AI Warning Puts Banks’ Credit Denials Under Scrutiny",
-            "src": "PYMNTS.com"
+            "t": "2026-11-18T19:12:00+00:00",
+            "title": "Fed minutes show growing unease about the outlook for inflation",
+            "src": "MarketWatch"
           },
           {
-            "t": "2026-11-18T17:46:16+00:00",
-            "title": "Fed’s Waller doubles down on a jumbo move for December, sees at least two more hikes",
-            "src": "Yahoo Finance"
+            "t": "2026-11-18T19:09:43+00:00",
+            "title": "Fed policymakers focused on inflation risks in October, with some seeing need for bigger rate hike",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-18T17:45:25+00:00",
-            "title": "Higher rates from Fed hike fears push mortgage demand lower",
-            "src": "Scotsman Guide"
+            "t": "2026-11-18T19:09:34+00:00",
+            "title": "Fed minutes: Higher interest rates needed in December as inflation worries mount | National News | 2news.com",
+            "src": "KTVN"
           },
           {
-            "t": "2026-11-18T17:39:00+00:00",
-            "title": "‘The Comeback King’ Trailer: Glen Powell Goes Country In New Judd Apatow Comedy",
-            "src": "Deadline"
+            "t": "2026-11-18T19:09:22+00:00",
+            "title": "Fed Saw Need to Continue Raising Rates Despite October Skip",
+            "src": "The New York Times"
           },
           {
-            "t": "2026-11-18T17:30:40+00:00",
-            "title": "The Fed's next moves come into focus",
-            "src": "Axios"
+            "t": "2026-11-18T19:09:00+00:00",
+            "title": "Fed Officials Saw Higher Rates Ahead When They Held Steady Last Month",
+            "src": "WSJ"
           }
         ]
       },
@@ -1138,29 +1138,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-18T18:05:26+00:00",
-            "title": "Wall Street zigzags as Nvidia and other AI stocks keep swinging | National News | 2news.com",
-            "src": "KTVN"
+            "t": "2026-11-18T19:09:12+00:00",
+            "title": "Exclusive | Nvidia Board Warned of ‘Irreplaceable’ Talent Loss in Employee Letter",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-18T19:03:00+00:00",
+            "title": "Variational Takes On Hyperliquid With a Wall Street Brokerage Model, Hits $1.5 Billion Valuation",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-18T18:22:27+00:00",
+            "title": "Wall Street prepares for Anthropic IPO frenzy, despite broader AI stock slump",
+            "src": "Virginia Business"
+          },
+          {
+            "t": "2026-11-18T18:20:00+00:00",
+            "title": "If You'd Invested $1,000 in an S&P 500 ETF Ahead of the Dot-Com Bubble, Here's What You'd Have Today",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-18T18:04:54+00:00",
             "title": "These Charts Show How More People Are Pulling Cash Out of Their Homes",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-18T17:45:27+00:00",
-            "title": "E-mini vs. micro futures: Which contract size fits your investment account?",
-            "src": "Quad City Herald"
-          },
-          {
-            "t": "2026-11-18T17:30:02+00:00",
-            "title": "Stock Market Midday, Nov. 18: Nvidia Doubles Revenue, but Wall Street's Sell-Off Continues",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-18T16:49:54+00:00",
-            "title": "Anthropic’s Wall Street debut marks a new chapter for AI | CNN Business",
-            "src": "CNN"
           }
         ]
       },
@@ -1168,9 +1168,19 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-18T18:09:21+00:00",
-            "title": "Watch Nvidia Earnings Impress, But Succession Risk Lingers",
-            "src": "Bloomberg.com"
+            "t": "2026-11-18T19:01:59+00:00",
+            "title": "Democrats probe whether Lutnick helped Cantor Fitzgerald avoid Nvidia-linked losses",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-18T18:16:12+00:00",
+            "title": "Nvidia earnings beat lifts Bitcoin mining stocks",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-18T18:07:26+00:00",
+            "title": "Read Jim Cramer’s full interview with Nvidia’s Colette Kress: Demand, buybacks and China",
+            "src": "CNBC"
           },
           {
             "t": "2026-11-18T17:48:00+00:00",
@@ -1181,16 +1191,6 @@
             "t": "2026-11-18T17:35:47+00:00",
             "title": "Nvidia stock erases earnings pop as investors face life after Jensen Huang",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-18T17:22:51+00:00",
-            "title": "The Investment Committee discusses the state of the AI trade following Nvidia's earnings",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-11-18T16:53:06+00:00",
-            "title": "Dan Ives Says Nvidia’s Guidance ‘Speaks Volumes’ After Jensen Huang Exit: ‘Demand Did Not Leave With Him’",
-            "src": "Benzinga"
           }
         ]
       },
@@ -1198,35 +1198,40 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-11-18T19:14:22+00:00",
+            "title": "Global GDP to grow 2.8% in 2027, with corporate earnings growth slowing and stocks rallying – Goldman Sachs",
+            "src": "Seeking Alpha"
+          },
+          {
+            "t": "2026-11-18T19:00:50+00:00",
+            "title": "Fed officials expect more rate hikes, worry about AI impact on inflation, minutes show",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-18T18:03:39+00:00",
+            "title": "IRS releases tax inflation adjustments for tax year 2027; taxpayers continue to benefit from the Working Families Tax Cuts",
+            "src": "The Troy Times Tribune"
+          },
+          {
             "t": "2026-11-18T17:49:53+00:00",
             "title": "CPI | Newsmax Sues to Block Fox-Roku Integration After $22 Billion Deal",
             "src": "PYMNTS.com"
           },
           {
-            "t": "2026-11-18T17:45:45+00:00",
-            "title": "Bank of Canada says scenarios help make monetary policy more effective",
-            "src": "Reuters"
-          },
-          {
             "t": "2026-11-18T17:37:51+00:00",
             "title": "Fed’s Daly says inflation has been too high for too long as consumer spending holds up",
             "src": "investingLive"
-          },
-          {
-            "t": "2026-11-18T17:30:00+00:00",
-            "title": "Fed's Daly says inflation has been 'too high for too long'",
-            "src": "Breakingthenews.net"
-          },
-          {
-            "t": "2026-11-18T17:20:47+00:00",
-            "title": "FTSE 100 slips as commodity-linked stocks weigh; UK inflation at one-year high",
-            "src": "Reuters"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-11-18T17:47:14+00:00",
+            "title": "The Supreme Court Blocked Trump’s Tariffs, But Americans Are Still Paying the Price",
+            "src": "Balls and Strikes"
+          },
           {
             "t": "2026-11-18T16:24:54+00:00",
             "title": "Government shutdown odds fall to 34% ahead of Dec. 11 deadline",
@@ -1241,11 +1246,6 @@
             "t": "2026-11-18T14:52:00+00:00",
             "title": "Two More Days Above 5% and Treasury Yields Tie 2007’s Run",
             "src": "24/7 Wall St."
-          },
-          {
-            "t": "2026-11-18T14:44:58+00:00",
-            "title": "Government actions are hitting smaller biotechs the hardest: Report",
-            "src": "BioSpace"
           }
         ]
       },
@@ -1253,24 +1253,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-18T17:55:14+00:00",
-            "title": "US Cracks Down on Iran Oil Blockade, Threatening Action",
-            "src": "Marine News Magazine"
+            "t": "2026-11-18T19:10:24+00:00",
+            "title": "If Iran’s Oil Exports Are Halted, No Other Country Should Be Allowed to Export Oil",
+            "src": "WANA News Agency"
           },
           {
-            "t": "2026-11-18T17:50:14+00:00",
-            "title": "Zelenskyy says sanctions from U.S. and China would force Russia into a ceasefire",
+            "t": "2026-11-18T19:00:00+00:00",
+            "title": "China Secures Major Gas Deal as Its Influence Grows Across Central Asia",
+            "src": "Crude Oil Prices Today | OilPrice.com"
+          },
+          {
+            "t": "2026-11-18T18:45:00+00:00",
+            "title": "EU gears up for new Iran sanctions as domestic unrest resurfaces",
+            "src": "EU Reporter"
+          },
+          {
+            "t": "2026-11-18T18:40:48+00:00",
+            "title": "Israeli tanks roll into central Gaza in first ground operation since ceasefire began",
             "src": "NBC News"
-          },
-          {
-            "t": "2026-11-18T17:38:00+00:00",
-            "title": "Ukraine says it hit 2 Russian oil refineries as Zelenskyy hails domestically made weapons",
-            "src": "WESH"
-          },
-          {
-            "t": "2026-11-18T17:28:04+00:00",
-            "title": "Iran Carries Out Suicide Drone Attack on Ali al-Salem Base in Kuwait, Targets Bahrain: 18 outlets compared",
-            "src": "NewsCord"
           }
         ]
       }
@@ -1278,7 +1278,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-18T19:15:38.588809+00:00",
+    "at": "2026-11-18T19:29:15.780741+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1876,7 +1876,7 @@
     },
     "US|auction:30-y-bond-auction|2026-11-12|1801": {
       "actual": "",
-      "status": "failed",
+      "status": "awaiting",
       "attempts": 40,
       "title": "30-y Bond Auction",
       "time": "2026-11-12T18:01:00+00:00",
@@ -1885,7 +1885,7 @@
       "previous": "5.62|2.5",
       "country": "USD",
       "last_attempt": "2026-11-18T19:15:38.588809+00:00",
-      "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
+      "note": ""
     },
     "US|ppife|mm|2026-10|-|2026-11-13": {
       "actual": "0.3%",
@@ -10240,10 +10240,10 @@
       "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
     }
   ],
-  "last_publish_ok": "2026-11-18T19:15:38.588809+00:00",
+  "last_publish_ok": "2026-11-18T19:29:15.780741+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-11-18T19:16:20.715935+00:00"
+    "mode": "preopen",
+    "at": "2026-11-18T19:29:39.752406+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10377,9 +10377,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-11-18T19:15:38.588809+00:00",
-    "ok_at": "2026-11-18T19:15:38.588809+00:00",
+    "lean": "mixed",
+    "at": "2026-11-18T19:29:15.780741+00:00",
+    "ok_at": "2026-11-18T19:29:15.780741+00:00",
     "change": null
   },
   "last_watch": {
