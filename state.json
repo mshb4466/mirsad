@@ -737,80 +737,80 @@
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": 0.05,
+      "v": 0.02,
       "th": 0.5,
-      "ratio": 0.1,
-      "val": "+0.05%",
+      "ratio": 0.05,
+      "val": "+0.02%",
       "thr": "±0.5%",
-      "c15": "-0.00%",
-      "c60": "-0.01%",
-      "c180": "+0.05%",
+      "c15": "+0.00%",
+      "c60": "+0.01%",
+      "c180": "+0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.23,
-      "z": 0.2,
+      "eff": 0.16,
+      "z": 0.1,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": -0.09,
-      "th": 0.7,
+      "w": 15,
+      "v": -0.03,
+      "th": 0.25,
       "ratio": 0.12,
-      "val": "-0.09%",
-      "thr": "±0.7%",
-      "c15": "-0.00%",
-      "c60": "-0.02%",
-      "c180": "-0.09%",
+      "val": "-0.03%",
+      "thr": "±0.25%",
+      "c15": "-0.03%",
+      "c60": "-0.04%",
+      "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.19,
-      "z": 0.3,
+      "eff": 0.31,
+      "z": 0.6,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-19T22:45:35.791618+00:00",
-        "ok_at": "2026-11-19T22:45:35.791618+00:00"
+        "last_try": "2026-11-19T23:00:51.016350+00:00",
+        "ok_at": "2026-11-19T23:00:51.016350+00:00"
       },
       "fred": {
-        "last_try": "2026-11-19T22:45:35.791618+00:00",
-        "ok_at": "2026-11-19T22:45:35.791618+00:00"
+        "last_try": "2026-11-19T23:00:51.016350+00:00",
+        "ok_at": "2026-11-19T23:00:51.016350+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-19T22:45:35.791618+00:00",
-        "ok_at": "2026-11-19T22:45:35.791618+00:00"
+        "last_try": "2026-11-19T23:00:51.016350+00:00",
+        "ok_at": "2026-11-19T23:00:51.016350+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-19T22:45:35.791618+00:00",
-        "ok_at": "2026-11-19T22:45:35.791618+00:00"
+        "last_try": "2026-11-19T23:00:51.016350+00:00",
+        "ok_at": "2026-11-19T23:00:51.016350+00:00"
       },
       "oil": {
-        "last_try": "2026-11-19T22:45:35.791618+00:00",
-        "ok_at": "2026-11-19T22:45:35.791618+00:00"
+        "last_try": "2026-11-19T23:00:51.016350+00:00",
+        "ok_at": "2026-11-19T23:00:51.016350+00:00"
       },
       "news": {
-        "last_try": "2026-11-19T22:45:35.791618+00:00",
-        "ok_at": "2026-11-19T22:45:35.791618+00:00"
+        "last_try": "2026-11-19T23:00:51.016350+00:00",
+        "ok_at": "2026-11-19T23:00:51.016350+00:00"
       },
       "cot": {
-        "last_try": "2026-11-19T22:45:35.791618+00:00",
-        "ok_at": "2026-11-19T22:45:35.791618+00:00"
+        "last_try": "2026-11-19T23:00:51.016350+00:00",
+        "ok_at": "2026-11-19T23:00:51.016350+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-19T22:45:35.791618+00:00",
-        "ok_at": "2026-11-19T22:45:35.791618+00:00"
+        "last_try": "2026-11-19T23:00:51.016350+00:00",
+        "ok_at": "2026-11-19T23:00:51.016350+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-19T22:45:35.791618+00:00"
+      "at": "2026-11-19T23:00:51.016350+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -818,184 +818,50 @@
     }
   },
   "week_news": {
-    "at": "2026-11-19T21:45:56.315852+00:00",
+    "at": "2026-11-19T23:00:51.016350+00:00",
     "asset": "es",
     "data": {
-      "fed": {
-        "label": "الفدرالي والفائدة",
-        "items": [
-          {
-            "t": "2026-11-19T21:27:55+00:00",
-            "title": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-19T21:20:22+00:00",
-            "title": "Barr says Fed downsizing could hamper response to future crises",
-            "src": "American Banker"
-          },
-          {
-            "t": "2026-11-19T21:07:09+00:00",
-            "title": "Goolsbee says all options on Fed’s table amid hot inflation",
-            "src": "Crain's Chicago Business"
-          },
-          {
-            "t": "2026-11-19T20:56:48+00:00",
-            "title": "Fed's Barr worried regulatory changes may increase financial sector risks",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-11-19T20:37:44+00:00",
-            "title": "Fed's Goolsbee says AI surge could strain US capacity, overheat economy",
-            "src": "Reuters"
-          }
-        ]
-      },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-19T21:31:01+00:00",
-            "title": "Thousands of Anthropic Employees and Investors Are Set to Reap Fortunes",
+            "t": "2026-11-19T22:17:04+00:00",
+            "title": "Wall Street tumbles to longest losing streak since 2024",
+            "src": "Toledo Blade"
+          },
+          {
+            "t": "2026-11-19T21:56:00+00:00",
+            "title": "Visa, Mastercard and JPMorgan Customer Data Leaked by Hackers",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-19T21:10:31+00:00",
-            "title": "Anthropic's blockbuster debut tests Wall Street's faith in AI boom",
-            "src": "Reuters"
+            "t": "2026-11-19T21:50:19+00:00",
+            "title": "Blue Owl Taps Wall Street For $513M To Finance Amazon Data Center",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-19T21:01:02+00:00",
+            "t": "2026-11-19T21:48:00+00:00",
+            "title": "Anthropic IPO Nets Wall Street Underwriters $550 Million, Topping SpaceX",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-11-19T21:38:51+00:00",
             "title": "Wall Street ends sharply lower as Anthropic's debut fails to revive AI fervor",
             "src": "Reuters"
-          },
-          {
-            "t": "2026-11-19T20:37:00+00:00",
-            "title": "Dow falls 1,000 points during busy day on Wall Street",
-            "src": "CBS News"
-          },
-          {
-            "t": "2026-11-19T20:20:00+00:00",
-            "title": "Financial expert explains recent Wall Street losses and market uncertainty",
-            "src": "ABC10"
-          }
-        ]
-      },
-      "companies": {
-        "label": "الشركات الكبرى والأرباح",
-        "items": [
-          {
-            "t": "2026-11-19T19:03:00+00:00",
-            "title": "Morgan Stanley tweaks Nvidia price target after blowout earnings",
-            "src": "Yahoo Finance Singapore"
-          },
-          {
-            "t": "2026-11-19T15:51:00+00:00",
-            "title": "Can Anthropic’s IPO do for the stock market what Nvidia’s earnings couldn’t?",
-            "src": "MarketWatch"
-          },
-          {
-            "t": "2026-11-19T14:48:00+00:00",
-            "title": "Nvidia interim CEO discusses tech giant’s latest quarterly earnings",
-            "src": "Fox Business"
-          },
-          {
-            "t": "2026-11-19T13:15:00+00:00",
-            "title": "Nvidia Slides After Blowout Earnings As Investigations Line Up; Is Nvidia Stock A Sell Now?",
-            "src": "Investor's Business Daily"
-          },
-          {
-            "t": "2026-11-19T10:49:28+00:00",
-            "title": "The Fed Sounds Hawkish But Markets Don’t Believe It. Why?",
-            "src": "tastylive"
-          }
-        ]
-      },
-      "macro": {
-        "label": "الاقتصاد والبيانات",
-        "items": [
-          {
-            "t": "2026-11-19T20:32:56+00:00",
-            "title": "AI Industry’s Speed Blurs the View of Economic Impact",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-19T20:18:58+00:00",
-            "title": "Greene Blames Loose BOE Policy, Not Bad Luck for Inflation Miss",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-19T20:17:33+00:00",
-            "title": "How Lionel Messi's 2026 Inter Miami Contract Compared to Payrolls of Entire MLS Teams",
-            "src": "Bleacher Report"
-          },
-          {
-            "t": "2026-11-19T19:36:00+00:00",
-            "title": "‘Most people haven’t run that math.’ How to test if your portfolio can withstand inflation",
-            "src": "MarketWatch"
-          },
-          {
-            "t": "2026-11-19T19:03:53+00:00",
-            "title": "Tennessee proposal would cap local property tax revenue growth at inflation plus 8%",
-            "src": "WZTV"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-19T21:00:00+00:00",
-            "title": "Treasury Yields Fall as Anthropic Fails to Sustain Risk Appetite",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-19T20:53:29+00:00",
-            "title": "Brendan Boyle is ‘done kicking the can’ on the debt ceiling",
-            "src": "Punchbowl News"
-          },
-          {
-            "t": "2026-11-19T20:09:34+00:00",
-            "title": "BMW Wants Lower U.S. Tariffs After Investing $1.7 Billion",
-            "src": "bmwblog"
-          },
-          {
-            "t": "2026-11-19T19:05:44+00:00",
-            "title": "Dan Sullivan’s loss is an indictment of Trump’s tariffs",
-            "src": "Washington Examiner"
-          }
-        ]
-      },
-      "geo": {
-        "label": "الجيوسياسة والنفط",
-        "items": [
-          {
-            "t": "2026-11-19T20:39:00+00:00",
-            "title": "Kyiv’s partners should prioritize Ukraine’s domestic drone production",
-            "src": "Atlantic Council"
-          },
-          {
-            "t": "2026-11-19T19:52:00+00:00",
-            "title": "Global courts under attack and four more takeaways from the Trump, Xi, Putin meeting",
-            "src": "The Guardian"
-          },
-          {
-            "t": "2026-11-19T19:07:19+00:00",
-            "title": "Oil Continues Downward Plummet As Iran War Reshapes World Energy Market For The Better",
-            "src": "Ship & Bunker"
-          },
-          {
-            "t": "2026-11-19T18:59:49+00:00",
-            "title": "Trump hints Iran could launch ‘gas’ or ‘bio’ attack after dirty bomb",
-            "src": "Denver Gazette"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "الفدرالي والفائدة",
+      "الشركات الكبرى والأرباح",
+      "الاقتصاد والبيانات",
+      "السياسة التجارية والمالية",
+      "الجيوسياسة والنفط"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-19T22:45:35.791618+00:00",
+    "at": "2026-11-19T23:00:51.016350+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -10143,10 +10009,10 @@
       "note": "المصدر: EIA (واجهة رسمية)"
     }
   ],
-  "last_publish_ok": "2026-11-19T22:45:35.791618+00:00",
+  "last_publish_ok": "2026-11-19T23:00:51.016350+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-19T22:46:01.804619+00:00"
+    "at": "2026-11-19T23:01:52.916726+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10281,12 +10147,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-19T22:45:35.791618+00:00",
-    "ok_at": "2026-11-19T22:45:35.791618+00:00",
+    "at": "2026-11-19T23:00:51.016350+00:00",
+    "ok_at": "2026-11-19T23:00:51.016350+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-19T22:45:35.791618+00:00",
+    "at": "2026-11-19T23:00:51.016350+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
