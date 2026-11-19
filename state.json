@@ -976,41 +976,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-19T19:30:40.284040+00:00",
-        "ok_at": "2026-11-19T19:30:40.284040+00:00"
+        "last_try": "2026-11-19T19:34:25.302820+00:00",
+        "ok_at": "2026-11-19T19:34:25.302820+00:00"
       },
       "fred": {
-        "last_try": "2026-11-19T19:30:40.284040+00:00",
-        "ok_at": "2026-11-19T19:30:40.284040+00:00"
+        "last_try": "2026-11-19T19:34:25.302820+00:00",
+        "ok_at": "2026-11-19T19:34:25.302820+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-19T19:30:40.284040+00:00",
-        "ok_at": "2026-11-19T19:30:40.284040+00:00"
+        "last_try": "2026-11-19T19:34:25.302820+00:00",
+        "ok_at": "2026-11-19T19:34:25.302820+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-19T19:30:40.284040+00:00",
-        "ok_at": "2026-11-19T19:30:40.284040+00:00"
+        "last_try": "2026-11-19T19:34:25.302820+00:00",
+        "ok_at": "2026-11-19T19:34:25.302820+00:00"
       },
       "oil": {
-        "last_try": "2026-11-19T19:30:40.284040+00:00",
-        "ok_at": "2026-11-19T19:30:40.284040+00:00"
+        "last_try": "2026-11-19T19:34:25.302820+00:00",
+        "ok_at": "2026-11-19T19:34:25.302820+00:00"
       },
       "news": {
-        "last_try": "2026-11-19T19:30:40.284040+00:00",
-        "ok_at": "2026-11-19T19:30:40.284040+00:00"
+        "last_try": "2026-11-19T19:34:25.302820+00:00",
+        "ok_at": "2026-11-19T19:34:25.302820+00:00"
       },
       "cot": {
-        "last_try": "2026-11-19T19:30:40.284040+00:00",
-        "ok_at": "2026-11-19T19:30:40.284040+00:00"
+        "last_try": "2026-11-19T19:34:25.302820+00:00",
+        "ok_at": "2026-11-19T19:34:25.302820+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-19T19:30:40.284040+00:00",
-        "ok_at": "2026-11-19T19:30:40.284040+00:00"
+        "last_try": "2026-11-19T19:34:25.302820+00:00",
+        "ok_at": "2026-11-19T19:34:25.302820+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-19T19:30:40.284040+00:00"
+      "at": "2026-11-19T19:34:25.302820+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1018,42 +1018,47 @@
     }
   },
   "week_news": {
-    "at": "2026-11-19T18:30:52.463939+00:00",
+    "at": "2026-11-19T19:34:25.302820+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-19T17:59:40+00:00",
-            "title": "Jefferson: inflation must return to 2% before Fed changes target",
-            "src": "American Banker"
+            "t": "2026-11-19T19:14:11+00:00",
+            "title": "Fed Tells Regional Staff to Expect Lower Pay Increases in 2027",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-19T17:17:53+00:00",
-            "title": "Policymakers want rate hike but disagree on pace",
-            "src": "Axios"
+            "t": "2026-11-19T19:01:25+00:00",
+            "title": "Can ‘direct primary care’ help Wyoming’s healthcare woes? Powell doctors think so.",
+            "src": "WyoFile"
           },
           {
-            "t": "2026-11-19T17:14:04+00:00",
-            "title": "Richard Powell Unsettles Race and Color Theory",
-            "src": "Hyperallergic"
+            "t": "2026-11-19T18:59:56+00:00",
+            "title": "Goolsbee says the Fed's job right now is to keep AI surge from overheating the economy",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-19T17:03:38+00:00",
-            "title": "Illinois regulators to decide on Peoples Gas proposed $144M rate hike today",
-            "src": "CBS News"
+            "t": "2026-11-19T18:54:32+00:00",
+            "title": "Boise steakhouse fed ESPN on 5 days’ notice",
+            "src": "Idaho Business Review"
           },
           {
-            "t": "2026-11-19T16:40:02+00:00",
-            "title": "Strong dollar, tighter Fed policy bets leave gold to languish at 14-month low",
-            "src": "Kitco"
+            "t": "2026-11-19T18:25:41+00:00",
+            "title": "Federal Reserve H.15: Rates, Formula & Guide",
+            "src": "CASRAI"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-11-19T19:29:22+00:00",
+            "title": "Exclusive | SEC Is Probing Nvidia Amid Departure of CEO Jensen Huang",
+            "src": "WSJ"
+          },
           {
             "t": "2026-11-19T18:10:28+00:00",
             "title": "Inside the Federal Litigation of Five S&P 500 Giants",
@@ -1065,18 +1070,13 @@
             "src": "WSJ"
           },
           {
-            "t": "2026-11-19T18:04:35+00:00",
-            "title": "What to know about Anthropic’s massive IPO as it breaks records on Wall Street",
-            "src": "Boston Herald"
-          },
-          {
             "t": "2026-11-19T18:03:47+00:00",
-            "title": "Anthropic Opens Trading on Wall Street as a $2 Trillion Company",
+            "title": "Anthropic Debuts on Wall Street as a $2 Trillion Company",
             "src": "The New York Times"
           },
           {
-            "t": "2026-11-19T18:01:00+00:00",
-            "title": "Dow Leads Stocks Lower After Anthropic Starts Trading",
+            "t": "2026-11-19T18:02:00+00:00",
+            "title": "Trump, Xi, Putin End Historic Summit With Denunciation of Nuclear War",
             "src": "WSJ"
           }
         ]
@@ -1100,14 +1100,14 @@
             "src": "Investor's Business Daily"
           },
           {
+            "t": "2026-11-19T10:49:28+00:00",
+            "title": "The Fed Sounds Hawkish But Markets Don’t Believe It. Why?",
+            "src": "tastylive"
+          },
+          {
             "t": "2026-11-18T21:48:37+00:00",
             "title": "Nvidia highlights open models amid leadership shakeup",
             "src": "CIO Dive"
-          },
-          {
-            "t": "2026-11-18T21:40:00+00:00",
-            "title": "Tech Stocks Boosted by Cybersecurity Rally",
-            "src": "WSJ"
           }
         ]
       },
@@ -1115,35 +1115,40 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-19T17:48:02+00:00",
-            "title": "N.J. payrolls declined in October; jobless rate unchanged at 4.2%",
-            "src": "ROI-NJ"
-          },
-          {
-            "t": "2026-11-19T17:32:27+00:00",
+            "t": "2026-11-19T19:02:27+00:00",
             "title": "AI Industry’s Speed Blurs the View of Economic Impact",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-19T17:31:00+00:00",
-            "title": "Stimulus update: Seniors group calls for $1,400 inflation payment to retirees",
-            "src": "Cleveland.com"
+            "t": "2026-11-19T18:51:56+00:00",
+            "title": "Tennessee proposal would cap local property tax revenue growth at inflation plus 8%",
+            "src": "WZTV"
           },
           {
-            "t": "2026-11-19T17:00:00+00:00",
-            "title": "Mortgage Rates Surge Again As Stubborn Inflation Ends Brief Reprieve",
-            "src": "Realtor.com"
+            "t": "2026-11-19T18:32:19+00:00",
+            "title": "ECB’s Panetta Says Inflation Mustn’t Be Allowed to Take Root",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-19T17:00:00+00:00",
-            "title": "Mortgage rates move higher again as inflation jitters mount: Mortgage and refinance interest rates today, Thursday, November 19, 2026",
-            "src": "Yahoo Finance"
+            "t": "2026-11-19T17:59:40+00:00",
+            "title": "Jefferson: inflation must return to 2% before Fed changes target",
+            "src": "American Banker"
+          },
+          {
+            "t": "2026-11-19T17:48:02+00:00",
+            "title": "N.J. payrolls declined in October; jobless rate unchanged at 4.2%",
+            "src": "ROI-NJ"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-11-19T19:05:44+00:00",
+            "title": "Dan Sullivan’s loss is an indictment of Trump’s tariffs",
+            "src": "Washington Examiner"
+          },
           {
             "t": "2026-11-19T18:19:00+00:00",
             "title": "Chuck Todd says Democrats should ‘start with tariffs’ to lower cost of living",
@@ -1158,11 +1163,6 @@
             "t": "2026-11-19T16:32:59+00:00",
             "title": "This Company Turns American Milk Into Canadian Cheese. Tariffs Are Curdling Those Plans.",
             "src": "Reason Magazine"
-          },
-          {
-            "t": "2026-11-19T16:12:11+00:00",
-            "title": "Undoing Trump’s Tariffs Will Be Harder Than It Seems",
-            "src": "Americas Quarterly"
           }
         ]
       },
@@ -1170,24 +1170,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-19T17:34:10+00:00",
-            "title": "IDF sends tanks into Hamas-controlled Gaza for first time since 2025 ceasefire",
-            "src": "The Jerusalem Post"
+            "t": "2026-11-19T19:09:31+00:00",
+            "title": "Trump says he’s ‘not rushing’ into Iran strike, will wait until January",
+            "src": "The Times of Israel"
           },
           {
-            "t": "2026-11-19T17:32:56+00:00",
-            "title": "“Putin Posed as a Global Leader”: Austrian Embassy Damaged in Russian Strike on Kyiv",
-            "src": "UNITED24 Media"
+            "t": "2026-11-19T19:07:19+00:00",
+            "title": "Oil Continues Downward Plummet As Iran War Reshapes World Energy Market For The Better",
+            "src": "Ship & Bunker"
           },
           {
-            "t": "2026-11-19T17:25:17+00:00",
-            "title": "At APEC Summit, U.S., China and Russia Vow to Increase Oil Supply Amid Global Energy Transition",
-            "src": "The New York Times"
+            "t": "2026-11-19T18:59:49+00:00",
+            "title": "Trump hints Iran could launch ‘gas’ or ‘bio’ attack after dirty bomb",
+            "src": "Denver Gazette"
           },
           {
-            "t": "2026-11-19T17:22:00+00:00",
-            "title": "Putin says Russia won't negotiate limited ceasefire with Ukraine after bridge strike",
-            "src": "CBS News"
+            "t": "2026-11-19T18:50:02+00:00",
+            "title": "Netanyahu seeks green light to strike Iran; Trump: ‘I'm not rushing, we'll see after New Year’",
+            "src": "Ynetnews"
           }
         ]
       }
@@ -1195,7 +1195,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-19T19:30:40.284040+00:00",
+    "at": "2026-11-19T19:34:25.302820+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1894,7 +1894,7 @@
       "source": "EIA (API)",
       "period": "2026-11-13",
       "received_at": "2026-11-18T18:45:37.231783+00:00",
-      "last_attempt": "2026-11-19T16:30:54.080402+00:00",
+      "last_attempt": "2026-11-19T19:34:25.302820+00:00",
       "attempts": 8,
       "title": "Crude Oil Inventories",
       "time": "2026-11-18T15:30:00+00:00",
@@ -10318,12 +10318,35 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": ""
+    },
+    {
+      "id": "US|oil:crude-oil-inventories|2026-11-18|1530",
+      "title": "Crude Oil Inventories",
+      "release_time": "2026-11-18T15:30:00+00:00",
+      "fetched_at": "2026-11-19T19:34:25.302820+00:00",
+      "source": "EIA (API)",
+      "tier": "official",
+      "value": "+3.4M",
+      "period": "2026-11-13",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "محسوب من سلسلة رسمية",
+      "forecast": "0.4M",
+      "previous": "4.7M",
+      "period_check": "مطابقة فترة التقرير",
+      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
+      "match": "مطابقة فترة التقرير",
+      "note": "المصدر: EIA (واجهة رسمية)"
     }
   ],
-  "last_publish_ok": "2026-11-19T19:30:40.284040+00:00",
+  "last_publish_ok": "2026-11-19T19:34:25.302820+00:00",
   "last_run_ok": {
-    "mode": "auto",
-    "at": "2026-11-19T19:31:09.667039+00:00"
+    "mode": "preopen",
+    "at": "2026-11-19T19:34:58.228184+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10457,9 +10480,9 @@
   "verdict_sig": {
     "bias": "neutral",
     "bias_label": "مختلط",
-    "lean": "na",
-    "at": "2026-11-19T19:30:40.284040+00:00",
-    "ok_at": "2026-11-19T19:30:40.284040+00:00",
+    "lean": "down",
+    "at": "2026-11-19T19:34:25.302820+00:00",
+    "ok_at": "2026-11-19T19:34:25.302820+00:00",
     "change": null
   },
   "last_watch": {
