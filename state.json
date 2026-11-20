@@ -802,40 +802,40 @@
       "key": "es",
       "name": "ES",
       "short": "ES",
-      "w": 60,
-      "v": 0.69,
-      "th": 0.45,
-      "ratio": 1.53,
-      "val": "+0.69%",
-      "thr": "±0.45%",
-      "c15": "+0.08%",
-      "c60": "+0.69%",
-      "c180": "-1.09%",
+      "w": 180,
+      "v": -1.12,
+      "th": 0.8,
+      "ratio": 1.41,
+      "val": "-1.12%",
+      "thr": "±0.8%",
+      "c15": "-0.10%",
+      "c60": "+0.33%",
+      "c180": "-1.12%",
       "confirmed": false,
       "why": "الزخم غير متسق عبر الأطر",
-      "tone": "bull",
-      "eff": 0.64,
-      "z": 1.6,
+      "tone": "bear",
+      "eff": 0.35,
+      "z": 0.7,
       "volx": 0.1
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 60,
-      "v": 0.86,
-      "th": 0.6,
-      "ratio": 1.44,
-      "val": "+0.86%",
-      "thr": "±0.6%",
-      "c15": "+0.13%",
-      "c60": "+0.86%",
-      "c180": "-1.28%",
+      "w": 180,
+      "v": -1.29,
+      "th": 1.0,
+      "ratio": 1.29,
+      "val": "-1.29%",
+      "thr": "±1%",
+      "c15": "-0.11%",
+      "c60": "+0.59%",
+      "c180": "-1.29%",
       "confirmed": false,
       "why": "الزخم غير متسق عبر الأطر",
-      "tone": "bull",
-      "eff": 0.62,
-      "z": 1.3,
+      "tone": "bear",
+      "eff": 0.39,
+      "z": 0.9,
       "volx": 0.1
     },
     {
@@ -843,59 +843,59 @@
       "name": "النفط",
       "short": "نفط",
       "w": 60,
-      "v": -0.51,
+      "v": -0.42,
       "th": 1.3,
-      "ratio": 0.39,
-      "val": "-0.51%",
+      "ratio": 0.32,
+      "val": "-0.42%",
       "thr": "±1.3%",
-      "c15": "-0.10%",
-      "c60": "-0.51%",
-      "c180": "+0.44%",
+      "c15": "+0.00%",
+      "c60": "-0.42%",
+      "c180": "+0.65%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.57,
-      "z": 0.9,
-      "volx": 0.1
+      "eff": 0.47,
+      "z": 0.7,
+      "volx": 0.3
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 60,
-      "v": 0.37,
-      "th": 0.65,
-      "ratio": 0.57,
-      "val": "+0.37%",
-      "thr": "±0.65%",
-      "c15": "+0.19%",
-      "c60": "+0.37%",
-      "c180": "+0.40%",
+      "w": 15,
+      "v": 0.35,
+      "th": 0.45,
+      "ratio": 0.78,
+      "val": "+0.35%",
+      "thr": "±0.45%",
+      "c15": "+0.35%",
+      "c60": "+0.36%",
+      "c180": "+0.10%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
       "eff": 0.44,
       "z": 0.7,
-      "volx": 0.2
+      "volx": 0.3
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 15,
-      "v": -0.01,
+      "v": -0.06,
       "th": 0.18,
-      "ratio": 0.08,
-      "val": "-0.01%",
+      "ratio": 0.33,
+      "val": "-0.06%",
       "thr": "±0.18%",
-      "c15": "-0.01%",
-      "c60": "+0.01%",
-      "c180": "+0.01%",
+      "c15": "-0.06%",
+      "c60": "-0.02%",
+      "c180": "-0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.12,
-      "z": 0.2,
+      "eff": 0.15,
+      "z": 0.3,
       "volx": null
     },
     {
@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-20T22:00:47.655079+00:00",
-        "ok_at": "2026-11-20T22:00:47.655079+00:00"
+        "last_try": "2026-11-20T22:15:37.450067+00:00",
+        "ok_at": "2026-11-20T22:15:37.450067+00:00"
       },
       "fred": {
-        "last_try": "2026-11-20T22:00:47.655079+00:00",
-        "ok_at": "2026-11-20T22:00:47.655079+00:00"
+        "last_try": "2026-11-20T22:15:37.450067+00:00",
+        "ok_at": "2026-11-20T22:15:37.450067+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-20T22:00:47.655079+00:00",
-        "ok_at": "2026-11-20T22:00:47.655079+00:00"
+        "last_try": "2026-11-20T22:15:37.450067+00:00",
+        "ok_at": "2026-11-20T22:15:37.450067+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-20T22:00:47.655079+00:00",
-        "ok_at": "2026-11-20T22:00:47.655079+00:00"
+        "last_try": "2026-11-20T22:15:37.450067+00:00",
+        "ok_at": "2026-11-20T22:15:37.450067+00:00"
       },
       "oil": {
-        "last_try": "2026-11-20T22:00:47.655079+00:00",
-        "ok_at": "2026-11-20T22:00:47.655079+00:00"
+        "last_try": "2026-11-20T22:15:37.450067+00:00",
+        "ok_at": "2026-11-20T22:15:37.450067+00:00"
       },
       "news": {
-        "last_try": "2026-11-20T22:00:47.655079+00:00",
-        "ok_at": "2026-11-20T22:00:47.655079+00:00"
+        "last_try": "2026-11-20T22:15:37.450067+00:00",
+        "ok_at": "2026-11-20T22:15:37.450067+00:00"
       },
       "cot": {
-        "last_try": "2026-11-20T22:00:47.655079+00:00",
-        "ok_at": "2026-11-20T22:00:47.655079+00:00"
+        "last_try": "2026-11-20T22:15:37.450067+00:00",
+        "ok_at": "2026-11-20T22:15:37.450067+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-20T22:00:47.655079+00:00",
+        "last_try": "2026-11-20T22:15:37.450067+00:00",
         "ok_at": "2026-11-20T14:45:39.012066+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-20T22:00:47.655079+00:00"
+      "at": "2026-11-20T22:15:37.450067+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,36 +964,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-20T21:00:52.894134+00:00",
+    "at": "2026-11-20T22:15:37.450067+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-20T20:14:32+00:00",
-            "title": "‘Unacceptably high’ inflation warrants forceful Fed action, Cook contends",
-            "src": "Scotsman Guide"
+            "t": "2026-11-20T21:59:31+00:00",
+            "title": "Barkin: US and Virginia workforce remain flat",
+            "src": "Virginia Business"
           },
           {
-            "t": "2026-11-20T19:53:00+00:00",
-            "title": "The Fed is too busy fighting inflation to rescue the stock market",
-            "src": "MarketWatch"
+            "t": "2026-11-20T21:53:23+00:00",
+            "title": "PGE Wants Another Rate Hike—And The Oregon Citizen Utility Boatd (CUB) Sounding the Alarm",
+            "src": "The Hillsboro Herald"
           },
           {
-            "t": "2026-11-20T19:14:40+00:00",
-            "title": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
-            "src": "Bloomberg.com"
+            "t": "2026-11-20T21:15:58+00:00",
+            "title": "Federal Reserve announces College Fed Challenge winners",
+            "src": "Federal Reserve (.gov)"
           },
           {
-            "t": "2026-11-20T18:52:46+00:00",
-            "title": "Senate permitting bill sparks Fed overheating debate on energy projects",
-            "src": "Fox Business"
+            "t": "2026-11-20T21:10:11+00:00",
+            "title": "Powell County Search and Rescue finds overdue hunter",
+            "src": "NBC Montana"
           },
           {
-            "t": "2026-11-20T18:44:38+00:00",
-            "title": "Fed’s Paulson Argues for Deliberate Rate Hikes to Tame Inflation",
-            "src": "Bloomberg.com"
+            "t": "2026-11-20T21:08:00+00:00",
+            "title": "Fed governor admits people see higher inflation as normal as vows to break that 'kind of psychology'",
+            "src": "Fortune"
           }
         ]
       },
@@ -1001,29 +1001,59 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-20T20:32:00+00:00",
-            "title": "Amazon Urges NYC Customers to Oppose Mamdani-Backed Delivery Bill",
-            "src": "WSJ"
+            "t": "2026-11-20T22:00:27+00:00",
+            "title": "Wall Street rout pushes S&P 500, Dow into correction",
+            "src": "Honolulu Star-Advertiser"
           },
           {
-            "t": "2026-11-20T20:18:31+00:00",
-            "title": "SEC Moves to Directly Oversee Database Criticized by Wall Street",
+            "t": "2026-11-20T21:52:00+00:00",
+            "title": "Wall Street Nears Breaking Point as Fear Grips Global Markets",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-20T19:43:00+00:00",
-            "title": "Stocks could face a ‘doom loop’ if Wall Street underestimates the risk of an economic downturn, strategist warns",
-            "src": "MarketWatch"
+            "t": "2026-11-20T21:51:57+00:00",
+            "title": "How major US stock indexes fared Friday 11/20/2026",
+            "src": "The Washington Post"
           },
           {
-            "t": "2026-11-20T19:40:35+00:00",
-            "title": "US Stock Futures Dip as Anthropic Premiere Disappoints Investors",
+            "t": "2026-11-20T21:50:49+00:00",
+            "title": "S&P 500 Falls To 7-Month Low As Tech And AI Concerns Fuel Sell-Off",
+            "src": "Forbes"
+          },
+          {
+            "t": "2026-11-20T21:38:00+00:00",
+            "title": "BNP Paribas sees 'panic selling' as the AI selloff drags the S&P 500 into a correction and wipes out the Nasdaq’s 2026 gains",
+            "src": "Fortune"
+          }
+        ]
+      },
+      "companies": {
+        "label": "الشركات الكبرى والأرباح",
+        "items": [
+          {
+            "t": "2026-11-20T21:58:08+00:00",
+            "title": "Nvidia faces US regulator’s probe into its accounting",
+            "src": "Financial Times"
+          },
+          {
+            "t": "2026-11-20T21:35:24+00:00",
+            "title": "Nvidia stock extends $2.7 trillion rout as SEC probe reportedly investigates its accounting",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-20T21:16:03+00:00",
+            "title": "Wall Street Regulator Probing Nvidia’s Accounting, Report Says",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-20T19:39:00+00:00",
-            "title": "Exclusive | Top Republican Senator Says Lutnick Ignored His China Chip Warnings",
-            "src": "WSJ"
+            "t": "2026-11-20T20:37:03+00:00",
+            "title": "EXCLUSIVE: Nvidia's accounting is a focus of US SEC investigation, sources say",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-20T19:17:09+00:00",
+            "title": "Nvidia tumbles as SEC probe explores accounting issues: report",
+            "src": "TradingView"
           }
         ]
       },
@@ -1031,29 +1061,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-20T20:37:46+00:00",
-            "title": "The Supply Side: Visa forecasts a 4.5% increase in holiday sales",
-            "src": "Talk Business & Politics"
+            "t": "2026-11-20T21:05:00+00:00",
+            "title": "Housing Inflation Is a Bigger Problem Than Official Data Suggest. It’s About to Get Even Worse.",
+            "src": "Barron's"
           },
           {
-            "t": "2026-11-20T19:11:40+00:00",
-            "title": "Can Economic Growth Solve the US Debt Problem?",
-            "src": "The Unseen and The Unsaid"
+            "t": "2026-11-20T19:22:16+00:00",
+            "title": "U.K. Inflation Rises as Energy Costs Keep Pressure on Bank of England",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-20T18:53:05+00:00",
-            "title": "Consumer Sentiment Jumps After Election Results",
-            "src": "RISMedia"
-          },
-          {
-            "t": "2026-11-20T18:53:00+00:00",
-            "title": "ECB Must Bring Inflation Back to 2%, France’s Moulin Says",
+            "t": "2026-11-20T18:44:38+00:00",
+            "title": "Fed’s Paulson Argues for Deliberate Rate Hikes to Tame Inflation",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-20T18:35:00+00:00",
-            "title": "Nearly 15% of Americans expect prices to rise 15% or more next year, a pace the U.S. hasn’t seen in 79 years",
-            "src": "Fortune"
+            "t": "2026-11-20T17:58:13+00:00",
+            "title": "Americans feel better about their pocketbooks this month",
+            "src": "Axios"
+          },
+          {
+            "t": "2026-11-20T17:41:25+00:00",
+            "title": "Fed Governor Lisa Cook Says Her October Dissent Reflected Inflation Fight’s Urgency",
+            "src": "WSJ"
           }
         ]
       },
@@ -1061,35 +1091,57 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-20T20:15:57+00:00",
+            "t": "2026-11-20T22:00:57+00:00",
+            "title": "Treasury Yields Snapshot: November 20, 2026",
+            "src": "Advisor Perspectives"
+          },
+          {
+            "t": "2026-11-20T21:20:12+00:00",
+            "title": "House Democrats recoil at forcing December shutdown to cut Iran war funding",
+            "src": "Axios"
+          },
+          {
+            "t": "2026-11-20T20:18:46+00:00",
             "title": "Nobody wants tariffs until we need them",
             "src": "NH Business Review"
           },
           {
-            "t": "2026-11-20T20:00:43+00:00",
-            "title": "El Jalapeño: White House ties North American auto tariffs to daily step count of walkers 1,500 miles away",
-            "src": "Mexico News Daily"
+            "t": "2026-11-20T20:01:09+00:00",
+            "title": "Government shutdown threat looms",
+            "src": "McKnight's Long-Term Care News"
+          }
+        ]
+      },
+      "geo": {
+        "label": "الجيوسياسة والنفط",
+        "items": [
+          {
+            "t": "2026-11-20T21:52:28+00:00",
+            "title": "US embassy targets China over cartel meth as Mexico signs Beijing deals",
+            "src": "South China Morning Post"
           },
           {
-            "t": "2026-11-20T19:30:59+00:00",
-            "title": "Repealing Trump's Tariffs Could Save More Than $1,100 Per Household",
-            "src": "Reason Magazine"
+            "t": "2026-11-20T19:32:00+00:00",
+            "title": "Attention travelers: The price to fly in the U.S. is at an all-time high, and it's only getting worse",
+            "src": "The Business Journals"
           },
           {
-            "t": "2026-11-20T18:38:27+00:00",
-            "title": "Is disruption every 12 months the new normal for Utah businesses?",
-            "src": "Utah Business"
+            "t": "2026-11-20T18:43:21+00:00",
+            "title": "Ukraine strikes Kerch Bridge as Putin ally declares ‘no one needs Europe’",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-20T18:18:00+00:00",
+            "title": "Did Melania Trump's Russia-Ukraine Ceasefire Push Actually Work?",
+            "src": "Newsweek"
           }
         ]
       }
     },
-    "failed": [
-      "الشركات الكبرى والأرباح",
-      "الجيوسياسة والنفط"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-20T22:00:47.655079+00:00",
+    "at": "2026-11-20T22:15:37.450067+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1747,7 +1799,7 @@
       "source": "عنوان خبر (Google News)",
       "period": "",
       "received_at": "2026-11-20T15:30:43.403548+00:00",
-      "last_attempt": "2026-11-20T21:15:36.432690+00:00",
+      "last_attempt": "2026-11-20T22:15:37.450067+00:00",
       "attempts": 3,
       "title": "Revised UoM Consumer Sentiment",
       "time": "2026-11-20T15:00:00+00:00",
@@ -1764,15 +1816,15 @@
     "US|mich|level_pct|2026-11|-|2026-11-20": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 11,
+      "attempts": 12,
       "title": "Revised UoM Inflation Expectations",
       "time": "2026-11-20T15:00:00+00:00",
       "impact": "Medium",
       "forecast": "",
       "previous": "4.3%",
       "country": "USD",
-      "last_attempt": "2026-11-20T21:15:36.432690+00:00",
-      "note": ""
+      "last_attempt": "2026-11-20T22:15:37.450067+00:00",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   },
   "stats": {
@@ -10666,12 +10718,58 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|umcsent|level|2026-11|-|2026-11-20",
+      "title": "Revised UoM Consumer Sentiment",
+      "release_time": "2026-11-20T15:00:00+00:00",
+      "fetched_at": "2026-11-20T22:15:37.450067+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "51.7",
+      "previous": "51.0",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|mich|level_pct|2026-11|-|2026-11-20",
+      "title": "Revised UoM Inflation Expectations",
+      "release_time": "2026-11-20T15:00:00+00:00",
+      "fetched_at": "2026-11-20T22:15:37.450067+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "4.3%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-20T22:00:47.655079+00:00",
+  "last_publish_ok": "2026-11-20T22:15:37.450067+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-20T22:01:57.886532+00:00"
+    "at": "2026-11-20T22:16:11.209590+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10786,7 +10884,7 @@
     "fred": {
       "ok": true,
       "detail": "2 سلسلة",
-      "at": "2026-11-20T21:15:36.432690+00:00"
+      "at": "2026-11-20T22:15:37.450067+00:00"
     },
     "alfred": {
       "ok": false,
@@ -10806,12 +10904,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-20T22:00:47.655079+00:00",
-    "ok_at": "2026-11-20T22:00:47.655079+00:00",
+    "at": "2026-11-20T22:15:37.450067+00:00",
+    "ok_at": "2026-11-20T22:15:37.450067+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-20T22:00:47.655079+00:00",
+    "at": "2026-11-20T22:15:37.450067+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
