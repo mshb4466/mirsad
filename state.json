@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T22:30:46.425405+00:00",
-        "ok_at": "2026-11-21T22:30:46.425405+00:00"
+        "last_try": "2026-11-21T22:45:35.716106+00:00",
+        "ok_at": "2026-11-21T22:45:35.716106+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T22:30:46.425405+00:00",
-        "ok_at": "2026-11-21T22:30:46.425405+00:00"
+        "last_try": "2026-11-21T22:45:35.716106+00:00",
+        "ok_at": "2026-11-21T22:45:35.716106+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T22:30:46.425405+00:00",
-        "ok_at": "2026-11-21T22:30:46.425405+00:00"
+        "last_try": "2026-11-21T22:45:35.716106+00:00",
+        "ok_at": "2026-11-21T22:45:35.716106+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T22:30:46.425405+00:00",
-        "ok_at": "2026-11-21T22:30:46.425405+00:00"
+        "last_try": "2026-11-21T22:45:35.716106+00:00",
+        "ok_at": "2026-11-21T22:45:35.716106+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T22:30:46.425405+00:00",
-        "ok_at": "2026-11-21T22:30:46.425405+00:00"
+        "last_try": "2026-11-21T22:45:35.716106+00:00",
+        "ok_at": "2026-11-21T22:45:35.716106+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T22:30:46.425405+00:00",
-        "ok_at": "2026-11-21T22:30:46.425405+00:00"
+        "last_try": "2026-11-21T22:45:35.716106+00:00",
+        "ok_at": "2026-11-21T22:45:35.716106+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T22:30:46.425405+00:00",
-        "ok_at": "2026-11-21T22:30:46.425405+00:00"
+        "last_try": "2026-11-21T22:45:35.716106+00:00",
+        "ok_at": "2026-11-21T22:45:35.716106+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T22:30:46.425405+00:00",
-        "ok_at": "2026-11-21T22:30:46.425405+00:00"
+        "last_try": "2026-11-21T22:45:35.716106+00:00",
+        "ok_at": "2026-11-21T22:45:35.716106+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T22:30:46.425405+00:00"
+      "at": "2026-11-21T22:45:35.716106+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,7 +964,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-21T21:30:47.202234+00:00",
+    "at": "2026-11-21T22:45:35.716106+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -976,9 +976,9 @@
             "src": "WSJ"
           },
           {
-            "t": "2026-11-21T15:07:00+00:00",
-            "title": "J.P. Morgan prices in stunning shift in Fed rate-hike call",
-            "src": "Yahoo Finance"
+            "t": "2026-11-21T19:26:04+00:00",
+            "title": "Aziz Foster-Powell scores 3-yard rushing TD",
+            "src": "ESPN"
           },
           {
             "t": "2026-11-21T15:00:00+00:00",
@@ -1001,14 +1001,19 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-11-21T22:05:51+00:00",
+            "title": "Jensen Huang Breaks Silence, Signals Willingness to Return as Nvidia CEO",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-21T21:22:00+00:00",
+            "title": "Worried About Black Monday? What Wall Street Says Could Happen.",
+            "src": "Barron's"
+          },
+          {
             "t": "2026-11-21T20:42:00+00:00",
             "title": "The S&P 500 Is Now Below Every Wall Street Year-End Target for 2026",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-21T20:11:30+00:00",
-            "title": "Wall Street comedown unsettling, but not unusual",
-            "src": "Boston Herald"
           },
           {
             "t": "2026-11-21T19:22:53+00:00",
@@ -1019,11 +1024,6 @@
             "t": "2026-11-21T19:07:02+00:00",
             "title": "The S&P 500 Heads Into Thanksgiving Below Its Peak. Here's How the Holiday Week Has Usually Gone Since 1950.",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-21T16:38:00+00:00",
-            "title": "Worried About Black Monday? What Wall Street Says Could Happen.",
-            "src": "Barron's"
           }
         ]
       },
@@ -1031,9 +1031,19 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-11-21T21:53:54+00:00",
+            "title": "Nvidia faces US accounting probe amid deepening turmoil: media",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-11-21T20:07:00+00:00",
             "title": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
             "src": "The New York Times"
+          },
+          {
+            "t": "2026-11-21T19:46:27+00:00",
+            "title": "Nvidia probe in California extends to potential criminal violations: Bloomberg",
+            "src": "Seeking Alpha"
           },
           {
             "t": "2026-11-21T17:11:23+00:00",
@@ -1044,16 +1054,6 @@
             "t": "2026-11-21T08:16:08+00:00",
             "title": "Investor Focus: Anthropic’s Record-Breaking IPO, Nvidia’s Earnings, and an Undervalued UK Defense Stock",
             "src": "Morningstar"
-          },
-          {
-            "t": "2026-11-21T06:29:00+00:00",
-            "title": "Nvidia plunges 14% amid SEC probe; mounting US scrutiny could cast long shadow over chip giant: analysts",
-            "src": "Global Times"
-          },
-          {
-            "t": "2026-11-20T22:12:21+00:00",
-            "title": "Watch Nvidia Plunges as SEC Probe Deepens AI Market Selloff | Closing Bell",
-            "src": "Bloomberg.com"
           }
         ]
       },
@@ -1061,9 +1061,19 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-11-21T21:32:18+00:00",
+            "title": "Exclusive | Cost Pressures Already in Pipeline to Fuel Higher Inflation",
+            "src": "WSJ"
+          },
+          {
             "t": "2026-11-21T21:00:00+00:00",
             "title": "US Consumers Are Holding Up Against Inflation Going Into Holiday Season",
             "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-21T18:51:09+00:00",
+            "title": "US Consumer Sentiment Improved, Even As Retail Stocks Diverged",
+            "src": "Finimize"
           },
           {
             "t": "2026-11-21T17:57:00+00:00",
@@ -1074,16 +1084,6 @@
             "t": "2026-11-21T16:23:44+00:00",
             "title": "Inflation Is About Resources — and Power",
             "src": "Jacobin"
-          },
-          {
-            "t": "2026-11-21T16:10:16+00:00",
-            "title": "5 Investments That Have Been Beating Inflation",
-            "src": "MoneyLion"
-          },
-          {
-            "t": "2026-11-21T16:00:06+00:00",
-            "title": "Inflation, economic growth and the mood of US consumers in focus this week",
-            "src": "Henry Herald"
           }
         ]
       },
@@ -1091,9 +1091,9 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-21T13:30:00+00:00",
-            "title": "Potential government shutdown threatens US holiday air travel",
-            "src": "Mezha.net"
+            "t": "2026-11-21T20:15:00+00:00",
+            "title": "Opinion | A government shutdown won’t stop the Iran war",
+            "src": "The Washington Post"
           },
           {
             "t": "2026-11-21T13:19:38+00:00",
@@ -1116,24 +1116,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-21T19:03:20+00:00",
-            "title": "The Iran War Could Permanently Slash Reliance on Hormuz, IEA Says",
-            "src": "WSJ"
+            "t": "2026-11-21T21:09:04+00:00",
+            "title": "Oil Tankers Hit Near Strait of Hormuz as Farm Energy Risks Rise",
+            "src": "AgroLatam"
           },
           {
-            "t": "2026-11-21T18:54:35+00:00",
-            "title": "Russian crew evacuating ship hit by drones off coast of Finland",
+            "t": "2026-11-21T20:09:35+00:00",
+            "title": "Crew evacuated amid battle to put out fire on Russian ship hit by drones",
             "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-21T17:00:00+00:00",
-            "title": "The U.A.E. Is Shuttling Oil Past Iran in Risky Hormuz Operation",
-            "src": "WSJ"
+            "t": "2026-11-21T19:45:07+00:00",
+            "title": "Crude Oil Choppy as Strait of Hormuz Flows Fall and Traders Price In Renewed US-Iran Strikes",
+            "src": "Benzinga"
           },
           {
-            "t": "2026-11-21T15:03:46+00:00",
-            "title": "Tankers hit in Strait of Hormuz as Iran tightens grip on shipping",
-            "src": "Al Jazeera"
+            "t": "2026-11-21T19:13:00+00:00",
+            "title": "2 dead, 60 injured in Russian strike on Zelensky’s central Ukraine hometown",
+            "src": "New York Post"
           }
         ]
       }
@@ -1141,7 +1141,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-21T22:30:46.425405+00:00",
+    "at": "2026-11-21T22:45:35.716106+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -11042,10 +11042,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-21T22:30:46.425405+00:00",
+  "last_publish_ok": "2026-11-21T22:45:35.716106+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T22:31:08.069039+00:00"
+    "at": "2026-11-21T22:46:05.124104+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11180,12 +11180,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T22:30:46.425405+00:00",
-    "ok_at": "2026-11-21T22:30:46.425405+00:00",
+    "at": "2026-11-21T22:45:35.716106+00:00",
+    "ok_at": "2026-11-21T22:45:35.716106+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T22:30:46.425405+00:00",
+    "at": "2026-11-21T22:45:35.716106+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
