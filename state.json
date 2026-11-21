@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T00:15:36.539594+00:00",
-        "ok_at": "2026-11-21T00:15:36.539594+00:00"
+        "last_try": "2026-11-21T00:30:41.740765+00:00",
+        "ok_at": "2026-11-21T00:30:41.740765+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T00:15:36.539594+00:00",
-        "ok_at": "2026-11-21T00:15:36.539594+00:00"
+        "last_try": "2026-11-21T00:30:41.740765+00:00",
+        "ok_at": "2026-11-21T00:30:41.740765+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T00:15:36.539594+00:00",
-        "ok_at": "2026-11-21T00:15:36.539594+00:00"
+        "last_try": "2026-11-21T00:30:41.740765+00:00",
+        "ok_at": "2026-11-21T00:30:41.740765+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T00:15:36.539594+00:00",
-        "ok_at": "2026-11-21T00:15:36.539594+00:00"
+        "last_try": "2026-11-21T00:30:41.740765+00:00",
+        "ok_at": "2026-11-21T00:30:41.740765+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T00:15:36.539594+00:00",
-        "ok_at": "2026-11-21T00:15:36.539594+00:00"
+        "last_try": "2026-11-21T00:30:41.740765+00:00",
+        "ok_at": "2026-11-21T00:30:41.740765+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T00:15:36.539594+00:00",
-        "ok_at": "2026-11-21T00:15:36.539594+00:00"
+        "last_try": "2026-11-21T00:30:41.740765+00:00",
+        "ok_at": "2026-11-21T00:30:41.740765+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T00:15:36.539594+00:00",
-        "ok_at": "2026-11-21T00:15:36.539594+00:00"
+        "last_try": "2026-11-21T00:30:41.740765+00:00",
+        "ok_at": "2026-11-21T00:30:41.740765+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T00:15:36.539594+00:00",
+        "last_try": "2026-11-21T00:30:41.740765+00:00",
         "ok_at": "2026-11-20T14:45:39.012066+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T00:15:36.539594+00:00"
+      "at": "2026-11-21T00:30:41.740765+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,16 +964,26 @@
     }
   },
   "week_news": {
-    "at": "2026-11-20T23:21:33.895176+00:00",
+    "at": "2026-11-21T00:30:41.740765+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-20T23:21:02+00:00",
+            "t": "2026-11-20T23:46:20+00:00",
+            "title": "Fed hawks keep 10-year yield elevated despite lower oil prices",
+            "src": "HousingWire"
+          },
+          {
+            "t": "2026-11-20T23:25:11+00:00",
             "title": "PG&E customers face $456 million interim rate hike",
-            "src": "kmph.com"
+            "src": "KMPH Fox 26"
+          },
+          {
+            "t": "2026-11-20T23:11:40+00:00",
+            "title": "3 US Bank Stocks Retail Investors Are Screening As Rate Hike Pressure Builds",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-20T22:56:19+00:00",
@@ -981,19 +991,9 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-20T22:55:04+00:00",
-            "title": "Fed Minutes and Governor Waller Point Toward a December Rate Increase",
-            "src": "The South Shore Press"
-          },
-          {
             "t": "2026-11-20T22:39:00+00:00",
-            "title": "The Federal Reserve is Expected to Raise Interest Rates Next Month. By How Much Is an Open Question.",
+            "title": "The Federal Reserve Is Expected to Raise Interest Rates Next Month. By How Much Is an Open Question.",
             "src": "Barron's"
-          },
-          {
-            "t": "2026-11-20T22:12:39+00:00",
-            "title": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
-            "src": "Bloomberg.com"
           }
         ]
       },
@@ -1001,29 +1001,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-20T23:12:26+00:00",
-            "title": "Parents Are Up in Arms Over School Photos That Look Like Mug Shots",
+            "t": "2026-11-20T23:53:21+00:00",
+            "title": "S&P 500 correction: Five forces behind the market sell-off",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-20T23:36:00+00:00",
+            "title": "Anthropic’s IPO Turmoil Caps $4 Trillion AI Wipeout on Wall Street",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-20T22:40:00+00:00",
+            "t": "2026-11-20T23:29:00+00:00",
             "title": "S&P 500 sinks 3.7% and Nasdaq composite goes negative for the year as tech sell-off worsens",
-            "src": "AP News"
+            "src": "Santa Fe New Mexican"
           },
           {
-            "t": "2026-11-20T22:35:00+00:00",
-            "title": "US stocks end sharply lower on AI selloff; S&P 500, Dow in correction",
-            "src": "Nikkei Asia"
+            "t": "2026-11-20T23:17:00+00:00",
+            "title": "Kevin O'Leary doubles down on unusual ETF outperforming S&P 500",
+            "src": "Yahoo Finance Australia"
           },
           {
-            "t": "2026-11-20T22:31:00+00:00",
-            "title": "Wall Street Journal spotlights Piedmont Triad reinvention",
-            "src": "WFDD"
-          },
-          {
-            "t": "2026-11-20T22:26:16+00:00",
-            "title": "Anthropic Shares Slip as AI and Tech Stock Sell-Off Continues",
-            "src": "The New York Times"
+            "t": "2026-11-20T23:14:22+00:00",
+            "title": "Dow, S&P 500 enter correction as Nasdaq plunges in AI stock sell-off",
+            "src": "upi"
           }
         ]
       },
@@ -1036,11 +1036,6 @@
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-20T21:58:08+00:00",
-            "title": "Nvidia faces US regulator’s probe into its accounting",
-            "src": "Financial Times"
-          },
-          {
             "t": "2026-11-20T21:37:28+00:00",
             "title": "EXCLUSIVE: Nvidia's accounting is a focus of US SEC investigation, sources say",
             "src": "Reuters"
@@ -1049,6 +1044,11 @@
             "t": "2026-11-20T21:35:24+00:00",
             "title": "Nvidia stock extends $2.7 trillion rout as SEC probe reportedly investigates its accounting",
             "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-20T21:35:02+00:00",
+            "title": "Stock Market Today, Nov. 20: Nvidia's $2.5 Trillion Rout Deepens as SEC Accounting Probe Adds to Wall Street's AI Sell-Off",
+            "src": "The Motley Fool"
           },
           {
             "t": "2026-11-20T21:16:03+00:00",
@@ -1063,27 +1063,27 @@
           {
             "t": "2026-11-20T22:35:00+00:00",
             "title": "Core inflation measures can't escape high energy prices",
-            "src": "www.marketplace.org"
-          },
-          {
-            "t": "2026-11-20T22:24:09+00:00",
-            "title": "Inflation, Tariffs and AI Drive Up Our 2027 Medical Costs",
-            "src": "SMART Union"
-          },
-          {
-            "t": "2026-11-20T21:26:44+00:00",
-            "title": "Gold and silver could return to mid-2025 levels as inflation-hedge bid evaporates – SIA’s Cieszynski",
-            "src": "Kitco"
+            "src": "Marketplace.org"
           },
           {
             "t": "2026-11-20T21:08:00+00:00",
-            "title": "Fed governor admits people see higher inflation as normal as vows to break that 'kind of psychology'",
+            "title": "Fed governor admits people see higher inflation as normal, vows to break that ‘kind of psychology’",
             "src": "Fortune"
           },
           {
             "t": "2026-11-20T21:05:00+00:00",
             "title": "Housing Inflation Is a Bigger Problem Than Official Data Suggest. It’s About to Get Even Worse.",
             "src": "Barron's"
+          },
+          {
+            "t": "2026-11-20T18:44:38+00:00",
+            "title": "Fed’s Paulson Argues for Deliberate Rate Hikes to Tame Inflation",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-20T18:27:42+00:00",
+            "title": "Watch US Economy: Fed’s Cook Sees Growing Urgency to Tackle Inflation",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -1091,9 +1091,14 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-20T22:37:31+00:00",
+            "t": "2026-11-21T00:07:31+00:00",
             "title": "U.S. stocks slump into correction territory amid tech and AI worries",
             "src": "The Washington Post"
+          },
+          {
+            "t": "2026-11-20T23:33:38+00:00",
+            "title": "House Democrats recoil at forcing December shutdown to cut Iran war funding",
+            "src": "Axios"
           },
           {
             "t": "2026-11-20T22:33:44+00:00",
@@ -1101,14 +1106,9 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-20T22:00:57+00:00",
-            "title": "Treasury Yields Snapshot: November 20, 2026",
-            "src": "Advisor Perspectives"
-          },
-          {
-            "t": "2026-11-20T21:20:12+00:00",
-            "title": "House Democrats recoil at forcing December shutdown to cut Iran war funding",
-            "src": "Axios"
+            "t": "2026-11-20T22:24:09+00:00",
+            "title": "Inflation, Tariffs and AI Drive Up Our 2027 Medical Costs",
+            "src": "SMART Union"
           }
         ]
       },
@@ -1116,24 +1116,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-20T21:51:03+00:00",
-            "title": "Oil Futures Fall for Third Straight Week on Supply Outlook",
-            "src": "WSJ"
+            "t": "2026-11-20T22:39:11+00:00",
+            "title": "Melania Trump Stresses Humanitarian Efforts at Chic Premiere for Two-Episode Series Documentary Follow-Up",
+            "src": "The Hollywood Reporter"
           },
           {
-            "t": "2026-11-20T18:43:21+00:00",
-            "title": "Ukraine strikes Kerch Bridge as Putin ally declares ‘no one needs Europe’",
-            "src": "Al Jazeera"
+            "t": "2026-11-20T21:52:28+00:00",
+            "title": "US embassy targets China over cartel meth as Mexico signs Beijing deals",
+            "src": "South China Morning Post"
           },
           {
-            "t": "2026-11-20T18:18:00+00:00",
-            "title": "Did Melania Trump's Russia-Ukraine Ceasefire Push Actually Work?",
-            "src": "Newsweek"
+            "t": "2026-11-20T21:34:29+00:00",
+            "title": "Israel braces for surprise Iran attack as US weighs strikes",
+            "src": "Ynetnews"
           },
           {
-            "t": "2026-11-20T16:45:52+00:00",
-            "title": "Melania Trump details Ukraine ceasefire efforts and shares insights on her personal life in exclusive FOX Business interview",
-            "src": "Fox Business"
+            "t": "2026-11-20T19:32:00+00:00",
+            "title": "Attention travelers: The price to fly in the U.S. is at an all-time high, and it's only getting worse",
+            "src": "The Business Journals"
           }
         ]
       }
@@ -1141,7 +1141,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-21T00:15:36.539594+00:00",
+    "at": "2026-11-21T00:30:41.740765+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1824,7 +1824,7 @@
       "previous": "4.3%",
       "country": "USD",
       "last_attempt": "2026-11-21T00:15:36.539594+00:00",
-      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+      "note": ""
     }
   },
   "stats": {
@@ -10743,10 +10743,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-21T00:15:36.539594+00:00",
+  "last_publish_ok": "2026-11-21T00:30:41.740765+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T00:16:02.089045+00:00"
+    "at": "2026-11-21T00:31:11.573098+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10881,12 +10881,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T00:15:36.539594+00:00",
-    "ok_at": "2026-11-21T00:15:36.539594+00:00",
+    "at": "2026-11-21T00:30:41.740765+00:00",
+    "ok_at": "2026-11-21T00:30:41.740765+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T00:15:36.539594+00:00",
+    "at": "2026-11-21T00:30:41.740765+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
