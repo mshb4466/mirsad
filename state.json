@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T07:00:45.273087+00:00",
-        "ok_at": "2026-11-21T07:00:45.273087+00:00"
+        "last_try": "2026-11-21T07:15:34.774398+00:00",
+        "ok_at": "2026-11-21T07:15:34.774398+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T07:00:45.273087+00:00",
-        "ok_at": "2026-11-21T07:00:45.273087+00:00"
+        "last_try": "2026-11-21T07:15:34.774398+00:00",
+        "ok_at": "2026-11-21T07:15:34.774398+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T07:00:45.273087+00:00",
-        "ok_at": "2026-11-21T07:00:45.273087+00:00"
+        "last_try": "2026-11-21T07:15:34.774398+00:00",
+        "ok_at": "2026-11-21T07:15:34.774398+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T07:00:45.273087+00:00",
-        "ok_at": "2026-11-21T07:00:45.273087+00:00"
+        "last_try": "2026-11-21T07:15:34.774398+00:00",
+        "ok_at": "2026-11-21T07:15:34.774398+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T07:00:45.273087+00:00",
-        "ok_at": "2026-11-21T07:00:45.273087+00:00"
+        "last_try": "2026-11-21T07:15:34.774398+00:00",
+        "ok_at": "2026-11-21T07:15:34.774398+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T07:00:45.273087+00:00",
-        "ok_at": "2026-11-21T07:00:45.273087+00:00"
+        "last_try": "2026-11-21T07:15:34.774398+00:00",
+        "ok_at": "2026-11-21T07:15:34.774398+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T07:00:45.273087+00:00",
-        "ok_at": "2026-11-21T07:00:45.273087+00:00"
+        "last_try": "2026-11-21T07:15:34.774398+00:00",
+        "ok_at": "2026-11-21T07:15:34.774398+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T07:00:45.273087+00:00",
+        "last_try": "2026-11-21T07:15:34.774398+00:00",
         "ok_at": "2026-11-20T14:45:39.012066+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T07:00:45.273087+00:00"
+      "at": "2026-11-21T07:15:34.774398+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,9 +964,39 @@
     }
   },
   "week_news": {
-    "at": "2026-11-21T06:15:33.257777+00:00",
+    "at": "2026-11-21T07:15:34.774398+00:00",
     "asset": "es",
     "data": {
+      "fed": {
+        "label": "الفدرالي والفائدة",
+        "items": [
+          {
+            "t": "2026-11-21T03:35:18+00:00",
+            "title": "Obituary for Etheline Powell",
+            "src": "Bentley and Sons Funeral Home"
+          },
+          {
+            "t": "2026-11-21T02:08:46+00:00",
+            "title": "Barkin: US and Virginia workforce remain flat",
+            "src": "Virginia Business"
+          },
+          {
+            "t": "2026-11-21T01:11:24+00:00",
+            "title": "Redding Electric Utility rate hike approved by council",
+            "src": "Shasta Scout"
+          },
+          {
+            "t": "2026-11-21T00:21:49+00:00",
+            "title": "Alabama Power announces rate cut",
+            "src": "WSFA"
+          },
+          {
+            "t": "2026-11-20T23:11:40+00:00",
+            "title": "3 US Bank Stocks Retail Investors Are Screening As Rate Hike Pressure Builds",
+            "src": "Yahoo Finance"
+          }
+        ]
+      },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
@@ -1031,24 +1061,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-21T06:07:31+00:00",
-            "title": "U.S. stocks slump into correction territory amid tech and AI worries",
-            "src": "The Washington Post"
+            "t": "2026-11-21T03:34:42+00:00",
+            "title": "How did protective tariffs help manufacturers in the North?",
+            "src": "Britannica"
           },
           {
-            "t": "2026-11-21T04:00:00+00:00",
-            "title": "Point: Tariffs aren’t driving inflation — the Fed’s numbers say so",
-            "src": "chronicleonline.com"
-          },
-          {
-            "t": "2026-11-21T02:07:00+00:00",
-            "title": "Gov. Whitmer Says She Warned Trump Tariffs Would Hurt Mike Rogers in Michigan Election",
-            "src": "Deadline Detroit"
+            "t": "2026-11-21T03:34:41+00:00",
+            "title": "Why was South Carolina’s agricultural economy especially vulnerable to high tariffs?",
+            "src": "Britannica"
           },
           {
             "t": "2026-11-21T00:25:00+00:00",
             "title": "U.S. senator says Canada should make interim tariff agreement, let Congress 'legislate' long-term deal",
             "src": "CBC"
+          },
+          {
+            "t": "2026-11-21T00:16:00+00:00",
+            "title": "The Weekly Spread: What Shaped US Treasury Yields And The Dollar This Week",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1071,20 +1101,19 @@
             "src": "Financial Times"
           },
           {
-            "t": "2026-11-21T03:00:41+00:00",
-            "title": "Russian Offensive Campaign Assessment, November 20, 2026",
-            "src": "Institute for the Study of War"
+            "t": "2026-11-21T04:02:06+00:00",
+            "title": "Live - US, Israel weigh strikes, Bessent says Iran may never be paid for oil already sold",
+            "src": "Iran International"
           }
         ]
       }
     },
     "failed": [
-      "الفدرالي والفائدة",
       "الأسهم الأمريكية و S&P 500"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-21T07:00:45.273087+00:00",
+    "at": "2026-11-21T07:15:34.774398+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1742,7 +1771,7 @@
       "source": "عنوان خبر (Google News)",
       "period": "",
       "received_at": "2026-11-20T15:30:43.403548+00:00",
-      "last_attempt": "2026-11-21T06:15:33.257777+00:00",
+      "last_attempt": "2026-11-21T07:15:34.774398+00:00",
       "attempts": 3,
       "title": "Revised UoM Consumer Sentiment",
       "time": "2026-11-20T15:00:00+00:00",
@@ -1759,15 +1788,15 @@
     "US|mich|level_pct|2026-11|-|2026-11-20": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 20,
+      "attempts": 21,
       "title": "Revised UoM Inflation Expectations",
       "time": "2026-11-20T15:00:00+00:00",
       "impact": "Medium",
       "forecast": "",
       "previous": "4.3%",
       "country": "USD",
-      "last_attempt": "2026-11-21T06:15:33.257777+00:00",
-      "note": ""
+      "last_attempt": "2026-11-21T07:15:34.774398+00:00",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   },
   "stats": {
@@ -10868,12 +10897,58 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|umcsent|level|2026-11|-|2026-11-20",
+      "title": "Revised UoM Consumer Sentiment",
+      "release_time": "2026-11-20T15:00:00+00:00",
+      "fetched_at": "2026-11-21T07:15:34.774398+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "51.7",
+      "previous": "51.0",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|mich|level_pct|2026-11|-|2026-11-20",
+      "title": "Revised UoM Inflation Expectations",
+      "release_time": "2026-11-20T15:00:00+00:00",
+      "fetched_at": "2026-11-21T07:15:34.774398+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "4.3%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-21T07:00:45.273087+00:00",
+  "last_publish_ok": "2026-11-21T07:15:34.774398+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T07:01:15.431160+00:00"
+    "at": "2026-11-21T07:16:02.585771+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10988,7 +11063,7 @@
     "fred": {
       "ok": true,
       "detail": "2 سلسلة",
-      "at": "2026-11-21T06:15:33.257777+00:00"
+      "at": "2026-11-21T07:15:34.774398+00:00"
     },
     "alfred": {
       "ok": false,
@@ -11008,12 +11083,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T07:00:45.273087+00:00",
-    "ok_at": "2026-11-21T07:00:45.273087+00:00",
+    "at": "2026-11-21T07:15:34.774398+00:00",
+    "ok_at": "2026-11-21T07:15:34.774398+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T07:00:45.273087+00:00",
+    "at": "2026-11-21T07:15:34.774398+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
