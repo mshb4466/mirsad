@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T04:45:36.161936+00:00",
-        "ok_at": "2026-11-21T04:45:36.161936+00:00"
+        "last_try": "2026-11-21T05:00:48.861713+00:00",
+        "ok_at": "2026-11-21T05:00:48.861713+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T04:45:36.161936+00:00",
-        "ok_at": "2026-11-21T04:45:36.161936+00:00"
+        "last_try": "2026-11-21T05:00:48.861713+00:00",
+        "ok_at": "2026-11-21T05:00:48.861713+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T04:45:36.161936+00:00",
-        "ok_at": "2026-11-21T04:45:36.161936+00:00"
+        "last_try": "2026-11-21T05:00:48.861713+00:00",
+        "ok_at": "2026-11-21T05:00:48.861713+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T04:45:36.161936+00:00",
-        "ok_at": "2026-11-21T04:45:36.161936+00:00"
+        "last_try": "2026-11-21T05:00:48.861713+00:00",
+        "ok_at": "2026-11-21T05:00:48.861713+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T04:45:36.161936+00:00",
-        "ok_at": "2026-11-21T04:45:36.161936+00:00"
+        "last_try": "2026-11-21T05:00:48.861713+00:00",
+        "ok_at": "2026-11-21T05:00:48.861713+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T04:45:36.161936+00:00",
-        "ok_at": "2026-11-21T04:45:36.161936+00:00"
+        "last_try": "2026-11-21T05:00:48.861713+00:00",
+        "ok_at": "2026-11-21T05:00:48.861713+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T04:45:36.161936+00:00",
-        "ok_at": "2026-11-21T04:45:36.161936+00:00"
+        "last_try": "2026-11-21T05:00:48.861713+00:00",
+        "ok_at": "2026-11-21T05:00:48.861713+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T04:45:36.161936+00:00",
+        "last_try": "2026-11-21T05:00:48.861713+00:00",
         "ok_at": "2026-11-20T14:45:39.012066+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T04:45:36.161936+00:00"
+      "at": "2026-11-21T05:00:48.861713+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,9 +964,69 @@
     }
   },
   "week_news": {
-    "at": "2026-11-21T04:00:42.796085+00:00",
+    "at": "2026-11-21T05:00:48.861713+00:00",
     "asset": "es",
     "data": {
+      "fed": {
+        "label": "الفدرالي والفائدة",
+        "items": [
+          {
+            "t": "2026-11-21T03:35:18+00:00",
+            "title": "Obituary for Etheline Powell",
+            "src": "Bentley and Sons Funeral Home"
+          },
+          {
+            "t": "2026-11-21T02:31:00+00:00",
+            "title": "Charlotte food pantries seeking donations to help people stay fed this Thanksgiving",
+            "src": "WBTV"
+          },
+          {
+            "t": "2026-11-21T02:08:46+00:00",
+            "title": "Barkin: US and Virginia workforce remain flat",
+            "src": "Virginia Business"
+          },
+          {
+            "t": "2026-11-21T01:11:24+00:00",
+            "title": "Redding Electric Utility rate hike approved by council",
+            "src": "Shasta Scout"
+          },
+          {
+            "t": "2026-11-21T00:43:37+00:00",
+            "title": "Roger Powell Obituary (2026) - Findlay, OH",
+            "src": "Findlay News | The Courier"
+          }
+        ]
+      },
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
+        "items": [
+          {
+            "t": "2026-11-21T00:46:00+00:00",
+            "title": "Has AI's honeymoon ended on Wall Street?",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-21T00:17:00+00:00",
+            "title": "Nasdaq has its worst week since 2020; Dow, S&P 500 in correction",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-20T23:53:21+00:00",
+            "title": "S&P 500 correction: Five forces behind the market sell-off",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-20T23:36:00+00:00",
+            "title": "Anthropic’s IPO Turmoil Caps $4 Trillion AI Wipeout on Wall Street",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-20T22:55:41+00:00",
+            "title": "U.S. Stocks Extend Plunge as AI Boom Turns to Bust",
+            "src": "WSJ"
+          }
+        ]
+      },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
@@ -981,19 +1041,44 @@
             "src": "Bloomberg.com"
           },
           {
+            "t": "2026-11-20T21:58:08+00:00",
+            "title": "Nvidia faces US regulator’s probe into its accounting",
+            "src": "Financial Times"
+          },
+          {
             "t": "2026-11-20T21:37:28+00:00",
             "title": "EXCLUSIVE: Nvidia's accounting is a focus of US SEC investigation, sources say",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-20T21:35:02+00:00",
-            "title": "Stock Market Today, Nov. 20: Nvidia's $2.5 Trillion Rout Deepens as SEC Accounting Probe Adds to Wall Street's AI Sell-Off",
-            "src": "The Motley Fool"
+            "t": "2026-11-20T21:35:24+00:00",
+            "title": "Nvidia stock extends $2.7 trillion rout as SEC probe reportedly investigates its accounting",
+            "src": "Yahoo Finance"
+          }
+        ]
+      },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-11-21T04:37:31+00:00",
+            "title": "U.S. stocks slump into correction territory amid tech and AI worries",
+            "src": "The Washington Post"
           },
           {
-            "t": "2026-11-20T21:16:03+00:00",
-            "title": "Wall Street Regulator Probing Nvidia’s Accounting, Report Says",
-            "src": "Bloomberg.com"
+            "t": "2026-11-21T04:00:00+00:00",
+            "title": "Point: Tariffs aren’t driving inflation — the Fed’s numbers say so",
+            "src": "chronicleonline.com"
+          },
+          {
+            "t": "2026-11-21T02:07:00+00:00",
+            "title": "Gov. Whitmer Says She Warned Trump Tariffs Would Hurt Mike Rogers in Michigan Election",
+            "src": "Deadline Detroit"
+          },
+          {
+            "t": "2026-11-21T00:25:00+00:00",
+            "title": "U.S. senator says Canada should make interim tariff agreement, let Congress 'legislate' long-term deal",
+            "src": "CBC"
           }
         ]
       },
@@ -1011,27 +1096,24 @@
             "src": "Iran International"
           },
           {
-            "t": "2026-11-21T01:05:00+00:00",
-            "title": "Whiteman bomb wings receive Presidential Unit Citation for Iran strike mission",
-            "src": "KCTV"
+            "t": "2026-11-21T01:51:55+00:00",
+            "title": "Russia unleashes barrage of missiles on Ukraine, killing at least 8",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-20T22:00:00+00:00",
-            "title": "You Can Seize Everything (The U.S. is reviving pirate law) : Planet Money",
-            "src": "NPR"
+            "t": "2026-11-21T01:32:19+00:00",
+            "title": "Operation Economic Outcast Targets Regime Insiders Exploiting Iran’s Oil Sector For Personal Gain",
+            "src": "Eurasia Review"
           }
         ]
       }
     },
     "failed": [
-      "الفدرالي والفائدة",
-      "الأسهم الأمريكية و S&P 500",
-      "الاقتصاد والبيانات",
-      "السياسة التجارية والمالية"
+      "الاقتصاد والبيانات"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-21T04:45:36.161936+00:00",
+    "at": "2026-11-21T05:00:48.861713+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -10702,10 +10784,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-21T04:45:36.161936+00:00",
+  "last_publish_ok": "2026-11-21T05:00:48.861713+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T04:46:04.173049+00:00"
+    "at": "2026-11-21T05:01:14.486089+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10840,12 +10922,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T04:45:36.161936+00:00",
-    "ok_at": "2026-11-21T04:45:36.161936+00:00",
+    "at": "2026-11-21T05:00:48.861713+00:00",
+    "ok_at": "2026-11-21T05:00:48.861713+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T04:45:36.161936+00:00",
+    "at": "2026-11-21T05:00:48.861713+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
