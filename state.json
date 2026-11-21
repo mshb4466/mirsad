@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T21:15:34.016875+00:00",
-        "ok_at": "2026-11-21T21:15:34.016875+00:00"
+        "last_try": "2026-11-21T21:30:47.202234+00:00",
+        "ok_at": "2026-11-21T21:30:47.202234+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T21:15:34.016875+00:00",
-        "ok_at": "2026-11-21T21:15:34.016875+00:00"
+        "last_try": "2026-11-21T21:30:47.202234+00:00",
+        "ok_at": "2026-11-21T21:30:47.202234+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T21:15:34.016875+00:00",
-        "ok_at": "2026-11-21T21:15:34.016875+00:00"
+        "last_try": "2026-11-21T21:30:47.202234+00:00",
+        "ok_at": "2026-11-21T21:30:47.202234+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T21:15:34.016875+00:00",
-        "ok_at": "2026-11-21T21:15:34.016875+00:00"
+        "last_try": "2026-11-21T21:30:47.202234+00:00",
+        "ok_at": "2026-11-21T21:30:47.202234+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T21:15:34.016875+00:00",
-        "ok_at": "2026-11-21T21:15:34.016875+00:00"
+        "last_try": "2026-11-21T21:30:47.202234+00:00",
+        "ok_at": "2026-11-21T21:30:47.202234+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T21:15:34.016875+00:00",
-        "ok_at": "2026-11-21T21:15:34.016875+00:00"
+        "last_try": "2026-11-21T21:30:47.202234+00:00",
+        "ok_at": "2026-11-21T21:30:47.202234+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T21:15:34.016875+00:00",
-        "ok_at": "2026-11-21T21:15:34.016875+00:00"
+        "last_try": "2026-11-21T21:30:47.202234+00:00",
+        "ok_at": "2026-11-21T21:30:47.202234+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T21:15:34.016875+00:00",
-        "ok_at": "2026-11-21T21:15:34.016875+00:00"
+        "last_try": "2026-11-21T21:30:47.202234+00:00",
+        "ok_at": "2026-11-21T21:30:47.202234+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T21:15:34.016875+00:00"
+      "at": "2026-11-21T21:30:47.202234+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,36 +964,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-21T20:15:38.992674+00:00",
+    "at": "2026-11-21T21:30:47.202234+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-21T04:35:00+00:00",
-            "title": "Powell mother accused of lying about daughter’s leukemia diagnosis",
-            "src": "10TV"
+            "t": "2026-11-21T20:40:44+00:00",
+            "title": "Japan Consumer Inflation Reinforces Rate-Hike Expectations",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-21T03:35:18+00:00",
-            "title": "Obituary for Etheline Powell",
-            "src": "Bentley and Sons Funeral Home"
+            "t": "2026-11-21T15:07:00+00:00",
+            "title": "J.P. Morgan prices in stunning shift in Fed rate-hike call",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-20T22:32:00+00:00",
-            "title": "Trump again urges Fed to lower interest rates",
-            "src": "The Hill"
+            "t": "2026-11-21T15:00:00+00:00",
+            "title": "Letters to the Editor: White House hearing on Fed governor seems to be nothing more than kangaroo court",
+            "src": "Los Angeles Times"
           },
           {
-            "t": "2026-11-20T21:16:36+00:00",
-            "title": "Federal Reserve announces College Fed Challenge winners",
-            "src": "Federal Reserve (.gov)"
+            "t": "2026-11-21T14:21:48+00:00",
+            "title": "Norman Powell's game-tying shot bounces out, Bulls come up short against Wizards",
+            "src": "NBA.com"
           },
           {
-            "t": "2026-11-20T20:03:18+00:00",
-            "title": "Regional Economic Conditions: Construction",
-            "src": "Federal Reserve Bank of Minneapolis"
+            "t": "2026-11-21T11:00:00+00:00",
+            "title": "Michigan environmental news: DTE says it will wait until late 2027 for next natural gas rate hike request",
+            "src": "Planet Detroit"
           }
         ]
       },
@@ -1001,14 +1001,19 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
+            "t": "2026-11-21T20:42:00+00:00",
+            "title": "The S&P 500 Is Now Below Every Wall Street Year-End Target for 2026",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-11-21T20:11:30+00:00",
             "title": "Wall Street comedown unsettling, but not unusual",
             "src": "Boston Herald"
           },
           {
-            "t": "2026-11-21T19:23:03+00:00",
-            "title": "Lufthansa to Cut 1,000 Jobs at Flagship Airline as Challenges Mount",
-            "src": "WSJ"
+            "t": "2026-11-21T19:22:53+00:00",
+            "title": "T-Bills Are Beating the Nasdaq, S&P 500 and Dow This Year",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-21T19:07:02+00:00",
@@ -1019,11 +1024,6 @@
             "t": "2026-11-21T16:38:00+00:00",
             "title": "Worried About Black Monday? What Wall Street Says Could Happen.",
             "src": "Barron's"
-          },
-          {
-            "t": "2026-11-21T16:05:02+00:00",
-            "title": "If the S&P 500 Drops by 20%, I'm Buying These 3 ETFs Without Hesitation",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1031,14 +1031,14 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-11-21T20:07:00+00:00",
+            "title": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
+            "src": "The New York Times"
+          },
+          {
             "t": "2026-11-21T17:11:23+00:00",
             "title": "California Nvidia Probe Covers Potential Criminal Law Violations",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-21T16:06:00+00:00",
-            "title": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
-            "src": "The New York Times"
           },
           {
             "t": "2026-11-21T08:16:08+00:00",
@@ -1061,6 +1061,11 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-11-21T21:00:00+00:00",
+            "title": "US Consumers Are Holding Up Against Inflation Going Into Holiday Season",
+            "src": "Bloomberg.com"
+          },
+          {
             "t": "2026-11-21T17:57:00+00:00",
             "title": "Survey Shows Florida Consumer Sentiment",
             "src": "West Orlando News"
@@ -1076,14 +1081,9 @@
             "src": "MoneyLion"
           },
           {
-            "t": "2026-11-21T13:41:10+00:00",
-            "title": "Consumer sentiment rises after midterm election",
-            "src": "ABC Columbia"
-          },
-          {
-            "t": "2026-11-21T10:00:00+00:00",
-            "title": "Charting the Global Economy: GDP Slips in Japan on Weak Consumer",
-            "src": "Bloomberg.com"
+            "t": "2026-11-21T16:00:06+00:00",
+            "title": "Inflation, economic growth and the mood of US consumers in focus this week",
+            "src": "Henry Herald"
           }
         ]
       },
@@ -1091,40 +1091,30 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-11-21T13:30:00+00:00",
+            "title": "Potential government shutdown threatens US holiday air travel",
+            "src": "Mezha.net"
+          },
+          {
             "t": "2026-11-21T13:19:38+00:00",
             "title": "Turkey seeks exemption from possible EU hybrid car tariffs",
             "src": "Turkish Minute"
           },
           {
+            "t": "2026-11-21T11:30:00+00:00",
+            "title": "‘Canada cheats’: Trump adviser backs 50% tariff as LeBlanc warns U.S. trade deal won't kill auto, steel duties",
+            "src": "Yahoo! Finance Canada"
+          },
+          {
             "t": "2026-11-21T10:29:00+00:00",
             "title": "Trump Advisor Steven Paul Hopes U.S. Tax Credit Will Be ‘Active’ in January, Tariffs Are Old News: ‘Now It’s All Hands on Deck Federal Credit’",
             "src": "Variety"
-          },
-          {
-            "t": "2026-11-21T06:26:59+00:00",
-            "title": "U.S. stocks slump into correction territory amid tech and AI worries",
-            "src": "The Washington Post"
-          },
-          {
-            "t": "2026-11-21T04:00:00+00:00",
-            "title": "Point: Tariffs aren’t driving inflation — the Fed’s numbers say so",
-            "src": "chronicleonline.com"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
-          {
-            "t": "2026-11-21T19:45:07+00:00",
-            "title": "Crude Oil Choppy as Strait of Hormuz Flows Fall and Traders Price In Renewed US-Iran Strikes",
-            "src": "Benzinga"
-          },
-          {
-            "t": "2026-11-21T19:13:00+00:00",
-            "title": "2 dead, 60 injured in Russian strike on Zelensky’s central Ukraine hometown",
-            "src": "New York Post"
-          },
           {
             "t": "2026-11-21T19:03:20+00:00",
             "title": "The Iran War Could Permanently Slash Reliance on Hormuz, IEA Says",
@@ -1134,6 +1124,16 @@
             "t": "2026-11-21T18:54:35+00:00",
             "title": "Russian crew evacuating ship hit by drones off coast of Finland",
             "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-21T17:00:00+00:00",
+            "title": "The U.A.E. Is Shuttling Oil Past Iran in Risky Hormuz Operation",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-21T15:03:46+00:00",
+            "title": "Tankers hit in Strait of Hormuz as Iran tightens grip on shipping",
+            "src": "Al Jazeera"
           }
         ]
       }
@@ -1141,7 +1141,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-21T21:15:34.016875+00:00",
+    "at": "2026-11-21T21:30:47.202234+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -11042,10 +11042,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-21T21:15:34.016875+00:00",
+  "last_publish_ok": "2026-11-21T21:30:47.202234+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T21:16:01.403392+00:00"
+    "at": "2026-11-21T21:31:11.487559+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11180,12 +11180,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T21:15:34.016875+00:00",
-    "ok_at": "2026-11-21T21:15:34.016875+00:00",
+    "at": "2026-11-21T21:30:47.202234+00:00",
+    "ok_at": "2026-11-21T21:30:47.202234+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T21:15:34.016875+00:00",
+    "at": "2026-11-21T21:30:47.202234+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
