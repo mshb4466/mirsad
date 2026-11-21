@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T16:15:33.332175+00:00",
-        "ok_at": "2026-11-21T16:15:33.332175+00:00"
+        "last_try": "2026-11-21T16:30:45.079009+00:00",
+        "ok_at": "2026-11-21T16:30:45.079009+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T16:15:33.332175+00:00",
-        "ok_at": "2026-11-21T16:15:33.332175+00:00"
+        "last_try": "2026-11-21T16:30:45.079009+00:00",
+        "ok_at": "2026-11-21T16:30:45.079009+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T16:15:33.332175+00:00",
-        "ok_at": "2026-11-21T16:15:33.332175+00:00"
+        "last_try": "2026-11-21T16:30:45.079009+00:00",
+        "ok_at": "2026-11-21T16:30:45.079009+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T16:15:33.332175+00:00",
-        "ok_at": "2026-11-21T16:15:33.332175+00:00"
+        "last_try": "2026-11-21T16:30:45.079009+00:00",
+        "ok_at": "2026-11-21T16:30:45.079009+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T16:15:33.332175+00:00",
-        "ok_at": "2026-11-21T16:15:33.332175+00:00"
+        "last_try": "2026-11-21T16:30:45.079009+00:00",
+        "ok_at": "2026-11-21T16:30:45.079009+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T16:15:33.332175+00:00",
-        "ok_at": "2026-11-21T16:15:33.332175+00:00"
+        "last_try": "2026-11-21T16:30:45.079009+00:00",
+        "ok_at": "2026-11-21T16:30:45.079009+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T16:15:33.332175+00:00",
-        "ok_at": "2026-11-21T16:15:33.332175+00:00"
+        "last_try": "2026-11-21T16:30:45.079009+00:00",
+        "ok_at": "2026-11-21T16:30:45.079009+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T16:15:33.332175+00:00",
+        "last_try": "2026-11-21T16:30:45.079009+00:00",
         "ok_at": "2026-11-20T14:45:39.012066+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T16:15:33.332175+00:00"
+      "at": "2026-11-21T16:30:45.079009+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,7 +964,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-21T15:15:45.138512+00:00",
+    "at": "2026-11-21T16:30:45.079009+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -974,6 +974,11 @@
             "t": "2026-11-21T15:00:00+00:00",
             "title": "Letters to the Editor: White House hearing on Fed governor seems to be nothing more than kangaroo court",
             "src": "Los Angeles Times"
+          },
+          {
+            "t": "2026-11-21T14:21:48+00:00",
+            "title": "Norman Powell's game-tying shot bounces out, Bulls come up short against Wizards",
+            "src": "NBA.com"
           },
           {
             "t": "2026-11-21T13:27:01+00:00",
@@ -989,17 +994,47 @@
             "t": "2026-11-21T04:37:00+00:00",
             "title": "New babies, new homes, higher power bills; what Alabama Power’s rate cut means for two families",
             "src": "wvtm"
+          }
+        ]
+      },
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
+        "items": [
+          {
+            "t": "2026-11-21T16:10:59+00:00",
+            "title": "Israeli Spy Chief Pressed for Renewed Iran Strikes During U.S. Visit",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-21T04:35:00+00:00",
-            "title": "Powell mother accused of lying about daughter’s leukemia diagnosis",
-            "src": "10TV"
+            "t": "2026-11-21T15:47:42+00:00",
+            "title": "Jim Cramer Says the Market “Sliced Right Through” His S&P 500 Target",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-21T15:28:29+00:00",
+            "title": "Wall Street’s Fear Index Just Hit 9.7. History Says the S&P 500 Could Rally 10.5% in 3 Weeks",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-21T13:46:00+00:00",
+            "title": "Tentative Deal Averts Strike Threat at Busiest U.S. Ports",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-21T13:00:01+00:00",
+            "title": "Anthropic’s record IPO collides with tech’s worst week on Wall Street since 2020",
+            "src": "CNBC"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-21T12:33:29+00:00",
+            "title": "Nvidia stock extends $2.7 trillion rout as SEC probe reportedly investigates its accounting",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-11-21T08:16:08+00:00",
             "title": "Investor Focus: Anthropic’s Record-Breaking IPO, Nvidia’s Earnings, and an Undervalued UK Defense Stock",
@@ -1016,14 +1051,9 @@
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-20T21:16:03+00:00",
-            "title": "Wall Street Regulator Probing Nvidia’s Accounting, Report Says",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-20T19:59:30+00:00",
-            "title": "Nvidia falls after SEC probe on potential accounting issues",
-            "src": "investingLive"
+            "t": "2026-11-20T21:55:02+00:00",
+            "title": "Stock Market Today, Nov. 20: Nvidia's $2.5 Trillion Rout Deepens as SEC Accounting Probe Adds to Wall Street's AI Sell-Off",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1031,29 +1061,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-21T07:20:00+00:00",
-            "title": "Consumer Sentiment Recovers Significantly In November",
-            "src": "Seeking Alpha"
+            "t": "2026-11-21T16:00:00+00:00",
+            "title": "Inflation, economic growth and the mood of US consumers in focus this week",
+            "src": "AP News"
           },
           {
-            "t": "2026-11-21T06:11:38+00:00",
-            "title": "US Consumer Sentiment Improved, Even As Retail Stocks Diverged",
-            "src": "Finimize"
+            "t": "2026-11-21T06:48:26+00:00",
+            "title": "Macy's Thanksgiving Day Parade 2026 lineup: Time, balloons, route, inflation and more",
+            "src": "ABC7 New York"
           },
           {
-            "t": "2026-11-21T04:55:23+00:00",
-            "title": "U.S. Consumer Sentiment Rises in November",
-            "src": "Briefs Finance"
+            "t": "2026-11-20T22:35:00+00:00",
+            "title": "Core inflation measures can't escape high energy prices",
+            "src": "Marketplace.org"
           },
           {
-            "t": "2026-11-21T03:01:48+00:00",
-            "title": "Israel's economy surges as GDP per capita rises 4.3%, but cost of living remains high - analysis",
-            "src": "The Jerusalem Post"
+            "t": "2026-11-20T22:24:09+00:00",
+            "title": "Inflation, Tariffs and AI Drive Up Our 2027 Medical Costs",
+            "src": "SMART Union"
           },
           {
-            "t": "2026-11-21T02:55:00+00:00",
-            "title": "Consumer sentiment lifts after election, report finds",
-            "src": "cbs8.com"
+            "t": "2026-11-20T22:16:09+00:00",
+            "title": "Americans feel better about their pocketbooks this month",
+            "src": "Axios"
           }
         ]
       },
@@ -1071,20 +1101,25 @@
             "src": "Variety"
           },
           {
-            "t": "2026-11-21T04:00:00+00:00",
-            "title": "Point: Tariffs aren’t driving inflation — the Fed’s numbers say so",
-            "src": "chronicleonline.com"
+            "t": "2026-11-21T08:19:59+00:00",
+            "title": "Treasury Yields Fall, German Bunds’ Tick Higher",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-21T03:34:42+00:00",
-            "title": "How did protective tariffs help manufacturers in the North?",
-            "src": "Britannica"
+            "t": "2026-11-21T06:26:59+00:00",
+            "title": "U.S. stocks slump into correction territory amid tech and AI worries",
+            "src": "The Washington Post"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-11-21T15:58:32+00:00",
+            "title": "Rescue efforts under way as drones hit Russian ship off Finland coast",
+            "src": "Al Jazeera"
+          },
           {
             "t": "2026-11-21T15:05:19+00:00",
             "title": "Britain’s New Russia Sanctions: Imperfect, but a Signal Ukraine Won’t Be Traded Away",
@@ -1099,21 +1134,14 @@
             "t": "2026-11-21T14:39:00+00:00",
             "title": "Two Oil Tankers Hit by Unidentified Projectiles Near Strait of Hormuz, U.K. Maritime Organization Says",
             "src": "Haaretz"
-          },
-          {
-            "t": "2026-11-21T14:06:54+00:00",
-            "title": "Visas, Sanctions, Money: How The EU Plans To Prolong Bans On Russian Athletes",
-            "src": "Radio Free Europe/Radio Liberty"
           }
         ]
       }
     },
-    "failed": [
-      "الأسهم الأمريكية و S&P 500"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-21T16:15:33.332175+00:00",
+    "at": "2026-11-21T16:30:45.079009+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1661,14 +1689,14 @@
     "US|growth:core-retail-sales-m-m|2026-11-17|1330": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 48,
+      "attempts": 49,
       "title": "Core Retail Sales m/m",
       "time": "2026-11-17T13:30:00+00:00",
       "impact": "High",
       "forecast": "0.4%",
       "previous": "0.9%",
       "country": "USD",
-      "last_attempt": "2026-11-20T17:15:39.991991+00:00",
+      "last_attempt": "2026-11-21T16:30:45.079009+00:00",
       "note": ""
     },
     "US|retail|mm|2026-10|-|2026-11-17": {
@@ -1796,7 +1824,7 @@
       "previous": "4.3%",
       "country": "USD",
       "last_attempt": "2026-11-21T16:15:33.332175+00:00",
-      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+      "note": ""
     }
   },
   "stats": {
@@ -1813,29 +1841,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|cpi|mm|2026-10|-|2026-11-10",
-      "title": "CPI m/m",
-      "release_time": "2026-11-10T13:30:00+00:00",
-      "fetched_at": "2026-11-10T19:56:02.270313+00:00",
-      "source": "BLS",
-      "tier": "official",
-      "value": "0.4%",
-      "period": "2026-10-01",
-      "series": "CUSR0000SA0",
-      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
-      "raw": 0.3502845690429357,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "0.6%",
-      "basis": "محسوب من سلسلة رسمية",
-      "forecast": "0.3%",
-      "previous": "0.6%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: BLS (CUSR0000SA0، فترة 2026-10-01) — CPI شهرياً (سلسلة رسمية من BLS)؛ محسوب من السلسلة ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
     {
       "id": "US|auction:10-y-bond-auction|2026-11-10|1801",
       "title": "10-y Bond Auction",
@@ -11012,12 +11017,35 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|growth:core-retail-sales-m-m|2026-11-17|1330",
+      "title": "Core Retail Sales m/m",
+      "release_time": "2026-11-17T13:30:00+00:00",
+      "fetched_at": "2026-11-21T16:30:45.079009+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "0.4%",
+      "previous": "0.9%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": ""
     }
   ],
-  "last_publish_ok": "2026-11-21T16:15:33.332175+00:00",
+  "last_publish_ok": "2026-11-21T16:30:45.079009+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T16:16:04.584916+00:00"
+    "at": "2026-11-21T16:31:13.757472+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11152,12 +11180,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T16:15:33.332175+00:00",
-    "ok_at": "2026-11-21T16:15:33.332175+00:00",
+    "at": "2026-11-21T16:30:45.079009+00:00",
+    "ok_at": "2026-11-21T16:30:45.079009+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T16:15:33.332175+00:00",
+    "at": "2026-11-21T16:30:45.079009+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
