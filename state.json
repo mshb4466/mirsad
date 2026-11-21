@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T18:45:35.230316+00:00",
-        "ok_at": "2026-11-21T18:45:35.230316+00:00"
+        "last_try": "2026-11-21T19:00:47.340413+00:00",
+        "ok_at": "2026-11-21T19:00:47.340413+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T18:45:35.230316+00:00",
-        "ok_at": "2026-11-21T18:45:35.230316+00:00"
+        "last_try": "2026-11-21T19:00:47.340413+00:00",
+        "ok_at": "2026-11-21T19:00:47.340413+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T18:45:35.230316+00:00",
-        "ok_at": "2026-11-21T18:45:35.230316+00:00"
+        "last_try": "2026-11-21T19:00:47.340413+00:00",
+        "ok_at": "2026-11-21T19:00:47.340413+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T18:45:35.230316+00:00",
-        "ok_at": "2026-11-21T18:45:35.230316+00:00"
+        "last_try": "2026-11-21T19:00:47.340413+00:00",
+        "ok_at": "2026-11-21T19:00:47.340413+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T18:45:35.230316+00:00",
-        "ok_at": "2026-11-21T18:45:35.230316+00:00"
+        "last_try": "2026-11-21T19:00:47.340413+00:00",
+        "ok_at": "2026-11-21T19:00:47.340413+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T18:45:35.230316+00:00",
-        "ok_at": "2026-11-21T18:45:35.230316+00:00"
+        "last_try": "2026-11-21T19:00:47.340413+00:00",
+        "ok_at": "2026-11-21T19:00:47.340413+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T18:45:35.230316+00:00",
-        "ok_at": "2026-11-21T18:45:35.230316+00:00"
+        "last_try": "2026-11-21T19:00:47.340413+00:00",
+        "ok_at": "2026-11-21T19:00:47.340413+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T18:45:35.230316+00:00",
+        "last_try": "2026-11-21T19:00:47.340413+00:00",
         "ok_at": "2026-11-20T14:45:39.012066+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T18:45:35.230316+00:00"
+      "at": "2026-11-21T19:00:47.340413+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,7 +964,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-21T17:45:36.608553+00:00",
+    "at": "2026-11-21T19:00:47.340413+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -1001,8 +1001,13 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-21T17:29:32+00:00",
-            "title": "Classified U.S. Intelligence System Is Down, U.S. Officials Say",
+            "t": "2026-11-21T17:30:00+00:00",
+            "title": "Mexico Captures Top Drug Boss in Fierce Gunfight",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-21T17:00:00+00:00",
+            "title": "What It’s Like to Retire in Thailand",
             "src": "WSJ"
           },
           {
@@ -1011,19 +1016,14 @@
             "src": "Barron's"
           },
           {
+            "t": "2026-11-21T16:05:02+00:00",
+            "title": "If the S&P 500 Drops by 20%, I'm Buying These 3 ETFs Without Hesitation",
+            "src": "Yahoo Finance"
+          },
+          {
             "t": "2026-11-21T15:47:42+00:00",
             "title": "Jim Cramer Says the Market “Sliced Right Through” His S&P 500 Target",
             "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-21T15:28:29+00:00",
-            "title": "Wall Street’s Fear Index Just Hit 9.7. History Says the S&P 500 Could Rally 10.5% in 3 Weeks",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-21T15:13:13+00:00",
-            "title": "Top Takeaways From Joe Biden’s New Memoir",
-            "src": "WSJ"
           }
         ]
       },
@@ -1031,14 +1031,14 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-11-21T17:11:23+00:00",
+            "title": "California Nvidia Probe Covers Potential Criminal Law Violations",
+            "src": "Bloomberg.com"
+          },
+          {
             "t": "2026-11-21T16:06:00+00:00",
             "title": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
             "src": "The New York Times"
-          },
-          {
-            "t": "2026-11-21T12:33:29+00:00",
-            "title": "Nvidia stock extends $2.7 trillion rout as SEC probe reportedly investigates its accounting",
-            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-21T08:16:08+00:00",
@@ -1046,69 +1046,14 @@
             "src": "Morningstar"
           },
           {
+            "t": "2026-11-21T06:29:00+00:00",
+            "title": "Nvidia plunges 14% amid SEC probe; mounting US scrutiny could cast long shadow over chip giant: analysts",
+            "src": "Global Times"
+          },
+          {
             "t": "2026-11-20T22:12:21+00:00",
             "title": "Watch Nvidia Plunges as SEC Probe Deepens AI Market Selloff | Closing Bell",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-20T21:16:03+00:00",
-            "title": "Wall Street Regulator Probing Nvidia’s Accounting, Report Says",
-            "src": "Bloomberg.com"
-          }
-        ]
-      },
-      "macro": {
-        "label": "الاقتصاد والبيانات",
-        "items": [
-          {
-            "t": "2026-11-21T16:16:28+00:00",
-            "title": "Inflation, economic growth and the mood of US consumers in focus this week",
-            "src": "The Washington Post"
-          },
-          {
-            "t": "2026-11-20T22:35:00+00:00",
-            "title": "Core inflation measures can't escape high energy prices",
-            "src": "Marketplace.org"
-          },
-          {
-            "t": "2026-11-20T22:24:09+00:00",
-            "title": "Inflation, Tariffs and AI Drive Up Our 2027 Medical Costs",
-            "src": "SMART Union"
-          },
-          {
-            "t": "2026-11-20T21:08:00+00:00",
-            "title": "Fed governor admits people see higher inflation as normal, vows to break that ‘kind of psychology’",
-            "src": "Fortune"
-          },
-          {
-            "t": "2026-11-20T21:05:00+00:00",
-            "title": "Housing Inflation Is a Bigger Problem Than Official Data Suggest. It’s About to Get Even Worse.",
-            "src": "Barron's"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-21T13:19:38+00:00",
-            "title": "Turkey seeks exemption from possible EU hybrid car tariffs",
-            "src": "Turkish Minute"
-          },
-          {
-            "t": "2026-11-21T04:00:00+00:00",
-            "title": "Point: Tariffs aren’t driving inflation — the Fed’s numbers say so",
-            "src": "chronicleonline.com"
-          },
-          {
-            "t": "2026-11-21T03:34:42+00:00",
-            "title": "How did protective tariffs help manufacturers in the North?",
-            "src": "Britannica"
-          },
-          {
-            "t": "2026-11-21T03:34:41+00:00",
-            "title": "Why was South Carolina’s agricultural economy especially vulnerable to high tariffs?",
-            "src": "Britannica"
           }
         ]
       },
@@ -1116,32 +1061,35 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-21T17:00:00+00:00",
-            "title": "The U.A.E. Is Shuttling Oil Past Iran in Risky Hormuz Operation",
-            "src": "WSJ"
+            "t": "2026-11-21T18:53:00+00:00",
+            "title": "Trump signals push for wider Russia-Ukraine ceasefire",
+            "src": "AzerNews"
           },
           {
-            "t": "2026-11-21T15:58:32+00:00",
-            "title": "Rescue efforts under way as drones hit Russian ship off Finland coast",
+            "t": "2026-11-21T18:47:57+00:00",
+            "title": "Deadly attack in Kyiv as Russia launches barrage against Ukraine",
             "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-21T13:00:43+00:00",
-            "title": "Russian ‘triple-tap’ attack in Ukraine kills emergency worker and 7-year-old in Zelensky’s home city",
-            "src": "CNN"
+            "t": "2026-11-21T18:35:04+00:00",
+            "title": "China's economic footprint in Latin America is expanding through trade, ports and critical minerals",
+            "src": "Latin Times"
           },
           {
-            "t": "2026-11-21T12:59:16+00:00",
-            "title": "Russia's Wildberries CEO steps down days after EU sanctions, media report",
-            "src": "Reuters"
+            "t": "2026-11-21T18:22:19+00:00",
+            "title": "Ukraine says Russia's latest barrage used cluster warheads and timed missile waves to endanger repair crews",
+            "src": "Latin Times"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "الاقتصاد والبيانات",
+      "السياسة التجارية والمالية"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-21T18:45:35.230316+00:00",
+    "at": "2026-11-21T19:00:47.340413+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -11042,10 +10990,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-21T18:45:35.230316+00:00",
+  "last_publish_ok": "2026-11-21T19:00:47.340413+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T18:46:01.083047+00:00"
+    "at": "2026-11-21T19:01:14.295896+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11180,12 +11128,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T18:45:35.230316+00:00",
-    "ok_at": "2026-11-21T18:45:35.230316+00:00",
+    "at": "2026-11-21T19:00:47.340413+00:00",
+    "ok_at": "2026-11-21T19:00:47.340413+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T18:45:35.230316+00:00",
+    "at": "2026-11-21T19:00:47.340413+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
