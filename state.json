@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T15:00:45.314242+00:00",
-        "ok_at": "2026-11-21T15:00:45.314242+00:00"
+        "last_try": "2026-11-21T15:15:45.138512+00:00",
+        "ok_at": "2026-11-21T15:15:45.138512+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T15:00:45.314242+00:00",
-        "ok_at": "2026-11-21T15:00:45.314242+00:00"
+        "last_try": "2026-11-21T15:15:45.138512+00:00",
+        "ok_at": "2026-11-21T15:15:45.138512+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T15:00:45.314242+00:00",
-        "ok_at": "2026-11-21T15:00:45.314242+00:00"
+        "last_try": "2026-11-21T15:15:45.138512+00:00",
+        "ok_at": "2026-11-21T15:15:45.138512+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T15:00:45.314242+00:00",
-        "ok_at": "2026-11-21T15:00:45.314242+00:00"
+        "last_try": "2026-11-21T15:15:45.138512+00:00",
+        "ok_at": "2026-11-21T15:15:45.138512+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T15:00:45.314242+00:00",
-        "ok_at": "2026-11-21T15:00:45.314242+00:00"
+        "last_try": "2026-11-21T15:15:45.138512+00:00",
+        "ok_at": "2026-11-21T15:15:45.138512+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T15:00:45.314242+00:00",
-        "ok_at": "2026-11-21T15:00:45.314242+00:00"
+        "last_try": "2026-11-21T15:15:45.138512+00:00",
+        "ok_at": "2026-11-21T15:15:45.138512+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T15:00:45.314242+00:00",
-        "ok_at": "2026-11-21T15:00:45.314242+00:00"
+        "last_try": "2026-11-21T15:15:45.138512+00:00",
+        "ok_at": "2026-11-21T15:15:45.138512+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T15:00:45.314242+00:00",
+        "last_try": "2026-11-21T15:15:45.138512+00:00",
         "ok_at": "2026-11-20T14:45:39.012066+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T15:00:45.314242+00:00"
+      "at": "2026-11-21T15:15:45.138512+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,47 +964,42 @@
     }
   },
   "week_news": {
-    "at": "2026-11-21T14:00:45.937718+00:00",
+    "at": "2026-11-21T15:15:45.138512+00:00",
     "asset": "es",
     "data": {
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
+      "fed": {
+        "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-21T13:00:00+00:00",
-            "title": "Wall Street Asks What Can Save AI Trade After Anthropic Wipeout",
-            "src": "Bloomberg.com"
+            "t": "2026-11-21T15:00:00+00:00",
+            "title": "Letters to the Editor: White House hearing on Fed governor seems to be nothing more than kangaroo court",
+            "src": "Los Angeles Times"
           },
           {
-            "t": "2026-11-21T12:01:00+00:00",
-            "title": "Anthropic’s Rocky Debut Has Wall Street Pointing Fingers",
+            "t": "2026-11-21T13:27:01+00:00",
+            "title": "These Charts Show Why Young People Across the World Are Fed Up With the Economy",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-21T10:03:44+00:00",
-            "title": "Anthropic’s Debut Shows the Disconnect Between Wall Street and Silicon Valley",
-            "src": "The New York Times"
+            "t": "2026-11-21T11:00:00+00:00",
+            "title": "Michigan environmental news: DTE says it will wait until late 2027 for next natural gas rate hike request",
+            "src": "Planet Detroit"
           },
           {
-            "t": "2026-11-21T09:20:07+00:00",
-            "title": "Wall Street reels as AI-linked companies spark massive sell-off in the US",
-            "src": "Le Monde.fr"
+            "t": "2026-11-21T04:37:00+00:00",
+            "title": "New babies, new homes, higher power bills; what Alabama Power’s rate cut means for two families",
+            "src": "wvtm"
           },
           {
-            "t": "2026-11-21T08:45:45+00:00",
-            "title": "25 S&P 500 Stocks Just Made New 52-Week Lows",
-            "src": "Trefis"
+            "t": "2026-11-21T04:35:00+00:00",
+            "title": "Powell mother accused of lying about daughter’s leukemia diagnosis",
+            "src": "10TV"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
-          {
-            "t": "2026-11-21T11:45:20+00:00",
-            "title": "Nvidia stock closes lower after company opens probe into CEO Jensen Huang",
-            "src": "ABC News - Breaking News, Latest News and Videos"
-          },
           {
             "t": "2026-11-21T08:16:08+00:00",
             "title": "Investor Focus: Anthropic’s Record-Breaking IPO, Nvidia’s Earnings, and an Undervalued UK Defense Stock",
@@ -1021,9 +1016,14 @@
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-20T21:37:28+00:00",
-            "title": "EXCLUSIVE: Nvidia's accounting is a focus of US SEC investigation, sources say",
-            "src": "Reuters"
+            "t": "2026-11-20T21:16:03+00:00",
+            "title": "Wall Street Regulator Probing Nvidia’s Accounting, Report Says",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-20T19:59:30+00:00",
+            "title": "Nvidia falls after SEC probe on potential accounting issues",
+            "src": "investingLive"
           }
         ]
       },
@@ -1057,39 +1057,63 @@
           }
         ]
       },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-11-21T13:19:38+00:00",
+            "title": "Turkey seeks exemption from possible EU hybrid car tariffs",
+            "src": "Turkish Minute"
+          },
+          {
+            "t": "2026-11-21T10:29:00+00:00",
+            "title": "Trump Advisor Steven Paul Hopes U.S. Tax Credit Will Be ‘Active’ in January, Tariffs Are Old News: ‘Now It’s All Hands on Deck Federal Credit’",
+            "src": "Variety"
+          },
+          {
+            "t": "2026-11-21T04:00:00+00:00",
+            "title": "Point: Tariffs aren’t driving inflation — the Fed’s numbers say so",
+            "src": "chronicleonline.com"
+          },
+          {
+            "t": "2026-11-21T03:34:42+00:00",
+            "title": "How did protective tariffs help manufacturers in the North?",
+            "src": "Britannica"
+          }
+        ]
+      },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-21T13:00:43+00:00",
-            "title": "Russian ‘triple-tap’ attack in Ukraine kills emergency worker and 7-year-old in Zelensky’s home city",
-            "src": "CNN"
+            "t": "2026-11-21T15:05:19+00:00",
+            "title": "Britain’s New Russia Sanctions: Imperfect, but a Signal Ukraine Won’t Be Traded Away",
+            "src": "Kyiv Post"
           },
           {
-            "t": "2026-11-21T12:59:16+00:00",
-            "title": "Russia's Wildberries CEO steps down days after EU sanctions, media report",
-            "src": "Reuters"
+            "t": "2026-11-21T14:59:56+00:00",
+            "title": "Iran says oil tanker catches fire after hitting mine in Strait of Hormuz",
+            "src": "Anadolu Ajansı"
           },
           {
-            "t": "2026-11-21T12:54:00+00:00",
-            "title": "Russia says Kaliningrad-bound ship struck by drones in Gulf of Finland",
-            "src": "Al Jazeera"
+            "t": "2026-11-21T14:39:00+00:00",
+            "title": "Two Oil Tankers Hit by Unidentified Projectiles Near Strait of Hormuz, U.K. Maritime Organization Says",
+            "src": "Haaretz"
           },
           {
-            "t": "2026-11-21T12:35:00+00:00",
-            "title": "Iran War Day 277: American and Israeli Hawks Push for Major Attack",
-            "src": "The American Conservative"
+            "t": "2026-11-21T14:06:54+00:00",
+            "title": "Visas, Sanctions, Money: How The EU Plans To Prolong Bans On Russian Athletes",
+            "src": "Radio Free Europe/Radio Liberty"
           }
         ]
       }
     },
     "failed": [
-      "الفدرالي والفائدة",
-      "السياسة التجارية والمالية"
+      "الأسهم الأمريكية و S&P 500"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-21T15:00:45.314242+00:00",
+    "at": "2026-11-21T15:15:45.138512+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -1747,7 +1771,7 @@
       "source": "عنوان خبر (Google News)",
       "period": "",
       "received_at": "2026-11-20T15:30:43.403548+00:00",
-      "last_attempt": "2026-11-21T14:15:34.778563+00:00",
+      "last_attempt": "2026-11-21T15:15:45.138512+00:00",
       "attempts": 3,
       "title": "Revised UoM Consumer Sentiment",
       "time": "2026-11-20T15:00:00+00:00",
@@ -1764,15 +1788,15 @@
     "US|mich|level_pct|2026-11|-|2026-11-20": {
       "actual": "",
       "status": "awaiting",
-      "attempts": 28,
+      "attempts": 29,
       "title": "Revised UoM Inflation Expectations",
       "time": "2026-11-20T15:00:00+00:00",
       "impact": "Medium",
       "forecast": "",
       "previous": "4.3%",
       "country": "USD",
-      "last_attempt": "2026-11-21T14:15:34.778563+00:00",
-      "note": ""
+      "last_attempt": "2026-11-21T15:15:45.138512+00:00",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   },
   "stats": {
@@ -1789,52 +1813,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|auction:10-y-bond-auction|2026-11-10|1801",
-      "title": "10-y Bond Auction",
-      "release_time": "2026-11-10T18:01:00+00:00",
-      "fetched_at": "2026-11-10T19:00:43.712358+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "",
-      "previous": "5.30|2.8",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
-    },
-    {
-      "id": "US|auction:10-y-bond-auction|2026-11-10|1801",
-      "title": "10-y Bond Auction",
-      "release_time": "2026-11-10T18:01:00+00:00",
-      "fetched_at": "2026-11-10T19:15:37.403594+00:00",
-      "source": "",
-      "tier": "",
-      "value": "",
-      "period": "",
-      "series": "",
-      "method": "",
-      "raw": null,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "",
-      "forecast": "",
-      "previous": "5.30|2.8",
-      "period_check": "لا رقم",
-      "bulletin_check": "",
-      "match": "لا رقم",
-      "note": "تعذّر الاتصال بـ TreasuryDirect (Note: HTTPError، Bond: HTTPError، TIPS: HTTPError، Bill: HTTPError)"
-    },
     {
       "id": "US|auction:10-y-bond-auction|2026-11-10|1801",
       "title": "10-y Bond Auction",
@@ -10988,12 +10966,58 @@
       "bulletin_check": "",
       "match": "لا رقم",
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|umcsent|level|2026-11|-|2026-11-20",
+      "title": "Revised UoM Consumer Sentiment",
+      "release_time": "2026-11-20T15:00:00+00:00",
+      "fetched_at": "2026-11-21T15:15:45.138512+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "51.7",
+      "previous": "51.0",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (UMCSENT: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+    },
+    {
+      "id": "US|mich|level_pct|2026-11|-|2026-11-20",
+      "title": "Revised UoM Inflation Expectations",
+      "release_time": "2026-11-20T15:00:00+00:00",
+      "fetched_at": "2026-11-21T15:15:45.138512+00:00",
+      "source": "",
+      "tier": "",
+      "value": "",
+      "period": "",
+      "series": "",
+      "method": "",
+      "raw": null,
+      "stage": "",
+      "stage_ok": null,
+      "prev_revised": "",
+      "basis": "",
+      "forecast": "",
+      "previous": "4.3%",
+      "period_check": "لا رقم",
+      "bulletin_check": "",
+      "match": "لا رقم",
+      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-21T15:00:45.314242+00:00",
+  "last_publish_ok": "2026-11-21T15:15:45.138512+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T15:01:10.683768+00:00"
+    "at": "2026-11-21T15:16:08.303529+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11108,7 +11132,7 @@
     "fred": {
       "ok": true,
       "detail": "2 سلسلة",
-      "at": "2026-11-21T14:15:34.778563+00:00"
+      "at": "2026-11-21T15:15:45.138512+00:00"
     },
     "alfred": {
       "ok": false,
@@ -11128,12 +11152,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T15:00:45.314242+00:00",
-    "ok_at": "2026-11-21T15:00:45.314242+00:00",
+    "at": "2026-11-21T15:15:45.138512+00:00",
+    "ok_at": "2026-11-21T15:15:45.138512+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T15:00:45.314242+00:00",
+    "at": "2026-11-21T15:15:45.138512+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
