@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-21T03:45:36.374162+00:00",
-        "ok_at": "2026-11-21T03:45:36.374162+00:00"
+        "last_try": "2026-11-21T04:00:42.796085+00:00",
+        "ok_at": "2026-11-21T04:00:42.796085+00:00"
       },
       "fred": {
-        "last_try": "2026-11-21T03:45:36.374162+00:00",
-        "ok_at": "2026-11-21T03:45:36.374162+00:00"
+        "last_try": "2026-11-21T04:00:42.796085+00:00",
+        "ok_at": "2026-11-21T04:00:42.796085+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-21T03:45:36.374162+00:00",
-        "ok_at": "2026-11-21T03:45:36.374162+00:00"
+        "last_try": "2026-11-21T04:00:42.796085+00:00",
+        "ok_at": "2026-11-21T04:00:42.796085+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-21T03:45:36.374162+00:00",
-        "ok_at": "2026-11-21T03:45:36.374162+00:00"
+        "last_try": "2026-11-21T04:00:42.796085+00:00",
+        "ok_at": "2026-11-21T04:00:42.796085+00:00"
       },
       "oil": {
-        "last_try": "2026-11-21T03:45:36.374162+00:00",
-        "ok_at": "2026-11-21T03:45:36.374162+00:00"
+        "last_try": "2026-11-21T04:00:42.796085+00:00",
+        "ok_at": "2026-11-21T04:00:42.796085+00:00"
       },
       "news": {
-        "last_try": "2026-11-21T03:45:36.374162+00:00",
-        "ok_at": "2026-11-21T03:45:36.374162+00:00"
+        "last_try": "2026-11-21T04:00:42.796085+00:00",
+        "ok_at": "2026-11-21T04:00:42.796085+00:00"
       },
       "cot": {
-        "last_try": "2026-11-21T03:45:36.374162+00:00",
-        "ok_at": "2026-11-21T03:45:36.374162+00:00"
+        "last_try": "2026-11-21T04:00:42.796085+00:00",
+        "ok_at": "2026-11-21T04:00:42.796085+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-21T03:45:36.374162+00:00",
+        "last_try": "2026-11-21T04:00:42.796085+00:00",
         "ok_at": "2026-11-20T14:45:39.012066+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-21T03:45:36.374162+00:00"
+      "at": "2026-11-21T04:00:42.796085+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,69 +964,9 @@
     }
   },
   "week_news": {
-    "at": "2026-11-21T02:45:41.416508+00:00",
+    "at": "2026-11-21T04:00:42.796085+00:00",
     "asset": "es",
     "data": {
-      "fed": {
-        "label": "الفدرالي والفائدة",
-        "items": [
-          {
-            "t": "2026-11-21T01:11:24+00:00",
-            "title": "Redding Electric Utility rate hike approved by council",
-            "src": "Shasta Scout"
-          },
-          {
-            "t": "2026-11-21T00:43:37+00:00",
-            "title": "Roger Powell Obituary (2026) - Findlay, OH",
-            "src": "Findlay News | The Courier"
-          },
-          {
-            "t": "2026-11-21T00:21:49+00:00",
-            "title": "Alabama Power announces rate cut",
-            "src": "WSFA"
-          },
-          {
-            "t": "2026-11-20T23:46:20+00:00",
-            "title": "Fed hawks keep 10-year yield elevated despite lower oil prices",
-            "src": "HousingWire"
-          },
-          {
-            "t": "2026-11-20T23:25:11+00:00",
-            "title": "PG&E customers face $456 million interim rate hike",
-            "src": "KMPH Fox 26"
-          }
-        ]
-      },
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
-        "items": [
-          {
-            "t": "2026-11-21T02:00:00+00:00",
-            "title": "The Brother-Sister Duo Who Want to Keep Anthropic Weird",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-21T01:30:00+00:00",
-            "title": "Nasdaq 100 Ends Worst Week Since 2020, S&P 500 In Correction Territory As AI Rout Sours Sentiment — ANT, NVDA, TTWO, ZS, CRWD In Focus",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-21T00:49:02+00:00",
-            "title": "Jensen Huang Breaks Silence, Signals Willingness to Return as Nvidia CEO",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-21T00:47:21+00:00",
-            "title": "Wall Street suffers historic losses as Dow, S&P 500 plunge into correction territory",
-            "src": "Fox Business"
-          },
-          {
-            "t": "2026-11-21T00:46:00+00:00",
-            "title": "Has AI's honeymoon ended on Wall Street?",
-            "src": "Yahoo Finance"
-          }
-        ]
-      },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
@@ -1046,69 +986,14 @@
             "src": "Reuters"
           },
           {
+            "t": "2026-11-20T21:35:02+00:00",
+            "title": "Stock Market Today, Nov. 20: Nvidia's $2.5 Trillion Rout Deepens as SEC Accounting Probe Adds to Wall Street's AI Sell-Off",
+            "src": "The Motley Fool"
+          },
+          {
             "t": "2026-11-20T21:16:03+00:00",
             "title": "Wall Street Regulator Probing Nvidia’s Accounting, Report Says",
             "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-20T19:17:09+00:00",
-            "title": "Nvidia tumbles as SEC probe explores accounting issues: report",
-            "src": "TradingView"
-          }
-        ]
-      },
-      "macro": {
-        "label": "الاقتصاد والبيانات",
-        "items": [
-          {
-            "t": "2026-11-21T02:36:06+00:00",
-            "title": "Market strategist says key inflation data next week could impact Fed rate hikes",
-            "src": "Fox Business"
-          },
-          {
-            "t": "2026-11-21T01:56:49+00:00",
-            "title": "Geodis: U.S. Q3 delivery costs rose three times faster than inflation",
-            "src": "DC Velocity"
-          },
-          {
-            "t": "2026-11-20T23:38:43+00:00",
-            "title": "Consumer mood improves, but is it just a post-election 'sugar high'?",
-            "src": "KATV"
-          },
-          {
-            "t": "2026-11-20T23:02:19+00:00",
-            "title": "Consumer sentiment rises after midterm election",
-            "src": "ABC Columbia"
-          },
-          {
-            "t": "2026-11-20T22:35:00+00:00",
-            "title": "Core inflation measures can't escape high energy prices",
-            "src": "Marketplace.org"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-21T02:27:49+00:00",
-            "title": "U.S. stocks slump into correction territory amid tech and AI worries",
-            "src": "The Washington Post"
-          },
-          {
-            "t": "2026-11-21T02:07:00+00:00",
-            "title": "Gov. Whitmer Says She Warned Trump Tariffs Would Hurt Mike Rogers in Michigan Election",
-            "src": "Deadline Detroit"
-          },
-          {
-            "t": "2026-11-21T00:25:00+00:00",
-            "title": "U.S. senator says Canada should make interim tariff agreement, let Congress 'legislate' long-term deal",
-            "src": "CBC"
-          },
-          {
-            "t": "2026-11-21T00:16:00+00:00",
-            "title": "The Weekly Spread: What Shaped US Treasury Yields And The Dollar This Week",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1116,19 +1001,19 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-21T01:32:19+00:00",
-            "title": "Operation Economic Outcast Targets Regime Insiders Exploiting Iran’s Oil Sector For Personal Gain",
-            "src": "Eurasia Review"
+            "t": "2026-11-21T03:00:41+00:00",
+            "title": "Russian Offensive Campaign Assessment, November 20, 2026",
+            "src": "Institute for the Study of War"
+          },
+          {
+            "t": "2026-11-21T02:29:43+00:00",
+            "title": "Iran hardliners push tanker convoy to defy US blockade",
+            "src": "Iran International"
           },
           {
             "t": "2026-11-21T01:05:00+00:00",
             "title": "Whiteman bomb wings receive Presidential Unit Citation for Iran strike mission",
             "src": "KCTV"
-          },
-          {
-            "t": "2026-11-20T22:39:11+00:00",
-            "title": "Melania Trump Stresses Humanitarian Efforts at Chic Premiere for Two-Episode Series Documentary Follow-Up",
-            "src": "The Hollywood Reporter"
           },
           {
             "t": "2026-11-20T22:00:00+00:00",
@@ -1138,10 +1023,15 @@
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "الفدرالي والفائدة",
+      "الأسهم الأمريكية و S&P 500",
+      "الاقتصاد والبيانات",
+      "السياسة التجارية والمالية"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-21T03:45:36.374162+00:00",
+    "at": "2026-11-21T04:00:42.796085+00:00",
     "events": [
       {
         "title": "FOMC Member Barr Speaks",
@@ -10766,10 +10656,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-21T03:45:36.374162+00:00",
+  "last_publish_ok": "2026-11-21T04:00:42.796085+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-21T03:45:59.674240+00:00"
+    "at": "2026-11-21T04:01:20.864986+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10904,12 +10794,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-21T03:45:36.374162+00:00",
-    "ok_at": "2026-11-21T03:45:36.374162+00:00",
+    "at": "2026-11-21T04:00:42.796085+00:00",
+    "ok_at": "2026-11-21T04:00:42.796085+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-21T03:45:36.374162+00:00",
+    "at": "2026-11-21T04:00:42.796085+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
