@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T05:30:38.527419+00:00",
-        "ok_at": "2026-11-22T05:30:38.527419+00:00"
+        "last_try": "2026-11-22T05:45:39.592472+00:00",
+        "ok_at": "2026-11-22T05:45:39.592472+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T05:30:38.527419+00:00",
-        "ok_at": "2026-11-22T05:30:38.527419+00:00"
+        "last_try": "2026-11-22T05:45:39.592472+00:00",
+        "ok_at": "2026-11-22T05:45:39.592472+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T05:30:38.527419+00:00",
-        "ok_at": "2026-11-22T05:30:38.527419+00:00"
+        "last_try": "2026-11-22T05:45:39.592472+00:00",
+        "ok_at": "2026-11-22T05:45:39.592472+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T05:30:38.527419+00:00",
-        "ok_at": "2026-11-22T05:30:38.527419+00:00"
+        "last_try": "2026-11-22T05:45:39.592472+00:00",
+        "ok_at": "2026-11-22T05:45:39.592472+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T05:30:38.527419+00:00",
-        "ok_at": "2026-11-22T05:30:38.527419+00:00"
+        "last_try": "2026-11-22T05:45:39.592472+00:00",
+        "ok_at": "2026-11-22T05:45:39.592472+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T05:30:38.527419+00:00",
-        "ok_at": "2026-11-22T05:30:38.527419+00:00"
+        "last_try": "2026-11-22T05:45:39.592472+00:00",
+        "ok_at": "2026-11-22T05:45:39.592472+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T05:30:38.527419+00:00",
-        "ok_at": "2026-11-22T05:30:38.527419+00:00"
+        "last_try": "2026-11-22T05:45:39.592472+00:00",
+        "ok_at": "2026-11-22T05:45:39.592472+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T05:30:38.527419+00:00",
-        "ok_at": "2026-11-22T05:30:38.527419+00:00"
+        "last_try": "2026-11-22T05:45:39.592472+00:00",
+        "ok_at": "2026-11-22T05:45:39.592472+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T05:30:38.527419+00:00"
+      "at": "2026-11-22T05:45:39.592472+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,7 +964,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T04:45:31.514917+00:00",
+    "at": "2026-11-22T05:45:39.592472+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -974,6 +974,11 @@
             "t": "2026-11-22T03:30:00+00:00",
             "title": "The Fed Could Be Setting Up Major Stock Market Buying Opportunity Without Investors Even Realizing It",
             "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-22T01:32:30+00:00",
+            "title": "These Charts Show Why Young People Across the World Are Fed Up With the Economy",
+            "src": "WSJ"
           },
           {
             "t": "2026-11-21T20:40:44+00:00",
@@ -989,11 +994,6 @@
             "t": "2026-11-21T18:08:01+00:00",
             "title": "If the Fed Hikes Rates This Year, I'm Loading Up on This 1 ETF",
             "src": "The Motley Fool"
-          },
-          {
-            "t": "2026-11-21T18:00:00+00:00",
-            "title": "Pop-Up magic at Powell Elementary",
-            "src": "Findlay News | The Courier"
           }
         ]
       },
@@ -1001,8 +1001,8 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-22T02:44:38+00:00",
-            "title": "Jensen Huang Breaks Silence, Signals Willingness to Return as Nvidia CEO",
+            "t": "2026-11-22T05:41:19+00:00",
+            "title": "Classified U.S. Intelligence System Is Down, U.S. Officials Say",
             "src": "WSJ"
           },
           {
@@ -1041,11 +1041,6 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-21T20:07:00+00:00",
-            "title": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
-            "src": "The New York Times"
-          },
-          {
             "t": "2026-11-21T19:46:27+00:00",
             "title": "Nvidia probe in California extends to potential criminal violations: Bloomberg",
             "src": "Seeking Alpha"
@@ -1054,17 +1049,17 @@
             "t": "2026-11-21T17:37:19+00:00",
             "title": "California Nvidia probe covers potential criminal law violations, AG says- Bloomberg News",
             "src": "TradingView"
+          },
+          {
+            "t": "2026-11-21T17:11:23+00:00",
+            "title": "California Nvidia Probe Covers Potential Criminal Law Violations",
+            "src": "Bloomberg"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
-          {
-            "t": "2026-11-21T22:05:25+00:00",
-            "title": "Get Your Hiking Boots On: US Inflation And The Investing Week Ahead",
-            "src": "Finimize"
-          },
           {
             "t": "2026-11-21T21:32:18+00:00",
             "title": "Exclusive | Cost Pressures Already in Pipeline to Fuel Higher Inflation",
@@ -1084,6 +1079,11 @@
             "t": "2026-11-21T18:51:09+00:00",
             "title": "US Consumer Sentiment Improved, Even As Retail Stocks Diverged",
             "src": "Finimize"
+          },
+          {
+            "t": "2026-11-21T17:57:00+00:00",
+            "title": "Survey Shows Florida Consumer Sentiment",
+            "src": "West Orlando News"
           }
         ]
       },
@@ -1091,9 +1091,9 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-22T00:57:33+00:00",
-            "title": "GOLDSTEIN: Carney oversold what Canada can realistically achieve on U.S. tariffs",
-            "src": "Toronto Sun"
+            "t": "2026-11-22T04:17:46+00:00",
+            "title": "Treasury Yields Fall, German Bunds’ Tick Higher",
+            "src": "WSJ"
           },
           {
             "t": "2026-11-21T20:15:00+00:00",
@@ -1101,20 +1101,25 @@
             "src": "The Washington Post"
           },
           {
-            "t": "2026-11-21T14:03:23+00:00",
-            "title": "Iran war funding fight raises threat of December government shutdown",
-            "src": "News Channel 5 Nashville"
-          },
-          {
             "t": "2026-11-21T13:19:38+00:00",
             "title": "Turkey seeks exemption from possible EU hybrid car tariffs",
             "src": "Turkish Minute"
+          },
+          {
+            "t": "2026-11-21T11:30:00+00:00",
+            "title": "‘Canada cheats’: Trump adviser backs 50% tariff as LeBlanc warns U.S. trade deal won't kill auto, steel duties",
+            "src": "Yahoo! Finance Canada"
           }
         ]
       },
       "geo": {
         "label": "الجيوسياسة والنفط",
         "items": [
+          {
+            "t": "2026-11-22T02:19:00+00:00",
+            "title": "Ukraine war briefing: Russian cargo ship hit by drone in Baltic Sea as Finland PM says conflict ‘spilling over’",
+            "src": "The Guardian"
+          },
           {
             "t": "2026-11-22T00:43:09+00:00",
             "title": "Bahrain says Iranian attack causes fire at industrial facility",
@@ -1129,11 +1134,6 @@
             "t": "2026-11-21T21:09:04+00:00",
             "title": "Oil Tankers Hit Near Strait of Hormuz as Farm Energy Risks Rise",
             "src": "AgroLatam"
-          },
-          {
-            "t": "2026-11-21T20:09:35+00:00",
-            "title": "Crew evacuated amid battle to put out fire on Russian ship hit by drones",
-            "src": "Al Jazeera"
           }
         ]
       }
@@ -1141,76 +1141,28 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-22T05:30:38.527419+00:00",
+    "at": "2026-11-22T05:45:39.592472+00:00",
     "events": [
       {
-        "title": "FOMC Member Barr Speaks",
-        "impact": "Low",
-        "time": "2026-11-16T10:00:00+00:00",
-        "forecast": "",
-        "previous": "",
+        "title": "Flash Manufacturing PMI",
+        "impact": "Medium",
+        "time": "2026-11-23T14:45:00+00:00",
+        "forecast": "54.5",
+        "previous": "56.0",
         "type": "OTHER"
       },
       {
-        "title": "Empire State Manufacturing Index",
-        "impact": "Low",
-        "time": "2026-11-16T13:30:00+00:00",
-        "forecast": "17.6",
-        "previous": "25.5",
+        "title": "Flash Services PMI",
+        "impact": "Medium",
+        "time": "2026-11-23T14:45:00+00:00",
+        "forecast": "55.6",
+        "previous": "57.9",
         "type": "OTHER"
       },
       {
         "title": "FOMC Member Williams Speaks",
         "impact": "Low",
-        "time": "2026-11-16T14:05:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "Cleveland Fed Inflation Expectations",
-        "impact": "Low",
-        "time": "2026-11-16T14:45:00+00:00",
-        "forecast": "",
-        "previous": "3.3%",
-        "type": "OTHER"
-      },
-      {
-        "title": "Fed Chairman Warsh Speaks",
-        "impact": "High",
-        "time": "2026-11-16T17:00:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Hammack Speaks",
-        "impact": "Low",
-        "time": "2026-11-16T19:15:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Barkin Speaks",
-        "impact": "Low",
-        "time": "2026-11-16T23:10:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Goolsbee Speaks",
-        "impact": "Low",
-        "time": "2026-11-16T23:30:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Musalem Speaks",
-        "impact": "Low",
-        "time": "2026-11-17T12:30:00+00:00",
+        "time": "2026-11-23T21:00:00+00:00",
         "forecast": "",
         "previous": "",
         "type": "OTHER"
@@ -1218,305 +1170,169 @@
       {
         "title": "ADP Weekly Employment Change",
         "impact": "Low",
-        "time": "2026-11-17T13:15:00+00:00",
+        "time": "2026-11-24T13:15:00+00:00",
         "forecast": "",
-        "previous": "19.8K",
+        "previous": "23.8K",
         "type": "OTHER"
       },
       {
-        "title": "Core Retail Sales m/m",
-        "impact": "High",
-        "time": "2026-11-17T13:30:00+00:00",
-        "forecast": "0.4%",
-        "previous": "0.9%",
-        "type": "OTHER"
-      },
-      {
-        "title": "Retail Sales m/m",
-        "impact": "High",
-        "time": "2026-11-17T13:30:00+00:00",
-        "forecast": "0.1%",
-        "previous": "0.8%",
-        "type": "OTHER"
-      },
-      {
-        "title": "Import Prices m/m",
+        "title": "HPI m/m",
         "impact": "Low",
-        "time": "2026-11-17T13:30:00+00:00",
-        "forecast": "0.7%",
-        "previous": "1.1%",
+        "time": "2026-11-24T14:00:00+00:00",
+        "forecast": "0.2%",
+        "previous": "0.3%",
         "type": "OTHER"
       },
       {
-        "title": "FOMC Member Waller Speaks",
+        "title": "S&P/CS Composite-20 HPI y/y",
         "impact": "Low",
-        "time": "2026-11-17T14:10:00+00:00",
-        "forecast": "",
-        "previous": "",
+        "time": "2026-11-24T14:00:00+00:00",
+        "forecast": "2.7%",
+        "previous": "2.7%",
         "type": "OTHER"
       },
       {
-        "title": "Capacity Utilization Rate",
-        "impact": "Low",
-        "time": "2026-11-17T14:15:00+00:00",
-        "forecast": "76.8%",
-        "previous": "76.9%",
+        "title": "CB Consumer Confidence",
+        "impact": "Medium",
+        "time": "2026-11-24T15:00:00+00:00",
+        "forecast": "92.1",
+        "previous": "91.7",
         "type": "OTHER"
       },
       {
-        "title": "Industrial Production m/m",
+        "title": "Richmond Manufacturing Index",
         "impact": "Low",
-        "time": "2026-11-17T14:15:00+00:00",
-        "forecast": "0.0%",
-        "previous": "0.7%",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Hammack Speaks",
-        "impact": "Low",
-        "time": "2026-11-17T14:30:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "Business Inventories m/m",
-        "impact": "Low",
-        "time": "2026-11-17T15:00:00+00:00",
-        "forecast": "0.5%",
-        "previous": "0.4%",
-        "type": "OTHER"
-      },
-      {
-        "title": "NAHB Housing Market Index",
-        "impact": "Low",
-        "time": "2026-11-17T15:00:00+00:00",
-        "forecast": "29",
-        "previous": "29",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Williams Speaks",
-        "impact": "Low",
-        "time": "2026-11-17T19:25:00+00:00",
-        "forecast": "",
-        "previous": "",
+        "time": "2026-11-24T15:00:00+00:00",
+        "forecast": "-3",
+        "previous": "-2",
         "type": "OTHER"
       },
       {
         "title": "API Weekly Statistical Bulletin",
         "impact": "Low",
-        "time": "2026-11-17T21:30:00+00:00",
+        "time": "2026-11-24T21:30:00+00:00",
         "forecast": "",
         "previous": "",
         "type": "OTHER"
       },
       {
-        "title": "Building Permits",
-        "impact": "Low",
-        "time": "2026-11-18T13:30:00+00:00",
-        "forecast": "1.38M",
-        "previous": "1.40M",
-        "type": "OTHER"
-      },
-      {
-        "title": "Housing Starts",
-        "impact": "Low",
-        "time": "2026-11-18T13:30:00+00:00",
-        "forecast": "1.25M",
-        "previous": "1.22M",
-        "type": "OTHER"
-      },
-      {
-        "title": "Pending Home Sales m/m",
-        "impact": "Low",
-        "time": "2026-11-18T15:00:00+00:00",
-        "forecast": "-2.0%",
-        "previous": "-7.3%",
-        "type": "OTHER"
-      },
-      {
-        "title": "Crude Oil Inventories",
-        "impact": "Low",
-        "time": "2026-11-18T15:30:00+00:00",
-        "forecast": "0.4M",
-        "previous": "4.7M",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Daly Speaks",
-        "impact": "Low",
-        "time": "2026-11-18T17:15:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Barr Speaks",
-        "impact": "Low",
-        "time": "2026-11-18T18:35:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Meeting Minutes",
+        "title": "Core PCE Price Index m/m",
         "impact": "High",
-        "time": "2026-11-18T19:00:00+00:00",
-        "forecast": "",
-        "previous": "",
+        "time": "2026-11-25T13:30:00+00:00",
+        "forecast": "0.3%",
+        "previous": "0.3%",
         "type": "OTHER"
       },
       {
-        "title": "FOMC Member Williams Speaks",
-        "impact": "Low",
-        "time": "2026-11-18T19:30:00+00:00",
-        "forecast": "",
-        "previous": "",
+        "title": "Prelim GDP q/q",
+        "impact": "High",
+        "time": "2026-11-25T13:30:00+00:00",
+        "forecast": "3.5%",
+        "previous": "3.4%",
         "type": "OTHER"
       },
       {
-        "title": "TIC Long-Term Purchases",
-        "impact": "Low",
-        "time": "2026-11-18T21:00:00+00:00",
-        "forecast": "160.7B",
-        "previous": "279.2B",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Kashkari Speaks",
-        "impact": "Low",
-        "time": "2026-11-18T21:15:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "Philly Fed Manufacturing Index",
+        "title": "Prelim GDP Price Index q/q",
         "impact": "Medium",
-        "time": "2026-11-19T13:30:00+00:00",
-        "forecast": "20.6",
-        "previous": "20.9",
+        "time": "2026-11-25T13:30:00+00:00",
+        "forecast": "2.3%",
+        "previous": "2.3%",
         "type": "OTHER"
       },
       {
         "title": "Unemployment Claims",
         "impact": "Medium",
-        "time": "2026-11-19T13:30:00+00:00",
-        "forecast": "198K",
-        "previous": "200K",
+        "time": "2026-11-25T13:30:00+00:00",
+        "forecast": "201K",
+        "previous": "203K",
         "type": "OTHER"
       },
       {
-        "title": "FOMC Member Hammack Speaks",
+        "title": "Core Durable Goods Orders m/m",
         "impact": "Low",
-        "time": "2026-11-19T13:50:00+00:00",
+        "time": "2026-11-25T13:30:00+00:00",
+        "forecast": "0.5%",
+        "previous": "0.5%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Durable Goods Orders m/m",
+        "impact": "Low",
+        "time": "2026-11-25T13:30:00+00:00",
+        "forecast": "0.5%",
+        "previous": "1.8%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Personal Income m/m",
+        "impact": "Low",
+        "time": "2026-11-25T13:30:00+00:00",
+        "forecast": "0.4%",
+        "previous": "0.2%",
+        "type": "OTHER"
+      },
+      {
+        "title": "Personal Spending m/m",
+        "impact": "Low",
+        "time": "2026-11-25T13:30:00+00:00",
+        "forecast": "0.4%",
+        "previous": "0.5%",
+        "type": "OTHER"
+      },
+      {
+        "title": "New Home Sales",
+        "impact": "Low",
+        "time": "2026-11-25T15:00:00+00:00",
+        "forecast": "649K",
+        "previous": "676K",
+        "type": "OTHER"
+      },
+      {
+        "title": "Crude Oil Inventories",
+        "impact": "Low",
+        "time": "2026-11-25T15:30:00+00:00",
         "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Jefferson Speaks",
-        "impact": "Low",
-        "time": "2026-11-19T14:25:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "CB Leading Index m/m",
-        "impact": "Low",
-        "time": "2026-11-19T15:00:00+00:00",
-        "forecast": "0.0%",
-        "previous": "0.0%",
+        "previous": "3.4M",
         "type": "OTHER"
       },
       {
         "title": "Natural Gas Storage",
         "impact": "Low",
-        "time": "2026-11-19T15:30:00+00:00",
-        "forecast": "25B",
-        "previous": "61B",
-        "type": "OTHER"
-      },
-      {
-        "title": "Mortgage Delinquencies",
-        "impact": "Low",
-        "time": "2026-11-19T15:46:00+00:00",
+        "time": "2026-11-25T17:00:00+00:00",
         "forecast": "",
-        "previous": "4.37%",
+        "previous": "20B",
         "type": "OTHER"
       },
       {
-        "title": "FOMC Member Goolsbee Speaks",
+        "title": "Beige Book",
         "impact": "Low",
-        "time": "2026-11-19T17:30:00+00:00",
+        "time": "2026-11-25T19:00:00+00:00",
         "forecast": "",
         "previous": "",
         "type": "OTHER"
       },
       {
-        "title": "FOMC Member Barr Speaks",
+        "title": "Bank Holiday",
+        "impact": "Holiday",
+        "time": "2026-11-26T13:00:00+00:00",
+        "forecast": "",
+        "previous": "",
+        "type": "OTHER"
+      },
+      {
+        "title": "Goods Trade Balance",
         "impact": "Low",
-        "time": "2026-11-19T19:15:00+00:00",
-        "forecast": "",
-        "previous": "",
+        "time": "2026-11-27T13:30:00+00:00",
+        "forecast": "-134.4B",
+        "previous": "-134.9B",
         "type": "OTHER"
       },
       {
-        "title": "FOMC Member Barkin Speaks",
+        "title": "Prelim Wholesale Inventories m/m",
         "impact": "Low",
-        "time": "2026-11-19T21:00:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Paulson Speaks",
-        "impact": "Low",
-        "time": "2026-11-19T23:30:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Waller Speaks",
-        "impact": "Low",
-        "time": "2026-11-20T13:25:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "Revised UoM Consumer Sentiment",
-        "impact": "Medium",
-        "time": "2026-11-20T15:00:00+00:00",
-        "forecast": "51.7",
-        "previous": "51.0",
-        "type": "OTHER"
-      },
-      {
-        "title": "Revised UoM Inflation Expectations",
-        "impact": "Medium",
-        "time": "2026-11-20T15:00:00+00:00",
-        "forecast": "",
-        "previous": "4.3%",
-        "type": "OTHER"
-      },
-      {
-        "title": "President Trump Speaks",
-        "impact": "Medium",
-        "time": "2026-11-20T17:00:00+00:00",
-        "forecast": "",
-        "previous": "",
-        "type": "OTHER"
-      },
-      {
-        "title": "FOMC Member Cook Speaks",
-        "impact": "Low",
-        "time": "2026-11-20T17:15:00+00:00",
-        "forecast": "",
-        "previous": "",
+        "time": "2026-11-27T13:30:00+00:00",
+        "forecast": "0.7%",
+        "previous": "0.6%",
         "type": "OTHER"
       }
     ]
@@ -11042,10 +10858,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-22T05:30:38.527419+00:00",
+  "last_publish_ok": "2026-11-22T05:45:39.592472+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T05:31:01.499804+00:00"
+    "at": "2026-11-22T05:46:01.850563+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11180,12 +10996,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T05:30:38.527419+00:00",
-    "ok_at": "2026-11-22T05:30:38.527419+00:00",
+    "at": "2026-11-22T05:45:39.592472+00:00",
+    "ok_at": "2026-11-22T05:45:39.592472+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T05:30:38.527419+00:00",
+    "at": "2026-11-22T05:45:39.592472+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
