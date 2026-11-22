@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T11:15:34.394719+00:00",
-        "ok_at": "2026-11-22T11:15:34.394719+00:00"
+        "last_try": "2026-11-22T11:30:51.288175+00:00",
+        "ok_at": "2026-11-22T11:30:51.288175+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T11:15:34.394719+00:00",
-        "ok_at": "2026-11-22T11:15:34.394719+00:00"
+        "last_try": "2026-11-22T11:30:51.288175+00:00",
+        "ok_at": "2026-11-22T11:30:51.288175+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T11:15:34.394719+00:00",
-        "ok_at": "2026-11-22T11:15:34.394719+00:00"
+        "last_try": "2026-11-22T11:30:51.288175+00:00",
+        "ok_at": "2026-11-22T11:30:51.288175+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T11:15:34.394719+00:00",
-        "ok_at": "2026-11-22T11:15:34.394719+00:00"
+        "last_try": "2026-11-22T11:30:51.288175+00:00",
+        "ok_at": "2026-11-22T11:30:51.288175+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T11:15:34.394719+00:00",
-        "ok_at": "2026-11-22T11:15:34.394719+00:00"
+        "last_try": "2026-11-22T11:30:51.288175+00:00",
+        "ok_at": "2026-11-22T11:30:51.288175+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T11:15:34.394719+00:00",
-        "ok_at": "2026-11-22T11:15:34.394719+00:00"
+        "last_try": "2026-11-22T11:30:51.288175+00:00",
+        "ok_at": "2026-11-22T11:30:51.288175+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T11:15:34.394719+00:00",
-        "ok_at": "2026-11-22T11:15:34.394719+00:00"
+        "last_try": "2026-11-22T11:30:51.288175+00:00",
+        "ok_at": "2026-11-22T11:30:51.288175+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T11:15:34.394719+00:00",
-        "ok_at": "2026-11-22T11:15:34.394719+00:00"
+        "last_try": "2026-11-22T11:30:51.288175+00:00",
+        "ok_at": "2026-11-22T11:30:51.288175+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T11:15:34.394719+00:00"
+      "at": "2026-11-22T11:30:51.288175+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,36 +964,66 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T10:30:44.855958+00:00",
+    "at": "2026-11-22T11:30:51.288175+00:00",
     "asset": "es",
     "data": {
+      "fed": {
+        "label": "الفدرالي والفائدة",
+        "items": [
+          {
+            "t": "2026-11-22T11:18:10+00:00",
+            "title": "Tracy Schuchart: Bitcoin Trading “Like A Risk Asset” As Fed Hikes Loom",
+            "src": "Bitcoin Magazine"
+          },
+          {
+            "t": "2026-11-22T11:09:39+00:00",
+            "title": "These Charts Show Why Young People Across the World Are Fed Up With the Economy",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-22T10:55:28+00:00",
+            "title": "Fed Cuts Pay Raises for Regional-Bank Staff",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-22T10:00:00+00:00",
+            "title": "Copper Prices Are Falling. Memo to the Fed: Inflation Could Be Next.",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-11-22T03:49:34+00:00",
+            "title": "Central Notes: Herro, Giddey, Buzelis, Powell, Haliburton",
+            "src": "Hoops Rumors"
+          }
+        ]
+      },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-11-22T11:00:00+00:00",
+            "title": "From Anthropic to Nvidia, Wall Street just had a bizarre, wild week",
+            "src": "Yahoo Finance"
+          },
           {
             "t": "2026-11-22T10:23:05+00:00",
             "title": "Lufthansa to Cut 1,000 Jobs at Flagship Airline as Challenges Mount",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-22T05:19:57+00:00",
+            "t": "2026-11-22T10:00:00+00:00",
+            "title": "Boomers Are Rewriting the Playbook for Old Age. It Doesn’t Include Winding Down.",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-22T05:29:24+00:00",
             "title": "Ukraine Is Racing to Keep Its Booming Defense Industry From Stalling",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-22T02:49:29+00:00",
-            "title": "US MARKETS CALL: A Bull-Market Correction Or A Tech-Wreck Bear Market? Also: Our New S&P 500 Targets.",
-            "src": "Yardeni QuickTakes"
-          },
-          {
-            "t": "2026-11-22T00:31:37+00:00",
+            "t": "2026-11-22T05:21:16+00:00",
             "title": "How Kim Jong Un Gets Away With Building Nukes and Ghosting Trump",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-22T00:02:00+00:00",
-            "title": "Stock market correction? This chief investment officer sees the S&P 500 soaring 45% to 10,000",
-            "src": "Fortune"
           }
         ]
       },
@@ -1027,36 +1057,6 @@
           }
         ]
       },
-      "macro": {
-        "label": "الاقتصاد والبيانات",
-        "items": [
-          {
-            "t": "2026-11-22T10:00:00+00:00",
-            "title": "Copper Prices Are Falling. Memo to the Fed: Inflation Could Be Next.",
-            "src": "Barron's"
-          },
-          {
-            "t": "2026-11-22T08:23:46+00:00",
-            "title": "US Consumers Are Holding Up Against Inflation Going Into Holiday Season",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-22T08:00:00+00:00",
-            "title": "Swiss Inflation Has Been Accelerating, SNB Vice President Tells Le Matin Dimanche",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-22T07:08:00+00:00",
-            "title": "3 Software Stocks to Watch Before PCE Inflation Data Moves Rate Sensitive Growth",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-22T06:11:00+00:00",
-            "title": "Analysts Expect U.S. October PCE Inflation to Reach 3.8%, Fed Rate-Hike Expectations to Rise",
-            "src": "TradingView"
-          }
-        ]
-      },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
@@ -1084,12 +1084,12 @@
       }
     },
     "failed": [
-      "الفدرالي والفائدة",
+      "الاقتصاد والبيانات",
       "الجيوسياسة والنفط"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-22T11:15:34.394719+00:00",
+    "at": "2026-11-22T11:30:51.288175+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10806,10 +10806,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-22T11:15:34.394719+00:00",
+  "last_publish_ok": "2026-11-22T11:30:51.288175+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T11:15:57.499078+00:00"
+    "at": "2026-11-22T11:31:19.829187+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10944,12 +10944,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T11:15:34.394719+00:00",
-    "ok_at": "2026-11-22T11:15:34.394719+00:00",
+    "at": "2026-11-22T11:30:51.288175+00:00",
+    "ok_at": "2026-11-22T11:30:51.288175+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T11:15:34.394719+00:00",
+    "at": "2026-11-22T11:30:51.288175+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
