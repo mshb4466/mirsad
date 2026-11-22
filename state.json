@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T15:45:49.095675+00:00",
-        "ok_at": "2026-11-22T15:45:49.095675+00:00"
+        "last_try": "2026-11-22T16:00:46.589735+00:00",
+        "ok_at": "2026-11-22T16:00:46.589735+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T15:45:49.095675+00:00",
-        "ok_at": "2026-11-22T15:45:49.095675+00:00"
+        "last_try": "2026-11-22T16:00:46.589735+00:00",
+        "ok_at": "2026-11-22T16:00:46.589735+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T15:45:49.095675+00:00",
-        "ok_at": "2026-11-22T15:45:49.095675+00:00"
+        "last_try": "2026-11-22T16:00:46.589735+00:00",
+        "ok_at": "2026-11-22T16:00:46.589735+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T15:45:49.095675+00:00",
-        "ok_at": "2026-11-22T15:45:49.095675+00:00"
+        "last_try": "2026-11-22T16:00:46.589735+00:00",
+        "ok_at": "2026-11-22T16:00:46.589735+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T15:45:49.095675+00:00",
-        "ok_at": "2026-11-22T15:45:49.095675+00:00"
+        "last_try": "2026-11-22T16:00:46.589735+00:00",
+        "ok_at": "2026-11-22T16:00:46.589735+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T15:45:49.095675+00:00",
-        "ok_at": "2026-11-22T15:45:49.095675+00:00"
+        "last_try": "2026-11-22T16:00:46.589735+00:00",
+        "ok_at": "2026-11-22T16:00:46.589735+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T15:45:49.095675+00:00",
-        "ok_at": "2026-11-22T15:45:49.095675+00:00"
+        "last_try": "2026-11-22T16:00:46.589735+00:00",
+        "ok_at": "2026-11-22T16:00:46.589735+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T15:45:49.095675+00:00",
-        "ok_at": "2026-11-22T15:45:49.095675+00:00"
+        "last_try": "2026-11-22T16:00:46.589735+00:00",
+        "ok_at": "2026-11-22T16:00:46.589735+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T15:45:49.095675+00:00"
+      "at": "2026-11-22T16:00:46.589735+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,42 +964,17 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T15:00:44.795444+00:00",
+    "at": "2026-11-22T16:00:46.589735+00:00",
     "asset": "es",
     "data": {
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
-        "items": [
-          {
-            "t": "2026-11-22T13:00:02+00:00",
-            "title": "Zohran Mamdani on Trump, Wall Street and Wealth Taxes",
-            "src": "The New York Times"
-          },
-          {
-            "t": "2026-11-22T12:13:56+00:00",
-            "title": "Top Wall Street analysts favor these 3 dividend stocks for strong returns",
-            "src": "CNBC"
-          },
-          {
-            "t": "2026-11-22T11:24:11+00:00",
-            "title": "U.S. Stocks Extend Plunge as AI Boom Turns to Bust",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-22T11:00:00+00:00",
-            "title": "From Anthropic to Nvidia, Wall Street just had a bizarre, wild week",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-22T10:30:00+00:00",
-            "title": "James Bond’s Bare Wrist Sets Off Watch Industry War",
-            "src": "WSJ"
-          }
-        ]
-      },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-22T15:26:50+00:00",
+            "title": "Spy Chief Says US Probing Alleged Spy Tied to Former Nvidia CEO",
+            "src": "Bloomberg.com"
+          },
           {
             "t": "2026-11-22T14:02:53+00:00",
             "title": "CPI | Nvidia Faces SEC Probe Into Potential Accounting Issues",
@@ -1016,14 +991,9 @@
             "src": "24/7 Wall St."
           },
           {
-            "t": "2026-11-21T20:07:00+00:00",
-            "title": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
-            "src": "The New York Times"
-          },
-          {
-            "t": "2026-11-21T19:46:27+00:00",
-            "title": "Nvidia probe in California extends to potential criminal violations: Bloomberg",
-            "src": "Seeking Alpha"
+            "t": "2026-11-21T22:07:02+00:00",
+            "title": "Prediction: This Will Be Nvidia’s Stock Price in 2027 After Its Phenomenal Q3 Results",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1031,65 +1001,42 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-22T13:22:25+00:00",
-            "title": "U.K. Inflation Rises as Energy Costs Keep Pressure on Bank of England",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-22T10:00:00+00:00",
-            "title": "Copper Prices Are Falling. Memo to the Fed: Inflation Could Be Next.",
-            "src": "Barron's"
-          },
-          {
-            "t": "2026-11-22T08:25:43+00:00",
-            "title": "SNB closely watching for second-round inflation effects, vice chairman tells paper",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-11-22T08:23:46+00:00",
+            "t": "2026-11-22T15:24:11+00:00",
             "title": "US Consumers Are Holding Up Against Inflation Going Into Holiday Season",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-21T21:32:18+00:00",
-            "title": "Exclusive | Cost Pressures Already in Pipeline to Fuel Higher Inflation",
-            "src": "WSJ"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-22T11:00:01+00:00",
-            "title": "On The Hill: Will there be another government shutdown?",
-            "src": "Deseret News"
+            "t": "2026-11-22T15:07:00+00:00",
+            "title": "10-Year TIPS Pay 2.77% Above Inflation. Here’s How Dividend Stocks Compare",
+            "src": "24/7 Wall St."
           },
           {
-            "t": "2026-11-22T10:16:30+00:00",
-            "title": "Trump Warns of US Bankruptcy Threat over US Debt Ceiling",
-            "src": "تسنیم"
+            "t": "2026-11-22T15:00:00+00:00",
+            "title": "Both Kevin Warsh And His Critics Mistake Rising Prices For Inflation",
+            "src": "Forbes"
           },
           {
-            "t": "2026-11-22T08:30:00+00:00",
-            "title": "Why funding for the war in Iran could trigger another US government shutdown",
-            "src": "Atalayar"
+            "t": "2026-11-22T14:22:33+00:00",
+            "title": "CPI | Argentina’s Tavarone Strengthens Competition Team With Partner Promotion",
+            "src": "PYMNTS.com"
           },
           {
-            "t": "2026-11-21T20:15:00+00:00",
-            "title": "Opinion | A government shutdown won’t stop the Iran war",
-            "src": "The Washington Post"
+            "t": "2026-11-22T14:06:00+00:00",
+            "title": "CPI | Dollar General Faces Expanding FTC Lawsuit as 10 More States Join",
+            "src": "PYMNTS.com"
           }
         ]
       }
     },
     "failed": [
       "الفدرالي والفائدة",
+      "الأسهم الأمريكية و S&P 500",
+      "السياسة التجارية والمالية",
       "الجيوسياسة والنفط"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-22T15:45:49.095675+00:00",
+    "at": "2026-11-22T16:00:46.589735+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10806,10 +10753,10 @@
       "note": ""
     }
   ],
-  "last_publish_ok": "2026-11-22T15:45:49.095675+00:00",
+  "last_publish_ok": "2026-11-22T16:00:46.589735+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T15:46:09.951071+00:00"
+    "at": "2026-11-22T16:01:15.233717+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10944,12 +10891,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T15:45:49.095675+00:00",
-    "ok_at": "2026-11-22T15:45:49.095675+00:00",
+    "at": "2026-11-22T16:00:46.589735+00:00",
+    "ok_at": "2026-11-22T16:00:46.589735+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T15:45:49.095675+00:00",
+    "at": "2026-11-22T16:00:46.589735+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
