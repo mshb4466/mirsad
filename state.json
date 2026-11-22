@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T17:00:44.001408+00:00",
-        "ok_at": "2026-11-22T17:00:44.001408+00:00"
+        "last_try": "2026-11-22T17:15:41.484054+00:00",
+        "ok_at": "2026-11-22T17:15:41.484054+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T17:00:44.001408+00:00",
-        "ok_at": "2026-11-22T17:00:44.001408+00:00"
+        "last_try": "2026-11-22T17:15:41.484054+00:00",
+        "ok_at": "2026-11-22T17:15:41.484054+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T17:00:44.001408+00:00",
-        "ok_at": "2026-11-22T17:00:44.001408+00:00"
+        "last_try": "2026-11-22T17:15:41.484054+00:00",
+        "ok_at": "2026-11-22T17:15:41.484054+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T17:00:44.001408+00:00",
-        "ok_at": "2026-11-22T17:00:44.001408+00:00"
+        "last_try": "2026-11-22T17:15:41.484054+00:00",
+        "ok_at": "2026-11-22T17:15:41.484054+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T17:00:44.001408+00:00",
-        "ok_at": "2026-11-22T17:00:44.001408+00:00"
+        "last_try": "2026-11-22T17:15:41.484054+00:00",
+        "ok_at": "2026-11-22T17:15:41.484054+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T17:00:44.001408+00:00",
-        "ok_at": "2026-11-22T17:00:44.001408+00:00"
+        "last_try": "2026-11-22T17:15:41.484054+00:00",
+        "ok_at": "2026-11-22T17:15:41.484054+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T17:00:44.001408+00:00",
-        "ok_at": "2026-11-22T17:00:44.001408+00:00"
+        "last_try": "2026-11-22T17:15:41.484054+00:00",
+        "ok_at": "2026-11-22T17:15:41.484054+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T17:00:44.001408+00:00",
-        "ok_at": "2026-11-22T17:00:44.001408+00:00"
+        "last_try": "2026-11-22T17:15:41.484054+00:00",
+        "ok_at": "2026-11-22T17:15:41.484054+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T17:00:44.001408+00:00"
+      "at": "2026-11-22T17:15:41.484054+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,12 +964,77 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T16:00:46.589735+00:00",
+    "at": "2026-11-22T17:15:41.484054+00:00",
     "asset": "es",
     "data": {
+      "fed": {
+        "label": "الفدرالي والفائدة",
+        "items": [
+          {
+            "t": "2026-11-22T16:08:20+00:00",
+            "title": "Bessent Warns Fed Risks Overtightening as US Markets Swoon",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-22T15:21:08+00:00",
+            "title": "NORMAN POWELL MEDICAL UPDATE",
+            "src": "NBA.com"
+          },
+          {
+            "t": "2026-11-22T14:59:35+00:00",
+            "title": "Ancient Greek babies were fed solid food at 4 months but nursed for nearly 4 years",
+            "src": "Archaeology News Online Magazine"
+          },
+          {
+            "t": "2026-11-22T11:25:52+00:00",
+            "title": "Will the Fed raise interest rates this year? Divided economists weigh in",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-11-22T11:18:10+00:00",
+            "title": "Tracy Schuchart: Bitcoin Trading “Like A Risk Asset” As Fed Hikes Loom",
+            "src": "Bitcoin Magazine"
+          }
+        ]
+      },
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
+        "items": [
+          {
+            "t": "2026-11-22T16:01:39+00:00",
+            "title": "How Kim Jong Un Gets Away With Building Nukes and Ghosting Trump",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-22T15:18:13+00:00",
+            "title": "Yardeni Cuts S&P 500 Target Again, Says Bear Market Is Unlikely",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-22T13:41:28+00:00",
+            "title": "AI stock sell-off sends S&P 500 into correction, Nasdaq negative for year",
+            "src": "Scripps News"
+          },
+          {
+            "t": "2026-11-22T13:00:02+00:00",
+            "title": "Zohran Mamdani on Trump, Wall Street and Wealth Taxes",
+            "src": "The New York Times"
+          },
+          {
+            "t": "2026-11-22T12:25:17+00:00",
+            "title": "China Lowers Margin Requirement to 80% to Boost Stock Liquidity",
+            "src": "Bloomberg.com"
+          }
+        ]
+      },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-22T15:40:01+00:00",
+            "title": "Nvidia faces US accounting probe amid deepening turmoil",
+            "src": "Tech Xplore"
+          },
           {
             "t": "2026-11-22T15:26:50+00:00",
             "title": "Spy Chief Says US Probing Alleged Spy Tied to Former Nvidia CEO",
@@ -989,11 +1054,6 @@
             "t": "2026-11-22T00:47:00+00:00",
             "title": "Nvidia Stock Has Crashed 48% and Now Trades at 15 Times Earnings, Its Cheapest in More Than a Decade and Cheaper Than Microsoft and Broadcom",
             "src": "24/7 Wall St."
-          },
-          {
-            "t": "2026-11-21T22:07:02+00:00",
-            "title": "Prediction: This Will Be Nvidia’s Stock Price in 2027 After Its Phenomenal Q3 Results",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1021,22 +1081,67 @@
             "src": "PYMNTS.com"
           },
           {
-            "t": "2026-11-22T14:06:00+00:00",
-            "title": "CPI | Dollar General Faces Expanding FTC Lawsuit as 10 More States Join",
+            "t": "2026-11-22T14:17:28+00:00",
+            "title": "CPI | CFTC Loses Emergency Bid to Block New York Enforcement Against Kalshi",
             "src": "PYMNTS.com"
+          }
+        ]
+      },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-11-22T11:00:01+00:00",
+            "title": "On The Hill: Will there be another government shutdown?",
+            "src": "Deseret News"
+          },
+          {
+            "t": "2026-11-22T10:16:30+00:00",
+            "title": "Trump Warns of US Bankruptcy Threat over US Debt Ceiling",
+            "src": "تسنیم"
+          },
+          {
+            "t": "2026-11-22T08:58:00+00:00",
+            "title": "Democrats’ efforts to repeal tariffs set to be tough despite landslide win",
+            "src": "The Arkansas Democrat-Gazette"
+          },
+          {
+            "t": "2026-11-22T08:30:00+00:00",
+            "title": "Why funding for the war in Iran could trigger another US government shutdown",
+            "src": "Atalayar"
+          }
+        ]
+      },
+      "geo": {
+        "label": "الجيوسياسة والنفط",
+        "items": [
+          {
+            "t": "2026-11-22T16:55:29+00:00",
+            "title": "Ukrainian Security Service conduct a long-range strike on a Russian warship in Libya - report",
+            "src": "i24NEWS"
+          },
+          {
+            "t": "2026-11-22T16:52:30+00:00",
+            "title": "Israeli settlers attack multiple Palestinian villages as pogroms surge",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-22T16:43:40+00:00",
+            "title": "Russian attack near Kyiv hits apartment building, killing 3; air alert sirens sound in Kaliningrad",
+            "src": "Los Angeles Times"
+          },
+          {
+            "t": "2026-11-22T16:42:03+00:00",
+            "title": "Russian attack near Ukraine's capital strikes apartment building, killing 3 and burying others",
+            "src": "Ottumwa Courier"
           }
         ]
       }
     },
-    "failed": [
-      "الفدرالي والفائدة",
-      "الأسهم الأمريكية و S&P 500",
-      "السياسة التجارية والمالية",
-      "الجيوسياسة والنفط"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-22T17:00:44.001408+00:00",
+    "at": "2026-11-22T17:15:41.484054+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10753,10 +10858,10 @@
       "note": ""
     }
   ],
-  "last_publish_ok": "2026-11-22T17:00:44.001408+00:00",
+  "last_publish_ok": "2026-11-22T17:15:41.484054+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T17:01:10.647005+00:00"
+    "at": "2026-11-22T17:16:10.400301+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10891,12 +10996,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T17:00:44.001408+00:00",
-    "ok_at": "2026-11-22T17:00:44.001408+00:00",
+    "at": "2026-11-22T17:15:41.484054+00:00",
+    "ok_at": "2026-11-22T17:15:41.484054+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T17:00:44.001408+00:00",
+    "at": "2026-11-22T17:15:41.484054+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
