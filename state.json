@@ -822,41 +822,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T22:45:38.053250+00:00",
-        "ok_at": "2026-11-22T22:45:38.053250+00:00"
+        "last_try": "2026-11-22T23:00:49.204278+00:00",
+        "ok_at": "2026-11-22T23:00:49.204278+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T22:45:38.053250+00:00",
-        "ok_at": "2026-11-22T22:45:38.053250+00:00"
+        "last_try": "2026-11-22T23:00:49.204278+00:00",
+        "ok_at": "2026-11-22T23:00:49.204278+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T22:45:38.053250+00:00",
-        "ok_at": "2026-11-22T22:45:38.053250+00:00"
+        "last_try": "2026-11-22T23:00:49.204278+00:00",
+        "ok_at": "2026-11-22T23:00:49.204278+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T22:45:38.053250+00:00",
-        "ok_at": "2026-11-22T22:45:38.053250+00:00"
+        "last_try": "2026-11-22T23:00:49.204278+00:00",
+        "ok_at": "2026-11-22T23:00:49.204278+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T22:45:38.053250+00:00",
-        "ok_at": "2026-11-22T22:45:38.053250+00:00"
+        "last_try": "2026-11-22T23:00:49.204278+00:00",
+        "ok_at": "2026-11-22T23:00:49.204278+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T22:45:38.053250+00:00",
-        "ok_at": "2026-11-22T22:45:38.053250+00:00"
+        "last_try": "2026-11-22T23:00:49.204278+00:00",
+        "ok_at": "2026-11-22T23:00:49.204278+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T22:45:38.053250+00:00",
-        "ok_at": "2026-11-22T22:45:38.053250+00:00"
+        "last_try": "2026-11-22T23:00:49.204278+00:00",
+        "ok_at": "2026-11-22T23:00:49.204278+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T22:45:38.053250+00:00",
-        "ok_at": "2026-11-22T22:45:38.053250+00:00"
+        "last_try": "2026-11-22T23:00:49.204278+00:00",
+        "ok_at": "2026-11-22T23:00:49.204278+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T22:45:38.053250+00:00"
+      "at": "2026-11-22T23:00:49.204278+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -864,36 +864,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T22:00:42.689467+00:00",
+    "at": "2026-11-22T23:00:49.204278+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-22T21:33:26+00:00",
-            "title": "The BIA Is Plainly Fed Up with Asylum Lies",
-            "src": "Center for Immigration Studies"
+            "t": "2026-11-22T22:47:31+00:00",
+            "title": "Gold Price Forecast: Selloff Echoes 2022 as Fed Hike Fears Grow",
+            "src": "FXEmpire"
           },
           {
-            "t": "2026-11-22T21:19:27+00:00",
-            "title": "Nvidia's Invisible Rate Cut",
-            "src": "Forbes"
+            "t": "2026-11-22T22:45:00+00:00",
+            "title": "Can ‘direct primary care’ help Wyoming’s healthcare woes? Powell doctors think so.",
+            "src": "Oil City News"
           },
           {
-            "t": "2026-11-22T20:42:50+00:00",
-            "title": "Bulls Announce Concerning Norman Powell Injury Update Ahead of Nuggets Game",
-            "src": "Yahoo Sports"
+            "t": "2026-11-22T22:33:14+00:00",
+            "title": "Replay: Home - 2026 Powell River vs Victoria | Nov 22 @ 11 AM",
+            "src": "FloHockey"
           },
           {
-            "t": "2026-11-22T20:24:37+00:00",
-            "title": "Bulls Get Unfortunate Norman Powell Injury News",
-            "src": "Yahoo Sports"
+            "t": "2026-11-22T22:33:13+00:00",
+            "title": "Replay: Away - 2026 Powell River vs Victoria | Nov 22 @ 11 AM",
+            "src": "FloHockey"
           },
           {
-            "t": "2026-11-22T20:24:15+00:00",
-            "title": "Copper Prices Are Falling. Memo to the Fed: Inflation Could Be Next.",
-            "src": "Barron's"
+            "t": "2026-11-22T22:26:00+00:00",
+            "title": "US Treasury Secretary Scott Bessent warns on Fed hike as AI bubble fears mount",
+            "src": "Semafor"
           }
         ]
       },
@@ -904,6 +904,11 @@
             "t": "2026-11-22T21:44:00+00:00",
             "title": "Stock Futures Could Signal Monday’s Mood After Last Week’s Bloodbath",
             "src": "Barron's"
+          },
+          {
+            "t": "2026-11-22T21:38:57+00:00",
+            "title": "Classified U.S. Intelligence System Is Down, U.S. Officials Say",
+            "src": "WSJ"
           },
           {
             "t": "2026-11-22T20:01:13+00:00",
@@ -919,11 +924,36 @@
             "t": "2026-11-22T17:46:21+00:00",
             "title": "The S&P 500 Just Whipsawed Near a Record High. Here’s Why I’m Lowering My Expectations, Not Selling.",
             "src": "Yahoo Finance"
+          }
+        ]
+      },
+      "companies": {
+        "label": "الشركات الكبرى والأرباح",
+        "items": [
+          {
+            "t": "2026-11-22T22:46:29+00:00",
+            "title": "Nvidia’s Chip Sales Targeted in California Criminal Probe",
+            "src": "PYMNTS.com"
           },
           {
-            "t": "2026-11-22T17:15:00+00:00",
-            "title": "Haven In Orbit? SpaceX Stock Is Still a Buy, Wall Street Says.",
-            "src": "Barron's"
+            "t": "2026-11-22T22:12:00+00:00",
+            "title": "Amazon drone crashes in Huntington Woods; NTSB weighs probe",
+            "src": "Detroit Free Press"
+          },
+          {
+            "t": "2026-11-22T21:25:13+00:00",
+            "title": "AMD vs. Nvidia Stock After Jensen Huang’s Exit: 1 Trades at Nearly 4x the Other’s Earnings Multiple. Here’s the AI Chip Stock I’d Buy Now.",
+            "src": "Barchart.com"
+          },
+          {
+            "t": "2026-11-22T18:06:18+00:00",
+            "title": "Spy Chief Says US Probing Alleged Spy Tied to Former Nvidia CEO",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-22T17:37:43+00:00",
+            "title": "Nvidia Stock Has A Cockroach Problem. What Comes Next Could Be Worse",
+            "src": "Forbes"
           }
         ]
       },
@@ -931,14 +961,14 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-11-22T22:14:54+00:00",
+            "title": "Ticker: Key inflation report due this week",
+            "src": "Boston Herald"
+          },
+          {
             "t": "2026-11-22T19:41:11+00:00",
             "title": "Degree Inflation Has a Source. States Can Fix It.",
             "src": "RealClearEducation"
-          },
-          {
-            "t": "2026-11-22T19:00:00+00:00",
-            "title": "Inflation, Best Buy, Zoom, Dell, Deere, and More to Watch This Week",
-            "src": "Barron's"
           },
           {
             "t": "2026-11-22T18:25:58+00:00",
@@ -946,26 +976,49 @@
             "src": "Stocks Down Under"
           },
           {
+            "t": "2026-11-22T17:00:46+00:00",
+            "title": "Inflation, Best Buy, Zoom, Dell, Deere, and More to Watch This Week",
+            "src": "Barron's"
+          },
+          {
             "t": "2026-11-22T17:00:41+00:00",
             "title": "5 Investments That Have Been Beating Inflation",
             "src": "Yahoo Finance"
+          }
+        ]
+      },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-11-22T11:00:01+00:00",
+            "title": "On The Hill: Will there be another government shutdown?",
+            "src": "Deseret News"
           },
           {
-            "t": "2026-11-22T16:46:04+00:00",
-            "title": "US Consumers Are Holding Up Against Inflation Going Into Holiday Season",
-            "src": "Bloomberg.com"
+            "t": "2026-11-22T10:16:30+00:00",
+            "title": "Trump Warns of US Bankruptcy Threat over US Debt Ceiling",
+            "src": "تسنیم"
+          },
+          {
+            "t": "2026-11-22T08:58:00+00:00",
+            "title": "Democrats’ efforts to repeal tariffs set to be tough despite landslide win",
+            "src": "The Arkansas Democrat-Gazette"
+          },
+          {
+            "t": "2026-11-22T08:30:00+00:00",
+            "title": "Why funding for the war in Iran could trigger another US government shutdown",
+            "src": "Atalayar"
           }
         ]
       }
     },
     "failed": [
-      "الشركات الكبرى والأرباح",
-      "السياسة التجارية والمالية",
       "الجيوسياسة والنفط"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-22T22:45:38.053250+00:00",
+    "at": "2026-11-22T23:00:49.204278+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10682,10 +10735,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-22T22:45:38.053250+00:00",
+  "last_publish_ok": "2026-11-22T23:00:49.204278+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T22:46:01.126477+00:00"
+    "at": "2026-11-22T23:01:31.561213+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10820,12 +10873,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T22:45:38.053250+00:00",
-    "ok_at": "2026-11-22T22:45:38.053250+00:00",
+    "at": "2026-11-22T23:00:49.204278+00:00",
+    "ok_at": "2026-11-22T23:00:49.204278+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T22:45:38.053250+00:00",
+    "at": "2026-11-22T23:00:49.204278+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
