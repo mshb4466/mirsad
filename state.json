@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T19:15:39.273442+00:00",
-        "ok_at": "2026-11-22T19:15:39.273442+00:00"
+        "last_try": "2026-11-22T19:30:42.784950+00:00",
+        "ok_at": "2026-11-22T19:30:42.784950+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T19:15:39.273442+00:00",
-        "ok_at": "2026-11-22T19:15:39.273442+00:00"
+        "last_try": "2026-11-22T19:30:42.784950+00:00",
+        "ok_at": "2026-11-22T19:30:42.784950+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T19:15:39.273442+00:00",
-        "ok_at": "2026-11-22T19:15:39.273442+00:00"
+        "last_try": "2026-11-22T19:30:42.784950+00:00",
+        "ok_at": "2026-11-22T19:30:42.784950+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T19:15:39.273442+00:00",
-        "ok_at": "2026-11-22T19:15:39.273442+00:00"
+        "last_try": "2026-11-22T19:30:42.784950+00:00",
+        "ok_at": "2026-11-22T19:30:42.784950+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T19:15:39.273442+00:00",
-        "ok_at": "2026-11-22T19:15:39.273442+00:00"
+        "last_try": "2026-11-22T19:30:42.784950+00:00",
+        "ok_at": "2026-11-22T19:30:42.784950+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T19:15:39.273442+00:00",
-        "ok_at": "2026-11-22T19:15:39.273442+00:00"
+        "last_try": "2026-11-22T19:30:42.784950+00:00",
+        "ok_at": "2026-11-22T19:30:42.784950+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T19:15:39.273442+00:00",
-        "ok_at": "2026-11-22T19:15:39.273442+00:00"
+        "last_try": "2026-11-22T19:30:42.784950+00:00",
+        "ok_at": "2026-11-22T19:30:42.784950+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T19:15:39.273442+00:00",
-        "ok_at": "2026-11-22T19:15:39.273442+00:00"
+        "last_try": "2026-11-22T19:30:42.784950+00:00",
+        "ok_at": "2026-11-22T19:30:42.784950+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T19:15:39.273442+00:00"
+      "at": "2026-11-22T19:30:42.784950+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,61 +964,31 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T18:30:41.156621+00:00",
+    "at": "2026-11-22T19:30:42.784950+00:00",
     "asset": "es",
     "data": {
-      "fed": {
-        "label": "الفدرالي والفائدة",
-        "items": [
-          {
-            "t": "2026-11-22T16:08:20+00:00",
-            "title": "Bessent Warns Fed Risks Overtightening as US Markets Swoon",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-22T15:53:54+00:00",
-            "title": "The BIA Is Plainly Fed Up with Asylum Lies",
-            "src": "Center for Immigration Studies"
-          },
-          {
-            "t": "2026-11-22T15:38:19+00:00",
-            "title": "Bulls’ Norman Powell Suffers ‘Mild’ Right Hamstring Strain",
-            "src": "Hoops Rumors"
-          },
-          {
-            "t": "2026-11-22T15:21:08+00:00",
-            "title": "NORMAN POWELL MEDICAL UPDATE",
-            "src": "NBA.com"
-          },
-          {
-            "t": "2026-11-22T14:59:35+00:00",
-            "title": "Ancient Greek babies were fed solid food at 4 months but nursed for nearly 4 years",
-            "src": "Archaeology News Online Magazine"
-          }
-        ]
-      },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-11-22T18:47:47+00:00",
+            "title": "The Blame Game Has Begun Over Anthropic’s Turbulent Trading Debut",
+            "src": "WSJ"
+          },
           {
             "t": "2026-11-22T18:11:51+00:00",
             "title": "Nvidia Reports Faster Growth, Says Jensen Huang Won’t Return as CEO",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-22T17:46:21+00:00",
-            "title": "The S&P 500 Just Whipsawed Near a Record High. Here’s Why I’m Lowering My Expectations, Not Selling.",
+            "t": "2026-11-22T17:50:02+00:00",
+            "title": "The S&P 500 and Dow Jones Are Dangerously Close to Joining the Nasdaq in a Correction. Here’s the Level That Would Put the Nasdaq in a Bear Market, and What History Says Investors Should Do During a Stock Market Crash.",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-22T17:41:10+00:00",
-            "title": "Israeli Spy Chief Pressed for Renewed Iran Strikes During U.S. Visit",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-22T17:18:30+00:00",
-            "title": "New Satellite Photos Show Expansion of North Korean Uranium-Enrichment Plant",
-            "src": "WSJ"
+            "t": "2026-11-22T17:46:21+00:00",
+            "title": "The S&P 500 Just Whipsawed Near a Record High. Here’s Why I’m Lowering My Expectations, Not Selling.",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-22T17:15:00+00:00",
@@ -1027,74 +997,9 @@
           }
         ]
       },
-      "companies": {
-        "label": "الشركات الكبرى والأرباح",
-        "items": [
-          {
-            "t": "2026-11-22T17:05:46+00:00",
-            "title": "Spy Chief Says US Probing Alleged Spy Tied to Former Nvidia CEO",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-22T16:42:54+00:00",
-            "title": "META vs GOOGL: $127.6B Quarter vs $3.83 EPS",
-            "src": "shattered.io"
-          },
-          {
-            "t": "2026-11-22T14:02:53+00:00",
-            "title": "CPI | Nvidia Faces SEC Probe Into Potential Accounting Issues",
-            "src": "PYMNTS.com"
-          },
-          {
-            "t": "2026-11-22T10:07:16+00:00",
-            "title": "“The Selloff Does Not End When Fundamentals Improve,” Warns Gene Munster. Nvidia Looks Like 2012 Apple",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-22T00:47:00+00:00",
-            "title": "Nvidia Stock Has Crashed 48% and Now Trades at 15 Times Earnings, Its Cheapest in More Than a Decade and Cheaper Than Microsoft and Broadcom",
-            "src": "24/7 Wall St."
-          }
-        ]
-      },
-      "macro": {
-        "label": "الاقتصاد والبيانات",
-        "items": [
-          {
-            "t": "2026-11-22T16:46:04+00:00",
-            "title": "US Consumers Are Holding Up Against Inflation Going Into Holiday Season",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-22T16:08:00+00:00",
-            "title": "Inflation, economic growth and the mood of US consumers in focus this week",
-            "src": "AP News"
-          },
-          {
-            "t": "2026-11-22T15:57:48+00:00",
-            "title": "Progressives unveil $25 minimum wage push to solve affordability crisis despite economist inflation warning",
-            "src": "Fox News"
-          },
-          {
-            "t": "2026-11-22T15:07:00+00:00",
-            "title": "10-Year TIPS Pay 2.77% Above Inflation. Here’s How Dividend Stocks Compare",
-            "src": "24/7 Wall St."
-          },
-          {
-            "t": "2026-11-22T15:00:00+00:00",
-            "title": "Both Kevin Warsh And His Critics Mistake Rising Prices For Inflation",
-            "src": "Forbes"
-          }
-        ]
-      },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
-          {
-            "t": "2026-11-22T16:13:37+00:00",
-            "title": "Treasury Yields Fall, German Bunds’ Tick Higher",
-            "src": "WSJ"
-          },
           {
             "t": "2026-11-22T11:00:01+00:00",
             "title": "On The Hill: Will there be another government shutdown?",
@@ -1109,6 +1014,11 @@
             "t": "2026-11-22T08:58:00+00:00",
             "title": "Democrats’ efforts to repeal tariffs set to be tough despite landslide win",
             "src": "The Arkansas Democrat-Gazette"
+          },
+          {
+            "t": "2026-11-22T08:30:00+00:00",
+            "title": "Why funding for the war in Iran could trigger another US government shutdown",
+            "src": "Atalayar"
           }
         ]
       },
@@ -1116,32 +1026,36 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-22T18:24:32+00:00",
-            "title": "IDF intelligence said to warn unilateral Iran strike could spark multi-front war",
-            "src": "The Times of Israel"
+            "t": "2026-11-22T19:22:04+00:00",
+            "title": "Netanyahu presses Trump for Iran strike, but White House expects at least weeklong delay",
+            "src": "Ynetnews"
           },
           {
-            "t": "2026-11-22T18:15:10+00:00",
-            "title": "Iran strike wounds two in Bahrain, Saudi condemns 'criminal' attacks",
-            "src": "Yahoo"
+            "t": "2026-11-22T18:34:18+00:00",
+            "title": "Russian Corvette Merkury: Can Ukraine Strike a Warship in Libyan Waters?",
+            "src": "Diplomacy and Law"
           },
           {
-            "t": "2026-11-22T18:11:56+00:00",
-            "title": "Libya Russia Strike",
-            "src": "The Batesville Daily Guard"
+            "t": "2026-11-22T18:32:59+00:00",
+            "title": "Russian strikes kill 6 in Kyiv region, Ukraine says",
+            "src": "South China Morning Post"
           },
           {
-            "t": "2026-11-22T18:08:24+00:00",
-            "title": "Yemen's Houthis say they attacked Saudi Rabigh oil refinery",
-            "src": "The Jerusalem Post"
+            "t": "2026-11-22T18:32:43+00:00",
+            "title": "Libya's eastern government suspects drone attack caused explosion on Russian ship in Benghazi",
+            "src": "Reuters"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "الفدرالي والفائدة",
+      "الشركات الكبرى والأرباح",
+      "الاقتصاد والبيانات"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-22T19:15:39.273442+00:00",
+    "at": "2026-11-22T19:30:42.784950+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -1640,7 +1554,7 @@
       "previous": "4.3%",
       "country": "USD",
       "last_attempt": "2026-11-22T19:15:39.273442+00:00",
-      "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
+      "note": ""
     }
   },
   "stats": {
@@ -10858,10 +10772,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-22T19:15:39.273442+00:00",
+  "last_publish_ok": "2026-11-22T19:30:42.784950+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T19:16:05.449833+00:00"
+    "at": "2026-11-22T19:31:09.879504+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10996,12 +10910,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T19:15:39.273442+00:00",
-    "ok_at": "2026-11-22T19:15:39.273442+00:00",
+    "at": "2026-11-22T19:30:42.784950+00:00",
+    "ok_at": "2026-11-22T19:30:42.784950+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T19:15:39.273442+00:00",
+    "at": "2026-11-22T19:30:42.784950+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
