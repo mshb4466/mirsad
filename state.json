@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T06:45:39.423271+00:00",
-        "ok_at": "2026-11-22T06:45:39.423271+00:00"
+        "last_try": "2026-11-22T07:00:42.498391+00:00",
+        "ok_at": "2026-11-22T07:00:42.498391+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T06:45:39.423271+00:00",
-        "ok_at": "2026-11-22T06:45:39.423271+00:00"
+        "last_try": "2026-11-22T07:00:42.498391+00:00",
+        "ok_at": "2026-11-22T07:00:42.498391+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T06:45:39.423271+00:00",
-        "ok_at": "2026-11-22T06:45:39.423271+00:00"
+        "last_try": "2026-11-22T07:00:42.498391+00:00",
+        "ok_at": "2026-11-22T07:00:42.498391+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T06:45:39.423271+00:00",
-        "ok_at": "2026-11-22T06:45:39.423271+00:00"
+        "last_try": "2026-11-22T07:00:42.498391+00:00",
+        "ok_at": "2026-11-22T07:00:42.498391+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T06:45:39.423271+00:00",
-        "ok_at": "2026-11-22T06:45:39.423271+00:00"
+        "last_try": "2026-11-22T07:00:42.498391+00:00",
+        "ok_at": "2026-11-22T07:00:42.498391+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T06:45:39.423271+00:00",
-        "ok_at": "2026-11-22T06:45:39.423271+00:00"
+        "last_try": "2026-11-22T07:00:42.498391+00:00",
+        "ok_at": "2026-11-22T07:00:42.498391+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T06:45:39.423271+00:00",
-        "ok_at": "2026-11-22T06:45:39.423271+00:00"
+        "last_try": "2026-11-22T07:00:42.498391+00:00",
+        "ok_at": "2026-11-22T07:00:42.498391+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T06:45:39.423271+00:00",
-        "ok_at": "2026-11-22T06:45:39.423271+00:00"
+        "last_try": "2026-11-22T07:00:42.498391+00:00",
+        "ok_at": "2026-11-22T07:00:42.498391+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T06:45:39.423271+00:00"
+      "at": "2026-11-22T07:00:42.498391+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,7 +964,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T05:45:39.592472+00:00",
+    "at": "2026-11-22T07:00:42.498391+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -997,62 +997,32 @@
           }
         ]
       },
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
-        "items": [
-          {
-            "t": "2026-11-22T05:41:19+00:00",
-            "title": "Classified U.S. Intelligence System Is Down, U.S. Officials Say",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-22T00:02:00+00:00",
-            "title": "Stock market correction? This chief investment officer sees the S&P 500 soaring 45% to 10,000",
-            "src": "Fortune"
-          },
-          {
-            "t": "2026-11-21T22:51:02+00:00",
-            "title": "In the Last Tech Bust, the S&P 500 Lost Money for a Decade. History Says Stocks With the Highest Yields Gained 5.4% a Year.",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-21T21:22:00+00:00",
-            "title": "Worried About Black Monday? What Wall Street Says Could Happen.",
-            "src": "Barron's"
-          },
-          {
-            "t": "2026-11-21T20:42:00+00:00",
-            "title": "The S&P 500 Is Now Below Every Wall Street Year-End Target for 2026",
-            "src": "Yahoo Finance"
-          }
-        ]
-      },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-22T00:47:00+00:00",
-            "title": "Nvidia Stock Has Crashed 48% and Now Trades at 15 Times Earnings, Its Cheapest in More Than a Decade and Cheaper Than Microsoft and Broadcom",
-            "src": "24/7 Wall St."
-          },
-          {
-            "t": "2026-11-21T22:07:02+00:00",
-            "title": "Prediction: This Will Be Nvidia’s Stock Price in 2027 After Its Phenomenal Q3 Results",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-21T19:46:27+00:00",
-            "title": "Nvidia probe in California extends to potential criminal violations: Bloomberg",
-            "src": "Seeking Alpha"
-          },
-          {
-            "t": "2026-11-21T17:37:19+00:00",
-            "title": "California Nvidia probe covers potential criminal law violations, AG says- Bloomberg News",
-            "src": "TradingView"
+            "t": "2026-11-21T20:07:00+00:00",
+            "title": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
+            "src": "The New York Times"
           },
           {
             "t": "2026-11-21T17:11:23+00:00",
             "title": "California Nvidia Probe Covers Potential Criminal Law Violations",
+            "src": "Bloomberg"
+          },
+          {
+            "t": "2026-11-21T08:16:08+00:00",
+            "title": "Investor Focus: Anthropic’s Record-Breaking IPO, Nvidia’s Earnings, and an Undervalued UK Defense Stock",
+            "src": "Morningstar"
+          },
+          {
+            "t": "2026-11-21T05:24:37+00:00",
+            "title": "Nvidia stock closes lower after company opens probe into CEO Jensen Huang",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-11-20T21:16:03+00:00",
+            "title": "Wall Street Regulator Probing Nvidia’s Accounting, Report Says",
             "src": "Bloomberg"
           }
         ]
@@ -1116,14 +1086,14 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-22T05:44:59+00:00",
+            "title": "Bahrain says Iranian attack causes fire at industrial facility",
+            "src": "Al Jazeera"
+          },
+          {
             "t": "2026-11-22T02:19:00+00:00",
             "title": "Ukraine war briefing: Russian cargo ship hit by drone in Baltic Sea as Finland PM says conflict ‘spilling over’",
             "src": "The Guardian"
-          },
-          {
-            "t": "2026-11-22T00:43:09+00:00",
-            "title": "Bahrain says Iranian attack causes fire at industrial facility",
-            "src": "Al Jazeera"
           },
           {
             "t": "2026-11-21T23:32:46+00:00",
@@ -1131,17 +1101,19 @@
             "src": "JNS.org"
           },
           {
-            "t": "2026-11-21T21:09:04+00:00",
-            "title": "Oil Tankers Hit Near Strait of Hormuz as Farm Energy Risks Rise",
-            "src": "AgroLatam"
+            "t": "2026-11-21T22:54:59+00:00",
+            "title": "Russian helicopter suspected of violating Finnish airspace, after tanker hit by drone in Baltic Sea",
+            "src": "DW.com"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "الأسهم الأمريكية و S&P 500"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-22T06:45:39.423271+00:00",
+    "at": "2026-11-22T07:00:42.498391+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10858,10 +10830,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-22T06:45:39.423271+00:00",
+  "last_publish_ok": "2026-11-22T07:00:42.498391+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T06:45:59.948519+00:00"
+    "at": "2026-11-22T07:01:18.599480+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10996,12 +10968,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T06:45:39.423271+00:00",
-    "ok_at": "2026-11-22T06:45:39.423271+00:00",
+    "at": "2026-11-22T07:00:42.498391+00:00",
+    "ok_at": "2026-11-22T07:00:42.498391+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T06:45:39.423271+00:00",
+    "at": "2026-11-22T07:00:42.498391+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
