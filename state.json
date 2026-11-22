@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T20:30:42.231476+00:00",
-        "ok_at": "2026-11-22T20:30:42.231476+00:00"
+        "last_try": "2026-11-22T20:45:41.553177+00:00",
+        "ok_at": "2026-11-22T20:45:41.553177+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T20:30:42.231476+00:00",
-        "ok_at": "2026-11-22T20:30:42.231476+00:00"
+        "last_try": "2026-11-22T20:45:41.553177+00:00",
+        "ok_at": "2026-11-22T20:45:41.553177+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T20:30:42.231476+00:00",
-        "ok_at": "2026-11-22T20:30:42.231476+00:00"
+        "last_try": "2026-11-22T20:45:41.553177+00:00",
+        "ok_at": "2026-11-22T20:45:41.553177+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T20:30:42.231476+00:00",
-        "ok_at": "2026-11-22T20:30:42.231476+00:00"
+        "last_try": "2026-11-22T20:45:41.553177+00:00",
+        "ok_at": "2026-11-22T20:45:41.553177+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T20:30:42.231476+00:00",
-        "ok_at": "2026-11-22T20:30:42.231476+00:00"
+        "last_try": "2026-11-22T20:45:41.553177+00:00",
+        "ok_at": "2026-11-22T20:45:41.553177+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T20:30:42.231476+00:00",
-        "ok_at": "2026-11-22T20:30:42.231476+00:00"
+        "last_try": "2026-11-22T20:45:41.553177+00:00",
+        "ok_at": "2026-11-22T20:45:41.553177+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T20:30:42.231476+00:00",
-        "ok_at": "2026-11-22T20:30:42.231476+00:00"
+        "last_try": "2026-11-22T20:45:41.553177+00:00",
+        "ok_at": "2026-11-22T20:45:41.553177+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T20:30:42.231476+00:00",
-        "ok_at": "2026-11-22T20:30:42.231476+00:00"
+        "last_try": "2026-11-22T20:45:41.553177+00:00",
+        "ok_at": "2026-11-22T20:45:41.553177+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T20:30:42.231476+00:00"
+      "at": "2026-11-22T20:45:41.553177+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,21 +964,51 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T19:30:42.784950+00:00",
+    "at": "2026-11-22T20:45:41.553177+00:00",
     "asset": "es",
     "data": {
+      "fed": {
+        "label": "الفدرالي والفائدة",
+        "items": [
+          {
+            "t": "2026-11-22T20:24:15+00:00",
+            "title": "Copper Prices Are Falling. Memo to the Fed: Inflation Could Be Next.",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-11-22T20:17:50+00:00",
+            "title": "Gold Price Forecast: Selloff Echoes 2022 as Fed Hike Fears Grow",
+            "src": "FXEmpire"
+          },
+          {
+            "t": "2026-11-22T20:00:00+00:00",
+            "title": "Bond Market’s Go-To Trade for Fed Hikes Roiled by Stocks Retreat",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-22T19:00:00+00:00",
+            "title": "Powell County family seeks community support during 6-week-old’s hospital care",
+            "src": "WKYT"
+          },
+          {
+            "t": "2026-11-22T18:46:47+00:00",
+            "title": "Norman Powell Injured, Latest on Bulls Star's Timeline to Return from Hamstring Diagnosis",
+            "src": "Bleacher Report"
+          }
+        ]
+      },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-22T18:47:47+00:00",
-            "title": "The Blame Game Has Begun Over Anthropic’s Turbulent Trading Debut",
-            "src": "WSJ"
+            "t": "2026-11-22T20:01:13+00:00",
+            "title": "S&P 500 at 5,600? Crushing China’s AI Ambitions Has a Price",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-22T18:11:51+00:00",
-            "title": "Nvidia Reports Faster Growth, Says Jensen Huang Won’t Return as CEO",
-            "src": "WSJ"
+            "t": "2026-11-22T19:46:00+00:00",
+            "title": "Wall Street Strategists See Silver Lining for Stock Market",
+            "src": "Barron's"
           },
           {
             "t": "2026-11-22T17:50:02+00:00",
@@ -994,6 +1024,66 @@
             "t": "2026-11-22T17:15:00+00:00",
             "title": "Haven In Orbit? SpaceX Stock Is Still a Buy, Wall Street Says.",
             "src": "Barron's"
+          }
+        ]
+      },
+      "companies": {
+        "label": "الشركات الكبرى والأرباح",
+        "items": [
+          {
+            "t": "2026-11-22T18:06:18+00:00",
+            "title": "US Probing Alleged Spy Tied to Ex-Nvidia CEO, Spy Chief Says",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-22T17:37:43+00:00",
+            "title": "Nvidia Stock Has A Cockroach Problem. What Comes Next Could Be Worse",
+            "src": "Forbes"
+          },
+          {
+            "t": "2026-11-22T16:42:54+00:00",
+            "title": "META vs GOOGL: $127.6B Quarter vs $3.83 EPS",
+            "src": "shattered.io"
+          },
+          {
+            "t": "2026-11-22T14:02:53+00:00",
+            "title": "CPI | Nvidia Faces SEC Probe Into Potential Accounting Issues",
+            "src": "PYMNTS.com"
+          },
+          {
+            "t": "2026-11-22T10:07:16+00:00",
+            "title": "“The Selloff Does Not End When Fundamentals Improve,” Warns Gene Munster. Nvidia Looks Like 2012 Apple",
+            "src": "Yahoo Finance"
+          }
+        ]
+      },
+      "macro": {
+        "label": "الاقتصاد والبيانات",
+        "items": [
+          {
+            "t": "2026-11-22T20:16:46+00:00",
+            "title": "Inflation, Best Buy, Zoom, Dell, Deere, and More to Watch This Week",
+            "src": "Barron's"
+          },
+          {
+            "t": "2026-11-22T19:41:11+00:00",
+            "title": "Degree Inflation Has a Source. States Can Fix It.",
+            "src": "RealClearEducation"
+          },
+          {
+            "t": "2026-11-22T18:25:58+00:00",
+            "title": "US Inflation Report: Could PCE Data Trigger Another Stock Market Selloff?",
+            "src": "Stocks Down Under"
+          },
+          {
+            "t": "2026-11-22T17:00:41+00:00",
+            "title": "5 Investments That Have Been Beating Inflation",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-22T16:46:04+00:00",
+            "title": "US Consumers Are Holding Up Against Inflation Going Into Holiday Season",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -1026,36 +1116,32 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-22T19:22:04+00:00",
-            "title": "Netanyahu presses Trump for Iran strike, but White House expects at least weeklong delay",
+            "t": "2026-11-22T20:11:47+00:00",
+            "title": "Russian vessel hit by suspected Ukrainian drone at Libya’s Benghazi port",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-22T19:54:11+00:00",
+            "title": "Libya's eastern government suspects drone attack caused explosion on Russian ship",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-22T19:46:29+00:00",
+            "title": "Israel's education crisis deepens as political deadlock raises threat of teachers' strike",
             "src": "Ynetnews"
           },
           {
-            "t": "2026-11-22T18:34:18+00:00",
-            "title": "Russian Corvette Merkury: Can Ukraine Strike a Warship in Libyan Waters?",
-            "src": "Diplomacy and Law"
-          },
-          {
-            "t": "2026-11-22T18:32:59+00:00",
-            "title": "Russian strikes kill 6 in Kyiv region, Ukraine says",
-            "src": "South China Morning Post"
-          },
-          {
-            "t": "2026-11-22T18:32:43+00:00",
-            "title": "Libya's eastern government suspects drone attack caused explosion on Russian ship in Benghazi",
-            "src": "Reuters"
+            "t": "2026-11-22T19:30:57+00:00",
+            "title": "Oil prices fall despite Strait of Hormuz tension",
+            "src": "Fox News"
           }
         ]
       }
     },
-    "failed": [
-      "الفدرالي والفائدة",
-      "الشركات الكبرى والأرباح",
-      "الاقتصاد والبيانات"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-22T20:30:42.231476+00:00",
+    "at": "2026-11-22T20:45:41.553177+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10772,10 +10858,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-22T20:30:42.231476+00:00",
+  "last_publish_ok": "2026-11-22T20:45:41.553177+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T20:31:07.065109+00:00"
+    "at": "2026-11-22T20:46:12.918173+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10910,12 +10996,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T20:30:42.231476+00:00",
-    "ok_at": "2026-11-22T20:30:42.231476+00:00",
+    "at": "2026-11-22T20:45:41.553177+00:00",
+    "ok_at": "2026-11-22T20:45:41.553177+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T20:30:42.231476+00:00",
+    "at": "2026-11-22T20:45:41.553177+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
