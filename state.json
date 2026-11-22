@@ -922,41 +922,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-22T10:15:35.504054+00:00",
-        "ok_at": "2026-11-22T10:15:35.504054+00:00"
+        "last_try": "2026-11-22T10:30:44.855958+00:00",
+        "ok_at": "2026-11-22T10:30:44.855958+00:00"
       },
       "fred": {
-        "last_try": "2026-11-22T10:15:35.504054+00:00",
-        "ok_at": "2026-11-22T10:15:35.504054+00:00"
+        "last_try": "2026-11-22T10:30:44.855958+00:00",
+        "ok_at": "2026-11-22T10:30:44.855958+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-22T10:15:35.504054+00:00",
-        "ok_at": "2026-11-22T10:15:35.504054+00:00"
+        "last_try": "2026-11-22T10:30:44.855958+00:00",
+        "ok_at": "2026-11-22T10:30:44.855958+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-22T10:15:35.504054+00:00",
-        "ok_at": "2026-11-22T10:15:35.504054+00:00"
+        "last_try": "2026-11-22T10:30:44.855958+00:00",
+        "ok_at": "2026-11-22T10:30:44.855958+00:00"
       },
       "oil": {
-        "last_try": "2026-11-22T10:15:35.504054+00:00",
-        "ok_at": "2026-11-22T10:15:35.504054+00:00"
+        "last_try": "2026-11-22T10:30:44.855958+00:00",
+        "ok_at": "2026-11-22T10:30:44.855958+00:00"
       },
       "news": {
-        "last_try": "2026-11-22T10:15:35.504054+00:00",
-        "ok_at": "2026-11-22T10:15:35.504054+00:00"
+        "last_try": "2026-11-22T10:30:44.855958+00:00",
+        "ok_at": "2026-11-22T10:30:44.855958+00:00"
       },
       "cot": {
-        "last_try": "2026-11-22T10:15:35.504054+00:00",
-        "ok_at": "2026-11-22T10:15:35.504054+00:00"
+        "last_try": "2026-11-22T10:30:44.855958+00:00",
+        "ok_at": "2026-11-22T10:30:44.855958+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-22T10:15:35.504054+00:00",
-        "ok_at": "2026-11-22T10:15:35.504054+00:00"
+        "last_try": "2026-11-22T10:30:44.855958+00:00",
+        "ok_at": "2026-11-22T10:30:44.855958+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-22T10:15:35.504054+00:00"
+      "at": "2026-11-22T10:30:44.855958+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 2.5% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -964,66 +964,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-22T09:15:36.700447+00:00",
+    "at": "2026-11-22T10:30:44.855958+00:00",
     "asset": "es",
     "data": {
-      "fed": {
-        "label": "الفدرالي والفائدة",
-        "items": [
-          {
-            "t": "2026-11-22T03:30:00+00:00",
-            "title": "The Fed Could Be Setting Up Major Stock Market Buying Opportunity Without Investors Even Realizing It",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-22T01:32:30+00:00",
-            "title": "These Charts Show Why Young People Across the World Are Fed Up With the Economy",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-21T20:40:44+00:00",
-            "title": "Japan Consumer Inflation Reinforces Rate-Hike Expectations",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-21T19:26:04+00:00",
-            "title": "Aziz Foster-Powell scores 3-yard rushing TD",
-            "src": "ESPN"
-          },
-          {
-            "t": "2026-11-21T18:08:01+00:00",
-            "title": "If the Fed Hikes Rates This Year, I'm Loading Up on This 1 ETF",
-            "src": "The Motley Fool"
-          }
-        ]
-      },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-22T08:53:05+00:00",
+            "t": "2026-11-22T10:23:05+00:00",
             "title": "Lufthansa to Cut 1,000 Jobs at Flagship Airline as Challenges Mount",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-22T08:37:39+00:00",
-            "title": "The Blame Game Has Begun Over Anthropic’s Turbulent Trading Debut",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-22T06:23:31+00:00",
-            "title": "Jensen Huang Breaks Silence, Signals Willingness to Return as Nvidia CEO",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-22T05:21:52+00:00",
-            "title": "How Kim Jong Un Gets Away With Building Nukes and Ghosting Trump",
+            "t": "2026-11-22T05:19:57+00:00",
+            "title": "Ukraine Is Racing to Keep Its Booming Defense Industry From Stalling",
             "src": "WSJ"
           },
           {
             "t": "2026-11-22T02:49:29+00:00",
             "title": "US MARKETS CALL: A Bull-Market Correction Or A Tech-Wreck Bear Market? Also: Our New S&P 500 Targets.",
             "src": "Yardeni QuickTakes"
+          },
+          {
+            "t": "2026-11-22T00:31:37+00:00",
+            "title": "How Kim Jong Un Gets Away With Building Nukes and Ghosting Trump",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-22T00:02:00+00:00",
+            "title": "Stock market correction? This chief investment officer sees the S&P 500 soaring 45% to 10,000",
+            "src": "Fortune"
           }
         ]
       },
@@ -1034,11 +1004,6 @@
             "t": "2026-11-22T00:47:00+00:00",
             "title": "Nvidia Stock Has Crashed 48% and Now Trades at 15 Times Earnings, Its Cheapest in More Than a Decade and Cheaper Than Microsoft and Broadcom",
             "src": "24/7 Wall St."
-          },
-          {
-            "t": "2026-11-21T20:07:00+00:00",
-            "title": "Nvidia Said to Face S.E.C. Probe Into Its Accounting Practices",
-            "src": "The New York Times"
           },
           {
             "t": "2026-11-21T19:46:27+00:00",
@@ -1054,6 +1019,11 @@
             "t": "2026-11-21T17:11:23+00:00",
             "title": "California Nvidia Probe Covers Potential Criminal Law Violations",
             "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-21T08:16:08+00:00",
+            "title": "Investor Focus: Anthropic’s Record-Breaking IPO, Nvidia’s Earnings, and an Undervalued UK Defense Stock",
+            "src": "Morningstar"
           }
         ]
       },
@@ -1061,9 +1031,9 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-22T08:25:43+00:00",
-            "title": "SNB closely watching for second-round inflation effects, vice chairman tells paper",
-            "src": "Reuters"
+            "t": "2026-11-22T10:00:00+00:00",
+            "title": "Copper Prices Are Falling. Memo to the Fed: Inflation Could Be Next.",
+            "src": "Barron's"
           },
           {
             "t": "2026-11-22T08:23:46+00:00",
@@ -1091,9 +1061,9 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-22T08:58:00+00:00",
-            "title": "Democrats’ efforts to repeal tariffs set to be tough despite landslide win",
-            "src": "The Arkansas Democrat-Gazette"
+            "t": "2026-11-22T10:16:30+00:00",
+            "title": "Trump Warns of US Bankruptcy Threat over US Debt Ceiling",
+            "src": "تسنیم"
           },
           {
             "t": "2026-11-22T08:30:00+00:00",
@@ -1101,47 +1071,25 @@
             "src": "Atalayar"
           },
           {
-            "t": "2026-11-22T06:15:26+00:00",
-            "title": "Treasury Yields Fall, German Bunds’ Tick Higher",
-            "src": "WSJ"
-          },
-          {
             "t": "2026-11-21T20:15:00+00:00",
             "title": "Opinion | A government shutdown won’t stop the Iran war",
             "src": "The Washington Post"
-          }
-        ]
-      },
-      "geo": {
-        "label": "الجيوسياسة والنفط",
-        "items": [
-          {
-            "t": "2026-11-22T08:13:04+00:00",
-            "title": "Dashcam captures Russian missile strike on Lviv, Ukraine",
-            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-22T07:54:11+00:00",
-            "title": "Donald Trump Says US Is Working on ‘Larger-Scale’ Ukraine-Russia Ceasefire",
-            "src": "Kyiv Post"
-          },
-          {
-            "t": "2026-11-22T07:25:30+00:00",
-            "title": "Ukraine, UK Agree to Jointly Produce Ukrainian Deep-Strike Drones in Britain",
-            "src": "Kyiv Post"
-          },
-          {
-            "t": "2026-11-22T05:44:59+00:00",
-            "title": "Bahrain says Iranian attack causes fire at industrial facility",
-            "src": "Al Jazeera"
+            "t": "2026-11-21T13:19:38+00:00",
+            "title": "Turkey seeks exemption from possible EU hybrid car tariffs",
+            "src": "Turkish Minute"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "الفدرالي والفائدة",
+      "الجيوسياسة والنفط"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-22T10:15:35.504054+00:00",
+    "at": "2026-11-22T10:30:44.855958+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10858,10 +10806,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-22T10:15:35.504054+00:00",
+  "last_publish_ok": "2026-11-22T10:30:44.855958+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-22T10:15:59.302504+00:00"
+    "at": "2026-11-22T10:31:06.959996+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10996,12 +10944,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-22T10:15:35.504054+00:00",
-    "ok_at": "2026-11-22T10:15:35.504054+00:00",
+    "at": "2026-11-22T10:30:44.855958+00:00",
+    "ok_at": "2026-11-22T10:30:44.855958+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-22T10:15:35.504054+00:00",
+    "at": "2026-11-22T10:30:44.855958+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
