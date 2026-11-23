@@ -513,18 +513,18 @@
       "name": "ES",
       "short": "ES",
       "w": 180,
-      "v": 0.57,
+      "v": 0.48,
       "th": 0.8,
-      "ratio": 0.72,
-      "val": "+0.57%",
+      "ratio": 0.6,
+      "val": "+0.48%",
       "thr": "±0.8%",
-      "c15": "-0.06%",
-      "c60": "-0.15%",
-      "c180": "+0.57%",
+      "c15": "+0.00%",
+      "c60": "-0.17%",
+      "c180": "+0.48%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.26,
+      "eff": 0.32,
       "z": 0.3,
       "volx": 0.5
     },
@@ -533,19 +533,19 @@
       "name": "ناسداك",
       "short": "NQ",
       "w": 60,
-      "v": -0.25,
+      "v": -0.53,
       "th": 0.6,
-      "ratio": 0.41,
-      "val": "-0.25%",
+      "ratio": 0.89,
+      "val": "-0.53%",
       "thr": "±0.6%",
-      "c15": "-0.15%",
-      "c60": "-0.25%",
-      "c180": "+0.22%",
+      "c15": "-0.12%",
+      "c60": "-0.53%",
+      "c180": "-0.11%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bear",
-      "eff": 0.38,
-      "z": 0.3,
+      "eff": 0.62,
+      "z": 0.7,
       "volx": 0.5
     },
     {
@@ -553,20 +553,20 @@
       "name": "النفط",
       "short": "نفط",
       "w": 180,
-      "v": 0.29,
+      "v": 0.27,
       "th": 2.4,
-      "ratio": 0.12,
-      "val": "+0.29%",
+      "ratio": 0.11,
+      "val": "+0.27%",
       "thr": "±2.4%",
-      "c15": "-0.10%",
-      "c60": "+0.07%",
-      "c180": "+0.29%",
+      "c15": "+0.06%",
+      "c60": "-0.10%",
+      "c180": "+0.27%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.08,
-      "z": 0.1,
-      "volx": 0.4
+      "eff": 0.11,
+      "z": 0.2,
+      "volx": 0.5
     },
     {
       "key": "gold",
@@ -575,37 +575,37 @@
       "w": 60,
       "v": -0.74,
       "th": 0.65,
-      "ratio": 1.13,
+      "ratio": 1.14,
       "val": "-0.74%",
       "thr": "±0.65%",
-      "c15": "-0.03%",
+      "c15": "-0.11%",
       "c60": "-0.74%",
-      "c180": "+0.21%",
+      "c180": "+0.18%",
       "confirmed": false,
       "why": "الحركة ضمن تقلب الأصل المعتاد",
       "tone": "flat",
-      "eff": 0.6,
-      "z": 1.0,
-      "volx": 0.7
+      "eff": 0.71,
+      "z": 1.1,
+      "volx": 0.6
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 180,
-      "v": -0.08,
+      "v": -0.09,
       "th": 0.5,
-      "ratio": 0.16,
-      "val": "-0.08%",
+      "ratio": 0.18,
+      "val": "-0.09%",
       "thr": "±0.5%",
-      "c15": "-0.02%",
-      "c60": "-0.01%",
-      "c180": "-0.08%",
+      "c15": "-0.01%",
+      "c60": "-0.03%",
+      "c180": "-0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.12,
-      "z": 0.2,
+      "eff": 0.21,
+      "z": 0.5,
       "volx": null
     },
     {
@@ -613,60 +613,60 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": 0.2,
+      "v": 0.23,
       "th": 0.7,
-      "ratio": 0.28,
-      "val": "+0.20%",
+      "ratio": 0.33,
+      "val": "+0.23%",
       "thr": "±0.7%",
-      "c15": "-0.05%",
-      "c60": "-0.05%",
-      "c180": "+0.20%",
+      "c15": "+0.02%",
+      "c60": "-0.03%",
+      "c180": "+0.23%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.27,
-      "z": 0.4,
+      "eff": 0.19,
+      "z": 0.3,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-23T02:30:41.869290+00:00",
-        "ok_at": "2026-11-23T02:30:41.869290+00:00"
+        "last_try": "2026-11-23T02:45:36.916061+00:00",
+        "ok_at": "2026-11-23T02:45:36.916061+00:00"
       },
       "fred": {
-        "last_try": "2026-11-23T02:30:41.869290+00:00",
-        "ok_at": "2026-11-23T02:30:41.869290+00:00"
+        "last_try": "2026-11-23T02:45:36.916061+00:00",
+        "ok_at": "2026-11-23T02:45:36.916061+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-23T02:30:41.869290+00:00",
-        "ok_at": "2026-11-23T02:30:41.869290+00:00"
+        "last_try": "2026-11-23T02:45:36.916061+00:00",
+        "ok_at": "2026-11-23T02:45:36.916061+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-23T02:30:41.869290+00:00",
-        "ok_at": "2026-11-23T02:30:41.869290+00:00"
+        "last_try": "2026-11-23T02:45:36.916061+00:00",
+        "ok_at": "2026-11-23T02:45:36.916061+00:00"
       },
       "oil": {
-        "last_try": "2026-11-23T02:30:41.869290+00:00",
-        "ok_at": "2026-11-23T02:30:41.869290+00:00"
+        "last_try": "2026-11-23T02:45:36.916061+00:00",
+        "ok_at": "2026-11-23T02:45:36.916061+00:00"
       },
       "news": {
-        "last_try": "2026-11-23T02:30:41.869290+00:00",
-        "ok_at": "2026-11-23T02:30:41.869290+00:00"
+        "last_try": "2026-11-23T02:45:36.916061+00:00",
+        "ok_at": "2026-11-23T02:45:36.916061+00:00"
       },
       "cot": {
-        "last_try": "2026-11-23T02:30:41.869290+00:00",
-        "ok_at": "2026-11-23T02:30:41.869290+00:00"
+        "last_try": "2026-11-23T02:45:36.916061+00:00",
+        "ok_at": "2026-11-23T02:45:36.916061+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-23T02:30:41.869290+00:00",
-        "ok_at": "2026-11-23T02:30:41.869290+00:00"
+        "last_try": "2026-11-23T02:45:36.916061+00:00",
+        "ok_at": "2026-11-23T02:45:36.916061+00:00"
       }
     },
     "last": {
       "state": "major",
-      "at": "2026-11-23T02:30:41.869290+00:00"
+      "at": "2026-11-23T02:45:36.916061+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.6% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -674,12 +674,22 @@
     }
   },
   "week_news": {
-    "at": "2026-11-23T01:30:41.896925+00:00",
+    "at": "2026-11-23T02:45:36.916061+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-23T02:10:18+00:00",
+            "title": "Middle Market Debt Weekly: Nasdaq’s 10% Plunge Collides with a Fed Openly Debating a 50 Basis Point December Hike",
+            "src": "ABF Journal"
+          },
+          {
+            "t": "2026-11-23T01:57:42+00:00",
+            "title": "Gold Price Forecast: Selloff Echoes 2022 as Fed Hike Fears Grow",
+            "src": "FXEmpire"
+          },
           {
             "t": "2026-11-23T01:00:00+00:00",
             "title": "Stability concerns have Fed considering dormant capital rule",
@@ -694,16 +704,6 @@
             "t": "2026-11-23T00:20:00+00:00",
             "title": "Bulls veteran Norman Powell will be sidelined with a tweaked hamstring",
             "src": "Chicago Sun-Times"
-          },
-          {
-            "t": "2026-11-22T23:18:54+00:00",
-            "title": "Gold Price Forecast: Selloff Echoes 2022 as Fed Hike Fears Grow",
-            "src": "FXEmpire"
-          },
-          {
-            "t": "2026-11-22T22:45:00+00:00",
-            "title": "Can ‘direct primary care’ help Wyoming’s healthcare woes? Powell doctors think so.",
-            "src": "County 17"
           }
         ]
       },
@@ -711,35 +711,40 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-23T01:11:13+00:00",
-            "title": "Ukraine Is Racing to Keep Its Booming Defense Industry From Stalling",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-23T01:04:00+00:00",
+            "t": "2026-11-23T01:58:00+00:00",
             "title": "US Stock Futures Open Higher After Tech Selloff: Markets Wrap",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-23T00:16:00+00:00",
-            "title": "China Lowers Margin Requirement to 80% to Boost Stock Liquidity",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-23T00:11:52+00:00",
+            "t": "2026-11-23T01:41:52+00:00",
             "title": "Nvidia Reports Faster Growth, Says Jensen Huang Won’t Return as CEO",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-22T23:59:06+00:00",
-            "title": "Treasury Futures Fall as Rising Stock Futures Damp Haven Demand",
+            "t": "2026-11-23T01:41:28+00:00",
+            "title": "AI stock sell-off sends S&P 500 into correction, Nasdaq negative for year",
+            "src": "Scripps News"
+          },
+          {
+            "t": "2026-11-23T01:41:00+00:00",
+            "title": "China Lowers Margin Requirement to 80% to Boost Stock Liquidity",
             "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-23T01:17:46+00:00",
+            "title": "S&P 500 Futures Rise After Tough Week",
+            "src": "The New York Times"
           }
         ]
       },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-23T00:25:00+00:00",
+            "title": "Bessent Softens Stance on Jensen Huang's Future as Nvidia Compliance Probe and H200 China Policy Take Center Stage",
+            "src": "BigGo Finance"
+          },
           {
             "t": "2026-11-22T23:55:46+00:00",
             "title": "Nvidia Faces US Accounting Probe amid Deepening Turmoil｜Daily News Digest｜2026-11-23｜web only",
@@ -759,11 +764,6 @@
             "t": "2026-11-22T21:25:13+00:00",
             "title": "AMD vs. Nvidia Stock After Jensen Huang’s Exit: 1 Trades at Nearly 4x the Other’s Earnings Multiple. Here’s the AI Chip Stock I’d Buy Now.",
             "src": "Barchart.com"
-          },
-          {
-            "t": "2026-11-22T18:06:18+00:00",
-            "title": "US Probing Alleged Spy Tied to Ex-Nvidia CEO, Spy Chief Says",
-            "src": "Bloomberg.com"
           }
         ]
       },
@@ -771,9 +771,14 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-23T01:02:14+00:00",
-            "title": "Gold Bounces After A 14-Month Low, With US Inflation Data Next",
-            "src": "Finimize"
+            "t": "2026-11-23T01:42:11+00:00",
+            "title": "Retailers adapt to changing spending habits amid inflation",
+            "src": "China Daily Global Edition"
+          },
+          {
+            "t": "2026-11-23T01:38:15+00:00",
+            "title": "Ackman urges Fed to drop 2% inflation goal for 3%, warns 9 December hike risks recession",
+            "src": "investingLive"
           },
           {
             "t": "2026-11-23T00:48:00+00:00",
@@ -781,19 +786,14 @@
             "src": "New York Post"
           },
           {
-            "t": "2026-11-23T00:43:00+00:00",
-            "title": "AI Investment Adding to Inflation: Jain",
-            "src": "Yahoo Finance"
+            "t": "2026-11-23T00:44:44+00:00",
+            "title": "Watch AI Investment Adding to Inflation: Jain",
+            "src": "Bloomberg.com"
           },
           {
             "t": "2026-11-23T00:01:56+00:00",
             "title": "SNB's Martin eyes second-round effects after inflation jumps to 1.5%, hike in view",
             "src": "investingLive"
-          },
-          {
-            "t": "2026-11-22T23:05:30+00:00",
-            "title": "COMMENTARY: AI bust hurts Chinese stocks far more than GDP",
-            "src": "Reuters"
           }
         ]
       },
@@ -826,6 +826,16 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-23T02:30:06+00:00",
+            "title": "DW News. . Officials in eastern Libyan say a Russian ship was damaged in a suspected drone attack at the port of Benghazi, where it stopped to refuel on its way back to Russia. No one has claimed responsibility for the suspected attack, and there was no imm",
+            "src": "Facebook"
+          },
+          {
+            "t": "2026-11-23T02:24:00+00:00",
+            "title": "Oil prices fall amid equity selloff though Iran war attacks limit losses",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-11-23T01:10:00+00:00",
             "title": "Russian strike kills three in Ukraine's capital",
             "src": "KTVN"
@@ -834,16 +844,6 @@
             "t": "2026-11-23T00:00:28+00:00",
             "title": "Rescuers Search for Up to 15 Missing Residents After Russian Drone Strike Hits Ukrainian Apartment Block",
             "src": "Latin Times"
-          },
-          {
-            "t": "2026-11-22T23:30:39+00:00",
-            "title": "Oil Edges Lower as Ample Supply Outweighs Middle East Tensions",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-22T23:05:07+00:00",
-            "title": "Libya Russia Strike",
-            "src": "TelegraphHerald.com"
           }
         ]
       }
@@ -851,7 +851,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-23T02:30:41.869290+00:00",
+    "at": "2026-11-23T02:45:36.916061+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10568,10 +10568,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-23T02:30:41.869290+00:00",
+  "last_publish_ok": "2026-11-23T02:45:36.916061+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-23T02:31:02.690855+00:00"
+    "at": "2026-11-23T02:46:09.209005+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10706,12 +10706,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-23T02:30:41.869290+00:00",
-    "ok_at": "2026-11-23T02:30:41.869290+00:00",
+    "at": "2026-11-23T02:45:36.916061+00:00",
+    "ok_at": "2026-11-23T02:45:36.916061+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-23T02:30:41.869290+00:00",
+    "at": "2026-11-23T02:45:36.916061+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
