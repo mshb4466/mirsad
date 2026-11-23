@@ -513,160 +513,160 @@
       "name": "ES",
       "short": "ES",
       "w": 60,
-      "v": 0.25,
+      "v": 0.18,
       "th": 0.45,
-      "ratio": 0.56,
-      "val": "+0.25%",
+      "ratio": 0.41,
+      "val": "+0.18%",
       "thr": "±0.45%",
-      "c15": "+0.13%",
-      "c60": "+0.25%",
-      "c180": "+0.21%",
+      "c15": "-0.04%",
+      "c60": "+0.18%",
+      "c180": "+0.14%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.48,
-      "z": 1.0,
-      "volx": 1.2
+      "eff": 0.3,
+      "z": 0.7,
+      "volx": 2.0
     },
     {
       "key": "nq",
       "name": "ناسداك",
       "short": "NQ",
-      "w": 60,
-      "v": 0.36,
-      "th": 0.6,
-      "ratio": 0.59,
-      "val": "+0.36%",
-      "thr": "±0.6%",
-      "c15": "+0.21%",
-      "c60": "+0.36%",
-      "c180": "+0.33%",
+      "w": 15,
+      "v": -0.14,
+      "th": 0.4,
+      "ratio": 0.35,
+      "val": "-0.14%",
+      "thr": "±0.4%",
+      "c15": "-0.14%",
+      "c60": "+0.15%",
+      "c180": "+0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "bull",
-      "eff": 0.4,
-      "z": 0.9,
-      "volx": 0.7
+      "tone": "bear",
+      "eff": 0.15,
+      "z": 0.4,
+      "volx": 1.4
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
       "w": 15,
-      "v": 0.17,
+      "v": -0.25,
       "th": 0.9,
-      "ratio": 0.19,
-      "val": "+0.17%",
+      "ratio": 0.28,
+      "val": "-0.25%",
       "thr": "±0.9%",
-      "c15": "+0.17%",
-      "c60": "+0.22%",
-      "c180": "-0.41%",
+      "c15": "-0.25%",
+      "c60": "+0.16%",
+      "c180": "-0.66%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.2,
-      "z": 0.5,
-      "volx": 1.7
+      "eff": 0.14,
+      "z": 0.4,
+      "volx": 2.3
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
-      "w": 15,
-      "v": -0.41,
-      "th": 0.45,
-      "ratio": 0.91,
-      "val": "-0.41%",
-      "thr": "±0.45%",
-      "c15": "-0.41%",
-      "c60": "-0.50%",
-      "c180": "+0.04%",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
+      "w": 60,
+      "v": -0.82,
+      "th": 0.65,
+      "ratio": 1.26,
+      "val": "-0.82%",
+      "thr": "±0.65%",
+      "c15": "-0.08%",
+      "c60": "-0.82%",
+      "c180": "-0.29%",
+      "confirmed": true,
+      "why": "مؤكَّدة",
       "tone": "flat",
-      "eff": 0.48,
-      "z": 1.1,
-      "volx": 1.1
+      "eff": 0.83,
+      "z": 1.8,
+      "volx": 1.9
     },
     {
       "key": "dxy",
       "name": "الدولار DXY",
       "short": "دولار",
-      "w": 15,
+      "w": 60,
       "v": 0.09,
-      "th": 0.18,
-      "ratio": 0.5,
+      "th": 0.28,
+      "ratio": 0.33,
       "val": "+0.09%",
-      "thr": "±0.18%",
-      "c15": "+0.09%",
-      "c60": "+0.06%",
-      "c180": "-0.06%",
+      "thr": "±0.28%",
+      "c15": "+0.03%",
+      "c60": "+0.09%",
+      "c180": "-0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.3,
-      "z": 1.3,
+      "eff": 0.49,
+      "z": 2.0,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 15,
-      "v": 0.05,
-      "th": 0.25,
-      "ratio": 0.2,
-      "val": "+0.05%",
-      "thr": "±0.25%",
-      "c15": "+0.05%",
-      "c60": "+0.04%",
-      "c180": "+0.08%",
+      "w": 60,
+      "v": 0.11,
+      "th": 0.4,
+      "ratio": 0.27,
+      "val": "+0.11%",
+      "thr": "±0.4%",
+      "c15": "+0.03%",
+      "c60": "+0.11%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.16,
-      "z": 0.4,
+      "eff": 0.49,
+      "z": 1.1,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-23T08:15:39.546523+00:00",
-        "ok_at": "2026-11-23T08:15:39.546523+00:00"
+        "last_try": "2026-11-23T08:30:47.375517+00:00",
+        "ok_at": "2026-11-23T08:30:47.375517+00:00"
       },
       "fred": {
-        "last_try": "2026-11-23T08:15:39.546523+00:00",
-        "ok_at": "2026-11-23T08:15:39.546523+00:00"
+        "last_try": "2026-11-23T08:30:47.375517+00:00",
+        "ok_at": "2026-11-23T08:30:47.375517+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-23T08:15:39.546523+00:00",
-        "ok_at": "2026-11-23T08:15:39.546523+00:00"
+        "last_try": "2026-11-23T08:30:47.375517+00:00",
+        "ok_at": "2026-11-23T08:30:47.375517+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-23T08:15:39.546523+00:00",
-        "ok_at": "2026-11-23T08:15:39.546523+00:00"
+        "last_try": "2026-11-23T08:30:47.375517+00:00",
+        "ok_at": "2026-11-23T08:30:47.375517+00:00"
       },
       "oil": {
-        "last_try": "2026-11-23T08:15:39.546523+00:00",
-        "ok_at": "2026-11-23T08:15:39.546523+00:00"
+        "last_try": "2026-11-23T08:30:47.375517+00:00",
+        "ok_at": "2026-11-23T08:30:47.375517+00:00"
       },
       "news": {
-        "last_try": "2026-11-23T08:15:39.546523+00:00",
-        "ok_at": "2026-11-23T08:15:39.546523+00:00"
+        "last_try": "2026-11-23T08:30:47.375517+00:00",
+        "ok_at": "2026-11-23T08:30:47.375517+00:00"
       },
       "cot": {
-        "last_try": "2026-11-23T08:15:39.546523+00:00",
-        "ok_at": "2026-11-23T08:15:39.546523+00:00"
+        "last_try": "2026-11-23T08:30:47.375517+00:00",
+        "ok_at": "2026-11-23T08:30:47.375517+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-23T08:15:39.546523+00:00",
-        "ok_at": "2026-11-23T08:15:39.546523+00:00"
+        "last_try": "2026-11-23T08:30:47.375517+00:00",
+        "ok_at": "2026-11-23T08:30:47.375517+00:00"
       }
     },
     "last": {
       "state": "major",
-      "at": "2026-11-23T08:15:39.546523+00:00"
+      "at": "2026-11-23T08:30:47.375517+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 6.0% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -674,12 +674,27 @@
     }
   },
   "week_news": {
-    "at": "2026-11-23T07:30:46.536840+00:00",
+    "at": "2026-11-23T08:30:47.375517+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-23T08:15:39+00:00",
+            "title": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-23T07:42:19+00:00",
+            "title": "Dollar needs tech calm to lean on the Fed",
+            "src": "Convera"
+          },
+          {
+            "t": "2026-11-23T07:20:00+00:00",
+            "title": "Bill Ackman Warns Fed Hikes Will Put US and World in Recession",
+            "src": "Bitbo"
+          },
           {
             "t": "2026-11-23T06:57:30+00:00",
             "title": "Pound Rises on UK Retail Sales as Fed Hike Bets Ease",
@@ -689,21 +704,6 @@
             "t": "2026-11-23T06:45:13+00:00",
             "title": "Oracle Or The Fed: What Really Moves Nvidia Stock?",
             "src": "Trefis"
-          },
-          {
-            "t": "2026-11-23T06:38:05+00:00",
-            "title": "Gold rebounds over 2% above $3,600 as investors reassess Fed rate hikes",
-            "src": "Anadolu Ajansı"
-          },
-          {
-            "t": "2026-11-23T05:30:02+00:00",
-            "title": "The Federal Reserve’s balance sheet yo-yo",
-            "src": "Financial Times"
-          },
-          {
-            "t": "2026-11-23T05:05:58+00:00",
-            "title": "Interest Rate Forecast: December Fed Hike Bets Support US Dollar",
-            "src": "FXEmpire"
           }
         ]
       },
@@ -711,29 +711,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-23T07:14:56+00:00",
-            "title": "US Tech Stock Futures Rally, Retracing AI Rout While Asia Remains Cautious",
-            "src": "Bloomberg.com"
+            "t": "2026-11-23T08:25:46+00:00",
+            "title": "How Kim Jong Un Gets Away With Building Nukes and Ghosting Trump",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-23T07:08:00+00:00",
-            "title": "Stock Futures Rally After AI Rout, Havens Decline: Markets Wrap",
-            "src": "Bloomberg.com"
+            "t": "2026-11-23T07:55:00+00:00",
+            "title": "Wall Street futures rebound after rough week for AI-linked shares",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-23T06:19:00+00:00",
-            "title": "China Lowers Margin Requirement to 80% to Boost Stock Liquidity",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-23T06:16:00+00:00",
-            "title": "Stock Market: Will S&P 500 Open Up or Down Today?",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-23T06:06:07+00:00",
+            "t": "2026-11-23T07:52:30+00:00",
             "title": "Wall Street set to rebound after AI stock sell-off",
             "src": "Financial Times"
+          },
+          {
+            "t": "2026-11-23T07:44:08+00:00",
+            "title": "Wall Street eyes rebound after nightmare week",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-23T07:26:00+00:00",
+            "title": "Treasury Futures Fall as Rising Stock Futures Damp Haven Demand",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -741,29 +741,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-23T03:01:21+00:00",
-            "title": "California widens Nvidia probe to criminal law, a bigger deal than Huang return talk",
-            "src": "investingLive"
+            "t": "2026-11-23T08:29:45+00:00",
+            "title": "Futures bounce after AI selloff; Bessent on Nvidia probe - what’s moving markets",
+            "src": "Investing.com"
           },
           {
-            "t": "2026-11-22T14:02:53+00:00",
-            "title": "CPI | Nvidia Faces SEC Probe Into Potential Accounting Issues",
-            "src": "PYMNTS.com"
+            "t": "2026-11-23T08:00:00+00:00",
+            "title": "Key facts: NVIDIA Beats Estimates; Shares Slide, CEO Search, SEC Probe",
+            "src": "TradingView"
           },
           {
-            "t": "2026-11-21T19:46:27+00:00",
-            "title": "Nvidia probe in California extends to potential criminal violations: Bloomberg",
+            "t": "2026-11-23T05:05:30+00:00",
+            "title": "Nvidia Probe Now Covers Possible Criminal Breaches Of State Law Over China Chip Sales",
+            "src": "marketscreener.com"
+          },
+          {
+            "t": "2026-11-23T04:52:19+00:00",
+            "title": "Trump calls for Nvidia to rehire Jensen Huang amid China probe (NVDA:NASDAQ)",
             "src": "Seeking Alpha"
           },
           {
-            "t": "2026-11-21T17:11:23+00:00",
-            "title": "California Nvidia Probe Covers Potential Criminal Law Violations",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-21T08:16:08+00:00",
-            "title": "Investor Focus: Anthropic’s Record-Breaking IPO, Nvidia’s Earnings, and an Undervalued UK Defense Stock",
-            "src": "Morningstar"
+            "t": "2026-11-23T03:01:21+00:00",
+            "title": "California widens Nvidia probe to criminal law, a bigger deal than Huang return talk",
+            "src": "investingLive"
           }
         ]
       },
@@ -771,54 +771,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-23T07:03:39+00:00",
-            "title": "Singapore’s Core Inflation Cooled More Than Expected",
-            "src": "Finimize"
+            "t": "2026-11-23T07:57:54+00:00",
+            "title": "US War on Iran, Day 270: Iranians Face Power Cuts and Surging Inflation",
+            "src": "EA WorldView"
           },
           {
-            "t": "2026-11-23T06:39:00+00:00",
-            "title": "Australia to Lower Nominal Economy Estimate in Budget Update",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-23T06:05:00+00:00",
-            "title": "Bitcoin Braces for Fed Test as PCE Inflation and GDP Land Before Thanksgiving",
+            "t": "2026-11-23T07:55:00+00:00",
+            "title": "Ackman Takes Aim at Fed's Inflation Target, Calls 3% More Realistic and Warns Another Rate Hike Would Trigger Global Recession",
             "src": "BigGo Finance"
           },
           {
-            "t": "2026-11-23T05:49:00+00:00",
+            "t": "2026-11-23T07:41:00+00:00",
             "title": "Gold rises from 14-month low as markets await key US inflation data",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-11-23T05:47:14+00:00",
-            "title": "Gold rises from 14-month low as markets await U.S. inflation data",
-            "src": "CNBC"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-23T06:05:21+00:00",
-            "title": "Skewing the Voters’ Views on Tariffs",
-            "src": "The Dispatch"
-          },
-          {
-            "t": "2026-11-23T06:05:00+00:00",
-            "title": "U.S. Debt Ceiling May Need Nearly $5 Trillion Increase as Societe Generale Maintains $5,000 Gold Forecast",
             "src": "TradingView"
           },
           {
-            "t": "2026-11-23T03:44:00+00:00",
-            "title": "EU Inks Trade Deal With Indonesia to Cut Tariffs, Catalyze Investment",
-            "src": "WSJ"
+            "t": "2026-11-23T07:34:47+00:00",
+            "title": "Bill Ackman Warns 2% Inflation Push Will Put World In Recession - SpaceX (NASDAQ:SPCX)",
+            "src": "Benzinga"
           },
           {
-            "t": "2026-11-23T02:55:00+00:00",
-            "title": "Democrats Win Both Chambers of Congress, Plan Sweeping Review of Trump's Tariffs and Tax Cuts",
-            "src": "BigGo Finance"
+            "t": "2026-11-23T06:45:02+00:00",
+            "title": "Is The Fed Fighting The Wrong Inflation?",
+            "src": "Trefis"
           }
         ]
       },
@@ -826,32 +801,34 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
+            "t": "2026-11-23T08:16:40+00:00",
+            "title": "Ukrainian President Zelenskyy confirms Ukraine was behind attack that sank Russian warship off Libya",
+            "src": "The Washington Post"
+          },
+          {
+            "t": "2026-11-23T07:53:09+00:00",
+            "title": "Iran Claims 2 US Patriot Radars Hit in Bahrain, Bahrain Says Civilian Site",
+            "src": "https://houseofsaud.com/"
+          },
+          {
+            "t": "2026-11-23T07:26:44+00:00",
+            "title": "How to stop the war in Ukraine, part 22 – and a climate summit fiasco",
+            "src": "Euronews"
+          },
+          {
             "t": "2026-11-23T07:06:50+00:00",
             "title": "Iran’s NIOC prepares 64 investment packages for private firms",
             "src": "IranOilGas"
-          },
-          {
-            "t": "2026-11-23T06:49:34+00:00",
-            "title": "Ukrainian Drones Set Russian Oil Infrastructure Ablaze in Twin Strikes Deep Inside Russia",
-            "src": "Kyiv Post"
-          },
-          {
-            "t": "2026-11-23T06:42:47+00:00",
-            "title": "Ukraine War, Day 1,733: 14+ Murdered Near Kyiv by Russia’s Attack",
-            "src": "EA WorldView"
-          },
-          {
-            "t": "2026-11-23T06:25:51+00:00",
-            "title": "Oil market has yet to feel impact of declining Hormuz flows: Analyst",
-            "src": "CNBC"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "السياسة التجارية والمالية"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-23T08:15:39.546523+00:00",
+    "at": "2026-11-23T08:30:47.375517+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10568,10 +10545,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-23T08:15:39.546523+00:00",
+  "last_publish_ok": "2026-11-23T08:30:47.375517+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-23T08:16:02.439637+00:00"
+    "at": "2026-11-23T08:31:14.880160+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10706,12 +10683,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-23T08:15:39.546523+00:00",
-    "ok_at": "2026-11-23T08:15:39.546523+00:00",
+    "at": "2026-11-23T08:30:47.375517+00:00",
+    "ok_at": "2026-11-23T08:30:47.375517+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-23T08:15:39.546523+00:00",
+    "at": "2026-11-23T08:30:47.375517+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
