@@ -1,2 +1,3 @@
 # التشغيل (GitHub Actions): yfinance فقط؛ كل ما عداه مكتبة بايثون القياسية
 yfinance>=0.2.40
+curl_cffi>=0.7

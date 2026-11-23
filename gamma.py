@@ -51,15 +51,36 @@ def to_ny(dt):
     return dt.astimezone(NY) if NY else dt - timedelta(hours=4)
 
 
+BROWSER_HEADERS = {
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://www.cboe.com/",
+    "Origin": "https://www.cboe.com",
+}
+
+
+def _get_bytes(u, timeout):
+    """جلب الرابط ببصمة متصفح حقيقي (curl_cffi) لأن CBOE يحجب urllib من عناوين GitHub بـ 403؛ وعند غياب المكتبة يُستعمل urllib."""
+    try:
+        from curl_cffi import requests as cffi_requests
+    except Exception:  # noqa: BLE001
+        cffi_requests = None
+    if cffi_requests is not None:
+        r = cffi_requests.get(u, headers=BROWSER_HEADERS, impersonate="chrome", timeout=timeout)
+        r.raise_for_status()
+        return r.content
+    req = urllib.request.Request(u, headers=dict(BROWSER_HEADERS, **{"User-Agent": UA}))
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read()
+
+
 def fetch(url=None, timeout=90, tries=3):
     last = None
     for u in (list(url) if isinstance(url, (list, tuple)) else [url] if url else URLS):
         for i in range(tries):
             try:
                 t0 = time.time()
-                req = urllib.request.Request(u, headers={"User-Agent": UA, "Accept": "application/json"})
-                with urllib.request.urlopen(req, timeout=timeout) as r:
-                    raw = r.read()
+                raw = _get_bytes(u, timeout)
                 return json.loads(raw.decode("utf-8")), {"url": u, "bytes": len(raw), "secs": round(time.time() - t0, 2)}
             except Exception as e:  # noqa: BLE001
                 last = e
