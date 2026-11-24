@@ -1,22 +1,22 @@
-asof_utc,2026-11-24T12:30:16+00:00,basis,20.9,mode,close
+asof_utc,2026-11-24T12:40:16+00:00,basis,20.65,mode,close
 price,label,kind,strength,color,style,width
-7460.25,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7438.5,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7421.0,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7384.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7334.0,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7321.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7304.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7284.0,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7271.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7233.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7221.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7196.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7183.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7171.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7153.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7146.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7133.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7121.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7033.5,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7021.0,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7457.75,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7438.25,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7420.75,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7383.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7333.75,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7320.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7303.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7283.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7270.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7233.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7220.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7195.75,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7183.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7170.75,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7153.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7145.75,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7133.25,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7120.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7033.25,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7020.75,SPX PUT WALL,wall,wall,FF5C7A,solid,3
