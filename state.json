@@ -35,7 +35,7 @@
     "oil_up": "2026-11-12T13:30:40.054906+00:00",
     "es_up": "2026-11-23T15:00:48.628322+00:00",
     "vix_up": "2026-11-23T14:15:43.868615+00:00",
-    "gold_up": "2026-11-23T15:00:48.628322+00:00",
+    "gold_up": "2026-11-24T01:09:57.316330+00:00",
     "dxy_down": "2026-11-04T01:34:16.807042+00:00",
     "kre_down": "2026-11-19T17:15:40.644925+00:00",
     "jpy_up": "2026-11-23T00:00:50.424975+00:00",
@@ -58,7 +58,7 @@
     "oil_up": 1.6408598917978694,
     "es_up": 4.516106269625681,
     "vix_up": 1.5499851250025372,
-    "gold_up": 2.3146234947103355,
+    "gold_up": 1.5805738269244045,
     "dxy_down": 1.538784800668832,
     "kre_down": 1.0695183653674751,
     "jpy_up": 0.6939576494270905,
@@ -66,235 +66,6 @@
     "hyg_up": 1.4927119154914514
   },
   "alerts": [
-    {
-      "id": "move|202611201530|gold",
-      "t": "2026-11-20T15:30:43.403548+00:00",
-      "kind": "move",
-      "important": true,
-      "icon": "📉",
-      "title": "عامل مؤثر يتحرك بقوة (الذهب)",
-      "what": "عامل مؤثر يتحرك بقوة (الذهب)",
-      "why": "",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-0.05%",
-          "c180": "+0.22%",
-          "lead": false
-        },
-        {
-          "name": "VIX",
-          "c60": "-4.59%",
-          "c180": "-6.98%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "-0.52%",
-          "c180": "-0.84%",
-          "lead": false
-        },
-        {
-          "name": "الذهب",
-          "c60": "-0.95%",
-          "c180": "-1.02%",
-          "lead": true
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "+0.04%",
-          "c180": "-0.10%",
-          "lead": false
-        },
-        {
-          "name": "عائد 10 سنوات",
-          "c60": "-2bp",
-          "c180": "-8bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 30 سنة",
-          "c60": "-1bp",
-          "c180": "-5bp",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "الذهب: كفاءة الاتجاه 0.46 | دلالة الحركة 2.0σ | التقلب اللحظي ×1.5 | الحجم ×2.2"
-      ],
-      "pattern": [],
-      "headlines": [
-        "Genius Group Updates Shareholders on Impact of Anthropic’s Record IPO on its AI Treasury - markets.businessinsider.com",
-        "Stocks plunge as investors take cover amid growing uncertainty - CBS News",
-        "Exclusive | Wall Street Pledged to Mobilize $500 Billion for Nvidia—but Hasn’t Put Up a Dime - WSJ",
-        "AI stocks are selling off after Anthropic’s record IPO, and Wall Street is split on whether this is the top - Fortune"
-      ],
-      "rev": 0
-    },
-    {
-      "id": "move|202611201600|es-nq",
-      "t": "2026-11-20T16:00:49.958562+00:00",
-      "kind": "move",
-      "important": true,
-      "icon": "📉",
-      "title": "حركة كبيرة في السوق (ES، ناسداك)",
-      "what": "حركة كبيرة في السوق (ES، ناسداك)",
-      "why": "VIX يرتفع: زيادة الطلب على الحماية",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-0.94%",
-          "c180": "-0.23%",
-          "lead": true
-        },
-        {
-          "name": "ناسداك",
-          "c60": "-1.58%",
-          "c180": "-0.80%",
-          "lead": true
-        },
-        {
-          "name": "VIX",
-          "c60": "+6.58%",
-          "c180": "-1.85%",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "+0.37%",
-          "c180": "-0.56%",
-          "lead": false
-        },
-        {
-          "name": "الدولار DXY",
-          "c60": "-0.09%",
-          "c180": "-0.11%",
-          "lead": false
-        },
-        {
-          "name": "عائد 10 سنوات",
-          "c60": "-4bp",
-          "c180": "-11bp",
-          "lead": false
-        },
-        {
-          "name": "عائد 30 سنة",
-          "c60": "-3bp",
-          "c180": "-7bp",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "ES: كفاءة الاتجاه 0.42 | دلالة الحركة 2.5σ | التقلب اللحظي ×1.9 | الحجم ×2.3",
-        "ناسداك: كفاءة الاتجاه 0.50 | دلالة الحركة 2.8σ | التقلب اللحظي ×1.8 | الحجم ×3.1"
-      ],
-      "pattern": [
-        "VIX يرتفع: زيادة الطلب على الحماية"
-      ],
-      "headlines": [
-        "Investors fled to healthcare stocks for safety. Now insurance and hospital shares are plunging. - MarketWatch",
-        "US Treasury presses Singapore and Malaysia on Iran sanctions compliance - Arab News",
-        "Oil heads for a third weekly drop as Goldman bets on a 2027 glut - Startup Fortune",
-        "Watch CNBC's full interview with Treasury Secretary Scott Bessent - CNBC"
-      ],
-      "rev": 0
-    },
-    {
-      "id": "shock|202611201615",
-      "t": "2026-11-20T16:15:37.616120+00:00",
-      "kind": "shock",
-      "important": true,
-      "icon": "🚨",
-      "title": "حركة سوق غير معتادة (قد تدل على حدث مفاجئ)",
-      "what": "حركة سوق غير معتادة (قد تدل على حدث مفاجئ)",
-      "why": "VIX؛ ES",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-1.44%",
-          "c180": "—",
-          "lead": false
-        },
-        {
-          "name": "VIX",
-          "c60": "+10.75%",
-          "c180": "—",
-          "lead": false
-        },
-        {
-          "name": "الذهب",
-          "c60": "-0.75%",
-          "c180": "—",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "-0.09%",
-          "c180": "—",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "VIX",
-        "ES"
-      ],
-      "pattern": [],
-      "headlines": [
-        "Ukraine Confirms Strike on Russia’s Kaleykino Oil Pumping Station, Three Storage Tanks Hit - SSBCrack",
-        "‘EXPERT’ EXPOSED: Media’s Go-To Iran Sanctions Guru Has Little Real-World Experience: WFB Report - Sean Hannity",
-        "US Treasury urges Singapore and Malaysia to comply with Iran sanctions - Latest news from Azerbaijan",
-        "China yet to share details on GoPro camera linked to Pahalgam terror attack: NIA - India Today"
-      ],
-      "rev": 0
-    },
-    {
-      "id": "shock|202611201945",
-      "t": "2026-11-20T19:45:37.283455+00:00",
-      "kind": "shock",
-      "important": true,
-      "icon": "🚨",
-      "title": "حركة سوق غير معتادة (قد تدل على حدث مفاجئ)",
-      "what": "حركة سوق غير معتادة (قد تدل على حدث مفاجئ)",
-      "why": "VIX؛ ES",
-      "rows": [
-        {
-          "name": "ES",
-          "c60": "-1.01%",
-          "c180": "—",
-          "lead": false
-        },
-        {
-          "name": "VIX",
-          "c60": "+9.14%",
-          "c180": "—",
-          "lead": false
-        },
-        {
-          "name": "الذهب",
-          "c60": "+0.10%",
-          "c180": "—",
-          "lead": false
-        },
-        {
-          "name": "النفط",
-          "c60": "+0.00%",
-          "c180": "—",
-          "lead": false
-        }
-      ],
-      "confirm": [
-        "VIX",
-        "ES"
-      ],
-      "pattern": [],
-      "headlines": [
-        "Middle East latest: Saudi-led coalition targets Houthi weapons smuggling at Hodeidah port - The National",
-        "European leaders condemn Russia’s ‘intentional provocation’ as missile hits Poland - The Independent",
-        "Putin Isn't Holding Back Anymore in the Ukraine War: The Russian Military Hit Four Bridges in Kyiv in a Massive Drone and Missile Strike - National Security Journal",
-        "US Missile Strikes Outskirts of Qeshm Island in Southern Iran - Arab Times Kuwait News"
-      ],
-      "rev": 0
-    },
     {
       "id": "move|202611222345|es-gold-nq",
       "t": "2026-11-22T23:45:38.091200+00:00",
@@ -743,6 +514,53 @@
         "Gold, Silver Prices Rebound with US Stocks from Markets-Wide 'Washout' - BullionVault"
       ],
       "rev": 0
+    },
+    {
+      "id": "move|202611240109|gold",
+      "t": "2026-11-24T01:09:57.316330+00:00",
+      "kind": "move",
+      "important": true,
+      "icon": "📈",
+      "title": "عامل مؤثر يتحرك بقوة (الذهب)",
+      "what": "عامل مؤثر يتحرك بقوة (الذهب)",
+      "why": "",
+      "rows": [
+        {
+          "name": "ES",
+          "c60": "+0.30%",
+          "c180": "+0.05%",
+          "lead": false
+        },
+        {
+          "name": "النفط",
+          "c60": "-0.06%",
+          "c180": "+0.24%",
+          "lead": false
+        },
+        {
+          "name": "الذهب",
+          "c60": "+1.03%",
+          "c180": "+0.92%",
+          "lead": true
+        },
+        {
+          "name": "الدولار DXY",
+          "c60": "-0.05%",
+          "c180": "-0.06%",
+          "lead": false
+        }
+      ],
+      "confirm": [
+        "الذهب: كفاءة الاتجاه 0.69 | دلالة الحركة 2.3σ | التقلب اللحظي ×1.2 | الحجم ×1.5"
+      ],
+      "pattern": [],
+      "headlines": [
+        "Natural Gas, WTI Oil, Brent Oil Forecasts – Oil Dives As Trump Signals He Would Not Attack Iran Until 2027 - FXEmpire",
+        "NVDA, DELL, OTLY, ZM, KYMR: 5 Trending Stocks Today - NVIDIA (NASDAQ:NVDA) - Benzinga",
+        "America's Refiners Drowned Their Own Gasoline Windfall - Crude Oil Prices Today | OilPrice.com",
+        "Korean stocks rally on Huang's Nvidia comeback, but AI risks linger - KED Global"
+      ],
+      "rev": 0
     }
   ],
   "pulse": [
@@ -751,19 +569,19 @@
       "name": "ES",
       "short": "ES",
       "w": 60,
-      "v": 0.24,
+      "v": 0.3,
       "th": 0.45,
-      "ratio": 0.53,
-      "val": "+0.24%",
+      "ratio": 0.67,
+      "val": "+0.30%",
       "thr": "±0.45%",
-      "c15": "+0.02%",
-      "c60": "+0.24%",
-      "c180": "-0.03%",
+      "c15": "+0.08%",
+      "c60": "+0.30%",
+      "c180": "+0.05%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.41,
-      "z": 0.4,
+      "eff": 0.5,
+      "z": 0.6,
       "volx": 0.1
     },
     {
@@ -771,59 +589,59 @@
       "name": "ناسداك",
       "short": "NQ",
       "w": 60,
-      "v": 0.33,
+      "v": 0.45,
       "th": 0.6,
-      "ratio": 0.55,
-      "val": "+0.33%",
+      "ratio": 0.75,
+      "val": "+0.45%",
       "thr": "±0.6%",
-      "c15": "+0.01%",
-      "c60": "+0.33%",
-      "c180": "-0.00%",
+      "c15": "+0.13%",
+      "c60": "+0.45%",
+      "c180": "+0.11%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.35,
-      "z": 0.4,
-      "volx": 0.2
+      "eff": 0.46,
+      "z": 0.5,
+      "volx": 0.3
     },
     {
       "key": "oil",
       "name": "النفط",
       "short": "نفط",
-      "w": 15,
-      "v": -0.07,
-      "th": 0.9,
-      "ratio": 0.08,
-      "val": "-0.07%",
-      "thr": "±0.9%",
-      "c15": "-0.07%",
-      "c60": "-0.02%",
-      "c180": "-0.07%",
+      "w": 180,
+      "v": 0.24,
+      "th": 2.4,
+      "ratio": 0.1,
+      "val": "+0.24%",
+      "thr": "±2.4%",
+      "c15": "-0.05%",
+      "c60": "-0.06%",
+      "c180": "+0.24%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.03,
-      "z": 0.0,
-      "volx": 0.1
+      "eff": 0.1,
+      "z": 0.1,
+      "volx": 0.2
     },
     {
       "key": "gold",
       "name": "الذهب",
       "short": "ذهب",
       "w": 60,
-      "v": 0.92,
+      "v": 1.03,
       "th": 0.65,
-      "ratio": 1.41,
-      "val": "+0.92%",
+      "ratio": 1.58,
+      "val": "+1.03%",
       "thr": "±0.65%",
-      "c15": "+0.11%",
-      "c60": "+0.92%",
-      "c180": "+0.72%",
+      "c15": "+0.31%",
+      "c60": "+1.03%",
+      "c180": "+0.92%",
       "confirmed": true,
       "why": "مؤكَّدة",
       "tone": "flat",
-      "eff": 0.74,
-      "z": 2.0,
+      "eff": 0.69,
+      "z": 2.3,
       "volx": 1.5
     },
     {
@@ -831,19 +649,19 @@
       "name": "الدولار DXY",
       "short": "دولار",
       "w": 15,
-      "v": -0.02,
+      "v": -0.05,
       "th": 0.18,
-      "ratio": 0.1,
-      "val": "-0.02%",
+      "ratio": 0.26,
+      "val": "-0.05%",
       "thr": "±0.18%",
-      "c15": "-0.02%",
-      "c60": "-0.02%",
-      "c180": "-0.02%",
+      "c15": "-0.05%",
+      "c60": "-0.05%",
+      "c180": "-0.06%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
       "eff": null,
-      "z": 0.5,
+      "z": 1.0,
       "volx": null
     },
     {
@@ -851,64 +669,64 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 15,
-      "v": -0.06,
+      "v": 0.04,
       "th": 0.25,
-      "ratio": 0.24,
-      "val": "-0.06%",
+      "ratio": 0.14,
+      "val": "+0.04%",
       "thr": "±0.25%",
-      "c15": "-0.06%",
-      "c60": "+0.01%",
-      "c180": "-0.01%",
+      "c15": "+0.04%",
+      "c60": "+0.05%",
+      "c180": "+0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.04,
-      "z": 0.1,
+      "eff": 0.21,
+      "z": 0.7,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-24T01:01:03.585476+00:00",
-        "ok_at": "2026-11-24T01:01:03.585476+00:00"
+        "last_try": "2026-11-24T01:09:57.316330+00:00",
+        "ok_at": "2026-11-24T01:09:57.316330+00:00"
       },
       "fred": {
-        "last_try": "2026-11-24T01:01:03.585476+00:00",
-        "ok_at": "2026-11-24T01:01:03.585476+00:00"
+        "last_try": "2026-11-24T01:09:57.316330+00:00",
+        "ok_at": "2026-11-24T01:09:57.316330+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-24T01:01:03.585476+00:00",
-        "ok_at": "2026-11-24T01:01:03.585476+00:00"
+        "last_try": "2026-11-24T01:09:57.316330+00:00",
+        "ok_at": "2026-11-24T01:09:57.316330+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-24T01:01:03.585476+00:00",
-        "ok_at": "2026-11-24T01:01:03.585476+00:00"
+        "last_try": "2026-11-24T01:09:57.316330+00:00",
+        "ok_at": "2026-11-24T01:09:57.316330+00:00"
       },
       "oil": {
-        "last_try": "2026-11-24T01:01:03.585476+00:00",
-        "ok_at": "2026-11-24T01:01:03.585476+00:00"
+        "last_try": "2026-11-24T01:09:57.316330+00:00",
+        "ok_at": "2026-11-24T01:09:57.316330+00:00"
       },
       "news": {
-        "last_try": "2026-11-24T01:01:03.585476+00:00",
-        "ok_at": "2026-11-24T01:01:03.585476+00:00"
+        "last_try": "2026-11-24T01:09:57.316330+00:00",
+        "ok_at": "2026-11-24T01:09:57.316330+00:00"
       },
       "cot": {
-        "last_try": "2026-11-24T01:01:03.585476+00:00",
-        "ok_at": "2026-11-24T01:01:03.585476+00:00"
+        "last_try": "2026-11-24T01:09:57.316330+00:00",
+        "ok_at": "2026-11-24T01:09:57.316330+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-24T01:01:03.585476+00:00",
-        "ok_at": "2026-11-24T01:01:03.585476+00:00"
+        "last_try": "2026-11-24T01:09:57.316330+00:00",
+        "ok_at": "2026-11-24T01:09:57.316330+00:00"
       }
     },
     "last": {
       "state": "major",
-      "at": "2026-11-24T01:01:03.585476+00:00"
+      "at": "2026-11-24T01:09:57.316330+00:00"
     },
     "notified": {
-      "sig": "ES يختلف عن SPY بنحو 8.4% في اليوم نفسه: غالباً تدوير عقد أو",
-      "at": "2026-11-24T01:01:03.585476+00:00"
+      "sig": "ES يختلف عن SPY بنحو 8.6% في اليوم نفسه: غالباً تدوير عقد أو",
+      "at": "2026-11-24T01:09:57.316330+00:00"
     }
   },
   "week_news": {
@@ -1089,7 +907,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-24T01:01:03.585476+00:00",
+    "at": "2026-11-24T01:09:57.316330+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -1592,9 +1410,8 @@
     }
   },
   "stats": {
-    "date": "2026-11-23",
-    "sent": 7,
-    "suppressed": 1
+    "date": "2026-11-24",
+    "sent": 1
   },
   "schema_version": 2,
   "migration": {
@@ -10806,10 +10623,10 @@
       "note": "FRED لم يُحدَّث بعد (MICH: آخر قراءة 2026-10-01) | لم يُنشر الرقم في عناوين الأخبار بعد"
     }
   ],
-  "last_publish_ok": "2026-11-24T01:01:03.585476+00:00",
+  "last_publish_ok": "2026-11-24T01:09:57.316330+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-24T01:01:29.895977+00:00"
+    "at": "2026-11-24T01:10:42.972366+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10944,12 +10761,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-24T01:01:03.585476+00:00",
-    "ok_at": "2026-11-24T01:01:03.585476+00:00",
+    "at": "2026-11-24T01:09:57.316330+00:00",
+    "ok_at": "2026-11-24T01:09:57.316330+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-24T01:01:03.585476+00:00",
+    "at": "2026-11-24T01:09:57.316330+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
