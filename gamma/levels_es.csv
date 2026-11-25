@@ -1,20 +1,24 @@
-asof_utc,2026-11-25T20:50:38+00:00,basis,12.22,mode,live
+asof_utc,2026-11-25T21:56:35+00:00,basis,14.02,mode,close
 price,label,kind,strength,color,style,width
-7451.75,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7412.25,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7347.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7312.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7262.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7227.5,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7212.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7187.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7177.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7172.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7162.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7152.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7137.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7127.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7112.25,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7062.25,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7027.0,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7012.25,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7483.5,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7414.0,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7368.5,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7330.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7314.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7300.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7279.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7264.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7229.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7214.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7209.75,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7204.0,SPX PEAK+ M,peak,medium,00E0A0,dash,1
+7194.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7179.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7164.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7149.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7129.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7114.0,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7079.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7064.0,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7029.25,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7014.0,SPX PUT WALL,wall,wall,FF5C7A,solid,3
