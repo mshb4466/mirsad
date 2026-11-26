@@ -1116,80 +1116,80 @@
       "name": "VIX",
       "short": "VIX",
       "w": 60,
-      "v": -4.66,
+      "v": -5.26,
       "th": 8.0,
-      "ratio": 0.58,
-      "val": "-4.66%",
+      "ratio": 0.66,
+      "val": "-5.26%",
       "thr": "±8%",
-      "c15": "-0.26%",
-      "c60": "-4.66%",
-      "c180": "-4.66%",
+      "c15": "-0.52%",
+      "c60": "-5.26%",
+      "c180": "-5.26%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": null,
-      "z": 1.9,
+      "eff": 0.97,
+      "z": 1.6,
       "volx": null
     },
     {
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 15,
-      "v": 0.02,
-      "th": 0.25,
-      "ratio": 0.08,
-      "val": "+0.02%",
-      "thr": "±0.25%",
-      "c15": "+0.02%",
-      "c60": "-0.03%",
-      "c180": "-0.03%",
+      "w": 180,
+      "v": -0.02,
+      "th": 0.7,
+      "ratio": 0.04,
+      "val": "-0.02%",
+      "thr": "±0.7%",
+      "c15": "+0.00%",
+      "c60": "-0.01%",
+      "c180": "-0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.19,
-      "z": 0.4,
+      "eff": 0.14,
+      "z": 0.2,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-26T08:45:54.415669+00:00",
-        "ok_at": "2026-11-26T08:45:54.415669+00:00"
+        "last_try": "2026-11-26T09:00:47.085720+00:00",
+        "ok_at": "2026-11-26T09:00:47.085720+00:00"
       },
       "fred": {
-        "last_try": "2026-11-26T08:45:54.415669+00:00",
-        "ok_at": "2026-11-26T08:45:54.415669+00:00"
+        "last_try": "2026-11-26T09:00:47.085720+00:00",
+        "ok_at": "2026-11-26T09:00:47.085720+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-26T08:45:54.415669+00:00",
-        "ok_at": "2026-11-26T08:45:54.415669+00:00"
+        "last_try": "2026-11-26T09:00:47.085720+00:00",
+        "ok_at": "2026-11-26T09:00:47.085720+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-26T08:45:54.415669+00:00",
-        "ok_at": "2026-11-26T08:45:54.415669+00:00"
+        "last_try": "2026-11-26T09:00:47.085720+00:00",
+        "ok_at": "2026-11-26T09:00:47.085720+00:00"
       },
       "oil": {
-        "last_try": "2026-11-26T08:45:54.415669+00:00",
-        "ok_at": "2026-11-26T08:45:54.415669+00:00"
+        "last_try": "2026-11-26T09:00:47.085720+00:00",
+        "ok_at": "2026-11-26T09:00:47.085720+00:00"
       },
       "news": {
-        "last_try": "2026-11-26T08:45:54.415669+00:00",
-        "ok_at": "2026-11-26T08:45:54.415669+00:00"
+        "last_try": "2026-11-26T09:00:47.085720+00:00",
+        "ok_at": "2026-11-26T09:00:47.085720+00:00"
       },
       "cot": {
-        "last_try": "2026-11-26T08:45:54.415669+00:00",
-        "ok_at": "2026-11-26T08:45:54.415669+00:00"
+        "last_try": "2026-11-26T09:00:47.085720+00:00",
+        "ok_at": "2026-11-26T09:00:47.085720+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-26T08:45:54.415669+00:00",
+        "last_try": "2026-11-26T09:00:47.085720+00:00",
         "ok_at": "2026-11-25T13:15:35.120605+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-26T08:45:54.415669+00:00"
+      "at": "2026-11-26T09:00:47.085720+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1197,36 +1197,66 @@
     }
   },
   "week_news": {
-    "at": "2026-11-26T08:00:46.822481+00:00",
+    "at": "2026-11-26T09:00:47.085720+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
+            "t": "2026-11-26T06:56:00+00:00",
+            "title": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
+            "src": "Bloomberg.com"
+          },
+          {
             "t": "2026-11-26T06:28:00+00:00",
             "title": "ANZ Removed From NY Fed List of FX Counterparties in Rare Move",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-26T03:39:00+00:00",
-            "title": "Gold ticks up after hitting 15-month low; Fed outlook in focus",
-            "src": "Reuters"
+            "t": "2026-11-26T06:12:00+00:00",
+            "title": "Turkey’s Traders See Slower Rate Cut Pace as Reserves Shrink",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-26T02:06:00+00:00",
-            "title": "Australian bank ANZ dropped from NY Fed's foreign exchange counterparty list",
-            "src": "Reuters"
+            "t": "2026-11-26T05:30:09+00:00",
+            "title": "A Fed tightening to allow subsequent loosening",
+            "src": "Financial Times"
           },
           {
-            "t": "2026-11-26T01:00:00+00:00",
-            "title": "Wild Market Swings Are Colliding With a Fed Bent on Taming Inflation",
+            "t": "2026-11-26T04:45:00+00:00",
+            "title": "Gold steadies after hitting over one-year low; Fed outlook in focus",
+            "src": "CNBC"
+          }
+        ]
+      },
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
+        "items": [
+          {
+            "t": "2026-11-26T07:57:02+00:00",
+            "title": "Ukraine Is Racing to Keep Its Booming Defense Industry From Stalling",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-25T22:50:00+00:00",
-            "title": "Rising inflation strengthens case for Fed rate hikes",
-            "src": "Marketplace.org"
+            "t": "2026-11-26T05:21:00+00:00",
+            "title": "Asian shares rebound led by AI stocks after Wall Street pares sharp losses",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-26T01:08:02+00:00",
+            "title": "Wall street recovers most early losses as pullback in AI stocks eases",
+            "src": "The Business Journal"
+          },
+          {
+            "t": "2026-11-26T01:04:00+00:00",
+            "title": "Exclusive | Aschenbrenner’s Situational Awareness Tells Investors It Lost 65% in Third Quarter",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-26T00:13:00+00:00",
+            "title": "U.S. stock futures turn higher as tech rebound holds after wild swings on Wall St",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1234,59 +1264,29 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-25T21:55:12+00:00",
-            "title": "How the Trump administration determined Jensen Huang is not a national security threat",
-            "src": "Reuters"
+            "t": "2026-11-26T07:55:00+00:00",
+            "title": "Scaramucci Seeks SEC Probe Into Alleged $304 Million Nvidia Options Windfall",
+            "src": "BigGo Finance"
           },
           {
-            "t": "2026-11-25T21:33:00+00:00",
-            "title": "Democrats probe Trump ahead of Nvidia CEO testimony before Congress",
-            "src": "Caledonian Record"
+            "t": "2026-11-26T07:08:02+00:00",
+            "title": "Montana AG Knudsen Opens Multistate Probe Into Meta's Muse AI Over Privacy",
+            "src": "Newstalk KGVO"
           },
           {
-            "t": "2026-11-25T18:45:00+00:00",
-            "title": "Nvidia Faces Senate Antitrust Scrutiny After Huang’s Reinstatement",
-            "src": "PYMNTS.com"
+            "t": "2026-11-26T03:49:36+00:00",
+            "title": "Democrat Seeks Probe Into Trump Role in Nvidia CEO Return",
+            "src": "bsinews.id"
           },
           {
-            "t": "2026-11-25T18:39:50+00:00",
-            "title": "Not Jensen Huang. Not Data Centers. This Is the Real Reason Nvidia Could Soar in 2027.",
-            "src": "The Globe and Mail"
+            "t": "2026-11-26T03:49:29+00:00",
+            "title": "Subramanyam Urges Probe Into Trump and Nvidia CEO Decision",
+            "src": "SuaraGarut.ID"
           },
           {
-            "t": "2026-11-25T18:03:46+00:00",
-            "title": "When Democrats take the gavel, Raskin wants this Trump official in the Nvidia hot seat",
-            "src": "MS NOW"
-          }
-        ]
-      },
-      "macro": {
-        "label": "الاقتصاد والبيانات",
-        "items": [
-          {
-            "t": "2026-11-26T07:19:46+00:00",
-            "title": "Gold steadies after dipping below $3,500 on US inflation data",
-            "src": "Anadolu Ajansı"
-          },
-          {
-            "t": "2026-11-26T07:19:00+00:00",
-            "title": "German Consumer Confidence Edges Up Despite Worries Over Economy, Inflation",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-26T06:41:00+00:00",
-            "title": "Hawkish Bank of Japan Member Seeks Quick Rate Hikes On Inflation",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-26T06:18:00+00:00",
-            "title": "South African rand steady ahead of producer inflation data",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-11-26T05:55:44+00:00",
-            "title": "South Korea’s central bank hikes interest rates, raises GDP growth forecast",
-            "src": "Al Jazeera"
+            "t": "2026-11-26T03:48:07+00:00",
+            "title": "Subramanyam Urges Probe Into Trump Role in Nvidia CEO Return",
+            "src": "Limapagi"
           }
         ]
       },
@@ -1294,59 +1294,35 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
+            "t": "2026-11-26T08:26:20+00:00",
+            "title": "How Trump's proposed tariffs for India compare with rival nations",
+            "src": "Reuters"
+          },
+          {
             "t": "2026-11-26T07:16:41+00:00",
             "title": "'Unacceptable': Major economies push back against new US tariffs",
             "src": "France 24"
           },
           {
-            "t": "2026-11-26T07:02:00+00:00",
-            "title": "US Partners Respond to Tariffs With Anger, Protest and Diplomacy",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-26T06:58:16+00:00",
-            "title": "Asian trade partners of US hit back at Trump’s latest tariffs",
-            "src": "Financial Times"
-          },
-          {
-            "t": "2026-11-26T06:23:34+00:00",
-            "title": "Eurasia Group expects 'very reserved' China retaliation to U.S. tariffs",
+            "t": "2026-11-26T04:12:00+00:00",
+            "title": "How Trump’s latest tariff moves hand India an edge over rival Asian exporters",
             "src": "CNBC"
-          }
-        ]
-      },
-      "geo": {
-        "label": "الجيوسياسة والنفط",
-        "items": [
-          {
-            "t": "2026-11-26T06:20:39+00:00",
-            "title": "August in Ukraine: Despite Drones and Robot Dogs, People Still Matter",
-            "src": "Small Wars Journal"
           },
           {
-            "t": "2026-11-26T05:35:48+00:00",
-            "title": "Palestinians report three killed in Gaza City strike",
-            "src": "The Times of Israel"
-          },
-          {
-            "t": "2026-11-26T05:18:59+00:00",
-            "title": "Oil Rallies as Hormuz Mine Strikes Rattle Global Markets",
-            "src": "Crude Oil Prices Today | OilPrice.com"
-          },
-          {
-            "t": "2026-11-26T03:33:43+00:00",
-            "title": "Ukraine Says Drone Strikes Hit Five Russian Aircraft, Two Oil Refineries",
-            "src": "The SOFX Report"
+            "t": "2026-11-26T03:54:00+00:00",
+            "title": "Trump tariff threat ‘unacceptable’, says Brazil, as China denounces levies as baseless",
+            "src": "The Guardian"
           }
         ]
       }
     },
     "failed": [
-      "الأسهم الأمريكية و S&P 500"
+      "الاقتصاد والبيانات",
+      "الجيوسياسة والنفط"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-26T08:45:54.415669+00:00",
+    "at": "2026-11-26T09:00:47.085720+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -11094,10 +11070,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-21) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-26T08:45:54.415669+00:00",
+  "last_publish_ok": "2026-11-26T09:00:47.085720+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-26T08:46:16.174618+00:00"
+    "at": "2026-11-26T09:01:18.221543+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11238,12 +11214,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-26T08:45:54.415669+00:00",
-    "ok_at": "2026-11-26T08:45:54.415669+00:00",
+    "at": "2026-11-26T09:00:47.085720+00:00",
+    "ok_at": "2026-11-26T09:00:47.085720+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-26T08:45:54.415669+00:00",
+    "at": "2026-11-26T09:00:47.085720+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
