@@ -1115,19 +1115,19 @@
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": 0.04,
-      "th": 0.7,
+      "w": 15,
+      "v": -0.01,
+      "th": 0.25,
       "ratio": 0.06,
-      "val": "+0.04%",
-      "thr": "±0.7%",
-      "c15": "+0.01%",
+      "val": "-0.01%",
+      "thr": "±0.25%",
+      "c15": "-0.01%",
       "c60": "-0.02%",
-      "c180": "+0.04%",
+      "c180": "+0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.12,
+      "eff": 0.1,
       "z": 0.3,
       "volx": null
     }
@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-26T07:45:34.910085+00:00",
-        "ok_at": "2026-11-26T07:45:34.910085+00:00"
+        "last_try": "2026-11-26T08:00:46.822481+00:00",
+        "ok_at": "2026-11-26T08:00:46.822481+00:00"
       },
       "fred": {
-        "last_try": "2026-11-26T07:45:34.910085+00:00",
-        "ok_at": "2026-11-26T07:45:34.910085+00:00"
+        "last_try": "2026-11-26T08:00:46.822481+00:00",
+        "ok_at": "2026-11-26T08:00:46.822481+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-26T07:45:34.910085+00:00",
-        "ok_at": "2026-11-26T07:45:34.910085+00:00"
+        "last_try": "2026-11-26T08:00:46.822481+00:00",
+        "ok_at": "2026-11-26T08:00:46.822481+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-26T07:45:34.910085+00:00",
-        "ok_at": "2026-11-26T07:45:34.910085+00:00"
+        "last_try": "2026-11-26T08:00:46.822481+00:00",
+        "ok_at": "2026-11-26T08:00:46.822481+00:00"
       },
       "oil": {
-        "last_try": "2026-11-26T07:45:34.910085+00:00",
-        "ok_at": "2026-11-26T07:45:34.910085+00:00"
+        "last_try": "2026-11-26T08:00:46.822481+00:00",
+        "ok_at": "2026-11-26T08:00:46.822481+00:00"
       },
       "news": {
-        "last_try": "2026-11-26T07:45:34.910085+00:00",
-        "ok_at": "2026-11-26T07:45:34.910085+00:00"
+        "last_try": "2026-11-26T08:00:46.822481+00:00",
+        "ok_at": "2026-11-26T08:00:46.822481+00:00"
       },
       "cot": {
-        "last_try": "2026-11-26T07:45:34.910085+00:00",
-        "ok_at": "2026-11-26T07:45:34.910085+00:00"
+        "last_try": "2026-11-26T08:00:46.822481+00:00",
+        "ok_at": "2026-11-26T08:00:46.822481+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-26T07:45:34.910085+00:00",
+        "last_try": "2026-11-26T08:00:46.822481+00:00",
         "ok_at": "2026-11-25T13:15:35.120605+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-26T07:45:34.910085+00:00"
+      "at": "2026-11-26T08:00:46.822481+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,14 +1177,14 @@
     }
   },
   "week_news": {
-    "at": "2026-11-26T06:45:40.537763+00:00",
+    "at": "2026-11-26T08:00:46.822481+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-26T04:49:00+00:00",
+            "t": "2026-11-26T06:28:00+00:00",
             "title": "ANZ Removed From NY Fed List of FX Counterparties in Rare Move",
             "src": "Bloomberg.com"
           },
@@ -1207,36 +1207,6 @@
             "t": "2026-11-25T22:50:00+00:00",
             "title": "Rising inflation strengthens case for Fed rate hikes",
             "src": "Marketplace.org"
-          }
-        ]
-      },
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
-        "items": [
-          {
-            "t": "2026-11-26T06:30:00+00:00",
-            "title": "Wall street recovers from early losses",
-            "src": "TelegraphHerald.com"
-          },
-          {
-            "t": "2026-11-26T05:21:00+00:00",
-            "title": "Asian shares rebound led by AI stocks after Wall Street pares sharp losses",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-26T02:35:21+00:00",
-            "title": "AI-driven volatility shakes Wall Street, and 401(k) savers may feel the swings",
-            "src": "KSNV"
-          },
-          {
-            "t": "2026-11-26T01:56:48+00:00",
-            "title": "Market Take | Will Wall Street's Selloff Spoil Black Friday? 7 Retail Stocks to Watch",
-            "src": "Moomoo"
-          },
-          {
-            "t": "2026-11-26T01:40:49+00:00",
-            "title": "A Tip of the Pen to the Wall Street Journal’s Jesse Newman and Liz Essley Whyte",
-            "src": "Marler Blog"
           }
         ]
       },
@@ -1274,29 +1244,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-26T03:01:07+00:00",
-            "title": "BOE’s Bailey Sees Lower Peak for Inflation if Energy Prices Stay Where They Are",
+            "t": "2026-11-26T07:19:46+00:00",
+            "title": "Gold steadies after dipping below $3,500 on US inflation data",
+            "src": "Anadolu Ajansı"
+          },
+          {
+            "t": "2026-11-26T07:19:00+00:00",
+            "title": "German Consumer Confidence Edges Up Despite Worries Over Economy, Inflation",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-26T02:52:53+00:00",
-            "title": "U.K. Inflation Rises as Energy Costs Keep Pressure on Bank of England",
-            "src": "WSJ"
+            "t": "2026-11-26T06:41:00+00:00",
+            "title": "Hawkish Bank of Japan Member Seeks Quick Rate Hikes On Inflation",
+            "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-26T00:54:00+00:00",
-            "title": "South Korea upgrades growth forecast, raises benchmark rates to highest in two years",
-            "src": "CNBC"
+            "t": "2026-11-26T06:18:00+00:00",
+            "title": "South African rand steady ahead of producer inflation data",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-26T00:08:00+00:00",
-            "title": "Core PCE heats up as Q3 GDP climbs to 4.3%.",
-            "src": "CME Group"
-          },
-          {
-            "t": "2026-11-25T23:20:00+00:00",
-            "title": "Inflation rises, but economic growth remains strong",
-            "src": "The Hill"
+            "t": "2026-11-26T05:55:44+00:00",
+            "title": "South Korea’s central bank hikes interest rates, raises GDP growth forecast",
+            "src": "Al Jazeera"
           }
         ]
       },
@@ -1304,34 +1274,59 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-26T04:12:00+00:00",
-            "title": "How Trump’s latest tariff moves hand India an edge over rival Asian exporters",
-            "src": "CNBC"
+            "t": "2026-11-26T07:16:41+00:00",
+            "title": "'Unacceptable': Major economies push back against new US tariffs",
+            "src": "France 24"
           },
           {
-            "t": "2026-11-26T03:57:00+00:00",
-            "title": "Trump tariff threat ‘unacceptable’, says Brazil, as China denounces levies as baseless",
-            "src": "The Guardian"
-          },
-          {
-            "t": "2026-11-26T03:45:00+00:00",
-            "title": "Trump Aims to Keep Leverage Over Xi With 40% China Tariff Threat",
+            "t": "2026-11-26T07:02:00+00:00",
+            "title": "US Partners Respond to Tariffs With Anger, Protest and Diplomacy",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-26T03:17:03+00:00",
-            "title": "How Trump's newest tariffs could impact American economy",
-            "src": "PBS"
+            "t": "2026-11-26T06:58:16+00:00",
+            "title": "Asian trade partners of US hit back at Trump’s latest tariffs",
+            "src": "Financial Times"
+          },
+          {
+            "t": "2026-11-26T06:23:34+00:00",
+            "title": "Eurasia Group expects 'very reserved' China retaliation to U.S. tariffs",
+            "src": "CNBC"
+          }
+        ]
+      },
+      "geo": {
+        "label": "الجيوسياسة والنفط",
+        "items": [
+          {
+            "t": "2026-11-26T06:20:39+00:00",
+            "title": "August in Ukraine: Despite Drones and Robot Dogs, People Still Matter",
+            "src": "Small Wars Journal"
+          },
+          {
+            "t": "2026-11-26T05:35:48+00:00",
+            "title": "Palestinians report three killed in Gaza City strike",
+            "src": "The Times of Israel"
+          },
+          {
+            "t": "2026-11-26T05:18:59+00:00",
+            "title": "Oil Rallies as Hormuz Mine Strikes Rattle Global Markets",
+            "src": "Crude Oil Prices Today | OilPrice.com"
+          },
+          {
+            "t": "2026-11-26T03:33:43+00:00",
+            "title": "Ukraine Says Drone Strikes Hit Five Russian Aircraft, Two Oil Refineries",
+            "src": "The SOFX Report"
           }
         ]
       }
     },
     "failed": [
-      "الجيوسياسة والنفط"
+      "الأسهم الأمريكية و S&P 500"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-26T07:45:34.910085+00:00",
+    "at": "2026-11-26T08:00:46.822481+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -11079,10 +11074,10 @@
       "note": "المصدر: EIA (واجهة رسمية)"
     }
   ],
-  "last_publish_ok": "2026-11-26T07:45:34.910085+00:00",
+  "last_publish_ok": "2026-11-26T08:00:46.822481+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-26T07:46:02.844609+00:00"
+    "at": "2026-11-26T08:01:22.239873+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11223,12 +11218,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-26T07:45:34.910085+00:00",
-    "ok_at": "2026-11-26T07:45:34.910085+00:00",
+    "at": "2026-11-26T08:00:46.822481+00:00",
+    "ok_at": "2026-11-26T08:00:46.822481+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-26T07:45:34.910085+00:00",
+    "at": "2026-11-26T08:00:46.822481+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
