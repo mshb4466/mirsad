@@ -1121,13 +1121,13 @@
       "ratio": 0.1,
       "val": "-0.04%",
       "thr": "±0.4%",
-      "c15": "-0.00%",
+      "c15": "+0.01%",
       "c60": "-0.04%",
       "c180": "-0.03%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.8,
+      "eff": 0.51,
       "z": 0.6,
       "volx": null
     }
@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-26T22:15:38.069652+00:00",
-        "ok_at": "2026-11-26T22:15:38.069652+00:00"
+        "last_try": "2026-11-26T22:30:50.306939+00:00",
+        "ok_at": "2026-11-26T22:30:50.306939+00:00"
       },
       "fred": {
-        "last_try": "2026-11-26T22:15:38.069652+00:00",
-        "ok_at": "2026-11-26T22:15:38.069652+00:00"
+        "last_try": "2026-11-26T22:30:50.306939+00:00",
+        "ok_at": "2026-11-26T22:30:50.306939+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-26T22:15:38.069652+00:00",
-        "ok_at": "2026-11-26T22:15:38.069652+00:00"
+        "last_try": "2026-11-26T22:30:50.306939+00:00",
+        "ok_at": "2026-11-26T22:30:50.306939+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-26T22:15:38.069652+00:00",
-        "ok_at": "2026-11-26T22:15:38.069652+00:00"
+        "last_try": "2026-11-26T22:30:50.306939+00:00",
+        "ok_at": "2026-11-26T22:30:50.306939+00:00"
       },
       "oil": {
-        "last_try": "2026-11-26T22:15:38.069652+00:00",
-        "ok_at": "2026-11-26T22:15:38.069652+00:00"
+        "last_try": "2026-11-26T22:30:50.306939+00:00",
+        "ok_at": "2026-11-26T22:30:50.306939+00:00"
       },
       "news": {
-        "last_try": "2026-11-26T22:15:38.069652+00:00",
-        "ok_at": "2026-11-26T22:15:38.069652+00:00"
+        "last_try": "2026-11-26T22:30:50.306939+00:00",
+        "ok_at": "2026-11-26T22:30:50.306939+00:00"
       },
       "cot": {
-        "last_try": "2026-11-26T22:15:38.069652+00:00",
-        "ok_at": "2026-11-26T22:15:38.069652+00:00"
+        "last_try": "2026-11-26T22:30:50.306939+00:00",
+        "ok_at": "2026-11-26T22:30:50.306939+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-26T22:15:38.069652+00:00",
-        "ok_at": "2026-11-26T22:15:38.069652+00:00"
+        "last_try": "2026-11-26T22:30:50.306939+00:00",
+        "ok_at": "2026-11-26T22:30:50.306939+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-26T22:15:38.069652+00:00"
+      "at": "2026-11-26T22:30:50.306939+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,66 +1177,66 @@
     }
   },
   "week_news": {
-    "at": "2026-11-26T21:30:43.661609+00:00",
+    "at": "2026-11-26T22:30:50.306939+00:00",
     "asset": "es",
     "data": {
+      "fed": {
+        "label": "الفدرالي والفائدة",
+        "items": [
+          {
+            "t": "2026-11-26T14:58:45+00:00",
+            "title": "Hawkish Fed poised to raise rates despite stock market turmoil",
+            "src": "Financial Times"
+          },
+          {
+            "t": "2026-11-26T13:25:00+00:00",
+            "title": "ECB Saw Need for Another Rate Hike Unless Inflation Outlook Improved ‘Significantly’",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-26T11:16:49+00:00",
+            "title": "Newly proposed tariffs raise chances of the Fed keeping interest rates higher for longer",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-26T10:21:58+00:00",
+            "title": "India swaps, treasury bills signal possibility of outsized RBI rate hike next week",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-26T09:55:39+00:00",
+            "title": "Bank of Japan’s Ueda Vows to Keep Careful Eye on Fed Moves",
+            "src": "WSJ"
+          }
+        ]
+      },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-11-26T22:10:59+00:00",
+            "title": "CME Glitch Halts E-mini S&P Options",
+            "src": "Briefs Finance"
+          },
+          {
+            "t": "2026-11-26T21:59:57+00:00",
+            "title": "Asian Stock Futures Signal Gains, Oil Climbs Again: Markets Wrap",
+            "src": "Bloomberg"
+          },
           {
             "t": "2026-11-26T21:28:17+00:00",
             "title": "Wall Street Flips From AI Euphoria to Gloom",
             "src": "Bloomberg"
           },
           {
-            "t": "2026-11-26T20:02:04+00:00",
-            "title": "Shapiro Accuses Biden of Not Doing Enough to Rein In Netanyahu",
-            "src": "WSJ"
+            "t": "2026-11-26T18:31:19+00:00",
+            "title": "2 Growth Stocks That Lagged the S&P 500 in 2026 and Could Lead in 2027",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-26T17:03:00+00:00",
             "title": "Bank of America issues blunt 2027 hard-landing warning on S&P 500",
             "src": "Yahoo Finance Australia"
-          },
-          {
-            "t": "2026-11-26T16:05:02+00:00",
-            "title": "S&P 500 Sell-Off: Here's Why I'm Not Panicking -- and What I'm Doing Instead",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-26T15:58:00+00:00",
-            "title": "Stock Futures Rise as Dow’s Rebound Goes Global. It Bodes Well for Black Friday Trading.",
-            "src": "Barron's"
-          }
-        ]
-      },
-      "companies": {
-        "label": "الشركات الكبرى والأرباح",
-        "items": [
-          {
-            "t": "2026-11-26T17:08:42+00:00",
-            "title": "Nvidia Halts AI Server Deliveries to Four Southeast Asian Countries: Three Earnings Risks Behind Thousands of B300 Chips Seeking New Buyers",
-            "src": "TradingKey"
-          },
-          {
-            "t": "2026-11-26T16:36:30+00:00",
-            "title": "Nasdaq 100 Forecast: NDX rises after Nvidia earnings calm AI worries",
-            "src": "FOREX.com"
-          },
-          {
-            "t": "2026-11-26T15:24:26+00:00",
-            "title": "NVIDIA Beats Earnings Expectations as Stock Tests 2022 Oversold Levels",
-            "src": "FOREX.com"
-          },
-          {
-            "t": "2026-11-26T13:46:53+00:00",
-            "title": "Nvidia’s Jay Puri had relationship with Super Micro executive amid China chip probe: Report",
-            "src": "The Indian Express"
-          },
-          {
-            "t": "2026-11-26T13:08:40+00:00",
-            "title": "OpenAI Hires Epic Games Lawyer For Musk Antitrust Trial",
-            "src": "Dataconomy"
           }
         ]
       },
@@ -1264,9 +1264,9 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-11-26T16:36:06+00:00",
-            "title": "Trump calls GDP figures 'fake' and demands an investigation of Commerce Department",
-            "src": "PBS"
+            "t": "2026-11-26T16:47:00+00:00",
+            "title": "Trump orders investigation into 'fake' GDP figures changed after midterms, alleges 'purposeful' error",
+            "src": "New York Post"
           }
         ]
       },
@@ -1279,14 +1279,14 @@
             "src": "BBC"
           },
           {
-            "t": "2026-11-26T17:03:31+00:00",
-            "title": "Trump’s Latest Tariffs Revive Focus on Pressuring China",
-            "src": "The New York Times"
-          },
-          {
             "t": "2026-11-26T15:31:11+00:00",
             "title": "China and Brazil Lead Pushback Against Trump’s ‘Unacceptable’ Tariff Threats",
             "src": "Time Magazine"
+          },
+          {
+            "t": "2026-11-26T14:00:34+00:00",
+            "title": "Trump’s Latest Tariffs Revive Focus on Pressuring China",
+            "src": "The New York Times"
           },
           {
             "t": "2026-11-26T13:17:38+00:00",
@@ -1299,34 +1299,34 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-26T20:35:00+00:00",
-            "title": "Zelenskiy Says Russia Preparing New Mass Strike in Coming Days",
-            "src": "U.S. News & World Report"
+            "t": "2026-11-26T22:00:00+00:00",
+            "title": "Iran faces global condemnation over Kuwait attack that killed two Italians",
+            "src": "Iran International"
           },
           {
-            "t": "2026-11-26T20:24:53+00:00",
-            "title": "Iran attack on Kuwait kills two Italian Rheinmetall workers",
-            "src": "The Spokesman-Review"
+            "t": "2026-11-26T21:19:40+00:00",
+            "title": "China Imports Syrian Oil as Iranian Supplies Are Disrupted - Enab Baladi",
+            "src": "Enab Baladi"
           },
           {
-            "t": "2026-11-26T19:00:00+00:00",
-            "title": "Why there’s oil on Persian Gulf beaches; France’s November celebration",
-            "src": "NPR"
+            "t": "2026-11-26T21:01:00+00:00",
+            "title": "Israel ‘officially sanctions’ torture of Palestinian prisoners to extract confessions, report concludes",
+            "src": "The Guardian"
           },
           {
-            "t": "2026-11-26T17:24:27+00:00",
-            "title": "Zelenskyy warns of imminent major Russian attack on Ukraine's power grid",
-            "src": "PBS"
+            "t": "2026-11-26T20:36:15+00:00",
+            "title": "Zelenskiy says Russia preparing new mass strike in coming days",
+            "src": "Reuters"
           }
         ]
       }
     },
     "failed": [
-      "الفدرالي والفائدة"
+      "الشركات الكبرى والأرباح"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-26T22:15:38.069652+00:00",
+    "at": "2026-11-26T22:30:50.306939+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -11015,10 +11015,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-21) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-26T22:15:38.069652+00:00",
+  "last_publish_ok": "2026-11-26T22:30:50.306939+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-26T22:16:01.172810+00:00"
+    "at": "2026-11-26T22:31:16.941496+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11159,12 +11159,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-26T22:15:38.069652+00:00",
-    "ok_at": "2026-11-26T22:15:38.069652+00:00",
+    "at": "2026-11-26T22:30:50.306939+00:00",
+    "ok_at": "2026-11-26T22:30:50.306939+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-26T22:15:38.069652+00:00",
+    "at": "2026-11-26T22:30:50.306939+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
