@@ -1116,19 +1116,19 @@
       "name": "VIX",
       "short": "VIX",
       "w": 60,
-      "v": -7.09,
+      "v": -7.65,
       "th": 8.0,
-      "ratio": 0.89,
-      "val": "-7.09%",
+      "ratio": 0.96,
+      "val": "-7.65%",
       "thr": "±8%",
-      "c15": "+0.00%",
-      "c60": "-7.09%",
-      "c180": "-7.09%",
+      "c15": "-0.84%",
+      "c60": "-7.65%",
+      "c180": "-7.65%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": null,
-      "z": 9.9,
+      "eff": 0.89,
+      "z": 8.1,
       "volx": null
     },
     {
@@ -1136,60 +1136,60 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": 0.07,
+      "v": 0.06,
       "th": 0.4,
-      "ratio": 0.18,
-      "val": "+0.07%",
+      "ratio": 0.15,
+      "val": "+0.06%",
       "thr": "±0.4%",
-      "c15": "+0.01%",
-      "c60": "+0.07%",
-      "c180": "+0.09%",
+      "c15": "-0.01%",
+      "c60": "+0.06%",
+      "c180": "+0.07%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.65,
-      "z": 1.7,
+      "eff": 0.46,
+      "z": 1.4,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-27T08:45:40.196974+00:00",
-        "ok_at": "2026-11-27T08:45:40.196974+00:00"
+        "last_try": "2026-11-27T09:00:48.918708+00:00",
+        "ok_at": "2026-11-27T09:00:48.918708+00:00"
       },
       "fred": {
-        "last_try": "2026-11-27T08:45:40.196974+00:00",
-        "ok_at": "2026-11-27T08:45:40.196974+00:00"
+        "last_try": "2026-11-27T09:00:48.918708+00:00",
+        "ok_at": "2026-11-27T09:00:48.918708+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-27T08:45:40.196974+00:00",
-        "ok_at": "2026-11-27T08:45:40.196974+00:00"
+        "last_try": "2026-11-27T09:00:48.918708+00:00",
+        "ok_at": "2026-11-27T09:00:48.918708+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-27T08:45:40.196974+00:00",
-        "ok_at": "2026-11-27T08:45:40.196974+00:00"
+        "last_try": "2026-11-27T09:00:48.918708+00:00",
+        "ok_at": "2026-11-27T09:00:48.918708+00:00"
       },
       "oil": {
-        "last_try": "2026-11-27T08:45:40.196974+00:00",
-        "ok_at": "2026-11-27T08:45:40.196974+00:00"
+        "last_try": "2026-11-27T09:00:48.918708+00:00",
+        "ok_at": "2026-11-27T09:00:48.918708+00:00"
       },
       "news": {
-        "last_try": "2026-11-27T08:45:40.196974+00:00",
-        "ok_at": "2026-11-27T08:45:40.196974+00:00"
+        "last_try": "2026-11-27T09:00:48.918708+00:00",
+        "ok_at": "2026-11-27T09:00:48.918708+00:00"
       },
       "cot": {
-        "last_try": "2026-11-27T08:45:40.196974+00:00",
-        "ok_at": "2026-11-27T08:45:40.196974+00:00"
+        "last_try": "2026-11-27T09:00:48.918708+00:00",
+        "ok_at": "2026-11-27T09:00:48.918708+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-27T08:45:40.196974+00:00",
-        "ok_at": "2026-11-27T08:45:40.196974+00:00"
+        "last_try": "2026-11-27T09:00:48.918708+00:00",
+        "ok_at": "2026-11-27T09:00:48.918708+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-27T08:45:40.196974+00:00"
+      "at": "2026-11-27T09:00:48.918708+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1197,36 +1197,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-27T07:45:41.098584+00:00",
+    "at": "2026-11-27T09:00:48.918708+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-27T05:48:59+00:00",
+            "t": "2026-11-27T06:39:00+00:00",
+            "title": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-27T05:47:35+00:00",
             "title": "Fed Repricing, Not a Policy Reversal, Is What the Euro Needs",
             "src": "StoneX"
           },
           {
-            "t": "2026-11-26T14:58:45+00:00",
-            "title": "Hawkish Fed poised to raise rates despite stock market turmoil",
+            "t": "2026-11-27T05:00:13+00:00",
+            "title": "Is the Fed ready for its next fight?",
             "src": "Financial Times"
           },
           {
-            "t": "2026-11-26T13:25:00+00:00",
-            "title": "ECB Saw Need for Another Rate Hike Unless Inflation Outlook Improved ‘Significantly’",
-            "src": "WSJ"
+            "t": "2026-11-27T02:38:00+00:00",
+            "title": "Faster inflation in Tokyo supports case for BOJ rate hike in December",
+            "src": "The Japan Times"
           },
           {
-            "t": "2026-11-26T12:50:56+00:00",
-            "title": "ECB already had large support for rate hike in Oct, accounts show",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-11-26T11:16:49+00:00",
-            "title": "Newly proposed tariffs raise chances of the Fed keeping interest rates higher for longer",
-            "src": "Yahoo Finance"
+            "t": "2026-11-27T00:55:00+00:00",
+            "title": "Tokyo Inflation Accelerates, Backing Case for BOJ Rate Hike",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -1234,7 +1234,12 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-27T06:28:17+00:00",
+            "t": "2026-11-27T08:08:01+00:00",
+            "title": "U.S. Stock Futures Higher as AI Trade Steadies for Thanksgiving Break",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-27T07:58:17+00:00",
             "title": "Wall Street Flips From AI Euphoria to Gloom",
             "src": "Bloomberg.com"
           },
@@ -1252,11 +1257,6 @@
             "t": "2026-11-26T17:06:00+00:00",
             "title": "Nvidia Tells Partners to Pause Shipments to Southeast Asia",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-26T13:23:02+00:00",
-            "title": "Is Anthropic Joining the S&P 500? Here's What Investors Need to Know.",
-            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1294,35 +1294,45 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-27T06:58:41+00:00",
-            "title": "Iran’s Beauty Industry is Immune to War and Inflation",
-            "src": "WANA News Agency"
+            "t": "2026-11-27T08:57:39+00:00",
+            "title": "French economy sinks deeper into gloom",
+            "src": "ing think"
           },
           {
-            "t": "2026-11-27T06:58:15+00:00",
-            "title": "Tokyo inflation backs a Bank of Japan hike that may not rescue the yen",
+            "t": "2026-11-27T08:51:01+00:00",
+            "title": "France's Q3 GDP Drop Leaves It One Bad Quarter From Recession",
             "src": "Startup Fortune"
           },
           {
-            "t": "2026-11-27T06:55:00+00:00",
-            "title": "Trump calls the pre-election GDP figures 'fake' and demands an investigation of Commerce Department",
-            "src": "Santa Fe New Mexican"
+            "t": "2026-11-27T08:48:24+00:00",
+            "title": "NZ consumer confidence climbs above 100 as inflation fears ease",
+            "src": "NZ Advisor"
           },
           {
-            "t": "2026-11-27T06:30:00+00:00",
-            "title": "Trump calls pre-election GDP figures 'fake,' demands investigation of Commerce Department",
-            "src": "TelegraphHerald.com"
+            "t": "2026-11-27T08:24:27+00:00",
+            "title": "FX Daily Snapshot",
+            "src": "MUFG Research"
           },
           {
-            "t": "2026-11-27T06:00:57+00:00",
-            "title": "Three supply shocks driving up U.S. inflation, says Oxford Economics",
-            "src": "CNBC"
+            "t": "2026-11-27T08:05:44+00:00",
+            "title": "Spain's 12-month EU-harmonised inflation falls to 4.1% in November",
+            "src": "Reuters"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-11-27T07:36:00+00:00",
+            "title": "U.S. Treasury Yields Rise in Shortened Post-Thanksgiving Trade",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-27T00:03:03+00:00",
+            "title": "Trump's 50% tariffs on Canada take effect as Carney vows to retaliate",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
           {
             "t": "2026-11-26T20:55:12+00:00",
             "title": "Supreme Court invalidates most of Trump's tariffs",
@@ -1332,16 +1342,6 @@
             "t": "2026-11-26T18:54:51+00:00",
             "title": "What are tariffs, how do they work and why is Trump using them?",
             "src": "BBC"
-          },
-          {
-            "t": "2026-11-26T18:54:07+00:00",
-            "title": "What will Trump’s latest tariffs mean for the world?",
-            "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-11-26T15:31:11+00:00",
-            "title": "China and Brazil Lead Pushback Against Trump’s ‘Unacceptable’ Tariff Threats",
-            "src": "Time Magazine"
           }
         ]
       },
@@ -1349,24 +1349,24 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-27T06:02:00+00:00",
-            "title": "EXCLUSIVE: US pushed Venezuela, Iraq to consider leaving OPEC, sources say",
-            "src": "Reuters"
+            "t": "2026-11-27T08:15:00+00:00",
+            "title": "Oil prices rise after tankers hit mines in Strait of Hormuz",
+            "src": "Middle East Monitor"
           },
           {
-            "t": "2026-11-27T05:01:45+00:00",
-            "title": "U.S. targets Iran's shadow banking network after FinCEN flags $14.7 billion in transactions",
-            "src": "Latin Times"
+            "t": "2026-11-27T07:54:17+00:00",
+            "title": "Adnoc subsidiary confirms crew member found dead after Strait of Hormuz attack",
+            "src": "Upstream Online"
           },
           {
-            "t": "2026-11-27T03:52:18+00:00",
-            "title": "Trump downplays Russia, China support for Iran during talks with US troops",
-            "src": "Al Jazeera"
+            "t": "2026-11-27T06:32:57+00:00",
+            "title": "Netanyahu wants to attack Iran. Does that serve Israel or him?",
+            "src": "San Juan Daily Star"
           },
           {
-            "t": "2026-11-27T03:48:00+00:00",
-            "title": "2 Italians killed in Kuwait drone strike; Iran denies responsibility",
-            "src": "upi"
+            "t": "2026-11-27T06:02:27+00:00",
+            "title": "EU Proposes Crypto Restrictions on Kyrgyzstan Over Russia Sanctions",
+            "src": "Coinpedia"
           }
         ]
       }
@@ -1374,7 +1374,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-27T08:45:40.196974+00:00",
+    "at": "2026-11-27T09:00:48.918708+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -11063,10 +11063,10 @@
       "note": "المصدر: EIA (واجهة رسمية)"
     }
   ],
-  "last_publish_ok": "2026-11-27T08:45:40.196974+00:00",
+  "last_publish_ok": "2026-11-27T09:00:48.918708+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-27T08:46:04.948698+00:00"
+    "at": "2026-11-27T09:01:18.923287+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11207,12 +11207,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-27T08:45:40.196974+00:00",
-    "ok_at": "2026-11-27T08:45:40.196974+00:00",
+    "at": "2026-11-27T09:00:48.918708+00:00",
+    "ok_at": "2026-11-27T09:00:48.918708+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-27T08:45:40.196974+00:00",
+    "at": "2026-11-27T09:00:48.918708+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
