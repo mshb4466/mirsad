@@ -1,23 +1,23 @@
-asof_utc,2026-11-27T15:20:23+00:00,basis,13.71,mode,live
+asof_utc,2026-11-27T15:30:23+00:00,basis,11.38,mode,live
 price,label,kind,strength,color,style,width
-7513.75,SPX CALL WALL,wall,wall,00E0A0,solid,3
-7405.25,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
-7363.75,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7344.5,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
-7328.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7313.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7298.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7278.75,SPY CALL WALL,wall,wall,00E0A0,solid,3
-7263.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7238.5,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7213.75,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7198.5,SPY PEAK+ M,peak,medium,00E0A0,dash,1
-7178.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7163.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7148.5,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7128.5,SPY PEAK- S,peak,strong,FF5C7A,solid,2
-7113.75,SPX PEAK- S,peak,strong,FF5C7A,solid,2
-7088.75,SPX PEAK- M,peak,medium,FF5C7A,dash,1
-7078.25,SPY PEAK- M,peak,medium,FF5C7A,dash,1
-7028.25,SPY PUT WALL,wall,wall,FF5C7A,solid,3
-7013.75,SPX PUT WALL,wall,wall,FF5C7A,solid,3
+7511.5,SPX CALL WALL,wall,wall,00E0A0,solid,3
+7413.75,SPX GAMMA FLIP,flip,flip,FFD24A,solid,3
+7361.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7349.0,SPY GAMMA FLIP,flip,flip,FFD24A,solid,3
+7327.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7311.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7297.0,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7287.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7277.0,SPY CALL WALL,wall,wall,00E0A0,solid,3
+7261.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7237.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7211.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7197.0,SPY PEAK+ M,peak,medium,00E0A0,dash,1
+7186.5,SPX PEAK- M,peak,medium,FF5C7A,dash,1
+7176.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7161.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7146.75,SPY PEAK- M,peak,medium,FF5C7A,dash,1
+7126.75,SPY PEAK- S,peak,strong,FF5C7A,solid,2
+7111.5,SPX PEAK- S,peak,strong,FF5C7A,solid,2
+7026.5,SPY PUT WALL,wall,wall,FF5C7A,solid,3
+7011.5,SPX PUT WALL,wall,wall,FF5C7A,solid,3
