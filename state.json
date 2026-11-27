@@ -1116,60 +1116,60 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": -0.03,
+      "v": -0.04,
       "th": 0.7,
-      "ratio": 0.04,
-      "val": "-0.03%",
+      "ratio": 0.05,
+      "val": "-0.04%",
       "thr": "±0.7%",
-      "c15": "+0.01%",
-      "c60": "+0.00%",
-      "c180": "-0.03%",
+      "c15": "+0.00%",
+      "c60": "+0.01%",
+      "c180": "-0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.01,
-      "z": 0.0,
+      "eff": 0.07,
+      "z": 0.1,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-27T04:15:36.610019+00:00",
-        "ok_at": "2026-11-27T04:15:36.610019+00:00"
+        "last_try": "2026-11-27T04:30:44.363707+00:00",
+        "ok_at": "2026-11-27T04:30:44.363707+00:00"
       },
       "fred": {
-        "last_try": "2026-11-27T04:15:36.610019+00:00",
-        "ok_at": "2026-11-27T04:15:36.610019+00:00"
+        "last_try": "2026-11-27T04:30:44.363707+00:00",
+        "ok_at": "2026-11-27T04:30:44.363707+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-27T04:15:36.610019+00:00",
-        "ok_at": "2026-11-27T04:15:36.610019+00:00"
+        "last_try": "2026-11-27T04:30:44.363707+00:00",
+        "ok_at": "2026-11-27T04:30:44.363707+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-27T04:15:36.610019+00:00",
-        "ok_at": "2026-11-27T04:15:36.610019+00:00"
+        "last_try": "2026-11-27T04:30:44.363707+00:00",
+        "ok_at": "2026-11-27T04:30:44.363707+00:00"
       },
       "oil": {
-        "last_try": "2026-11-27T04:15:36.610019+00:00",
-        "ok_at": "2026-11-27T04:15:36.610019+00:00"
+        "last_try": "2026-11-27T04:30:44.363707+00:00",
+        "ok_at": "2026-11-27T04:30:44.363707+00:00"
       },
       "news": {
-        "last_try": "2026-11-27T04:15:36.610019+00:00",
-        "ok_at": "2026-11-27T04:15:36.610019+00:00"
+        "last_try": "2026-11-27T04:30:44.363707+00:00",
+        "ok_at": "2026-11-27T04:30:44.363707+00:00"
       },
       "cot": {
-        "last_try": "2026-11-27T04:15:36.610019+00:00",
-        "ok_at": "2026-11-27T04:15:36.610019+00:00"
+        "last_try": "2026-11-27T04:30:44.363707+00:00",
+        "ok_at": "2026-11-27T04:30:44.363707+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-27T04:15:36.610019+00:00",
-        "ok_at": "2026-11-27T04:15:36.610019+00:00"
+        "last_try": "2026-11-27T04:30:44.363707+00:00",
+        "ok_at": "2026-11-27T04:30:44.363707+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-27T04:15:36.610019+00:00"
+      "at": "2026-11-27T04:30:44.363707+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,36 +1177,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-27T03:15:45.902816+00:00",
+    "at": "2026-11-27T04:30:44.363707+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-27T02:32:00+00:00",
-            "title": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
-            "src": "Bloomberg.com"
+            "t": "2026-11-26T14:58:45+00:00",
+            "title": "Hawkish Fed poised to raise rates despite stock market turmoil",
+            "src": "Financial Times"
           },
           {
-            "t": "2026-11-27T00:55:00+00:00",
-            "title": "Tokyo’s Faster Pace of Inflation Backs Case for BOJ Rate Hike",
-            "src": "Bloomberg.com"
+            "t": "2026-11-26T13:25:00+00:00",
+            "title": "ECB Saw Need for Another Rate Hike Unless Inflation Outlook Improved ‘Significantly’",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T00:49:11+00:00",
-            "title": "USD/JPY Weekly Outlook: Fed Hikes, AI Volatility and a Sleeping Yen",
-            "src": "FOREX.com"
+            "t": "2026-11-26T11:16:49+00:00",
+            "title": "Newly proposed tariffs raise chances of the Fed keeping interest rates higher for longer",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-26T22:07:29+00:00",
-            "title": "Gold slips, silver gains as Fed rate hike expectations persist in holiday trading - Kitco PM Report",
-            "src": "Kitco"
+            "t": "2026-11-26T11:00:00+00:00",
+            "title": "The small-cap Santa Claus rally is on — but a December Fed rate hike has spoiled it before: Chart of the Day",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-26T19:44:14+00:00",
-            "title": "Fed Rate-Hike Bets Deliver Fresh Blow To Your Holiday Budget",
-            "src": "InsuranceNewsNet"
+            "t": "2026-11-26T10:21:58+00:00",
+            "title": "India swaps, treasury bills signal possibility of outsized RBI rate hike next week",
+            "src": "Reuters"
           }
         ]
       },
@@ -1214,29 +1214,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-27T02:18:00+00:00",
-            "title": "Asian shares mostly rise ahead of Wall Street’s reopening after the Thanksgiving holiday",
-            "src": "AP News"
-          },
-          {
-            "t": "2026-11-27T02:13:00+00:00",
-            "title": "Asian Markets Mostly Higher as Sentiment Stabilizes",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-27T01:58:17+00:00",
+            "t": "2026-11-27T03:28:17+00:00",
             "title": "Wall Street Flips From AI Euphoria to Gloom",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-27T01:57:00+00:00",
-            "title": "Asian Stocks Rise for Second Day, Treasuries Slip: Markets Wrap",
-            "src": "Bloomberg.com"
+            "t": "2026-11-27T02:57:26+00:00",
+            "title": "Asian shares mostly rise ahead of Wall Street's reopening after the Thanksgiving holiday",
+            "src": "ABC News - Breaking News, Latest News and Videos"
           },
           {
-            "t": "2026-11-26T22:50:02+00:00",
-            "title": "Prediction: These 3 Consumer Stocks Will Beat the S&P 500 Over the Next 10 Years",
-            "src": "Yahoo Finance"
+            "t": "2026-11-27T00:45:46+00:00",
+            "title": "S&P 500 Companies Are Reporting Lowest Earnings Surprise Percentage Since Q4 2022",
+            "src": "FactSet Insight"
+          },
+          {
+            "t": "2026-11-26T17:05:38+00:00",
+            "title": "CME Glitch Stalls E-mini S&P 500 Options for Roughly 10 Minutes at the Open",
+            "src": "Briefs Finance"
+          },
+          {
+            "t": "2026-11-26T17:03:00+00:00",
+            "title": "Bank of America issues blunt 2027 hard-landing warning on S&P 500",
+            "src": "Yahoo Finance Singapore"
           }
         ]
       },
@@ -1244,35 +1244,45 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
+            "t": "2026-11-26T23:05:22+00:00",
+            "title": "Nvidia stock falls despite strong earnings amid CEO turmoil and investigations.",
+            "src": "Pluang"
+          },
+          {
             "t": "2026-11-26T17:15:02+00:00",
             "title": "Should You Buy Nvidia After Its Sharp Decline? Warren Buffett’s Long-Held Investment Philosophy Provides a Clear Answer",
             "src": "The Motley Fool"
           },
           {
-            "t": "2026-11-26T14:48:47+00:00",
-            "title": "NVIDIA Corporation (NVDA) Stock Price, News, Quote & History",
-            "src": "Yahoo! Finance Canada"
+            "t": "2026-11-26T17:08:42+00:00",
+            "title": "Nvidia Halts AI Server Deliveries to Four Southeast Asian Countries: Three Earnings Risks Behind Thousands of B300 Chips Seeking New Buyers",
+            "src": "TradingKey"
           },
           {
-            "t": "2026-11-26T13:13:19+00:00",
-            "title": "Andromeda Metals Limited Warrant 2026-30.09.27 On Andromeda Meta Earnings and Revenue – ASX:ADNOC",
-            "src": "TradingView"
+            "t": "2026-11-26T16:36:30+00:00",
+            "title": "Nasdaq 100 Forecast: NDX rises after Nvidia earnings calm AI worries",
+            "src": "FOREX.com"
           },
           {
-            "t": "2026-11-26T08:15:02+00:00",
-            "title": "Under Scanner, Wife Of Nvidia's Former No. 3 On Chip Smuggling Probe",
-            "src": "NDTV"
-          },
-          {
-            "t": "2026-11-26T07:55:00+00:00",
-            "title": "Scaramucci Seeks SEC Probe Into Alleged $304 Million Nvidia Options Windfall",
-            "src": "BigGo Finance"
+            "t": "2026-11-26T15:24:26+00:00",
+            "title": "NVIDIA Beats Earnings Expectations as Stock Tests 2022 Oversold Levels",
+            "src": "FOREX.com"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
+          {
+            "t": "2026-11-27T03:39:44+00:00",
+            "title": "Consumer inflation in Tokyo hits 16-month high of 2.9% in Nov.",
+            "src": "Japan Wire by Kyodo News"
+          },
+          {
+            "t": "2026-11-27T03:17:15+00:00",
+            "title": "Tokyo core inflation at 16-month high, bolsters case for BOJ hike",
+            "src": "The Lufkin Daily News"
+          },
           {
             "t": "2026-11-27T03:00:00+00:00",
             "title": "Infographic: PCE Inflation Rises to Highest Level Since 2023",
@@ -1287,16 +1297,6 @@
             "t": "2026-11-27T02:16:00+00:00",
             "title": "Short-Term JGB Yields Rise on Elevated Tokyo Inflation Data",
             "src": "WSJ"
-          },
-          {
-            "t": "2026-11-27T02:16:00+00:00",
-            "title": "Australian Dollar edges higher to near 0.6650 amid upside CPI surprise, hawkish Fed backdrop",
-            "src": "FXStreet"
-          },
-          {
-            "t": "2026-11-27T02:11:26+00:00",
-            "title": "Trump Wants Probe Into ‘Fake Economic Numbers’ After GDP Growth Is Revised Up to 4.3%, Defends White Hous",
-            "src": "Benzinga"
           }
         ]
       },
@@ -1319,8 +1319,8 @@
             "src": "Time Magazine"
           },
           {
-            "t": "2026-11-26T12:24:29+00:00",
-            "title": "Storms disrupt Thanksgiving travel. And, FCC violated ABC's free speech, judge says",
+            "t": "2026-11-26T11:43:47+00:00",
+            "title": "Trump administration proposes new tariffs on goods from major U.S. trading partners",
             "src": "NPR"
           }
         ]
@@ -1329,19 +1329,19 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-27T02:28:47+00:00",
-            "title": "Iran denies role in drone attack that killed Italians in Kuwait",
-            "src": "South China Morning Post"
+            "t": "2026-11-27T03:52:18+00:00",
+            "title": "Trump downplays Russia, China support for Iran during talks with US troops",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-27T03:30:00+00:00",
+            "title": "Two Italians killed in Kuwait drone attack; Trump says Iran war ends ‘whenever I want it’",
+            "src": "CNBC"
           },
           {
             "t": "2026-11-27T02:20:43+00:00",
             "title": "Zelenskyy warns of major Russian attack as Trump urges Putin to ‘pull back’",
             "src": "Al Jazeera"
-          },
-          {
-            "t": "2026-11-27T01:49:17+00:00",
-            "title": "IAEA working with Russia, Ukraine on ceasefire to repair power link at Zaporizhzhia nuclear plant",
-            "src": "SRN News"
           },
           {
             "t": "2026-11-27T01:44:45+00:00",
@@ -1354,7 +1354,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-27T04:15:36.610019+00:00",
+    "at": "2026-11-27T04:30:44.363707+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -11043,10 +11043,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-21) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-27T04:15:36.610019+00:00",
+  "last_publish_ok": "2026-11-27T04:30:44.363707+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-27T04:16:00.739945+00:00"
+    "at": "2026-11-27T04:31:15.246692+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11187,12 +11187,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-27T04:15:36.610019+00:00",
-    "ok_at": "2026-11-27T04:15:36.610019+00:00",
+    "at": "2026-11-27T04:30:44.363707+00:00",
+    "ok_at": "2026-11-27T04:30:44.363707+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-27T04:15:36.610019+00:00",
+    "at": "2026-11-27T04:30:44.363707+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
