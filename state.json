@@ -1115,19 +1115,19 @@
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": 0.06,
-      "th": 0.7,
-      "ratio": 0.09,
-      "val": "+0.06%",
-      "thr": "±0.7%",
-      "c15": "+0.01%",
+      "w": 15,
+      "v": -0.02,
+      "th": 0.25,
+      "ratio": 0.08,
+      "val": "-0.02%",
+      "thr": "±0.25%",
+      "c15": "-0.02%",
       "c60": "-0.02%",
-      "c180": "+0.06%",
+      "c180": "+0.04%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.2,
+      "eff": 0.17,
       "z": 0.4,
       "volx": null
     }
@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-27T07:30:49.297011+00:00",
-        "ok_at": "2026-11-27T07:30:49.297011+00:00"
+        "last_try": "2026-11-27T07:45:41.098584+00:00",
+        "ok_at": "2026-11-27T07:45:41.098584+00:00"
       },
       "fred": {
-        "last_try": "2026-11-27T07:30:49.297011+00:00",
-        "ok_at": "2026-11-27T07:30:49.297011+00:00"
+        "last_try": "2026-11-27T07:45:41.098584+00:00",
+        "ok_at": "2026-11-27T07:45:41.098584+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-27T07:30:49.297011+00:00",
-        "ok_at": "2026-11-27T07:30:49.297011+00:00"
+        "last_try": "2026-11-27T07:45:41.098584+00:00",
+        "ok_at": "2026-11-27T07:45:41.098584+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-27T07:30:49.297011+00:00",
-        "ok_at": "2026-11-27T07:30:49.297011+00:00"
+        "last_try": "2026-11-27T07:45:41.098584+00:00",
+        "ok_at": "2026-11-27T07:45:41.098584+00:00"
       },
       "oil": {
-        "last_try": "2026-11-27T07:30:49.297011+00:00",
-        "ok_at": "2026-11-27T07:30:49.297011+00:00"
+        "last_try": "2026-11-27T07:45:41.098584+00:00",
+        "ok_at": "2026-11-27T07:45:41.098584+00:00"
       },
       "news": {
-        "last_try": "2026-11-27T07:30:49.297011+00:00",
-        "ok_at": "2026-11-27T07:30:49.297011+00:00"
+        "last_try": "2026-11-27T07:45:41.098584+00:00",
+        "ok_at": "2026-11-27T07:45:41.098584+00:00"
       },
       "cot": {
-        "last_try": "2026-11-27T07:30:49.297011+00:00",
-        "ok_at": "2026-11-27T07:30:49.297011+00:00"
+        "last_try": "2026-11-27T07:45:41.098584+00:00",
+        "ok_at": "2026-11-27T07:45:41.098584+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-27T07:30:49.297011+00:00",
-        "ok_at": "2026-11-27T07:30:49.297011+00:00"
+        "last_try": "2026-11-27T07:45:41.098584+00:00",
+        "ok_at": "2026-11-27T07:45:41.098584+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-27T07:30:49.297011+00:00"
+      "at": "2026-11-27T07:45:41.098584+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,36 +1177,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-27T06:45:35.688022+00:00",
+    "at": "2026-11-27T07:45:41.098584+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-27T05:00:13+00:00",
-            "title": "Is the Fed ready for its next fight?",
+            "t": "2026-11-27T05:48:59+00:00",
+            "title": "Fed Repricing, Not a Policy Reversal, Is What the Euro Needs",
+            "src": "StoneX"
+          },
+          {
+            "t": "2026-11-26T14:58:45+00:00",
+            "title": "Hawkish Fed poised to raise rates despite stock market turmoil",
             "src": "Financial Times"
           },
           {
-            "t": "2026-11-27T02:38:00+00:00",
-            "title": "Faster inflation in Tokyo supports case for BOJ rate hike in December",
-            "src": "The Japan Times"
+            "t": "2026-11-26T13:25:00+00:00",
+            "title": "ECB Saw Need for Another Rate Hike Unless Inflation Outlook Improved ‘Significantly’",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T02:32:00+00:00",
-            "title": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
-            "src": "Bloomberg.com"
+            "t": "2026-11-26T12:50:56+00:00",
+            "title": "ECB already had large support for rate hike in Oct, accounts show",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-27T00:55:00+00:00",
-            "title": "Tokyo’s Faster Pace of Inflation Backs Case for BOJ Rate Hike",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-27T00:49:11+00:00",
-            "title": "USD/JPY Weekly Outlook: Fed Hikes, AI Volatility and a Sleeping Yen",
-            "src": "FOREX.com"
+            "t": "2026-11-26T11:16:49+00:00",
+            "title": "Newly proposed tariffs raise chances of the Fed keeping interest rates higher for longer",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1214,28 +1214,28 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-27T06:32:04+00:00",
-            "title": "Shapiro Accuses Biden of Not Doing Enough to Rein In Netanyahu",
-            "src": "WSJ"
-          },
-          {
             "t": "2026-11-27T06:28:17+00:00",
             "title": "Wall Street Flips From AI Euphoria to Gloom",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-27T05:53:00+00:00",
-            "title": "Asian Markets Rise as AI Sentiment Stabilizes",
+            "t": "2026-11-27T00:45:46+00:00",
+            "title": "S&P 500 Companies Are Reporting Lowest Earnings Surprise Percentage Since Q4 2022",
+            "src": "FactSet Insight"
+          },
+          {
+            "t": "2026-11-26T22:50:02+00:00",
+            "title": "Prediction: These 3 Consumer Stocks Will Beat the S&P 500 Over the Next 10 Years",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-26T17:06:00+00:00",
+            "title": "Nvidia Tells Partners to Pause Shipments to Southeast Asia",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-27T05:03:00+00:00",
-            "title": "Asian Stocks Rise for Second Day, Treasuries Slip: Markets Wrap",
-            "src": "Bloomberg.com"
-          },
-          {
-            "t": "2026-11-27T02:18:00+00:00",
-            "title": "Asian shares mostly rise ahead of Wall Street's reopening after the Thanksgiving holiday",
+            "t": "2026-11-26T13:23:02+00:00",
+            "title": "Is Anthropic Joining the S&P 500? Here's What Investors Need to Know.",
             "src": "Yahoo Finance"
           }
         ]
@@ -1243,6 +1243,11 @@
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
+          {
+            "t": "2026-11-27T07:13:36+00:00",
+            "title": "Meta Stock And 2 AI Infrastructure Picks With Quality Growth Earnings",
+            "src": "Simply Wall St"
+          },
           {
             "t": "2026-11-27T04:49:59+00:00",
             "title": "AI Bubble Bear Market: Tech 20% Off Highs, Nvidia 9x",
@@ -1262,11 +1267,6 @@
             "t": "2026-11-26T17:15:02+00:00",
             "title": "Should You Buy Nvidia After Its Sharp Decline? Warren Buffett’s Long-Held Investment Philosophy Provides a Clear Answer",
             "src": "The Motley Fool"
-          },
-          {
-            "t": "2026-11-26T17:08:42+00:00",
-            "title": "Nvidia Halts AI Server Deliveries to Four Southeast Asian Countries: Three Earnings Risks Behind Thousands of B300 Chips Seeking New Buyers",
-            "src": "TradingKey"
           }
         ]
       },
@@ -1274,40 +1274,87 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-27T02:16:00+00:00",
-            "title": "Short-Term JGB Yields Rise on Elevated Tokyo Inflation Data",
-            "src": "WSJ"
+            "t": "2026-11-27T06:58:41+00:00",
+            "title": "Iran’s Beauty Industry is Immune to War and Inflation",
+            "src": "WANA News Agency"
           },
           {
-            "t": "2026-11-27T00:03:00+00:00",
-            "title": "Cautious consumers gear up for Black Friday as inflation woes bite",
+            "t": "2026-11-27T06:58:15+00:00",
+            "title": "Tokyo inflation backs a Bank of Japan hike that may not rescue the yen",
+            "src": "Startup Fortune"
+          },
+          {
+            "t": "2026-11-27T06:55:00+00:00",
+            "title": "Trump calls the pre-election GDP figures 'fake' and demands an investigation of Commerce Department",
+            "src": "Santa Fe New Mexican"
+          },
+          {
+            "t": "2026-11-27T06:30:00+00:00",
+            "title": "Trump calls pre-election GDP figures 'fake,' demands investigation of Commerce Department",
+            "src": "TelegraphHerald.com"
+          },
+          {
+            "t": "2026-11-27T06:00:57+00:00",
+            "title": "Three supply shocks driving up U.S. inflation, says Oxford Economics",
+            "src": "CNBC"
+          }
+        ]
+      },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-11-26T20:55:12+00:00",
+            "title": "Supreme Court invalidates most of Trump's tariffs",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-11-26T18:54:51+00:00",
+            "title": "What are tariffs, how do they work and why is Trump using them?",
+            "src": "BBC"
+          },
+          {
+            "t": "2026-11-26T18:54:07+00:00",
+            "title": "What will Trump’s latest tariffs mean for the world?",
+            "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-26T15:31:11+00:00",
+            "title": "China and Brazil Lead Pushback Against Trump’s ‘Unacceptable’ Tariff Threats",
+            "src": "Time Magazine"
+          }
+        ]
+      },
+      "geo": {
+        "label": "الجيوسياسة والنفط",
+        "items": [
+          {
+            "t": "2026-11-27T06:02:00+00:00",
+            "title": "EXCLUSIVE: US pushed Venezuela, Iraq to consider leaving OPEC, sources say",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-26T23:42:00+00:00",
-            "title": "Tokyo core inflation at 16-month high, bolsters case for BOJ hike",
-            "src": "Reuters"
+            "t": "2026-11-27T05:01:45+00:00",
+            "title": "U.S. targets Iran's shadow banking network after FinCEN flags $14.7 billion in transactions",
+            "src": "Latin Times"
           },
           {
-            "t": "2026-11-26T23:24:55+00:00",
-            "title": "Exclusive | Cost Pressures Already in Pipeline to Fuel Higher Inflation",
-            "src": "WSJ"
+            "t": "2026-11-27T03:52:18+00:00",
+            "title": "Trump downplays Russia, China support for Iran during talks with US troops",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-26T21:11:41+00:00",
-            "title": "Trump demands investigation into GDP data revisions",
-            "src": "Axios"
+            "t": "2026-11-27T03:48:00+00:00",
+            "title": "2 Italians killed in Kuwait drone strike; Iran denies responsibility",
+            "src": "upi"
           }
         ]
       }
     },
-    "failed": [
-      "السياسة التجارية والمالية",
-      "الجيوسياسة والنفط"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-27T07:30:49.297011+00:00",
+    "at": "2026-11-27T07:45:41.098584+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10996,10 +11043,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-21) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-27T07:30:49.297011+00:00",
+  "last_publish_ok": "2026-11-27T07:45:41.098584+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-27T07:31:09.465377+00:00"
+    "at": "2026-11-27T07:46:04.006330+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11140,12 +11187,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-27T07:30:49.297011+00:00",
-    "ok_at": "2026-11-27T07:30:49.297011+00:00",
+    "at": "2026-11-27T07:45:41.098584+00:00",
+    "ok_at": "2026-11-27T07:45:41.098584+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-27T07:30:49.297011+00:00",
+    "at": "2026-11-27T07:45:41.098584+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
