@@ -1115,61 +1115,61 @@
       "key": "jpy",
       "name": "الدولار/الين",
       "short": "ين",
-      "w": 180,
-      "v": 0.04,
-      "th": 0.7,
+      "w": 15,
+      "v": -0.01,
+      "th": 0.25,
       "ratio": 0.05,
-      "val": "+0.04%",
-      "thr": "±0.7%",
-      "c15": "+0.01%",
-      "c60": "+0.01%",
-      "c180": "+0.04%",
+      "val": "-0.01%",
+      "thr": "±0.25%",
+      "c15": "-0.01%",
+      "c60": "+0.00%",
+      "c180": "+0.01%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.22,
-      "z": 0.3,
+      "eff": 0.0,
+      "z": 0.0,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-27T21:15:41.064850+00:00",
-        "ok_at": "2026-11-27T21:15:41.064850+00:00"
+        "last_try": "2026-11-27T21:30:42.844150+00:00",
+        "ok_at": "2026-11-27T21:30:42.844150+00:00"
       },
       "fred": {
-        "last_try": "2026-11-27T21:15:41.064850+00:00",
-        "ok_at": "2026-11-27T21:15:41.064850+00:00"
+        "last_try": "2026-11-27T21:30:42.844150+00:00",
+        "ok_at": "2026-11-27T21:30:42.844150+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-27T21:15:41.064850+00:00",
-        "ok_at": "2026-11-27T21:15:41.064850+00:00"
+        "last_try": "2026-11-27T21:30:42.844150+00:00",
+        "ok_at": "2026-11-27T21:30:42.844150+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-27T21:15:41.064850+00:00",
-        "ok_at": "2026-11-27T21:15:41.064850+00:00"
+        "last_try": "2026-11-27T21:30:42.844150+00:00",
+        "ok_at": "2026-11-27T21:30:42.844150+00:00"
       },
       "oil": {
-        "last_try": "2026-11-27T21:15:41.064850+00:00",
-        "ok_at": "2026-11-27T21:15:41.064850+00:00"
+        "last_try": "2026-11-27T21:30:42.844150+00:00",
+        "ok_at": "2026-11-27T21:30:42.844150+00:00"
       },
       "news": {
-        "last_try": "2026-11-27T21:15:41.064850+00:00",
-        "ok_at": "2026-11-27T21:15:41.064850+00:00"
+        "last_try": "2026-11-27T21:30:42.844150+00:00",
+        "ok_at": "2026-11-27T21:30:42.844150+00:00"
       },
       "cot": {
-        "last_try": "2026-11-27T21:15:41.064850+00:00",
-        "ok_at": "2026-11-27T21:15:41.064850+00:00"
+        "last_try": "2026-11-27T21:30:42.844150+00:00",
+        "ok_at": "2026-11-27T21:30:42.844150+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-27T21:15:41.064850+00:00",
-        "ok_at": "2026-11-27T21:15:41.064850+00:00"
+        "last_try": "2026-11-27T21:30:42.844150+00:00",
+        "ok_at": "2026-11-27T21:30:42.844150+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-27T21:15:41.064850+00:00"
+      "at": "2026-11-27T21:30:42.844150+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,12 +1177,17 @@
     }
   },
   "week_news": {
-    "at": "2026-11-27T20:15:41.897250+00:00",
+    "at": "2026-11-27T21:30:42.844150+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-27T19:21:23+00:00",
+            "title": "Canadian dollar holds on to weekly gain as investors bet on December rate hike",
+            "src": "Reuters"
+          },
           {
             "t": "2026-11-27T18:49:43+00:00",
             "title": "Interview with Lars Peter Hansen",
@@ -1196,23 +1201,23 @@
           {
             "t": "2026-11-27T15:53:26+00:00",
             "title": "The Big Pressures Facing the Fed",
-            "src": "Bloomberg.com"
+            "src": "Bloomberg"
           },
           {
             "t": "2026-11-27T15:30:27+00:00",
             "title": "New England Economic Conditions through November 19, 2026",
             "src": "Federal Reserve Bank of Boston"
-          },
-          {
-            "t": "2026-11-27T15:28:53+00:00",
-            "title": "Kia MVP Ladder: Luka Dončić, Victor Wembanyama set for showdown in Emirates NBA Cup",
-            "src": "NBA.com"
           }
         ]
       },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
+          {
+            "t": "2026-11-27T21:03:47+00:00",
+            "title": "The Mad Dash for Memory Chips—and the Pain It’s Causing Holiday Shoppers",
+            "src": "WSJ"
+          },
           {
             "t": "2026-11-27T18:59:00+00:00",
             "title": "Stocks jump to end an erratic week that was Wall Street's best in over a year",
@@ -1229,44 +1234,9 @@
             "src": "The Well News"
           },
           {
-            "t": "2026-11-27T15:54:07+00:00",
-            "title": "Stocks jump to close out an erratic week that was also Wall Street’s best in more than a year",
-            "src": "Boston Herald"
-          },
-          {
             "t": "2026-11-27T13:46:00+00:00",
             "title": "Stock Futures Jump as AI Trade Set for Rebound",
             "src": "WSJ"
-          }
-        ]
-      },
-      "companies": {
-        "label": "الشركات الكبرى والأرباح",
-        "items": [
-          {
-            "t": "2026-11-27T17:13:08+00:00",
-            "title": "CPI | Chile Targets Apple With $80 Million Antitrust Fine Over App Store Restrictions",
-            "src": "PYMNTS.com"
-          },
-          {
-            "t": "2026-11-27T15:30:00+00:00",
-            "title": "Apple faces another App Store antitrust fight, this time in Chile",
-            "src": "AppleInsider"
-          },
-          {
-            "t": "2026-11-27T14:55:47+00:00",
-            "title": "Nvidia Stock: 5 Reasons The AI Trade Has Only Begun (NASDAQ:NVDA)",
-            "src": "Seeking Alpha"
-          },
-          {
-            "t": "2026-11-27T14:33:48+00:00",
-            "title": "Chile's antitrust authority seeks $80 million Apple fine over iOS",
-            "src": "Reuters"
-          },
-          {
-            "t": "2026-11-27T14:31:10+00:00",
-            "title": "Shampoo Delivery Ends With an Amazon Drone Crashing Into a Neighbor’s Garage—and an FAA Probe",
-            "src": "MotorBiscuit"
           }
         ]
       },
@@ -1274,45 +1244,35 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-27T19:37:00+00:00",
-            "title": "Inflation is squeezing Americans so bad grocery bills are reason Black Friday shoppers cut back",
-            "src": "Fortune"
+            "t": "2026-11-27T17:03:01+00:00",
+            "title": "Inflation isn't stopping Americans from spending this holiday season",
+            "src": "WBUR"
           },
           {
-            "t": "2026-11-27T18:54:24+00:00",
-            "title": "Economic Rundown: Stronger Growth, a Brighter Consumer Outlook, and Stubborn Cost Pressures",
-            "src": "Small Business & Entrepreneurship Council"
+            "t": "2026-11-27T13:15:43+00:00",
+            "title": "ECB may have to raise rates further as inflation stays above 3%",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-27T18:45:27+00:00",
-            "title": "The Holidays’ Most Coveted Item? A Good Deal",
+            "t": "2026-11-27T12:30:10+00:00",
+            "title": "Trump demands investigation into GDP data revisions",
+            "src": "Axios"
+          },
+          {
+            "t": "2026-11-27T12:00:45+00:00",
+            "title": "Inflation Slides in France, Spain on Declining Fuel Prices",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-27T11:00:10+00:00",
+            "title": "High Inflation Puts Fed’s Credibility On the Line",
             "src": "Bloomberg"
-          },
-          {
-            "t": "2026-11-27T18:22:30+00:00",
-            "title": "Employment Standards: Michigan ties future minimum wage hikes to inflation starting 2028",
-            "src": "Human Resources Director"
-          },
-          {
-            "t": "2026-11-27T17:39:52+00:00",
-            "title": "CPI | Implementing Data Governance Frameworks: From Principles to Practice",
-            "src": "PYMNTS.com"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
-          {
-            "t": "2026-11-27T19:01:41+00:00",
-            "title": "Why This Is a Terrible Time for New Tariffs",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-27T17:57:29+00:00",
-            "title": "China and Other Countries Face Higher U.S. Tariffs Over Industrial Subsidies",
-            "src": "WSJ"
-          },
           {
             "t": "2026-11-27T16:51:50+00:00",
             "title": "Republicans rethink tariffs, giving Democrats an opening to challenge Trump",
@@ -1322,39 +1282,27 @@
             "t": "2026-11-27T16:49:56+00:00",
             "title": "U.S. Set to Raise Tariffs on China, EU and Others",
             "src": "WSJ"
-          }
-        ]
-      },
-      "geo": {
-        "label": "الجيوسياسة والنفط",
-        "items": [
-          {
-            "t": "2026-11-27T18:12:22+00:00",
-            "title": "Starshield speed restrictions apply only to Russian-occupied territories, hamper Ukraine's middle strike campaign, military sources say",
-            "src": "The Kyiv Independent"
           },
           {
-            "t": "2026-11-27T17:56:33+00:00",
-            "title": "Kyiv offers Black Sea ceasefire, as Putin expands Russia’s navy",
+            "t": "2026-11-27T12:56:54+00:00",
+            "title": "Trump embraced Xi, then slapped new tariffs on China: What’s his game plan?",
             "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-27T17:51:25+00:00",
-            "title": "China and Russia lose Venezuela oil foothold and may never see their $22bn",
-            "src": "Yahoo"
-          },
-          {
-            "t": "2026-11-27T17:51:18+00:00",
-            "title": "Russia prepping major attack on Ukraine's power grid, Zelenskyy warns",
-            "src": "Fox News"
+            "t": "2026-11-27T10:22:41+00:00",
+            "title": "Treasury yields are higher as investors look ahead to payroll data",
+            "src": "CNBC"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "الشركات الكبرى والأرباح",
+      "الجيوسياسة والنفط"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-27T21:15:41.064850+00:00",
+    "at": "2026-11-27T21:30:42.844150+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10422,10 +10370,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-27T21:15:41.064850+00:00",
+  "last_publish_ok": "2026-11-27T21:30:42.844150+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-27T21:16:07.966228+00:00"
+    "at": "2026-11-27T21:31:21.387596+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10566,12 +10514,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-27T21:15:41.064850+00:00",
-    "ok_at": "2026-11-27T21:15:41.064850+00:00",
+    "at": "2026-11-27T21:30:42.844150+00:00",
+    "ok_at": "2026-11-27T21:30:42.844150+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-27T21:15:41.064850+00:00",
+    "at": "2026-11-27T21:30:42.844150+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
