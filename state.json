@@ -1115,20 +1115,20 @@
       "key": "vix",
       "name": "VIX",
       "short": "VIX",
-      "w": 60,
-      "v": 1.8,
-      "th": 8.0,
-      "ratio": 0.23,
-      "val": "+1.80%",
-      "thr": "±8%",
-      "c15": "-0.86%",
-      "c60": "+1.80%",
-      "c180": "+3.09%",
+      "w": 180,
+      "v": 2.68,
+      "th": 14.0,
+      "ratio": 0.19,
+      "val": "+2.68%",
+      "thr": "±14%",
+      "c15": "-0.43%",
+      "c60": "+1.52%",
+      "c180": "+2.68%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.38,
-      "z": 0.7,
+      "eff": 0.29,
+      "z": 0.6,
       "volx": null
     },
     {
@@ -1136,60 +1136,60 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 60,
-      "v": -0.03,
+      "v": -0.01,
       "th": 0.4,
-      "ratio": 0.06,
-      "val": "-0.03%",
+      "ratio": 0.03,
+      "val": "-0.01%",
       "thr": "±0.4%",
       "c15": "+0.01%",
-      "c60": "-0.03%",
-      "c180": "-0.03%",
+      "c60": "-0.01%",
+      "c180": "-0.02%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.3,
-      "z": 0.6,
+      "eff": 0.12,
+      "z": 0.3,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-27T12:15:34.889680+00:00",
-        "ok_at": "2026-11-27T12:15:34.889680+00:00"
+        "last_try": "2026-11-27T12:30:46.598655+00:00",
+        "ok_at": "2026-11-27T12:30:46.598655+00:00"
       },
       "fred": {
-        "last_try": "2026-11-27T12:15:34.889680+00:00",
-        "ok_at": "2026-11-27T12:15:34.889680+00:00"
+        "last_try": "2026-11-27T12:30:46.598655+00:00",
+        "ok_at": "2026-11-27T12:30:46.598655+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-27T12:15:34.889680+00:00",
-        "ok_at": "2026-11-27T12:15:34.889680+00:00"
+        "last_try": "2026-11-27T12:30:46.598655+00:00",
+        "ok_at": "2026-11-27T12:30:46.598655+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-27T12:15:34.889680+00:00",
-        "ok_at": "2026-11-27T12:15:34.889680+00:00"
+        "last_try": "2026-11-27T12:30:46.598655+00:00",
+        "ok_at": "2026-11-27T12:30:46.598655+00:00"
       },
       "oil": {
-        "last_try": "2026-11-27T12:15:34.889680+00:00",
-        "ok_at": "2026-11-27T12:15:34.889680+00:00"
+        "last_try": "2026-11-27T12:30:46.598655+00:00",
+        "ok_at": "2026-11-27T12:30:46.598655+00:00"
       },
       "news": {
-        "last_try": "2026-11-27T12:15:34.889680+00:00",
-        "ok_at": "2026-11-27T12:15:34.889680+00:00"
+        "last_try": "2026-11-27T12:30:46.598655+00:00",
+        "ok_at": "2026-11-27T12:30:46.598655+00:00"
       },
       "cot": {
-        "last_try": "2026-11-27T12:15:34.889680+00:00",
-        "ok_at": "2026-11-27T12:15:34.889680+00:00"
+        "last_try": "2026-11-27T12:30:46.598655+00:00",
+        "ok_at": "2026-11-27T12:30:46.598655+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-27T12:15:34.889680+00:00",
-        "ok_at": "2026-11-27T12:15:34.889680+00:00"
+        "last_try": "2026-11-27T12:30:46.598655+00:00",
+        "ok_at": "2026-11-27T12:30:46.598655+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-27T12:15:34.889680+00:00"
+      "at": "2026-11-27T12:30:46.598655+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1197,36 +1197,66 @@
     }
   },
   "week_news": {
-    "at": "2026-11-27T11:15:42.293022+00:00",
+    "at": "2026-11-27T12:30:46.598655+00:00",
     "asset": "es",
     "data": {
+      "fed": {
+        "label": "الفدرالي والفائدة",
+        "items": [
+          {
+            "t": "2026-11-27T05:48:59+00:00",
+            "title": "Fed Repricing, Not a Policy Reversal, Is What the Euro Needs",
+            "src": "StoneX"
+          },
+          {
+            "t": "2026-11-27T01:10:34+00:00",
+            "title": "Fed holds interest rates steady as inflation hits 3-year high",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-11-26T14:58:45+00:00",
+            "title": "Hawkish Fed poised to raise rates despite stock market turmoil",
+            "src": "Financial Times"
+          },
+          {
+            "t": "2026-11-26T13:25:00+00:00",
+            "title": "ECB Saw Need for Another Rate Hike Unless Inflation Outlook Improved ‘Significantly’",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-26T12:50:56+00:00",
+            "title": "ECB already had large support for rate hike in Oct, accounts show",
+            "src": "Reuters"
+          }
+        ]
+      },
       "stocks": {
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-27T10:58:17+00:00",
-            "title": "Wall Street Flips From AI Euphoria to Gloom",
-            "src": "Bloomberg.com"
+            "t": "2026-11-27T12:06:17+00:00",
+            "title": "The S&P 500 is in a correction. Bear markets and recessions don't always follow",
+            "src": "CNBC"
           },
           {
-            "t": "2026-11-27T10:29:27+00:00",
-            "title": "U.S. Stock Futures Surge As Nvidia, Anthropic And Other AI Shares Rally In Premarket Trading",
-            "src": "Forbes"
-          },
-          {
-            "t": "2026-11-27T09:34:00+00:00",
-            "title": "Stock Futures Jump as AI Trade Set for Rebound",
+            "t": "2026-11-27T12:06:10+00:00",
+            "title": "Exclusive | Aschenbrenner’s Situational Awareness Tells Investors It Lost 65% in Third Quarter",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-27T05:53:00+00:00",
-            "title": "Asian Markets Rise as AI Sentiment Stabilizes",
-            "src": "WSJ"
+            "t": "2026-11-27T12:02:00+00:00",
+            "title": "Stock Futures Rip on Thanksgiving Night as S&P 500 Futures Top 7,300",
+            "src": "24/7 Wall St."
           },
           {
-            "t": "2026-11-27T00:45:46+00:00",
-            "title": "S&P 500 Companies Are Reporting Lowest Earnings Surprise Percentage Since Q4 2022",
-            "src": "FactSet Insight"
+            "t": "2026-11-27T11:55:41+00:00",
+            "title": "Tech rally lifts stock futures to wrap up a volatile week of trading",
+            "src": "CNBC"
+          },
+          {
+            "t": "2026-11-27T11:32:14+00:00",
+            "title": "U.S. Stock Futures Rally as AI Trade Roars Back",
+            "src": "Barchart.com"
           }
         ]
       },
@@ -1264,14 +1294,14 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-27T10:02:00+00:00",
+            "t": "2026-11-27T11:16:00+00:00",
             "title": "Inflation Slides in France, Spain on Declining Fuel Prices",
             "src": "WSJ"
           },
           {
-            "t": "2026-11-27T09:02:25+00:00",
-            "title": "BOE’s Bailey Sees Lower Peak for Inflation if Energy Prices Stay Where They Are",
-            "src": "WSJ"
+            "t": "2026-11-27T11:00:01+00:00",
+            "title": "Inflation has shoppers hunting for value. That bodes well for Black Friday",
+            "src": "CNBC"
           },
           {
             "t": "2026-11-27T07:50:00+00:00",
@@ -1279,39 +1309,14 @@
             "src": "Reuters"
           },
           {
-            "t": "2026-11-27T01:10:34+00:00",
-            "title": "Fed holds interest rates steady as inflation hits 3-year high",
-            "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
             "t": "2026-11-27T00:03:00+00:00",
             "title": "Cautious consumers gear up for Black Friday as inflation woes bite",
             "src": "Reuters"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-27T09:49:00+00:00",
-            "title": "U.S. Treasury Yields Rise in Shortened Post-Thanksgiving Trade",
-            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T00:03:03+00:00",
-            "title": "Trump's 50% tariffs on Canada take effect as Carney vows to retaliate",
-            "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
-            "t": "2026-11-26T20:55:12+00:00",
-            "title": "Supreme Court invalidates most of Trump's tariffs",
-            "src": "ABC News - Breaking News, Latest News and Videos"
-          },
-          {
-            "t": "2026-11-26T18:54:51+00:00",
-            "title": "What are tariffs, how do they work and why is Trump using them?",
-            "src": "BBC"
+            "t": "2026-11-26T23:42:40+00:00",
+            "title": "Core inflation in Japan's capital accelerates in November",
+            "src": "Yahoo Finance"
           }
         ]
       },
@@ -1319,34 +1324,34 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-27T11:08:17+00:00",
-            "title": "Navy Chief Reveals Iran’s Strike on US Aircraft Carrier",
-            "src": "تسنیم"
+            "t": "2026-11-27T11:48:45+00:00",
+            "title": "Russia’s hybrid war on Europe evolving, but failing: IISS",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-27T10:36:41+00:00",
-            "title": "Iran claims it recovered 2 oil tankers seized by US military",
-            "src": "A News"
-          },
-          {
-            "t": "2026-11-27T10:20:33+00:00",
-            "title": "Iran denies responsibility for Kuwait strike that killed two Italians",
-            "src": "Euronews.com"
+            "t": "2026-11-27T10:07:00+00:00",
+            "title": "Iran accused of deadly drone attack in Kuwait that sparks EU call to step up pressure on Tehran",
+            "src": "CBS News"
           },
           {
             "t": "2026-11-27T09:27:44+00:00",
             "title": "OPEC+ set to keep oil production targets steady in first quarter, sources say",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-27T06:02:00+00:00",
+            "title": "EXCLUSIVE: US pushed Venezuela, Iraq to consider leaving OPEC, sources say",
             "src": "Reuters"
           }
         ]
       }
     },
     "failed": [
-      "الفدرالي والفائدة"
+      "السياسة التجارية والمالية"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-27T12:15:34.889680+00:00",
+    "at": "2026-11-27T12:30:46.598655+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -11035,10 +11040,10 @@
       "note": "المصدر: EIA (واجهة رسمية)"
     }
   ],
-  "last_publish_ok": "2026-11-27T12:15:34.889680+00:00",
+  "last_publish_ok": "2026-11-27T12:30:46.598655+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-27T12:16:01.868115+00:00"
+    "at": "2026-11-27T12:31:17.884787+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11179,12 +11184,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-27T12:15:34.889680+00:00",
-    "ok_at": "2026-11-27T12:15:34.889680+00:00",
+    "at": "2026-11-27T12:30:46.598655+00:00",
+    "ok_at": "2026-11-27T12:30:46.598655+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-27T12:15:34.889680+00:00",
+    "at": "2026-11-27T12:30:46.598655+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
