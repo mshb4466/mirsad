@@ -1118,17 +1118,17 @@
       "w": 60,
       "v": 0.02,
       "th": 0.4,
-      "ratio": 0.05,
+      "ratio": 0.04,
       "val": "+0.02%",
       "thr": "±0.4%",
-      "c15": "+0.01%",
+      "c15": "-0.00%",
       "c60": "+0.02%",
-      "c180": "-0.02%",
+      "c180": "-0.00%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.41,
-      "z": 0.5,
+      "eff": 0.27,
+      "z": 0.4,
       "volx": null
     },
     {
@@ -1136,49 +1136,9 @@
       "name": "عائد 10 سنوات",
       "short": "10Y",
       "w": 180,
-      "v": 2.6,
+      "v": 2.2,
       "th": 7.5,
-      "ratio": 0.35,
-      "val": "+3bp",
-      "thr": "±7.5bp",
-      "c15": "+0bp",
-      "c60": "+1bp",
-      "c180": "+3bp",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.5,
-      "z": 0.3,
-      "volx": null
-    },
-    {
-      "key": "y5",
-      "name": "عائد 5 سنوات",
-      "short": "5Y",
-      "w": 180,
-      "v": 2.9,
-      "th": 7.5,
-      "ratio": 0.39,
-      "val": "+3bp",
-      "thr": "±7.5bp",
-      "c15": "+0bp",
-      "c60": "+1bp",
-      "c180": "+3bp",
-      "confirmed": false,
-      "why": "لم يتجاوز الحد",
-      "tone": "bear",
-      "eff": 0.43,
-      "z": 0.3,
-      "volx": null
-    },
-    {
-      "key": "y30",
-      "name": "عائد 30 سنة",
-      "short": "30Y",
-      "w": 180,
-      "v": 1.6,
-      "th": 7.5,
-      "ratio": 0.21,
+      "ratio": 0.29,
       "val": "+2bp",
       "thr": "±7.5bp",
       "c15": "+0bp",
@@ -1186,50 +1146,90 @@
       "c180": "+2bp",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
-      "tone": "flat",
-      "eff": 0.24,
+      "tone": "bear",
+      "eff": 0.25,
       "z": 0.2,
+      "volx": null
+    },
+    {
+      "key": "y5",
+      "name": "عائد 5 سنوات",
+      "short": "5Y",
+      "w": 180,
+      "v": 2.7,
+      "th": 7.5,
+      "ratio": 0.36,
+      "val": "+3bp",
+      "thr": "±7.5bp",
+      "c15": "-0bp",
+      "c60": "+0bp",
+      "c180": "+3bp",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "bear",
+      "eff": 0.25,
+      "z": 0.2,
+      "volx": null
+    },
+    {
+      "key": "y30",
+      "name": "عائد 30 سنة",
+      "short": "30Y",
+      "w": 180,
+      "v": 1.3,
+      "th": 7.5,
+      "ratio": 0.17,
+      "val": "+1bp",
+      "thr": "±7.5bp",
+      "c15": "+0bp",
+      "c60": "+0bp",
+      "c180": "+1bp",
+      "confirmed": false,
+      "why": "لم يتجاوز الحد",
+      "tone": "flat",
+      "eff": 0.18,
+      "z": 0.1,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-27T19:00:46.249444+00:00",
-        "ok_at": "2026-11-27T19:00:46.249444+00:00"
+        "last_try": "2026-11-27T19:15:41.604446+00:00",
+        "ok_at": "2026-11-27T19:15:41.604446+00:00"
       },
       "fred": {
-        "last_try": "2026-11-27T19:00:46.249444+00:00",
-        "ok_at": "2026-11-27T19:00:46.249444+00:00"
+        "last_try": "2026-11-27T19:15:41.604446+00:00",
+        "ok_at": "2026-11-27T19:15:41.604446+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-27T19:00:46.249444+00:00",
-        "ok_at": "2026-11-27T19:00:46.249444+00:00"
+        "last_try": "2026-11-27T19:15:41.604446+00:00",
+        "ok_at": "2026-11-27T19:15:41.604446+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-27T19:00:46.249444+00:00",
-        "ok_at": "2026-11-27T19:00:46.249444+00:00"
+        "last_try": "2026-11-27T19:15:41.604446+00:00",
+        "ok_at": "2026-11-27T19:15:41.604446+00:00"
       },
       "oil": {
-        "last_try": "2026-11-27T19:00:46.249444+00:00",
-        "ok_at": "2026-11-27T19:00:46.249444+00:00"
+        "last_try": "2026-11-27T19:15:41.604446+00:00",
+        "ok_at": "2026-11-27T19:15:41.604446+00:00"
       },
       "news": {
-        "last_try": "2026-11-27T19:00:46.249444+00:00",
-        "ok_at": "2026-11-27T19:00:46.249444+00:00"
+        "last_try": "2026-11-27T19:15:41.604446+00:00",
+        "ok_at": "2026-11-27T19:15:41.604446+00:00"
       },
       "cot": {
-        "last_try": "2026-11-27T19:00:46.249444+00:00",
-        "ok_at": "2026-11-27T19:00:46.249444+00:00"
+        "last_try": "2026-11-27T19:15:41.604446+00:00",
+        "ok_at": "2026-11-27T19:15:41.604446+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-27T19:00:46.249444+00:00",
-        "ok_at": "2026-11-27T19:00:46.249444+00:00"
+        "last_try": "2026-11-27T19:15:41.604446+00:00",
+        "ok_at": "2026-11-27T19:15:41.604446+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-27T19:00:46.249444+00:00"
+      "at": "2026-11-27T19:15:41.604446+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1237,7 +1237,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-27T18:15:38.909438+00:00",
+    "at": "2026-11-27T19:15:41.604446+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -1274,29 +1274,29 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-27T18:02:01+00:00",
+            "t": "2026-11-27T19:00:00+00:00",
+            "title": "What sell-off? A top bank says stocks will surge 23% by the end of next year.",
+            "src": "Business Insider"
+          },
+          {
+            "t": "2026-11-27T18:59:56+00:00",
+            "title": "Bitcoin Bounces as Optimism Returns to Markets After Holiday",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-27T18:43:36+00:00",
+            "title": "Trump’s AI Gambit Fuels Wild Thanksgiving Week on Wall Street",
+            "src": "Bloomberg.com"
+          },
+          {
+            "t": "2026-11-27T18:43:00+00:00",
+            "title": "Stocks jump to close out an erratic week that was also Wall Street’s best in more than a year",
+            "src": "AP News"
+          },
+          {
+            "t": "2026-11-27T18:37:52+00:00",
             "title": "Wall Street ends higher as battered AI stocks gain in volatile week",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-27T17:40:05+00:00",
-            "title": "Needham-based SharkNinja joins the ranks of the S&P 500",
-            "src": "The Boston Globe"
-          },
-          {
-            "t": "2026-11-27T16:50:04+00:00",
-            "title": "‘I look spectacular in this’: Kevin O’Leary wore a $2M Michael Jordan card on a Tiffany chain to prove alternative assets are beating the S&P 500",
-            "src": "MoneyWise.com"
-          },
-          {
-            "t": "2026-11-27T16:27:00+00:00",
-            "title": "Silver Prices Exploded 8% Overnight While Wall Street Was Closed for Thanksgiving",
-            "src": "24/7 Wall St."
-          },
-          {
-            "t": "2026-11-27T16:09:25+00:00",
-            "title": "Do Wall Street Analysts Like Avery Dennison Stock?",
-            "src": "Barchart.com"
+            "src": "Kitco"
           }
         ]
       },
@@ -1309,24 +1309,54 @@
             "src": "PYMNTS.com"
           },
           {
-            "t": "2026-11-27T15:47:12+00:00",
-            "title": "Chile's antitrust authority seeks $80 million Apple fine over iOS",
-            "src": "Report.az"
-          },
-          {
             "t": "2026-11-27T15:30:00+00:00",
             "title": "Apple faces another App Store antitrust fight, this time in Chile",
             "src": "AppleInsider"
           },
           {
-            "t": "2026-11-27T15:02:36+00:00",
-            "title": "Chile’s antitrust authority wants to fine Apple $80 million for ‘abusing’ its operating system dominance",
-            "src": "MacTech.com"
+            "t": "2026-11-27T14:55:47+00:00",
+            "title": "Nvidia Stock: 5 Reasons The AI Trade Has Only Begun (NASDAQ:NVDA)",
+            "src": "Seeking Alpha"
           },
           {
-            "t": "2026-11-27T14:31:10+00:00",
-            "title": "Shampoo Delivery Ends With an Amazon Drone Crashing Into a Neighbor’s Garage—and an FAA Probe",
-            "src": "MotorBiscuit"
+            "t": "2026-11-27T14:33:48+00:00",
+            "title": "Chile's antitrust authority seeks $80 million Apple fine over iOS",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-27T13:49:31+00:00",
+            "title": "Is Nvidia a Screaming Buy or a Value Trap?",
+            "src": "The Globe and Mail"
+          }
+        ]
+      },
+      "macro": {
+        "label": "الاقتصاد والبيانات",
+        "items": [
+          {
+            "t": "2026-11-27T18:54:24+00:00",
+            "title": "Economic Rundown: Stronger Growth, a Brighter Consumer Outlook, and Stubborn Cost Pressures",
+            "src": "Small Business & Entrepreneurship Council"
+          },
+          {
+            "t": "2026-11-27T18:22:30+00:00",
+            "title": "Employment Standards: Michigan ties future minimum wage hikes to inflation starting 2028",
+            "src": "Human Resources Director"
+          },
+          {
+            "t": "2026-11-27T18:06:00+00:00",
+            "title": "Weeks of hot deals are encouraging record Black Friday spending despite inflation concerns",
+            "src": "PBS"
+          },
+          {
+            "t": "2026-11-27T17:39:52+00:00",
+            "title": "CPI | Implementing Data Governance Frameworks: From Principles to Practice",
+            "src": "PYMNTS.com"
+          },
+          {
+            "t": "2026-11-27T17:27:01+00:00",
+            "title": "RXO latest Curve forecast marks 10th consecutive quarter of spot rate inflation",
+            "src": "TheTrucker.com"
           }
         ]
       },
@@ -1344,14 +1374,14 @@
             "src": "CBC"
           },
           {
+            "t": "2026-11-27T17:31:16+00:00",
+            "title": "Congressional Republicans Begin Rethinking Trump’s Tariffs",
+            "src": "www.cheddar.com"
+          },
+          {
             "t": "2026-11-27T17:05:53+00:00",
             "title": "Mexico files complaint with US over DEA tip line, rules out easing tariffs on Chinese goods",
             "src": "Anadolu Ajansı"
-          },
-          {
-            "t": "2026-11-27T16:49:56+00:00",
-            "title": "U.S. Set to Raise Tariffs on China, EU and Others",
-            "src": "WSJ"
           }
         ]
       },
@@ -1359,9 +1389,14 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-27T17:49:44+00:00",
+            "t": "2026-11-27T17:56:33+00:00",
             "title": "Kyiv offers Black Sea ceasefire, as Putin expands Russia’s navy",
             "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-27T17:28:58+00:00",
+            "title": "Oil Prices Rebound as Shipping Risks Persist",
+            "src": "WSJ"
           },
           {
             "t": "2026-11-27T16:37:43+00:00",
@@ -1372,21 +1407,14 @@
             "t": "2026-11-27T15:31:42+00:00",
             "title": "Zelenskyy urges the U.S. to pressure Putin, calling Trump's 'my friend' remark strange",
             "src": "PBS"
-          },
-          {
-            "t": "2026-11-27T15:04:59+00:00",
-            "title": "Oil Prices Fall as Traders Weigh Supply Surplus, Gulf Attacks",
-            "src": "WSJ"
           }
         ]
       }
     },
-    "failed": [
-      "الاقتصاد والبيانات"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-27T19:00:46.249444+00:00",
+    "at": "2026-11-27T19:15:41.604446+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10523,10 +10551,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-27T19:00:46.249444+00:00",
+  "last_publish_ok": "2026-11-27T19:15:41.604446+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-27T19:01:19.908022+00:00"
+    "at": "2026-11-27T19:16:09.458443+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10667,12 +10695,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-27T19:00:46.249444+00:00",
-    "ok_at": "2026-11-27T19:00:46.249444+00:00",
+    "at": "2026-11-27T19:15:41.604446+00:00",
+    "ok_at": "2026-11-27T19:15:41.604446+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-27T19:00:46.249444+00:00",
+    "at": "2026-11-27T19:15:41.604446+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
