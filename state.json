@@ -1116,19 +1116,19 @@
       "name": "VIX",
       "short": "VIX",
       "w": 180,
-      "v": -8.25,
+      "v": -7.5,
       "th": 14.0,
-      "ratio": 0.59,
-      "val": "-8.25%",
+      "ratio": 0.54,
+      "val": "-7.50%",
       "thr": "±14%",
-      "c15": "-0.12%",
-      "c60": "-1.13%",
-      "c180": "-8.25%",
+      "c15": "+0.81%",
+      "c60": "-0.48%",
+      "c180": "-7.50%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "bull",
-      "eff": 0.5,
-      "z": 0.4,
+      "eff": 0.16,
+      "z": 0.2,
       "volx": null
     },
     {
@@ -1136,60 +1136,60 @@
       "name": "الدولار/الين",
       "short": "ين",
       "w": 180,
-      "v": 0.1,
+      "v": 0.09,
       "th": 0.7,
-      "ratio": 0.15,
-      "val": "+0.10%",
+      "ratio": 0.13,
+      "val": "+0.09%",
       "thr": "±0.7%",
-      "c15": "-0.02%",
-      "c60": "-0.01%",
-      "c180": "+0.10%",
+      "c15": "+0.01%",
+      "c60": "-0.02%",
+      "c180": "+0.09%",
       "confirmed": false,
       "why": "لم يتجاوز الحد",
       "tone": "flat",
-      "eff": 0.06,
-      "z": 0.1,
+      "eff": 0.15,
+      "z": 0.4,
       "volx": null
     }
   ],
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-27T11:00:50.475811+00:00",
-        "ok_at": "2026-11-27T11:00:50.475811+00:00"
+        "last_try": "2026-11-27T11:15:42.293022+00:00",
+        "ok_at": "2026-11-27T11:15:42.293022+00:00"
       },
       "fred": {
-        "last_try": "2026-11-27T11:00:50.475811+00:00",
-        "ok_at": "2026-11-27T11:00:50.475811+00:00"
+        "last_try": "2026-11-27T11:15:42.293022+00:00",
+        "ok_at": "2026-11-27T11:15:42.293022+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-27T11:00:50.475811+00:00",
-        "ok_at": "2026-11-27T11:00:50.475811+00:00"
+        "last_try": "2026-11-27T11:15:42.293022+00:00",
+        "ok_at": "2026-11-27T11:15:42.293022+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-27T11:00:50.475811+00:00",
-        "ok_at": "2026-11-27T11:00:50.475811+00:00"
+        "last_try": "2026-11-27T11:15:42.293022+00:00",
+        "ok_at": "2026-11-27T11:15:42.293022+00:00"
       },
       "oil": {
-        "last_try": "2026-11-27T11:00:50.475811+00:00",
-        "ok_at": "2026-11-27T11:00:50.475811+00:00"
+        "last_try": "2026-11-27T11:15:42.293022+00:00",
+        "ok_at": "2026-11-27T11:15:42.293022+00:00"
       },
       "news": {
-        "last_try": "2026-11-27T11:00:50.475811+00:00",
-        "ok_at": "2026-11-27T11:00:50.475811+00:00"
+        "last_try": "2026-11-27T11:15:42.293022+00:00",
+        "ok_at": "2026-11-27T11:15:42.293022+00:00"
       },
       "cot": {
-        "last_try": "2026-11-27T11:00:50.475811+00:00",
-        "ok_at": "2026-11-27T11:00:50.475811+00:00"
+        "last_try": "2026-11-27T11:15:42.293022+00:00",
+        "ok_at": "2026-11-27T11:15:42.293022+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-27T11:00:50.475811+00:00",
-        "ok_at": "2026-11-27T11:00:50.475811+00:00"
+        "last_try": "2026-11-27T11:15:42.293022+00:00",
+        "ok_at": "2026-11-27T11:15:42.293022+00:00"
       }
     },
     "last": {
       "state": "warn",
-      "at": "2026-11-27T11:00:50.475811+00:00"
+      "at": "2026-11-27T11:15:42.293022+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1197,36 +1197,66 @@
     }
   },
   "week_news": {
-    "at": "2026-11-27T10:00:52.771772+00:00",
+    "at": "2026-11-27T11:15:42.293022+00:00",
     "asset": "es",
     "data": {
-      "fed": {
-        "label": "الفدرالي والفائدة",
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-27T09:24:55+00:00",
-            "title": "The Fed’s Preferred Inflation Gauge Just Hit a Level Not Seen Since 2023, and It’s Bad News for Wall Street",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-27T06:39:00+00:00",
-            "title": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
+            "t": "2026-11-27T10:58:17+00:00",
+            "title": "Wall Street Flips From AI Euphoria to Gloom",
             "src": "Bloomberg.com"
           },
           {
-            "t": "2026-11-27T05:47:35+00:00",
-            "title": "Fed Repricing, Not a Policy Reversal, Is What the Euro Needs",
-            "src": "StoneX"
+            "t": "2026-11-27T10:29:27+00:00",
+            "title": "U.S. Stock Futures Surge As Nvidia, Anthropic And Other AI Shares Rally In Premarket Trading",
+            "src": "Forbes"
           },
           {
-            "t": "2026-11-27T05:01:25+00:00",
-            "title": "Is the Fed ready for its next fight?",
-            "src": "Financial Times"
+            "t": "2026-11-27T09:34:00+00:00",
+            "title": "Stock Futures Jump as AI Trade Set for Rebound",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T02:38:00+00:00",
-            "title": "Faster inflation in Tokyo supports case for BOJ rate hike in December",
-            "src": "The Japan Times"
+            "t": "2026-11-27T05:53:00+00:00",
+            "title": "Asian Markets Rise as AI Sentiment Stabilizes",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-27T00:45:46+00:00",
+            "title": "S&P 500 Companies Are Reporting Lowest Earnings Surprise Percentage Since Q4 2022",
+            "src": "FactSet Insight"
+          }
+        ]
+      },
+      "companies": {
+        "label": "الشركات الكبرى والأرباح",
+        "items": [
+          {
+            "t": "2026-11-27T04:49:59+00:00",
+            "title": "Tech Stocks 20% Off Highs, Nvidia at 9x Earnings",
+            "src": "shattered.io"
+          },
+          {
+            "t": "2026-11-27T04:30:08+00:00",
+            "title": "DOJ subpoenas Nvidia in probe of customer's alleged China chip transfers",
+            "src": "cbs19.tv"
+          },
+          {
+            "t": "2026-11-26T13:13:19+00:00",
+            "title": "Andromeda Metals Limited Warrant 2026-30.09.27 On Andromeda Meta Earnings and Revenue – ASX:ADNOC",
+            "src": "TradingView"
+          },
+          {
+            "t": "2026-11-26T08:15:02+00:00",
+            "title": "Under Scanner, Wife Of Nvidia's Former No. 3 On Chip Smuggling Probe",
+            "src": "NDTV"
+          },
+          {
+            "t": "2026-11-26T07:55:00+00:00",
+            "title": "Scaramucci Seeks SEC Probe Into Alleged $304 Million Nvidia Options Windfall",
+            "src": "BigGo Finance"
           }
         ]
       },
@@ -1234,42 +1264,89 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-27T09:43:38+00:00",
-            "title": "Data for Afghanistan: Afghanistan Consumer Price Index (CPI) Report — October 2026",
-            "src": "ReliefWeb"
+            "t": "2026-11-27T10:02:00+00:00",
+            "title": "Inflation Slides in France, Spain on Declining Fuel Prices",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T09:25:36+00:00",
-            "title": "Zambia’s Central Bank Holds Key Rate as Inflation Risk Grows",
-            "src": "Bloomberg.com"
+            "t": "2026-11-27T09:02:25+00:00",
+            "title": "BOE’s Bailey Sees Lower Peak for Inflation if Energy Prices Stay Where They Are",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T09:24:57+00:00",
-            "title": "France's inflation slows to 2.9% in November as energy prices fall",
+            "t": "2026-11-27T07:50:00+00:00",
+            "title": "French preliminary inflation at 3.2% in November",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-27T01:10:34+00:00",
+            "title": "Fed holds interest rates steady as inflation hits 3-year high",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-11-27T00:03:00+00:00",
+            "title": "Cautious consumers gear up for Black Friday as inflation woes bite",
+            "src": "Reuters"
+          }
+        ]
+      },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-11-27T09:49:00+00:00",
+            "title": "U.S. Treasury Yields Rise in Shortened Post-Thanksgiving Trade",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-27T00:03:03+00:00",
+            "title": "Trump's 50% tariffs on Canada take effect as Carney vows to retaliate",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-11-26T20:55:12+00:00",
+            "title": "Supreme Court invalidates most of Trump's tariffs",
+            "src": "ABC News - Breaking News, Latest News and Videos"
+          },
+          {
+            "t": "2026-11-26T18:54:51+00:00",
+            "title": "What are tariffs, how do they work and why is Trump using them?",
+            "src": "BBC"
+          }
+        ]
+      },
+      "geo": {
+        "label": "الجيوسياسة والنفط",
+        "items": [
+          {
+            "t": "2026-11-27T11:08:17+00:00",
+            "title": "Navy Chief Reveals Iran’s Strike on US Aircraft Carrier",
+            "src": "تسنیم"
+          },
+          {
+            "t": "2026-11-27T10:36:41+00:00",
+            "title": "Iran claims it recovered 2 oil tankers seized by US military",
+            "src": "A News"
+          },
+          {
+            "t": "2026-11-27T10:20:33+00:00",
+            "title": "Iran denies responsibility for Kuwait strike that killed two Italians",
             "src": "Euronews.com"
           },
           {
-            "t": "2026-11-27T09:20:13+00:00",
-            "title": "GBP Rises vs Yen as Markets Look Past Hot Tokyo CPI",
-            "src": "TradingPedia"
-          },
-          {
-            "t": "2026-11-27T09:03:45+00:00",
-            "title": "Euro zone consumers sharply increase inflation expectation, ECB survey shows",
+            "t": "2026-11-27T09:27:44+00:00",
+            "title": "OPEC+ set to keep oil production targets steady in first quarter, sources say",
             "src": "Reuters"
           }
         ]
       }
     },
     "failed": [
-      "الأسهم الأمريكية و S&P 500",
-      "الشركات الكبرى والأرباح",
-      "السياسة التجارية والمالية",
-      "الجيوسياسة والنفط"
+      "الفدرالي والفائدة"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-27T11:00:50.475811+00:00",
+    "at": "2026-11-27T11:15:42.293022+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -10958,10 +11035,10 @@
       "note": "المصدر: FRED (ICSA، فترة 2026-11-21) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
     }
   ],
-  "last_publish_ok": "2026-11-27T11:00:50.475811+00:00",
+  "last_publish_ok": "2026-11-27T11:15:42.293022+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-27T11:01:36.732942+00:00"
+    "at": "2026-11-27T11:16:08.010824+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -11102,12 +11179,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-27T11:00:50.475811+00:00",
-    "ok_at": "2026-11-27T11:00:50.475811+00:00",
+    "at": "2026-11-27T11:15:42.293022+00:00",
+    "ok_at": "2026-11-27T11:15:42.293022+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-27T11:00:50.475811+00:00",
+    "at": "2026-11-27T11:15:42.293022+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
