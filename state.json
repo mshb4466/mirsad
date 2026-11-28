@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-28T08:15:37.267380+00:00",
-        "ok_at": "2026-11-28T08:15:37.267380+00:00"
+        "last_try": "2026-11-28T08:30:47.607804+00:00",
+        "ok_at": "2026-11-28T08:30:47.607804+00:00"
       },
       "fred": {
-        "last_try": "2026-11-28T08:15:37.267380+00:00",
-        "ok_at": "2026-11-28T08:15:37.267380+00:00"
+        "last_try": "2026-11-28T08:30:47.607804+00:00",
+        "ok_at": "2026-11-28T08:30:47.607804+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-28T08:15:37.267380+00:00",
-        "ok_at": "2026-11-28T08:15:37.267380+00:00"
+        "last_try": "2026-11-28T08:30:47.607804+00:00",
+        "ok_at": "2026-11-28T08:30:47.607804+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-28T08:15:37.267380+00:00",
-        "ok_at": "2026-11-28T08:15:37.267380+00:00"
+        "last_try": "2026-11-28T08:30:47.607804+00:00",
+        "ok_at": "2026-11-28T08:30:47.607804+00:00"
       },
       "oil": {
-        "last_try": "2026-11-28T08:15:37.267380+00:00",
-        "ok_at": "2026-11-28T08:15:37.267380+00:00"
+        "last_try": "2026-11-28T08:30:47.607804+00:00",
+        "ok_at": "2026-11-28T08:30:47.607804+00:00"
       },
       "news": {
-        "last_try": "2026-11-28T08:15:37.267380+00:00",
-        "ok_at": "2026-11-28T08:15:37.267380+00:00"
+        "last_try": "2026-11-28T08:30:47.607804+00:00",
+        "ok_at": "2026-11-28T08:30:47.607804+00:00"
       },
       "cot": {
-        "last_try": "2026-11-28T08:15:37.267380+00:00",
-        "ok_at": "2026-11-28T08:15:37.267380+00:00"
+        "last_try": "2026-11-28T08:30:47.607804+00:00",
+        "ok_at": "2026-11-28T08:30:47.607804+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-28T08:15:37.267380+00:00",
-        "ok_at": "2026-11-28T08:15:37.267380+00:00"
+        "last_try": "2026-11-28T08:30:47.607804+00:00",
+        "ok_at": "2026-11-28T08:30:47.607804+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-28T08:15:37.267380+00:00"
+      "at": "2026-11-28T08:30:47.607804+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,36 +1177,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-28T07:30:39.373359+00:00",
+    "at": "2026-11-28T08:30:47.607804+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-28T05:17:31+00:00",
-            "title": "Replay: Home - 2026 Chilliwack vs Powell River | Nov 27 @ 5 PM",
-            "src": "FloHockey"
-          },
-          {
-            "t": "2026-11-28T04:55:03+00:00",
-            "title": "ICC approves $74 million rate hike for Illinois American Water Co. Customers",
-            "src": "WQAD"
-          },
-          {
             "t": "2026-11-28T03:43:36+00:00",
             "title": "Interview with Lars Peter Hansen",
             "src": "Federal Reserve Bank of Richmond"
           },
           {
-            "t": "2026-11-27T23:31:34+00:00",
-            "title": "EUR/USD Recovers as Markets Fully Price in Fed Hike",
-            "src": "FOREX.com"
+            "t": "2026-11-27T20:37:18+00:00",
+            "title": "BGE rate hike and proposed Baltimore surcharge face scrutiny at PSC hearing",
+            "src": "AFRO News"
           },
           {
-            "t": "2026-11-27T23:31:03+00:00",
-            "title": "The Fed is fighting the wrong inflation battle",
-            "src": "Kitco"
+            "t": "2026-11-27T19:21:23+00:00",
+            "title": "Canadian dollar holds on to weekly gain as investors bet on December rate hike",
+            "src": "Reuters"
+          },
+          {
+            "t": "2026-11-27T17:02:26+00:00",
+            "title": "Is it time to tear down the dam at Lake Powell?",
+            "src": "WBUR"
+          },
+          {
+            "t": "2026-11-27T15:28:53+00:00",
+            "title": "Kia MVP Ladder: Luka Dončić, Victor Wembanyama set for showdown in Emirates NBA Cup",
+            "src": "NBA.com"
           }
         ]
       },
@@ -1214,14 +1214,9 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-28T07:00:33+00:00",
-            "title": "A ‘Silent War’ Grips Iran as Its Economy Strains Under U.S. Blockade",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-28T06:31:32+00:00",
-            "title": "The Mad Dash for Memory Chips—and the Pain It’s Causing Holiday Shoppers",
-            "src": "WSJ"
+            "t": "2026-11-28T07:48:00+00:00",
+            "title": "After an S&P 500 Correction, Your Money Could Double in 4 Years. Stock Market History Shows Reasons for Hope.",
+            "src": "Yahoo Finance"
           },
           {
             "t": "2026-11-28T06:25:19+00:00",
@@ -1237,6 +1232,11 @@
             "t": "2026-11-28T02:00:00+00:00",
             "title": "Wall Street stages major comeback during Thanksgiving-shortened trading week",
             "src": "Fox Business"
+          },
+          {
+            "t": "2026-11-28T02:00:00+00:00",
+            "title": "The High Political Cost of Trump’s Loyalty to Jensen Huang",
+            "src": "WSJ"
           }
         ]
       },
@@ -1274,29 +1274,29 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
-            "t": "2026-11-28T04:55:00+00:00",
-            "title": "US Third-Quarter GDP Revised Up to 4.3%; Inflation Still Above Target, Odds of a December Fed Rate Hike Near 99%",
-            "src": "BigGo Finance"
+            "t": "2026-11-27T19:51:42+00:00",
+            "title": "Canadian GDP growth fell by more than half in the third quarter, economists believe",
+            "src": "Yahoo! Finance Canada"
           },
           {
-            "t": "2026-11-28T03:05:03+00:00",
-            "title": "Half Of U.S. GDP Comes From 8 States",
-            "src": "Voronoi by Visual Capitalist"
+            "t": "2026-11-27T19:37:00+00:00",
+            "title": "Inflation is squeezing Americans so bad grocery bills are reason Black Friday shoppers cut back",
+            "src": "Fortune"
           },
           {
-            "t": "2026-11-28T03:00:11+00:00",
-            "title": "The New York Times. . Shoppers flocked to stores and malls in search of Black Friday deals. Though prices continue to climb and consumers are concerned about affording daily life, many are making more trade-offs in their spending rather than cutting back o",
-            "src": "Facebook"
+            "t": "2026-11-27T17:03:01+00:00",
+            "title": "Inflation isn't stopping Americans from spending this holiday season",
+            "src": "WBUR"
           },
           {
-            "t": "2026-11-28T01:40:00+00:00",
-            "title": "Two Measures Of Inflation: October 2026",
-            "src": "Seeking Alpha"
+            "t": "2026-11-27T15:46:00+00:00",
+            "title": "Trump demands GDP data probe as chances of rate hike rise: What to know",
+            "src": "The Hill"
           },
           {
-            "t": "2026-11-28T00:20:15+00:00",
-            "title": "Parade balloon re-inflation not open to the public",
-            "src": "WPSD Local 6"
+            "t": "2026-11-27T13:15:43+00:00",
+            "title": "ECB may have to raise rates further as inflation stays above 3%",
+            "src": "Reuters"
           }
         ]
       },
@@ -1309,6 +1309,11 @@
             "src": "Al Jazeera"
           },
           {
+            "t": "2026-11-28T06:30:00+00:00",
+            "title": "Republicans rethink tariffs, giving Democrats opening to challenge Trump",
+            "src": "TelegraphHerald.com"
+          },
+          {
             "t": "2026-11-28T03:51:03+00:00",
             "title": "Chinese biz community urges US to withdraw proposed tariffs",
             "src": "chinadailyhk"
@@ -1317,11 +1322,6 @@
             "t": "2026-11-28T02:15:59+00:00",
             "title": "Brooks and Capehart on new tariffs and Democratic leadership",
             "src": "Cascade PBS"
-          },
-          {
-            "t": "2026-11-27T23:50:54+00:00",
-            "title": "How tariffs and inflation impact Black Friday shopping",
-            "src": "FOX 5 Atlanta"
           }
         ]
       },
@@ -1354,7 +1354,7 @@
     "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-28T08:15:37.267380+00:00",
+    "at": "2026-11-28T08:30:47.607804+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -9985,10 +9985,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-28T08:15:37.267380+00:00",
+  "last_publish_ok": "2026-11-28T08:30:47.607804+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-28T08:15:57.891417+00:00"
+    "at": "2026-11-28T08:31:10.899777+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10129,12 +10129,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-28T08:15:37.267380+00:00",
-    "ok_at": "2026-11-28T08:15:37.267380+00:00",
+    "at": "2026-11-28T08:30:47.607804+00:00",
+    "ok_at": "2026-11-28T08:30:47.607804+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-28T08:15:37.267380+00:00",
+    "at": "2026-11-28T08:30:47.607804+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
