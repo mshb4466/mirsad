@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-28T06:15:40.081957+00:00",
-        "ok_at": "2026-11-28T06:15:40.081957+00:00"
+        "last_try": "2026-11-28T06:30:37.157323+00:00",
+        "ok_at": "2026-11-28T06:30:37.157323+00:00"
       },
       "fred": {
-        "last_try": "2026-11-28T06:15:40.081957+00:00",
-        "ok_at": "2026-11-28T06:15:40.081957+00:00"
+        "last_try": "2026-11-28T06:30:37.157323+00:00",
+        "ok_at": "2026-11-28T06:30:37.157323+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-28T06:15:40.081957+00:00",
-        "ok_at": "2026-11-28T06:15:40.081957+00:00"
+        "last_try": "2026-11-28T06:30:37.157323+00:00",
+        "ok_at": "2026-11-28T06:30:37.157323+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-28T06:15:40.081957+00:00",
-        "ok_at": "2026-11-28T06:15:40.081957+00:00"
+        "last_try": "2026-11-28T06:30:37.157323+00:00",
+        "ok_at": "2026-11-28T06:30:37.157323+00:00"
       },
       "oil": {
-        "last_try": "2026-11-28T06:15:40.081957+00:00",
-        "ok_at": "2026-11-28T06:15:40.081957+00:00"
+        "last_try": "2026-11-28T06:30:37.157323+00:00",
+        "ok_at": "2026-11-28T06:30:37.157323+00:00"
       },
       "news": {
-        "last_try": "2026-11-28T06:15:40.081957+00:00",
-        "ok_at": "2026-11-28T06:15:40.081957+00:00"
+        "last_try": "2026-11-28T06:30:37.157323+00:00",
+        "ok_at": "2026-11-28T06:30:37.157323+00:00"
       },
       "cot": {
-        "last_try": "2026-11-28T06:15:40.081957+00:00",
-        "ok_at": "2026-11-28T06:15:40.081957+00:00"
+        "last_try": "2026-11-28T06:30:37.157323+00:00",
+        "ok_at": "2026-11-28T06:30:37.157323+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-28T06:15:40.081957+00:00",
-        "ok_at": "2026-11-28T06:15:40.081957+00:00"
+        "last_try": "2026-11-28T06:30:37.157323+00:00",
+        "ok_at": "2026-11-28T06:30:37.157323+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-28T06:15:40.081957+00:00"
+      "at": "2026-11-28T06:30:37.157323+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,12 +1177,17 @@
     }
   },
   "week_news": {
-    "at": "2026-11-28T05:15:41.809469+00:00",
+    "at": "2026-11-28T06:30:37.157323+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
+          {
+            "t": "2026-11-28T05:17:31+00:00",
+            "title": "Replay: Home - 2026 Chilliwack vs Powell River | Nov 27 @ 5 PM",
+            "src": "FloHockey"
+          },
           {
             "t": "2026-11-28T04:55:03+00:00",
             "title": "ICC approves $74 million rate hike for Illinois American Water Co. Customers",
@@ -1202,11 +1207,6 @@
             "t": "2026-11-27T23:31:03+00:00",
             "title": "The Fed is fighting the wrong inflation battle",
             "src": "Kitco"
-          },
-          {
-            "t": "2026-11-27T23:07:59+00:00",
-            "title": "Fewer fed cattle, fewer reports",
-            "src": "Tri-State Livestock News"
           }
         ]
       },
@@ -1214,29 +1214,89 @@
         "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-28T02:00:00+00:00",
-            "title": "Wall Street stages major comeback during Thanksgiving-shortened trading week",
-            "src": "Fox Business"
+            "t": "2026-11-28T06:01:15+00:00",
+            "title": "A ‘Silent War’ Grips Iran as Its Economy Strains Under U.S. Blockade",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T21:29:46+00:00",
-            "title": "S&P 500, Nasdaq End Best Week In Over A Year As AI Optimism Makes Comeback — VZ, ANT, ADBE, TSLA In Focus",
+            "t": "2026-11-28T05:45:59+00:00",
+            "title": "The Other Nvidia Romance With an Executive at a Company Linked to China",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-28T05:26:15+00:00",
+            "title": "The High Political Cost of Trump’s Loyalty to Jensen Huang",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-28T05:18:09+00:00",
+            "title": "No Evidence China Orchestrated Jensen Huang’s Affair, Officials Brief Congress",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-28T02:15:00+00:00",
+            "title": "Here's Why Anthropic Stock Rallied on Friday -- and Why Wall Street Analysts Say It's Still a Buy Right Now",
+            "src": "Yahoo Finance"
+          }
+        ]
+      },
+      "companies": {
+        "label": "الشركات الكبرى والأرباح",
+        "items": [
+          {
+            "t": "2026-11-28T05:01:17+00:00",
+            "title": "Amazon Faces FAA Probe After Delivery Drone Hits Michigan Garage",
+            "src": "Aero-News Network"
+          },
+          {
+            "t": "2026-11-27T23:42:37+00:00",
+            "title": "Chile brings Apple antitrust case seeking $80 million fine and iOS changes",
+            "src": "finchannel"
+          },
+          {
+            "t": "2026-11-27T21:06:00+00:00",
+            "title": "Jensen Huang Is Back. Nvidia’s (NVDA) Bull Case Remains",
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-27T18:59:00+00:00",
-            "title": "Stocks jump to end an erratic week that was Wall Street's best in over a year",
-            "src": "Spectrum News"
+            "t": "2026-11-27T17:13:08+00:00",
+            "title": "CPI | Chile Targets Apple With $80 Million Antitrust Fine Over App Store Restrictions",
+            "src": "PYMNTS.com"
           },
           {
-            "t": "2026-11-27T18:43:36+00:00",
-            "title": "Trump’s AI Gambit Fuels Wild Thanksgiving Week on Wall Street",
-            "src": "Bloomberg.com"
+            "t": "2026-11-27T17:07:04+00:00",
+            "title": "Microsoft After The Selloff: A 24x P/E With A $47 Billion Customer (NASDAQ:MSFT)",
+            "src": "Seeking Alpha"
+          }
+        ]
+      },
+      "macro": {
+        "label": "الاقتصاد والبيانات",
+        "items": [
+          {
+            "t": "2026-11-28T04:55:00+00:00",
+            "title": "US Third-Quarter GDP Revised Up to 4.3%; Inflation Still Above Target, Odds of a December Fed Rate Hike Near 99%",
+            "src": "BigGo Finance"
           },
           {
-            "t": "2026-11-27T18:33:57+00:00",
-            "title": "Anthropic likely to join major indexes, but not S&P 500 yet, says TD Securities Peter Haynes",
-            "src": "CNBC"
+            "t": "2026-11-28T03:05:03+00:00",
+            "title": "Half Of U.S. GDP Comes From 8 States",
+            "src": "Voronoi by Visual Capitalist"
+          },
+          {
+            "t": "2026-11-28T03:00:11+00:00",
+            "title": "The New York Times. . Shoppers flocked to stores and malls in search of Black Friday deals. Though prices continue to climb and consumers are concerned about affording daily life, many are making more trade-offs in their spending rather than cutting back o",
+            "src": "Facebook"
+          },
+          {
+            "t": "2026-11-28T02:05:00+00:00",
+            "title": "An Inside Look At The Q3 2026 GDP Second Estimate",
+            "src": "Seeking Alpha"
+          },
+          {
+            "t": "2026-11-28T01:40:00+00:00",
+            "title": "Two Measures Of Inflation: October 2026",
+            "src": "Seeking Alpha"
           }
         ]
       },
@@ -1244,36 +1304,57 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-28T03:51:03+00:00",
-            "title": "Chinese biz community urges US to withdraw proposed tariffs",
-            "src": "chinadailyhk"
+            "t": "2026-11-28T05:43:52+00:00",
+            "title": "New Tariffs on China Risk Undermining Trade Truce With U.S.",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-28T02:15:59+00:00",
-            "title": "Brooks and Capehart on new tariffs and Democratic leadership",
-            "src": "Cascade PBS"
+            "t": "2026-11-27T23:40:22+00:00",
+            "title": "Brooks and Capehart on Trump's new tariffs, Nvidia's future and Democratic leadership",
+            "src": "PBS"
           },
           {
-            "t": "2026-11-27T23:50:54+00:00",
-            "title": "How tariffs and inflation impact Black Friday shopping",
-            "src": "FOX 5 Atlanta"
+            "t": "2026-11-27T22:21:34+00:00",
+            "title": "Tariffs face new scrutiny as Republicans weigh joining Democrats",
+            "src": "Los Angeles Times"
           },
           {
-            "t": "2026-11-27T23:45:00+00:00",
+            "t": "2026-11-27T16:51:50+00:00",
             "title": "Republicans rethink tariffs, giving Democrats an opening to challenge Trump",
-            "src": "Santa Fe New Mexican"
+            "src": "PBS"
+          }
+        ]
+      },
+      "geo": {
+        "label": "الجيوسياسة والنفط",
+        "items": [
+          {
+            "t": "2026-11-28T04:06:01+00:00",
+            "title": "Fire reported near oil refinery in Russia's Rostov Oblast amid Ukrainian drone attack",
+            "src": "The Kyiv Independent"
+          },
+          {
+            "t": "2026-11-28T03:58:58+00:00",
+            "title": "Oil Prices Rebound as Shipping Risks Persist",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-28T02:54:54+00:00",
+            "title": "US Central Command denies Iranian commander's claims about seized tankers, carrier strike, Hormuz toll",
+            "src": "Anadolu Ajansı"
+          },
+          {
+            "t": "2026-11-27T21:09:12+00:00",
+            "title": "Ukraine submits Black Sea ceasefire offer, awaits Russian response",
+            "src": "France 24"
           }
         ]
       }
     },
-    "failed": [
-      "الشركات الكبرى والأرباح",
-      "الاقتصاد والبيانات",
-      "الجيوسياسة والنفط"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-28T06:15:40.081957+00:00",
+    "at": "2026-11-28T06:30:37.157323+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -9973,10 +10054,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-28T06:15:40.081957+00:00",
+  "last_publish_ok": "2026-11-28T06:30:37.157323+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-28T06:16:04.016421+00:00"
+    "at": "2026-11-28T06:31:06.213123+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10117,12 +10198,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-28T06:15:40.081957+00:00",
-    "ok_at": "2026-11-28T06:15:40.081957+00:00",
+    "at": "2026-11-28T06:30:37.157323+00:00",
+    "ok_at": "2026-11-28T06:30:37.157323+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-28T06:15:40.081957+00:00",
+    "at": "2026-11-28T06:30:37.157323+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
