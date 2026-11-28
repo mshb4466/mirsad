@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-28T11:45:34.920694+00:00",
-        "ok_at": "2026-11-28T11:45:34.920694+00:00"
+        "last_try": "2026-11-28T12:00:50.270638+00:00",
+        "ok_at": "2026-11-28T12:00:50.270638+00:00"
       },
       "fred": {
-        "last_try": "2026-11-28T11:45:34.920694+00:00",
-        "ok_at": "2026-11-28T11:45:34.920694+00:00"
+        "last_try": "2026-11-28T12:00:50.270638+00:00",
+        "ok_at": "2026-11-28T12:00:50.270638+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-28T11:45:34.920694+00:00",
-        "ok_at": "2026-11-28T11:45:34.920694+00:00"
+        "last_try": "2026-11-28T12:00:50.270638+00:00",
+        "ok_at": "2026-11-28T12:00:50.270638+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-28T11:45:34.920694+00:00",
-        "ok_at": "2026-11-28T11:45:34.920694+00:00"
+        "last_try": "2026-11-28T12:00:50.270638+00:00",
+        "ok_at": "2026-11-28T12:00:50.270638+00:00"
       },
       "oil": {
-        "last_try": "2026-11-28T11:45:34.920694+00:00",
-        "ok_at": "2026-11-28T11:45:34.920694+00:00"
+        "last_try": "2026-11-28T12:00:50.270638+00:00",
+        "ok_at": "2026-11-28T12:00:50.270638+00:00"
       },
       "news": {
-        "last_try": "2026-11-28T11:45:34.920694+00:00",
-        "ok_at": "2026-11-28T11:45:34.920694+00:00"
+        "last_try": "2026-11-28T12:00:50.270638+00:00",
+        "ok_at": "2026-11-28T12:00:50.270638+00:00"
       },
       "cot": {
-        "last_try": "2026-11-28T11:45:34.920694+00:00",
-        "ok_at": "2026-11-28T11:45:34.920694+00:00"
+        "last_try": "2026-11-28T12:00:50.270638+00:00",
+        "ok_at": "2026-11-28T12:00:50.270638+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-28T11:45:34.920694+00:00",
-        "ok_at": "2026-11-28T11:45:34.920694+00:00"
+        "last_try": "2026-11-28T12:00:50.270638+00:00",
+        "ok_at": "2026-11-28T12:00:50.270638+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-28T11:45:34.920694+00:00"
+      "at": "2026-11-28T12:00:50.270638+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,36 +1177,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-28T10:45:40.921440+00:00",
+    "at": "2026-11-28T12:00:50.270638+00:00",
     "asset": "es",
     "data": {
-      "fed": {
-        "label": "الفدرالي والفائدة",
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
         "items": [
           {
-            "t": "2026-11-28T09:58:46+00:00",
-            "title": "Interview with Lars Peter Hansen",
-            "src": "Federal Reserve Bank of Richmond"
+            "t": "2026-11-28T11:35:39+00:00",
+            "title": "Nvidia Tells Partners to Pause Shipments to Southeast Asia",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T23:31:03+00:00",
-            "title": "The Fed is fighting the wrong inflation battle",
-            "src": "Kitco"
+            "t": "2026-11-28T11:01:32+00:00",
+            "title": "The Mad Dash for Memory Chips—and the Pain It’s Causing Holiday Shoppers",
+            "src": "WSJ"
           },
           {
-            "t": "2026-11-27T20:37:18+00:00",
-            "title": "BGE rate hike and proposed Baltimore surcharge face scrutiny at PSC hearing",
-            "src": "AFRO News"
+            "t": "2026-11-28T10:22:02+00:00",
+            "title": "S&P 500 Market Correction: 3 “Safe” Stocks to Buy Now",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-27T19:21:23+00:00",
-            "title": "Canadian dollar holds on to weekly gain as investors bet on December rate hike",
-            "src": "Reuters"
+            "t": "2026-11-28T07:48:00+00:00",
+            "title": "After an S&P 500 Correction, Your Money Could Double in 4 Years. Stock Market History Shows Reasons for Hope.",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-27T17:02:26+00:00",
-            "title": "Is it time to tear down the dam at Lake Powell?",
-            "src": "WBUR"
+            "t": "2026-11-28T05:13:16+00:00",
+            "title": "Anthropic Lives Up to Wall Street Hype, but AI Doubts Linger",
+            "src": "WSJ"
           }
         ]
       },
@@ -1214,7 +1214,7 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-28T05:01:17+00:00",
+            "t": "2026-11-28T10:52:30+00:00",
             "title": "Amazon Faces FAA Probe After Delivery Drone Hits Michigan Garage",
             "src": "Aero-News Network"
           },
@@ -1244,6 +1244,11 @@
         "label": "الاقتصاد والبيانات",
         "items": [
           {
+            "t": "2026-11-27T23:31:03+00:00",
+            "title": "The Fed is fighting the wrong inflation battle",
+            "src": "Kitco"
+          },
+          {
             "t": "2026-11-27T19:51:42+00:00",
             "title": "Canadian GDP growth fell by more than half in the third quarter, economists believe",
             "src": "Yahoo! Finance Canada"
@@ -1259,50 +1264,45 @@
             "src": "WBUR"
           },
           {
-            "t": "2026-11-27T15:46:00+00:00",
-            "title": "Trump demands GDP data probe as chances of rate hike rise: What to know",
-            "src": "The Hill"
-          },
-          {
-            "t": "2026-11-27T13:15:43+00:00",
-            "title": "ECB may have to raise rates further as inflation stays above 3%",
-            "src": "Reuters"
+            "t": "2026-11-27T16:18:45+00:00",
+            "title": "Euro-Zone Inflation Is Seen Weaker for First Time in Five Months",
+            "src": "Bloomberg.com"
           }
         ]
       },
-      "geo": {
-        "label": "الجيوسياسة والنفط",
+      "policy": {
+        "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-28T09:38:10+00:00",
-            "title": "Ukraine's attack on Russian ship in Libya was not coordinated with partners, Zelenskiy says",
-            "src": "Reuters"
+            "t": "2026-11-28T10:52:06+00:00",
+            "title": "Despite Deficits, Canada, Philippines, Venezuela, Israel Avoid 301 Tariffs",
+            "src": "Forbes"
           },
           {
-            "t": "2026-11-28T04:06:01+00:00",
-            "title": "Fire reported near oil refinery in Russia's Rostov Oblast amid Ukrainian drone attack",
-            "src": "The Kyiv Independent"
+            "t": "2026-11-28T10:44:40+00:00",
+            "title": "Trump Tariffs: Breaking News on Reciprocal Tariffs, Economic Impact, Policies & More",
+            "src": "NBC News"
           },
           {
-            "t": "2026-11-28T02:54:54+00:00",
-            "title": "US Central Command denies Iranian commander's claims about seized tankers, carrier strike, Hormuz toll",
-            "src": "Anadolu Ajansı"
-          },
-          {
-            "t": "2026-11-27T21:17:40+00:00",
-            "title": "Kyiv offers Black Sea ceasefire to protect grain exports",
+            "t": "2026-11-28T06:58:56+00:00",
+            "title": "Trump’s tariffs have become America’s new normal",
             "src": "Al Jazeera"
+          },
+          {
+            "t": "2026-11-28T06:30:00+00:00",
+            "title": "Republicans rethink tariffs, giving Democrats opening to challenge Trump",
+            "src": "TelegraphHerald.com"
           }
         ]
       }
     },
     "failed": [
-      "الأسهم الأمريكية و S&P 500",
-      "السياسة التجارية والمالية"
+      "الفدرالي والفائدة",
+      "الجيوسياسة والنفط"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-28T11:45:34.920694+00:00",
+    "at": "2026-11-28T12:00:50.270638+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -9841,10 +9841,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-28T11:45:34.920694+00:00",
+  "last_publish_ok": "2026-11-28T12:00:50.270638+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-28T11:45:59.363998+00:00"
+    "at": "2026-11-28T12:01:29.447234+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -9985,12 +9985,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-28T11:45:34.920694+00:00",
-    "ok_at": "2026-11-28T11:45:34.920694+00:00",
+    "at": "2026-11-28T12:00:50.270638+00:00",
+    "ok_at": "2026-11-28T12:00:50.270638+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-28T11:45:34.920694+00:00",
+    "at": "2026-11-28T12:00:50.270638+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
