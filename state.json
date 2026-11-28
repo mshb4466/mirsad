@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-28T20:00:47.079326+00:00",
-        "ok_at": "2026-11-28T20:00:47.079326+00:00"
+        "last_try": "2026-11-28T20:15:35.178987+00:00",
+        "ok_at": "2026-11-28T20:15:35.178987+00:00"
       },
       "fred": {
-        "last_try": "2026-11-28T20:00:47.079326+00:00",
-        "ok_at": "2026-11-28T20:00:47.079326+00:00"
+        "last_try": "2026-11-28T20:15:35.178987+00:00",
+        "ok_at": "2026-11-28T20:15:35.178987+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-28T20:00:47.079326+00:00",
-        "ok_at": "2026-11-28T20:00:47.079326+00:00"
+        "last_try": "2026-11-28T20:15:35.178987+00:00",
+        "ok_at": "2026-11-28T20:15:35.178987+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-28T20:00:47.079326+00:00",
-        "ok_at": "2026-11-28T20:00:47.079326+00:00"
+        "last_try": "2026-11-28T20:15:35.178987+00:00",
+        "ok_at": "2026-11-28T20:15:35.178987+00:00"
       },
       "oil": {
-        "last_try": "2026-11-28T20:00:47.079326+00:00",
-        "ok_at": "2026-11-28T20:00:47.079326+00:00"
+        "last_try": "2026-11-28T20:15:35.178987+00:00",
+        "ok_at": "2026-11-28T20:15:35.178987+00:00"
       },
       "news": {
-        "last_try": "2026-11-28T20:00:47.079326+00:00",
-        "ok_at": "2026-11-28T20:00:47.079326+00:00"
+        "last_try": "2026-11-28T20:15:35.178987+00:00",
+        "ok_at": "2026-11-28T20:15:35.178987+00:00"
       },
       "cot": {
-        "last_try": "2026-11-28T20:00:47.079326+00:00",
-        "ok_at": "2026-11-28T20:00:47.079326+00:00"
+        "last_try": "2026-11-28T20:15:35.178987+00:00",
+        "ok_at": "2026-11-28T20:15:35.178987+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-28T20:00:47.079326+00:00",
-        "ok_at": "2026-11-28T20:00:47.079326+00:00"
+        "last_try": "2026-11-28T20:15:35.178987+00:00",
+        "ok_at": "2026-11-28T20:15:35.178987+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-28T20:00:47.079326+00:00"
+      "at": "2026-11-28T20:15:35.178987+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,7 +1177,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-28T19:00:49.123583+00:00",
+    "at": "2026-11-28T20:15:35.178987+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -1210,12 +1210,52 @@
           }
         ]
       },
+      "stocks": {
+        "label": "الأسهم الأمريكية و S&P 500",
+        "items": [
+          {
+            "t": "2026-11-28T17:45:02+00:00",
+            "title": "Walmart and Costco Are Beating the S&P 500 and Nasdaq This Year. Here's the Better Buy for 2027.",
+            "src": "The Motley Fool"
+          },
+          {
+            "t": "2026-11-28T16:47:02+00:00",
+            "title": "Does the S&P 500 Really Deserve Its December Reputation?",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-28T14:42:53+00:00",
+            "title": "HSBC Identifies Three Potential Catalysts for an S&P 500 Recovery in 2027",
+            "src": "Yahoo Finance"
+          },
+          {
+            "t": "2026-11-28T10:02:02+00:00",
+            "title": "S&P 500 Market Correction: 3 “Safe” Stocks to Buy Now",
+            "src": "The Motley Fool"
+          },
+          {
+            "t": "2026-11-28T09:28:46+00:00",
+            "title": "A $500,000 Stake in VOO Lost $41,700 in the S&P 500’s Worst Week Since April 2025. Since 1950, Buying After a 10% Drop Has Returned 15% on Average a Year Later",
+            "src": "Yahoo Finance"
+          }
+        ]
+      },
       "companies": {
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-28T14:21:13+00:00",
-            "title": "South Korea’s Apple iPhone 16 ad probe explained",
+            "t": "2026-11-28T19:44:53+00:00",
+            "title": "Democrats probe Trump ahead of Nvidia CEO testimony before Congress",
+            "src": "The Black Chronicle"
+          },
+          {
+            "t": "2026-11-28T19:39:36+00:00",
+            "title": "Amazon Antitrust Class Certified for eBay, Walmart Buyers",
+            "src": "openclassactions.com"
+          },
+          {
+            "t": "2026-11-28T19:14:03+00:00",
+            "title": "Apple iPhone 16 ad probe: KFTC weighs AI ad claims",
             "src": "NeoTeo"
           },
           {
@@ -1227,22 +1267,47 @@
             "t": "2026-11-28T10:58:35+00:00",
             "title": "Amazon Faces FAA Probe After Delivery Drone Hits Michigan Garage",
             "src": "Aero-News Network"
+          }
+        ]
+      },
+      "macro": {
+        "label": "الاقتصاد والبيانات",
+        "items": [
+          {
+            "t": "2026-11-28T15:20:30+00:00",
+            "title": "Iran Inflation Is So Bad That Shoppers Buy Food on Installment Plans",
+            "src": "GV Wire"
           },
           {
-            "t": "2026-11-28T05:13:25+00:00",
-            "title": "3 AI Infrastructure Stocks Linked To Nvidia Driven Earnings Growth",
-            "src": "Simply Wall St"
+            "t": "2026-11-28T14:08:38+00:00",
+            "title": "Is There Any Systematic Evidence of Political Bias in Real GDP Revisions Released After U.S. Midterm Elections?",
+            "src": "Substack"
           },
           {
-            "t": "2026-11-28T01:21:00+00:00",
-            "title": "Nvidia Blackwell tech used at China site tied to Alice Huang",
-            "src": "The Straits Times"
+            "t": "2026-11-28T12:02:00+00:00",
+            "title": "Rising inflation and Trump’s meddling threaten US growth",
+            "src": "The Times"
+          },
+          {
+            "t": "2026-11-28T10:05:00+00:00",
+            "title": "Shoppers look for respite in big Black Friday discounts as inflation bites",
+            "src": "Hawaii Tribune-Herald"
+          },
+          {
+            "t": "2026-11-28T09:06:02+00:00",
+            "title": "New Inflation Data Brings Worrisome News to President Donald Trump's Economy and the AI-Fueled Stock Market",
+            "src": "The Motley Fool"
           }
         ]
       },
       "policy": {
         "label": "السياسة التجارية والمالية",
         "items": [
+          {
+            "t": "2026-11-28T18:50:00+00:00",
+            "title": "Tariffs, economy take a bite out of Small Business Saturday",
+            "src": "The Detroit News"
+          },
           {
             "t": "2026-11-28T17:34:00+00:00",
             "title": "Carney’s Rival Heads to Washington in Bid to End Trump Tariffs",
@@ -1257,11 +1322,6 @@
             "t": "2026-11-28T12:40:00+00:00",
             "title": "Oregon program to offer one-time grants to businesses that faced Trump tariffs",
             "src": "Lookout Eugene-Springfield"
-          },
-          {
-            "t": "2026-11-28T10:52:06+00:00",
-            "title": "Despite Deficits, Canada, Philippines, Venezuela, Israel Avoid 301 Tariffs",
-            "src": "Forbes"
           }
         ]
       },
@@ -1269,35 +1329,32 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-28T18:11:56+00:00",
-            "title": "Iran points to Europe’s war role after Italians killed in Kuwait strike",
+            "t": "2026-11-28T18:22:24+00:00",
+            "title": "Russia and Ukraine strike energy infrastructure, as attacks kill 10",
             "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-28T18:10:56+00:00",
-            "title": "Russia and Ukraine strike energy infrastructure, as attacks kill 10",
+            "t": "2026-11-28T18:12:44+00:00",
+            "title": "Oil Prices Fall as Traders Weigh Supply Surplus, Gulf Attacks",
+            "src": "WSJ"
+          },
+          {
+            "t": "2026-11-28T18:11:56+00:00",
+            "title": "Iran points to Europe’s war role after Italians killed in Kuwait strike",
             "src": "Al Jazeera"
           },
           {
             "t": "2026-11-28T17:41:57+00:00",
             "title": "Ukraine used Israeli technology for major attack on Russia amid Starlink speed limit - report",
             "src": "The Jerusalem Post"
-          },
-          {
-            "t": "2026-11-28T17:14:19+00:00",
-            "title": "Iran rial falls to near 3 million to US dollar as sanctions, blockade weigh",
-            "src": "Arab News"
           }
         ]
       }
     },
-    "failed": [
-      "الأسهم الأمريكية و S&P 500",
-      "الاقتصاد والبيانات"
-    ]
+    "failed": []
   },
   "cal_cache": {
-    "at": "2026-11-28T20:00:47.079326+00:00",
+    "at": "2026-11-28T20:15:35.178987+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -9652,10 +9709,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-28T20:00:47.079326+00:00",
+  "last_publish_ok": "2026-11-28T20:15:35.178987+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-28T20:01:12.329493+00:00"
+    "at": "2026-11-28T20:16:07.281450+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -9796,12 +9853,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-28T20:00:47.079326+00:00",
-    "ok_at": "2026-11-28T20:00:47.079326+00:00",
+    "at": "2026-11-28T20:15:35.178987+00:00",
+    "ok_at": "2026-11-28T20:15:35.178987+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-28T20:00:47.079326+00:00",
+    "at": "2026-11-28T20:15:35.178987+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
