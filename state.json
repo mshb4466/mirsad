@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-28T10:30:45.888452+00:00",
-        "ok_at": "2026-11-28T10:30:45.888452+00:00"
+        "last_try": "2026-11-28T10:45:40.921440+00:00",
+        "ok_at": "2026-11-28T10:45:40.921440+00:00"
       },
       "fred": {
-        "last_try": "2026-11-28T10:30:45.888452+00:00",
-        "ok_at": "2026-11-28T10:30:45.888452+00:00"
+        "last_try": "2026-11-28T10:45:40.921440+00:00",
+        "ok_at": "2026-11-28T10:45:40.921440+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-28T10:30:45.888452+00:00",
-        "ok_at": "2026-11-28T10:30:45.888452+00:00"
+        "last_try": "2026-11-28T10:45:40.921440+00:00",
+        "ok_at": "2026-11-28T10:45:40.921440+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-28T10:30:45.888452+00:00",
-        "ok_at": "2026-11-28T10:30:45.888452+00:00"
+        "last_try": "2026-11-28T10:45:40.921440+00:00",
+        "ok_at": "2026-11-28T10:45:40.921440+00:00"
       },
       "oil": {
-        "last_try": "2026-11-28T10:30:45.888452+00:00",
-        "ok_at": "2026-11-28T10:30:45.888452+00:00"
+        "last_try": "2026-11-28T10:45:40.921440+00:00",
+        "ok_at": "2026-11-28T10:45:40.921440+00:00"
       },
       "news": {
-        "last_try": "2026-11-28T10:30:45.888452+00:00",
-        "ok_at": "2026-11-28T10:30:45.888452+00:00"
+        "last_try": "2026-11-28T10:45:40.921440+00:00",
+        "ok_at": "2026-11-28T10:45:40.921440+00:00"
       },
       "cot": {
-        "last_try": "2026-11-28T10:30:45.888452+00:00",
-        "ok_at": "2026-11-28T10:30:45.888452+00:00"
+        "last_try": "2026-11-28T10:45:40.921440+00:00",
+        "ok_at": "2026-11-28T10:45:40.921440+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-28T10:30:45.888452+00:00",
-        "ok_at": "2026-11-28T10:30:45.888452+00:00"
+        "last_try": "2026-11-28T10:45:40.921440+00:00",
+        "ok_at": "2026-11-28T10:45:40.921440+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-28T10:30:45.888452+00:00"
+      "at": "2026-11-28T10:45:40.921440+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,66 +1177,36 @@
     }
   },
   "week_news": {
-    "at": "2026-11-28T09:30:48.585461+00:00",
+    "at": "2026-11-28T10:45:40.921440+00:00",
     "asset": "es",
     "data": {
       "fed": {
         "label": "الفدرالي والفائدة",
         "items": [
           {
-            "t": "2026-11-28T05:25:00+00:00",
-            "title": "David Crockett dedicates gymnasium in honor of former coach Hobart Powell",
-            "src": "WJHL"
-          },
-          {
-            "t": "2026-11-28T05:17:31+00:00",
-            "title": "Replay: Home - 2026 Chilliwack vs Powell River | Nov 27 @ 5 PM",
-            "src": "FloHockey"
-          },
-          {
-            "t": "2026-11-28T04:55:03+00:00",
-            "title": "ICC approves $74 million rate hike for Illinois American Water Co. Customers",
-            "src": "WQAD"
-          },
-          {
-            "t": "2026-11-28T03:43:36+00:00",
+            "t": "2026-11-28T09:58:46+00:00",
             "title": "Interview with Lars Peter Hansen",
             "src": "Federal Reserve Bank of Richmond"
           },
           {
-            "t": "2026-11-27T23:31:34+00:00",
-            "title": "EUR/USD Recovers as Markets Fully Price in Fed Hike",
-            "src": "FOREX.com"
-          }
-        ]
-      },
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
-        "items": [
-          {
-            "t": "2026-11-28T09:00:00+00:00",
-            "title": "Corporate profits hit roughly 13.5% of GDP. Why Wall Street’s bet on even more is risky",
-            "src": "Fortune"
+            "t": "2026-11-27T23:31:03+00:00",
+            "title": "The Fed is fighting the wrong inflation battle",
+            "src": "Kitco"
           },
           {
-            "t": "2026-11-28T07:48:00+00:00",
-            "title": "After an S&P 500 Correction, Your Money Could Double in 4 Years. Stock Market History Shows Reasons for Hope.",
-            "src": "Yahoo Finance"
+            "t": "2026-11-27T20:37:18+00:00",
+            "title": "BGE rate hike and proposed Baltimore surcharge face scrutiny at PSC hearing",
+            "src": "AFRO News"
           },
           {
-            "t": "2026-11-28T06:25:19+00:00",
-            "title": "29 S&P 500 Stocks Just Made New 52-Week Highs",
-            "src": "Trefis"
+            "t": "2026-11-27T19:21:23+00:00",
+            "title": "Canadian dollar holds on to weekly gain as investors bet on December rate hike",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-28T06:15:06+00:00",
-            "title": "S&P 500 Movers | Winners: SNDK, COHR, LITE | Losers: VRTX, PODD, SJM",
-            "src": "Trefis"
-          },
-          {
-            "t": "2026-11-28T02:00:00+00:00",
-            "title": "Wall Street stages major comeback during Thanksgiving-shortened trading week",
-            "src": "Fox Business"
+            "t": "2026-11-27T17:02:26+00:00",
+            "title": "Is it time to tear down the dam at Lake Powell?",
+            "src": "WBUR"
           }
         ]
       },
@@ -1244,40 +1214,35 @@
         "label": "الشركات الكبرى والأرباح",
         "items": [
           {
-            "t": "2026-11-28T05:13:25+00:00",
-            "title": "3 AI Infrastructure Stocks Linked To Nvidia Driven Earnings Growth",
-            "src": "Simply Wall St"
-          },
-          {
             "t": "2026-11-28T05:01:17+00:00",
             "title": "Amazon Faces FAA Probe After Delivery Drone Hits Michigan Garage",
             "src": "Aero-News Network"
           },
           {
-            "t": "2026-11-28T01:21:00+00:00",
-            "title": "Nvidia Blackwell tech used at China site tied to Alice Huang",
-            "src": "The Straits Times"
+            "t": "2026-11-27T23:42:37+00:00",
+            "title": "Chile brings Apple antitrust case seeking $80 million fine and iOS changes",
+            "src": "finchannel"
           },
           {
-            "t": "2026-11-28T01:14:45+00:00",
-            "title": "Apple's earnings grow 20% in 2026 with modest s...",
-            "src": "Pluang"
+            "t": "2026-11-27T21:06:00+00:00",
+            "title": "Jensen Huang Is Back. Nvidia’s (NVDA) Bull Case Remains",
+            "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-28T00:56:27+00:00",
-            "title": "Acosta: Nvidia Probe Could Prove Trump Is a Threat to National Security",
-            "src": "Breitbart News"
+            "t": "2026-11-27T17:13:08+00:00",
+            "title": "CPI | Chile Targets Apple With $80 Million Antitrust Fine Over App Store Restrictions",
+            "src": "PYMNTS.com"
+          },
+          {
+            "t": "2026-11-27T14:55:47+00:00",
+            "title": "Nvidia Stock: 5 Reasons The AI Trade Has Only Begun (NASDAQ:NVDA)",
+            "src": "Seeking Alpha"
           }
         ]
       },
       "macro": {
         "label": "الاقتصاد والبيانات",
         "items": [
-          {
-            "t": "2026-11-28T06:02:25+00:00",
-            "title": "BOE’s Bailey Sees Lower Peak for Inflation if Energy Prices Stay Where They Are",
-            "src": "WSJ"
-          },
           {
             "t": "2026-11-27T19:51:42+00:00",
             "title": "Canadian GDP growth fell by more than half in the third quarter, economists believe",
@@ -1297,31 +1262,11 @@
             "t": "2026-11-27T15:46:00+00:00",
             "title": "Trump demands GDP data probe as chances of rate hike rise: What to know",
             "src": "The Hill"
-          }
-        ]
-      },
-      "policy": {
-        "label": "السياسة التجارية والمالية",
-        "items": [
-          {
-            "t": "2026-11-28T06:58:24+00:00",
-            "title": "Trump’s tariffs have become America’s new normal",
-            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-28T06:30:00+00:00",
-            "title": "Republicans rethink tariffs, giving Democrats opening to challenge Trump",
-            "src": "TelegraphHerald.com"
-          },
-          {
-            "t": "2026-11-28T03:51:03+00:00",
-            "title": "Chinese biz community urges US to withdraw proposed tariffs",
-            "src": "chinadailyhk"
-          },
-          {
-            "t": "2026-11-28T02:15:59+00:00",
-            "title": "Brooks and Capehart on new tariffs and Democratic leadership",
-            "src": "Cascade PBS"
+            "t": "2026-11-27T13:15:43+00:00",
+            "title": "ECB may have to raise rates further as inflation stays above 3%",
+            "src": "Reuters"
           }
         ]
       },
@@ -1329,32 +1274,35 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-28T07:14:21+00:00",
-            "title": "Ukraine proposes Black Sea ceasefire, awaits Russia's response",
-            "src": "chinadailyhk"
+            "t": "2026-11-28T09:38:10+00:00",
+            "title": "Ukraine's attack on Russian ship in Libya was not coordinated with partners, Zelenskiy says",
+            "src": "Reuters"
           },
           {
-            "t": "2026-11-28T05:21:06+00:00",
-            "title": "Ukraine Submits Black Sea Ceasefire Proposal for Food Exports, Awaits Russia Response: 15 outlets compared",
-            "src": "NewsCord"
+            "t": "2026-11-28T04:06:01+00:00",
+            "title": "Fire reported near oil refinery in Russia's Rostov Oblast amid Ukrainian drone attack",
+            "src": "The Kyiv Independent"
           },
           {
-            "t": "2026-11-28T05:12:00+00:00",
-            "title": "Centcom rejects Iran's claims on warship attack, Hormuz shipping charges",
-            "src": "Middle East Eye"
+            "t": "2026-11-28T02:54:54+00:00",
+            "title": "US Central Command denies Iranian commander's claims about seized tankers, carrier strike, Hormuz toll",
+            "src": "Anadolu Ajansı"
           },
           {
-            "t": "2026-11-28T05:01:56+00:00",
-            "title": "Iran Says Two Tankers Caught Fire After Hitting Naval Mines Near the Strait of Hormuz",
-            "src": "Latin Times"
+            "t": "2026-11-27T21:17:40+00:00",
+            "title": "Kyiv offers Black Sea ceasefire to protect grain exports",
+            "src": "Al Jazeera"
           }
         ]
       }
     },
-    "failed": []
+    "failed": [
+      "الأسهم الأمريكية و S&P 500",
+      "السياسة التجارية والمالية"
+    ]
   },
   "cal_cache": {
-    "at": "2026-11-28T10:30:45.888452+00:00",
+    "at": "2026-11-28T10:45:40.921440+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -1796,52 +1744,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|ppife|mm|2026-10|-|2026-11-13",
-      "title": "Core PPI m/m",
-      "release_time": "2026-11-13T13:30:00+00:00",
-      "fetched_at": "2026-11-14T10:45:37.064089+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "0.3%",
-      "period": "2026-10-01",
-      "series": "PPIFES",
-      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
-      "raw": 0.32644178454843686,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "0.3%",
-      "previous": "0.7%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (PPIFES، فترة 2026-10-01) — PPI الأساسي شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
-    {
-      "id": "US|ppi|mm|2026-10|-|2026-11-13",
-      "title": "PPI m/m",
-      "release_time": "2026-11-13T13:30:00+00:00",
-      "fetched_at": "2026-11-14T10:45:37.064089+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "0.3%",
-      "period": "2026-10-01",
-      "series": "PPIFIS",
-      "method": "(مؤشر الشهر ÷ مؤشر الشهر السابق − 1) × 100",
-      "raw": 0.3475287885334133,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "0.4%",
-      "previous": "1.3%",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (PPIFIS، فترة 2026-10-01) — PPI شهرياً؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
     {
       "id": "US|claims|claims_k|w2026-11-08|-|2026-11-12",
       "title": "Unemployment Claims",
@@ -9939,10 +9841,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-28T10:30:45.888452+00:00",
+  "last_publish_ok": "2026-11-28T10:45:40.921440+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-28T10:31:08.362021+00:00"
+    "at": "2026-11-28T10:46:05.207435+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10083,12 +9985,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-28T10:30:45.888452+00:00",
-    "ok_at": "2026-11-28T10:30:45.888452+00:00",
+    "at": "2026-11-28T10:45:40.921440+00:00",
+    "ok_at": "2026-11-28T10:45:40.921440+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-28T10:30:45.888452+00:00",
+    "at": "2026-11-28T10:45:40.921440+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
