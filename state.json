@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-28T18:45:37.920826+00:00",
-        "ok_at": "2026-11-28T18:45:37.920826+00:00"
+        "last_try": "2026-11-28T19:00:49.123583+00:00",
+        "ok_at": "2026-11-28T19:00:49.123583+00:00"
       },
       "fred": {
-        "last_try": "2026-11-28T18:45:37.920826+00:00",
-        "ok_at": "2026-11-28T18:45:37.920826+00:00"
+        "last_try": "2026-11-28T19:00:49.123583+00:00",
+        "ok_at": "2026-11-28T19:00:49.123583+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-28T18:45:37.920826+00:00",
-        "ok_at": "2026-11-28T18:45:37.920826+00:00"
+        "last_try": "2026-11-28T19:00:49.123583+00:00",
+        "ok_at": "2026-11-28T19:00:49.123583+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-28T18:45:37.920826+00:00",
-        "ok_at": "2026-11-28T18:45:37.920826+00:00"
+        "last_try": "2026-11-28T19:00:49.123583+00:00",
+        "ok_at": "2026-11-28T19:00:49.123583+00:00"
       },
       "oil": {
-        "last_try": "2026-11-28T18:45:37.920826+00:00",
-        "ok_at": "2026-11-28T18:45:37.920826+00:00"
+        "last_try": "2026-11-28T19:00:49.123583+00:00",
+        "ok_at": "2026-11-28T19:00:49.123583+00:00"
       },
       "news": {
-        "last_try": "2026-11-28T18:45:37.920826+00:00",
-        "ok_at": "2026-11-28T18:45:37.920826+00:00"
+        "last_try": "2026-11-28T19:00:49.123583+00:00",
+        "ok_at": "2026-11-28T19:00:49.123583+00:00"
       },
       "cot": {
-        "last_try": "2026-11-28T18:45:37.920826+00:00",
-        "ok_at": "2026-11-28T18:45:37.920826+00:00"
+        "last_try": "2026-11-28T19:00:49.123583+00:00",
+        "ok_at": "2026-11-28T19:00:49.123583+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-28T18:45:37.920826+00:00",
-        "ok_at": "2026-11-28T18:45:37.920826+00:00"
+        "last_try": "2026-11-28T19:00:49.123583+00:00",
+        "ok_at": "2026-11-28T19:00:49.123583+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-28T18:45:37.920826+00:00"
+      "at": "2026-11-28T19:00:49.123583+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,7 +1177,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-28T17:45:40.383002+00:00",
+    "at": "2026-11-28T19:00:49.123583+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -1204,39 +1204,9 @@
             "src": "Yahoo Finance"
           },
           {
-            "t": "2026-11-28T11:01:00+00:00",
-            "title": "How to protect your household budget as costs rise | Opinion",
-            "src": "Akron Beacon Journal"
-          }
-        ]
-      },
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
-        "items": [
-          {
-            "t": "2026-11-28T17:35:44+00:00",
-            "title": "Opinion | Russia Escalates Attacks on Europe",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-28T16:27:02+00:00",
-            "title": "Does the S&P 500 Really Deserve Its December Reputation?",
-            "src": "The Motley Fool"
-          },
-          {
-            "t": "2026-11-28T14:42:53+00:00",
-            "title": "HSBC Identifies Three Potential Catalysts for an S&P 500 Recovery in 2027",
-            "src": "Yahoo Finance"
-          },
-          {
-            "t": "2026-11-28T10:02:02+00:00",
-            "title": "S&P 500 Market Correction: 3 “Safe” Stocks to Buy Now",
-            "src": "The Motley Fool"
-          },
-          {
-            "t": "2026-11-28T09:28:46+00:00",
-            "title": "A $500,000 Stake in VOO Lost $41,700 in the S&P 500’s Worst Week Since April 2025. Since 1950, Buying After a 10% Drop Has Returned 15% on Average a Year Later",
-            "src": "Yahoo Finance"
+            "t": "2026-11-28T11:00:00+00:00",
+            "title": "Pa. electric company blames data centers for upcoming rate hike",
+            "src": "PennLive.com"
           }
         ]
       },
@@ -1274,24 +1244,24 @@
         "label": "السياسة التجارية والمالية",
         "items": [
           {
-            "t": "2026-11-28T14:40:06+00:00",
-            "title": "U.S. Tariffs, Jobs, and Growth: What’s Ahead in 2026",
-            "src": "Equitable Growth"
+            "t": "2026-11-28T17:34:00+00:00",
+            "title": "Carney’s Rival Heads to Washington in Bid to End Trump Tariffs",
+            "src": "Newsweek"
           },
           {
-            "t": "2026-11-28T12:41:42+00:00",
-            "title": "The costs of the Trump administration’s tariffs diverge for countries and industries so far in 2026",
-            "src": "Equitable Growth"
+            "t": "2026-11-28T12:42:37+00:00",
+            "title": "Trump's New Tariffs Put Farmers on Alert Ahead of 2027",
+            "src": "AgroLatam"
           },
           {
-            "t": "2026-11-28T06:58:56+00:00",
-            "title": "Trump’s tariffs have become America’s new normal",
-            "src": "Al Jazeera"
+            "t": "2026-11-28T12:40:00+00:00",
+            "title": "Oregon program to offer one-time grants to businesses that faced Trump tariffs",
+            "src": "Lookout Eugene-Springfield"
           },
           {
-            "t": "2026-11-27T23:40:22+00:00",
-            "title": "Brooks and Capehart on Trump's new tariffs, Nvidia's future and Democratic leadership",
-            "src": "PBS"
+            "t": "2026-11-28T10:52:06+00:00",
+            "title": "Despite Deficits, Canada, Philippines, Venezuela, Israel Avoid 301 Tariffs",
+            "src": "Forbes"
           }
         ]
       },
@@ -1299,34 +1269,35 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-28T14:06:43+00:00",
-            "title": "U.S. denies Iran claims over USS Abraham Lincoln strike and Hormuz tolls",
-            "src": "CNBC"
+            "t": "2026-11-28T18:11:56+00:00",
+            "title": "Iran points to Europe’s war role after Italians killed in Kuwait strike",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-28T13:44:59+00:00",
-            "title": "Turkish aviation firm to shut down over US sanctions for Iran ties",
-            "src": "Iran International"
+            "t": "2026-11-28T18:10:56+00:00",
+            "title": "Russia and Ukraine strike energy infrastructure, as attacks kill 10",
+            "src": "Al Jazeera"
           },
           {
-            "t": "2026-11-28T13:25:27+00:00",
-            "title": "Ukraine’s Deep Strikes Grow in Scale and Scope Across Russia and Beyond",
-            "src": "The New York Times"
-          },
-          {
-            "t": "2026-11-28T12:43:12+00:00",
-            "title": "IDF on high alert for potential Iranian surprise attack, strengthening coordination with US",
+            "t": "2026-11-28T17:41:57+00:00",
+            "title": "Ukraine used Israeli technology for major attack on Russia amid Starlink speed limit - report",
             "src": "The Jerusalem Post"
+          },
+          {
+            "t": "2026-11-28T17:14:19+00:00",
+            "title": "Iran rial falls to near 3 million to US dollar as sanctions, blockade weigh",
+            "src": "Arab News"
           }
         ]
       }
     },
     "failed": [
+      "الأسهم الأمريكية و S&P 500",
       "الاقتصاد والبيانات"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-28T18:45:37.920826+00:00",
+    "at": "2026-11-28T19:00:49.123583+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -9727,10 +9698,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-28T18:45:37.920826+00:00",
+  "last_publish_ok": "2026-11-28T19:00:49.123583+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-28T18:46:01.855488+00:00"
+    "at": "2026-11-28T19:01:12.092182+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -9871,12 +9842,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-28T18:45:37.920826+00:00",
-    "ok_at": "2026-11-28T18:45:37.920826+00:00",
+    "at": "2026-11-28T19:00:49.123583+00:00",
+    "ok_at": "2026-11-28T19:00:49.123583+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-28T18:45:37.920826+00:00",
+    "at": "2026-11-28T19:00:49.123583+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
