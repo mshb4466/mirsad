@@ -1135,41 +1135,41 @@
   "health": {
     "sources": {
       "yahoo": {
-        "last_try": "2026-11-28T02:45:41.110732+00:00",
-        "ok_at": "2026-11-28T02:45:41.110732+00:00"
+        "last_try": "2026-11-28T03:00:50.978661+00:00",
+        "ok_at": "2026-11-28T03:00:50.978661+00:00"
       },
       "fred": {
-        "last_try": "2026-11-28T02:45:41.110732+00:00",
-        "ok_at": "2026-11-28T02:45:41.110732+00:00"
+        "last_try": "2026-11-28T03:00:50.978661+00:00",
+        "ok_at": "2026-11-28T03:00:50.978661+00:00"
       },
       "calendar": {
-        "last_try": "2026-11-28T02:45:41.110732+00:00",
-        "ok_at": "2026-11-28T02:45:41.110732+00:00"
+        "last_try": "2026-11-28T03:00:50.978661+00:00",
+        "ok_at": "2026-11-28T03:00:50.978661+00:00"
       },
       "auctions": {
-        "last_try": "2026-11-28T02:45:41.110732+00:00",
-        "ok_at": "2026-11-28T02:45:41.110732+00:00"
+        "last_try": "2026-11-28T03:00:50.978661+00:00",
+        "ok_at": "2026-11-28T03:00:50.978661+00:00"
       },
       "oil": {
-        "last_try": "2026-11-28T02:45:41.110732+00:00",
-        "ok_at": "2026-11-28T02:45:41.110732+00:00"
+        "last_try": "2026-11-28T03:00:50.978661+00:00",
+        "ok_at": "2026-11-28T03:00:50.978661+00:00"
       },
       "news": {
-        "last_try": "2026-11-28T02:45:41.110732+00:00",
-        "ok_at": "2026-11-28T02:45:41.110732+00:00"
+        "last_try": "2026-11-28T03:00:50.978661+00:00",
+        "ok_at": "2026-11-28T03:00:50.978661+00:00"
       },
       "cot": {
-        "last_try": "2026-11-28T02:45:41.110732+00:00",
-        "ok_at": "2026-11-28T02:45:41.110732+00:00"
+        "last_try": "2026-11-28T03:00:50.978661+00:00",
+        "ok_at": "2026-11-28T03:00:50.978661+00:00"
       },
       "indicators": {
-        "last_try": "2026-11-28T02:45:41.110732+00:00",
-        "ok_at": "2026-11-28T02:45:41.110732+00:00"
+        "last_try": "2026-11-28T03:00:50.978661+00:00",
+        "ok_at": "2026-11-28T03:00:50.978661+00:00"
       }
     },
     "last": {
       "state": "ok",
-      "at": "2026-11-28T02:45:41.110732+00:00"
+      "at": "2026-11-28T03:00:50.978661+00:00"
     },
     "notified": {
       "sig": "ES يختلف عن SPY بنحو 5.8% في اليوم نفسه: غالباً تدوير عقد أو",
@@ -1177,7 +1177,7 @@
     }
   },
   "week_news": {
-    "at": "2026-11-28T02:00:50.492055+00:00",
+    "at": "2026-11-28T03:00:50.978661+00:00",
     "asset": "es",
     "data": {
       "fed": {
@@ -1189,84 +1189,24 @@
             "src": "Federal Reserve Bank of Richmond"
           },
           {
-            "t": "2026-11-27T23:31:03+00:00",
-            "title": "The Fed is fighting the wrong inflation battle",
-            "src": "Kitco"
+            "t": "2026-11-27T20:37:18+00:00",
+            "title": "BGE rate hike and proposed Baltimore surcharge face scrutiny at PSC hearing",
+            "src": "AFRO News"
           },
           {
-            "t": "2026-11-27T23:07:59+00:00",
-            "title": "Fewer fed cattle, fewer reports",
-            "src": "Tri-State Livestock News"
-          },
-          {
-            "t": "2026-11-27T22:03:48+00:00",
-            "title": "Gold may get a relief rally following the Fed, but Warsh’s tone could still hammer prices lower – BubbleBubble Report’s Colombo",
-            "src": "Kitco"
-          },
-          {
-            "t": "2026-11-27T22:02:38+00:00",
-            "title": "Slow and Steady Could Win the Fed’s Next Hiking Cycle",
-            "src": "Dividend.com"
-          }
-        ]
-      },
-      "stocks": {
-        "label": "الأسهم الأمريكية و S&P 500",
-        "items": [
-          {
-            "t": "2026-11-28T00:31:32+00:00",
-            "title": "The Mad Dash for Memory Chips—and the Pain It’s Causing Holiday Shoppers",
-            "src": "WSJ"
-          },
-          {
-            "t": "2026-11-27T22:12:12+00:00",
-            "title": "Wall Street ends higher as battered AI stocks gain in volatile week",
+            "t": "2026-11-27T19:21:23+00:00",
+            "title": "Canadian dollar holds on to weekly gain as investors bet on December rate hike",
             "src": "Reuters"
           },
           {
-            "t": "2026-11-27T22:08:30+00:00",
-            "title": "When will Anthropic (ANT) join the Nasdaq-100 and S&P 500?",
-            "src": "Howl.Link"
+            "t": "2026-11-27T17:02:26+00:00",
+            "title": "Is it time to tear down the dam at Lake Powell?",
+            "src": "WBUR"
           },
           {
-            "t": "2026-11-27T21:48:54+00:00",
-            "title": "Stocks jump to close out an erratic week that was also Wall Street's best in more than a year",
-            "src": "Butler Eagle"
-          },
-          {
-            "t": "2026-11-27T21:30:16+00:00",
-            "title": "Stock Market Today, Nov. 27: S&P 500 Posts Best Week in 19 Months as AI Stocks Rebound",
-            "src": "The Motley Fool"
-          }
-        ]
-      },
-      "companies": {
-        "label": "الشركات الكبرى والأرباح",
-        "items": [
-          {
-            "t": "2026-11-27T23:42:37+00:00",
-            "title": "Chile brings Apple antitrust case seeking $80 million fine and iOS changes",
-            "src": "finchannel"
-          },
-          {
-            "t": "2026-11-27T17:13:08+00:00",
-            "title": "CPI | Chile Targets Apple With $80 Million Antitrust Fine Over App Store Restrictions",
-            "src": "PYMNTS.com"
-          },
-          {
-            "t": "2026-11-27T17:07:04+00:00",
-            "title": "Microsoft After The Selloff: A 24x P/E With A $47 Billion Customer (NASDAQ:MSFT)",
-            "src": "Seeking Alpha"
-          },
-          {
-            "t": "2026-11-27T14:55:47+00:00",
-            "title": "Nvidia Stock: 5 Reasons The AI Trade Has Only Begun (NASDAQ:NVDA)",
-            "src": "Seeking Alpha"
-          },
-          {
-            "t": "2026-11-27T14:51:12+00:00",
-            "title": "Chile’s antitrust authority seeks $80 million Apple fine over iOS",
-            "src": "WTAQ"
+            "t": "2026-11-27T15:53:26+00:00",
+            "title": "The Big Pressures Facing the Fed",
+            "src": "Bloomberg.com"
           }
         ]
       },
@@ -1289,14 +1229,39 @@
             "src": "The Hill"
           },
           {
-            "t": "2026-11-27T15:17:20+00:00",
-            "title": "Trump demands investigation into GDP data revisions",
-            "src": "Axios"
-          },
-          {
             "t": "2026-11-27T13:15:43+00:00",
             "title": "ECB may have to raise rates further as inflation stays above 3%",
             "src": "Reuters"
+          },
+          {
+            "t": "2026-11-27T12:38:55+00:00",
+            "title": "Trump Wants a GDP Investigation Over the “Fake” Pre-Election Number",
+            "src": "Yahoo Finance"
+          }
+        ]
+      },
+      "policy": {
+        "label": "السياسة التجارية والمالية",
+        "items": [
+          {
+            "t": "2026-11-27T23:40:22+00:00",
+            "title": "Brooks and Capehart on Trump's new tariffs, Nvidia's future and Democratic leadership",
+            "src": "PBS"
+          },
+          {
+            "t": "2026-11-27T22:21:34+00:00",
+            "title": "Tariffs face new scrutiny as Republicans weigh joining Democrats",
+            "src": "Los Angeles Times"
+          },
+          {
+            "t": "2026-11-27T16:51:50+00:00",
+            "title": "Republicans rethink tariffs, giving Democrats an opening to challenge Trump",
+            "src": "PBS"
+          },
+          {
+            "t": "2026-11-27T16:49:56+00:00",
+            "title": "U.S. Set to Raise Tariffs on China, EU and Others",
+            "src": "WSJ"
           }
         ]
       },
@@ -1304,34 +1269,35 @@
         "label": "الجيوسياسة والنفط",
         "items": [
           {
-            "t": "2026-11-28T01:33:09+00:00",
-            "title": "Iraq's push for a bigger oil quota tests OPEC months after the UAE exit",
-            "src": "Startup Fortune"
-          },
-          {
             "t": "2026-11-28T01:11:47+00:00",
             "title": "OPEC+ set to keep oil output targets steady amid Iran war uncertainty",
             "src": "Iran International"
           },
           {
-            "t": "2026-11-27T23:52:33+00:00",
-            "title": "Son of Hamas chief survived Israeli strike, group says",
-            "src": "South China Morning Post"
-          },
-          {
             "t": "2026-11-27T23:05:03+00:00",
             "title": "Ukraine Offers Black Sea Cease-Fire, Awaits Kremlin Response",
             "src": "Radio Free Europe/Radio Liberty"
+          },
+          {
+            "t": "2026-11-27T21:09:12+00:00",
+            "title": "Ukraine submits Black Sea ceasefire offer, awaits Russian response",
+            "src": "France 24"
+          },
+          {
+            "t": "2026-11-27T18:19:36+00:00",
+            "title": "A Ukraine loan is in limbo after EU budget talks stall. Leaders will try again",
+            "src": "PBS"
           }
         ]
       }
     },
     "failed": [
-      "السياسة التجارية والمالية"
+      "الأسهم الأمريكية و S&P 500",
+      "الشركات الكبرى والأرباح"
     ]
   },
   "cal_cache": {
-    "at": "2026-11-28T02:45:41.110732+00:00",
+    "at": "2026-11-28T03:00:50.978661+00:00",
     "events": [
       {
         "title": "Flash Manufacturing PMI",
@@ -1773,29 +1739,6 @@
     "kept": 0
   },
   "actuals_log": [
-    {
-      "id": "US|claims|claims_k|w2026-11-08|-|2026-11-12",
-      "title": "Unemployment Claims",
-      "release_time": "2026-11-12T13:30:00+00:00",
-      "fetched_at": "2026-11-14T03:00:49.837935+00:00",
-      "source": "FRED",
-      "tier": "secondary",
-      "value": "200K",
-      "period": "2026-11-07",
-      "series": "ICSA",
-      "method": "القيمة المنشورة مقسومة على 1000",
-      "raw": 200.0,
-      "stage": "",
-      "stage_ok": null,
-      "prev_revised": "",
-      "basis": "محسوب من سلسلة ثانوية",
-      "forecast": "194K",
-      "previous": "189K",
-      "period_check": "مطابقة فترة التقرير",
-      "bulletin_check": "لم تُقارَن بنشرة الإصدار",
-      "match": "مطابقة فترة التقرير",
-      "note": "المصدر: FRED (ICSA، فترة 2026-11-07) — طلبات إعانة البطالة الأولية؛ محسوب من سلسلة FRED ولم يُقارَن بنشرة الإصدار، وقد يختلف عنها بكسر عشري"
-    },
     {
       "id": "US|oil:crude-oil-inventories|2026-11-12|1700",
       "title": "Crude Oil Inventories",
@@ -10146,10 +10089,10 @@
       "note": "لا دليل على نسخة الإصدار: لم تُجلب النسخة التاريخية (ALFRED يلزمه FRED_API_KEY)؛ قراءة FRED الحالية قد تخص تقديراً أحدث فلا تُعرض"
     }
   ],
-  "last_publish_ok": "2026-11-28T02:45:41.110732+00:00",
+  "last_publish_ok": "2026-11-28T03:00:50.978661+00:00",
   "last_run_ok": {
     "mode": "auto",
-    "at": "2026-11-28T02:46:03.730845+00:00"
+    "at": "2026-11-28T03:01:21.585362+00:00"
   },
   "alerted": {
     "US|cpilfe|mm|2026-09|-|2026-10-14": {
@@ -10290,12 +10233,12 @@
     "bias": "neutral",
     "bias_label": "مختلط",
     "lean": "na",
-    "at": "2026-11-28T02:45:41.110732+00:00",
-    "ok_at": "2026-11-28T02:45:41.110732+00:00",
+    "at": "2026-11-28T03:00:50.978661+00:00",
+    "ok_at": "2026-11-28T03:00:50.978661+00:00",
     "change": null
   },
   "last_watch": {
-    "at": "2026-11-28T02:45:41.110732+00:00",
+    "at": "2026-11-28T03:00:50.978661+00:00",
     "limit_s": 330,
     "polls": 0,
     "budget": 0,
